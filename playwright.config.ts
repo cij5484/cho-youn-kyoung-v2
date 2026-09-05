@@ -8,9 +8,13 @@ export default defineConfig({
   workers: 2,
   timeout: 30_000,
   retries: 0,
-  reporter: [['list'], ['html', { open: 'never' }]],
+  reporter: [
+    ['list'],
+    ['html', { open: 'never' }],
+    ['json', { outputFile: 'test-results/results.json' }],
+  ],
   use: {
-    channel: 'msedge',
+    channel: process.env.CI ? undefined : 'msedge',
     headless: true,
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',

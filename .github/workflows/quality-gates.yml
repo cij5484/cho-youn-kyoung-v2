@@ -1,0 +1,67 @@
+name: V2 reusable quality gates
+
+on:
+  workflow_call:
+    inputs:
+      full:
+        type: boolean
+        default: false
+      pages_artifact:
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      BUILD_SHA: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - name: Reject artifact publication without the full gate
+        if: inputs.pages_artifact && !inputs.full
+        run: exit 1
+      - name: Validate workflow syntax and configuration
+        run: |
+          curl --fail --silent --show-error --location --output "$RUNNER_TEMP/actionlint.tar.gz" https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_linux_amd64.tar.gz
+          echo "8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8  $RUNNER_TEMP/actionlint.tar.gz" | sha256sum --check
+          tar -xzf "$RUNNER_TEMP/actionlint.tar.gz" -C "$RUNNER_TEMP" actionlint
+          "$RUNNER_TEMP/actionlint" -color
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24.15.0'
+          cache: npm
+      - name: Pin npm and install lockfile
+        run: |
+          npm install --global npm@11.12.1
+          npm ci --include=dev
+      - name: Fast gate - types, lint, locale, placement and root prerender
+        run: npm run gate:fast
+      - name: Project base build and deterministic placement
+        if: inputs.full
+        run: npm run build:pages-preview
+      - name: Install full-gate browser
+        if: inputs.full
+        run: npx playwright install --with-deps chromium
+      - name: Full gate - both static hosts, metadata, hydration and 404
+        if: inputs.full
+        run: npm run test:spike
+      - name: Retain full-gate evidence
+        if: always() && inputs.full
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: full-gate-${{ github.sha }}
+          path: |
+            test-results/
+            playwright-report/
+            build-root/static/build-info.json
+            build-pages-preview/static/build-info.json
+          retention-days: 14
+      - name: Upload only the validated static Pages artifact
+        if: success() && inputs.pages_artifact
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        with:
+          path: build-pages-preview/static

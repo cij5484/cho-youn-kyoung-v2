@@ -1,7 +1,7 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** P0A–P0D complete (P0D local) — React Router + Static Prerender APPROVED; STOP before P0E\
+**Status:** P0A–P0D complete; P0E CI/delivery implemented, evidence in P0E-RESULT.md — STOP before P0F\
 **Revision:** 1.2 / 2026-09-05 user decisions 1–9 preserved; HOME V2.1 documentation revision incorporated\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
@@ -461,13 +461,13 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 - Prerender architecture: APPROVE — React Router Framework + ssr:false + explicit prerender + deterministic static artifact placement.
 - V2 public repository: cij5484/cho-youn-kyoung-v2. Verified deployment SHA: 137b3420fda15b9670e109989da54230d959966e.
 - P0D locale/metadata contract: COMPLETE locally. 18 KO/EN fixtures per base, 80 browser + 8 locale + 3 placement tests passed. See [contract](docs/redesign/review/LOCALE-METADATA-CONTRACT.md) and [result](P0D-RESULT.md).
-- P0E/P0F and actual product pages: NOT STARTED. Authored translation/content, final SEO, audio/mobile and 3D gates remain pending.
+- P0E CI/delivery: implemented and locally validated; actual remote results are recorded in [P0E result](P0E-RESULT.md). P0F and actual product pages: NOT STARTED. Authored translation/content, final SEO, audio/mobile and 3D gates remain pending.
 - After the P0D report, the user authorized PR publication and merge, with no additional validation. The existing main Pages workflow may deploy the merged artifact; no new deployment success is claimed here. Use its actual deployed SHA for any later live verification.
 - Existing production repository/domain unchanged. See [P0C result](P0C-RESULT.md) and [architecture decision](docs/redesign/review/ROUTING-ARCHITECTURE-DECISION.md).
 - Design/function requirements remain; the ZIP preserves the historical baseline.
 - Checklist boxes stay unchecked until actual implementation/validation evidence exists. Document coverage lives in [HANDOFF audit](docs/redesign/review/HANDOFF-AUDIT.md).
 - HOME V2.1 documentation revision: COMPLETE; existing HOME requirements retained and quality bar raised. No HOME/React/CSS, image manipulation/migration, motion/3D, dependency, deployment or P0E work performed. Asset suitability and all HOME visual gates remain unverified.
-- Current stop point: HOME V2.1 document report; STOP for user review/explicit next-task approval. P0E remains the recommended next foundation unit only after approval, with no HOME implementation bundled into it.
+- Current stop point: P0E CI/delivery evidence and report. [Task Protocol](docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md) owns Fast/Full checks, delivery states and explicit preview deployment. P0F requires separate approval; no next task is started by green CI.
 
 # 27. FINAL HANDOFF RULE
 

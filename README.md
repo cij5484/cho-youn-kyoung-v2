@@ -1,15 +1,16 @@
 # Cho Youn Kyoung Website V2
 
-P0D KO/EN routing·metadata 계약을 로컬에서 완료했습니다. React + TypeScript + Vite 기반의
+P0E에서 승인된 KO/EN routing·metadata 계약을 CI와 명시적 delivery 절차에 연결했습니다. React + TypeScript + Vite 기반의
 18개 neutral test route이며 실제 사이트 디자인·번역·콘텐츠는 없습니다.
-**P0A–D 완료(P0D 로컬) / React Router + Static Prerender APPROVE / P0E 미착수.**
+**React Router + Static Prerender APPROVE / HOME V2.1 문서 승인 / P0F 미착수.**
 
 [P0D 결과](P0D-RESULT.md), [언어·metadata 계약](docs/redesign/review/LOCALE-METADATA-CONTRACT.md),
-[검증 증거](evidence/p0d/README.md). P0D 결과 승인 후 사용자가 PR/merge를 승인했습니다. 게시 시 기존 main Pages workflow가 실행됩니다. 아래 P0C 배포 SHA는 마지막으로 직접 검증한 이력이며 새 배포 완료를 의미하지 않습니다.
+[검증 증거](evidence/p0d/README.md). P0D는 PR #1로 머지됐습니다. 현재 CI/delivery 정본은
+[Task Protocol의 CI/delivery 절](docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md), 실행 결과는 [P0E 결과](P0E-RESULT.md)입니다.
 
-실제 preview는 P0C의 13-route artifact입니다: [GitHub Pages](https://cij5484.github.io/cho-youn-kyoung-v2/).
-검증된 배포 commit: `137b3420fda15b9670e109989da54230d959966e`.
-[배포·검증 결과](P0C-RESULT.md), [파일 배치와 CI 계약](P0C-DEPLOYMENT.md).
+Preview: [GitHub Pages](https://cij5484.github.io/cho-youn-kyoung-v2/). 최신 배포 SHA/실제 CI 결과는 P0E 결과에서 확인합니다.
+[P0C 당시 배포·검증 결과](P0C-RESULT.md), [변경되지 않은 파일 배치 설명 / 과거 pipeline](P0C-DEPLOYMENT.md).
+**Push/merge는 더 이상 자동 배포하지 않습니다. 수동 Full gate의 deploy 기본값은 false입니다.**
 
 ## 실행 환경
 
@@ -43,6 +44,11 @@ npm.cmd run test:spike
 `check`는 type-check/lint/root build만 실행합니다. 전체 로컬 계약 검증은 위의 일곱 명령입니다.
 두 build는 같은 framework typegen/cache를 사용하므로 순서대로 실행합니다.
 
+일반 코드 확인은 `npm.cmd run gate:fast`, routing/metadata/CI 변경의 전체 확인은
+`npm.cmd run gate:full`을 사용합니다. Fast는 위의 첫 다섯 명령, Full은 일곱 명령 전체입니다.
+Push/PR마다 Fast + workflow syntax 검사를 수행하고, 브라우저 설치/80-case Full은 명시적 수동 실행과 배포 전에 수행합니다.
+Linux CI는 Chromium, 로컬은 Edge로 같은 assertion을 실행합니다.
+
 | 명령 | 산출물 / 확인 주소 |
 |---|---|
 | build | build-root/static/ |
@@ -70,8 +76,8 @@ framework 출력 구조가 바뀌면 재검증해야 합니다.
 
 SPA fallback은 raw client/에만 보존하고 static/과 Pages 배포물에서는 제외합니다. unknown request는 실제 호스트 404입니다.
 `build-info.json`은 배포 SHA와 공개 파일 해시를 기록합니다. `EXPECTED_DEPLOY_SHA`를 지정한 `npm.cmd run test:pages`로 실제 Pages를 재검증합니다.
-현재 live suite는 P0D 18-route metadata 계약을 검사하므로, P0C의 기존 배포 SHA에 실행하면 성공할 수 없습니다.
-승인된 P0D artifact 배포 이후 그 SHA로 실행해야 합니다. 로컬 dirty build의 commit 값은 기준 HEAD이며 소스 동일성 증거가 아닙니다.
+Live suite는 18-route metadata 계약을 검사하므로 실제 배포된 동일 계약의 SHA로 실행해야 합니다.
+로컬 dirty build의 commit 값은 기준 HEAD이며 소스 동일성 증거가 아닙니다.
 로컬/CI 모두 `npm.cmd run test:placement`로 파일 배치 계약을 검사합니다.
 server/는 build 과정의 중간 결과이며 Pages에 필요한 runtime server가 아닙니다.
 P0A의 이전 dist/와 dist-pages-preview/는 보존된 과거 산출물이며 현재 검증 대상이 아닙니다.
@@ -107,6 +113,7 @@ React Router가 제공하며 커스텀 renderer를 만들지 않았습니다.
 - [기획 MASTER](docs/redesign/00-MASTER-PLAN.md), [기존 HANDOFF](CODEX-HANDOFF.md)
 
 P0B까지 기획·review 원본 21개를 보존했습니다. P0C에서는 사용자 지시대로 관련 planning 상태만 architecture APPROVE로 갱신했습니다.
-P0A/P0B/P0C 결과는 과거 기록으로 보존하며 최신 로컬 상태는 P0D 결과와 locale 계약을 따릅니다. 실제 Pages 증거는 여전히 P0C입니다.
-문서·증거만 바뀐 commit은 재배포하지 않으므로 최신 main SHA와 `build-info.json`의 배포 코드 SHA를 구분합니다.
-**보고 후 STOP. 사용자의 명시적 승인 전에는 P0E 또는 다른 구현 단위를 시작하지 않습니다.**
+P0A–D 결과는 당시 기록으로 보존합니다. 현재 delivery 상태/CI run/배포 증거는 P0E 결과를 따릅니다.
+모든 push는 Fast 검사만 하며 문서 변경 때문에 배포할 필요는 없습니다. 실제 preview 배포는 사용자 승인 범위에서
+pages.yml을 deploy=true와 승인된 full SHA로 명시적으로 실행합니다. main SHA와 실제 배포 SHA를 구분합니다.
+**보고 후 STOP. 사용자의 명시적 승인 전에는 P0F 또는 다른 구현 단위를 시작하지 않습니다.**

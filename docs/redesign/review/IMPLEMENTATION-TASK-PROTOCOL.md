@@ -1,6 +1,6 @@
 # Implementation Task Protocol — mandatory bounded work
 
-Revision 1.2 · 2026-09-05 · P0D local locale contract reflected; future units still require explicit approval.
+Revision 1.3 · 2026-09-05 · P0E CI/delivery contract; future units still require explicit approval.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
@@ -25,6 +25,130 @@ When tests fail, fix only the approved task's owner subsystem. If the fix expand
 
 **STOP after the report. Wait for explicit user approval.**
 
+## CI quality gates and delivery contract — P0E canonical guide
+
+This section owns current local/CI/delivery policy. P0A–D reports and P0C-DEPLOYMENT.md remain historical
+evidence; their former automatic-main-push deployment behavior is superseded here. The routing, locale,
+canonical/hreflang/lang and deterministic file-placement contracts themselves are unchanged.
+
+### Local commands and gate ownership
+
+Use Node 24.15.0 / npm 11.12.1 and the committed lockfile. Fresh install: `npm.cmd ci --include=dev`.
+Do not install dependencies again for every small task if the tested lockfile/environment is unchanged.
+
+| Gate | Command / owner | Required work |
+|---|---|---|
+| Fast | `npm.cmd run gate:fast` | type-check → lint → locale/metadata unit contracts → placement contracts → root production build/prerender/placement |
+| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → existing 80-case browser suite over both strict static hosts |
+| Live deployment | `npm.cmd run test:pages` with actual `EXPECTED_DEPLOY_SHA` | 18-route JS on/off metadata, refresh/history, variants, actual HTTP 404, artifact identity/hash/MIME/cache |
+| Workflow configuration | actionlint 1.7.12 | YAML, expressions, reusable workflow input/job wiring; Linux also checks embedded shell |
+
+Individual commands remain available: type-check, lint, test:locale, test:placement, build,
+build:pages-preview, test:spike. `check` remains the historical type/lint/root-build convenience command;
+it is not the complete Fast gate. Root and project builds must run sequentially because they share typegen/cache.
+Local Full uses installed Edge; Linux CI installs the pinned Playwright package's Chromium. Test assertions
+are the same. No reduced route sample or retry was introduced to hide failures.
+
+Fast runs on every branch push and PR, including documents, through ci.yml → reusable quality-gates.yml.
+It never installs a browser, uploads a Pages artifact or deploys. This small unconditional gate avoids
+missing/pending checks on documentation-only PRs. A branch push plus an open PR can create two Fast runs;
+concurrency cancels superseded runs on the same event ref. No repository ruleset is silently changed.
+
+Full runs through an explicit pages.yml workflow_dispatch. It repeats Fast on that exact revision,
+then checks both static bases and all 80 browser cases. A failed type/lint/unit/build/placement/browser
+step fails the job; upload/deploy depend on that success. Full without deployment retains test evidence
+but never uploads the special Pages artifact. Only successful Full with deploy=true uploads static/.
+
+The previous P0D local browser run was about 56 seconds before browser installation/CI provisioning.
+Keeping it out of every push provides a small Fast gate while every requested deployment still runs it.
+Actual P0E timings/results are recorded in [P0E result](../../../P0E-RESULT.md), not treated as fixed budgets.
+
+### Explicit delivery states
+
+| State | Meaning / allowed next step |
+|---|---|
+| WORKING | One approved bounded task in progress; record scope and rollback point |
+| VALIDATED LOCALLY | Task-appropriate checks passed on identified source/commit; record environment and limits |
+| REVIEW READY | Diff, files, tests, result, known issues, preview/evidence and next recommendation reported; STOP |
+| APPROVED | User accepted the reviewed result; identify whether authorization covers commit, push, merge and/or deploy |
+| COMMITTED | Logical checkpoint created locally; does not mean pushed, merged, deployed or next-task approval |
+| PUSHED | Authorized remote ref updated; Fast CI may still be pending/failed; no implicit deployment |
+| DEPLOYED | Pages deploy job succeeded for the approved SHA; independently label live verification pending/passed/failed |
+
+Typical sequence: WORKING → VALIDATED LOCALLY → REVIEW READY → APPROVED → COMMITTED → PUSHED →
+optional DEPLOYED. An already explicit instruction authorizing commit/push/deploy in the current task,
+such as P0E, can authorize those steps after the concrete result is validated; do not ask again.
+Local checkpoint commits may also be used during an authorized task. Neither a green test nor a saved
+approval state authorizes the next bounded task. Do not collapse deployed and verified into one claim.
+
+If the user explicitly skips local validation for delivery, record VALIDATION SKIPPED, not VALIDATED.
+Do not disable CI or claim old results were rerun. A request to merge is not a request to dispatch preview
+deployment under the new workflow. Final task reports must still end with STOP.
+
+### Commit, push and review policy
+
+- Read current path, branch, remote, HEAD, working changes and upstream state before publishing.
+- Preserve user work, planning/review history and checkpoints. Group related work; HOME art direction
+  and CI wiring are separate logical commits. Generated outputs, caches, secrets and temporary reports stay ignored.
+- Code delivery normally requires Fast; routing/metadata/prerender/CI changes require Full before review-ready
+  delivery, and deployment always requires Full. Use focused tests for the task before these delivery gates.
+- Approval of an implementation unit is not blanket future publication/deployment permission. Follow the
+  current user's explicit scope; ask only for an actually missing consequential approval after preparing the result.
+- Push only the named V2 repository/ref. PR/merge or direct push must be covered by that scope. This repository
+  had no branch protection when P0E was prepared, so failing CI is visible but does not technically prevent direct
+  pushes/merges. Do not claim enforced branch protection or change rulesets without the requested scope.
+
+### Preview deployment policy and commands
+
+V2 Pages is a preview/development environment only. Production domain and legacy repository are excluded.
+Automatic deployment on main push is removed. The default manual dispatch runs Full with deploy=false.
+For example, after confirming the selected ref's full SHA:
+
+```powershell
+# Full verification only; this is not a deployment.
+gh workflow run pages.yml --repo cij5484/cho-youn-kyoung-v2 --ref main -f deploy=false -f expected_sha=<40-character-reviewed-SHA>
+
+# Only when the user has authorized this preview deployment:
+gh workflow run pages.yml --repo cij5484/cho-youn-kyoung-v2 --ref main -f deploy=true -f expected_sha=<40-character-approved-SHA>
+```
+
+Replace the placeholders with real values; do not run them literally. Dispatch rejects a mismatched SHA.
+Only refs/heads/main can deploy to the shared preview; Full-only may inspect another ref. The revision check
+protects against a ref moving between review and dispatch. It does not freeze main or replace human approval.
+Runs are serialized with no in-progress deployment cancellation. Only the deploy job has Pages/OIDC write
+permissions. No gh-pages branch, CNAME, runtime server, SPA rewrite or manual file movement is introduced.
+
+A checkbox is a technical guard, not proof of user approval. Never turn deploy=true on automatically just
+because code was pushed or CI is green. Documentation-only work usually needs no preview delivery.
+If multiple approved deployments are queued, review whether earlier ones are still desired; do not silently
+replace approval with an instruction to deploy an unrelated newer revision.
+
+### Failure handling, evidence and rollback
+
+Never delete/relax tests or change the approved architecture to obtain a green gate. Fix only the approved
+owner subsystem. If a contract itself must change, STOP and report before changing it. Do not use
+continue-on-error, skip a failing requirement or silently deploy a previous artifact.
+
+A failed predeployment gate must leave the live preview untouched. If live tests fail after a successful
+deployment, report DEPLOYED / VERIFICATION FAILED, preserve evidence and investigate only within scope;
+do not call it successful delivery or automatically retry through contract failures. Rollback is an explicitly
+authorized V2 action, using a reviewed known-good revision with the applicable Full/identity checks. Keep
+the prior live artifact until approval; never touch legacy or the operating custom domain.
+
+Local evidence: test-results/results.json, playwright-report/index.html; live evidence:
+test-results-pages/results.json and playwright-pages-report/. Logs and BUILD_SHA are in GitHub Actions.
+Full and live reports are retained as separate SHA-named artifacts for 14 days. Curated results belong
+under evidence/p0e/ and P0E-RESULT.md. Build-info.json records public file hashes/commit; local dirty-build
+HEAD alone is not source identity. Never commit generated browser reports/build directories or secrets.
+
+Actionlint is a validation tool only, not a runtime/visual dependency. CI downloads exact v1.7.12 from
+the upstream release and checks a pinned SHA-256 before extraction. Local Windows validation used the
+same version's official Windows binary in ignored .checkpoints/p0e-tools. Do not execute an unchecked
+replacement when a checksum/download/config check fails.
+
+Official workflow syntax/reuse references: [GitHub workflow syntax](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax),
+[reusable workflows](https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows).
+
 ## PHASE 0 — individually approved units
 
 The common setup is React/TypeScript/Vite. React Router + Static Prerender passed the latest user-authorized P0C architecture gate and is APPROVED. P0D has verified the neutral locale/metadata contract locally; actual content/launch SEO remain future work. App-path names below are proposed file scope, not files already created.
@@ -35,7 +159,7 @@ The common setup is React/TypeScript/Vite. React Router + Static Prerender passe
 | P0B — Local Routing / Static Prerender Spike — COMPLETE | Latest P0B approval limited execution to local neutral route proof; no deployment | official route/prerender config, static placement, fixture tests and P0B evidence | root/project artifacts and 34 local tests passed; architecture was conditionally recommended | P0B checkpoint retained. **STOP was followed; P0C was separately approved** |
 | P0C — Real GitHub Pages Deployment / Routing Verification — COMPLETE | Latest explicit approval included V2 repo creation, CI, real Pages routing and the architecture decision | V2 Git/workflow, deterministic placement, live tests, curated evidence and planning state | CI build/deploy/verify success; 42 live cases per browser environment; architecture APPROVE | Revert only V2 changes and preserve evidence. **STOP for P0D approval** |
 | P0D — KO / EN routing + metadata contract — COMPLETE locally | Complete the locale path/metadata/canonical/hreflang contract on the approved routing foundation | locale/path mapping and metadata fixtures/checks; no actual page design or full translation migration | 18 fixtures per base; 80 browser, 8 locale and 3 placement tests passed; actual translations and P0D live deployment remain separate | One separately approved task, split further if needed. **STOP for user review and next-task approval** |
-| P0E — Deployment workflow | Convert the proven bootstrap into reproducible preview delivery/CI; architecture decision must be accepted first | workflow, build artifact checks, environment/base settings and run guide | reproducible install from lockfile, build/type/lint, Pages artifact + route smoke; no operating-domain change | Restore previous tested deployment/workflow. **STOP for P0F approval** |
+| P0E — CI Quality Gates + Delivery Contract | Preserve approved P0C/P0D contracts; Fast push/PR checks and explicit Full/preview delivery | workflows, gate commands, browser config and current delivery guide; no product/architecture implementation | type/lint/locale/placement, both builds, existing routing/metadata browser tests, workflow validation and actual CI evidence in P0E result | Preserve checkpoints; reverting old workflow can re-enable auto-deploy, so review the intended trigger policy. **STOP for P0F approval** |
 | P0F — AGENTS.md / documentation wiring | Wire approved contracts and local run/check/stop guidance for future work | AGENTS.md, README/task links and existing planning docs only | document paths/commands match actual foundation; stop rule and next-unit policy discoverable | Revert documentation only. **STOP; P1 requires a separate bounded proposal and approval** |
 
 Sequence revision: the latest P0B instruction prohibited deployment; the latest P0C instruction explicitly authorized cij5484/cho-youn-kyoung-v2 creation/connection and its preview deployment. P0C completed that minimal reproducible pipeline. This authorization applies only to P0C and V2; no production/legacy changes or next-unit authorization is implied.

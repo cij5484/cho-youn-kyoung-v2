@@ -1,0 +1,28 @@
+{
+  "task": "P0E",
+  "platform": "Windows",
+  "browser": "Edge 152.0.4191.62",
+  "node": "v24.15.0",
+  "checks": {
+    "typeCheck": "PASS",
+    "lint": "PASS",
+    "locale": 8,
+    "placement": 3,
+    "rootBuild": "PASS",
+    "projectBuild": "PASS",
+    "actionlint": "1.7.12 PASS; Linux shell checking is verified separately in CI"
+  },
+  "browserResults": {
+    "startTime": "2026-09-05T10:16:51.928Z",
+    "duration": 57425.004,
+    "expected": 80,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "negativeProbes": {
+    "localeMismatchExit": 1,
+    "invalidWorkflowExit": 1,
+    "method": "Isolated invalid copies under ignored .checkpoints; committed contracts unchanged"
+  }
+}

@@ -1,13 +1,16 @@
-name: V2 neutral preview Pages
+name: V2 Full Gate and Preview Delivery
 
 on:
-  push:
-    branches: [main]
-    paths-ignore:
-      - '**/*.md'
-      - 'docs/**'
-      - 'evidence/**'
   workflow_dispatch:
+    inputs:
+      deploy:
+        description: 'Deploy the validated artifact to V2 preview (requires user authorization)'
+        type: boolean
+        default: false
+      expected_sha:
+        description: 'Approved full 40-character commit SHA at the selected ref'
+        type: string
+        required: true
 
 permissions:
   contents: read
@@ -17,40 +20,36 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  request:
     runs-on: ubuntu-24.04
-    permissions:
-      contents: read
-      pages: read
+    timeout-minutes: 2
     steps:
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
-      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
-        with:
-          node-version: '24.15.0'
-          cache: npm
-      - name: Pin npm and install lockfile
+      - name: Validate exact revision and preview delivery scope
+        env:
+          EXPECTED_SHA: ${{ inputs.expected_sha }}
+          ACTUAL_SHA: ${{ github.sha }}
+          ACTUAL_REF: ${{ github.ref }}
+          DEPLOY: ${{ inputs.deploy }}
         run: |
-          npm install --global npm@11.12.1
-          npm ci --include=dev
-      - run: npm run type-check
-      - run: npm run lint
-      - run: npm run test:placement
-      - name: Root build contract
-        run: npm run build
-        env:
-          BUILD_SHA: ${{ github.sha }}
-      - name: Project build and deterministic static placement
-        run: npm run build:pages-preview
-        env:
-          BUILD_SHA: ${{ github.sha }}
-      - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
-      - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
-        with:
-          path: build-pages-preview/static
+          [[ "$EXPECTED_SHA" =~ ^[a-f0-9]{40}$ ]] || { echo 'Provide the full approved commit SHA'; exit 1; }
+          [[ "$EXPECTED_SHA" == "$ACTUAL_SHA" ]] || { echo 'Selected ref changed; review the new revision before dispatch'; exit 1; }
+          if [[ "$DEPLOY" == 'true' && "$ACTUAL_REF" != 'refs/heads/main' ]]; then
+            echo 'Only main may deploy to the shared V2 preview'
+            exit 1
+          fi
+
+  full:
+    needs: request
+    uses: ./.github/workflows/quality-gates.yml
+    with:
+      full: true
+      pages_artifact: ${{ inputs.deploy }}
 
   deploy:
-    needs: build
+    if: inputs.deploy && github.ref == 'refs/heads/main'
+    needs: full
     runs-on: ubuntu-24.04
+    timeout-minutes: 10
     permissions:
       pages: write
       id-token: write
@@ -58,6 +57,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
       - name: Deploy V2 artifact
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
@@ -65,6 +65,7 @@ jobs:
   verify:
     needs: deploy
     runs-on: ubuntu-24.04
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6

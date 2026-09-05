@@ -1,6 +1,6 @@
 # Cho Youn Kyoung Website V2 — 검토 및 구현 제안
 
-검토일: 2026-09-05 · Revision 1.4 · 요청 추론 수준: 높음 · 상태: **HOME V2.1 문서 개정 완료 / P0E 미착수**. P0A–D 및 APPROVED routing/locale 계약은 유지한다.
+검토일: 2026-09-05 · Revision 1.5 · 요청 추론 수준: 높음 · 상태: **HOME V2.1 문서 승인 / P0E CI·delivery 구현·로컬 검증 완료 / P0F 미착수**. P0A–D 및 APPROVED routing/locale 계약은 유지한다.
 
 현재 정본은 갱신된 MASTER의 PHASE 0–14다. React Router + Static Prerender는 사용자가 지정한 P0C 실제 Pages gate 통과로 확정했다. P0D neutral locale/hreflang 계약은 두 base에서 통과했고 실제 번역·제품 구현과 운영 SEO는 별도 gate다. 이 문서는 실제 구현 승인이 아니다.
 
@@ -413,6 +413,8 @@ Gate 기록 양식: 작업 ID, 기준 commit/artifact, 환경, 수행 항목, �
 
 ### PHASE 0 — Foundation
 
+P0E delivery update: 일반 push/PR은 type/lint/locale/placement/root build의 Fast gate만 실행한다. 수동 Full은 두 base와 80개 browser 회귀를 검사하고 deploy=false가 기본이다. 사용자 승인된 exact SHA/main의 deploy=true만 preview를 배포하고 실제 Pages 계약을 검증한다. 기존 아래 큐의 P0E 미착수 표현은 이 업데이트로 대체하며, P0F는 별도 승인 전 미착수다.
+
 - 입력: **각 단위의 명시적 구현 승인**. 전체 계획 승인은 다음 구현 승인과 다르다. P0A–C는 각각 승인되어 완료됐으며 현재 다음 단위 승인을 기다린다.
 - 최신 승인 이력/큐: P0A skeleton 완료 → STOP → P0B local routing spike 완료 → STOP → P0C 실제 V2 Pages/CI·routing·architecture APPROVE → STOP → P0D locale/metadata 계약(18 fixtures, 로컬 완료) → STOP → P0E 필요 시 workflow 강화 → STOP → P0F AGENTS/document wiring. 매 화살표 사이에 명시적 승인이 필요하다.
 - P0B는 사용자 지시대로 로컬 검증만 수행했다. P0C에서 cij5484/cho-youn-kyoung-v2의 생성·연결·배포가 명시적으로 승인되어 완료됐다. 기존 production repository/domain은 변경하지 않았다.
@@ -548,6 +550,8 @@ Gate 기록 양식: 작업 ID, 기준 commit/artifact, 환경, 수행 항목, �
 이번 검토는 기획 문서와 로컬 legacy 일부의 읽기 전용 조사, 공식 기술 문서 확인이다. 전체 legacy 함수/자산의 정밀 감사, 링크의 실재 유효성, CORS, GPU/모바일 성능, 실제 운영 사이트 화면은 검증하지 않았다. 문서가 말하는 기존 기술의 검증 이력을 V2 적합성으로 전환하지 않았다.
 
 ## 17. Recommendation Before Implementation
+
+P0E 사용자 승인 범위에서 기존 architecture를 유지하고 Fast push/PR gate와 명시적 Full/preview delivery를 연결했다. P0E 실제 검증/배포 상태는 [결과](../../../P0E-RESULT.md), commit/push/deploy/STOP의 현재 정본은 [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md) CI/delivery 절이다. 아래 P0D/HOME revision 설명은 당시 기록이며 현재 다음 권장은 P0F documentation wiring 한 단위다.
 
 HOME V2.1 문서 개정을 완료했다. 코드·CSS·React component·이미지 수정·asset migration·motion/3D·dependencies·배포는 변경하지 않았고 P0E도 시작하지 않았다. [V2.1 revision report](HOME-V2.1-REVISION-REPORT.md)를 검토한 뒤 별도 명시적 승인으로 P0E 한 단위만 진행하는 것이 다음 권장 작업이다. 이전 P0C/P0D 계약과 검증 이력은 그대로 유지한다.
 

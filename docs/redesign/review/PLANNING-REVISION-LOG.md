@@ -1,6 +1,16 @@
 # Planning Revision Log — 2026-09-05
 
-Revision 1.4 · **HOME Art Direction V2.1 documentation revision complete / STOP before P0E**.
+Revision 1.5 · **P0E CI/delivery contract implemented / STOP before P0F**.
+
+## P0E CI Quality Gates + Delivery Contract
+
+- P0D는 이미 cb7605f/PR #1로 머지됐다. 승인된 HOME V2.1 문서는 별도 bb8460e commit으로 보존했다.
+- Fast push/PR → reusable quality gates; 수동 Full/deploy=false 기본; exact SHA와 main/ref guard 뒤에만 preview delivery.
+- 기존 type/lint, locale 8, placement 3, root/project build, local browser 80, live Pages 계약을 연결했다. Architecture/locale/source/static packager는 변경하지 않았다.
+- Delivery 상태, publication 승인 범위, 실패 처리와 evidence 위치의 정본은 기존 Task Protocol에 추가했다. README/HANDOFF/Plan은 이를 링크한다.
+- [P0E result](../../../P0E-RESULT.md)에서 실제 실행 결과/commit/CI URL을 기록한다. 새 visual/runtime dependency, HOME/3D/audio/asset/production/legacy/P0F 작업 없음.
+
+## Historical HOME V2.1 documentation revision
 
 ## HOME V2.1 art-direction revision — documentation only
 
