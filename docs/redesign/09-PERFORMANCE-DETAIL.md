@@ -1,7 +1,7 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 09 — PERFORMANCE DETAIL
 
-**Version:** 1.0  
+**Version:** 1.1\
 **Status:** Approved PERFORMANCE DETAIL Baseline  
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`, `05-WORKS.md`, `08-PERFORMANCES.md`  
 **Page Role:** Performance Record + Editorial Storytelling
@@ -40,7 +40,7 @@ Every performance uses the same semantic content model.
 
 The presentation may vary through controlled visual variants.
 
-Conceptual variants may include:
+Conceptual variants may include (descriptive labels, not stored enum values):
 
 ```text
 photo-led
@@ -49,6 +49,10 @@ editorial
 typography
 media-led
 ```
+
+P1A user-approved naming: stored visualMode follows Index §6: photo | poster | video-still | editorial | typography.
+photo-led → photo, poster-led → poster, media-led → video-still are descriptive aliases; editorial/typography are unchanged.
+Musical sanjo/jeongak category is separate. See [Content Schema Contract](review/CONTENT-SCHEMA-CONTRACT.md).
 
 Do not create a dedicated React page component for each performance ID.
 

@@ -27,7 +27,7 @@ recorded revision; current status lives in HANDOFF, delivery policy in Task Prot
 | Other pages | HANDOFF §1 links each page specification (WORKS, ALBUMS, PERFORMANCES, detail, ABOUT/MEDIA/CONTACT) |
 | Mobile / quality | [Responsive](docs/redesign/11-RESPONSIVE.md), [Performance](docs/redesign/12-PERFORMANCE.md), [Accessibility](docs/redesign/13-ACCESSIBILITY.md) |
 | Routing / locale | [Routing ADR](docs/redesign/review/ROUTING-ARCHITECTURE-DECISION.md), [Locale Metadata Contract](docs/redesign/review/LOCALE-METADATA-CONTRACT.md) |
-| Content / assets / release | MASTER §§10–13, 28–29, 38–39; [Legacy audit](docs/redesign/01-CURRENT-SITE-AUDIT.md), [Migration QA](docs/redesign/14-MIGRATION-QA.md) |
+| Content / assets / release | [Content Schema Contract](docs/redesign/review/CONTENT-SCHEMA-CONTRACT.md); MASTER §§10–13, 28–29, 38–39; [Legacy audit](docs/redesign/01-CURRENT-SITE-AUDIT.md), [Migration QA](docs/redesign/14-MIGRATION-QA.md) |
 | Commands / CI / delivery | [README](README.md) for human setup; Task Protocol for gates, commit/push/deploy, evidence and failure handling |
 | Status / change history | HANDOFF §26; [Revision Log](docs/redesign/review/PLANNING-REVISION-LOG.md); completed `P0*-RESULT.md` reports |
 
@@ -65,6 +65,8 @@ claim product quality approval from a successful build or neutral fixture.
   dimensions when they materially improve quality. State what is needed, why, whether work can continue,
   and when it becomes blocking (MASTER §38). Do not hide limitations behind low-quality workarounds.
   Inventory → select → verify → optimize → migrate; no bulk legacy asset copy or large private masters in public runtime.
+- Apply the Content Schema Contract's Asset Lifecycle Policy: real assets first; AI/editorial candidates are allowed
+  with explicit provisional/approved/replace-required status. Never disguise generated visuals as documentary records.
 
 ## 3D gates and future work
 

@@ -12,6 +12,8 @@ Preview: [GitHub Pages](https://cij5484.github.io/cho-youn-kyoung-v2/). 최신 �
 [P0C 당시 배포·검증 결과](P0C-RESULT.md), [변경되지 않은 파일 배치 설명 / 과거 pipeline](P0C-DEPLOYMENT.md).
 **Push/merge는 더 이상 자동 배포하지 않습니다. 수동 Full gate의 deploy 기본값은 false입니다.**
 
+P1A는 별도 content schema/neutral fixture/route adapter를 로컬에서 검증했습니다. [Content Schema Contract](docs/redesign/review/CONTENT-SCHEMA-CONTRACT.md)와 [P1A 결과](P1A-RESULT.md)를 따릅니다. 현재 페이지·18개 prerender route는 그대로이며 실제 template 연결은 미구현입니다.
+
 ## 프로젝트 문서 시작점
 
 이 README는 개발자용 setup·명령·구조 안내입니다. Agent의 작업 지침과 문서 선택 지도는
@@ -43,17 +45,18 @@ Project Pages base의 dev 실행은 `npm.cmd run dev:pages-preview`입니다.
 npm.cmd run type-check
 npm.cmd run lint
 npm.cmd run test:locale
+npm.cmd run test:content
 npm.cmd run test:placement
 npm.cmd run build
 npm.cmd run build:pages-preview
 npm.cmd run test:spike
 ```
 
-`check`는 type-check/lint/root build만 실행합니다. 전체 로컬 계약 검증은 위의 일곱 명령입니다.
+`check`는 type-check/lint/root build만 실행합니다. 전체 로컬 계약 검증은 위의 여덟 명령입니다.
 두 build는 같은 framework typegen/cache를 사용하므로 순서대로 실행합니다.
 
 일반 코드 확인은 `npm.cmd run gate:fast`, routing/metadata/CI 변경의 전체 확인은
-`npm.cmd run gate:full`을 사용합니다. Fast는 위의 첫 다섯 명령, Full은 일곱 명령 전체입니다.
+`npm.cmd run gate:full`을 사용합니다. Fast는 위의 첫 여섯 명령, Full은 여덟 명령 전체입니다.
 Push/PR마다 Fast + workflow syntax 검사를 수행하고, 브라우저 설치/80-case Full은 명시적 수동 실행과 배포 전에 수행합니다.
 Linux CI는 Chromium, 로컬은 Edge로 같은 assertion을 실행합니다.
 
@@ -124,4 +127,4 @@ P0B까지 기획·review 원본 21개를 보존했습니다. P0C에서는 사용
 P0A–D 결과는 당시 기록으로 보존합니다. 현재 delivery 상태/CI run/배포 증거는 P0E 결과를 따릅니다.
 모든 push는 Fast 검사만 하며 문서 변경 때문에 배포할 필요는 없습니다. 실제 preview 배포는 사용자 승인 범위에서
 pages.yml을 deploy=true와 승인된 full SHA로 명시적으로 실행합니다. main SHA와 실제 배포 SHA를 구분합니다.
-**P0F 문서 보고 후 STOP. P0F 결과는 승인됐으며, 다음 단위의 명시적 승인 전에는 Design System, HOME 또는 다음 Phase를 시작하지 않습니다.**
+**P1A 결과는 승인됐으며 lifecycle 보완과 main delivery만 진행합니다. 완료 보고 후 STOP. P1B/실제 migration/Design System/HOME에는 별도 명시적 승인이 필요합니다.**

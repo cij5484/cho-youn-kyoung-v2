@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 00 — REDESIGN MASTER PLAN
 
-**Version:** 1.10\
-**Status:** Approved Planning Baseline — P0A–E approved; P0F knowledge wiring canonical APPROVED; product implementation pending\
+**Version:** 1.12\
+**Status:** Approved Planning Baseline — P0A–E approved; P0F canonical/delivery complete; P1A result approved with lifecycle/delivery follow-up authorized; product implementation pending\
 **Legacy Repository:** `cij5484/cho-youn-kyoung`  
 **Target Repository:** `cij5484/cho-youn-kyoung-v2`  
 **Final Production Domain:** `https://choyounkyoung.com`  
@@ -390,6 +390,8 @@ ALBUM과 PERFORMANCE를 동일 generic card component 안에 억지로 넣지 �
 
 variant는 art direction을 바꿀 수 있지만 전체 page architecture를 매번 새로 만들게 해서는 안 된다.
 
+P1A 사용자 확인: stored visualMode는 photo / poster / video-still / editorial / typography다. 위 variant 예시는 과거 개념 설명이며 별도 stored enum이 아니다. sanjo/jeongak은 musical category로 분리하고 minimal을 자동으로 typography에 매핑하지 않는다. Detail의 *-led 설명 대응과 정본은 [Content Schema Contract](review/CONTENT-SCHEMA-CONTRACT.md)를 따른다.
+
 ---
 
 # 23. ALBUM DETAIL PHILOSOPHY
@@ -480,6 +482,8 @@ Hero, Title, Date, Venue, Program, Performers, Artist Note, Program Notes, Photo
 V2가 실제로 사용하는 runtime asset만 새 저장소에 들어간다.
 
 웹용, viewer용, download용, production master를 구분한다.
+
+실제 자산을 우선하되 적합한 원본이 없으면 AI-generated / temporary editorial 자산을 prototype 또는 production candidate로 사용할 수 있다. `provisional / approved / replace-required`를 명시하고 후보와 공개 승인 상태를 혼동하지 않는다. 진위가 중요한 portrait·identity·공연 기록·사실 archive는 실제 자료를 우선하며 생성 이미지를 documentary로 오인시키지 않는다. 추상 배경·분위기·texture·conceptual editorial·장식 보조 이미지는 생성 후보를 적극 허용한다. 가장 작은 asset reference 계약과 교체/승인 기준의 정본은 [Content Schema Contract — Asset Lifecycle Policy](review/CONTENT-SCHEMA-CONTRACT.md#asset-lifecycle-policy)다. 더 좋은 원본 요청은 §38을 따른다.
 
 ---
 
@@ -602,7 +606,7 @@ Codex must not receive isolated implementation tasks without project context.
 Bounded project/base setup, routing/deployment spike, direct URL/refresh/404 checks, KO/EN route validation, deployment workflow, AGENTS/document wiring. React Router + Static Prerender passed the real Pages P0C gate and is APPROVED; P0D established the neutral locale/metadata contract and P0E verified its CI/live integration. P0F documentation is approved as canonical; actual translations and launch SEO remain separately scoped.
 
 ## PHASE 1 — CONTENT / DATA FOUNDATION
-Schemas, verified factual content, permanent IDs, translations, asset manifest and URL policy.
+Schemas, verified factual content, permanent IDs, translations, asset manifest and URL policy. P1A neutral schema/route adapter is locally verified; [Content Schema Contract](review/CONTENT-SCHEMA-CONTRACT.md) owns additions. Actual migration/template integration remain separate tasks.
 
 ## PHASE 2 — DESIGN SYSTEM
 Typography, palette including accessible muted text, grid, spacing, layout, imagery, responsive tokens.
@@ -905,4 +909,4 @@ See [review/ROUTING-ARCHITECTURE-DECISION.md](review/ROUTING-ARCHITECTURE-DECISI
 
 Actual user-approved sequence: P0B local spike, P0C real Pages/CI and architecture decision, P0D locale contract, P0E CI/delivery, then P0F documentation wiring only. P0E Fast/Full and explicit approved-SHA deployment remain the current contract. Root-mode testing must not change the operating custom domain during P0. Actual domain/HTTPS cutover is P14.
 
-Do not fall back to HashRouter. P0A–E completed under separate approvals. P0F documentation / AGENTS is approved as canonical; its separately authorized delivery does not authorize a next bounded task. STOP and wait for that explicit approval. No product/Blender/3D work is started by document approval.
+Do not fall back to HashRouter. P0A–E completed under separate approvals. P0F documentation / AGENTS and delivery completed. P1A is locally verified and its result is approved. Only the explicit lifecycle follow-up and main delivery are authorized; STOP before P1B, migration or deployment. No product/Blender/3D work is started by document approval.

@@ -22,8 +22,9 @@
     "test:locale": "node --test tests/locale-contract.test.ts",
     "test:pages": "playwright test --config playwright.pages.config.ts",
     "check": "npm run type-check && npm run lint && npm run build",
-    "gate:fast": "npm run type-check && npm run lint && npm run test:locale && npm run test:placement && npm run build",
-    "gate:full": "npm run gate:fast && npm run build:pages-preview && npm run test:spike"
+    "gate:fast": "npm run type-check && npm run lint && npm run test:locale && npm run test:content && npm run test:placement && npm run build",
+    "gate:full": "npm run gate:fast && npm run build:pages-preview && npm run test:spike",
+    "test:content": "node --test tests/content-contract.test.ts"
   },
   "dependencies": {
     "isbot": "5.2.2",

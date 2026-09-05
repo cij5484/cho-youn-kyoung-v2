@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** P0A–P0E approved; P0F documentation / AGENTS canonical APPROVED — STOP before any next task\
-**Revision:** 1.3 / 2026-09-05 — P0F knowledge wiring; prior decisions and HOME V2.1 preserved\
+**Status:** P0A–P0E approved; P0F canonical/delivery complete; P1A result APPROVED; lifecycle follow-up / main delivery authorized — STOP before P1B\
+**Revision:** 1.4 / 2026-09-05 — P1A approval and Asset Lifecycle Policy; prior decisions and HOME V2.1 preserved\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 ---
@@ -472,7 +472,10 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 - Checklist boxes stay unchecked until actual implementation/validation evidence exists. Document coverage lives in [HANDOFF audit](docs/redesign/review/HANDOFF-AUDIT.md).
 - HOME V2.1 documentation revision: COMPLETE; existing HOME requirements retained and quality bar raised. That HOME documentation task performed no HOME/React/CSS, image manipulation/migration, motion/3D, dependency, deployment or P0E work. Approved documents were later committed separately as bb8460e. Asset suitability and all HOME visual gates remain unverified.
 - P0F — AGENTS.md / Project Knowledge Wiring: documentation implemented; document verification and scope are recorded in [P0F result](P0F-RESULT.md). Canonical/result APPROVED. A separate delivery-only instruction authorizes one logical commit, V2 main push and Fast CI confirmation; no deployment or next-phase implementation.
-- Current stop point: P0F report. [Task Protocol](docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md) owns Fast/Full checks, delivery states and explicit preview deployment. P0F delivery has its own explicit user authorization; it is not inherited from P0E. P0F result is approved; any next task still needs explicit approval.
+- P0F delivery confirmed: b3c12d8f9d2e89db7e2ad206e61c2dabf29d5c23 / Fast CI 33962909498 success, rechecked before P1A.
+- P1A Content/Data Schema: IMPLEMENTED / locally VERIFIED / result APPROVED. [Contract](docs/redesign/review/CONTENT-SCHEMA-CONTRACT.md), [result](P1A-RESULT.md). Five neutral domains; data-only route adapter, no migration/template integration.
+- User separately authorized minimal Asset Lifecycle Policy and P1A delivery: validate, logical commit, V2 main push, Fast CI confirmation and clean-tree check. AssetRecord.lifecycle distinguishes candidates from approved assets; no release consumer or real asset migration is implemented. The result/evidence records checks before this delivery commit; Git history and the matching Fast Actions run provide the post-push receipt.
+- Current stop point: P1A + lifecycle delivery report. [Task Protocol](docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md) owns Fast/Full checks and delivery states. P1B, preview deployment and any next implementation still require explicit approval.
 
 <a id="knowledge-status"></a>
 
@@ -493,7 +496,8 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 | React Router + Static Prerender / locale metadata | APPROVED / IMPLEMENTED / VERIFIED for neutral fixtures through P0C/P0D/P0E; full product SEO/content is not complete |
 | P0E CI/delivery | APPROVED / IMPLEMENTED / VERIFIED; historical actual run evidence in P0E result |
 | HOME V2.1 | APPROVED DESIGN DIRECTION / NOT YET IMPLEMENTED / NOT QUALITY APPROVED |
-| P0F knowledge wiring | APPROVED canonical / IMPLEMENTED documentation / VERIFIED document scope in P0F result |
+| P0F knowledge wiring | APPROVED canonical / IMPLEMENTED / VERIFIED; delivery completed |
+| P1A content schema | Result APPROVED / IMPLEMENTED / locally VERIFIED with neutral fixtures; lifecycle follow-up and main delivery authorized; template integration and migration pending |
 | Blender Capability Spike | REQUIRED BEFORE RELEVANT 3D PRODUCTION / NOT EXECUTED; Blender adoption undecided; Motion §47 owns acceptance |
 | CD Tray Lab | MANDATORY / NOT IMPLEMENTED / BLOCKING Album Detail package Quality Approved until its gate passes |
 | Haegeum 3D master | FUTURE EXPERIMENT / HIGH PRIORITY / NOT IMPLEMENTED; NOT BLOCKING first release, not disposable optional decoration; Motion §48 |

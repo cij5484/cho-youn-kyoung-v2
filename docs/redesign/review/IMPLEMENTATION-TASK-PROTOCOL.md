@@ -1,6 +1,6 @@
 # Implementation Task Protocol — mandatory bounded work
 
-Revision 1.4 · 2026-09-05 · P0F knowledge wiring; P0E delivery unchanged; future units require explicit approval.
+Revision 1.6 · 2026-09-05 · P1A approved lifecycle/delivery follow-up; content tests in Fast; P0E delivery/STOP unchanged.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
@@ -38,12 +38,12 @@ Do not install dependencies again for every small task if the tested lockfile/en
 
 | Gate | Command / owner | Required work |
 |---|---|---|
-| Fast | `npm.cmd run gate:fast` | type-check → lint → locale/metadata unit contracts → placement contracts → root production build/prerender/placement |
+| Fast | `npm.cmd run gate:fast` | type-check → lint → locale/metadata and content unit contracts → placement contracts → root production build/prerender/placement |
 | Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → existing 80-case browser suite over both strict static hosts |
 | Live deployment | `npm.cmd run test:pages` with actual `EXPECTED_DEPLOY_SHA` | 18-route JS on/off metadata, refresh/history, variants, actual HTTP 404, artifact identity/hash/MIME/cache |
 | Workflow configuration | actionlint 1.7.12 | YAML, expressions, reusable workflow input/job wiring; Linux also checks embedded shell |
 
-Individual commands remain available: type-check, lint, test:locale, test:placement, build,
+Individual commands remain available: type-check, lint, test:locale, test:content, test:placement, build,
 build:pages-preview, test:spike. `check` remains the historical type/lint/root-build convenience command;
 it is not the complete Fast gate. Root and project builds must run sequentially because they share typegen/cache.
 Local Full uses installed Edge; Linux CI installs the pinned Playwright package's Chromium. Test assertions
@@ -241,6 +241,15 @@ The dependency graph overrides simple numeric ordering. Package opening can be p
 
 If two compensating patches suggest another owner is wrong, stop at the last verified checkpoint and propose one owner correction. Never change geometry/material/camera/light/drag together to make a screenshot match.
 
+## P1A — Content / Data Schema Contract — result APPROVED
+
+One objective: typed neutral content grows into validated indexes/relations and P0D route identities.
+Scope: src/content contracts/fixtures/semantic validator/adapter, compile/data tests, package test commands and canonical docs.
+Baseline b3c12d8; restore only task files, preserving unrelated work. No real content/page/template/routing architecture,
+Blender/assets/audio/dependency/deployment change. Type/lint/content13/locale8/placement3/both builds/browser80 passed.
+User-approved naming follows Index visualMode and separates musical category; [contract](CONTENT-SCHEMA-CONTRACT.md).
+[Result](../../../P1A-RESULT.md) distinguishes adapter proof from actual data-to-page integration and records the separately authorized lifecycle/delivery follow-up. The counts above are the initial P1A gate; follow-up evidence is in the result. **STOP before P1B.**
+
 ## Chunking the rest of PHASE 1–14
 
 The sequence in each row is a **queue of separate tasks**, not one combined task. Before each entry, write a bounded task card with exact actual file scope, validation and rollback. Each arrow includes REPORT → STOP → APPROVAL. A whole phase request must be narrowed to its first explicit task unless the user deliberately revises this stop policy.
@@ -270,4 +279,4 @@ Repeated page units must stay individually reviewable. Validation may inspect de
 The document contracts and bounded starter task are defined; later decisions are assigned to spikes and gates.
 This is not authorization to execute P0A, not proof of prerender suitability, and not approval to run P0A–F continuously.
 
-The above readiness was the initial planning snapshot. Current action: P0F documentation canonical APPROVED; [result](../../../P0F-RESULT.md). The user separately authorized delivery only (commit/main push/Fast CI); STOP before any next task, which requires new approval. Recommended only: P1A Content/Data Schema Contract with neutral fixtures; no migration or visual implementation.
+The above readiness was the initial planning snapshot. P0F canonical/delivery completed. P1A result is approved; only its lifecycle policy follow-up and commit/main push/Fast CI confirmation are now authorized; [result](../../../P1A-RESULT.md). STOP before P1B or real migration. Proposed only: one Album Source Audit; source/content approval precedes migration.

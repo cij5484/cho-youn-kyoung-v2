@@ -1,8 +1,14 @@
 # CODEX HANDOFF — 최종 Document Consistency Audit
 
-Revision 1.5 · 2026-09-05 · P0F knowledge-wiring addendum; existing 207-item audit retained.
+Revision 1.6 · 2026-09-05 · P1A naming resolution; existing 207-item audit retained.
 
-## P0F targeted consistency audit
+## P1A targeted naming resolution
+
+The user explicitly approved Index visualMode = photo/poster/video-still/editorial/typography, Detail *-led as descriptive aliases, and sanjo/jeongak as musical category. The historical ambiguity rows 236 and 248 below are resolved for naming by this decision, reflected in MASTER §22, Detail §2 and the [Content Schema Contract](CONTENT-SCHEMA-CONTRACT.md). The earlier numerical coverage is historical; no product/visual approval is implied.
+
+P1A adds five neutral domains and data/route-adapter tests, with no actual template or content migration. Current [P1A result](../../../P1A-RESULT.md) records local verification. Existing checklist texts and full plan sections remain preserved.
+
+## Historical P0F targeted consistency audit
 
 This is a documentation-only ownership/status audit, not a new product/visual/CI verification. The earlier
 207-row matrix and its Covered/Ambiguous counts below remain the historical detailed baseline; P0F verifies

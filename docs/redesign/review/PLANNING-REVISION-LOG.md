@@ -1,8 +1,25 @@
 # Planning Revision Log — 2026-09-05
 
-Revision 1.6 · **P0F Project Knowledge Wiring canonical APPROVED / delivery only**.
+Revision 1.8 · **P1A result APPROVED / Asset Lifecycle Policy and delivery authorized / STOP before P1B**.
 
-## P0F canonical approval / delivery authorization
+## P1A approval — Asset Lifecycle Policy / delivery follow-up
+
+- 사용자가 P1A 결과를 승인하고 lifecycle 정책 보완, 검증, logical commit/main push/Fast CI 확인을 명시적으로 승인했다. 배포와 P1B는 포함하지 않는다.
+- AssetRecord에 필수 lifecycle 하나만 추가했다. provisional/approved/replace-required와 생산 사용 승인 판별 helper를 두고 기술 fixture는 replace-required로 명시했다. origin enum, 별도 state workflow 또는 release consumer는 만들지 않았다.
+- 실제 자료 우선, AI/editorial 후보 허용, documentary 오인 금지, 참조 기반 교체와 더 좋은 원본 요청의 정본은 [Content Schema Contract](CONTENT-SCHEMA-CONTRACT.md#asset-lifecycle-policy)다. MASTER §28과 AGENTS는 이를 연결한다.
+- 후속 검증은 [P1A result](../../../P1A-RESULT.md)와 [evidence](../../../evidence/p1a/results.json), commit/push 후 결과는 Git history 및 해당 SHA의 Fast Actions run으로 확인한다. 아래 초기 검증 이력은 보존한다.
+
+## Historical P1A — initial local review result
+
+- P0F delivery b3c12d8 / Fast CI 33962909498 SUCCESS를 확인한 뒤 별도로 승인된 P1A만 실행했다.
+- shared/assets/models 타입, 5개 domain neutral fixture와 growth, semantic validator, public index/related refs 및 기존 P0D SemanticRoute 어댑터를 추가했다.
+- 사용자가 visualMode 정본과 Detail 설명 이름 대응/음악 분류 분리를 명시적으로 승인했다. MASTER/Detail/Plan/Audit에 대응을 기록했으며 임의 명칭 결정이 아니다.
+- TypeScript strict/satisfies/readonly와 negative compile 10개; runtime content test 13, locale 8, placement 3 및 root/project build/기존 browser 80 통과. 새 dependency/Zod/CMS 없음.
+- 기존 Fast gate에 test:content를 추가했다. workflow, route config/catalog, locale helper, static packager, page source와 lockfile은 변경하지 않았다. Schema→경로 가능성은 adapter proof이며 새 data HTML이 생성됐다는 의미가 아니다.
+- 정본 [Content Schema Contract](CONTENT-SCHEMA-CONTRACT.md), [P1A result](../../../P1A-RESULT.md), [evidence](../../../evidence/p1a/results.json)로 연결한다. 실제 migration/asset/SEO/3D/Blender/audio/디자인/배포/legacy/P1B는 미수행.
+- 현재 local REVIEW READY. commit/push/배포하지 않았으며 보고 후 STOP한다.
+
+## Historical P0F canonical approval / delivery authorization
 
 - 사용자가 P0F 결과와 documentation/AGENTS 상태를 canonical로 승인했다. 이번 후속 작업은 P0F 문서만 하나의 logical commit으로 V2 main에 push하고 Fast CI를 확인하는 delivery다.
 - 링크/범위 재확인: Markdown 13개만 변경, 정상 local link 403개/anchor 14개, 기존 P0A 역사적 경로 3개 외 새 문제 없음. 코드/workflow/dependency 변경 없음. P1A·배포·legacy 변경은 승인 범위 밖이다.

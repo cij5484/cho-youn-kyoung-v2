@@ -1,6 +1,6 @@
 # Cho Youn Kyoung Website V2 — 검토 및 구현 제안
 
-검토일: 2026-09-05 · Revision 1.6 · 요청 추론 수준: 높음 · 상태: **HOME V2.1 문서 승인 / P0E 승인·CI·live 검증 완료 / P0F documentation canonical APPROVED**. P0A–D 및 APPROVED routing/locale 계약은 유지한다.
+검토일: 2026-09-05 · Revision 1.8 · 요청 추론 수준: 높음 · 상태: **HOME V2.1 문서 승인 / P0E 승인·CI·live 검증 완료 / P0F canonical/delivery 완료 / P1A 결과 승인·lifecycle 보완 및 main delivery 승인**. P0A–D 및 APPROVED routing/locale 계약은 유지한다.
 
 현재 정본은 갱신된 MASTER의 PHASE 0–14다. React Router + Static Prerender는 사용자가 지정한 P0C 실제 Pages gate 통과로 확정했다. P0D neutral locale/hreflang 계약은 두 base에서 통과했고 실제 번역·제품 구현과 운영 SEO는 별도 gate다. 이 문서는 실제 구현 승인이 아니다.
 
@@ -28,7 +28,7 @@ V2는 조윤경의 음악을 경험하는 Digital Artist Archive이자 공식 �
 
 기획 00–14와 HANDOFF를 대조하고, 사용자 수정 1–9를 관련 원문에 반영했다. **[HANDOFF 전수 감사](HANDOFF-AUDIT.md)는 현재 207개 체크박스(기존 187 + 이번 승인 계약 20)를 각각 대조한다.**
 
-현재 커버리지: **Covered 205 / Ambiguous 2 / Missing 0 / Conflict 0**. 남은 Ambiguous 2개는 같은 visualMode/variant 명명 계약의 세부 표현으로, P1 schema 작업에 배정했다. Covered는 문서 반영 상태이며 구현·시험 완료가 아니다.
+현재 커버리지: **Covered 205 / Ambiguous 2 / Missing 0 / Conflict 0**. 당시 Ambiguous 2개는 같은 visualMode/variant 명명이었다. P1A 사용자 확인으로 해결했다. 기존 수치는 역사적 감사 baseline이며 제품 품질 승인으로 확장하지 않는다. Covered는 문서 반영 상태이며 구현·시험 완료가 아니다.
 
 ### 이전 이슈의 최종 처리
 
@@ -36,7 +36,7 @@ V2는 조윤경의 음악을 경험하는 Digital Artist Archive이자 공식 �
 |---|---|---|
 | C1 | Resolved / Covered | MASTER §35와 HANDOFF §21을 PHASE 0–14 정본으로 갱신. 0–12는 ZIP의 과거 계획 |
 | C2 | Resolved / Covered | MASTER §43, 03 §20, 07 §13–14·44, HANDOFF: 별도 Tray Lab 필수. perceptual CD plastic gate 통과 전 package Quality Approved 금지 |
-| A1 | Ambiguous — P1 상세 schema에서 정리 | 음악 분류와 visualMode 분리 방향 유지. MASTER/Index/Detail의 예시 enum 명칭 대응은 P1의 한 bounded schema task로 확정 |
+| A1 | Resolved — P1A user clarification | visualMode = photo/poster/video-still/editorial/typography; *-led는 설명 대응, sanjo/jeongak은 musical category. Content Schema Contract 참조 |
 | A2 | Resolved / Covered | MASTER §37, 02 §26, 03 §40, 04 §18, 10 §11: Sou.P는 HOME Outro/Footer만, ABOUT는 별도 작은 Delight |
 | A3 | Resolved / Covered | MASTER §44, 07 §21·30: 같은 Album Detail 내부만 유지, 다른 route로 이동 시 종료. global player 금지 |
 | A4 | Contract Covered / capability NOT TESTED | 07 §26·31, 11/12/13/14: 모바일 volume 요구 유지. P0 또는 Audio spike 후 capability UX/fallback 보고, 억지 우회 금지 |
@@ -178,6 +178,8 @@ Legacy compatibility는 HashRouter가 아닌 작은 URL 정규화 계층이다. 
 ## 6. Data / Content Migration Strategy
 
 순서: **inventory → 출처 대조 → schema 변환 → 참조/URL 검증 → 사용자 콘텐츠 승인 → 공개**.
+
+P1A executable schema/neutral growth/route adapter의 정본은 [Content Schema Contract](CONTENT-SCHEMA-CONTRACT.md)다. strict TypeScript + semantic validator이며 새 dependency/CMS는 없다. 기존 route catalog/실제 page template은 바꾸지 않았다.
 
 | 모델 | 핵심 필드 |
 |---|---|
@@ -556,20 +558,20 @@ P0E delivery update: 일반 push/PR은 type/lint/locale/placement/root build의 
 
 ## 17. Recommendation Before Implementation
 
-P0E 사용자 승인 범위에서 기존 architecture를 유지하고 Fast push/PR gate와 명시적 Full/preview delivery를 연결했다. P0E 실제 검증/배포 상태는 [결과](../../../P0E-RESULT.md), commit/push/deploy/STOP의 현재 정본은 [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md) CI/delivery 절이다. 아래 P0D/HOME revision 이력을 보존하며 P0F knowledge wiring은 canonical로 승인됐다. 운영 지도는 [AGENTS](../../../AGENTS.md), 현재 상태와 용어 정본은 [HANDOFF §26](../../../CODEX-HANDOFF.md#knowledge-status), 이번 결과는 [P0F](../../../P0F-RESULT.md)다.
+P0E 사용자 승인 범위에서 기존 architecture를 유지하고 Fast push/PR gate와 명시적 Full/preview delivery를 연결했다. P0E 실제 검증/배포 상태는 [결과](../../../P0E-RESULT.md), commit/push/deploy/STOP의 현재 정본은 [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md) CI/delivery 절이다. 아래 P0D/HOME revision 이력을 보존하며 P0F knowledge wiring은 canonical로 승인됐다. 운영 지도는 [AGENTS](../../../AGENTS.md), 현재 상태와 용어 정본은 [HANDOFF §26](../../../CODEX-HANDOFF.md#knowledge-status), P0F delivery까지 확인했고 현재 결과는 [P1A](../../../P1A-RESULT.md)다.
 
 HOME V2.1은 문서 개정으로 승인됐고 bb8460e commit으로 보존됐다. 해당 작업에서 코드/asset/motion/3D는 구현하지 않았다. [V2.1 revision report](HOME-V2.1-REVISION-REPORT.md)는 당시 STOP 기록이다. 이후 별도로 승인된 P0E만 실행하며 P0C/P0D 계약을 유지했다.
 
-**현재 판정: React Router + Static Prerender APPROVE / P0E CI·delivery COMPLETE (P0E-RESULT.md) / P0F documentation canonical APPROVED, 다음 작업 승인 대기.**
+**현재 판정: React Router + Static Prerender APPROVE / P0E CI·delivery COMPLETE (P0E-RESULT.md) / P0F canonical/delivery COMPLETE / P1A schema 결과 APPROVED.**
 
 정본 로드맵, 독립 ABOUT Delight, HOME 한정 Sou.P, mandatory Tray Lab, same-route audio scope, source truth, 대비 token, volume capability 검증 정책, bounded task/STOP 계약을 반영했다. 사용자 승인 사항을 다시 미정 질문으로 남기지 않는다.
 
-React Router + Static Prerender는 P0C 실제 Pages gate로 **APPROVE**다. Linux CI Chromium 42/42, Windows Edge 42/42, 배포 SHA/파일 hash와 MIME 검증을 완료했다. P0D는 18-route neutral locale/hreflang 계약을 별도 승인 아래 로컬에서 검증했다(80 browser, 8 locale, 3 placement). P0E에서 같은 18-route 계약의 Linux browser 80/80와 실제 Pages 52/52도 통과했다. 실제 번역/제품 QA가 완료된 것은 아니다. 자료 파일 식별, 공식 번역, 실제 기기 capability, visualMode 세부 schema는 지정된 후속 gate에서 다룬다. 이들은 P0A 최소 skeleton을 시작할 기획상 blocker는 아니다.
+React Router + Static Prerender는 P0C 실제 Pages gate로 **APPROVE**다. Linux CI Chromium 42/42, Windows Edge 42/42, 배포 SHA/파일 hash와 MIME 검증을 완료했다. P0D는 18-route neutral locale/hreflang 계약을 별도 승인 아래 로컬에서 검증했다(80 browser, 8 locale, 3 placement). P0E에서 같은 18-route 계약의 Linux browser 80/80와 실제 Pages 52/52도 통과했다. 실제 번역/제품 QA가 완료된 것은 아니다. 자료 파일 식별, 공식 번역, 실제 기기 capability는 후속 gate에서 다룬다. visualMode 명칭은 P1A 사용자 확인과 타입/fixture로 정리했다. 이들은 P0A 최소 skeleton을 시작할 기획상 blocker는 아니다.
 
-권장 다음 단위는 **P1A — Content/Data Schema Contract**다. 중립 fixture로 content/asset/presentation 분리·stable ID·authored/reviewed KO/EN 상태의 최소 schema를 정하는 한 단위만 제안하며 실제 migration/페이지 디자인은 제외한다. P0F 결과는 승인됐지만 해당 작업의 새 명시적 승인이 필요하고 아직 시작하지 않았다. P0F의 별도 delivery 승인은 commit/main push/Fast CI 확인에 한정되며 제품 작업이나 배포로 확장하지 않는다.
+P1A 결과를 사용자가 승인했다. Asset Lifecycle Policy를 [Content Schema Contract](CONTENT-SCHEMA-CONTRACT.md#asset-lifecycle-policy)에 최소 반영하고 별도 승인된 commit/main push/Fast CI 확인까지만 수행한다. 배포는 포함하지 않는다. 다음 제안은 **P1B — 단일 Album Source Audit**: 한 기록의 사실·공개상태·asset 참조만 검토한다. 아직 시작하지 않았으며 새 명시적 승인이 필요하다.
 
-현재 완료: 기존 계획·감사·STOP 계약과 별도로 P0A 기반, P0B 로컬 spike, P0C 실제 Pages 배포/검증 및 architecture 결정, P0D neutral KO/EN 계약과 로컬 검증, P0E Fast/Full CI·preview delivery·live 검증. [P0D 결과](../../../P0D-RESULT.md)를 따른다. 과거 P0A/P0B 결과는 당시 상태 기록으로 보존한다.
+현재 P1A schema 결과는 승인됐다. lifecycle 보완과 delivery 검증은 [P1A 결과](../../../P1A-RESULT.md)에 별도 기록한다. 이전 완료: 기존 계획·감사·STOP 계약과 별도로 P0A 기반, P0B 로컬 spike, P0C 실제 Pages 배포/검증 및 architecture 결정, P0D neutral KO/EN 계약과 로컬 검증, P0E Fast/Full CI·preview delivery·live 검증. [P0D 결과](../../../P0D-RESULT.md)를 따른다. 과거 P0A/P0B 결과는 당시 상태 기록으로 보존한다.
 
-현재 미착수: P1A 이후 개별 작업, Blender spike/모델/Tray/Haegeum 3D, 실제 i18n 콘텐츠와 최종 SEO, 실제 제품 디자인/콘텐츠, audio/mobile/3D, 운영 도메인 전환. P0E CI/preview의 실제 SHA/검증 결과는 별도 결과 보고를 따른다.
+현재 미착수: P1B 이후 개별 작업, 실제 content→template integration, Blender spike/모델/Tray/Haegeum 3D, 실제 i18n 콘텐츠와 최종 SEO, 실제 제품 디자인/콘텐츠, audio/mobile/3D, 운영 도메인 전환. P0E CI/preview의 실제 SHA/검증 결과는 별도 결과 보고를 따른다.
 
-**여기서 STOP. P0F 결과는 승인됐으며 다음 단일 작업 명시적 승인 전에는 Design System, HOME 또는 다른 구현을 시작하지 않는다.**
+**여기서 STOP. P1A 결과 보고 후 P1B/실제 migration/Design System/HOME에는 새 명시적 승인이 필요하다.**

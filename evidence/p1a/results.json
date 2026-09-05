@@ -1,0 +1,125 @@
+{
+  "task": "P1A",
+  "baseline": "b3c12d8f9d2e89db7e2ad206e61c2dabf29d5c23",
+  "sourceState": "Initial local review snapshot; assetLifecycleFollowUp records later validated pre-commit delivery source. Matching Git commit and Fast Actions run are the post-push receipt.",
+  "validation": {
+    "command": "npm.cmd run gate:full",
+    "typeCheck": "PASS",
+    "lint": "PASS",
+    "locale": 8,
+    "content": 13,
+    "placement": 3,
+    "typeNegativeExpectations": 10,
+    "rootBuild": "PASS",
+    "projectBuild": "PASS",
+    "browser": {
+      "startTime": "2026-09-05T11:31:13.245Z",
+      "duration": 60143.920999999995,
+      "expected": 80,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "routeAdapter": {
+    "baselineDetailPaths": 4,
+    "growthDetailPaths": 7,
+    "livePageIntegration": false,
+    "existingPrerenderRoutesPerBase": 18
+  },
+  "delivery": {
+    "commit": false,
+    "push": false,
+    "deploy": false
+  },
+  "logs": ".checkpoints/p1a-full.log",
+  "documentation": {
+    "documents": 38,
+    "validLocalLinks": 443,
+    "anchors": 14,
+    "commandReferences": 21,
+    "knownHistoricalMissingLinks": [
+      {
+        "file": "P0A-RESULT.md",
+        "target": "index.html"
+      },
+      {
+        "file": "P0A-RESULT.md",
+        "target": "src/main.tsx"
+      },
+      {
+        "file": "P0A-RESULT.md",
+        "target": "src/app/App.tsx"
+      }
+    ],
+    "checklistPreserved": 207,
+    "planSectionsPreserved": 17,
+    "changedFiles": [
+      "AGENTS.md",
+      "CODEX-HANDOFF.md",
+      "README.md",
+      "docs/redesign/00-MASTER-PLAN.md",
+      "docs/redesign/09-PERFORMANCE-DETAIL.md",
+      "docs/redesign/review/HANDOFF-AUDIT.md",
+      "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md",
+      "docs/redesign/review/PLANNING-REVISION-LOG.md",
+      "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md",
+      "package.json",
+      "P1A-RESULT.md",
+      "docs/redesign/review/CONTENT-SCHEMA-CONTRACT.md",
+      "evidence/p1a/results.json",
+      "src/content/assets.ts",
+      "src/content/catalog.ts",
+      "src/content/fixtures.ts",
+      "src/content/models.ts",
+      "src/content/shared.ts",
+      "src/content/validation.ts",
+      "tests/content-contract.test.ts",
+      "tests/content-types.test.ts"
+    ]
+  },
+  "focusedAfterTestStrengthening": {
+    "typeCheck": "PASS",
+    "content": 13,
+    "lint": "PASS",
+    "reason": "Isolate negative assertions; production source unchanged since successful Full gate"
+  },
+  "assetLifecycleFollowUp": {
+    "userApproval": "P1A result approved; minimal policy revision and main delivery authorized",
+    "schema": "One required AssetRecord.lifecycle union plus approval predicate; no new dependency or release consumer",
+    "command": "npm.cmd run gate:fast",
+    "typeCheck": "PASS",
+    "typeNegativeExpectations": 12,
+    "lint": "PASS, zero warnings",
+    "content": 15,
+    "locale": 8,
+    "placement": 3,
+    "rootBuild": "PASS, 18 prerender routes",
+    "projectBuildAndBrowser": "Prior approved Full evidence above; not rerun for asset-only follow-up",
+    "documentation": {
+      "documents": 38,
+      "validLocalLinks": 450,
+      "anchors": 18,
+      "knownHistoricalMissingLinks": [
+        {
+          "file": "P0A-RESULT.md",
+          "target": "index.html"
+        },
+        {
+          "file": "P0A-RESULT.md",
+          "target": "src/main.tsx"
+        },
+        {
+          "file": "P0A-RESULT.md",
+          "target": "src/app/App.tsx"
+        }
+      ],
+      "checklistPreserved": 207,
+      "planSectionsPreserved": 17,
+      "filesInScope": 21,
+      "validScriptNames": 15
+    },
+    "log": ".checkpoints/p1a-delivery-fast.log",
+    "receiptBoundary": "Saved before commit/push; verify exact commit Fast Actions result after push. No deployment authorized or performed."
+  }
+}
