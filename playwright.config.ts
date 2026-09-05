@@ -3,6 +3,7 @@ import { buildTargets } from './config/build.ts'
 
 export default defineConfig({
   testDir: './tests',
+  testMatch: 'routing-spike.spec.ts',
   fullyParallel: true,
   workers: 2,
   timeout: 30_000,

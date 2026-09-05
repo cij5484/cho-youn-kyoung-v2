@@ -26,6 +26,7 @@
     "config/**/*.ts",
     "react-router.config.ts",
     "playwright.config.ts",
+    "playwright.pages.config.ts",
     "tests/**/*.ts"
   ]
 }

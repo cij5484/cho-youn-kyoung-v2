@@ -10,6 +10,7 @@ export default defineConfig([
     'node_modules/**', 'dist/**', 'dist-pages-preview/**',
     'build-root/**', 'build-pages-preview/**', '.react-router/**',
     '.checkpoints/**', 'test-results/**', 'playwright-report/**',
+    'test-results-pages/**', 'playwright-pages-report/**',
   ]),
   {
     files: ['**/*.{ts,tsx}'],
@@ -24,7 +25,7 @@ export default defineConfig([
     ],
   },
   {
-    files: ['*.config.*', 'config/**/*.ts', 'scripts/**/*.mjs', 'tests/**/*.ts'],
+    files: ['*.config.*', 'config/**/*.ts', 'scripts/**/*.mjs', 'tests/**/*.{ts,mjs}'],
     languageOptions: { globals: globals.node },
   },
   {

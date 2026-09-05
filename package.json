@@ -18,6 +18,8 @@
     "preview": "node scripts/static-spike-server.mjs root",
     "preview:pages-preview": "node scripts/static-spike-server.mjs pagesPreview",
     "test:spike": "playwright test",
+    "test:placement": "node --test tests/static-layout.test.mjs",
+    "test:pages": "playwright test --config playwright.pages.config.ts",
     "check": "npm run type-check && npm run lint && npm run build"
   },
   "dependencies": {

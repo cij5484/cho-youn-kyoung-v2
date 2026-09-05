@@ -1,4 +1,4 @@
-// Spike targets only. These example origins do not configure a domain or deployment.
+// Root origin stays a test value; the Pages origin belongs only to the V2 preview.
 export const buildTargets = {
   root: {
     base: '/',
@@ -9,7 +9,7 @@ export const buildTargets = {
   pagesPreview: {
     base: '/cho-youn-kyoung-v2/',
     directory: 'build-pages-preview',
-    canonicalOrigin: 'https://pages.example.invalid',
+    canonicalOrigin: 'https://cij5484.github.io',
     previewPort: 4174,
   },
 } as const
