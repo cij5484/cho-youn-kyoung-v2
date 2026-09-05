@@ -1,6 +1,6 @@
 # Cho Youn Kyoung Website V2 — 검토 및 구현 제안
 
-검토일: 2026-09-05 · Revision 1.8 · 요청 추론 수준: 높음 · 상태: **HOME V2.1 문서 승인 / P0E 승인·CI·live 검증 완료 / P0F canonical/delivery 완료 / P1A 결과 승인·lifecycle 보완 및 main delivery 승인**. P0A–D 및 APPROVED routing/locale 계약은 유지한다.
+검토일: 2026-09-06 · Revision 1.9 · 요청 추론 수준: 높음 · 상태: **HOME V2.1 문서 승인 / P0E·P0F·P1A lifecycle/delivery 완료 / P1B 감사 delivery 완료 / P1C KO Record Mapping Review REVIEW READY**. P0A–D 및 APPROVED routing/locale 계약은 유지한다. 현재 결과·승인 경계는 [HANDOFF](../../../CODEX-HANDOFF.md)를 따른다.
 
 현재 정본은 갱신된 MASTER의 PHASE 0–14다. React Router + Static Prerender는 사용자가 지정한 P0C 실제 Pages gate 통과로 확정했다. P0D neutral locale/hreflang 계약은 두 base에서 통과했고 실제 번역·제품 구현과 운영 SEO는 별도 gate다. 이 문서는 실제 구현 승인이 아니다.
 
@@ -558,20 +558,20 @@ P0E delivery update: 일반 push/PR은 type/lint/locale/placement/root build의 
 
 ## 17. Recommendation Before Implementation
 
-P0E 사용자 승인 범위에서 기존 architecture를 유지하고 Fast push/PR gate와 명시적 Full/preview delivery를 연결했다. P0E 실제 검증/배포 상태는 [결과](../../../P0E-RESULT.md), commit/push/deploy/STOP의 현재 정본은 [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md) CI/delivery 절이다. 아래 P0D/HOME revision 이력을 보존하며 P0F knowledge wiring은 canonical로 승인됐다. 운영 지도는 [AGENTS](../../../AGENTS.md), 현재 상태와 용어 정본은 [HANDOFF §26](../../../CODEX-HANDOFF.md#knowledge-status), P0F delivery까지 확인했고 현재 결과는 [P1A](../../../P1A-RESULT.md)다.
+P0E 사용자 승인 범위에서 기존 architecture를 유지하고 Fast push/PR gate와 명시적 Full/preview delivery를 연결했다. P0E 실제 검증/배포 상태는 [결과](../../../P0E-RESULT.md), commit/push/deploy/STOP의 현재 정본은 [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md) CI/delivery 절이다. 아래 P0D/HOME revision 이력을 보존하며 P0F knowledge wiring은 canonical로 승인됐다. 운영 지도는 [AGENTS](../../../AGENTS.md), 현재 상태와 용어 정본은 [HANDOFF §26](../../../CODEX-HANDOFF.md#knowledge-status), P1B delivery까지 완료했고 현재 결과는 [P1C](../../../P1C-RESULT.md)다.
 
 HOME V2.1은 문서 개정으로 승인됐고 bb8460e commit으로 보존됐다. 해당 작업에서 코드/asset/motion/3D는 구현하지 않았다. [V2.1 revision report](HOME-V2.1-REVISION-REPORT.md)는 당시 STOP 기록이다. 이후 별도로 승인된 P0E만 실행하며 P0C/P0D 계약을 유지했다.
 
-**현재 판정: React Router + Static Prerender APPROVE / P0E CI·delivery COMPLETE (P0E-RESULT.md) / P0F canonical/delivery COMPLETE / P1A schema 결과 APPROVED.**
+**현재 판정: React Router + Static Prerender APPROVE / P0E·P0F·P1A delivery COMPLETE / P1B audit delivered / P1C mapping REVIEW READY.**
 
 정본 로드맵, 독립 ABOUT Delight, HOME 한정 Sou.P, mandatory Tray Lab, same-route audio scope, source truth, 대비 token, volume capability 검증 정책, bounded task/STOP 계약을 반영했다. 사용자 승인 사항을 다시 미정 질문으로 남기지 않는다.
 
 React Router + Static Prerender는 P0C 실제 Pages gate로 **APPROVE**다. Linux CI Chromium 42/42, Windows Edge 42/42, 배포 SHA/파일 hash와 MIME 검증을 완료했다. P0D는 18-route neutral locale/hreflang 계약을 별도 승인 아래 로컬에서 검증했다(80 browser, 8 locale, 3 placement). P0E에서 같은 18-route 계약의 Linux browser 80/80와 실제 Pages 52/52도 통과했다. 실제 번역/제품 QA가 완료된 것은 아니다. 자료 파일 식별, 공식 번역, 실제 기기 capability는 후속 gate에서 다룬다. visualMode 명칭은 P1A 사용자 확인과 타입/fixture로 정리했다. 이들은 P0A 최소 skeleton을 시작할 기획상 blocker는 아니다.
 
-P1A 결과를 사용자가 승인했다. Asset Lifecycle Policy를 [Content Schema Contract](CONTENT-SCHEMA-CONTRACT.md#asset-lifecycle-policy)에 최소 반영하고 별도 승인된 commit/main push/Fast CI 확인까지만 수행한다. 배포는 포함하지 않는다. 다음 제안은 **P1B — 단일 Album Source Audit**: 한 기록의 사실·공개상태·asset 참조만 검토한다. 아직 시작하지 않았으며 새 명시적 승인이 필요하다.
+P1A 결과와 Asset Lifecycle Policy/main delivery는 완료됐고, 이후 P1B 단일 앨범 감사가 PR #2 / `07661e5`로 delivery됐다. 과거 P1B 제안은 실행 이력으로 전환됐다. 사용자가 다음 한 단위를 **P1C — Ji Young-hee Ryu Album KO Record Mapping Review**로 지정·승인했으며, [매핑 검토](album-audits/JI-YOUNG-HEE-SANJO-KO-RECORD-MAPPING-REVIEW.md)와 [P1C 결과](../../../P1C-RESULT.md)에 문서 후보·검증·STOP을 기록한다. 실제 record/asset/route 등록은 없다.
 
 현재 P1A schema 결과는 승인됐다. lifecycle 보완과 delivery 검증은 [P1A 결과](../../../P1A-RESULT.md)에 별도 기록한다. 이전 완료: 기존 계획·감사·STOP 계약과 별도로 P0A 기반, P0B 로컬 spike, P0C 실제 Pages 배포/검증 및 architecture 결정, P0D neutral KO/EN 계약과 로컬 검증, P0E Fast/Full CI·preview delivery·live 검증. [P0D 결과](../../../P0D-RESULT.md)를 따른다. 과거 P0A/P0B 결과는 당시 상태 기록으로 보존한다.
 
-현재 미착수: P1B 이후 개별 작업, 실제 content→template integration, Blender spike/모델/Tray/Haegeum 3D, 실제 i18n 콘텐츠와 최종 SEO, 실제 제품 디자인/콘텐츠, audio/mobile/3D, 운영 도메인 전환. P0E CI/preview의 실제 SHA/검증 결과는 별도 결과 보고를 따른다.
+현재 미착수: P1D 및 실제 production record 등록, 실제 content→template integration, Blender spike/모델/Tray/Haegeum 3D, 공식 authored/reviewed i18n 콘텐츠와 최종 SEO, 실제 제품 디자인, audio/mobile/3D, 운영 도메인 전환. P1C는 KO 초안 문구와 필드 대응만 검토했다. P0E CI/preview의 실제 SHA/검증 결과는 별도 결과 보고를 따른다.
 
-**여기서 STOP. P1A 결과 보고 후 P1B/실제 migration/Design System/HOME에는 새 명시적 승인이 필요하다.**
+**현재 결과: P1C REVIEW READY / 사용자 결과 승인 전. 여기서 STOP.** 다음 제안은 P1D 후보인 한 앨범의 비공개 KO draft 등록이며 범위·실행 지시가 별도로 필요하다. P1D, 실제 production record/asset migration, Design System/HOME 또는 delivery로 자동 진행하지 않는다.

@@ -1,6 +1,6 @@
 # Implementation Task Protocol — mandatory bounded work
 
-Revision 1.6 · 2026-09-05 · P1A approved lifecycle/delivery follow-up; content tests in Fast; P0E delivery/STOP unchanged.
+Revision 1.7 · 2026-09-06 · P1C document-only KO mapping review; P0E gates/delivery/STOP unchanged.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
@@ -248,7 +248,22 @@ Scope: src/content contracts/fixtures/semantic validator/adapter, compile/data t
 Baseline b3c12d8; restore only task files, preserving unrelated work. No real content/page/template/routing architecture,
 Blender/assets/audio/dependency/deployment change. Type/lint/content13/locale8/placement3/both builds/browser80 passed.
 User-approved naming follows Index visualMode and separates musical category; [contract](CONTENT-SCHEMA-CONTRACT.md).
-[Result](../../../P1A-RESULT.md) distinguishes adapter proof from actual data-to-page integration and records the separately authorized lifecycle/delivery follow-up. The counts above are the initial P1A gate; follow-up evidence is in the result. **STOP before P1B.**
+[Result](../../../P1A-RESULT.md) distinguishes adapter proof from actual data-to-page integration and records the separately authorized lifecycle/delivery follow-up. The counts above are the initial P1A gate; follow-up evidence is in the result. **Historical P1A stop: before P1B.** P1B was subsequently authorized and delivered; current state is in [HANDOFF](../../../CODEX-HANDOFF.md).
+
+## P1C — Ji Young-hee Ryu Album KO Record Mapping Review — REVIEW READY
+
+The user explicitly named and authorized this one review unit after P1B, requiring STOP before P1D or actual
+production record registration. [Review/task card](album-audits/JI-YOUNG-HEE-SANJO-KO-RECORD-MAPPING-REVIEW.md)
+owns its field mapping; [result](../../../P1C-RESULT.md) and [evidence](../../../evidence/p1c/ji-young-hee-sanjo-ko-mapping-review.json)
+record validation. One objective: map the existing audit to P1A KO draft fields without migration or schema changes.
+Scope is six documentation/evidence files, including only status pointers in HANDOFF/Plan/this Protocol.
+Baseline `07661e5`; isolated originals in ignored `.checkpoints/p1c-before-07661e5/`. Restore only this task's diff.
+
+Validate source/field correspondence, the document-only candidate against existing types/semantic checks,
+draft exclusion and invalid-publication rejection, links/anchors and unchanged runtime/P1B evidence/checklists.
+No production module, new record in src, asset runtime URL, page/route/template, translation edition, audio/3D or
+delivery action. Documentation-only validation does not require another Full/browser run of unchanged code.
+Report the seven fields and **STOP**. Result review and a recommended P1D do not authorize P1D or production registration.
 
 ## Chunking the rest of PHASE 1–14
 
@@ -279,4 +294,6 @@ Repeated page units must stay individually reviewable. Validation may inspect de
 The document contracts and bounded starter task are defined; later decisions are assigned to spikes and gates.
 This is not authorization to execute P0A, not proof of prerender suitability, and not approval to run P0A–F continuously.
 
-The above readiness was the initial planning snapshot. P0F canonical/delivery completed. P1A result is approved; only its lifecycle policy follow-up and commit/main push/Fast CI confirmation are now authorized; [result](../../../P1A-RESULT.md). STOP before P1B or real migration. Proposed only: one Album Source Audit; source/content approval precedes migration.
+The above readiness was the initial planning snapshot. P0F and P1A lifecycle/delivery completed; P1B audit was
+subsequently delivered. Current user-authorized unit is P1C mapping review only, as defined above and in
+[HANDOFF](../../../CODEX-HANDOFF.md). **STOP before P1D or actual production record registration.**

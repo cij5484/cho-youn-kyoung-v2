@@ -1,0 +1,263 @@
+{
+  "task": "P1C — Ji Young-hee Ryu Album KO Record Mapping Review",
+  "completedDateKST": "2026-09-06",
+  "status": "REVIEW_READY",
+  "resultApproval": "pending",
+  "baseline": "07661e5b6061c6a46f9c4205a7737d3ab4b92c81",
+  "reviewAsOf": "2026-09-05T14:55:55Z",
+  "scope": "Documentation-only mapping of one audited album. No runtime record, asset migration, schema/route/template edits or delivery.",
+  "candidate": {
+    "location": "docs/redesign/review/album-audits/JI-YOUNG-HEE-SANJO-KO-RECORD-MAPPING-REVIEW.md (P1C_DOCUMENT_CANDIDATE block)",
+    "sha256": "0f24460f6ce281361cd3a419d709a263cb7b00664ae4f628bf832184f394f3c6",
+    "albums": 1,
+    "tracks": 6,
+    "credits": 8,
+    "editions": 16,
+    "publication": "draft",
+    "editionSource": "machine-assisted",
+    "editionStatus": "draft",
+    "provisionalCoverReferences": 1,
+    "runtimeSources": 0,
+    "productionRecordsRegistered": 0,
+    "generatedProductRoutes": 0,
+    "printedDurationTotalSeconds": 2575,
+    "durationSecondsMapped": false,
+    "unsupportedOptionalFacts": "Barcode/title-track/label and print timings retained in review or P1B, not invented schema fields."
+  },
+  "validation": {
+    "semantic": {
+      "checkedAt": "2026-09-05T15:13:28.134Z",
+      "node": "v24.15.0",
+      "platform": "darwin",
+      "asOf": "2026-09-05T14:55:55Z",
+      "documentCandidateSha256": "0f24460f6ce281361cd3a419d709a263cb7b00664ae4f628bf832184f394f3c6",
+      "passed": 14,
+      "failed": 0,
+      "checks": [
+        {
+          "name": "Single document candidate; existing domains are not registered or replaced",
+          "status": "PASS"
+        },
+        {
+          "name": "Confirmed identity, title, date and category match P1B",
+          "status": "PASS"
+        },
+        {
+          "name": "Six track rows match P1B exactly; IDs and numbering are unique and stable proposals",
+          "status": "PASS"
+        },
+        {
+          "name": "Printed duration table is correct but not mapped as measured durationSeconds",
+          "status": "PASS"
+        },
+        {
+          "name": "Eight credit names/roles map confirmed facts, preserving 떨기나무 and Soul.P",
+          "status": "PASS"
+        },
+        {
+          "name": "Every candidate edition is machine-assisted draft with provenance, no EN or forged review",
+          "status": "PASS"
+        },
+        {
+          "name": "One provisional cover resolves to the preserved P1B identity, no runtime source or approval",
+          "status": "PASS"
+        },
+        {
+          "name": "All tracks unavailable; deferred optional fields and unsupported fields remain absent",
+          "status": "PASS"
+        },
+        {
+          "name": "Existing semantic validator accepts the document draft",
+          "status": "PASS"
+        },
+        {
+          "name": "Draft produces no public records, album index, semantic routes or prerender paths",
+          "status": "PASS"
+        },
+        {
+          "name": "Changing release status alone cannot publish the draft",
+          "status": "PASS"
+        },
+        {
+          "name": "Publication-only promotion fails KO review and public cover runtime requirements",
+          "status": "PASS"
+        },
+        {
+          "name": "Unregistered draft has unknown-route, not a fabricated live KO translation fallback",
+          "status": "PASS"
+        },
+        {
+          "name": "Existing route fixtures stay at 18 and contain no real album slug",
+          "status": "PASS"
+        }
+      ]
+    },
+    "typeCheck": {
+      "status": "PASS",
+      "scope": "Extracted document candidate only, satisfies ContentCatalog, extends unchanged tsconfig.app.json, noEmit",
+      "command": "npm exec --yes --package=node@24.15.0 --package=npm@11.12.1 -- tsc --project .checkpoints/p1c-review/tsconfig.json",
+      "exitCode": 0,
+      "typescript": "6.0.3"
+    },
+    "documents": {
+      "checkedAt": "2026-09-05T15:13:28.246Z",
+      "status": "PASS",
+      "changedFileCount": 6,
+      "modified": [
+        "CODEX-HANDOFF.md",
+        "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md",
+        "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md"
+      ],
+      "added": [
+        "P1C-RESULT.md",
+        "docs/redesign/review/album-audits/JI-YOUNG-HEE-SANJO-KO-RECORD-MAPPING-REVIEW.md",
+        "evidence/p1c/ji-young-hee-sanjo-ko-mapping-review.json"
+      ],
+      "unchangedTrackedFiles": 102,
+      "handoffCheckboxesPreserved": 207,
+      "numberedPlanSectionsPreserved": 17,
+      "ciDeliverySectionUnchanged": true,
+      "localLinksChecked": 103,
+      "anchorsChecked": 6,
+      "brokenLinks": [],
+      "diffCheck": "PASS"
+    }
+  },
+  "sourceHashes": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "b762f99e37fb28b652632607fb9a5564fe758516867c82a796acb5fcf4e543c8",
+      "matchesBaseline": true
+    },
+    {
+      "path": "docs/redesign/00-MASTER-PLAN.md",
+      "sha256": "a0cfc04fd93538d3289dd84ad99043073e77ff1c919e2123c2a6edf71b9ffb6c",
+      "matchesBaseline": true
+    },
+    {
+      "path": "docs/redesign/review/CONTENT-SCHEMA-CONTRACT.md",
+      "sha256": "f35f85ee11f1b6ff878478a04fef5f91e07d42524350652820cca79ba98d9fa6",
+      "matchesBaseline": true
+    },
+    {
+      "path": "docs/redesign/review/LOCALE-METADATA-CONTRACT.md",
+      "sha256": "64e0a574a10b479bf1b989401337cd9bcd4bd1987108467be6938d06ecd2a920",
+      "matchesBaseline": true
+    },
+    {
+      "path": "docs/redesign/review/album-audits/JI-YOUNG-HEE-SANJO-SOURCE-AUDIT.md",
+      "sha256": "053328d08c9fb9131802e9c3887e6fdca17fc4e5ce4a5a337e44fb5b434840ca",
+      "matchesBaseline": true
+    },
+    {
+      "path": "evidence/p1b/ji-young-hee-sanjo-source-audit.json",
+      "sha256": "25607f59cde7effc00f9ed9c12add5136a1d44f7b5c2bc67e6d1e72df4cbfe43",
+      "matchesBaseline": true
+    },
+    {
+      "path": "src/content/models.ts",
+      "sha256": "2990d5c114f3eb34e704f4adfdeb0e1956acf8da9aff3aebacfcd7844d19eea1",
+      "matchesBaseline": true
+    },
+    {
+      "path": "src/content/shared.ts",
+      "sha256": "c4724824800158e69c24a1072e8ba562b7dbaaeac6c6e86fec17d6ec034dd8fe",
+      "matchesBaseline": true
+    },
+    {
+      "path": "src/content/assets.ts",
+      "sha256": "90959d5ed3c0d1deb87b7e1ee87834a170d6db2de601c32a2c276f284c22f8c0",
+      "matchesBaseline": true
+    },
+    {
+      "path": "src/content/catalog.ts",
+      "sha256": "6e397f1706076139e6800353740a39c96d2f58e614630cac7754b083017d5f8b",
+      "matchesBaseline": true
+    },
+    {
+      "path": "src/content/validation.ts",
+      "sha256": "218a52c253a9130b4e7e826801ceffee235a1fd92d842662f9ed6d6ea72ee319",
+      "matchesBaseline": true
+    },
+    {
+      "path": "src/routes.ts",
+      "sha256": "a01f138e384122c5afffe468b7a801ad7c01b6a456f017a753425c513d6c12b9",
+      "matchesBaseline": true
+    },
+    {
+      "path": "react-router.config.ts",
+      "sha256": "668ac9a9e250cb411ab72317801a0c1c4095ebd88243266a2a698af5fe77cd31",
+      "matchesBaseline": true
+    }
+  ],
+  "deliverableHashes": [
+    {
+      "path": "CODEX-HANDOFF.md",
+      "sha256": "ce1c41bcb4311e0a536e76667cb5206df9b9eacf0e44a35d523a312f68c9ffb1"
+    },
+    {
+      "path": "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md",
+      "sha256": "d2d07259123173158247bc8a460aaeebe3f4a067ee03a67413be6708def10ee4"
+    },
+    {
+      "path": "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md",
+      "sha256": "1e5d82072c0546d53ef3bfa90b9d219a4165e2e50b41226db8a7e6ab7c656f96"
+    },
+    {
+      "path": "P1C-RESULT.md",
+      "sha256": "b2798e2877ee41e0ef31beae131deed219f86cb2d1ce43fb9697d59948578138"
+    },
+    {
+      "path": "docs/redesign/review/album-audits/JI-YOUNG-HEE-SANJO-KO-RECORD-MAPPING-REVIEW.md",
+      "sha256": "fb51de1756a5dce3bf4bdda7d339791130e4d2455bdc95dafe611db93a1c2361"
+    }
+  ],
+  "reproduction": {
+    "note": "The document JSON and canonical source files are tracked inputs. Validation harnesses, type-only candidate and original copies are retained locally in ignored .checkpoints and are not runtime modules or portable tracked scripts. Check names and expected behavior are preserved in this evidence and Mapping Review sections 5 and 10.",
+    "semanticCommand": "npm exec --yes --package=node@24.15.0 --package=npm@11.12.1 -- node .checkpoints/p1c-review/validate.mjs",
+    "documentCommand": "node .checkpoints/p1c-review/document-check.mjs",
+    "localHarnessHashes": [
+      {
+        "path": ".checkpoints/p1c-review/validate.mjs",
+        "sha256": "c68f61d3ba201c0cae015cab2727a589de63de912d7de0f08e0b879067a25c11"
+      },
+      {
+        "path": ".checkpoints/p1c-review/document-check.mjs",
+        "sha256": "5b2f9fca51822054d92ace15b637ea944466b80001de1e8a1054d120b58d6482"
+      },
+      {
+        "path": ".checkpoints/p1c-review/tsconfig.json",
+        "sha256": "02118ea7bcd63bb6f7ffca1c3ba41be1da61ba4b4d85c5994b884bf8af41423f"
+      }
+    ],
+    "freshCheckoutProcedure": [
+      "Extract only the fenced JSON between P1C_DOCUMENT_CANDIDATE markers from the review document.",
+      "In an ignored temporary file import ContentCatalog from src/content/models.ts and check the extracted literal with satisfies ContentCatalog under existing strict compiler options. Do not register it in src.",
+      "Parse the same JSON in memory and run existing validateCatalog, publishedRecords, contentIndex, contentRouteCatalog and contentPrerenderPaths at reviewAsOf. Expect no validation errors and empty public outputs.",
+      "Use cloned in-memory inputs to verify release-only changes stay excluded, publication-only promotion fails, and unavailable EN on this unpublished candidate remains unknown-route. Preserve original runtime files.",
+      "Compare tracks/credits/cover source identity to P1B, verify no authored review/runtime sources, then check listed local links and allowed file scope."
+    ]
+  },
+  "notRunThisTask": [
+    "dependency installation",
+    "gate:fast",
+    "gate:full",
+    "build/root or project",
+    "browser/live Pages suite",
+    "external source/audio/image requests or real-device checks"
+  ],
+  "actionsNotPerformed": [
+    "P1D",
+    "production record registration",
+    "runtime draft registration",
+    "asset copy/edit/approval",
+    "Blender/3D",
+    "legacy or production-domain changes",
+    "commit",
+    "push",
+    "PR/merge",
+    "deploy"
+  ],
+  "rollback": "Remove only the three P1C added documentation/evidence files and restore only this task diff in HANDOFF/Plan/Protocol from baseline or .checkpoints/p1c-before-07661e5. Preserve unrelated changes.",
+  "nextTask": "Proposal only: separately scoped and authorized single nonpublic KO draft registration. STOP before P1D or actual production registration."
+}

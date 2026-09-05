@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** P0A–P0F approved; P1A + lifecycle delivery approved; P1B single-album source audit REVIEW READY — STOP before migration/P1C\
-**Revision:** 1.5 / 2026-09-05 — P1B source audit and user-confirmed facts; prior decisions and HOME V2.1 preserved\
+**Status:** P0A–P0F approved; P1A + lifecycle delivery approved; P1B audit delivered; P1C KO Record Mapping Review REVIEW READY — STOP before P1D / production record registration\
+**Revision:** 1.6 / 2026-09-06 — P1C document-only mapping review; prior decisions, P1B facts and HOME V2.1 preserved\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 ---
@@ -478,7 +478,10 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 - P1A + lifecycle delivery completed and user APPROVED: 159133c3fec42d2c9c09e900482aa3e137fcee07 / Fast CI 33965248251 SUCCESS. No new preview deployment.
 - P1B — Single Album Source Audit: only 조윤경 해금산조 – 지영희류 was audited. [Audit](docs/redesign/review/album-audits/JI-YOUNG-HEE-SANJO-SOURCE-AUDIT.md) and [evidence](evidence/p1b/ji-young-hee-sanjo-source-audit.json) own the result. User confirmed 2026-09-08 release date, 떨기나무 Recording/Mixing/Mastering and artwork matching final print. Retailer differences remain traced; current release is upcoming as of 2026-09-05.
 - P1B result: READY WITH NON-BLOCKING GAPS for limited KO record preparation, not public release approval. 15 provisional image candidates, 6 reachable audio URLs (partial HTTP proof only), 3D PARTIAL, full EN edition missing. Runtime/schema/assets and legacy were not modified; no migration or delivery performed by P1B.
-- Current stop point: P1B audit report / REVIEW READY. [Task Protocol](docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md) owns gates and delivery states. Proposed next: one Album KO Record Mapping Review; actual migration/P1C, commit/push and deployment require their applicable explicit authorization.
+- P1B audit delivery subsequently completed through PR #2 / `07661e5b6061c6a46f9c4205a7737d3ab4b92c81`; Fast CI 33966319721 succeeded. This receipt was checked in the preceding repository-health review; it does not authorize runtime migration or asset/publication approval.
+- User explicitly authorized **P1C — Ji Young-hee Ryu Album KO Record Mapping Review** only, with STOP before P1D or production record registration. [Mapping review](docs/redesign/review/album-audits/JI-YOUNG-HEE-SANJO-KO-RECORD-MAPPING-REVIEW.md), [result](P1C-RESULT.md) and [evidence](evidence/p1c/ji-young-hee-sanjo-ko-mapping-review.json) own this unit. One document-only candidate maps confirmed facts, 6 tracks, 8 credits and one provisional cover reference; all editions/publication remain draft, no runtime asset/record or route is registered.
+- P1C source boundary: printed track times are preserved in the review table and not asserted as measured `durationSeconds`; barcode and other unsupported optional facts remain in P1B. Summary/alt/role wording are review drafts. Existing date/떨기나무/final-print confirmations are not reopened. EN/audio/CD/3D/story inputs retain their separate downstream gates.
+- Current stop point: **P1C REVIEW READY / result approval pending**. [Task Protocol](docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md) owns gates and delivery states. Proposed only: P1D, one nonpublic KO draft registration after separate scope/authorization. P1D, production records, actual asset migration, template/route integration, commit/push and deployment were not performed by P1C.
 
 <a id="knowledge-status"></a>
 
@@ -501,7 +504,8 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 | HOME V2.1 | APPROVED DESIGN DIRECTION / NOT YET IMPLEMENTED / NOT QUALITY APPROVED |
 | P0F knowledge wiring | APPROVED canonical / IMPLEMENTED / VERIFIED; delivery completed |
 | P1A content schema | Result + lifecycle delivery APPROVED / IMPLEMENTED / VERIFIED with neutral fixtures; template integration and migration pending |
-| P1B single-album source audit | Audit REVIEW READY; core date/credit/final-print facts user confirmed; limited KO preparation READY WITH NON-BLOCKING GAPS; no actual record or asset migration |
+| P1B single-album source audit | Audit delivered via PR #2; core date/credit/final-print facts user confirmed; limited KO preparation READY WITH NON-BLOCKING GAPS; no actual record or asset migration |
+| P1C Ji Young-hee Ryu KO mapping review | Document-only mapping IMPLEMENTED / validation in P1C result / REVIEW READY; result approval pending; no production record, runtime asset or route registration; STOP before P1D |
 | Blender Capability Spike | REQUIRED BEFORE RELEVANT 3D PRODUCTION / NOT EXECUTED; Blender adoption undecided; Motion §47 owns acceptance |
 | CD Tray Lab | MANDATORY / NOT IMPLEMENTED / BLOCKING Album Detail package Quality Approved until its gate passes |
 | Haegeum 3D master | FUTURE EXPERIMENT / HIGH PRIORITY / NOT IMPLEMENTED; NOT BLOCKING first release, not disposable optional decoration; Motion §48 |
