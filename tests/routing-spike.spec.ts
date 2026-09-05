@@ -4,6 +4,7 @@ import { resolve } from 'node:path'
 import { expect, test, type Page, type TestInfo } from '@playwright/test'
 import { getBuildTarget } from '../config/build.ts'
 import { spikeRoutes, type SpikeRoute } from '../src/spike/fixtures.ts'
+import { expectLocaleMetadata } from './metadata-assertions.ts'
 
 function pathAtBase(fixture: SpikeRoute, info: TestInfo, trailingSlash = true) {
   const { base } = getBuildTarget(info.project.name)
@@ -17,7 +18,7 @@ async function checkMetadata(page: Page, fixture: SpikeRoute, info: TestInfo) {
   await expect(page.locator('html')).toHaveAttribute('lang', fixture.lang)
   await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', `Routing spike: ${fixture.path} [${fixture.lang}]. Test metadata only.`)
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `${target.canonicalOrigin}${pathAtBase(fixture, info)}`)
-  await expect(page.locator('link[hreflang]')).toHaveCount(0)
+  await expectLocaleMetadata(page, fixture, target.canonicalOrigin, target.base)
 }
 
 test.describe('Static HTML without JavaScript', () => {
@@ -27,6 +28,8 @@ test.describe('Static HTML without JavaScript', () => {
       const target = getBuildTarget(info.project.name)
       const response = await page.goto(pathAtBase(fixture, info, false))
       expect(response?.status()).toBe(200)
+      await checkMetadata(page, fixture, info)
+      expect((await page.reload())?.status()).toBe(200)
       await checkMetadata(page, fixture, info)
       await expect(page).toHaveURL(new URL(pathAtBase(fixture, info), info.project.use.baseURL).href)
       for (const link of spikeRoutes) {
@@ -49,6 +52,35 @@ test.describe('Static HTML without JavaScript', () => {
   }
 })
 
+for (const fixture of spikeRoutes) {
+  test(`hydrated ${fixture.path}: direct, hard refresh, semantic counterpart and history`, async ({ page, context }, info) => {
+    const errors: string[] = []
+    page.on('pageerror', (error) => errors.push(error.message))
+    page.on('console', (message) => { if (message.type() === 'error') errors.push(message.text()) })
+    expect((await page.goto(pathAtBase(fixture, info, false)))?.status()).toBe(200)
+    await checkMetadata(page, fixture, info)
+    const cdp = await context.newCDPSession(page)
+    await cdp.send('Network.enable')
+    await cdp.send('Network.clearBrowserCache')
+    await cdp.send('Network.setCacheDisabled', { cacheDisabled: true })
+    expect((await page.reload())?.status()).toBe(200)
+    await page.waitForLoadState('networkidle')
+    await checkMetadata(page, fixture, info)
+    await page.evaluate(() => { Object.assign(window, { p0dMarker: true }) })
+    const counterpart = spikeRoutes.find((route) => route.key === fixture.key && route.lang !== fixture.lang)!
+    await page.locator(`[data-route-id="${counterpart.id}"]`).click()
+    await checkMetadata(page, counterpart, info)
+    await expect(page).toHaveURL(new URL(pathAtBase(counterpart, info), info.project.use.baseURL).href)
+    expect(await page.evaluate(() => Reflect.get(window, 'p0dMarker'))).toBe(true)
+    await page.goBack()
+    await checkMetadata(page, fixture, info)
+    await page.goForward()
+    await checkMetadata(page, counterpart, info)
+    expect(errors).toEqual([])
+    await cdp.detach()
+  })
+}
+
 test('hydrated links, both locales, assets, history and reload', async ({ page }, info) => {
   const errors: string[] = []
   page.on('pageerror', (error) => errors.push(error.message))
@@ -65,11 +97,11 @@ test('hydrated links, both locales, assets, history and reload', async ({ page }
     expect(await page.evaluate(() => Reflect.get(window, 'p0bDocumentMarker'))).toBe('same-document')
   }
   await page.goBack()
-  await checkMetadata(page, spikeRoutes[11], info)
+  await checkMetadata(page, spikeRoutes[spikeRoutes.length - 2], info)
   await page.goForward()
-  await checkMetadata(page, spikeRoutes[12], info)
+  await checkMetadata(page, spikeRoutes[spikeRoutes.length - 1], info)
   expect((await page.reload())?.status()).toBe(200)
-  await checkMetadata(page, spikeRoutes[12], info)
+  await checkMetadata(page, spikeRoutes[spikeRoutes.length - 1], info)
   expect(await page.locator('img').evaluate((img) => (img as HTMLImageElement).naturalWidth)).toBe(16)
   expect(await page.locator('html').evaluate((el) => getComputedStyle(el).getPropertyValue('--p0b-css-loaded').trim())).toBe('1')
   await page.screenshot({ path: `test-results/${info.project.name}-neutral-shell.png`, fullPage: true })
@@ -78,7 +110,7 @@ test('hydrated links, both locales, assets, history and reload', async ({ page }
 
 test('strict host returns HTTP 404 for unknown routes, slugs and assets', async ({ request }, info) => {
   const { base } = getBuildTarget(info.project.name)
-  for (const path of ['missing-route', 'missing-route/', 'album/missing-album/', 'performance/missing-performance/', 'en/album/missing-album/', 'en/performance/missing-performance/', 'assets/missing.js']) {
+  for (const path of ['ko', 'ko/works/', 'missing-route', 'missing-route/', 'album/missing-album/', 'performance/missing-performance/', 'en/album/missing-album/', 'en/performance/missing-performance/', 'assets/missing.js']) {
     const response = await request.get(`${base}${path}`)
     expect(response.status()).toBe(404)
     expect(await response.text()).toBe('404 Not Found')
@@ -97,6 +129,8 @@ test('client unknown routes and slugs show 404, distinct from HTTP status', asyn
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('404')
     await expect(page).toHaveTitle('404 | P0B')
     await expect(page.locator('link[rel="canonical"]')).toHaveCount(0)
+    await expect(page.locator('link[hreflang]')).toHaveCount(0)
+    await expect(page.locator('meta[property^="og:"]')).toHaveCount(0)
     expect((await page.reload())?.status()).toBe(404)
   }
 })

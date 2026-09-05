@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto'
 import { expect, test, type APIResponse, type Page, type TestInfo } from '@playwright/test'
 import { buildTargets } from '../../config/build.ts'
 import { spikeRoutes, type SpikeRoute } from '../../src/spike/fixtures.ts'
+import { expectLocaleMetadata } from '../metadata-assertions.ts'
 
 const target = buildTargets.pagesPreview
 const atBase = (path: string, slash = true) => target.base + (path === '/' ? '' : path.slice(1) + (slash ? '/' : ''))
@@ -25,6 +26,7 @@ async function metadata(page: Page, fixture: SpikeRoute) {
   await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', `Routing spike: ${fixture.path} [${fixture.lang}]. Test metadata only.`)
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `${target.canonicalOrigin}${atBase(fixture.path)}`)
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, nofollow')
+  await expectLocaleMetadata(page, fixture, target.canonicalOrigin, target.base)
 }
 
 test.beforeAll(async ({ request }) => {

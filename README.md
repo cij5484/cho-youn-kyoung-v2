@@ -1,10 +1,13 @@
 # Cho Youn Kyoung Website V2
 
-P0C 실제 GitHub Pages 배포와 routing 검증까지 완료했습니다. React + TypeScript + Vite 기반의
-13개 neutral test route이며 실제 사이트 디자인·콘텐츠는 없습니다.
-**P0A–C 완료 / React Router + Static Prerender APPROVE / P0D 미착수.**
+P0D KO/EN routing·metadata 계약을 로컬에서 완료했습니다. React + TypeScript + Vite 기반의
+18개 neutral test route이며 실제 사이트 디자인·번역·콘텐츠는 없습니다.
+**P0A–D 완료(P0D 로컬) / React Router + Static Prerender APPROVE / P0E 미착수.**
 
-실제 preview: [GitHub Pages](https://cij5484.github.io/cho-youn-kyoung-v2/).
+[P0D 결과](P0D-RESULT.md), [언어·metadata 계약](docs/redesign/review/LOCALE-METADATA-CONTRACT.md),
+[검증 증거](evidence/p0d/README.md). P0D 결과 승인 후 사용자가 PR/merge를 승인했습니다. 게시 시 기존 main Pages workflow가 실행됩니다. 아래 P0C 배포 SHA는 마지막으로 직접 검증한 이력이며 새 배포 완료를 의미하지 않습니다.
+
+실제 preview는 P0C의 13-route artifact입니다: [GitHub Pages](https://cij5484.github.io/cho-youn-kyoung-v2/).
 검증된 배포 commit: `137b3420fda15b9670e109989da54230d959966e`.
 [배포·검증 결과](P0C-RESULT.md), [파일 배치와 CI 계약](P0C-DEPLOYMENT.md).
 
@@ -30,12 +33,14 @@ Project Pages base의 dev 실행은 `npm.cmd run dev:pages-preview`입니다.
 ```powershell
 npm.cmd run type-check
 npm.cmd run lint
+npm.cmd run test:locale
+npm.cmd run test:placement
 npm.cmd run build
 npm.cmd run build:pages-preview
 npm.cmd run test:spike
 ```
 
-`check`는 type-check/lint/root build만 실행합니다. 전체 P0B 재검증은 위의 다섯 명령입니다.
+`check`는 type-check/lint/root build만 실행합니다. 전체 로컬 계약 검증은 위의 일곱 명령입니다.
 두 build는 같은 framework typegen/cache를 사용하므로 순서대로 실행합니다.
 
 | 명령 | 산출물 / 확인 주소 |
@@ -65,6 +70,8 @@ framework 출력 구조가 바뀌면 재검증해야 합니다.
 
 SPA fallback은 raw client/에만 보존하고 static/과 Pages 배포물에서는 제외합니다. unknown request는 실제 호스트 404입니다.
 `build-info.json`은 배포 SHA와 공개 파일 해시를 기록합니다. `EXPECTED_DEPLOY_SHA`를 지정한 `npm.cmd run test:pages`로 실제 Pages를 재검증합니다.
+현재 live suite는 P0D 18-route metadata 계약을 검사하므로, P0C의 기존 배포 SHA에 실행하면 성공할 수 없습니다.
+승인된 P0D artifact 배포 이후 그 SHA로 실행해야 합니다. 로컬 dirty build의 commit 값은 기준 HEAD이며 소스 동일성 증거가 아닙니다.
 로컬/CI 모두 `npm.cmd run test:placement`로 파일 배치 계약을 검사합니다.
 server/는 build 과정의 중간 결과이며 Pages에 필요한 runtime server가 아닙니다.
 P0A의 이전 dist/와 dist-pages-preview/는 보존된 과거 산출물이며 현재 검증 대상이 아닙니다.
@@ -77,11 +84,12 @@ react-router.config.ts        official prerender / basename / route discovery
 src/root.tsx                  document / lang / framework entry
 src/routes.ts                 최소 route config
 src/routes/                   공통 테스트 shell, unknown 404 화면
+src/routing/locale-contract.ts KO/EN pairing, switch 결과, authored 상태, metadata 계약
 src/spike/                    경로 fixture, URL 및 테스트 metadata
 src/styles/spike.css          비시각 CSS 로딩 확인 marker
 public/spike/path-check.svg   새로 만든 16px 경로 검증 fixture
 scripts/                      CLI 실행, 정적 artifact 배치, 검증용 서버
-tests/                        두 base의 34개 Playwright 검증
+tests/                        두 base의 80개 Playwright + locale 8개 + placement 3개 검증
 docs/redesign/                기존 기획·review 문서 보존
 ```
 
@@ -99,6 +107,6 @@ React Router가 제공하며 커스텀 renderer를 만들지 않았습니다.
 - [기획 MASTER](docs/redesign/00-MASTER-PLAN.md), [기존 HANDOFF](CODEX-HANDOFF.md)
 
 P0B까지 기획·review 원본 21개를 보존했습니다. P0C에서는 사용자 지시대로 관련 planning 상태만 architecture APPROVE로 갱신했습니다.
-P0A/P0B 결과는 과거 기록으로 보존하며 최신 상태는 P0C 결과와 ADR을 따릅니다. V2 repository/remote/Pages만 생성했습니다.
+P0A/P0B/P0C 결과는 과거 기록으로 보존하며 최신 로컬 상태는 P0D 결과와 locale 계약을 따릅니다. 실제 Pages 증거는 여전히 P0C입니다.
 문서·증거만 바뀐 commit은 재배포하지 않으므로 최신 main SHA와 `build-info.json`의 배포 코드 SHA를 구분합니다.
-**보고 후 STOP. 사용자의 명시적 승인 전에는 P0D 또는 다른 구현 단위를 시작하지 않습니다.**
+**보고 후 STOP. 사용자의 명시적 승인 전에는 P0E 또는 다른 구현 단위를 시작하지 않습니다.**

@@ -1,6 +1,6 @@
 # CODEX HANDOFF — 최종 Document Consistency Audit
 
-Revision 1.2 · 2026-09-05 · 기존 207항목 기획 감사 보존 / P0C routing architecture APPROVE 반영.
+Revision 1.3 · 2026-09-05 · 기존 207항목 기획 감사 보존 / P0C architecture APPROVE 유지 / P0D local locale contract 반영.
 
 아래 표의 제품별 미착수는 기획 coverage와 제품 구현 상태다. P0A–C 기반 검증은 [P0C 결과](../../../P0C-RESULT.md)와 [Architecture Decision](ROUTING-ARCHITECTURE-DECISION.md)에 별도로 증명하며, 전체 제품/locale 구현 완료로 확장하지 않는다.
 
@@ -297,7 +297,7 @@ Covered는 문서 계약이 있다는 뜻이며 구현·실기기·routing spike
 | 418 | Accessible muted text #6D6962 verified on Canvas/Surface; original muted tone retained in appropriate roles | **Covered** | 02 §3; 13 §15 | 문서에 명시. 실제 구현/시험은 미착수. |
 | 419 | React Router + Static Prerender APPROVED after the P0C real GitHub Pages routing/deployment gate | **Covered / gate passed** | 00 §45; P0C result; Architecture Decision | 실제 Pages/CI 및 두 브라우저 환경의 42개 live test 통과. 전체 locale/제품 QA는 별도. |
 | 420 | Spike verifies subpath and root, all KO/EN routes, direct navigation/refresh and valid-versus-404 | **Covered** | 00 §45; Task Protocol routing matrix | 문서에 명시. 실제 구현/시험은 미착수. |
-| 421 | Spike verifies per-route metadata, canonical and hreflang; no HashRouter retreat | **Covered** | 14 §5; Task Protocol routing matrix | 문서에 명시. 실제 구현/시험은 미착수. |
+| 421 | Spike verifies per-route metadata, canonical and hreflang; no HashRouter retreat | **Covered / local gate passed** | P0D result; Locale Metadata Contract | 18 fixture × 두 base, 80 browser + 8 locale + 3 placement 통과. P0D live deployment는 미실시. |
 | 422 | No real playable source gives unavailable/disabled/coming-soon; no silent timer or false playing | **Covered** | 07 §26; 01 §14; 12 §8 | 문서에 명시. 실제 구현/시험은 미착수. |
 | 423 | Real mobile programmatic-volume capability tested in PHASE 0 or Audio spike | **Covered** | 07 §26; 11 §14 | 문서에 명시. 실제 구현/시험은 미착수. |
 | 424 | Unsupported volume gets reported capability-based UX/fallback; no forced workaround | **Covered** | 07 §26, 31; 13 §10 | 문서에 명시. 실제 구현/시험은 미착수. |
@@ -318,7 +318,7 @@ Covered는 문서 계약이 있다는 뜻이며 구현·실기기·routing spike
 | TRAY LAB / 기존 C2 | Covered | 03 §20, 07 §13–14·44, HANDOFF 필수. CAD 목표 아님 |
 | AUDIO / 기존 A3 | Covered | 00 §44, 07 §21·30, 11–14: 같은 Album Detail 내부 유지 / 다른 경로 종료 / no global player |
 | MUTED / 기존 A7 | Covered | 02 §3 계산 기록: #6D6962 Canvas 4.8024:1, Surface 5.1429:1. 실제 화면 QA 미실시 |
-| ROUTING | Covered as spike contract | 00 §45 / Task Protocol P0B–D: subpath/root·KO/EN 전 route·direct/refresh/404·metadata/canonical/hreflang. P0C architecture APPROVE; 지정 13 route의 Pages/CI gate 완료. 전체 locale/hreflang는 후속 gate |
+| ROUTING | Covered as spike contract | 00 §45 / Task Protocol P0B–D: subpath/root·KO/EN 전 route·direct/refresh/404·metadata/canonical/hreflang. P0C architecture APPROVE; 지정 13 route의 Pages/CI gate 완료. P0D neutral locale/hreflang는 로컬 완료; 실제 번역/출시는 후속 gate |
 | LEGACY AUDIO | Covered | source 없음 → 명확한 unavailable/disabled/coming soon. silent preview clock/false playing 금지 |
 | MOBILE VOLUME / 기존 A4 | Covered as capability contract | 요구는 유지. 실기기 미검증이며 spike 후 capability UX/fallback 보고. 억지 우회 금지 |
 | STOP RULE | Covered | MASTER §43, HANDOFF §25, Task Protocol: 1개 bounded task→검증→7항목 보고→STOP→명시 승인. P0/3D/page 큐 분할 |
@@ -330,12 +330,12 @@ Covered는 문서 계약이 있다는 뜻이며 구현·실기기·routing spike
 
 - **Ambiguous 2**: 동일 visualMode/variant 상세 enum 계약을 서로 다른 두 체크박스에서 참조한다. P1 schema task에서 확정한다.
 - **입력 미확인**: 승인 시안/정확한 사진·트레이 참조, 최신 발매 사실/공식 EN·credit, 실기기 목록. [계획 §14](V2-IMPLEMENTATION-PLAN.md)에 용도·필수/선택·blocking 시점 기록.
-- **실행 검증**: P0C 지정 Pages 13 route의 HTTP/HTML/metadata, assets, CI 및 root build/로컬 root hosting. **미검증**: 전체 locale/hreflang, production domain, mobile volume/CORS, GPU/3D/제품 품질/성능. 후속 gate를 통과로 표기하지 않는다.
+- **실행 검증**: P0C 지정 Pages 13 route의 HTTP/HTML/metadata, assets, CI 및 root build/로컬 root hosting. **P0D 로컬 검증**: 전체 18 fixture의 lang/canonical/reciprocal hreflang/OG와 P0C 정적 계약 회귀. **미검증**: P0D 실제 Pages, 실제 번역/최종 SEO, production domain, mobile volume/CORS, GPU/3D/제품 품질/성능. 후속 gate를 통과로 표기하지 않는다.
 - 초기 M1–M11 실행 계약은 계획에서 보완되었지만 실제 수행은 남아 있다. Missing 0은 자산과 구현까지 모두 완료했다는 뜻이 아니다.
 - 신규 9개 사용자 결정에서 남은 문서 Conflict/Missing은 없다. 이후 디자인/기능 요구를 삭제하거나 축약하지 않았다.
 
 ## 최종 판정
 
-**P0A–C COMPLETE / React Router + Static Prerender APPROVE.**
-P0C 실제 Pages와 CI 검증을 완료했다. 전체 locale·audio·3D·제품 구현은 여전히 미착수/후속 gate다.
-P0C 보고 후 STOP. P0D–F 또는 제품 구현을 자동 진행하지 않는다.
+**P0A–D COMPLETE (P0D local) / React Router + Static Prerender APPROVE.**
+P0C 실제 Pages/CI와 P0D neutral locale/metadata 로컬 검증을 완료했다. 실제 번역·audio·3D·제품 구현은 후속 gate다. 제품 출시용 hreflang/canonical checklist는 실제 콘텐츠 QA까지 미완료이며 spike checkbox만 완료 처리했다. [P0D contract](LOCALE-METADATA-CONTRACT.md), [result](../../../P0D-RESULT.md).
+P0D 보고 후 STOP. P0E–F 또는 제품 구현을 자동 진행하지 않는다.

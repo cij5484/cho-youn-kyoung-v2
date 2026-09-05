@@ -1,11 +1,12 @@
 import type { ReactNode } from 'react'
 import { Links, Meta, Outlet, Scripts, useLocation } from 'react-router'
 import { logicalPath } from './spike/paths'
+import { languageOfPath } from './routing/locale-contract'
 import './styles/spike.css'
 
 export function Layout({ children }: { children: ReactNode }) {
   const path = logicalPath(useLocation().pathname)
-  const lang = path === '/en' || path.startsWith('/en/') ? 'en' : 'ko'
+  const lang = languageOfPath(path)
 
   return (
     <html lang={lang}>

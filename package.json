@@ -19,6 +19,7 @@
     "preview:pages-preview": "node scripts/static-spike-server.mjs pagesPreview",
     "test:spike": "playwright test",
     "test:placement": "node --test tests/static-layout.test.mjs",
+    "test:locale": "node --test tests/locale-contract.test.ts",
     "test:pages": "playwright test --config playwright.pages.config.ts",
     "check": "npm run type-check && npm run lint && npm run build"
   },

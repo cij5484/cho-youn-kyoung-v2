@@ -1,6 +1,18 @@
 # Planning Revision Log — 2026-09-05
 
-Revision 1.2 · **P0C real Pages gate complete / React Router + Static Prerender APPROVE**.
+Revision 1.3 · **P0D locale/metadata contract complete locally / architecture APPROVE retained**.
+
+## P0D locale contract revision
+
+- P0D만 승인·실행했다. KO 기본/EN prefix의 9쌍, 자기 canonical, reciprocal ko/en/x-default, html lang, OG 최소 계약을 중앙화했다.
+- 번역 부재/초안은 같은 KO 콘텐츠 + unavailable이다. EN을 위장하거나 HOME으로 보내지 않는다. authored/reviewed 경계를 최소 타입으로 기록했다.
+- root/project 각각 18 HTML, Edge 80/80, locale 8/8, placement 3/3, type-check/lint/build 통과.
+- [Locale Metadata Contract](LOCALE-METADATA-CONTRACT.md), [P0D result](../../../P0D-RESULT.md), [evidence](../../../evidence/p0d/README.md)를 추가했다. MASTER v1.8, Migration QA v1.3, HANDOFF, Plan/Audit v1.3, Protocol v1.2, ADR와 README 상태를 갱신했다.
+- P0D는 uncommitted/unpushed 로컬 변경이다. P0C 배포/42개 live test 기록을 새 검증으로 재사용하지 않는다. workflow/file placement, 운영 도메인과 legacy는 변경하지 않았다.
+- 제품 요구·207개 checklist·17개 plan 절을 보존했다. 실제 출시 SEO 체크는 미완료, 검증된 spike 체크만 완료다.
+- 현재 STOP: P0D 완료. 다음 권장은 P0E delivery-check wiring이며 명시적 승인 전 시작하지 않는다.
+
+## Historical revision 1.2 — P0C real Pages gate
 
 ## P0C architecture decision revision
 

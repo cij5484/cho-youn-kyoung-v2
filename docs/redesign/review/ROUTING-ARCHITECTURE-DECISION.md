@@ -2,6 +2,8 @@
 
 2026-09-05 · **APPROVE — React Router + Static Prerender**
 
+P0D update: the user explicitly confirmed this final architecture decision. The [locale/metadata contract](LOCALE-METADATA-CONTRACT.md) now passes 18-route local verification at both bases. P0C evidence below is historical real-host proof; no P0D deployment occurred.
+
 ## Decision and authority
 
 The latest explicit P0C user instruction authorized the architecture decision after its real GitHub Pages gate.
@@ -28,7 +30,7 @@ This decision replaces the earlier conditional architecture state; it does not a
 | Project subpath | Correct prefix once in links/assets/metadata; no runtime server or rewrite |
 | Static HTML | All route documents render their own heading and metadata with JS disabled |
 | SEO foundation | Route title, description, canonical and lang work before/after hydration; preview intentionally noindex |
-| KO/EN expansion | KO/EN index/detail samples and locale transitions proven; full locale catalog remains a separate implementation gate |
+| KO/EN expansion | KO/EN index/detail samples and locale transitions proven; P0D adds the complete neutral 18-route locale catalog locally; authored translations remain a release gate |
 | Maintainability | Official renderer, pinned compatible dependencies; owned packager has deterministic mapping and failure checks |
 | CI reproducibility | Fresh Linux lockfile install → checks → both builds → artifact → Pages → remote hash verification succeeded |
 | Custom domain migration | Central root base works locally and builds in CI; no-prefix mapping is tested. Real domain/HTTPS cutover is still P14 |
@@ -49,11 +51,11 @@ STOP and review the architecture instead of layering more recovery logic.
 
 ## Remaining boundaries
 
-The adopted architecture does not complete full i18n/hreflang, actual SEO copy/OG, production content schemas, audio, 3D,
+P0D completes the neutral hreflang/metadata/OG contract locally. The adopted architecture does not complete actual i18n content, final SEO copy/images, production content schemas, audio, 3D,
 mobile/Safari testing, custom 404 design, or production domain migration. Every new slug must have a static document.
 Separate route-pattern definitions from multiple content slugs when that schema is implemented; the current fixtures are
 a spike catalog. Future loaders/.data/resource routes need a representative build/remote test before introduction.
 Explicit index.html alias hydration and exhaustive case/malformed-encoding policy were not part of the latest required
 gate; links/canonical use clean directory URLs. No support for those aliases is claimed.
 
-P0D is recommended only as a separately approved locale path/metadata contract task. **STOP after P0C.**
+P0D was separately approved and completed locally. Recommended next: P0E delivery-check wiring only after explicit approval. **STOP after P0D.**

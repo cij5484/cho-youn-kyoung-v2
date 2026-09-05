@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 00 — REDESIGN MASTER PLAN
 
-**Version:** 1.7  
-**Status:** Approved Planning Baseline — P0A–C complete; P0C routing architecture APPROVED; product implementation pending  
+**Version:** 1.8\
+**Status:** Approved Planning Baseline — P0A–D complete (P0D local); P0C routing architecture APPROVED; product implementation pending\
 **Legacy Repository:** `cij5484/cho-youn-kyoung`  
 **Target Repository:** `cij5484/cho-youn-kyoung-v2`  
 **Final Production Domain:** `https://choyounkyoung.com`  
@@ -573,7 +573,7 @@ Codex must not receive isolated implementation tasks without project context.
 **The only current canonical roadmap is PHASE 0–14.** The former 0–12 roadmap is historical and superseded; its feature requirements remain in the corresponding specifications.
 
 ## PHASE 0 — FOUNDATION
-Bounded project/base setup, routing/deployment spike, direct URL/refresh/404 checks, KO/EN route validation, deployment workflow, AGENTS/document wiring. React Router + Static Prerender passed the real Pages P0C gate and is APPROVED; complete locale/SEO implementation remains separately scoped.
+Bounded project/base setup, routing/deployment spike, direct URL/refresh/404 checks, KO/EN route validation, deployment workflow, AGENTS/document wiring. React Router + Static Prerender passed the real Pages P0C gate and is APPROVED; P0D completes the neutral locale/metadata contract locally; actual translations and launch SEO remain separately scoped.
 
 ## PHASE 1 — CONTENT / DATA FOUNDATION
 Schemas, verified factual content, permanent IDs, translations, asset manifest and URL policy.
@@ -631,6 +631,8 @@ Routing strategy:
 Korean default:
 /
 /works
+/albums
+/performances
 /album/:id
 /performance/:id
 /media
@@ -640,6 +642,8 @@ Korean default:
 English:
 /en
 /en/works
+/en/albums
+/en/performances
 /en/album/:id
 /en/performance/:id
 /en/media
@@ -656,6 +660,8 @@ Korean is the default language and does not use a `/ko/` prefix.
 English content must be intentionally authored and reviewed. Do not depend on automatic translation for official artist content, work titles, program notes, credits, or Korean traditional music terminology.
 
 SEO implementation must include appropriate language metadata, canonical handling, and `hreflang` where applicable.
+
+P0D implements the [KO/EN routing and metadata contract](review/LOCALE-METADATA-CONTRACT.md) in 18 neutral fixtures. Both bases passed static/hydrated lang, self-canonical and reciprocal ko/en/x-default checks. x-default is the same Korean content URL. Missing English stays on that Korean content with unavailable state; never HOME or a fabricated English page. Actual authored translations and final SEO copy remain future work.
 
 The language switcher should be integrated into the editorial navigation system rather than rendered as a generic boxed control.
 
@@ -869,8 +875,8 @@ Mobile volume remains a requirement. Verify real programmatic control in P0 or t
 
 React Router Framework + ssr:false + explicit static prerender is APPROVED after the user-authorized P0C architecture gate. Actual Project Pages passed all 13 requested KO/EN fixture routes, direct/hard refresh, navigation/history, JS-off HTML, metadata/lang, real HTTP 404 and deployed asset hashes/MIME. Root-mode build/hosting was verified locally and root build runs in CI.
 
-See [review/ROUTING-ARCHITECTURE-DECISION.md](review/ROUTING-ARCHITECTURE-DECISION.md) for the final decision and file-placement contract. This architectural decision does not mark full KO/EN content, reciprocal hreflang, final SEO or production-domain migration complete. Every future public route and slug still requires static HTML and its locale/metadata contract; these remain release gates.
+See [review/ROUTING-ARCHITECTURE-DECISION.md](review/ROUTING-ARCHITECTURE-DECISION.md) for the final decision and file-placement contract. The architectural decision does not mark full KO/EN content, final SEO or production-domain migration complete. P0D separately verifies the reciprocal hreflang and metadata contract locally; the real Pages deployment remains the P0C artifact. Every future public route and slug still requires static HTML and its locale/metadata contract; these remain release gates.
 
 Actual user-approved sequence: P0B local spike, P0C real Pages/CI and architecture decision, then separately approved P0D locale contract. P0E may review/harden the proven workflow but is not automatically started. Root-mode testing must not change the operating custom domain during P0. Actual domain/HTTPS cutover is P14.
 
-Do not fall back to HashRouter. P0A–C have completed under separate approvals. STOP after P0C reporting; no later unit is authorized by this decision.
+Do not fall back to HashRouter. P0A–D have completed under separate approvals. P0D is local contract work; no new deployment occurred. STOP after P0D reporting; P0E/F require separate approval.
