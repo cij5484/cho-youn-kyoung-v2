@@ -1,6 +1,28 @@
 # CODEX HANDOFF — 최종 Document Consistency Audit
 
-Revision 1.4 · 2026-09-05 · 기존 207항목 보존 / HOME V2.1 문서 변경만 추가 대조. P0C/P0D 계약은 유지.
+Revision 1.5 · 2026-09-05 · P0F knowledge-wiring addendum; existing 207-item audit retained.
+
+## P0F targeted consistency audit
+
+This is a documentation-only ownership/status audit, not a new product/visual/CI verification. The earlier
+207-row matrix and its Covered/Ambiguous counts below remain the historical detailed baseline; P0F verifies
+that the checklist text/count and all 17 numbered implementation-plan sections remain present.
+
+| Issue / missing knowledge | Resolution / owner |
+|---|---|
+| HANDOFF demanded every spec on every task | AGENTS reading map and HANDOFF §1 select current relevant owners; all 15 specs remain discoverable |
+| Canonical knowledge depended on conversation recall | AGENTS→HANDOFF→MASTER→specific spec→plan/result/protocol; current status definitions in HANDOFF §26 |
+| No required Blender evidence gate; procedural-only inertia | Motion §47 required investigation, Task Protocol BLENDER-01A–E separate STOP units; Album Detail §10/Plan §9 revised per user instruction |
+| Haegeum master could disappear as optional decoration | Motion §48 retains HIGH PRIORITY experiment and full use list; MASTER §26/35 and Plan §9/P3 link it; not a launch blocker |
+| Motion commit examples used conflicting 3D IDs | Examples now match the canonical Task Protocol; no subsystem has been implemented |
+| Active MASTER/ADR/locale still suggested P0E pending/P0C-only live artifact | Current annotations point to P0E result; original P0C/P0D evidence stays historical |
+| APPROVED vs implementation/verification/quality unclear | HANDOFF status vocabulary/matrix; HOME design-only, Blender undecided, Tray mandatory, P0F review-ready |
+
+[AGENTS](../../../AGENTS.md), [P0F result](../../../P0F-RESULT.md), [current HANDOFF](../../../CODEX-HANDOFF.md)
+provide the navigation and scope evidence. No new unresolved conflict was found within P0F's document scope;
+Blender/tool/device/asset feasibility remains untested future work, not a passed gate.
+
+## Historical HOME V2.1 detailed audit (revision 1.4)
 
 아래 표의 제품별 미착수는 기획 coverage와 제품 구현 상태다. P0A–C 기반 검증은 [P0C 결과](../../../P0C-RESULT.md)와 [Architecture Decision](ROUTING-ARCHITECTURE-DECISION.md)에 별도로 증명하며, 전체 제품/locale 구현 완료로 확장하지 않는다.
 

@@ -1,6 +1,6 @@
 # Cho Youn Kyoung Website V2 — 검토 및 구현 제안
 
-검토일: 2026-09-05 · Revision 1.5 · 요청 추론 수준: 높음 · 상태: **HOME V2.1 문서 승인 / P0E CI·delivery 구현·로컬 검증 완료 / P0F 미착수**. P0A–D 및 APPROVED routing/locale 계약은 유지한다.
+검토일: 2026-09-05 · Revision 1.6 · 요청 추론 수준: 높음 · 상태: **HOME V2.1 문서 승인 / P0E 승인·CI·live 검증 완료 / P0F documentation canonical APPROVED**. P0A–D 및 APPROVED routing/locale 계약은 유지한다.
 
 현재 정본은 갱신된 MASTER의 PHASE 0–14다. React Router + Static Prerender는 사용자가 지정한 P0C 실제 Pages gate 통과로 확정했다. P0D neutral locale/hreflang 계약은 두 base에서 통과했고 실제 번역·제품 구현과 운영 SEO는 별도 gate다. 이 문서는 실제 구현 승인이 아니다.
 
@@ -245,7 +245,11 @@ AudioContext는 명시적 user gesture에서 활성화한다. 분석이 불가�
 
 ## 9. 3D Architecture
 
-3D Lab과 Tray Lab을 P3에 만들고 공개 빌드에서 제외한다. 복잡한 3D를 HOME 안에서 실험하지 않는다. 사용자는 Blender를 직접 다룰 필요가 없다.
+3D Lab과 Tray Lab을 P3에 만들고 공개 빌드에서 제외한다. 복잡한 3D를 HOME 안에서 실험하지 않는다. 사용자는 Blender GUI를 직접 다룰 필요가 없도록 reproducible scripted workflow를 검토하되 실제 capability는 아직 확인하지 않았다.
+
+관련 production 3D 전에 **BLENDER CAPABILITY SPIKE — REQUIRED / NOT EXECUTED**를 둔다. Codex/Astra → bpy → .blend master → GLB/render → R3F/browser → mobile pipeline의 상세 검증·APPROVE/REVISE/REJECT 판정 정본은 [Motion §47](../03-MOTION-SYSTEM.md#blender-capability-spike), 개별 승인 단위 BLENDER-01A–E는 [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md)이다. Blender 채택은 미정이며 spike는 관련 production pipeline 결정을 막는 gate이지 모든 P1/P2 작업의 blocker가 아니다.
+
+**Haegeum 3D — FUTURE EXPERIMENT / HIGH PRIORITY / 첫 release 비차단**을 장기 roadmap에 유지한다. 실제 구조를 기반으로 reusable master와 교육·시각 활용을 검토하며 상세 구성, 11가지 용도, bowed-string 연구 및 master→web/mobile/pre-render 후보는 [Motion §48](../03-MOTION-SYSTEM.md#haegeum-3d-experiment)에 보존한다. 기존 HOME 해금 scene의 대체/필수 조건이 아니며 launch 뒤에도 삭제하지 않는다. V2에 game architecture를 추가하지 않는다.
 
 | 모듈 | 소유 값과 책임 |
 |---|---|
@@ -268,7 +272,7 @@ AudioContext는 명시적 user gesture에서 활성화한다. 분석이 불가�
 
 HOME collection은 세 2026 앨범의 physical collectible/exhibition identity를 유지한다. V2.1은 세 개 동시 live WebGL이 visual/mobile/input 품질을 해치면 한 고품질 object + album switching을 우선한다. 세 앨범 선택은 유지하고, 안정적 live 3D가 불가능하면 의도적으로 만든 static collection을 사용한다. Idle은 stable/static이며 접근→subtle response/ROTATE→intentional drag→selection→forward focus가 연속적이어야 한다. Drag가 detail 진입 필수 조건은 아니다. 상세 정보·OPEN/READ/LISTEN은 DOM 대안으로 항상 도달한다.
 
-Tray는 empty plate → seated CD → underlying print → material/light → release/lift → full package 순서로 확인한다. transparent plate, circular recess, hub, support forms, lip, seating height가 핵심이다. CAD 제조 수준을 목표로 하지 않는다. procedural 첫 시도 후 perceptual gate 실패 시 Blender/GLB 경로를 검토한다. geometry를 material 오류 보상에 사용하거나 회색 opacity로 투명 재질을 가장하지 않는다.
+Tray는 empty plate → seated CD → underlying print → material/light → release/lift → full package 순서로 확인한다. transparent plate, circular recess, hub, support forms, lip, seating height가 핵심이다. CAD 제조 수준을 목표로 하지 않는다. 필수 Blender spike 결과에 따라 Tray/Digipak/Booklet/Disc의 Blender-authored geometry와 단순 procedural geometry를 적극 비교한다. 더 적합한 단순 geometry는 유지하되 procedural 실패 후에만 Blender를 허용하는 제한은 폐기한다. geometry를 material 오류 보상에 사용하거나 회색 opacity로 투명 재질을 가장하지 않는다.
 
 북클릿은 extraction pose를 화면 plane에 맞춘 뒤 2D reader로 넘긴다. CD는 실제 seating 높이에서 hub release → lift → clearance 순서다. 불일치한 handoff는 단순한 전환으로 바꾸되 끊긴 애니메이션을 통과시키지 않는다.
 
@@ -392,7 +396,7 @@ Gate 기록 양식: 작업 ID, 기준 commit/artifact, 환경, 수행 항목, �
 
 ## 15. PHASE 0–14 Implementation Plan
 
-단계 번호는 최신 MASTER §35와 HANDOFF §21의 **canonical PHASE 0–14**를 따른다. PHASE는 작업 묶음이며 실행 단위가 아니다. **PLAN → ONE BOUNDED TASK → TEST / VALIDATE → REPORT RESULT → STOP → WAIT FOR USER APPROVAL → NEXT TASK**를 강제한다. 테스트 통과나 다음 작업 제안만으로 계속 진행하지 않는다. 지금 P0도 시작하지 않는다.
+단계 번호는 최신 MASTER §35와 HANDOFF §21의 **canonical PHASE 0–14**를 따른다. PHASE는 작업 묶음이며 실행 단위가 아니다. **PLAN → ONE BOUNDED TASK → TEST / VALIDATE → REPORT RESULT → STOP → WAIT FOR USER APPROVAL → NEXT TASK**를 강제한다. 테스트 통과나 다음 작업 제안만으로 계속 진행하지 않는다. 현재 P0F는 문서 작업만 수행했으며 다음 구현 단위를 시작하지 않는다.
 
 [Implementation Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md)에 P0A–F, 각 3D subsystem, P1–14의 작은 작업 큐·파일 범위·검증·rollback/STOP을 기록했다. 모든 작업 보고는 What was changed / Files changed / Tests performed / Result / Known issues / Screenshots·preview if applicable / Recommended next task의 7항목이며 보고 후 반드시 중지한다.
 
@@ -413,10 +417,10 @@ Gate 기록 양식: 작업 ID, 기준 commit/artifact, 환경, 수행 항목, �
 
 ### PHASE 0 — Foundation
 
-P0E delivery update: 일반 push/PR은 type/lint/locale/placement/root build의 Fast gate만 실행한다. 수동 Full은 두 base와 80개 browser 회귀를 검사하고 deploy=false가 기본이다. 사용자 승인된 exact SHA/main의 deploy=true만 preview를 배포하고 실제 Pages 계약을 검증한다. 기존 아래 큐의 P0E 미착수 표현은 이 업데이트로 대체하며, P0F는 별도 승인 전 미착수다.
+P0E delivery update: 일반 push/PR은 type/lint/locale/placement/root build의 Fast gate만 실행한다. 수동 Full은 두 base와 80개 browser 회귀를 검사하고 deploy=false가 기본이다. 사용자 승인된 exact SHA/main의 deploy=true만 preview를 배포하고 실제 Pages 계약을 검증한다. P0E는 승인·검증 완료이며 P0F는 별도 승인 아래 knowledge wiring만 수행했다. P0F 결과는 canonical로 승인됐고 이번 별도 delivery만 승인됐다. 다음 작업 승인을 기다린다.
 
-- 입력: **각 단위의 명시적 구현 승인**. 전체 계획 승인은 다음 구현 승인과 다르다. P0A–C는 각각 승인되어 완료됐으며 현재 다음 단위 승인을 기다린다.
-- 최신 승인 이력/큐: P0A skeleton 완료 → STOP → P0B local routing spike 완료 → STOP → P0C 실제 V2 Pages/CI·routing·architecture APPROVE → STOP → P0D locale/metadata 계약(18 fixtures, 로컬 완료) → STOP → P0E 필요 시 workflow 강화 → STOP → P0F AGENTS/document wiring. 매 화살표 사이에 명시적 승인이 필요하다.
+- 입력: **각 단위의 명시적 구현 승인**. 전체 계획 승인은 다음 구현 승인과 다르다. P0A–E는 각각 승인되어 완료됐으며 P0F 문서 결과를 보고하고 멈춘다.
+- 최신 승인 이력/큐: P0A skeleton 완료 → STOP → P0B local routing spike 완료 → STOP → P0C 실제 V2 Pages/CI·routing·architecture APPROVE → STOP → P0D locale/metadata 계약 완료 → STOP → P0E CI/Full/실제 Pages 검증 완료 → STOP → P0F AGENTS/Project Knowledge Wiring canonical APPROVED. 매 화살표 사이에 명시적 승인이 필요하다.
 - P0B는 사용자 지시대로 로컬 검증만 수행했다. P0C에서 cij5484/cho-youn-kyoung-v2의 생성·연결·배포가 명시적으로 승인되어 완료됐다. 기존 production repository/domain은 변경하지 않았다.
 - 검증 상태: subpath/root 출력과 P0C 지정 KO/EN direct/refresh/valid-vs-404/metadata/lang gate는 통과했다. neutral locale/hreflang는 P0D 로컬 gate를 통과했다. root mode는 운영 도메인 변경 없이 시험한다. 모바일 volume/CORS는 별도 승인된 P0 Audio unit 또는 P3 AUDIO-01에서 실제 capability를 검증한다. 페이지·3D 구현을 spike에 섞지 않는다.
 - 산출물: foundation ADR, 실행 안내, 실제 preview artifact, route test matrix.
@@ -442,6 +446,7 @@ P0E delivery update: 일반 push/PR은 type/lint/locale/placement/root build의 
 - 입력: P1 치수/샘플 artwork, P2 visual 기준.
 - 작업 3A: CSS/WAAPI tokens, native scroll, drag/swipe/cursor, route transition·취소·focus, reduced-motion, 미디어 소유권 계약.
 - 작업 3B: HTML audio→volume/mute/seek→CORS/분석/YouTube arbitration을 실제 mobile에서 검증. 해금 line prototype.
+- Production 3D 선행 gate: BLENDER-01A local capability → STOP → 01B scripted master → STOP → 01C export → STOP → 01D isolated R3F → STOP → 01E mobile/repeatability/decision. 현재 미실행이며 다음 task 자동 승인 아님.
 - 작업 3C는 묶음 설명일 뿐 한 번에 실행 금지: 3D-01 geometry → STOP → 02 materials → STOP → 03 camera → STOP → 04 lighting → STOP. Tray는 08A geometry, 08B material, 08C lighting, 08D gate review도 별개 승인 단위다.
 - 작업 3D 역시 3D-05 drag, 06 inertia, 07 opening, 09 disc release, 10 detail transition, 11 booklet extraction, 12 adaptive, 13 lifecycle, 14 quality review를 별개로 실행/검증/보고/STOP한다. 여러 subsystem 동시 수정 금지. 상세 순서와 rollback은 Task Protocol을 따른다.
 - 산출물: 3D/Tray Lab, state/continuity 계약, preset, 정지 fallback, gate 증거 및 작은 checkpoints.
@@ -551,20 +556,20 @@ P0E delivery update: 일반 push/PR은 type/lint/locale/placement/root build의 
 
 ## 17. Recommendation Before Implementation
 
-P0E 사용자 승인 범위에서 기존 architecture를 유지하고 Fast push/PR gate와 명시적 Full/preview delivery를 연결했다. P0E 실제 검증/배포 상태는 [결과](../../../P0E-RESULT.md), commit/push/deploy/STOP의 현재 정본은 [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md) CI/delivery 절이다. 아래 P0D/HOME revision 이력을 보존하며 현재 다음 권장은 P0F documentation wiring 한 단위다.
+P0E 사용자 승인 범위에서 기존 architecture를 유지하고 Fast push/PR gate와 명시적 Full/preview delivery를 연결했다. P0E 실제 검증/배포 상태는 [결과](../../../P0E-RESULT.md), commit/push/deploy/STOP의 현재 정본은 [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md) CI/delivery 절이다. 아래 P0D/HOME revision 이력을 보존하며 P0F knowledge wiring은 canonical로 승인됐다. 운영 지도는 [AGENTS](../../../AGENTS.md), 현재 상태와 용어 정본은 [HANDOFF §26](../../../CODEX-HANDOFF.md#knowledge-status), 이번 결과는 [P0F](../../../P0F-RESULT.md)다.
 
 HOME V2.1은 문서 개정으로 승인됐고 bb8460e commit으로 보존됐다. 해당 작업에서 코드/asset/motion/3D는 구현하지 않았다. [V2.1 revision report](HOME-V2.1-REVISION-REPORT.md)는 당시 STOP 기록이다. 이후 별도로 승인된 P0E만 실행하며 P0C/P0D 계약을 유지했다.
 
-**현재 판정: React Router + Static Prerender APPROVE / P0E CI·delivery COMPLETE (P0E-RESULT.md) / P0F 미착수.**
+**현재 판정: React Router + Static Prerender APPROVE / P0E CI·delivery COMPLETE (P0E-RESULT.md) / P0F documentation canonical APPROVED, 다음 작업 승인 대기.**
 
 정본 로드맵, 독립 ABOUT Delight, HOME 한정 Sou.P, mandatory Tray Lab, same-route audio scope, source truth, 대비 token, volume capability 검증 정책, bounded task/STOP 계약을 반영했다. 사용자 승인 사항을 다시 미정 질문으로 남기지 않는다.
 
 React Router + Static Prerender는 P0C 실제 Pages gate로 **APPROVE**다. Linux CI Chromium 42/42, Windows Edge 42/42, 배포 SHA/파일 hash와 MIME 검증을 완료했다. P0D는 18-route neutral locale/hreflang 계약을 별도 승인 아래 로컬에서 검증했다(80 browser, 8 locale, 3 placement). P0E에서 같은 18-route 계약의 Linux browser 80/80와 실제 Pages 52/52도 통과했다. 실제 번역/제품 QA가 완료된 것은 아니다. 자료 파일 식별, 공식 번역, 실제 기기 capability, visualMode 세부 schema는 지정된 후속 gate에서 다룬다. 이들은 P0A 최소 skeleton을 시작할 기획상 blocker는 아니다.
 
-권장 다음 단위는 **P0F — AGENTS.md / documentation wiring**이다. 새 명시적 승인이 필요하며 아직 시작하지 않았다. P0E의 commit/push/필요한 preview 배포는 현재 사용자 승인 범위 안이며 이것이 P0F나 제품 구현 승인으로 확장되지 않는다.
+권장 다음 단위는 **P1A — Content/Data Schema Contract**다. 중립 fixture로 content/asset/presentation 분리·stable ID·authored/reviewed KO/EN 상태의 최소 schema를 정하는 한 단위만 제안하며 실제 migration/페이지 디자인은 제외한다. P0F 결과는 승인됐지만 해당 작업의 새 명시적 승인이 필요하고 아직 시작하지 않았다. P0F의 별도 delivery 승인은 commit/main push/Fast CI 확인에 한정되며 제품 작업이나 배포로 확장하지 않는다.
 
 현재 완료: 기존 계획·감사·STOP 계약과 별도로 P0A 기반, P0B 로컬 spike, P0C 실제 Pages 배포/검증 및 architecture 결정, P0D neutral KO/EN 계약과 로컬 검증, P0E Fast/Full CI·preview delivery·live 검증. [P0D 결과](../../../P0D-RESULT.md)를 따른다. 과거 P0A/P0B 결과는 당시 상태 기록으로 보존한다.
 
-현재 미착수: P0F 이후 개별 작업, 실제 i18n 콘텐츠와 최종 SEO, 실제 제품 디자인/콘텐츠, audio/mobile/3D, 운영 도메인 전환. P0E CI/preview의 실제 SHA/검증 결과는 별도 결과 보고를 따른다.
+현재 미착수: P1A 이후 개별 작업, Blender spike/모델/Tray/Haegeum 3D, 실제 i18n 콘텐츠와 최종 SEO, 실제 제품 디자인/콘텐츠, audio/mobile/3D, 운영 도메인 전환. P0E CI/preview의 실제 SHA/검증 결과는 별도 결과 보고를 따른다.
 
-**여기서 STOP. 사용자의 다음 단일 작업 명시적 승인 전에는 P0F 또는 다른 구현을 시작하지 않는다.**
+**여기서 STOP. P0F 결과는 승인됐으며 다음 단일 작업 명시적 승인 전에는 Design System, HOME 또는 다른 구현을 시작하지 않는다.**

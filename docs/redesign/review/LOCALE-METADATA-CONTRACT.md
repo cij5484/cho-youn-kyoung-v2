@@ -1,7 +1,7 @@
 # P0D — KO / EN Routing + Metadata Contract
 
 2026-09-05 · IMPLEMENTED / locally verified · React Router + Static Prerender remains APPROVE.
-Scope: neutral fixtures and reusable contracts only. P0E is NOT STARTED.
+Scope: neutral fixtures and reusable contracts only. P0F status annotation: this contract remains unchanged; P0E CI/live integration passed and was approved. Current evidence is in [P0E result](../../../P0E-RESULT.md), task status in [HANDOFF](../../../CODEX-HANDOFF.md).
 
 ## URL and semantic identity
 
@@ -99,7 +99,7 @@ multiple content slugs and enumerate every publishable localized slug for preren
 schema/CMS/migration is outside P0D. The generic content type is a minimum boundary, not a review system.
 The KO-only fallback does not waive the planned full bilingual launch-content review.
 
-## Verification and boundaries
+## Historical P0D verification and boundaries
 
 - 18 documents per base, 36 total: independent HTML, lang/title/description/self-canonical/reciprocal hreflang/OG.
 - 80 local Edge tests: both strict static bases, JS disabled and hydrated, direct URL, cache-disabled reload,
@@ -114,5 +114,4 @@ P0D was locally verified as uncommitted work on baseline `2be1162`. The user sub
 PR publication and merge without additional validation. P0C remains the last directly verified deployment in this report. Live tests are extended for the new contract but must be run only
 after an explicitly approved deployment of these 18 fixtures, with its actual deployment SHA.
 
-**STOP. Recommended next bounded task: P0E, review the existing delivery checks and wire these locale
-checks into CI. Reusing or deploying the P0D artifact must be explicitly included in that approval.**
+Historical P0D STOP was followed by separately approved P0E CI/delivery. P0F only clarifies document ownership/status; no locale semantics changed. Follow [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md) and HANDOFF for the current approval boundary, not this historical sequence.

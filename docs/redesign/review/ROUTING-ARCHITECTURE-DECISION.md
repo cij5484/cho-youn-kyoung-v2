@@ -2,7 +2,7 @@
 
 2026-09-05 · **APPROVE — React Router + Static Prerender**
 
-P0D update: the user explicitly confirmed this final architecture decision. The [locale/metadata contract](LOCALE-METADATA-CONTRACT.md) now passes 18-route local verification at both bases. P0C evidence below is historical real-host proof; no P0D deployment occurred.
+P0D update: the user explicitly confirmed this final architecture decision. The [locale/metadata contract](LOCALE-METADATA-CONTRACT.md) now passes 18-route local verification at both bases. P0C evidence below is historical real-host proof. P0F status annotation: P0E subsequently verified/deployed the 18-route P0D contract; see [P0E result](../../../P0E-RESULT.md). The ADR decision and placement contract are unchanged.
 
 ## Decision and authority
 
@@ -58,4 +58,4 @@ a spike catalog. Future loaders/.data/resource routes need a representative buil
 Explicit index.html alias hydration and exhaustive case/malformed-encoding policy were not part of the latest required
 gate; links/canonical use clean directory URLs. No support for those aliases is claimed.
 
-P0D was separately approved and completed locally. Recommended next: P0E delivery-check wiring only after explicit approval. **STOP after P0D.**
+P0D and P0E were separately approved and completed. Their results preserve the evidence by revision. P0F changes documentation status/links only; follow [HANDOFF](../../../CODEX-HANDOFF.md) and [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md) for the current STOP boundary.

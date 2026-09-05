@@ -1,7 +1,7 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 03 — MOTION SYSTEM
 
-**Version:** 1.6\
+**Version:** 1.7\
 **Status:** Approved Motion Baseline  
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`  
 **Motion Direction:** Quiet Motion / Physical Response
@@ -315,6 +315,10 @@ Must satisfy:
 
 Do not develop complex 3D directly inside HOME or Album Detail.
 
+Before relevant production 3D begins, complete the separately approved
+[Blender Capability Spike](#blender-capability-spike) and review its decision. This is a required
+pipeline investigation, not a prior decision to use Blender. P0F records it only; no Lab or model exists yet.
+
 Create an isolated development-only environment, e.g.:
 
 `/lab/album-3d`
@@ -408,14 +412,16 @@ Do not define the same parameter in CSS, JSX, and helpers independently.
 
 Use small verified commits.
 
-Example:
+Use the canonical IDs in [Task Protocol](review/IMPLEMENTATION-TASK-PROTOCOL.md), for example:
 - `3D-01 geometry verified`
-- `3D-02 textures verified`
+- `3D-02 materials verified`
 - `3D-03 camera verified`
-- `3D-04 drag verified`
-- `3D-05 inertia verified`
-- `3D-06 mobile verified`
-- `3D-07 performance verified`
+- `3D-04 lighting verified`
+- `3D-05 drag verified`
+- `3D-06 inertia verified`
+- `3D-12 adaptive quality verified`
+
+These are illustrative commit subjects, not claims that those tasks have run.
 
 Do not change geometry, camera, light, drag, and responsive behavior in one uncontrolled commit.
 
@@ -816,3 +822,99 @@ The visitor should not think:
 The visitor should feel:
 
 **“This page has depth, weight, rhythm, and response.”**
+
+---
+
+<a id="blender-capability-spike"></a>
+
+# 47. BLENDER CAPABILITY SPIKE — REQUIRED FUTURE GATE
+
+**REQUIRED BEFORE RELEVANT 3D PRODUCTION / NOT EXECUTED.** The investigation is required;
+Blender adoption is not decided. P0F only records this gate. Local availability, bpy, exports,
+browser appearance and mobile performance have not been tested, and no installation/modeling is authorized.
+This gate blocks choosing a production 3D asset pipeline, not unrelated content or Design System work.
+
+Candidate pipeline to prove with a neutral, disposable fixture in a dedicated Lab:
+
+`Codex / Astra → Blender Python / bpy → .blend master → GLB / render → React Three Fiber → Browser → Mobile performance`
+
+Prefer reproducible scripts over GUI-only steps where practical. This diagram is a proposal, not proof of
+tool access, a mandate to change the Codex model, or permission to build an album/Haegeum production asset.
+Record exact versions, commands, inputs, output locations and parameters. Do not put private or large
+production masters into the public runtime repository; a future storage decision follows MASTER §29.
+
+| Evidence required | Acceptance question |
+|---|---|
+| Local execution / bpy | Can the identified local Blender version execute a recorded script? If unavailable, report it; do not silently install or claim support |
+| Deterministic geometry / .blend save | Do repeated runs from the same declared inputs recreate dimensions, topology, pivots, names and saved master? Reload the saved result; do not assume incidental binary bytes must match |
+| GLB export / material compatibility | Does export preserve the intended geometry/material subset in the web consumer? Record unsupported features and an explicit alternative; no hidden shader approximation |
+| Coordinates / scale | Do units, axes, orientation, normals, pivots and measured dimensions survive export/import without compensating page scale/rotation patches? |
+| R3F / browser appearance | Does a minimal isolated fixture import and render under fixed camera/light with reference screenshots? No page integration or production visual tuning |
+| File size / mobile GPU | Record GLB bytes, mesh/texture cost, load behavior, frame stability and observed thermal/scroll impact on named real devices against the applicable Performance gates |
+| Repeatable modification | Change one declared input, regenerate master/export, and demonstrate the intended isolated difference with a rollback checkpoint |
+
+The spike is a queue of separately approved units in [Task Protocol](review/IMPLEMENTATION-TASK-PROTOCOL.md)
+(BLENDER-01A–E), each followed by report/STOP. Export/import checks may inspect dependent behavior;
+they do not authorize tuning several production subsystems at once. Missing devices or evidence are
+NOT TESTED and cannot be converted into a pass. A failed check is fixed only in its approved owner task.
+
+Final decision must cite the completed evidence and its limits:
+
+- **APPROVE:** the tested pipeline is a viable candidate within the demonstrated scope. Reconsider Blender-authored
+  CD Tray, Digipak, Booklet and Disc geometry actively; compare perceptual quality, editability, size and mobile cost
+  with simple procedural geometry. No automatic adoption for every object and no waiver of Tray/continuity/quality gates.
+- **REVISE:** name the missing proof or owner correction and propose one bounded follow-up. Relevant production
+  pipeline adoption stays blocked; no silent completion if local execution or real-device evidence is missing.
+- **REJECT:** document why the tested pipeline is unsuitable and propose a maintainable alternative. Obtain a
+  separate decision on that alternative before relevant production starts; do not preserve Blender by patch chains.
+
+Completion of the spike is not approval to integrate production 3D, start another task, or publish artifacts.
+Simple geometry remains valid when evidence shows it better serves the object.
+
+<a id="haegeum-3d-experiment"></a>
+
+# 48. HAEGEUM 3D — HIGH-PRIORITY FUTURE EXPERIMENT
+
+**FUTURE EXPERIMENT / HIGH PRIORITY / NOT IMPLEMENTED / NOT A FIRST-RELEASE BLOCKER.**
+Preserve this in the long-term roadmap even if it develops after launch. It is a signature intellectual /
+visual asset candidate, not leftover-time decoration. No model, educational UI or performance quality is approved yet.
+It is separate from the existing HOME Haegeum scene and small Haegeum Secret; neither requires this model for launch.
+
+Goal: investigate a high-quality reusable master grounded in the real instrument. Candidate structural scope:
+resonator, bamboo neck/body structure, tuning pegs, two strings, bow stick, bow hair and major structural
+components. Validate reference photos, multiple angles, dimensions, component relationships and terminology
+with reliable authored/reviewed material before claiming anatomical or educational accuracy. Request missing
+assets when they materially affect the result; do not invent hidden structure from an inadequate photograph.
+
+Future uses to retain (each needs its own approval and quality gate):
+
+1. Interactive Haegeum Explorer.
+2. KO / EN instrument education using authored/reviewed content.
+3. Clickable component names and explanations, with accessible alternatives.
+4. Exploded view.
+5. Rotate / zoom.
+6. Macro structural views.
+7. An abstract design object for HOME or ABOUT.
+8. Haegeum-specific visual storytelling.
+9. Sound-linked subtle physical response.
+10. Bow / string interaction visualization.
+11. A future educational archive.
+
+The Haegeum is a bowed-string instrument. Any performance depiction must research bow direction,
+bow/string contact, sustained friction, subtle vibration, tension, damping and resonance. Follow §45;
+do not substitute a generic equalizer or exaggerated string bounce, or describe a visual approximation
+as a physically verified simulation. Audio/input and animation remain separately scoped tasks.
+
+If the Blender spike supports it, evaluate this reusable source pipeline:
+
+`High-quality Blender Master → Web optimized asset → Mobile optimized asset → Pre-render asset`
+
+Treat web/mobile/render outputs as traceable derivatives of an identified master, not unrelated copies
+or a page-owned disposable model. Record master revision, export parameters and intended consumer;
+the diagram names possible outputs, not a requirement to derive every output serially from the previous one.
+Master storage, authenticity, optimization and quality gates must be reviewed before production.
+
+This is not a Haegeum game or a game-development branch of V2. Blender scripting, modeling/procedural
+knowledge, materials, rigging concepts, animation, optimization, GLB/FBX export knowledge, real-time input
+and profiling may transfer to separately approved future game projects. V2 does not pre-build game
+engines, rigging systems, gameplay state or FBX pipelines for that possibility.

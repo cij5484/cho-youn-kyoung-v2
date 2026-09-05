@@ -1,6 +1,6 @@
 # Implementation Task Protocol — mandatory bounded work
 
-Revision 1.3 · 2026-09-05 · P0E CI/delivery contract; future units still require explicit approval.
+Revision 1.4 · 2026-09-05 · P0F knowledge wiring; P0E delivery unchanged; future units require explicit approval.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
@@ -160,11 +160,11 @@ The common setup is React/TypeScript/Vite. React Router + Static Prerender passe
 | P0C — Real GitHub Pages Deployment / Routing Verification — COMPLETE | Latest explicit approval included V2 repo creation, CI, real Pages routing and the architecture decision | V2 Git/workflow, deterministic placement, live tests, curated evidence and planning state | CI build/deploy/verify success; 42 live cases per browser environment; architecture APPROVE | Revert only V2 changes and preserve evidence. **STOP for P0D approval** |
 | P0D — KO / EN routing + metadata contract — COMPLETE | Complete the locale path/metadata/canonical/hreflang contract on the approved routing foundation | locale/path mapping and metadata fixtures/checks; no actual page design or full translation migration | 18 fixtures per base; 80 browser, 8 locale and 3 placement tests passed; actual translations remain separate; P0E subsequently passed 52 live cases | One separately approved task, split further if needed. **STOP for user review and next-task approval** |
 | P0E — CI Quality Gates + Delivery Contract — COMPLETE | Preserve approved P0C/P0D contracts; Fast push/PR checks and explicit Full/preview delivery | workflows, gate commands, browser config and current delivery guide; no product/architecture implementation | type/lint/locale/placement, both builds, existing routing/metadata browser tests, workflow validation and actual CI evidence in P0E result | Preserve checkpoints; reverting old workflow can re-enable auto-deploy, so review the intended trigger policy. **STOP for P0F approval** |
-| P0F — AGENTS.md / documentation wiring | Wire approved contracts and local run/check/stop guidance for future work | AGENTS.md, README/task links and existing planning docs only | document paths/commands match actual foundation; stop rule and next-unit policy discoverable | Revert documentation only. **STOP; P1 requires a separate bounded proposal and approval** |
+| P0F — AGENTS.md / Project Knowledge Wiring — APPROVED canonical | Root operating map, canonical document ownership/status, required future Blender gate and Haegeum experiment | AGENTS.md, README/HANDOFF, relevant existing planning/ADR docs and P0F result only | local links/anchors, references/commands, preserved checklist and documentation-only scope; evidence in P0F result | Baseline 93bc878 and ignored .checkpoints/p0f-before-93bc878; restore only task docs, preserve unrelated work. **P0F result approved; delivery explicitly authorized separately; STOP before P1, which needs separate approval** |
 
 Sequence revision: the latest P0B instruction prohibited deployment; the latest P0C instruction explicitly authorized cij5484/cho-youn-kyoung-v2 creation/connection and its preview deployment. P0C completed that minimal reproducible pipeline. This authorization applies only to P0C and V2; no production/legacy changes or next-unit authorization is implied.
 
-The stop rule is already binding in MASTER/HANDOFF before AGENTS.md is created in P0F. P0F is documentation wiring, not the first activation of the rule.
+The stop rule was binding in MASTER/HANDOFF before P0F. [AGENTS.md](../../../AGENTS.md) now maps it to current owners; P0F is documentation wiring, not the first activation of the rule.
 
 ### Routing/deployment spike acceptance matrix
 
@@ -192,9 +192,30 @@ Goal: verify actual media volume changes, mute/unmute, playback state and CORS c
 
 If real hardware/source is not available, mark those cases NOT TESTED; do not claim the audio gate passed. This does not prevent document-only work or P0A skeleton.
 
+## Required Blender Capability Spike — future separately approved units
+
+**REQUIRED BEFORE RELEVANT 3D PRODUCTION / NOT EXECUTED.** The semantic acceptance and decision owner is
+[Motion §47](../03-MOTION-SYSTEM.md#blender-capability-spike). This catalog owns task boundaries only.
+These are a queue, not a single long implementation run; every row needs separate approval/report/STOP.
+The spike may use a minimal neutral fixture to test the pipeline; it must not create production objects/pages.
+
+| Unit | One objective / limited scope | Validation / checkpoint / STOP |
+|---|---|---|
+| BLENDER-01A — Local capability | Identify local executable/version and test minimal bpy execution; no model production or automatic installation | Record commands/version/availability. Unavailable → report missing setup; no claim of support. **STOP** |
+| BLENDER-01B — Scripted master | One neutral geometry script with explicit units/parameters; deterministic rebuild and .blend save/reload | Compare dimensions/topology/pivots on repeat runs; retain input/script/master checkpoint. **STOP** |
+| BLENDER-01C — Export contract | GLB/render export of the frozen fixture with fixed neutral material/camera/light | Check material subset, axes/scale/normals/pivots and output size; no compensating changes in other owners. Preserve 01B. **STOP** |
+| BLENDER-01D — Browser import | Minimal isolated R3F consumer of the frozen export, no page integration | Compare browser appearance/dimensions with fixture reference; load/size evidence. Do not retune source/material/camera together. **STOP** |
+| BLENDER-01E — Capability decision | Validation only: real-mobile GPU/thermal/scroll cost, repeat one declared parameter edit and evaluate evidence | Record device conditions, repeatable regeneration and rollback; APPROVE / REVISE / REJECT with limits. Missing proof → REVISE, owner correction is a new task. **STOP** |
+
+Each unit keeps a local checkpoint of its own files and restores only those files if needed; do not erase
+user work or previous evidence. 01E's prescribed parameter change is a repeatability probe, not a production
+model edit or permission to correct several subsystems. No integration/adoption follows automatically.
+If rejected, relevant production needs a separately reviewed alternative. Haegeum 3D remains a distinct
+[high-priority future experiment](../03-MOTION-SYSTEM.md#haegeum-3d-experiment), not a first-release gate.
+
 ## 3D — smaller owner-subsystem tasks
 
-Labs are required. Every row is a separate review/approval boundary. A row that exceeds one clear goal must be split further.
+Before relevant production rows, complete the required Blender capability decision above; Blender itself is not mandatory. Labs are required. Every row is a separate review/approval boundary. A row that exceeds one clear goal must be split further.
 
 | ID | Single objective | Owner / expected scope | Verification / next boundary |
 |---|---|---|---|
@@ -228,7 +249,7 @@ The sequence in each row is a **queue of separate tasks**, not one combined task
 |---|---|---|
 | P1 | schema → one source/record migration → references/slugs → one asset inventory batch → translation status | data/schema/manifest only; schema/ref/source checks per batch |
 | P2 | palette/contrast → typography → grid/spacing → links/focus → desktop navigation → mobile navigation | one token/component group; calculation or specimen screenshots |
-| P3 | motion tokens → one gesture → one cursor → one transition → AUDIO-01 volume → truthful audio states → same-route session → one audio-line prototype → individual 3D tasks above | one feature/owner at a time; input/media/state test and preview |
+| P3 | motion tokens → one gesture → one cursor → one transition → AUDIO-01 volume → truthful audio states → same-route session → one audio-line prototype → BLENDER-01A–E separately → individual production 3D tasks above | one feature/owner at a time; input/media/state test and preview |
 | P4 | Hero static composition → Hero motion/nav → each later scene individually → each adjacent scene boundary separately | one scene or one boundary's files; desktop/mobile/reduced-motion evidence |
 | P5 | dual portal → filter → editorial grid → chronology index → mobile sticky/direct entry | one archive subsystem; filter/history/keyboard behavior |
 | P6 | one repeatable render preset/export task → one exhibition chapter → second chapter → handoff integration | render or chapter/transition only; frame alignment / listing screenshot |
@@ -249,4 +270,4 @@ Repeated page units must stay individually reviewable. Validation may inspect de
 The document contracts and bounded starter task are defined; later decisions are assigned to spikes and gates.
 This is not authorization to execute P0A, not proof of prerender suitability, and not approval to run P0A–F continuously.
 
-The above readiness was the initial planning snapshot. Current action: P0E complete after local/CI/live evidence; STOP and wait for explicit approval of P0F. It has not started.
+The above readiness was the initial planning snapshot. Current action: P0F documentation canonical APPROVED; [result](../../../P0F-RESULT.md). The user separately authorized delivery only (commit/main push/Fast CI); STOP before any next task, which requires new approval. Recommended only: P1A Content/Data Schema Contract with neutral fixtures; no migration or visual implementation.

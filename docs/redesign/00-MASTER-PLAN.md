@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 00 — REDESIGN MASTER PLAN
 
-**Version:** 1.9\
-**Status:** Approved Planning Baseline — P0A–D complete (P0D local); P0C routing architecture APPROVED; product implementation pending\
+**Version:** 1.10\
+**Status:** Approved Planning Baseline — P0A–E approved; P0F knowledge wiring canonical APPROVED; product implementation pending\
 **Legacy Repository:** `cij5484/cho-youn-kyoung`  
 **Target Repository:** `cij5484/cho-youn-kyoung-v2`  
 **Final Production Domain:** `https://choyounkyoung.com`  
@@ -314,7 +314,7 @@ Production custom domain으로 전환할 때 `/`로 쉽게 변경 가능해야 �
 
 # 19. SPA FALLBACK
 
-GitHub Pages에서 clean-route SPA가 직접 URL 접근 및 refresh 시 정상 작동하도록 PHASE 0에서 해결한다.
+초기 SPA fallback 문제의 현재 해결은 APPROVED static prerender + deterministic file placement다. GitHub Pages direct URL/refresh는 각 valid route의 정적 HTML로 제공하며 unknown request의 실제 HTTP 404를 보존한다. 모든 경로를 200으로 복구하는 fallback은 배포하지 않는다.
 
 Acceptance:
 
@@ -442,6 +442,10 @@ Hero, Title, Date, Venue, Program, Performers, Artist Note, Program Notes, Photo
 핵심 대상은 Album Package이며, 다른 3D도 품질 기준을 통과하는 경우에만 사용한다.
 
 기존 3D 구현은 reference implementation과 logic donor로 사용하되 monolith를 그대로 복사하지 않는다.
+
+관련 production 3D 이전에 **BLENDER CAPABILITY SPIKE — REQUIRED / NOT EXECUTED**를 별도 승인 단위로 수행한다. Blender 채택은 아직 미정이며 실제 bpy→.blend→GLB/render→R3F/browser→mobile 증거로 APPROVE / REVISE / REJECT를 결정한다. 상세 acceptance의 정본은 [Motion §47](03-MOTION-SYSTEM.md#blender-capability-spike), 작업 분할은 [Task Protocol](review/IMPLEMENTATION-TASK-PROTOCOL.md)이다. 성공 시 Tray/Digipak/Booklet/Disc의 Blender geometry를 적극적으로 비교하되 단순 geometry가 더 적합하면 불필요하게 Blender를 쓰지 않는다.
+
+**Haegeum 3D — FUTURE EXPERIMENT / HIGH PRIORITY**를 장기 roadmap에 보존한다. 첫 release의 blocker는 아니며 페이지 종속 장식이 아닌 재사용 master·교육/시각 자산 후보다. 구조·11가지 활용·bowed-string 표현·master 파생물·별도 game project 경계의 정본은 [Motion §48](03-MOTION-SYSTEM.md#haegeum-3d-experiment)이다. 기존 HOME 해금 scene과 별개이며 launch 후에도 삭제하지 않는다. P0F에서는 두 항목 모두 문서만 기록한다.
 
 ---
 
@@ -576,6 +580,12 @@ If a task conflicts with the Master Plan, identify the conflict instead of silen
 
 # 34. CODEX CONTEXT RULE
 
+Repository documentation is canonical; chat history/model memory is not project source of truth.
+Start with [root AGENTS](../../AGENTS.md), [HANDOFF](../../CODEX-HANDOFF.md), this MASTER, relevant specs,
+then the active plan/result/protocol. Read relevant current owners rather than all specs every time.
+AGENTS is the operating map; HANDOFF §26 owns current status; README owns human setup; Task Protocol
+owns CI/delivery/STOP. Results/Revision Log preserve scoped history and do not silently supersede contracts.
+
 Major tasks must follow:
 
 `MASTER PLAN + PHASE SPEC + CURRENT TASK`
@@ -589,7 +599,7 @@ Codex must not receive isolated implementation tasks without project context.
 **The only current canonical roadmap is PHASE 0–14.** The former 0–12 roadmap is historical and superseded; its feature requirements remain in the corresponding specifications.
 
 ## PHASE 0 — FOUNDATION
-Bounded project/base setup, routing/deployment spike, direct URL/refresh/404 checks, KO/EN route validation, deployment workflow, AGENTS/document wiring. React Router + Static Prerender passed the real Pages P0C gate and is APPROVED; P0D completes the neutral locale/metadata contract locally; actual translations and launch SEO remain separately scoped.
+Bounded project/base setup, routing/deployment spike, direct URL/refresh/404 checks, KO/EN route validation, deployment workflow, AGENTS/document wiring. React Router + Static Prerender passed the real Pages P0C gate and is APPROVED; P0D established the neutral locale/metadata contract and P0E verified its CI/live integration. P0F documentation is approved as canonical; actual translations and launch SEO remain separately scoped.
 
 ## PHASE 1 — CONTENT / DATA FOUNDATION
 Schemas, verified factual content, permanent IDs, translations, asset manifest and URL policy.
@@ -598,7 +608,7 @@ Schemas, verified factual content, permanent IDs, translations, asset manifest a
 Typography, palette including accessible muted text, grid, spacing, layout, imagery, responsive tokens.
 
 ## PHASE 3 — MOTION SYSTEM
-Shared input/motion/transition rules, audio capability spike, mandatory 3D Lab and Tray Lab, subsystem freezes and quality protocol.
+Shared input/motion/transition rules, audio capability spike, required Blender Capability Spike before relevant 3D production, mandatory 3D Lab and Tray Lab, subsystem freezes and quality protocol. Haegeum reusable 3D master remains a high-priority long-term experiment, not a launch blocker; no automatic execution or added phase.
 
 ## PHASE 4 — HOME
 Eight scenes and their transitions, implemented one bounded scene or boundary at a time.
@@ -891,8 +901,8 @@ Mobile volume remains a requirement. Verify real programmatic control in P0 or t
 
 React Router Framework + ssr:false + explicit static prerender is APPROVED after the user-authorized P0C architecture gate. Actual Project Pages passed all 13 requested KO/EN fixture routes, direct/hard refresh, navigation/history, JS-off HTML, metadata/lang, real HTTP 404 and deployed asset hashes/MIME. Root-mode build/hosting was verified locally and root build runs in CI.
 
-See [review/ROUTING-ARCHITECTURE-DECISION.md](review/ROUTING-ARCHITECTURE-DECISION.md) for the final decision and file-placement contract. The architectural decision does not mark full KO/EN content, final SEO or production-domain migration complete. P0D separately verifies the reciprocal hreflang and metadata contract locally; the real Pages deployment remains the P0C artifact. Every future public route and slug still requires static HTML and its locale/metadata contract; these remain release gates.
+See [review/ROUTING-ARCHITECTURE-DECISION.md](review/ROUTING-ARCHITECTURE-DECISION.md) for the final decision and file-placement contract. The architectural decision does not mark full KO/EN content, final SEO or production-domain migration complete. P0D verified reciprocal hreflang and metadata locally; P0E subsequently passed 80 both-base browser cases and 52 actual Pages cases on ea146f6. See [P0E result](../../P0E-RESULT.md) for historical deployment identity and evidence; P0F does not redeploy. Every future public route and slug still requires static HTML and its locale/metadata contract; these remain release gates.
 
-Actual user-approved sequence: P0B local spike, P0C real Pages/CI and architecture decision, then separately approved P0D locale contract. P0E may review/harden the proven workflow but is not automatically started. Root-mode testing must not change the operating custom domain during P0. Actual domain/HTTPS cutover is P14.
+Actual user-approved sequence: P0B local spike, P0C real Pages/CI and architecture decision, P0D locale contract, P0E CI/delivery, then P0F documentation wiring only. P0E Fast/Full and explicit approved-SHA deployment remain the current contract. Root-mode testing must not change the operating custom domain during P0. Actual domain/HTTPS cutover is P14.
 
-Do not fall back to HashRouter. P0A–D have completed under separate approvals. P0D is local contract work; no new deployment occurred. STOP after P0D reporting; P0E/F require separate approval.
+Do not fall back to HashRouter. P0A–E completed under separate approvals. P0F documentation / AGENTS is approved as canonical; its separately authorized delivery does not authorize a next bounded task. STOP and wait for that explicit approval. No product/Blender/3D work is started by document approval.

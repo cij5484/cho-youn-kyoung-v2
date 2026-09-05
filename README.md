@@ -2,7 +2,7 @@
 
 P0E에서 승인된 KO/EN routing·metadata 계약을 CI와 명시적 delivery 절차에 연결했습니다. React + TypeScript + Vite 기반의
 18개 neutral test route이며 실제 사이트 디자인·번역·콘텐츠는 없습니다.
-**React Router + Static Prerender APPROVE / HOME V2.1 문서 승인 / P0F 미착수.**
+**React Router + Static Prerender APPROVE / HOME V2.1 문서 승인 / P0F documentation / AGENTS canonical APPROVED.**
 
 [P0D 결과](P0D-RESULT.md), [언어·metadata 계약](docs/redesign/review/LOCALE-METADATA-CONTRACT.md),
 [검증 증거](evidence/p0d/README.md). P0D는 PR #1로 머지됐습니다. 현재 CI/delivery 정본은
@@ -11,6 +11,14 @@ P0E에서 승인된 KO/EN routing·metadata 계약을 CI와 명시적 delivery �
 Preview: [GitHub Pages](https://cij5484.github.io/cho-youn-kyoung-v2/). 최신 배포 SHA/실제 CI 결과는 P0E 결과에서 확인합니다.
 [P0C 당시 배포·검증 결과](P0C-RESULT.md), [변경되지 않은 파일 배치 설명 / 과거 pipeline](P0C-DEPLOYMENT.md).
 **Push/merge는 더 이상 자동 배포하지 않습니다. 수동 Full gate의 deploy 기본값은 false입니다.**
+
+## 프로젝트 문서 시작점
+
+이 README는 개발자용 setup·명령·구조 안내입니다. Agent의 작업 지침과 문서 선택 지도는
+[root AGENTS.md](AGENTS.md), 현재 상태·승인 경계는 [CODEX-HANDOFF.md](CODEX-HANDOFF.md),
+이번 문서 연결 결과는 [P0F 결과](P0F-RESULT.md)에 있습니다. 채팅 기억 대신 repository 문서를 기준으로 삼습니다.
+Blender는 아직 채택/실행되지 않았습니다. 필수 capability spike와 high-priority Haegeum 3D 실험은
+[Motion의 미래 3D gate](docs/redesign/03-MOTION-SYSTEM.md#blender-capability-spike)에 기록된 후속 과제입니다.
 
 ## 실행 환경
 
@@ -116,4 +124,4 @@ P0B까지 기획·review 원본 21개를 보존했습니다. P0C에서는 사용
 P0A–D 결과는 당시 기록으로 보존합니다. 현재 delivery 상태/CI run/배포 증거는 P0E 결과를 따릅니다.
 모든 push는 Fast 검사만 하며 문서 변경 때문에 배포할 필요는 없습니다. 실제 preview 배포는 사용자 승인 범위에서
 pages.yml을 deploy=true와 승인된 full SHA로 명시적으로 실행합니다. main SHA와 실제 배포 SHA를 구분합니다.
-**보고 후 STOP. 사용자의 명시적 승인 전에는 P0F 또는 다른 구현 단위를 시작하지 않습니다.**
+**P0F 문서 보고 후 STOP. P0F 결과는 승인됐으며, 다음 단위의 명시적 승인 전에는 Design System, HOME 또는 다음 Phase를 시작하지 않습니다.**

@@ -1,7 +1,7 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 07 — ALBUM DETAIL
 
-**Version:** 1.1  
+**Version:** 1.2\
 **Status:** Approved ALBUM DETAIL Baseline  
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`, `06-ALBUMS.md`  
 **Page Role:** Physical Album Experience + Editorial Listening Archive
@@ -226,11 +226,13 @@ Implementation may use:
 
 depending on which produces the best perceptual quality and maintainability.
 
-Preferred first attempt:
-
-**simple, accurate procedural geometry**
-
-Escalate to Blender/GLB only if the tray/hub shape remains visually weak.
+Before relevant production geometry work, complete the required
+[Blender Capability Spike](03-MOTION-SYSTEM.md#blender-capability-spike) and review its APPROVE / REVISE / REJECT
+decision. Blender is not yet selected or tested. A successful spike makes Blender-authored CD Tray,
+Digipak, Booklet and Disc active candidates based on perceptual quality, repeatability and mobile cost.
+Simple, accurate procedural geometry remains a candidate when it is the better fit; Blender need not wait
+for a failed procedural attempt. This supersedes the former procedural-first / Blender-only-as-escalation rule.
+The mandatory Tray Lab and all quality requirements below remain unchanged. P0F creates no tray or model.
 
 ---
 

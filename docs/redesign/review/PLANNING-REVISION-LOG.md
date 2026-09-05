@@ -1,6 +1,25 @@
 # Planning Revision Log — 2026-09-05
 
-Revision 1.5 · **P0E CI/delivery contract COMPLETE / STOP before P0F**.
+Revision 1.6 · **P0F Project Knowledge Wiring canonical APPROVED / delivery only**.
+
+## P0F canonical approval / delivery authorization
+
+- 사용자가 P0F 결과와 documentation/AGENTS 상태를 canonical로 승인했다. 이번 후속 작업은 P0F 문서만 하나의 logical commit으로 V2 main에 push하고 Fast CI를 확인하는 delivery다.
+- 링크/범위 재확인: Markdown 13개만 변경, 정상 local link 403개/anchor 14개, 기존 P0A 역사적 경로 3개 외 새 문제 없음. 코드/workflow/dependency 변경 없음. P1A·배포·legacy 변경은 승인 범위 밖이다.
+
+## Historical P0F preparation — documentation only
+
+- Repository documentation을 canonical knowledge로 지정했다. root AGENTS는 운영 지도, HANDOFF는 현재 상태/catalog, MASTER는 철학/PHASE 0–14, page/system spec은 상세 계약, Task Protocol은 작업/CI/delivery, README는 사람용 실행 안내다.
+- HANDOFF의 매번 read ALL 요구를 AGENTS→HANDOFF→MASTER→관련 spec→현재 plan/result/protocol의 선택 읽기로 바꿨다. 기존 15개 spec catalog와 207개 체크박스는 보존했다.
+- Motion §47에 필수 미래 Blender Capability Spike를 기록했다. 실제 local/bpy/.blend/GLB/material/좌표/R3F/browser/size/mobile/repeatability 증거 후 APPROVE/REVISE/REJECT; 현재 NOT EXECUTED / adoption undecided다. Task Protocol BLENDER-01A–E는 각 별도 승인/STOP 단위다.
+- Motion §48에 HIGH PRIORITY Haegeum 3D master·구조·11개 활용·bowed-string 연구·web/mobile/pre-render 파생 pipeline을 보존했다. 첫 release를 막지 않으며 기존 HOME scene/Secret이나 game project로 바꾸지 않았다.
+- Album Detail §10과 Plan §9의 procedural-first/Blender-only-after-failure 제한을 최신 사용자 지시로 대체했다. 단순 geometry 후보, mandatory perceptual Tray gate와 continuity/freeze는 유지했다.
+- Motion의 과거 commit 예시 ID를 Task Protocol과 맞췄다. MASTER/ADR/locale의 오래된 P0E 미착수·P0C-only 배포 문장을 현재 상태와 구분했고 과거 검증 기록은 보존했다.
+- APPROVED / IMPLEMENTED / VERIFIED / QUALITY APPROVED / FUTURE EXPERIMENT / OPTIONAL / BLOCKING 정의와 현재 상태의 정본을 HANDOFF §26에 뒀다.
+- 새 파일은 AGENTS.md와 [P0F result](../../../P0F-RESULT.md)뿐이다. 상세 3D 안내나 delivery guide를 별도 복제하지 않았다. P0E CI/commands/source/architecture, HOME 상세 art direction은 변경하지 않았다.
+- 문서 링크/anchor/범위/상태 검토만 수행한다. Blender 설치·실행, 3D/Tray/Haegeum 제작, npm/build/browser/배포, content/asset migration 및 다음 Phase 없음. P0F는 로컬 검토 상태이며 새 commit/push/deploy를 실행하지 않았다.
+
+## Historical P0E completion record
 
 ## P0E CI Quality Gates + Delivery Contract
 

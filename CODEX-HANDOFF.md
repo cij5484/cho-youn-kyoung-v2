@@ -1,33 +1,37 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** P0A–P0E complete; Fast/Full CI and live Pages verified, evidence in P0E-RESULT.md — STOP before P0F\
-**Revision:** 1.2 / 2026-09-05 user decisions 1–9 preserved; HOME V2.1 documentation revision incorporated\
+**Status:** P0A–P0E approved; P0F documentation / AGENTS canonical APPROVED — STOP before any next task\
+**Revision:** 1.3 / 2026-09-05 — P0F knowledge wiring; prior decisions and HOME V2.1 preserved\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 ---
 
 # 1. REQUIRED READING ORDER
 
-Before planning implementation, read ALL:
+Read in order: [AGENTS.md](AGENTS.md) → this HANDOFF → [MASTER](docs/redesign/00-MASTER-PLAN.md) → the task-relevant page/system specifications → [active plan](docs/redesign/review/V2-IMPLEMENTATION-PLAN.md), applicable result and [Task Protocol](docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md).
 
-1. `00-MASTER-PLAN.md`
-2. `01-CURRENT-SITE-AUDIT.md`
-3. `02-DESIGN-SYSTEM.md`
-4. `03-MOTION-SYSTEM.md`
-5. `04-HOME.md`
-6. `05-WORKS.md`
-7. `06-ALBUMS.md`
-8. `07-ALBUM-DETAIL.md`
-9. `08-PERFORMANCES.md`
-10. `09-PERFORMANCE-DETAIL.md`
-11. `10-ABOUT-MEDIA-CONTACT.md`
-12. `11-RESPONSIVE.md`
-13. `12-PERFORMANCE.md`
-14. `13-ACCESSIBILITY.md`
-15. `14-MIGRATION-QA.md`
+Repository documentation is the project source of truth, not chat history or model memory. The user's explicit revisions are reconciled into their owning documents. This order is a navigation map, not a demand to reread every specification on every task. Reuse already-read, unchanged context; inspect the relevant owner and current revision. Historical results remain evidence for their recorded scope, not current approval instructions.
 
-Do not implement from an isolated task prompt without this context.
+The following is the complete specification catalog; select relevant entries rather than reading all unconditionally:
+
+1. [00-MASTER-PLAN.md](docs/redesign/00-MASTER-PLAN.md)
+2. [01-CURRENT-SITE-AUDIT.md](docs/redesign/01-CURRENT-SITE-AUDIT.md)
+3. [02-DESIGN-SYSTEM.md](docs/redesign/02-DESIGN-SYSTEM.md)
+4. [03-MOTION-SYSTEM.md](docs/redesign/03-MOTION-SYSTEM.md)
+5. [04-HOME.md](docs/redesign/04-HOME.md)
+6. [05-WORKS.md](docs/redesign/05-WORKS.md)
+7. [06-ALBUMS.md](docs/redesign/06-ALBUMS.md)
+8. [07-ALBUM-DETAIL.md](docs/redesign/07-ALBUM-DETAIL.md)
+9. [08-PERFORMANCES.md](docs/redesign/08-PERFORMANCES.md)
+10. [09-PERFORMANCE-DETAIL.md](docs/redesign/09-PERFORMANCE-DETAIL.md)
+11. [10-ABOUT-MEDIA-CONTACT.md](docs/redesign/10-ABOUT-MEDIA-CONTACT.md)
+12. [11-RESPONSIVE.md](docs/redesign/11-RESPONSIVE.md)
+13. [12-PERFORMANCE.md](docs/redesign/12-PERFORMANCE.md)
+14. [13-ACCESSIBILITY.md](docs/redesign/13-ACCESSIBILITY.md)
+15. [14-MIGRATION-QA.md](docs/redesign/14-MIGRATION-QA.md)
+
+Do not implement from an isolated task prompt without this context. README owns human setup/commands; AGENTS owns agent operation; this HANDOFF owns current status.
 
 ---
 
@@ -461,13 +465,43 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 - Prerender architecture: APPROVE — React Router Framework + ssr:false + explicit prerender + deterministic static artifact placement.
 - V2 public repository: cij5484/cho-youn-kyoung-v2. Original P0C deployment SHA: 137b3420fda15b9670e109989da54230d959966e. Latest verified preview SHA: ea146f629cc2f0de89ed540b0b0747757f4a8011 (P0E).
 - P0D locale/metadata contract: COMPLETE; local proof below, CI/live integration also passed in P0E. 18 KO/EN fixtures per base, 80 browser + 8 locale + 3 placement tests passed. See [contract](docs/redesign/review/LOCALE-METADATA-CONTRACT.md) and [result](P0D-RESULT.md).
-- P0E CI/delivery: COMPLETE; Fast run 33960545431 and Full/deploy/live run 33960594951 passed (Linux browser 80/80, real Pages 52/52). Results are recorded in [P0E result](P0E-RESULT.md). P0F and actual product pages: NOT STARTED. Authored translation/content, final SEO, audio/mobile and 3D gates remain pending.
+- P0E CI/delivery: COMPLETE; Fast run 33960545431 and Full/deploy/live run 33960594951 passed (Linux browser 80/80, real Pages 52/52). Results are recorded in [P0E result](P0E-RESULT.md). P0F documentation is now approved as canonical; actual product pages: NOT STARTED. Authored translation/content, final SEO, audio/mobile and 3D gates remain pending.
 - After the P0D report, the user authorized PR publication and merge, with no additional validation. P0D merged via PR #1 / cb7605f; its historical run 33958333876 succeeded. P0E supersedes automatic-main-push deployment with explicit SHA-bound delivery.
 - Existing production repository/domain unchanged. See [P0C result](P0C-RESULT.md) and [architecture decision](docs/redesign/review/ROUTING-ARCHITECTURE-DECISION.md).
 - Design/function requirements remain; the ZIP preserves the historical baseline.
 - Checklist boxes stay unchecked until actual implementation/validation evidence exists. Document coverage lives in [HANDOFF audit](docs/redesign/review/HANDOFF-AUDIT.md).
 - HOME V2.1 documentation revision: COMPLETE; existing HOME requirements retained and quality bar raised. That HOME documentation task performed no HOME/React/CSS, image manipulation/migration, motion/3D, dependency, deployment or P0E work. Approved documents were later committed separately as bb8460e. Asset suitability and all HOME visual gates remain unverified.
-- Current stop point: P0E COMPLETE, report and evidence saved. [Task Protocol](docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md) owns Fast/Full checks, delivery states and explicit preview deployment. P0F requires separate approval; no next task is started by green CI.
+- P0F — AGENTS.md / Project Knowledge Wiring: documentation implemented; document verification and scope are recorded in [P0F result](P0F-RESULT.md). Canonical/result APPROVED. A separate delivery-only instruction authorizes one logical commit, V2 main push and Fast CI confirmation; no deployment or next-phase implementation.
+- Current stop point: P0F report. [Task Protocol](docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md) owns Fast/Full checks, delivery states and explicit preview deployment. P0F delivery has its own explicit user authorization; it is not inherited from P0E. P0F result is approved; any next task still needs explicit approval.
+
+<a id="knowledge-status"></a>
+
+## Knowledge and execution status vocabulary
+
+| Status | Meaning |
+|---|---|
+| APPROVED | User accepted the named direction/contract or result; say which. It does not authorize all implementation/delivery |
+| IMPLEMENTED | The named code or documentation exists; this alone is not proof that it passed checks |
+| VERIFIED | Identified checks passed for a named revision/environment and scope; cite evidence, distinguish historical from rerun |
+| QUALITY APPROVED | Applicable visual/physical/input/mobile/performance/fallback gates and user quality review passed; Functional Complete is insufficient |
+| FUTURE EXPERIMENT | Preserved investigation with no implementation/adoption claim; priority is a separate attribute |
+| OPTIONAL | Not required within the stated scope; it still needs task approval and is not permission to discard a high-priority roadmap item |
+| BLOCKING | An unmet condition prevents a named downstream gate, not all unrelated work |
+
+| Subject | Current state / exact boundary |
+|---|---|
+| React Router + Static Prerender / locale metadata | APPROVED / IMPLEMENTED / VERIFIED for neutral fixtures through P0C/P0D/P0E; full product SEO/content is not complete |
+| P0E CI/delivery | APPROVED / IMPLEMENTED / VERIFIED; historical actual run evidence in P0E result |
+| HOME V2.1 | APPROVED DESIGN DIRECTION / NOT YET IMPLEMENTED / NOT QUALITY APPROVED |
+| P0F knowledge wiring | APPROVED canonical / IMPLEMENTED documentation / VERIFIED document scope in P0F result |
+| Blender Capability Spike | REQUIRED BEFORE RELEVANT 3D PRODUCTION / NOT EXECUTED; Blender adoption undecided; Motion §47 owns acceptance |
+| CD Tray Lab | MANDATORY / NOT IMPLEMENTED / BLOCKING Album Detail package Quality Approved until its gate passes |
+| Haegeum 3D master | FUTURE EXPERIMENT / HIGH PRIORITY / NOT IMPLEMENTED; NOT BLOCKING first release, not disposable optional decoration; Motion §48 |
+| Production domain / real-device product QA | Not performed by P0F; remain separately approved release/owner gates |
+
+The required action is the Blender investigation, not mandatory Blender adoption. Its own capability APPROVE
+would not Quality Approve an object. Haegeum 3D is distinct from the existing HOME Haegeum scene and Secret.
+Long-term experiments stay inside the PHASE 0–14 planning framework; no unapproved Phase 15 or game architecture.
 
 # 27. FINAL HANDOFF RULE
 
