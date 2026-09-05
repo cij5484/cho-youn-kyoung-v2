@@ -12,7 +12,9 @@ Preview: [GitHub Pages](https://cij5484.github.io/cho-youn-kyoung-v2/). 최신 �
 [P0C 당시 배포·검증 결과](P0C-RESULT.md), [변경되지 않은 파일 배치 설명 / 과거 pipeline](P0C-DEPLOYMENT.md).
 **Push/merge는 더 이상 자동 배포하지 않습니다. 수동 Full gate의 deploy 기본값은 false입니다.**
 
-P1A는 별도 content schema/neutral fixture/route adapter를 로컬에서 검증했습니다. [Content Schema Contract](docs/redesign/review/CONTENT-SCHEMA-CONTRACT.md)와 [P1A 결과](P1A-RESULT.md)를 따릅니다. 현재 페이지·18개 prerender route는 그대로이며 실제 template 연결은 미구현입니다.
+P1A는 content schema/neutral fixture/route adapter를 검증했습니다. P1C 매핑 승인 후 P1D에서 지영희류 KO record
+한 건을 실제 content layer의 비공개 draft로 등록했습니다. [Content Schema Contract](docs/redesign/review/CONTENT-SCHEMA-CONTRACT.md)와
+[P1D 결과](P1D-RESULT.md)를 따릅니다. 현재 페이지·18개 prerender route는 그대로이며 실제 template 연결은 미구현입니다.
 
 ## 프로젝트 문서 시작점
 
@@ -48,17 +50,19 @@ npm.cmd run test:locale
 npm.cmd run test:content
 npm.cmd run test:placement
 npm.cmd run build
+npm.cmd run test:content:visibility
 npm.cmd run build:pages-preview
 npm.cmd run test:spike
 ```
 
-`check`는 type-check/lint/root build만 실행합니다. 전체 로컬 계약 검증은 위의 여덟 명령입니다.
+`check`는 type-check/lint/root build만 실행합니다. 전체 로컬 계약 검증은 위의 아홉 명령입니다.
 두 build는 같은 framework typegen/cache를 사용하므로 순서대로 실행합니다.
 
 일반 코드 확인은 `npm.cmd run gate:fast`, routing/metadata/CI 변경의 전체 확인은
-`npm.cmd run gate:full`을 사용합니다. Fast는 위의 첫 여섯 명령, Full은 여덟 명령 전체입니다.
-Push/PR마다 Fast + workflow syntax 검사를 수행하고, 브라우저 설치/80-case Full은 명시적 수동 실행과 배포 전에 수행합니다.
-Linux CI는 Chromium, 로컬은 Edge로 같은 assertion을 실행합니다.
+`npm.cmd run gate:full`을 사용합니다. Fast는 위의 첫 일곱 명령, Full은 아홉 명령 전체입니다.
+Push/PR마다 Fast + workflow syntax 검사를 수행하고, 브라우저 설치/82-case Full은 명시적 수동 실행과 배포 전에 수행합니다.
+Linux CI는 Chromium, 기본 로컬 설정은 Edge입니다. 이 Mac에서는 기존 Chromium을 `CI=1`로 선택해 같은 assertion을 실행합니다.
+macOS/Linux 명령은 `npm.cmd` 대신 `npm`을 사용합니다. Node 24.x/npm 11.x 요구사항은 동일합니다.
 
 | 명령 | 산출물 / 확인 주소 |
 |---|---|
@@ -102,11 +106,13 @@ src/root.tsx                  document / lang / framework entry
 src/routes.ts                 최소 route config
 src/routes/                   공통 테스트 shell, unknown 404 화면
 src/routing/locale-contract.ts KO/EN pairing, switch 결과, authored 상태, metadata 계약
+src/content/records/*.server.ts 실제 content record (현재 지영희류 private KO draft 한 건)
+src/content/registry.server.ts 실제 record/asset reference의 명시적 등록, client import 금지
 src/spike/                    경로 fixture, URL 및 테스트 metadata
 src/styles/spike.css          비시각 CSS 로딩 확인 marker
 public/spike/path-check.svg   새로 만든 16px 경로 검증 fixture
 scripts/                      CLI 실행, 정적 artifact 배치, 검증용 서버
-tests/                        두 base의 80개 Playwright + locale 8개 + placement 3개 검증
+tests/                        두 base의 82개 Playwright + locale/content/placement + root artifact 검증
 docs/redesign/                기존 기획·review 문서 보존
 ```
 
@@ -127,4 +133,17 @@ P0B까지 기획·review 원본 21개를 보존했습니다. P0C에서는 사용
 P0A–D 결과는 당시 기록으로 보존합니다. 현재 delivery 상태/CI run/배포 증거는 P0E 결과를 따릅니다.
 모든 push는 Fast 검사만 하며 문서 변경 때문에 배포할 필요는 없습니다. 실제 preview 배포는 사용자 승인 범위에서
 pages.yml을 deploy=true와 승인된 full SHA로 명시적으로 실행합니다. main SHA와 실제 배포 SHA를 구분합니다.
-**P1A 결과는 승인됐으며 lifecycle 보완과 main delivery만 진행합니다. 완료 보고 후 STOP. P1B/실제 migration/Design System/HOME에는 별도 명시적 승인이 필요합니다.**
+**현재 P1C 결과 승인 / P1D private KO draft bundle REVIEW READY. 결과 보고 후 STOP. 공개 전환·다음 bundle/Phase는 별도 승인 대상입니다.**
+
+## 실제 콘텐츠 추가 절차
+
+승인된 source audit와 mapping을 바탕으로 `src/content/records/<identity>.server.ts`에 해당 domain 타입의 record를
+작성하고 `src/content/registry.server.ts`에 등록합니다. 테스트용 `fixtures.ts`와 실제 자료는 분리합니다.
+public 화면·metadata에서 raw registry를 직접 import/serialize하지 않습니다. 공개 경로는 별도 승인된 integration에서
+`catalog.ts`의 public selectors와 명시적 build instant를 통해 구성합니다. 등록만으로 페이지가 생기지 않습니다.
+
+P1D의 private는 사이트 공개 제외 상태이며 공개 Git 저장소의 비밀 저장 기능은 아닙니다. draft publication,
+미검토 locale, provisional source-only cover를 유지하고 공개용 runtime 파일·EN·review를 임의로 채우지 않습니다.
+`test:content`는 실제 draft와 기존 public fixture를 함께 검증합니다. `test:content:visibility`는 **fresh root build 후**
+전체 client/static의 HTML·JS·manifest에 초안 내용이 없는지 검사하며 Fast에 포함됩니다. Full은 Project Pages artifact와
+실제 KO/EN unknown route 및 metadata 제외도 확인합니다. 자세한 기준은 Content Schema Contract를 따릅니다.

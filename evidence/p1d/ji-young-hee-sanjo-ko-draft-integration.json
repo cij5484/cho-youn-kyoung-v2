@@ -1,0 +1,458 @@
+{
+  "task": "P1D — Ji Young-hee Ryu KO Draft Integration Bundle",
+  "recordedAt": "2026-09-05T15:53:25.290274+00:00",
+  "baseline": "306d75758a3634396ed95313aa3a72952fc52203",
+  "checkpointStartedAt": "2026-09-05T15:22:30.142Z",
+  "status": {
+    "implementation": "IMPLEMENTED",
+    "validation": "VERIFIED LOCALLY",
+    "result": "REVIEW READY",
+    "resultApproval": "PENDING",
+    "nextAction": "STOP; await explicit user approval"
+  },
+  "approvedBundle": {
+    "A": "Register exactly one P1C-mapped KO album as an actual private draft",
+    "B": "Validate schema, locales, public selection, emitted artifacts and KO/EN routes/metadata",
+    "C": "Reconcile actual content addition workflow and user-approved larger bounded-task policy",
+    "prohibited": [
+      "other albums",
+      "public publication",
+      "full EN generation",
+      "Design System",
+      "HOME",
+      "3D/Blender",
+      "automatic next Phase"
+    ]
+  },
+  "record": {
+    "file": "src/content/records/ji-young-hee-sanjo.server.ts",
+    "registry": "src/content/registry.server.ts",
+    "id": "album:ji-young-hee-ryu-haegeum-sanjo-2026",
+    "slug": "ji-young-hee-ryu-haegeum-sanjo-2026",
+    "publication": "draft",
+    "actualAlbums": 1,
+    "koEditions": 16,
+    "allKoEditions": {
+      "source": "machine-assisted",
+      "status": "draft",
+      "review": null
+    },
+    "enEditions": 0,
+    "release": {
+      "status": "upcoming",
+      "date": "2026-09-08"
+    },
+    "trackCount": 6,
+    "creditCount": 8,
+    "productNumber": "JEC-0528",
+    "cover": {
+      "id": "asset:jyh-2026-cover-front",
+      "lifecycle": "provisional",
+      "masterRef": "p1b:ji-young-hee-sanjo:web-front",
+      "runtime": null,
+      "aspectRatio": {
+        "width": 2048,
+        "height": 1834
+      }
+    },
+    "approvedMappingDeepEqual": true,
+    "privateMeaning": "Excluded from public website data/routes/client/static output; not confidential storage in a public source repository",
+    "absent": [
+      "EN",
+      "story",
+      "artistNote",
+      "booklet",
+      "CD",
+      "3D",
+      "streaming",
+      "related",
+      "mobile crop",
+      "measured durationSeconds",
+      "runtime asset file/URL"
+    ]
+  },
+  "validation": {
+    "sequence": [
+      "gate:fast",
+      "build:pages-preview",
+      "test:spike"
+    ],
+    "equivalentToFullGate": true,
+    "execution": "Sequential local commands; no remote CI dispatch",
+    "runtimeCommandPrefix": "npm exec --yes --package=node@24.15.0 --package=npm@11.12.1 --",
+    "browserCommandEnvironment": "CI=1 (existing Chromium selector on macOS)",
+    "environment": {
+      "os": "macOS",
+      "node": "24.15.0",
+      "npm": "11.12.1",
+      "typescript": "6.0.3",
+      "playwright": "1.63.0",
+      "browser": "Chromium 153.0.8010.12"
+    },
+    "typeCheck": "PASS",
+    "lint": {
+      "status": "PASS",
+      "warnings": 0,
+      "initialFailure": "no-control-regex in new artifact scanner",
+      "resolution": "Replaced control-character range with printable Unicode range in the same file, then passed all gates; no assertions removed or relaxed"
+    },
+    "nodeTests": {
+      "contentSchema": 21,
+      "existingContent": 15,
+      "newDraftContent": 6,
+      "locale": 8,
+      "placement": 3,
+      "rootArtifactVisibility": 1,
+      "total": 33,
+      "failed": 0
+    },
+    "browser": {
+      "stats": {
+        "startTime": "2026-09-05T15:42:31.912Z",
+        "duration": 23888.502,
+        "expected": 82,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "existingCases": 80,
+      "newCases": 2,
+      "jsonReportLocalPath": "test-results/results.json",
+      "jsonReportSha256": "cdf1624d718c434af9a0ba77830644ff5dea68d4d172d36d9d325fd112ed4a53",
+      "draftArtifactAttachments": [
+        {
+          "target": "root",
+          "scannedFiles": {
+            "client": 30,
+            "static": 29
+          },
+          "routes": 18,
+          "privateDraftsExcluded": 1
+        },
+        {
+          "target": "pagesPreview",
+          "scannedFiles": {
+            "client": 30,
+            "static": 29
+          },
+          "routes": 18,
+          "privateDraftsExcluded": 1
+        }
+      ]
+    },
+    "publicExclusion": [
+      "actual catalog public records/index/routes/prerender arrays empty",
+      "release date before/on/after does not publish",
+      "release-only state change does not publish",
+      "mixed public/draft catalog retains eligible public controls and excludes this draft",
+      "publication-only promotion rejected for missing reviewed KO and cover runtime",
+      "KO unreviewed and EN missing including nested fields",
+      "draft KO/EN metadata undefined and language switch unknown-route",
+      "both bases return HTTP 404 on direct request and reload",
+      "both bases show client 404 without canonical/hreflang/OpenGraph",
+      "complete client/static bytes exclude draft identity, title, summary, product number, asset/source IDs and URL/Unicode escaped variants"
+    ],
+    "artifactComparison": [
+      {
+        "target": "root",
+        "base": "/",
+        "routes": [
+          "/",
+          "/works",
+          "/albums",
+          "/performances",
+          "/album/test-album",
+          "/performance/test-performance",
+          "/media",
+          "/about",
+          "/contact",
+          "/en",
+          "/en/works",
+          "/en/albums",
+          "/en/performances",
+          "/en/album/test-album",
+          "/en/performance/test-performance",
+          "/en/media",
+          "/en/about",
+          "/en/contact"
+        ],
+        "routeCount": 18,
+        "htmlCount": 18,
+        "draftHtmlCount": 0,
+        "publicFileCount": 28,
+        "routeListUnchanged": true,
+        "publicFileListAndAllBytesUnchanged": true,
+        "actualFileHashesVerifiedAgainstManifest": true,
+        "priorManifestSha256": "8df2c85d9a20ba31638cf8bb276a1e14a7dfedcf84c2271fa39b7d1bf36f9a5c",
+        "validatedManifestSha256": "6b58fa55b600359e165db804ee347f36d365327565d452f6aa3845f7f370f780",
+        "artifactBaselineCommit": "306d75758a3634396ed95313aa3a72952fc52203"
+      },
+      {
+        "target": "pagesPreview",
+        "base": "/cho-youn-kyoung-v2/",
+        "routes": [
+          "/",
+          "/works",
+          "/albums",
+          "/performances",
+          "/album/test-album",
+          "/performance/test-performance",
+          "/media",
+          "/about",
+          "/contact",
+          "/en",
+          "/en/works",
+          "/en/albums",
+          "/en/performances",
+          "/en/album/test-album",
+          "/en/performance/test-performance",
+          "/en/media",
+          "/en/about",
+          "/en/contact"
+        ],
+        "routeCount": 18,
+        "htmlCount": 18,
+        "draftHtmlCount": 0,
+        "publicFileCount": 28,
+        "routeListUnchanged": true,
+        "publicFileListAndAllBytesUnchanged": true,
+        "actualFileHashesVerifiedAgainstManifest": true,
+        "priorManifestSha256": "8327364fa766b59b522f557555a6767386d080f07296a667c811693db06223e5",
+        "validatedManifestSha256": "49e78fbfcd1b2eea46df68c04073277865a83625d20fe7146860c73dc33a79b1",
+        "artifactBaselineCommit": "306d75758a3634396ed95313aa3a72952fc52203"
+      }
+    ],
+    "logs": {
+      "gate-fast.log": {
+        "localPath": ".checkpoints/p1d-before-306d757/gate-fast.log",
+        "sha256": "db4346f22fcb7b091b60deed5bf37b9af8fe25e5d18132c1ae72a882ae2b6428"
+      },
+      "project-build.log": {
+        "localPath": ".checkpoints/p1d-before-306d757/project-build.log",
+        "sha256": "293f05673f58835a6ac4d6a2055267b9b35816ac3f3355eb0bf42dda91999694"
+      },
+      "browser.log": {
+        "localPath": ".checkpoints/p1d-before-306d757/browser.log",
+        "sha256": "185f2e39ebea7170439c801dba23a8e85f946e1069b5c2a28b3608bdebc4d772"
+      }
+    },
+    "logNote": "Raw local logs/checkpoints are ignored build evidence; verified counts, stats and hashes are copied here. Builds reference the P1C baseline plus the validated P1D working tree, not an unbuilt final P1D commit."
+  },
+  "documentationAndScope": {
+    "checkedAt": "2026-09-05T15:52:02.678Z",
+    "status": "PASS",
+    "baseline": "306d75758a3634396ed95313aa3a72952fc52203",
+    "changedFileCount": 16,
+    "modified": [
+      "AGENTS.md",
+      "CODEX-HANDOFF.md",
+      "README.md",
+      "docs/redesign/00-MASTER-PLAN.md",
+      "docs/redesign/review/CONTENT-SCHEMA-CONTRACT.md",
+      "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md",
+      "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md",
+      "package.json",
+      "tests/routing-spike.spec.ts"
+    ],
+    "added": [
+      "P1D-RESULT.md",
+      "evidence/p1d/ji-young-hee-sanjo-ko-draft-integration.json",
+      "src/content/records/ji-young-hee-sanjo.server.ts",
+      "src/content/registry.server.ts",
+      "tests/assert-draft-artifacts.ts",
+      "tests/content-visibility.test.ts",
+      "tests/draft-content.test.ts"
+    ],
+    "unchangedTrackedFiles": 99,
+    "handoffCheckboxCount": 207,
+    "handoffUnchangedCheckboxTextCount": 205,
+    "revisedCheckboxesForUserPolicy": [
+      {
+        "before": "[ ] PLAN → ONE BOUNDED TASK → TEST / VALIDATE → REPORT RESULT → STOP → WAIT FOR USER APPROVAL → NEXT TASK",
+        "after": "[ ] PLAN → SUBTASK A → SUBTASK B → SUBTASK C if tightly related → FULL VALIDATION → REPORT → STOP → USER APPROVAL"
+      },
+      {
+        "before": "[ ] Every task reports all seven required result fields and then stops",
+        "after": "[ ] Every task reports user-requested result fields (seven by default) and then stops"
+      }
+    ],
+    "checkboxStatesUnchanged": true,
+    "numberedSectionsPreserved": {
+      "docs/redesign/00-MASTER-PLAN.md": 45,
+      "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md": 17
+    },
+    "originalBrowserSuitePreserved": true,
+    "localLinksChecked": 167,
+    "anchorsChecked": 11,
+    "newlyBrokenLinks": [],
+    "knownMissingBaselineLinks": [
+      {
+        "file": "README.md",
+        "href": "P0B-CHECKPOINT.json",
+        "reason": "file"
+      }
+    ],
+    "diffCheck": "PASS",
+    "unchangedTrackedFileHashes": {
+      ".gitattributes": "57c3c1e3dfe96f5c516b40ea04d50a9fcea8d626fb70b2e85472d51f933f6e2c",
+      ".github/workflows/ci.yml": "e3758da9076008d645b1d0eac7dea26bf512c3836b5bb7376835e900daf7e9c8",
+      ".github/workflows/pages.yml": "13b37838d3af9ccfb1a5e9c827ddddaa8dec165bf417f371c2e6c9cfe7f0fc92",
+      ".github/workflows/quality-gates.yml": "c4259169829b1e73cda3d1305f0b7a56f9057a40ac518862f6f69e9cac026765",
+      ".gitignore": "7869e7954f945a1f15c3c41cd507b577997ffa391e1f759cf36883f204b02573",
+      ".npmrc": "be85cc462e740587626bbcbb1c3ed1c40b26e62ec072e8cbd2768f23915c28e6",
+      "P0A-RESULT.md": "09596366dee21a55e25cd13810739acd6f4df90939b1305cd5d51b8386e68d2b",
+      "P0B-RESULT.md": "d03ee1f9c2daea3c8507de4e0efdf2878732be8de46b2bfefb5f4d559955b908",
+      "P0C-DEPLOYMENT.md": "2eb28a140eb9634b9c60ad5182aeb054ac1158aec28b38aab84eee379602254d",
+      "P0C-RESULT.md": "2fd2cc30508bb0c63b07f3eb43f4dda0089aad935db2924d550f2a7a8a2da5b9",
+      "P0C-VERIFICATION-CHECKLIST.md": "cbce5025c54fcf0eaec384bb0c35b15a1a2a7a2f85f70cc981c9b0eba5885e44",
+      "P0D-RESULT.md": "89f9392d94bc79458ec6f3b92fdbe223140ab6e0a0f5b9b6cea0eae1b21fcdc1",
+      "P0E-RESULT.md": "bc5002604ca4159ae94d5961f7c913aaadc06b6e73b027be8e3bbf1f869f0a0b",
+      "P0F-RESULT.md": "4e4830c48dd6177c0f5d2449cb35f5835a3fd873cba922e9847ae4bebc9e75bd",
+      "P1A-RESULT.md": "c2bcb8f70164c58cd3359c7a54ec0cefc4334e90622c1ca935f627fca90aaf5d",
+      "P1C-RESULT.md": "b2798e2877ee41e0ef31beae131deed219f86cb2d1ce43fb9697d59948578138",
+      "config/build.ts": "17a824820cf2e9a675a8c7bd778391eb8b61e2fa311508360b891a333ef80564",
+      "docs/redesign/01-CURRENT-SITE-AUDIT.md": "2f94027808dfa7d6dfe13b56251abb1e82d63220eb010b10dee09691915c36e5",
+      "docs/redesign/02-DESIGN-SYSTEM.md": "682ac8220262189b57641f09e84e9e64edaf3e360a426155553d17b8aacf7704",
+      "docs/redesign/03-MOTION-SYSTEM.md": "2292a768a4ef8bc60b16ee0d88d0afbebb3dce9632ba10dd91585d8545d459c2",
+      "docs/redesign/04-HOME.md": "80a0be7528e8fcf36a797da2571475d75e98d7e46d5135ac3f66476b2028c2f0",
+      "docs/redesign/05-WORKS.md": "2b4f7366ed7f6ceb80d27fb2e355d65088c86576413d3bd13a7ccffd11e66956",
+      "docs/redesign/06-ALBUMS.md": "d8e479c7ba6b4e5bce7be288ed1228a7fbd7858f11163f6887e1d808064bbb36",
+      "docs/redesign/07-ALBUM-DETAIL.md": "4e02efed6dbe6e0986ef748967964c6661a675bfc59f2aa4e609d4f544c190b5",
+      "docs/redesign/08-PERFORMANCES.md": "e3dbc5407a782485bdcd38a3987023f6e9ffc51838f3a5db3cbda91c34967530",
+      "docs/redesign/09-PERFORMANCE-DETAIL.md": "730df78869694a1f0bc4bf936c85d2c1b3141bfd1a92d641f40ec248e3768c58",
+      "docs/redesign/10-ABOUT-MEDIA-CONTACT.md": "e08a62c3827ee2d0ca3f3aa28ed4152613e3d3feccdaf6b909ddc40e79b0426b",
+      "docs/redesign/11-RESPONSIVE.md": "111136dc33c40429d10c7c5c9faede509f9ec9628b19dd290f87d6193b2498e2",
+      "docs/redesign/12-PERFORMANCE.md": "c06f1391e7114d2db57c0fe860c6f4c9a38d9dbe131b2c24aeecef32731b6cb9",
+      "docs/redesign/13-ACCESSIBILITY.md": "dbe426f49dfb190d62d6a849264a008e2438cb5cc2c9d2fe648f71f37f745ae6",
+      "docs/redesign/14-MIGRATION-QA.md": "9d2a0dfb47bae1797fe5f6be34021ee045cb30504472f302fa539fa0726c4e9d",
+      "docs/redesign/review/HANDOFF-AUDIT.md": "f2faaafb44799bd9328a3fc70472f2af5095f5fc0a6c8094751a14b156e4bb94",
+      "docs/redesign/review/HOME-V2.1-REVISION-REPORT.md": "6ef7e7b3b89ddedbbd30b7266c3d41bc4bebe322b9ca26e05c0048fd542bd517",
+      "docs/redesign/review/LOCALE-METADATA-CONTRACT.md": "64e0a574a10b479bf1b989401337cd9bcd4bd1987108467be6938d06ecd2a920",
+      "docs/redesign/review/PLANNING-REVISION-LOG.md": "ce31e7a403e7bc3bff64156dbdc003429d974a900f942a36972d4174f4fe3b97",
+      "docs/redesign/review/ROUTING-ARCHITECTURE-DECISION.md": "157eb4a50e2b1aec25384d5ad8fed7f57d0a3bc9bc13e15e4bbd34237e785a78",
+      "docs/redesign/review/album-audits/JI-YOUNG-HEE-SANJO-KO-RECORD-MAPPING-REVIEW.md": "fb51de1756a5dce3bf4bdda7d339791130e4d2455bdc95dafe611db93a1c2361",
+      "docs/redesign/review/album-audits/JI-YOUNG-HEE-SANJO-SOURCE-AUDIT.md": "053328d08c9fb9131802e9c3887e6fdca17fc4e5ce4a5a337e44fb5b434840ca",
+      "eslint.config.js": "2ad1dc0c11eb2efa453e40de6736de2518fc5c119fbdfefb10b9d2f027843038",
+      "evidence/p0c/README.md": "f3e9087c4b109e6d84099d2f7225a64c406cb2151c195e67db1368ebabaf4ae5",
+      "evidence/p0c/github-404-js-disabled.png": "7ba36da534a4420b5081aa2cd5e28d0393857158152ecb394ce258a88c58e3b6",
+      "evidence/p0c/github-actions.json": "65fb45b33abcc193c670bdbeab8ea521e9cb0813b2a802224d908445ecd91e2d",
+      "evidence/p0c/linux-ci-chromium.json": "6e953e6283a0236c0ef466c06b8645f9925fde53ba65e213fc7aa9b202b3d30e",
+      "evidence/p0c/real-pages-neutral.png": "2e1557d57d887ba72f9e037c6bbd313fa307b335953ca11dffe5e9746fa9db00",
+      "evidence/p0c/windows-edge.json": "41ab9912f155dd47265f92e9b2ef86450eeecbe9c25c1da25bb448354b3de5d6",
+      "evidence/p0d/README.md": "db0eb78e8dda23fa1ccfd111f4835c7d5a538b00146c22dff0aad9d48ed16d30",
+      "evidence/p0d/pagesPreview-neutral-shell.png": "672d4599df8bdeb1b633db731d16eff344593fffd1c9af22180d0d9bceadc414",
+      "evidence/p0d/root-neutral-shell.png": "672d4599df8bdeb1b633db731d16eff344593fffd1c9af22180d0d9bceadc414",
+      "evidence/p0d/verification.json": "a0faefb040e73949717f7b1236e6e5f1e35b71413d170124247792cc37ba2923",
+      "evidence/p0e/README.md": "46703e1a2d5667c518c86df7ebaaf85da83be8f1d0dfd7005e9d60b5ba4e1e7d",
+      "evidence/p0e/ci-results.json": "d1771f9cda0142a3eb3b8def238579cf543aa5ddbdec91dd9936898feea754a5",
+      "evidence/p0e/deployed-manifest.json": "804902314256c9369a0549d1e56580f38808c307af96da86300a7e630ac93b4d",
+      "evidence/p0e/fast-ci.json": "216854fe25fad7721e6308d3487bdc7d78b3b1ff479802b534d9489ce623f88d",
+      "evidence/p0e/full-delivery-ci.json": "4e308072169751b5124bee4eaa6e6904c819ab02224f9080debeb93631bd2f3f",
+      "evidence/p0e/local.json": "d7a20deac2080b2abbde335240ac5dc7dbef375b56ccc95e1fbad816e5bc9a56",
+      "evidence/p1a/results.json": "5d2d6d7767392144221bdf6f29ff18ab719e7a9bfd5292994c516889169a0ba0",
+      "evidence/p1b/ji-young-hee-sanjo-source-audit.json": "25607f59cde7effc00f9ed9c12add5136a1d44f7b5c2bc67e6d1e72df4cbfe43",
+      "evidence/p1c/ji-young-hee-sanjo-ko-mapping-review.json": "96f541bdb96653b499543a4128bdccc7ff6f918d4e9d2660ea1dff0aed48a040",
+      "package-lock.json": "a609bc65fe1c38912345426211394e97f4a7b17f424a9173fb0b9d8c5e64ad4f",
+      "playwright.config.ts": "53b535edf4629727330daba4904c16bf67b450c3efb81247d0b9f31893408bba",
+      "playwright.pages.config.ts": "ffabcd532343bb56afdf0085d5492b16708ecc726981a82460abfd9fcd7ccc5d",
+      "public/assets/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public/spike/path-check.svg": "c3355379bcf7c089546d19d2a5160ddf5c3472040c4d6d447b2cc5e8852d23fb",
+      "react-router.config.ts": "668ac9a9e250cb411ab72317801a0c1c4095ebd88243266a2a698af5fe77cd31",
+      "scripts/package-static.mjs": "3074ac87dc5070dde7f40b9d0cfd025bf09d00d403feecc558a0105a4debd60a",
+      "scripts/router.mjs": "60851fecbb60d3df561267560c8c277d84479cdf71c95f1e1282c2d8237402ff",
+      "scripts/static-layout.mjs": "e4f15bd111d368037f9225f9a447eb9d5b45460bc3f0ebd6018b4c17c7321e55",
+      "scripts/static-spike-server.mjs": "93a16bc4917358ecba31474ee42bf06be5ab3ddd5abae43a19840db3eda93bcb",
+      "src/assets/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/components/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/config/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/content/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/content/assets.ts": "90959d5ed3c0d1deb87b7e1ee87834a170d6db2de601c32a2c276f284c22f8c0",
+      "src/content/catalog.ts": "6e397f1706076139e6800353740a39c96d2f58e614630cac7754b083017d5f8b",
+      "src/content/fixtures.ts": "d269b21e584ae1a12b2d641e5fb652f7f21c2cdf9203a524cbd9554cfffb2f79",
+      "src/content/models.ts": "2990d5c114f3eb34e704f4adfdeb0e1956acf8da9aff3aebacfcd7844d19eea1",
+      "src/content/shared.ts": "c4724824800158e69c24a1072e8ba562b7dbaaeac6c6e86fec17d6ec034dd8fe",
+      "src/content/validation.ts": "218a52c253a9130b4e7e826801ceffee235a1fd92d842662f9ed6d6ea72ee319",
+      "src/features/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/root.tsx": "e2cd463d93cc166744af50c7aa24e923e51b19e565f2d78e12617d398b68f3d1",
+      "src/routes.ts": "a01f138e384122c5afffe468b7a801ad7c01b6a456f017a753425c513d6c12b9",
+      "src/routes/not-found.tsx": "2ff0ae245dfa4bb110f94c689ab8d764e48fdc44047a4c4ce304a24b01df6c8e",
+      "src/routes/spike.tsx": "b2abedcdc3c36434e219cd889398d446755082587d2833ef64343457c1b97806",
+      "src/routing/locale-contract.ts": "1b4c21ff510137b4a9ca734c2e79298d1fa5855a49833785c579e62ecaf80db4",
+      "src/spike/fixtures.ts": "88aedd6d31510f523f9e9ddfeaacd22c5209b2cf08c3f67dd5d0345529cea265",
+      "src/spike/metadata.ts": "52630102f1b1cdf8048763410a08eef02cce404c67ce7f8180feca4715c6440f",
+      "src/spike/paths.ts": "13e28766a9dd1c967a8efa93c5f3e3da240a366109d53a10756a5d7dc6466116",
+      "src/styles/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/styles/spike.css": "35d990f46e8ad49778ca02c9a8bba4e7604ebe588c89cd3276e82580dc8184bf",
+      "tests/content-contract.test.ts": "493518e128e0bb9548e0147d00dec9e8699e143200a902daa90ced8e1b25aa7b",
+      "tests/content-types.test.ts": "c2dd3e20affffe811d51d743dc7b6b82f02a5a572dbb485e0aeb2532e360cc48",
+      "tests/locale-contract.test.ts": "03ce05c97a2af9645e63d490621b92bce09be14e76e58ef909e82c744616ad92",
+      "tests/metadata-assertions.ts": "526466beca856c3dd9242e1f9e6567930546ef4959513bf8a02dc4bc6b15f2d6",
+      "tests/pages/live.spec.ts": "3b7784454e46230c33934e529fb9bd88dd8776fcfb3fe3aa6ee038d1b273a9d8",
+      "tests/static-layout.test.mjs": "c51fcca6c6d15b79e706c7aab8bab78e9b8295a67966db29af7c8ae68d74888e",
+      "tsconfig.app.json": "a1f353f0a82fac6d23a22c76fcd05b156a7f3f15b6746e3a9e43a8475974c260",
+      "tsconfig.json": "3a11d1d758b82ceae1687b3b3b673d98febb16b81305239be576b6aa30148fed",
+      "tsconfig.node.json": "22d65eb7fd5e7ad8f9b462b32599503299f70b4ee7693b94ae03171ebc3a21e6",
+      "vite.config.ts": "b24755785f978270f2b94a64774b59d88020a3bf86c81abb5e818c9b7fd54164"
+    },
+    "changedFileHashes": {
+      "AGENTS.md": "8008b2aab5a451f2878beeedfdd2f5c3d02a5d67c04fd2a91cd4655bfb77e886",
+      "CODEX-HANDOFF.md": "c4613da3dbcc58e85af18870bccc73e2b481c5b5f3d562cd0a505edd67a05158",
+      "README.md": "ace19c1534762242f9853dbc1e02f9530f4011b1476e21124a57d826173859ca",
+      "docs/redesign/00-MASTER-PLAN.md": "bfd99877453742ed57a53872851264cc544679ced989e0d6f5f1f400f92fecb3",
+      "docs/redesign/review/CONTENT-SCHEMA-CONTRACT.md": "69c8d322595ccf74032b6fd9e5cebeca7e11f54eeab6861d125169380d29e564",
+      "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md": "1a139dea2389c58b5b220ef1d9e8a9f39e05fdba591b3b63d45b0c5f01e6efa2",
+      "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md": "08a3a1fd9b86ef840f93d7819417afc6d080d5372d7c79fee376c910b8b964a6",
+      "package.json": "036fd47c40068ee24cf6c47c891e177bd23e276e569251dd166b96d4e14af3c7",
+      "tests/routing-spike.spec.ts": "ece901f7c993acb452a79bd4edc4e91c62ae4ffff46e1d498d1b5e98ab6da508",
+      "P1D-RESULT.md": "c910ff306e833e3d3d88e0fe0eaee5a422a384ca1bbfd2ffe97ed6eddfdaac3e",
+      "src/content/records/ji-young-hee-sanjo.server.ts": "035155a2bf62b557670ba6590d4ae8a9a06607ba357f9d76b4f6631edae25923",
+      "src/content/registry.server.ts": "f7ad34c08f9913450135b6df092a820b9b9936d34f6bef0e1bc1aa97afdd2961",
+      "tests/assert-draft-artifacts.ts": "cea8bba327463a23c6b4ede168d2f90fb9cb633dc11795bc6996d1771315d42d",
+      "tests/content-visibility.test.ts": "ee62770ba4facfd33e1edccd32517e8a232540ec9481bbcf6c83cf929e259344",
+      "tests/draft-content.test.ts": "17242405f8a9f22cd4b05606e4cc9b0bd6cd4fbae470fd561359fedfbfb3d475"
+    }
+  },
+  "workflowFindings": [
+    "Existing schema represents the approved single draft without new enums, validators or dependencies",
+    "Actual records are explicitly registered separately from neutral fixtures",
+    "React Router .server client-import rejection is supported by installed @react-router/dev/dist/vite.js; raw serialization still requires public projection and artifact checks",
+    "Neutral route/template wiring remains unchanged; no actual public template integration claimed",
+    "Historical P1C mapping stays unchanged; later authorized copy edits must point regression at the new owning review"
+  ],
+  "delivery": {
+    "p1cLocalCommit": "306d75758a3634396ed95313aa3a72952fc52203",
+    "p1dLocalCommit": "This evidence is recorded immediately before the logical P1D commit; completion response/Git history is its SHA receipt.",
+    "pushPerformed": false,
+    "prCreated": false,
+    "mergePerformed": false,
+    "remoteCiDispatched": false,
+    "deployPerformed": false,
+    "dependencyOrBrowserInstallationPerformed": false,
+    "lockfileChanged": false
+  },
+  "knownGaps": [
+    "KO authored-copy review",
+    "Measured audio timings and playable/public audio",
+    "Public cover usage approval and runtime file",
+    "EN and P2–P4 story/note inputs",
+    "CD/package/Tray/mobile quality gates",
+    "Existing README P0B-CHECKPOINT.json target missing at baseline"
+  ],
+  "recommendedNextBundle": {
+    "name": "Ji Young-hee Ryu KO Copy Readiness Bundle",
+    "proposalOnly": true,
+    "executed": false,
+    "subtasks": [
+      "Review KO summary/alt/credit copy",
+      "Transcribe readable P2–P4 source and draft story/artistNote within available input",
+      "Validate provenance, locales and public exclusion"
+    ],
+    "requires": "Separate explicit user authorization and sufficient readable source",
+    "excludes": [
+      "public toggle",
+      "asset migration",
+      "design",
+      "3D"
+    ]
+  }
+}

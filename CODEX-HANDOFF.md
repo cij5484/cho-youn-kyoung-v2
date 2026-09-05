@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** P0A–P0F approved; P1A + lifecycle delivery approved; P1B audit delivered; P1C KO Record Mapping Review REVIEW READY — STOP before P1D / production record registration\
-**Revision:** 1.6 / 2026-09-06 — P1C document-only mapping review; prior decisions, P1B facts and HOME V2.1 preserved\
+**Status:** P1C result APPROVED; P1D Ji Young-hee Ryu KO Draft Integration Bundle REVIEW READY — one private draft, no public release / next Phase\
+**Revision:** 1.7 / 2026-09-06 — enlarged bounded-task policy and P1D private integration; prior facts/design preserved\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 ---
@@ -430,23 +430,29 @@ Stop and report:
 [ ] No real playable source gives unavailable/disabled/coming-soon; no silent timer or false playing
 [ ] Real mobile programmatic-volume capability tested in PHASE 0 or Audio spike
 [ ] Unsupported volume gets reported capability-based UX/fallback; no forced workaround
-[ ] PLAN → ONE BOUNDED TASK → TEST / VALIDATE → REPORT RESULT → STOP → WAIT FOR USER APPROVAL → NEXT TASK
+[ ] PLAN → SUBTASK A → SUBTASK B → SUBTASK C if tightly related → FULL VALIDATION → REPORT → STOP → USER APPROVAL
 [ ] Each task has one goal, limited impact/file scope, immediate validation and easy rollback
 [ ] PHASE 0 uses individually approved P0A–F; no automatic next unit
 [ ] 3D geometry/materials/camera/lighting/drag/inertia/open/tray/disc/transition are separate reviewed units
-[ ] Every task reports all seven required result fields and then stops
+[ ] Every task reports user-requested result fields (seven by default) and then stops
 [ ] No multiple phases/pages/full HOME/several 3D subsystems in one automatic implementation run
 
 # 25. IMPLEMENTATION CHUNKING / STOP RULE
 
 Mandatory sequence:
-PLAN → ONE BOUNDED TASK → TEST / VALIDATE → REPORT RESULT → STOP → WAIT FOR USER APPROVAL → NEXT TASK.
+PLAN → SUBTASK A → SUBTASK B → SUBTASK C if tightly related → FULL VALIDATION → REPORT → STOP → USER APPROVAL.
+
+User revision 2026-09-06: enlarge the former microtask size by about 2.5–3×. One approved bundle may contain
+2–3 tightly related subtasks within one objective/owner, targeting a fully verifiable result in roughly 60–90
+minutes. This is a planning target, not mandatory elapsed time or a reason to omit checks. No new approval is
+needed between already-authorized A/B/C. Do not mix unrelated subsystems or visual design/3D/content migration.
+Full validation covers the complete bundle and its applicable Fast/Full gates. Other Phase/3D owner boundaries remain.
 
 No explicit next-task approval means STOP, even when the next task is obvious or tests passed. A broad direction/plan approval does not authorize continuous execution. A failed check permits only correction within the approved bounded scope; if another subsystem must change, report and request a new bounded approval.
 
 Every task must have one clear objective, limited impact, explainable file scope, immediate validation and reversible checkpoint. Never implement multiple pages or the whole HOME at once. Never automatically continue across phases for hours.
 
-Report:
+Use the user's requested report fields; otherwise report:
 1. What was changed
 2. Files changed
 3. Tests performed
@@ -481,7 +487,10 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 - P1B audit delivery subsequently completed through PR #2 / `07661e5b6061c6a46f9c4205a7737d3ab4b92c81`; Fast CI 33966319721 succeeded. This receipt was checked in the preceding repository-health review; it does not authorize runtime migration or asset/publication approval.
 - User explicitly authorized **P1C — Ji Young-hee Ryu Album KO Record Mapping Review** only, with STOP before P1D or production record registration. [Mapping review](docs/redesign/review/album-audits/JI-YOUNG-HEE-SANJO-KO-RECORD-MAPPING-REVIEW.md), [result](P1C-RESULT.md) and [evidence](evidence/p1c/ji-young-hee-sanjo-ko-mapping-review.json) own this unit. One document-only candidate maps confirmed facts, 6 tracks, 8 credits and one provisional cover reference; all editions/publication remain draft, no runtime asset/record or route is registered.
 - P1C source boundary: printed track times are preserved in the review table and not asserted as measured `durationSeconds`; barcode and other unsupported optional facts remain in P1B. Summary/alt/role wording are review drafts. Existing date/떨기나무/final-print confirmations are not reopened. EN/audio/CD/3D/story inputs retain their separate downstream gates.
-- Current stop point: **P1C REVIEW READY / result approval pending**. [Task Protocol](docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md) owns gates and delivery states. Proposed only: P1D, one nonpublic KO draft registration after separate scope/authorization. P1D, production records, actual asset migration, template/route integration, commit/push and deployment were not performed by P1C.
+- P1C result is now explicitly APPROVED. Its original review/evidence remain the historical report, preserved in local commit `306d75758a3634396ed95313aa3a72952fc52203`; not pushed. Approval does not turn draft copy into authored/reviewed editions or approve public assets.
+- Current authorized bundle: **P1D — Ji Young-hee Ryu KO Draft Integration Bundle**. A: register one private KO draft in the real content layer; B: verify exclusion from public catalog/routes/prerender/metadata and emitted client data; C: minimally reconcile the addition workflow and enlarged task policy. Full validation and the user's 12-field report follow, then STOP. [P1D result/task card](P1D-RESULT.md) owns progress and evidence.
+- P1D completed: [actual record](src/content/records/ji-young-hee-sanjo.server.ts) and [registry](src/content/registry.server.ts); [evidence](evidence/p1d/ji-young-hee-sanjo-ko-draft-integration.json). All fields retain P1C draft states. Both bases keep 18 neutral routes and the same 28 public files; draft KO/EN is HTTP/client 404 with no public metadata or client data. Local validation is complete; result approval pending.
+- P1D excludes other albums, public publication, full EN, Design System/HOME, 3D/Blender and next Phase. Logical local commits are authorized after validation; push/deploy are not part of this bundle.
 
 <a id="knowledge-status"></a>
 
@@ -505,7 +514,8 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 | P0F knowledge wiring | APPROVED canonical / IMPLEMENTED / VERIFIED; delivery completed |
 | P1A content schema | Result + lifecycle delivery APPROVED / IMPLEMENTED / VERIFIED with neutral fixtures; template integration and migration pending |
 | P1B single-album source audit | Audit delivered via PR #2; core date/credit/final-print facts user confirmed; limited KO preparation READY WITH NON-BLOCKING GAPS; no actual record or asset migration |
-| P1C Ji Young-hee Ryu KO mapping review | Document-only mapping IMPLEMENTED / validation in P1C result / REVIEW READY; result approval pending; no production record, runtime asset or route registration; STOP before P1D |
+| P1C Ji Young-hee Ryu KO mapping review | Result APPROVED; original document-only review preserved in 306d757, not pushed; no authored-copy or asset publication approval |
+| P1D KO Draft Integration Bundle | IMPLEMENTED / VERIFIED LOCALLY / REVIEW READY; one private draft; 33 Fast checks + 82 browser cases and both builds pass; no public routes/assets or next Phase; result approval pending |
 | Blender Capability Spike | REQUIRED BEFORE RELEVANT 3D PRODUCTION / NOT EXECUTED; Blender adoption undecided; Motion §47 owns acceptance |
 | CD Tray Lab | MANDATORY / NOT IMPLEMENTED / BLOCKING Album Detail package Quality Approved until its gate passes |
 | Haegeum 3D master | FUTURE EXPERIMENT / HIGH PRIORITY / NOT IMPLEMENTED; NOT BLOCKING first release, not disposable optional decoration; Motion §48 |

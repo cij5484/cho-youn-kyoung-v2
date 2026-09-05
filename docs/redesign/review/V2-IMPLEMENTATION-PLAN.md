@@ -1,6 +1,6 @@
 # Cho Youn Kyoung Website V2 — 검토 및 구현 제안
 
-검토일: 2026-09-06 · Revision 1.9 · 요청 추론 수준: 높음 · 상태: **HOME V2.1 문서 승인 / P0E·P0F·P1A lifecycle/delivery 완료 / P1B 감사 delivery 완료 / P1C KO Record Mapping Review REVIEW READY**. P0A–D 및 APPROVED routing/locale 계약은 유지한다. 현재 결과·승인 경계는 [HANDOFF](../../../CODEX-HANDOFF.md)를 따른다.
+검토일: 2026-09-06 · Revision 1.10 · 상태: **P1C 결과 승인 / 확대된 bounded bundle 정책 승인 / P1D private KO draft integration REVIEW READY**. HOME V2.1 및 P0 routing/locale/CI 계약은 유지한다. 현재 결과·승인 경계는 [HANDOFF](../../../CODEX-HANDOFF.md)를 따른다.
 
 현재 정본은 갱신된 MASTER의 PHASE 0–14다. React Router + Static Prerender는 사용자가 지정한 P0C 실제 Pages gate 통과로 확정했다. P0D neutral locale/hreflang 계약은 두 base에서 통과했고 실제 번역·제품 구현과 운영 SEO는 별도 gate다. 이 문서는 실제 구현 승인이 아니다.
 
@@ -398,9 +398,14 @@ Gate 기록 양식: 작업 ID, 기준 commit/artifact, 환경, 수행 항목, �
 
 ## 15. PHASE 0–14 Implementation Plan
 
-단계 번호는 최신 MASTER §35와 HANDOFF §21의 **canonical PHASE 0–14**를 따른다. PHASE는 작업 묶음이며 실행 단위가 아니다. **PLAN → ONE BOUNDED TASK → TEST / VALIDATE → REPORT RESULT → STOP → WAIT FOR USER APPROVAL → NEXT TASK**를 강제한다. 테스트 통과나 다음 작업 제안만으로 계속 진행하지 않는다. 현재 P0F는 문서 작업만 수행했으며 다음 구현 단위를 시작하지 않는다.
+단계 번호는 최신 MASTER §35와 HANDOFF §21의 **canonical PHASE 0–14**를 따른다. PHASE는 계획 그룹이며 자동 실행 단위가 아니다.
+2026-09-06 사용자 개정에 따라 **PLAN → SUBTASK A → SUBTASK B → SUBTASK C if tightly related → FULL VALIDATION → REPORT → STOP → USER APPROVAL**를 따른다.
+기존보다 약 2.5–3배 큰, 한 목표/owner 안의 강결합 2–3개 subtask와 약 60–90분 검증 가능 분량이 기준이다.
+승인된 bundle 내부에서는 연속 수행하되 unrelated subsystem이나 시각 디자인/3D/콘텐츠 migration을 무리하게 섞지 않는다.
+다음 bundle/Phase 자동 진행, 전체 HOME 및 서로 다른 3D owner gate 생략은 여전히 금지다.
 
-[Implementation Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md)에 P0A–F, 각 3D subsystem, P1–14의 작은 작업 큐·파일 범위·검증·rollback/STOP을 기록했다. 모든 작업 보고는 What was changed / Files changed / Tests performed / Result / Known issues / Screenshots·preview if applicable / Recommended next task의 7항목이며 보고 후 반드시 중지한다.
+[Implementation Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md)의 작은 작업 큐는 위 조건에 맞는 bundle 설계의 재료다.
+파일 범위·검증·rollback을 먼저 정하고, 사용자 지정 결과 항목(이번 P1D는 12개)을 우선하며 기본값은 7항목이다. 보고 후 반드시 중지한다.
 
 ### 과거 로드맵 이력 — 현재 실행 기준 아님
 
@@ -419,7 +424,7 @@ Gate 기록 양식: 작업 ID, 기준 commit/artifact, 환경, 수행 항목, �
 
 ### PHASE 0 — Foundation
 
-P0E delivery update: 일반 push/PR은 type/lint/locale/placement/root build의 Fast gate만 실행한다. 수동 Full은 두 base와 80개 browser 회귀를 검사하고 deploy=false가 기본이다. 사용자 승인된 exact SHA/main의 deploy=true만 preview를 배포하고 실제 Pages 계약을 검증한다. P0E는 승인·검증 완료이며 P0F는 별도 승인 아래 knowledge wiring만 수행했다. P0F 결과는 canonical로 승인됐고 이번 별도 delivery만 승인됐다. 다음 작업 승인을 기다린다.
+현재 delivery: push/PR은 type/lint/locale/content/placement/root build 및 draft artifact 제외 Fast gate를 실행한다. Full은 두 base와 82개 browser 회귀를 검사하며 수동 deploy=false가 기본이다. 승인된 exact SHA/main의 deploy=true만 배포한다. P0E/P0F 당시 승인·검증 이력은 각 결과에 보존하고 현재 bundle은 P1D 결과를 따른다.
 
 - 입력: **각 단위의 명시적 구현 승인**. 전체 계획 승인은 다음 구현 승인과 다르다. P0A–E는 각각 승인되어 완료됐으며 P0F 문서 결과를 보고하고 멈춘다.
 - 최신 승인 이력/큐: P0A skeleton 완료 → STOP → P0B local routing spike 완료 → STOP → P0C 실제 V2 Pages/CI·routing·architecture APPROVE → STOP → P0D locale/metadata 계약 완료 → STOP → P0E CI/Full/실제 Pages 검증 완료 → STOP → P0F AGENTS/Project Knowledge Wiring canonical APPROVED. 매 화살표 사이에 명시적 승인이 필요하다.
@@ -459,7 +464,7 @@ P0E delivery update: 일반 push/PR은 type/lint/locale/placement/root build의 
 
 - 입력: HOME V2.1 문서, P2 desktop/mobile poster composition 및 적합한 source, P3 승인된 동작/3D, 선택 작품/대표 음원.
 - 작업 큐: 01 Moving Editorial Poster/Nav → 01→02 continuous transition → 02 해금 4단계 → 03 quiet LISTEN → 04 긴 asymmetric surface 4–5작 → 05 physical album collection(품질상 필요 시 one live object + switching) → 06 quiet Dark Stage → 07 Ivory clear front/3/4 reveal 2–3문장 → 08 name/two-line resolve/footer/Sou.P. 각 화살표는 자동 진행 승인이 아니다.
-- 한 장면의 제한된 작업 또는 한 인접 경계만 승인받아 구현한다. 해당 범위에서 desktop/mobile/reduced-motion을 검증하고 7항목 보고 후 STOP한다. HOME 전체를 한 작업으로 구현하거나 다음 장면으로 자동 진행하지 않는다.
+- 한 장면 또는 인접 경계의 같은 owner 안에서 강결합 2–3개 subtask를 승인된 bundle로 구현할 수 있다. 해당 범위의 desktop/mobile/reduced-motion 전체 검증 후 요청 형식으로 보고하고 STOP한다. HOME 전체나 다음 장면으로 자동 진행하지 않는다.
 - 산출물: scene별 acceptance와 전환 anchor 표, desktop/mobile screenshot·motion 기록.
 - 완료 기준: 04 §24의 Hero/major-scene Visual Quality Gate, 첫 프레임과 이야기 흐름 사용자 시각 승인, scroll/input 품질, no autoplay, offscreen 비용 제어. P3 미승인 3D는 최종 HOME 승인 불가. 단순 큰 이름+portrait를 Moving Editorial Poster 완료로 처리하지 않는다.
 
@@ -558,11 +563,11 @@ P0E delivery update: 일반 push/PR은 type/lint/locale/placement/root build의 
 
 ## 17. Recommendation Before Implementation
 
-P0E 사용자 승인 범위에서 기존 architecture를 유지하고 Fast push/PR gate와 명시적 Full/preview delivery를 연결했다. P0E 실제 검증/배포 상태는 [결과](../../../P0E-RESULT.md), commit/push/deploy/STOP의 현재 정본은 [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md) CI/delivery 절이다. 아래 P0D/HOME revision 이력을 보존하며 P0F knowledge wiring은 canonical로 승인됐다. 운영 지도는 [AGENTS](../../../AGENTS.md), 현재 상태와 용어 정본은 [HANDOFF §26](../../../CODEX-HANDOFF.md#knowledge-status), P1B delivery까지 완료했고 현재 결과는 [P1C](../../../P1C-RESULT.md)다.
+P0E 사용자 승인 범위에서 기존 architecture를 유지하고 Fast push/PR gate와 명시적 Full/preview delivery를 연결했다. P0E 실제 검증/배포 상태는 [결과](../../../P0E-RESULT.md), commit/push/deploy/STOP의 현재 정본은 [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md) CI/delivery 절이다. 과거 이력은 보존하며 운영 지도는 [AGENTS](../../../AGENTS.md), 현재 상태는 [HANDOFF §26](../../../CODEX-HANDOFF.md#knowledge-status), 현재 bundle 결과는 [P1D](../../../P1D-RESULT.md)다.
 
 HOME V2.1은 문서 개정으로 승인됐고 bb8460e commit으로 보존됐다. 해당 작업에서 코드/asset/motion/3D는 구현하지 않았다. [V2.1 revision report](HOME-V2.1-REVISION-REPORT.md)는 당시 STOP 기록이다. 이후 별도로 승인된 P0E만 실행하며 P0C/P0D 계약을 유지했다.
 
-**현재 판정: React Router + Static Prerender APPROVE / P0E·P0F·P1A delivery COMPLETE / P1B audit delivered / P1C mapping REVIEW READY.**
+**현재 판정: React Router + Static Prerender APPROVE / P0E·P0F·P1A delivery COMPLETE / P1B audit delivered / P1C mapping APPROVED / P1D private draft bundle REVIEW READY.**
 
 정본 로드맵, 독립 ABOUT Delight, HOME 한정 Sou.P, mandatory Tray Lab, same-route audio scope, source truth, 대비 token, volume capability 검증 정책, bounded task/STOP 계약을 반영했다. 사용자 승인 사항을 다시 미정 질문으로 남기지 않는다.
 
@@ -572,6 +577,9 @@ P1A 결과와 Asset Lifecycle Policy/main delivery는 완료됐고, 이후 P1B �
 
 현재 P1A schema 결과는 승인됐다. lifecycle 보완과 delivery 검증은 [P1A 결과](../../../P1A-RESULT.md)에 별도 기록한다. 이전 완료: 기존 계획·감사·STOP 계약과 별도로 P0A 기반, P0B 로컬 spike, P0C 실제 Pages 배포/검증 및 architecture 결정, P0D neutral KO/EN 계약과 로컬 검증, P0E Fast/Full CI·preview delivery·live 검증. [P0D 결과](../../../P0D-RESULT.md)를 따른다. 과거 P0A/P0B 결과는 당시 상태 기록으로 보존한다.
 
-현재 미착수: P1D 및 실제 production record 등록, 실제 content→template integration, Blender spike/모델/Tray/Haegeum 3D, 공식 authored/reviewed i18n 콘텐츠와 최종 SEO, 실제 제품 디자인, audio/mobile/3D, 운영 도메인 전환. P1C는 KO 초안 문구와 필드 대응만 검토했다. P0E CI/preview의 실제 SHA/검증 결과는 별도 결과 보고를 따른다.
+P1C 승인 후 P1D에서 그 한 건만 private draft로 실제 등록하고 공개 제외·workflow·regression을 검증한다.
+현재 미착수: 공개 production record/asset 전환, 실제 content→template integration, Blender spike/모델/Tray/Haegeum 3D,
+공식 authored/reviewed EN과 최종 SEO, 실제 제품 디자인, audio/mobile/3D, 운영 도메인 전환. P0E preview는 이 작업에서 재배포하지 않는다.
 
-**현재 결과: P1C REVIEW READY / 사용자 결과 승인 전. 여기서 STOP.** 다음 제안은 P1D 후보인 한 앨범의 비공개 KO draft 등록이며 범위·실행 지시가 별도로 필요하다. P1D, 실제 production record/asset migration, Design System/HOME 또는 delivery로 자동 진행하지 않는다.
+**P1D는 등록→공개 제외→workflow 검토의 한 bundle이며, 전체 검증과 12항목 결과 보고 후 STOP한다.**
+다음 bundle, 공개 전환, Design System/HOME, 3D/Blender 또는 다음 Phase로 자동 진행하지 않는다. 로컬 commit만 사용자 범위에서 허용된다.

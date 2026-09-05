@@ -33,13 +33,21 @@ recorded revision; current status lives in HANDOFF, delivery policy in Task Prot
 
 ## One bounded task, then STOP
 
-**PLAN → ONE BOUNDED TASK → TEST / VALIDATE → REPORT → STOP → USER APPROVAL.**
+**PLAN → SUBTASK A → SUBTASK B → SUBTASK C if tightly related → FULL VALIDATION → REPORT → STOP → USER APPROVAL.**
+
+User revision 2026-09-06: size a bounded task about 2.5–3× larger than the former microtask baseline.
+Bundle 2–3 strongly related subtasks under one objective and owner, aiming for a reviewable, fully validated
+result in roughly 60–90 minutes. This is a sizing target, not a requirement to fill time or skip validation at
+a deadline. State the subtask sequence, files, inputs, validation and rollback before edits. One approval of
+that concrete bundle covers A/B/related C; do not pause for a new approval between its authorized subtasks.
+Do not combine unrelated subsystems, or mix visual design, 3D and content migration to inflate a bundle.
 
 Before edits identify one objective, limited file/behavior scope, required inputs, validation and rollback.
 Preserve user changes and existing planning/review evidence. Never execute several phases, multiple pages,
 the whole HOME, or multiple 3D owner subsystems as one automatic run. A green gate or recommendation does
 not authorize the next task. Use the user's requested report fields (otherwise Task Protocol's seven fields).
-Stop after reporting and wait for explicit approval. Existing task-specific authorization remains valid;
+Full validation means all checks appropriate to the bundle; the Fast/Full delivery gates below still apply.
+Stop after reporting and wait for explicit approval of the next bundle. Existing task-specific authorization remains valid;
 do not invent an additional approval loop for already-authorized work.
 
 Keep APPROVED, IMPLEMENTED, VERIFIED and QUALITY APPROVED distinct; also label FUTURE EXPERIMENT,

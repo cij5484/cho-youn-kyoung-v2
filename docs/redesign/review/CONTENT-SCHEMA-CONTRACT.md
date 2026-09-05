@@ -1,6 +1,6 @@
 # P1A — Content / Data Schema Contract
 
-2026-09-05 · P1A result APPROVED; Asset Lifecycle Policy follow-up and delivery authorized. No actual migration or page implementation.
+2026-09-06 · P1A contract / P1C mapping approved; P1D registers one actual private KO draft. No public content or page implementation.
 This document owns content addition policy; executable types are in [src/content](../../../src/content/models.ts).
 It extends, and does not replace, the [P0D Locale Contract](LOCALE-METADATA-CONTRACT.md).
 
@@ -14,6 +14,9 @@ It extends, and does not replace, the [P0D Locale Contract](LOCALE-METADATA-CONT
 | [validation.ts](../../../src/content/validation.ts) | Typed-data semantic checks: IDs/slugs, refs, dates, publication, copy, visuals and audio source |
 | [catalog.ts](../../../src/content/catalog.ts) | Public indexes, direct related records, semantic detail routes/prerender paths and day-level event period |
 | [fixtures.ts](../../../src/content/fixtures.ts) | Fabricated examples only: one record per domain and one additional album/performance/media/press |
+| [records/ji-young-hee-sanjo.server.ts](../../../src/content/records/ji-young-hee-sanjo.server.ts) | P1C-mapped actual KO draft and its provisional cover source reference; no runtime asset |
+| [registry.server.ts](../../../src/content/registry.server.ts) | Explicit real-record registration, separate from fixtures; raw source registry must not enter client data |
+| [draft tests](../../../tests/draft-content.test.ts), [artifact checks](../../../tests/assert-draft-artifacts.ts) | Approved mapping parity, public/locale exclusion and complete emitted client/static output checks |
 | [content tests](../../../tests/content-contract.test.ts), [compile tests](../../../tests/content-types.test.ts) | Positive/negative growth and contract regression; invalid type examples must remain compile errors |
 
 Content facts, media references and `presentation` are separate. Shared fields compose each domain,
@@ -59,6 +62,10 @@ do not override publication: Album release uses upcoming/released/unavailable. P
 scheduled/cancelled/postponed. `performancePeriod()` derives upcoming/past for an explicitly supplied local
 calendar day (the event/end day remains upcoming through that day); partial dates yield undetermined.
 Cancellation/postponement retains its explicit label. This is a day-level policy, not an exact live-event clock.
+
+P1D's **private draft** means excluded from website public selectors, routes, metadata and deployed client/static
+output. It is not confidential storage: this repository is public, and source/docs can be read after a push.
+Do not put private masters, credentials or other confidential data into source records.
 
 Dates preserve unknown/year/month/day precision; `contentYear()` derives the year without fabricating a month/day.
 Time is optional and carries localStart + timeZone; precise-date validation is required when used. No Date.now()
@@ -172,17 +179,38 @@ integration must switch discovery/prerender to the full content catalog while de
 from individual slugs, then verify real generated HTML/metadata on one existing neutral template. P1A does
 not claim new content HTML was emitted or final data→UI integration is complete.
 
+P1D adds the first actual draft to `registry.server.ts`; it does not replace that neutral wiring. Raw records and
+their registration module use `.server.ts`, supported by the installed React Router client-import guard.
+Future route/metadata integration must use an approved build/server boundary, the same explicit build instant,
+and the existing public selectors; only eligible projected data may reach HTML/loader payloads/client bundles.
+Do not import the raw registry into client components or serialize it wholesale. A `.server` filename is an
+import boundary, not proof against accidental serialization: artifact/route exclusion tests remain required.
+
 ## Addition and validation workflow
 
-1. Read models/shared/assets and the owning page spec. For a neutral experiment, add 1–2 records in fixtures.ts.
-   For real content, first obtain a separate migration approval and source inventory; do not turn fixtures into production truth.
+1. Read models/shared/assets, the owning page spec, source inventory and the approved record mapping. For a neutral
+   experiment use fixtures.ts. For an authorized actual record add `records/<identity>.server.ts`, validate with
+   `satisfies Album` (or its domain type), then explicitly register it and its source asset references in
+   `registry.server.ts`. Do not modify neutral fixtures to represent real artists, nor create a per-ID page.
 2. Supply stable ID/slug/publication and domain-required fields. Keep factual and presentation choices separate.
-3. Add authored KO, optional EN, provenance and valid review evidence. Draft/missing fields remain visibly unready.
+3. Preserve the approved mapping's source/status/provenance. Mapping approval is not authored-copy review: machine-assisted
+   drafts remain drafts until a separate evidenced content review. Keep missing EN absent; no generated full EN edition.
 4. Reference asset IDs with explicit lifecycle; use candidates for prototypes and approved assets for public product use.
    Distinguish master/runtime/mobile/poster/alt roles and related IDs. Do not copy binaries into schema files.
-5. Validate indexes/related refs and generated path instances with explicit build time; publication is not deployment permission.
-6. Run `npm.cmd run type-check`, `npm.cmd run test:content` and the existing task-appropriate gates. Fast now
-   includes test:content; Full still adds project build and the unchanged 80-case browser regression.
+5. Validate the complete registry and public indexes/related refs/route metadata with explicit build time. For a draft,
+   prove exclusion before/after its release date and in a mixed public/draft catalog; publication is not deployment permission.
+6. Run `type-check`, `lint`, `test:content`, `test:locale` and the applicable gates. Fast includes content/locale/placement,
+   a fresh root build, then `test:content:visibility` on its complete client/static output. Full adds the project build
+   and 82 browser cases, including draft KO/EN direct/client 404, metadata and both-artifact exclusion. Windows uses
+   `npm.cmd run <command>`; macOS/Linux use `npm run <command>` with the required Node/npm versions.
+
+When a later authorized edit changes approved copy/fields, update the real-record regression to the new owning review.
+Keep the historical P1C mapping unchanged; do not edit an old approval artifact just to make a test pass.
+
+The first actual record is a private draft with one source-only provisional cover: no runtime URL, asset bytes,
+public route, review fabrication or field expansion is necessary. Printed track times stay in P1C until their
+storage/measurement meaning is reviewed. Unsupported optional facts remain in the source audit. See
+[P1D result](../../../P1D-RESULT.md) for actual scope and validation, not the older P1A route-growth fixture counts.
 
 TypeScript strict readonly interfaces, discriminated unions and satisfies validate authored shape; compile tests
 ensure invalid examples stay errors. The small runtime semantic checker handles cross-record constraints that
@@ -190,4 +218,5 @@ types cannot express. It deliberately does not decode arbitrary external JSON. Z
 CMS/import boundary, but none exists in P1A; adding it now would duplicate contracts and a dependency without
 that boundary. Revisit when such a boundary is actually approved, not as speculative infrastructure.
 
-Results and exact scope: [P1A result](../../../P1A-RESULT.md). **STOP after P1A. P1B requires explicit approval.**
+Historical schema proof: [P1A result](../../../P1A-RESULT.md). Current private integration: [P1D result](../../../P1D-RESULT.md).
+**STOP after the approved bundle's validation/report; no automatic public release or next Phase.**

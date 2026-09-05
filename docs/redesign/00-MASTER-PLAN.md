@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 00 — REDESIGN MASTER PLAN
 
-**Version:** 1.12\
-**Status:** Approved Planning Baseline — P0A–E approved; P0F canonical/delivery complete; P1A result approved with lifecycle/delivery follow-up authorized; product implementation pending\
+**Version:** 1.13\
+**Status:** Approved Planning Baseline — P1C result approved; P1D private KO draft bundle authorized; enlarged bounded-task policy approved 2026-09-06; public product implementation pending\
 **Legacy Repository:** `cij5484/cho-youn-kyoung`  
 **Target Repository:** `cij5484/cho-youn-kyoung-v2`  
 **Final Production Domain:** `https://choyounkyoung.com`  
@@ -872,11 +872,19 @@ NO라면 아무리 멋진 기술이라도 사용하지 않는다.
 
 # 43. IMPLEMENTATION CHUNKING / STOP RULE — MANDATORY
 
-PLAN → ONE BOUNDED TASK → TEST / VALIDATE → REPORT RESULT → STOP → WAIT FOR USER APPROVAL → NEXT TASK.
+PLAN → SUBTASK A → SUBTASK B → SUBTASK C if tightly related → FULL VALIDATION → REPORT → STOP → USER APPROVAL.
+
+2026-09-06 사용자 승인: 기존 작은 단위보다 약 2.5–3배 큰 bounded task를 허용한다. 한 목표/owner 안에서
+강하게 연관된 2–3개 subtask를 묶어 약 60–90분 안에 검증 가능한 결과를 목표로 한다. 시간은 분량 기준이며
+억지로 채우거나 검증을 생략할 마감이 아니다. 승인된 bundle 내부 A/B/C 사이에는 별도 승인을 다시 요구하지 않는다.
+PLAN에 subtask 순서·파일 범위·입력·전체 검증·rollback을 제시하고, bundle 완료 후 보고/STOP/다음 승인 경계를 지킨다.
+다른 subsystem 또는 시각 디자인/3D/콘텐츠 migration을 무리하게 섞지 않는다. 기존 작은 작업 큐는 bundle 설계의 재료이며,
+서로 다른 3D owner의 freeze/품질 gate를 합치거나 생략하는 근거가 아니다.
 
 Never execute multiple phases, the entire HOME, multiple pages, or several 3D subsystems in one automatic implementation run. Never continue for hours without review. Each task has one clear goal, limited impact, explainable file scope, immediate validation and a simple rollback/checkpoint. If validation fails, fix only within the approved scope or stop and report the blocker; do not expand into another subsystem.
 
-After every task report:
+FULL VALIDATION은 bundle에 필요한 전체 검증이며 기존 Fast/Full/배포 gate도 적용한다.
+사용자가 결과 항목을 지정하면 그 형식을 따르고, 별도 지정이 없으면 다음 7항목을 보고한다:
 1. What was changed
 2. Files changed
 3. Tests performed (distinguish passed, failed and not run)
@@ -909,4 +917,6 @@ See [review/ROUTING-ARCHITECTURE-DECISION.md](review/ROUTING-ARCHITECTURE-DECISI
 
 Actual user-approved sequence: P0B local spike, P0C real Pages/CI and architecture decision, P0D locale contract, P0E CI/delivery, then P0F documentation wiring only. P0E Fast/Full and explicit approved-SHA deployment remain the current contract. Root-mode testing must not change the operating custom domain during P0. Actual domain/HTTPS cutover is P14.
 
-Do not fall back to HashRouter. P0A–E completed under separate approvals. P0F documentation / AGENTS and delivery completed. P1A is locally verified and its result is approved. Only the explicit lifecycle follow-up and main delivery are authorized; STOP before P1B, migration or deployment. No product/Blender/3D work is started by document approval.
+Do not fall back to HashRouter. P0A–E, P0F and P1A lifecycle/delivery completed under separate approvals.
+P1B audit was delivered and P1C mapping is approved. The current P1D scope is one private KO draft integration
+bundle; current result is in HANDOFF. No public product/Blender/3D work or deployment is authorized by that scope.

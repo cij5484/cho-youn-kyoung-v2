@@ -1,19 +1,30 @@
 # Implementation Task Protocol — mandatory bounded work
 
-Revision 1.7 · 2026-09-06 · P1C document-only KO mapping review; P0E gates/delivery/STOP unchanged.
+Revision 1.8 · 2026-09-06 · user-approved enlarged bundles / P1D private draft integration; explicit delivery and terminal STOP retained.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
 
-**PLAN → ONE BOUNDED TASK → TEST / VALIDATE → REPORT RESULT → STOP → WAIT FOR USER APPROVAL → NEXT TASK**
+**PLAN → SUBTASK A → SUBTASK B → SUBTASK C if tightly related → FULL VALIDATION → REPORT → STOP → USER APPROVAL**
 
-Every implementation unit requires explicit user approval. Overall direction approval, a completed test, a proposed next task, or a phase title does not authorize the next unit. Never execute several phases, several pages, the whole HOME, or multiple 3D subsystems automatically in one long session. A small task can still require another split if its file/behavior scope becomes too broad.
+The user revised task size on 2026-09-06: about 2.5–3× the former microtask baseline. A bundle contains 2–3
+strongly related subtasks under one objective/owner, aiming for a fully verifiable result in roughly 60–90 minutes.
+Do not fill time artificially or drop checks to fit a deadline. Approval of the concrete bundle authorizes its A/B/C;
+do not introduce intermediate approval pauses. Plan their sequence, file/behavior scope, inputs, acceptance checks,
+full validation and rollback before edits. FULL VALIDATION covers all applicable checks, including Fast/Full below.
+Do not mix unrelated subsystems, or combine visual design, 3D and content migration to increase volume.
+Existing small queue entries can be bundled only under these constraints. Cross-Phase automation, whole HOME,
+multiple unrelated pages, cross-owner 3D edits and skipping quality/freeze gates remain prohibited.
+
+Every implementation bundle requires explicit user approval. Overall direction approval, a completed test, a proposed next task, or a phase title does not authorize the next bundle. Never execute several phases, several pages, the whole HOME, or multiple 3D subsystems automatically in one long session. A bundle can still require a split if its file/behavior scope becomes too broad.
 
 Before starting, state: task ID, one objective, bounded file/behavior scope, input dependencies, validation, completion gate, rollback and exclusions. Use an isolated checkpoint/commit after implementation is authorized. No repository or commit is created by this document.
 
 When tests fail, fix only the approved task's owner subsystem. If the fix expands scope, stop and report the new bounded task needed. Do not turn an unsuccessful spike into an unapproved framework migration.
 
-## Required seven-field result report
+## Result report — user fields first, seven by default
+
+Use explicit user-requested report fields when supplied (P1D has 12). Otherwise use:
 
 1. **What was changed** — behavior and purpose.
 2. **Files changed** — actual paths and roles, including an empty list if none.
@@ -38,15 +49,18 @@ Do not install dependencies again for every small task if the tested lockfile/en
 
 | Gate | Command / owner | Required work |
 |---|---|---|
-| Fast | `npm.cmd run gate:fast` | type-check → lint → locale/metadata and content unit contracts → placement contracts → root production build/prerender/placement |
-| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → existing 80-case browser suite over both strict static hosts |
+| Fast | `npm.cmd run gate:fast` | type-check → lint → locale/metadata and content unit contracts → placement contracts → root production build/prerender/placement → `test:content:visibility` on that fresh artifact |
+| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → 80 existing + 2 draft-exclusion browser cases over both strict static hosts |
 | Live deployment | `npm.cmd run test:pages` with actual `EXPECTED_DEPLOY_SHA` | 18-route JS on/off metadata, refresh/history, variants, actual HTTP 404, artifact identity/hash/MIME/cache |
 | Workflow configuration | actionlint 1.7.12 | YAML, expressions, reusable workflow input/job wiring; Linux also checks embedded shell |
 
 Individual commands remain available: type-check, lint, test:locale, test:content, test:placement, build,
 build:pages-preview, test:spike. `check` remains the historical type/lint/root-build convenience command;
 it is not the complete Fast gate. Root and project builds must run sequentially because they share typegen/cache.
-Local Full uses installed Edge; Linux CI installs the pinned Playwright package's Chromium. Test assertions
+Local Full defaults to installed Edge; Linux CI installs the pinned Playwright package's Chromium. The current Mac
+uses the same installed Chromium with `CI=1` and the pinned Node/npm environment, without changing assertions.
+`test:content` includes the real draft regression; `test:content:visibility` checks root client/static output after build.
+Full checks both artifacts and real draft KO/EN 404/metadata exclusion. Test assertions
 are the same. No reduced route sample or retry was introduced to hide failures.
 
 Fast runs on every branch push and PR, including documents, through ci.yml → reusable quality-gates.yml.
@@ -55,7 +69,7 @@ missing/pending checks on documentation-only PRs. A branch push plus an open PR 
 concurrency cancels superseded runs on the same event ref. No repository ruleset is silently changed.
 
 Full runs through an explicit pages.yml workflow_dispatch. It repeats Fast on that exact revision,
-then checks both static bases and all 80 browser cases. A failed type/lint/unit/build/placement/browser
+then checks both static bases and all 82 browser cases. A failed type/lint/unit/build/placement/browser
 step fails the job; upload/deploy depend on that success. Full without deployment retains test evidence
 but never uploads the special Pages artifact. Only successful Full with deploy=true uploads static/.
 
@@ -250,7 +264,7 @@ Blender/assets/audio/dependency/deployment change. Type/lint/content13/locale8/p
 User-approved naming follows Index visualMode and separates musical category; [contract](CONTENT-SCHEMA-CONTRACT.md).
 [Result](../../../P1A-RESULT.md) distinguishes adapter proof from actual data-to-page integration and records the separately authorized lifecycle/delivery follow-up. The counts above are the initial P1A gate; follow-up evidence is in the result. **Historical P1A stop: before P1B.** P1B was subsequently authorized and delivered; current state is in [HANDOFF](../../../CODEX-HANDOFF.md).
 
-## P1C — Ji Young-hee Ryu Album KO Record Mapping Review — REVIEW READY
+## P1C — Ji Young-hee Ryu Album KO Record Mapping Review — result APPROVED
 
 The user explicitly named and authorized this one review unit after P1B, requiring STOP before P1D or actual
 production record registration. [Review/task card](album-audits/JI-YOUNG-HEE-SANJO-KO-RECORD-MAPPING-REVIEW.md)
@@ -263,11 +277,27 @@ Validate source/field correspondence, the document-only candidate against existi
 draft exclusion and invalid-publication rejection, links/anchors and unchanged runtime/P1B evidence/checklists.
 No production module, new record in src, asset runtime URL, page/route/template, translation edition, audio/3D or
 delivery action. Documentation-only validation does not require another Full/browser run of unchanged code.
-Report the seven fields and **STOP**. Result review and a recommended P1D do not authorize P1D or production registration.
+The original seven-field report and STOP were completed; the user subsequently approved the result and separately
+authorized the P1D bundle below. Historical P1C evidence remains unchanged.
+
+## P1D — Ji Young-hee Ryu KO Draft Integration Bundle
+
+Explicitly authorized A/B/C: (A) register the P1C-approved single KO record as a private draft in the actual content
+layer; (B) prove public catalog/locale route/metadata/prerender/client-artifact exclusion with regression tests;
+(C) verify the real addition workflow and minimally update its documents plus the user's task-size revision.
+One content owner, no other album/EN publication/Design System/HOME/3D/Blender/next Phase. Full validation is
+type-check, lint, content/schema, locale state, public exclusion, both builds, route regression and Fast-relevant checks.
+Logical local commits of validated P1C/P1D work are allowed; no push/deploy is implied. Baseline `306d757`,
+checkpoint in ignored `.checkpoints/p1d-before-306d757/`; restore only P1D changes and preserve approved P1C.
+Task scope, files, results and the user's 12 fields are recorded in [P1D-RESULT](../../../P1D-RESULT.md).
+**REPORT → STOP → USER APPROVAL** ends the whole bundle. No next bundle or Phase automatically follows.
 
 ## Chunking the rest of PHASE 1–14
 
-The sequence in each row is a **queue of separate tasks**, not one combined task. Before each entry, write a bounded task card with exact actual file scope, validation and rollback. Each arrow includes REPORT → STOP → APPROVAL. A whole phase request must be narrowed to its first explicit task unless the user deliberately revises this stop policy.
+The sequence in each row is a planning queue. Under the 2026-09-06 revision, 2–3 strongly related entries within
+one owner may form an explicitly approved 60–90 minute bundle; unrelated entries remain separate. Write the task
+card with actual scope, validation and rollback. REPORT → STOP → APPROVAL applies at the bundle boundary,
+not between its already-authorized subtasks. A Phase title never authorizes an automatic queue run.
 
 | Phase | Separate task queue | Typical file scope / immediate evidence |
 |---|---|---|
@@ -295,5 +325,5 @@ The document contracts and bounded starter task are defined; later decisions are
 This is not authorization to execute P0A, not proof of prerender suitability, and not approval to run P0A–F continuously.
 
 The above readiness was the initial planning snapshot. P0F and P1A lifecycle/delivery completed; P1B audit was
-subsequently delivered. Current user-authorized unit is P1C mapping review only, as defined above and in
-[HANDOFF](../../../CODEX-HANDOFF.md). **STOP before P1D or actual production record registration.**
+subsequently delivered and P1C is approved. Current user-authorized unit is the P1D private draft integration
+bundle above and in [HANDOFF](../../../CODEX-HANDOFF.md). **STOP after P1D; no public release or next Phase.**

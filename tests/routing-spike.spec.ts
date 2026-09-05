@@ -5,6 +5,8 @@ import { expect, test, type Page, type TestInfo } from '@playwright/test'
 import { getBuildTarget } from '../config/build.ts'
 import { spikeRoutes, type SpikeRoute } from '../src/spike/fixtures.ts'
 import { expectLocaleMetadata } from './metadata-assertions.ts'
+import { assertDraftArtifactsExcluded } from './assert-draft-artifacts.ts'
+import { contentCatalog } from '../src/content/registry.server.ts'
 
 function pathAtBase(fixture: SpikeRoute, info: TestInfo, trailingSlash = true) {
   const { base } = getBuildTarget(info.project.name)
@@ -145,4 +147,30 @@ test('slash redirect preserves query; canonical excludes query/hash', async ({ p
   await checkMetadata(page, fixture, info)
   expect(new URL(page.url()).search).toBe('?p0b=1')
   expect(new URL(page.url()).hash).toBe('#test')
+})
+
+test('registered draft stays out of both artifacts and direct or client route metadata', async ({ page, request }, info) => {
+  const target = getBuildTarget(info.project.name)
+  const result = await assertDraftArtifactsExcluded(info.project.name as 'root' | 'pagesPreview')
+  await info.attach('draft-exclusion', { body: JSON.stringify(result), contentType: 'application/json' })
+  for (const album of contentCatalog.albums) {
+    for (const prefix of ['', 'en/']) {
+      const path = `${target.base}${prefix}album/${album.slug}/`
+      const response = await request.get(path)
+      expect(response.status()).toBe(404)
+      expect(await response.text()).toBe('404 Not Found')
+      await page.goto(target.base)
+      await page.waitForLoadState('networkidle')
+      // Exercise an in-app history destination without exposing a new public link to the draft.
+      await page.evaluate(destination => {
+        history.pushState(history.state, '', destination)
+        dispatchEvent(new PopStateEvent('popstate', { state: history.state }))
+      }, path)
+      await expect(page.getByRole('heading', { level: 1 })).toHaveText('404')
+      await expect(page).toHaveTitle('404 | P0B')
+      await expect(page.locator('link[rel="canonical"], link[hreflang], meta[property^="og:"]')).toHaveCount(0)
+      await expect(page.locator('body')).not.toContainText(album.content.ko.value.title)
+      expect((await page.reload())?.status()).toBe(404)
+    }
+  }
 })
