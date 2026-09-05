@@ -1,7 +1,7 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 14 — MIGRATION / QA
 
-**Version:** 1.2  
+**Version:** 1.3\
 **Status:** Approved Migration & QA Baseline  
 **Parent:** `00-MASTER-PLAN.md`
 
@@ -78,7 +78,7 @@ unless independently approved.
 
 # 5. ROUTING
 
-V2 uses clean routes. React Router + Static Prerender is APPROVED after the P0C real Pages gate; see [architecture decision](review/ROUTING-ARCHITECTURE-DECISION.md). HashRouter remains forbidden. P0C verified its 13 requested neutral routes; the full production/locale matrix below remains a release QA requirement. Test Project Pages subpath `/cho-youn-kyoung-v2/` and final-domain root `/`, direct navigation/refresh, valid route versus 404, per-route metadata, canonical and hreflang for all routes below. P0 tests root-mode without switching the operating domain; actual custom-domain/HTTPS proof belongs to PHASE 14.
+V2 uses clean routes. React Router + Static Prerender is APPROVED after the P0C real Pages gate; see [architecture decision](review/ROUTING-ARCHITECTURE-DECISION.md). HashRouter remains forbidden. P0C verified its 13 requested neutral routes on real Pages. P0D subsequently verified all 18 KO/EN neutral routes locally at both bases, including reciprocal hreflang, self-canonical, lang and OG. See [locale contract](review/LOCALE-METADATA-CONTRACT.md). The P0D artifact is not deployed; actual authored-content and production-domain checks below remain release requirements. Test Project Pages subpath `/cho-youn-kyoung-v2/` and final-domain root `/`, direct navigation/refresh, valid route versus 404, per-route metadata, canonical and hreflang for all routes below. P0 tests root-mode without switching the operating domain; actual custom-domain/HTTPS proof belongs to PHASE 14.
 
 Verify direct navigation and refresh for:
 

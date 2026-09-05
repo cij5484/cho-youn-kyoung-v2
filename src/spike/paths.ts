@@ -1,3 +1,5 @@
+import { normalizePath, publicUrl } from '../routing/locale-contract.ts'
+
 // Router links use logical paths; React Router adds its centrally configured basename.
 export function routeHref(path: string) {
   return path === '/' ? '/' : `${path.replace(/\/+$/, '')}/`
@@ -12,9 +14,11 @@ export function logicalPath(pathname: string) {
   const path = base !== '/' && pathname.startsWith(base)
     ? `/${pathname.slice(base.length)}`
     : pathname
-  return path.replace(/\/+$/, '') || '/'
+  return normalizePath(path)
 }
 
 export function canonicalCandidate(path: string) {
-  return new URL(publicAsset(routeHref(path)), import.meta.env.VITE_SPIKE_ORIGIN).href
+  return publicUrl(path, siteLocation)
 }
+
+export const siteLocation = { origin: import.meta.env.VITE_SPIKE_ORIGIN, base: import.meta.env.BASE_URL }

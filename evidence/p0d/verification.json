@@ -1,0 +1,1678 @@
+{
+  "task": "P0D",
+  "baselineCommit": "2be11620f1bca8b699c5cc7c0fa17cf9ac06f988",
+  "scope": "Local uncommitted working tree; no push, deployment or new real-host verification",
+  "runtime": {
+    "node": "v24.15.0",
+    "browser": "Microsoft Edge 152.0.4191.62",
+    "platform": "Windows"
+  },
+  "checks": {
+    "typeCheck": "PASS",
+    "lint": "PASS",
+    "rootBuild": "PASS",
+    "projectBuild": "PASS",
+    "localeTests": {
+      "passed": 8,
+      "failed": 0
+    },
+    "placementTests": {
+      "passed": 3,
+      "failed": 0
+    }
+  },
+  "browser": {
+    "stats": {
+      "startTime": "2026-09-05T09:10:48.983Z",
+      "duration": 55728.235,
+      "expected": 80,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "cases": [
+      {
+        "project": "root",
+        "title": "hydrated /: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1557,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "hydrated /works: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1615,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "hydrated /albums: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1576,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "hydrated /performances: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1605,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "hydrated /album/test-album: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1561,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "hydrated /performance/test-performance: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1567,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "hydrated /media: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1543,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "hydrated /about: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1606,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "hydrated /contact: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1646,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "hydrated /en: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1623,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "hydrated /en/works: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1574,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "hydrated /en/albums: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1607,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "hydrated /en/performances: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1648,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "hydrated /en/album/test-album: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1662,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "hydrated /en/performance/test-performance: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1599,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "hydrated /en/media: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1623,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "hydrated /en/about: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1666,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "hydrated /en/contact: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1623,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "hydrated links, both locales, assets, history and reload",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 4158,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "strict host returns HTTP 404 for unknown routes, slugs and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 32,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "client unknown routes and slugs show 404, distinct from HTTP status",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1618,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "slash redirect preserves query; canonical excludes query/hash",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 436,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "hydrated /: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1575,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "hydrated /works: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1619,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "hydrated /albums: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1595,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "hydrated /performances: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1613,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "hydrated /album/test-album: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1597,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "hydrated /performance/test-performance: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1604,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "hydrated /media: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1587,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "hydrated /about: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1570,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "hydrated /contact: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1608,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "hydrated /en: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1668,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "hydrated /en/works: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1650,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "hydrated /en/albums: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1624,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "hydrated /en/performances: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1584,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "hydrated /en/album/test-album: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1648,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "hydrated /en/performance/test-performance: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1572,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "hydrated /en/media: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1602,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "hydrated /en/about: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1617,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "hydrated /en/contact: direct, hard refresh, semantic counterpart and history",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1619,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "hydrated links, both locales, assets, history and reload",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 3930,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "strict host returns HTTP 404 for unknown routes, slugs and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 39,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "client unknown routes and slugs show 404, distinct from HTTP status",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1621,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "slash redirect preserves query; canonical excludes query/hash",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 418,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "direct /: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 3671,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "direct /works: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1221,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "direct /albums: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 608,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "direct /performances: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 752,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "direct /album/test-album: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 676,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "direct /performance/test-performance: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 743,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "direct /media: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 802,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "direct /about: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 677,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "direct /contact: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 734,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "direct /en: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 767,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "direct /en/works: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 773,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "direct /en/albums: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 772,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "direct /en/performances: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 764,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "direct /en/album/test-album: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 765,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "direct /en/performance/test-performance: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 799,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "direct /en/media: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 841,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "direct /en/about: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 831,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "root",
+        "title": "direct /en/contact: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 773,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "direct /: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 974,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "direct /works: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 1074,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "direct /albums: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 688,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "direct /performances: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 825,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "direct /album/test-album: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 770,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "direct /performance/test-performance: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 640,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "direct /media: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 751,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "direct /about: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 762,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "direct /contact: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 735,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "direct /en: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 886,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "direct /en/works: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 786,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "direct /en/albums: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 938,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "direct /en/performances: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 767,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "direct /en/album/test-album: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 854,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "direct /en/performance/test-performance: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 880,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "direct /en/media: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 778,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "direct /en/about: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 785,
+            "retry": 0
+          }
+        ]
+      },
+      {
+        "project": "pagesPreview",
+        "title": "direct /en/contact: HTML, metadata, links and assets",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "duration": 869,
+            "retry": 0
+          }
+        ]
+      }
+    ]
+  },
+  "sourceHashes": {
+    "package.json": "c5eb74e453da8b389c5af40a670bc691a33d0c443438c850e548ecf33f46b379",
+    "src/routing/locale-contract.ts": "1b4c21ff510137b4a9ca734c2e79298d1fa5855a49833785c579e62ecaf80db4",
+    "src/root.tsx": "e2cd463d93cc166744af50c7aa24e923e51b19e565f2d78e12617d398b68f3d1",
+    "src/spike/fixtures.ts": "88aedd6d31510f523f9e9ddfeaacd22c5209b2cf08c3f67dd5d0345529cea265",
+    "src/spike/paths.ts": "13e28766a9dd1c967a8efa93c5f3e3da240a366109d53a10756a5d7dc6466116",
+    "src/spike/metadata.ts": "52630102f1b1cdf8048763410a08eef02cce404c67ce7f8180feca4715c6440f",
+    "tests/locale-contract.test.ts": "03ce05c97a2af9645e63d490621b92bce09be14e76e58ef909e82c744616ad92",
+    "tests/metadata-assertions.ts": "526466beca856c3dd9242e1f9e6567930546ef4959513bf8a02dc4bc6b15f2d6",
+    "tests/routing-spike.spec.ts": "32a6f5f2a53af037028eb43631ce59d4ac2bee95f5a0a978c7cef56b89fba326",
+    "tests/pages/live.spec.ts": "3b7784454e46230c33934e529fb9bd88dd8776fcfb3fe3aa6ee038d1b273a9d8"
+  },
+  "artifacts": [
+    {
+      "target": "root",
+      "base": "/",
+      "canonicalOrigin": "https://site.example.invalid",
+      "manifestCommit": "2be11620f1bca8b699c5cc7c0fa17cf9ac06f988",
+      "manifestCommitMeaning": "Baseline HEAD only, not a clean or deployed P0D revision",
+      "publicFiles": 28,
+      "documents": [
+        {
+          "path": "about/index.html",
+          "sha256": "1d06c92dfacc12e3beb2990228be527a31bf4397454dc40bc47d23d99c4c6ff6",
+          "lang": "ko",
+          "headMetadata": [
+            "<title>ABOUT (ko) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /about [ko]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://site.example.invalid/about/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://site.example.invalid/about/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://site.example.invalid/en/about/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://site.example.invalid/about/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"ABOUT (ko) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /about [ko]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://site.example.invalid/about/\"/>"
+          ]
+        },
+        {
+          "path": "album/test-album/index.html",
+          "sha256": "fbe676586374d06fb2239bfef66fd52e3930367846fa06843171927bb0c32d8a",
+          "lang": "ko",
+          "headMetadata": [
+            "<title>ALBUM TEST (ko) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /album/test-album [ko]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://site.example.invalid/album/test-album/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://site.example.invalid/album/test-album/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://site.example.invalid/en/album/test-album/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://site.example.invalid/album/test-album/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"ALBUM TEST (ko) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /album/test-album [ko]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://site.example.invalid/album/test-album/\"/>"
+          ]
+        },
+        {
+          "path": "albums/index.html",
+          "sha256": "b8d31f6383a3d4803a010127d417b2620bd301996d1114b5386b2604c3208930",
+          "lang": "ko",
+          "headMetadata": [
+            "<title>ALBUMS (ko) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /albums [ko]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://site.example.invalid/albums/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://site.example.invalid/albums/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://site.example.invalid/en/albums/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://site.example.invalid/albums/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"ALBUMS (ko) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /albums [ko]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://site.example.invalid/albums/\"/>"
+          ]
+        },
+        {
+          "path": "contact/index.html",
+          "sha256": "87f24f0d203d1ff64c783680081fe12bf9624d2e6f20811e8c963cc42f1e641d",
+          "lang": "ko",
+          "headMetadata": [
+            "<title>CONTACT (ko) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /contact [ko]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://site.example.invalid/contact/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://site.example.invalid/contact/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://site.example.invalid/en/contact/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://site.example.invalid/contact/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"CONTACT (ko) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /contact [ko]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://site.example.invalid/contact/\"/>"
+          ]
+        },
+        {
+          "path": "en/about/index.html",
+          "sha256": "7c0007c64a13c72a9a105272679f4c70ca61fd32ca46b67c5f571df4c02bdfd5",
+          "lang": "en",
+          "headMetadata": [
+            "<title>ABOUT (en) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /en/about [en]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://site.example.invalid/en/about/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://site.example.invalid/about/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://site.example.invalid/en/about/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://site.example.invalid/about/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"ABOUT (en) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /en/about [en]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://site.example.invalid/en/about/\"/>"
+          ]
+        },
+        {
+          "path": "en/album/test-album/index.html",
+          "sha256": "dfdd22d0187786c4dafd9d3edb73d639fda50742fe5eb3b96d6ae0b437164275",
+          "lang": "en",
+          "headMetadata": [
+            "<title>ALBUM TEST (en) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /en/album/test-album [en]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://site.example.invalid/en/album/test-album/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://site.example.invalid/album/test-album/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://site.example.invalid/en/album/test-album/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://site.example.invalid/album/test-album/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"ALBUM TEST (en) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /en/album/test-album [en]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://site.example.invalid/en/album/test-album/\"/>"
+          ]
+        },
+        {
+          "path": "en/albums/index.html",
+          "sha256": "64cb6b40ddbdf266c2d720396429ca763f3edaf3fee259f8a38e3f373b4c4a22",
+          "lang": "en",
+          "headMetadata": [
+            "<title>ALBUMS (en) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /en/albums [en]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://site.example.invalid/en/albums/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://site.example.invalid/albums/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://site.example.invalid/en/albums/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://site.example.invalid/albums/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"ALBUMS (en) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /en/albums [en]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://site.example.invalid/en/albums/\"/>"
+          ]
+        },
+        {
+          "path": "en/contact/index.html",
+          "sha256": "f07e6e23c67aeafbb6f1998b2d77568d14a659b2689c9f7281e4bd6e1e830e84",
+          "lang": "en",
+          "headMetadata": [
+            "<title>CONTACT (en) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /en/contact [en]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://site.example.invalid/en/contact/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://site.example.invalid/contact/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://site.example.invalid/en/contact/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://site.example.invalid/contact/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"CONTACT (en) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /en/contact [en]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://site.example.invalid/en/contact/\"/>"
+          ]
+        },
+        {
+          "path": "en/index.html",
+          "sha256": "66387eacf228e774b18bc7815f2b790a209a87d87ee3e888000910c25aabd0cb",
+          "lang": "en",
+          "headMetadata": [
+            "<title>HOME (en) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /en [en]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://site.example.invalid/en/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://site.example.invalid/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://site.example.invalid/en/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://site.example.invalid/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"HOME (en) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /en [en]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://site.example.invalid/en/\"/>"
+          ]
+        },
+        {
+          "path": "en/media/index.html",
+          "sha256": "9d795a3d9c5e569ebd539782f4493f51307d7f5b24d04f61fa3c36908540fd33",
+          "lang": "en",
+          "headMetadata": [
+            "<title>MEDIA (en) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /en/media [en]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://site.example.invalid/en/media/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://site.example.invalid/media/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://site.example.invalid/en/media/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://site.example.invalid/media/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"MEDIA (en) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /en/media [en]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://site.example.invalid/en/media/\"/>"
+          ]
+        },
+        {
+          "path": "en/performance/test-performance/index.html",
+          "sha256": "f6179ade72fe974c106692623e1a7fb99588c04334d74a3770c712610c820b9d",
+          "lang": "en",
+          "headMetadata": [
+            "<title>PERFORMANCE TEST (en) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /en/performance/test-performance [en]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://site.example.invalid/en/performance/test-performance/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://site.example.invalid/performance/test-performance/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://site.example.invalid/en/performance/test-performance/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://site.example.invalid/performance/test-performance/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"PERFORMANCE TEST (en) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /en/performance/test-performance [en]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://site.example.invalid/en/performance/test-performance/\"/>"
+          ]
+        },
+        {
+          "path": "en/performances/index.html",
+          "sha256": "a8ba58b1b616cdea6c45742e4cfe0504da83e63230b2f4ba7bf1e07b16faefcc",
+          "lang": "en",
+          "headMetadata": [
+            "<title>PERFORMANCES (en) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /en/performances [en]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://site.example.invalid/en/performances/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://site.example.invalid/performances/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://site.example.invalid/en/performances/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://site.example.invalid/performances/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"PERFORMANCES (en) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /en/performances [en]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://site.example.invalid/en/performances/\"/>"
+          ]
+        },
+        {
+          "path": "en/works/index.html",
+          "sha256": "2560e1edecd7dc82be4032355f93a8a8d8797cd524c3644a9bb69500169c01e4",
+          "lang": "en",
+          "headMetadata": [
+            "<title>WORKS (en) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /en/works [en]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://site.example.invalid/en/works/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://site.example.invalid/works/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://site.example.invalid/en/works/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://site.example.invalid/works/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"WORKS (en) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /en/works [en]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://site.example.invalid/en/works/\"/>"
+          ]
+        },
+        {
+          "path": "index.html",
+          "sha256": "a38929232aa11955fa28f90ba8b7595c47753ce86939c5217510d615e5ce3155",
+          "lang": "ko",
+          "headMetadata": [
+            "<title>HOME (ko) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: / [ko]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://site.example.invalid/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://site.example.invalid/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://site.example.invalid/en/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://site.example.invalid/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"HOME (ko) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: / [ko]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://site.example.invalid/\"/>"
+          ]
+        },
+        {
+          "path": "media/index.html",
+          "sha256": "f5987ad3d9811b9f7f8cc5ed889a17571d1a7b2f5204941cc3a00f0c1301846e",
+          "lang": "ko",
+          "headMetadata": [
+            "<title>MEDIA (ko) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /media [ko]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://site.example.invalid/media/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://site.example.invalid/media/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://site.example.invalid/en/media/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://site.example.invalid/media/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"MEDIA (ko) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /media [ko]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://site.example.invalid/media/\"/>"
+          ]
+        },
+        {
+          "path": "performance/test-performance/index.html",
+          "sha256": "6a9403e2b5ecc7e18d15de450bd5171b107cd970e410c1996c6a92def76835ee",
+          "lang": "ko",
+          "headMetadata": [
+            "<title>PERFORMANCE TEST (ko) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /performance/test-performance [ko]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://site.example.invalid/performance/test-performance/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://site.example.invalid/performance/test-performance/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://site.example.invalid/en/performance/test-performance/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://site.example.invalid/performance/test-performance/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"PERFORMANCE TEST (ko) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /performance/test-performance [ko]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://site.example.invalid/performance/test-performance/\"/>"
+          ]
+        },
+        {
+          "path": "performances/index.html",
+          "sha256": "6ddca42599385475667b9c2d319fc23c955220bd60df934c86a5af2fbc32204a",
+          "lang": "ko",
+          "headMetadata": [
+            "<title>PERFORMANCES (ko) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /performances [ko]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://site.example.invalid/performances/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://site.example.invalid/performances/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://site.example.invalid/en/performances/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://site.example.invalid/performances/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"PERFORMANCES (ko) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /performances [ko]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://site.example.invalid/performances/\"/>"
+          ]
+        },
+        {
+          "path": "works/index.html",
+          "sha256": "dc207aef016ef7f41ffd42645d9d836f63bfea0e388a2153e1f8e4574d53ef5a",
+          "lang": "ko",
+          "headMetadata": [
+            "<title>WORKS (ko) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /works [ko]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://site.example.invalid/works/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://site.example.invalid/works/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://site.example.invalid/en/works/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://site.example.invalid/works/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"WORKS (ko) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /works [ko]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://site.example.invalid/works/\"/>"
+          ]
+        }
+      ]
+    },
+    {
+      "target": "pagesPreview",
+      "base": "/cho-youn-kyoung-v2/",
+      "canonicalOrigin": "https://cij5484.github.io",
+      "manifestCommit": "2be11620f1bca8b699c5cc7c0fa17cf9ac06f988",
+      "manifestCommitMeaning": "Baseline HEAD only, not a clean or deployed P0D revision",
+      "publicFiles": 28,
+      "documents": [
+        {
+          "path": "about/index.html",
+          "sha256": "c93ca2f7dd6057e6d9d2ab1b6b2f332f3cc191a4dbb78aeb70efdc961340177d",
+          "lang": "ko",
+          "headMetadata": [
+            "<title>ABOUT (ko) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /about [ko]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/about/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/about/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/about/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/about/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"ABOUT (ko) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /about [ko]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://cij5484.github.io/cho-youn-kyoung-v2/about/\"/>"
+          ]
+        },
+        {
+          "path": "album/test-album/index.html",
+          "sha256": "69965c7b6db5135b360b73c9f06b0c8ce90ab0aaa8c0232bae368718011a2df2",
+          "lang": "ko",
+          "headMetadata": [
+            "<title>ALBUM TEST (ko) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /album/test-album [ko]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/album/test-album/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/album/test-album/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/album/test-album/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/album/test-album/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"ALBUM TEST (ko) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /album/test-album [ko]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://cij5484.github.io/cho-youn-kyoung-v2/album/test-album/\"/>"
+          ]
+        },
+        {
+          "path": "albums/index.html",
+          "sha256": "3a5e77f28252d18cfe256005772ecb60e086d16d442cf33b5995f5d33d872c73",
+          "lang": "ko",
+          "headMetadata": [
+            "<title>ALBUMS (ko) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /albums [ko]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/albums/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/albums/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/albums/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/albums/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"ALBUMS (ko) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /albums [ko]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://cij5484.github.io/cho-youn-kyoung-v2/albums/\"/>"
+          ]
+        },
+        {
+          "path": "contact/index.html",
+          "sha256": "4728191bfc056713f1957d6ee0943a69bbb3fb19ee45d6bb7498267425d10619",
+          "lang": "ko",
+          "headMetadata": [
+            "<title>CONTACT (ko) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /contact [ko]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/contact/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/contact/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/contact/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/contact/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"CONTACT (ko) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /contact [ko]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://cij5484.github.io/cho-youn-kyoung-v2/contact/\"/>"
+          ]
+        },
+        {
+          "path": "en/about/index.html",
+          "sha256": "d8cd819f2c1eb68d8178e31c1a953a0f9b13004784441a1f717502fab6de103e",
+          "lang": "en",
+          "headMetadata": [
+            "<title>ABOUT (en) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /en/about [en]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/about/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/about/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/about/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/about/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"ABOUT (en) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /en/about [en]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/about/\"/>"
+          ]
+        },
+        {
+          "path": "en/album/test-album/index.html",
+          "sha256": "9bf70f3f0f7fe7378ad098a84dc2f71e6193fa52beee22b65314a6141a9fd2e1",
+          "lang": "en",
+          "headMetadata": [
+            "<title>ALBUM TEST (en) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /en/album/test-album [en]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/album/test-album/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/album/test-album/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/album/test-album/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/album/test-album/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"ALBUM TEST (en) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /en/album/test-album [en]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/album/test-album/\"/>"
+          ]
+        },
+        {
+          "path": "en/albums/index.html",
+          "sha256": "7d7cb3e096068a0f977ff43c56f22873c3ca257699246fa28a418d82f35ca728",
+          "lang": "en",
+          "headMetadata": [
+            "<title>ALBUMS (en) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /en/albums [en]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/albums/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/albums/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/albums/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/albums/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"ALBUMS (en) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /en/albums [en]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/albums/\"/>"
+          ]
+        },
+        {
+          "path": "en/contact/index.html",
+          "sha256": "3d4d582710a63eb5580cd5c12d3f9b8b3389806fa86b591df43f8a38117f344b",
+          "lang": "en",
+          "headMetadata": [
+            "<title>CONTACT (en) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /en/contact [en]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/contact/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/contact/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/contact/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/contact/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"CONTACT (en) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /en/contact [en]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/contact/\"/>"
+          ]
+        },
+        {
+          "path": "en/index.html",
+          "sha256": "9ed6c7fa3667e4fc2754c04847703c1f5938b70e21860f0104a9fa7803ca3971",
+          "lang": "en",
+          "headMetadata": [
+            "<title>HOME (en) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /en [en]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"HOME (en) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /en [en]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/\"/>"
+          ]
+        },
+        {
+          "path": "en/media/index.html",
+          "sha256": "ddfae9678569377e5109ff95e9ed253505bae3059664a798f66b3794f27b520b",
+          "lang": "en",
+          "headMetadata": [
+            "<title>MEDIA (en) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /en/media [en]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/media/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/media/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/media/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/media/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"MEDIA (en) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /en/media [en]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/media/\"/>"
+          ]
+        },
+        {
+          "path": "en/performance/test-performance/index.html",
+          "sha256": "5278bb3f9aae3928bdb226b0b00c1c7e26fb7ec6d945a403d1cfe515c4ef4f7a",
+          "lang": "en",
+          "headMetadata": [
+            "<title>PERFORMANCE TEST (en) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /en/performance/test-performance [en]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/performance/test-performance/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/performance/test-performance/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/performance/test-performance/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/performance/test-performance/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"PERFORMANCE TEST (en) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /en/performance/test-performance [en]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/performance/test-performance/\"/>"
+          ]
+        },
+        {
+          "path": "en/performances/index.html",
+          "sha256": "9056f1e6496516fff315d31c54bf730e69da1c10efbf6bb9ed6ee48f5664ba90",
+          "lang": "en",
+          "headMetadata": [
+            "<title>PERFORMANCES (en) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /en/performances [en]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/performances/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/performances/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/performances/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/performances/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"PERFORMANCES (en) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /en/performances [en]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/performances/\"/>"
+          ]
+        },
+        {
+          "path": "en/works/index.html",
+          "sha256": "5c5990641394f8d0bcb728e455d4e4bb87b48a6b6bd66b27a6cd24e59f45746e",
+          "lang": "en",
+          "headMetadata": [
+            "<title>WORKS (en) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /en/works [en]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/works/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/works/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/works/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/works/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"WORKS (en) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /en/works [en]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/works/\"/>"
+          ]
+        },
+        {
+          "path": "index.html",
+          "sha256": "3123e83fcae01b3e7699c13f5d57a63c2290ecbfbbe88ee34295c0fa8f9ed7c7",
+          "lang": "ko",
+          "headMetadata": [
+            "<title>HOME (ko) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: / [ko]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"HOME (ko) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: / [ko]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://cij5484.github.io/cho-youn-kyoung-v2/\"/>"
+          ]
+        },
+        {
+          "path": "media/index.html",
+          "sha256": "dc844c5b56962784ec86ec2b6ca7c4bc421f2e370b4e594c9e3efbb3f94e62de",
+          "lang": "ko",
+          "headMetadata": [
+            "<title>MEDIA (ko) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /media [ko]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/media/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/media/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/media/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/media/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"MEDIA (ko) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /media [ko]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://cij5484.github.io/cho-youn-kyoung-v2/media/\"/>"
+          ]
+        },
+        {
+          "path": "performance/test-performance/index.html",
+          "sha256": "50cff8df594d0e6ff8a65dd8a3990aa40b6eff36dc22b13cac4cecce796d3817",
+          "lang": "ko",
+          "headMetadata": [
+            "<title>PERFORMANCE TEST (ko) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /performance/test-performance [ko]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/performance/test-performance/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/performance/test-performance/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/performance/test-performance/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/performance/test-performance/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"PERFORMANCE TEST (ko) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /performance/test-performance [ko]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://cij5484.github.io/cho-youn-kyoung-v2/performance/test-performance/\"/>"
+          ]
+        },
+        {
+          "path": "performances/index.html",
+          "sha256": "168b82ea65500657ff94f5606270d5c3278bfc2b99c0f34c2a5b3557aa84dcc6",
+          "lang": "ko",
+          "headMetadata": [
+            "<title>PERFORMANCES (ko) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /performances [ko]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/performances/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/performances/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/performances/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/performances/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"PERFORMANCES (ko) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /performances [ko]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://cij5484.github.io/cho-youn-kyoung-v2/performances/\"/>"
+          ]
+        },
+        {
+          "path": "works/index.html",
+          "sha256": "a4d2ff295febbcbd8f253f36c013765d1b9013ef7c4c8dbeb46051a13423e27e",
+          "lang": "ko",
+          "headMetadata": [
+            "<title>WORKS (ko) | P0B</title>",
+            "<meta name=\"description\" content=\"Routing spike: /works [ko]. Test metadata only.\"/>",
+            "<meta name=\"robots\" content=\"noindex, nofollow\"/>",
+            "<link rel=\"canonical\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/works/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/works/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/en/works/\"/>",
+            "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://cij5484.github.io/cho-youn-kyoung-v2/works/\"/>",
+            "<meta property=\"og:type\" content=\"website\"/>",
+            "<meta property=\"og:title\" content=\"WORKS (ko) | P0B\"/>",
+            "<meta property=\"og:description\" content=\"Routing spike: /works [ko]. Test metadata only.\"/>",
+            "<meta property=\"og:url\" content=\"https://cij5484.github.io/cho-youn-kyoung-v2/works/\"/>"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** P0A–P0C complete — React Router + Static Prerender APPROVED by the P0C evidence gate; STOP before P0D  
+**Status:** P0A–P0D complete (P0D local) — React Router + Static Prerender APPROVED; STOP before P0E\
 **Revision:** 1.1 / 2026-09-05 user decisions 1–9 incorporated  
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
@@ -418,7 +418,7 @@ Stop and report:
 [ ] Accessible muted text #6D6962 verified on Canvas/Surface; original muted tone retained in appropriate roles
 [x] React Router + Static Prerender APPROVED after the P0C real GitHub Pages routing/deployment gate
 [ ] Spike verifies subpath and root, all KO/EN routes, direct navigation/refresh and valid-versus-404
-[ ] Spike verifies per-route metadata, canonical and hreflang; no HashRouter retreat
+[x] Spike verifies per-route metadata, canonical and hreflang; no HashRouter retreat
 [ ] No real playable source gives unavailable/disabled/coming-soon; no silent timer or false playing
 [ ] Real mobile programmatic-volume capability tested in PHASE 0 or Audio spike
 [ ] Unsupported volume gets reported capability-based UX/fallback; no forced workaround
@@ -456,11 +456,13 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 - P0C real GitHub Pages deployment/routing verification: COMPLETE; Linux Chromium 42/42 and Windows Edge 42/42 passed.
 - Prerender architecture: APPROVE — React Router Framework + ssr:false + explicit prerender + deterministic static artifact placement.
 - V2 public repository: cij5484/cho-youn-kyoung-v2. Verified deployment SHA: 137b3420fda15b9670e109989da54230d959966e.
-- P0D/P0E/P0F and actual product pages: NOT STARTED. Full locale/hreflang, audio/mobile and 3D gates remain pending.
+- P0D locale/metadata contract: COMPLETE locally. 18 KO/EN fixtures per base, 80 browser + 8 locale + 3 placement tests passed. See [contract](docs/redesign/review/LOCALE-METADATA-CONTRACT.md) and [result](P0D-RESULT.md).
+- P0E/P0F and actual product pages: NOT STARTED. Authored translation/content, final SEO, audio/mobile and 3D gates remain pending.
+- After the P0D report, the user authorized PR publication and merge, with no additional validation. The existing main Pages workflow may deploy the merged artifact; no new deployment success is claimed here. Use its actual deployed SHA for any later live verification.
 - Existing production repository/domain unchanged. See [P0C result](P0C-RESULT.md) and [architecture decision](docs/redesign/review/ROUTING-ARCHITECTURE-DECISION.md).
 - Design/function requirements remain; the ZIP preserves the historical baseline.
 - Checklist boxes stay unchecked until actual implementation/validation evidence exists. Document coverage lives in [HANDOFF audit](docs/redesign/review/HANDOFF-AUDIT.md).
-- Current stop point: P0C result and planning state updated; wait for explicit approval of one next bounded task. Recommendation: P0D locale path/metadata contract only.
+- Current stop point: P0D contract/result/planning updated; STOP for explicit next-task approval. Recommendation: P0E delivery-check wiring on the existing pipeline, including deployment only if approved.
 
 # 27. FINAL HANDOFF RULE
 
