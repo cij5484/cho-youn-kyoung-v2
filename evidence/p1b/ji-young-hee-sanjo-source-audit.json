@@ -1,0 +1,494 @@
+{
+  "task": "P1B — Single Album Source Audit",
+  "album": "조윤경 해금산조 – 지영희류",
+  "auditDateKST": "2026-09-05",
+  "v2Baseline": "159133c3fec42d2c9c09e900482aa3e137fcee07",
+  "legacyBaseline": "239d18056d8b3df2cf9a5fd5509f897f85ed70ad",
+  "sourceRoot": "C:/cho-youn-kyoung/public/assets/albums/ji-young-hee-ryu-haegeum-sanjo-2026",
+  "sourceScope": "Read-only local legacy snapshot, target folder including untracked/hidden files; no scan of all user storage. V2 policy and current user confirmations take precedence.",
+  "userConfirmations": [
+    {
+      "ref": "U1",
+      "fact": "Target/title",
+      "value": "조윤경 해금산조 – 지영희류"
+    },
+    {
+      "ref": "U2",
+      "fact": "Release date",
+      "value": "2026-09-08",
+      "answer": "확정됬다",
+      "scope": "Date confirmed; compound question credits/artwork clarified separately"
+    },
+    {
+      "ref": "U3",
+      "fact": "Recording / Mixing / Mastering canonical credit",
+      "value": "떨기나무",
+      "answer": "떨기나무"
+    },
+    {
+      "ref": "U4",
+      "fact": "Legacy artwork matches final print",
+      "value": true,
+      "answer": "최종 인쇄본과 동일",
+      "scope": "Final-print source identity, not blanket V2 role/quality approval"
+    }
+  ],
+  "externalSources": [
+    {
+      "url": "https://m.yes24.com/goods/detail/196025221",
+      "observed": "Preorder / 2026-09-08; six track timings; EUM SOUND conflicts with U3; no retailer copy imported"
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/crossOrigin",
+      "observed": "CORS-enabled media and unspecified crossOrigin use different fetch modes"
+    },
+    {
+      "url": "https://www.aladin.co.kr/shop/wproduct.aspx?ISBN=8809051667901",
+      "observed": "Tool open failed; not treated as verified detail source"
+    }
+  ],
+  "assets": [
+    {
+      "path": "viewer/booklet-01.webp",
+      "bytes": 725154,
+      "width": 1573,
+      "height": 1491,
+      "format": "WEBP",
+      "mode": "RGB",
+      "alpha": null,
+      "dpi": null,
+      "sha256": "b2b68da9f2aee2dfc17acfeb83e21c59a6dd4d9dc2ff4d4d76644da09cabb288",
+      "intendedRole": "booklet cover",
+      "storageRole": "runtime/viewer derivative; not production master",
+      "visualInspection": "completed",
+      "lifecycleCandidate": "provisional"
+    },
+    {
+      "path": "viewer/booklet-02.webp",
+      "bytes": 326114,
+      "width": 1573,
+      "height": 1491,
+      "format": "WEBP",
+      "mode": "RGB",
+      "alpha": null,
+      "dpi": null,
+      "sha256": "1be48b8b641c94ba62ad911f6710b8ce10e78afb239915628d666e56ebd76c5d",
+      "intendedRole": "KO school and tradition text",
+      "storageRole": "runtime/viewer derivative; not production master",
+      "visualInspection": "completed",
+      "lifecycleCandidate": "provisional"
+    },
+    {
+      "path": "viewer/booklet-03.webp",
+      "bytes": 315844,
+      "width": 1573,
+      "height": 1491,
+      "format": "WEBP",
+      "mode": "RGB",
+      "alpha": null,
+      "dpi": null,
+      "sha256": "e7730b03be87a5cce9deaa4fb961cc1a35bf742cda27a99a1b62f013fcc0f210",
+      "intendedRole": "KO long/short sanjo text",
+      "storageRole": "runtime/viewer derivative; not production master",
+      "visualInspection": "completed",
+      "lifecycleCandidate": "provisional"
+    },
+    {
+      "path": "viewer/booklet-04.webp",
+      "bytes": 344928,
+      "width": 1574,
+      "height": 1488,
+      "format": "WEBP",
+      "mode": "RGB",
+      "alpha": null,
+      "dpi": null,
+      "sha256": "164bc74c22ea0271aef2767bb1e262fb87ef17936c9e6bddb585bf5fc3164510",
+      "intendedRole": "KO album note",
+      "storageRole": "runtime/viewer derivative; not production master",
+      "visualInspection": "completed",
+      "lifecycleCandidate": "provisional"
+    },
+    {
+      "path": "viewer/booklet-05.webp",
+      "bytes": 292732,
+      "width": 1574,
+      "height": 1488,
+      "format": "WEBP",
+      "mode": "RGB",
+      "alpha": null,
+      "dpi": null,
+      "sha256": "0c323f2506c561abf771e84895e207e1c01a3b08cfd695b25957fe72f685edb5",
+      "intendedRole": "artist portrait and archival KO bio",
+      "storageRole": "runtime/viewer derivative; not production master",
+      "visualInspection": "completed",
+      "lifecycleCandidate": "provisional"
+    },
+    {
+      "path": "viewer/booklet-06.webp",
+      "bytes": 256038,
+      "width": 1573,
+      "height": 1491,
+      "format": "WEBP",
+      "mode": "RGB",
+      "alpha": null,
+      "dpi": null,
+      "sha256": "0e4572ec11431ecc2477dee4283f0cd663e4989052c742d9d3eb49a2ec47890a",
+      "intendedRole": "percussion collaborator portrait and KO bio",
+      "storageRole": "runtime/viewer derivative; not production master",
+      "visualInspection": "completed",
+      "lifecycleCandidate": "provisional"
+    },
+    {
+      "path": "viewer/booklet-07.webp",
+      "bytes": 270100,
+      "width": 1573,
+      "height": 1490,
+      "format": "WEBP",
+      "mode": "RGB",
+      "alpha": null,
+      "dpi": null,
+      "sha256": "f7f12b4a9a624fb726cf19f77bf6192567f365fdbe30b444885de30499422afa",
+      "intendedRole": "Ji Young-hee bio and website QR",
+      "storageRole": "runtime/viewer derivative; not production master",
+      "visualInspection": "completed",
+      "lifecycleCandidate": "provisional"
+    },
+    {
+      "path": "web/back.webp",
+      "bytes": 369468,
+      "width": 2048,
+      "height": 1814,
+      "format": "WEBP",
+      "mode": "RGB",
+      "alpha": null,
+      "dpi": null,
+      "sha256": "5b40c3e49ae845088193b121aded2282e7728992f959fccf90e89531e539dbbe",
+      "intendedRole": "package back / embedded credits and barcode",
+      "storageRole": "runtime/viewer derivative; not production master",
+      "visualInspection": "completed",
+      "lifecycleCandidate": "provisional"
+    },
+    {
+      "path": "web/cd-label.webp",
+      "bytes": 168512,
+      "width": 1366,
+      "height": 1366,
+      "format": "WEBP",
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "dpi": null,
+      "sha256": "c85e5e065d225941c99f74ccba59ee1acafb95dab2237c19e807d2d1cfcd3b6a",
+      "intendedRole": "CD face; printed Ryua differs from front Ryu",
+      "storageRole": "runtime/viewer derivative; not production master",
+      "visualInspection": "completed",
+      "lifecycleCandidate": "provisional",
+      "conditionalLifecycle": "replace-required only if the intended V2 use requires corrected rather than historical print artwork"
+    },
+    {
+      "path": "web/front.webp",
+      "bytes": 251940,
+      "width": 2048,
+      "height": 1834,
+      "format": "WEBP",
+      "mode": "RGB",
+      "alpha": null,
+      "dpi": null,
+      "sha256": "c21f884f8a1a1dc12f65de7d31483d515136ccb8e08ad0ecbeb5c47087906890",
+      "intendedRole": "package front / album cover",
+      "storageRole": "runtime/viewer derivative; not production master",
+      "visualInspection": "completed",
+      "lifecycleCandidate": "provisional"
+    },
+    {
+      "path": "web/home-hero-desktop.webp",
+      "bytes": 109032,
+      "width": 2560,
+      "height": 1440,
+      "format": "WEBP",
+      "mode": "RGB",
+      "alpha": null,
+      "dpi": null,
+      "sha256": "8def784595ede01035cff7f3f7fbeec3776d08f61752e9f4275b366f39e1cd2a",
+      "intendedRole": "atmospheric desktop candidate",
+      "storageRole": "runtime/viewer derivative; not production master",
+      "visualInspection": "completed",
+      "lifecycleCandidate": "provisional"
+    },
+    {
+      "path": "web/home-hero-mobile.webp",
+      "bytes": 88682,
+      "width": 1440,
+      "height": 2560,
+      "format": "WEBP",
+      "mode": "RGB",
+      "alpha": null,
+      "dpi": null,
+      "sha256": "01234b4fd03d5fa1ac4c45ba896318a9667ad449a857ca8ae824dfb1183742f1",
+      "intendedRole": "atmospheric mobile candidate",
+      "storageRole": "runtime/viewer derivative; not production master",
+      "visualInspection": "completed",
+      "lifecycleCandidate": "provisional"
+    },
+    {
+      "path": "web/interior-booklet.webp",
+      "bytes": 406498,
+      "width": 1703,
+      "height": 1515,
+      "format": "WEBP",
+      "mode": "RGB",
+      "alpha": null,
+      "dpi": null,
+      "sha256": "3c793c0c423291c56da38e0c551bb056a43c4d64f8df9ce8400c672614b2e037",
+      "intendedRole": "inside printed panel",
+      "storageRole": "runtime/viewer derivative; not production master",
+      "visualInspection": "completed",
+      "lifecycleCandidate": "provisional"
+    },
+    {
+      "path": "web/interior-tray.webp",
+      "bytes": 610498,
+      "width": 1703,
+      "height": 1515,
+      "format": "WEBP",
+      "mode": "RGB",
+      "alpha": null,
+      "dpi": null,
+      "sha256": "e78e0e990937b677dd9045ef4d394188f16378c232fc400c6b03b8c3d2d5c393",
+      "intendedRole": "inside printed thanks panel, not transparent tray reference",
+      "storageRole": "runtime/viewer derivative; not production master",
+      "visualInspection": "completed",
+      "lifecycleCandidate": "provisional"
+    },
+    {
+      "path": "web/spine.webp",
+      "bytes": 23158,
+      "width": 117,
+      "height": 2048,
+      "format": "WEBP",
+      "mode": "RGB",
+      "alpha": null,
+      "dpi": null,
+      "sha256": "37ae4712cea560ddb0a0654aa59a628a5b92f346fe445a7b0acf07e1f0a5abec",
+      "intendedRole": "spine / product number",
+      "storageRole": "runtime/viewer derivative; not production master",
+      "visualInspection": "completed",
+      "lifecycleCandidate": "provisional"
+    }
+  ],
+  "imageTotals": {
+    "files": 15,
+    "bytes": 4558698,
+    "approvedForV2": 0,
+    "provisional": 15
+  },
+  "audioProbeMethod": "Range GET bytes=0-65535, Origin https://cij5484.github.io; read first chunk then cancel. No full audio download, playback, duration decoding or browser test.",
+  "audioProbes": [
+    {
+      "url": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/jiyounghee/01_jinyang.mp3",
+      "status": 206,
+      "checkedAt": "2026-09-05T12:17:31.285Z",
+      "headers": {
+        "content-type": "audio/mpeg",
+        "content-length": "65536",
+        "content-range": "bytes 0-65535/30849853",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": null,
+        "etag": "\"1f9c476ac67735fb73376745cfe0e339\"",
+        "last-modified": "Mon, 24 Aug 2026 11:57:09 GMT"
+      },
+      "sampleBytes": 1369,
+      "leadingHex": "4944330400000000021554454e430000"
+    },
+    {
+      "url": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/jiyounghee/02_jungmori.mp3",
+      "status": 206,
+      "checkedAt": "2026-09-05T12:17:31.058Z",
+      "headers": {
+        "content-type": "audio/mpeg",
+        "content-length": "65536",
+        "content-range": "bytes 0-65535/23558518",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": null,
+        "etag": "\"0ad71664d156be6240ee78a9518e4e05\"",
+        "last-modified": "Mon, 24 Aug 2026 11:57:08 GMT"
+      },
+      "sampleBytes": 1369,
+      "leadingHex": "4944330400000000017054454e430000"
+    },
+    {
+      "url": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/jiyounghee/03_jungjungmori.mp3",
+      "status": 206,
+      "checkedAt": "2026-09-05T12:17:31.087Z",
+      "headers": {
+        "content-type": "audio/mpeg",
+        "content-length": "65536",
+        "content-range": "bytes 0-65535/7456641",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": null,
+        "etag": "\"ffa89062236e1df732809b839ac89a3b\"",
+        "last-modified": "Mon, 24 Aug 2026 11:57:05 GMT"
+      },
+      "sampleBytes": 1029,
+      "leadingHex": "4944330400000000017054454e430000"
+    },
+    {
+      "url": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/jiyounghee/04_gutgeori.mp3",
+      "status": 206,
+      "checkedAt": "2026-09-05T12:17:31.290Z",
+      "headers": {
+        "content-type": "audio/mpeg",
+        "content-length": "65536",
+        "content-range": "bytes 0-65535/5594632",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": null,
+        "etag": "\"bd76f07b9de022fd721b7fbde7f158bd\"",
+        "last-modified": "Mon, 24 Aug 2026 11:57:05 GMT"
+      },
+      "sampleBytes": 1369,
+      "leadingHex": "4944330400000000017054454e430000"
+    },
+    {
+      "url": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/jiyounghee/05_jajinmori.mp3",
+      "status": 206,
+      "checkedAt": "2026-09-05T12:17:31.289Z",
+      "headers": {
+        "content-type": "audio/mpeg",
+        "content-length": "65536",
+        "content-range": "bytes 0-65535/6507873",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": null,
+        "etag": "\"ed42ffdb3f9b1b664511c42566c76cd2\"",
+        "last-modified": "Mon, 24 Aug 2026 11:57:04 GMT"
+      },
+      "sampleBytes": 1369,
+      "leadingHex": "4944330400000000017054454e430000"
+    },
+    {
+      "url": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/jiyounghee/06_short-sanjo.mp3",
+      "status": 206,
+      "checkedAt": "2026-09-05T12:17:31.099Z",
+      "headers": {
+        "content-type": "audio/mpeg",
+        "content-length": "65536",
+        "content-range": "bytes 0-65535/29029605",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": null,
+        "etag": "\"ebad8868e77d48971b1eede5ed34d30b\"",
+        "last-modified": "Mon, 24 Aug 2026 11:57:10 GMT"
+      },
+      "sampleBytes": 1028,
+      "leadingHex": "4944330400000000017154454e430000"
+    }
+  ],
+  "printedTracks": [
+    {
+      "number": 1,
+      "title": "진양",
+      "duration": "12:51",
+      "source": "final-print back.webp and legacy albums.ts",
+      "englishTitle": "missing",
+      "titleTrack": "unverified",
+      "audioRef": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/jiyounghee/01_jinyang.mp3",
+      "v2PlayableApproval": "not verified"
+    },
+    {
+      "number": 2,
+      "title": "중모리",
+      "duration": "09:49",
+      "source": "final-print back.webp and legacy albums.ts",
+      "englishTitle": "missing",
+      "titleTrack": "unverified",
+      "audioRef": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/jiyounghee/02_jungmori.mp3",
+      "v2PlayableApproval": "not verified"
+    },
+    {
+      "number": 3,
+      "title": "중중모리",
+      "duration": "03:06",
+      "source": "final-print back.webp and legacy albums.ts",
+      "englishTitle": "missing",
+      "titleTrack": "unverified",
+      "audioRef": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/jiyounghee/03_jungjungmori.mp3",
+      "v2PlayableApproval": "not verified"
+    },
+    {
+      "number": 4,
+      "title": "굿거리",
+      "duration": "02:20",
+      "source": "final-print back.webp and legacy albums.ts",
+      "englishTitle": "missing",
+      "titleTrack": "unverified",
+      "audioRef": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/jiyounghee/04_gutgeori.mp3",
+      "v2PlayableApproval": "not verified"
+    },
+    {
+      "number": 5,
+      "title": "자진모리",
+      "duration": "02:43",
+      "source": "final-print back.webp and legacy albums.ts",
+      "englishTitle": "missing",
+      "titleTrack": "unverified",
+      "audioRef": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/jiyounghee/05_jajinmori.mp3",
+      "v2PlayableApproval": "not verified"
+    },
+    {
+      "number": 6,
+      "title": "짧은산조",
+      "duration": "12:06",
+      "source": "final-print back.webp and legacy albums.ts",
+      "englishTitle": "missing",
+      "titleTrack": "unverified",
+      "audioRef": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/jiyounghee/06_short-sanjo.mp3",
+      "v2PlayableApproval": "not verified"
+    }
+  ],
+  "printedDurationTotalSeconds": 2575,
+  "printedDurationTotal": "42:55",
+  "barcode": {
+    "value": "8809051667901",
+    "source": "back.webp",
+    "checkDigit": 1,
+    "checksumValid": true,
+    "scannerVerification": false
+  },
+  "productNumber": {
+    "value": "JEC-0528",
+    "source": "spine.webp"
+  },
+  "readiness": {
+    "migration": "READY WITH NON-BLOCKING GAPS",
+    "scope": "Limited KO record preparation; draft until publication/edition/asset approvals. Not full public release or 3D readiness.",
+    "threeD": "PARTIAL",
+    "englishEdition": "missing",
+    "currentRelease": "upcoming as of 2026-09-05; confirmed date 2026-09-08"
+  },
+  "validation": {
+    "imageDecode": "15/15 PASS",
+    "imageVisualRead": "15/15",
+    "httpPartialGet": "6/6 HTTP 206 audio/mpeg with ID3 header",
+    "audioCors": "No Access-Control-Allow-Origin on six observed responses",
+    "typeCheckLintBuildCI": "not run; documentation-only audit",
+    "audioListening": "not performed",
+    "legacyModified": false,
+    "productionRecordAdded": false,
+    "assetMigration": false,
+    "blenderExecuted": false,
+    "commitPushDeploy": false,
+    "documentation": {
+      "requiredSections": "A–M present",
+      "checkedLocalLinks": 47,
+      "assetReferencesAndMeasurements": 15,
+      "sourceSha256Unchanged": "15/15",
+      "handoffCheckboxesPreserved": 207,
+      "changedFiles": [
+        "CODEX-HANDOFF.md",
+        "docs/redesign/review/album-audits/JI-YOUNG-HEE-SANJO-SOURCE-AUDIT.md",
+        "evidence/p1b/ji-young-hee-sanjo-source-audit.json"
+      ],
+      "legacyHeadAndWorkingTree": "unchanged / clean"
+    }
+  }
+}
