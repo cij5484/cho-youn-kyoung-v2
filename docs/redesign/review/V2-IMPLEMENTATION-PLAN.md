@@ -533,7 +533,7 @@ P0E delivery update: 일반 push/PR은 type/lint/locale/placement/root build의 
 
 | 우선순위 | 위험 | 대응 / 현재 미확인 |
 |---|---|---|
-| 높음 | Pages clean route가 SPA 화면 복구만 되고 404/OG 문제 유지 | P0 정적 공개 route 산출물과 실제 HTTP 검증. 현재 V2 배포 없음 |
+| 높음 | Pages clean route가 SPA 화면 복구만 되고 404/OG 문제 유지 | P0C 실제 Pages gate 및 P0E 18-route CI/live 회귀 통과. 실제 콘텐츠/최종 도메인은 P14 재검증 |
 | 높음 | pre-render→live와 HOME→detail에서 camera/pose/pop-in 불일치 | 같은 preset·snapshot·bounded prewarm, 매칭 실패 시 단순 bridge |
 | 높음 | 투명 tray와 3개 패키지의 GPU 비용 | Lab별 원인 분리, 중저가 실기기, 한 object/static fallback |
 | 높음 | 모바일 volume 및 R2 CORS가 분석·gain·seek와 충돌 | P0 조사/P3 playback spike. 현재 endpoint의 CORS·Range·안정성 실검증은 미실시 |
@@ -551,20 +551,20 @@ P0E delivery update: 일반 push/PR은 type/lint/locale/placement/root build의 
 
 ## 17. Recommendation Before Implementation
 
-P0E 사용자 승인 범위에서 기존 architecture를 유지하고 Fast push/PR gate와 명시적 Full/preview delivery를 연결했다. P0E 실제 검증/배포 상태는 [결과](../../../P0E-RESULT.md), commit/push/deploy/STOP의 현재 정본은 [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md) CI/delivery 절이다. 아래 P0D/HOME revision 설명은 당시 기록이며 현재 다음 권장은 P0F documentation wiring 한 단위다.
+P0E 사용자 승인 범위에서 기존 architecture를 유지하고 Fast push/PR gate와 명시적 Full/preview delivery를 연결했다. P0E 실제 검증/배포 상태는 [결과](../../../P0E-RESULT.md), commit/push/deploy/STOP의 현재 정본은 [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md) CI/delivery 절이다. 아래 P0D/HOME revision 이력을 보존하며 현재 다음 권장은 P0F documentation wiring 한 단위다.
 
-HOME V2.1 문서 개정을 완료했다. 코드·CSS·React component·이미지 수정·asset migration·motion/3D·dependencies·배포는 변경하지 않았고 P0E도 시작하지 않았다. [V2.1 revision report](HOME-V2.1-REVISION-REPORT.md)를 검토한 뒤 별도 명시적 승인으로 P0E 한 단위만 진행하는 것이 다음 권장 작업이다. 이전 P0C/P0D 계약과 검증 이력은 그대로 유지한다.
+HOME V2.1은 문서 개정으로 승인됐고 bb8460e commit으로 보존됐다. 해당 작업에서 코드/asset/motion/3D는 구현하지 않았다. [V2.1 revision report](HOME-V2.1-REVISION-REPORT.md)는 당시 STOP 기록이다. 이후 별도로 승인된 P0E만 실행하며 P0C/P0D 계약을 유지했다.
 
-**현재 판정: P0A–D 완료(P0D 로컬) / React Router + Static Prerender APPROVE / P0E 미착수.**
+**현재 판정: React Router + Static Prerender APPROVE / P0E CI·delivery COMPLETE (P0E-RESULT.md) / P0F 미착수.**
 
 정본 로드맵, 독립 ABOUT Delight, HOME 한정 Sou.P, mandatory Tray Lab, same-route audio scope, source truth, 대비 token, volume capability 검증 정책, bounded task/STOP 계약을 반영했다. 사용자 승인 사항을 다시 미정 질문으로 남기지 않는다.
 
-React Router + Static Prerender는 P0C 실제 Pages gate로 **APPROVE**다. Linux CI Chromium 42/42, Windows Edge 42/42, 배포 SHA/파일 hash와 MIME 검증을 완료했다. P0D는 18-route neutral locale/hreflang 계약을 별도 승인 아래 로컬에서 검증했다(80 browser, 8 locale, 3 placement). 실제 번역/제품 QA나 P0D 실제 Pages 배포가 완료된 것은 아니다. 자료 파일 식별, 공식 번역, 실제 기기 capability, visualMode 세부 schema는 지정된 후속 gate에서 다룬다. 이들은 P0A 최소 skeleton을 시작할 기획상 blocker는 아니다.
+React Router + Static Prerender는 P0C 실제 Pages gate로 **APPROVE**다. Linux CI Chromium 42/42, Windows Edge 42/42, 배포 SHA/파일 hash와 MIME 검증을 완료했다. P0D는 18-route neutral locale/hreflang 계약을 별도 승인 아래 로컬에서 검증했다(80 browser, 8 locale, 3 placement). P0E에서 같은 18-route 계약의 Linux browser 80/80와 실제 Pages 52/52도 통과했다. 실제 번역/제품 QA가 완료된 것은 아니다. 자료 파일 식별, 공식 번역, 실제 기기 capability, visualMode 세부 schema는 지정된 후속 gate에서 다룬다. 이들은 P0A 최소 skeleton을 시작할 기획상 blocker는 아니다.
 
-권장 다음 단위는 **P0E — 기존 delivery workflow에 locale 검증 연결**이다. P0D artifact 배포는 해당 승인에 명시적으로 포함될 때만 한다. 새 승인이 필요하며 아직 시작하지 않았다. 한 가지 목표, 예상 파일 범위, 검증과 rollback은 Task Protocol에 있다. P0B부터 P0F까지 연속 실행할 권한은 없다.
+권장 다음 단위는 **P0F — AGENTS.md / documentation wiring**이다. 새 명시적 승인이 필요하며 아직 시작하지 않았다. P0E의 commit/push/필요한 preview 배포는 현재 사용자 승인 범위 안이며 이것이 P0F나 제품 구현 승인으로 확장되지 않는다.
 
-현재 완료: 기존 계획·감사·STOP 계약과 별도로 P0A 기반, P0B 로컬 spike, P0C 실제 Pages 배포/검증 및 architecture 결정, P0D neutral KO/EN 계약과 로컬 검증. [P0D 결과](../../../P0D-RESULT.md)를 따른다. 과거 P0A/P0B 결과는 당시 상태 기록으로 보존한다.
+현재 완료: 기존 계획·감사·STOP 계약과 별도로 P0A 기반, P0B 로컬 spike, P0C 실제 Pages 배포/검증 및 architecture 결정, P0D neutral KO/EN 계약과 로컬 검증, P0E Fast/Full CI·preview delivery·live 검증. [P0D 결과](../../../P0D-RESULT.md)를 따른다. 과거 P0A/P0B 결과는 당시 상태 기록으로 보존한다.
 
-현재 미착수: P0E 이후 개별 작업, P0D 배포, 실제 i18n 콘텐츠와 최종 SEO, 실제 제품 디자인/콘텐츠, audio/mobile/3D, 운영 도메인 전환.
+현재 미착수: P0F 이후 개별 작업, 실제 i18n 콘텐츠와 최종 SEO, 실제 제품 디자인/콘텐츠, audio/mobile/3D, 운영 도메인 전환. P0E CI/preview의 실제 SHA/검증 결과는 별도 결과 보고를 따른다.
 
-**여기서 STOP. 사용자의 다음 단일 작업 명시적 승인 전에는 P0E 또는 다른 구현을 시작하지 않는다.**
+**여기서 STOP. 사용자의 다음 단일 작업 명시적 승인 전에는 P0F 또는 다른 구현을 시작하지 않는다.**

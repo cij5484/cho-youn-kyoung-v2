@@ -1,8 +1,12 @@
 # Planning Revision Log — 2026-09-05
 
-Revision 1.5 · **P0E CI/delivery contract implemented / STOP before P0F**.
+Revision 1.5 · **P0E CI/delivery contract COMPLETE / STOP before P0F**.
 
 ## P0E CI Quality Gates + Delivery Contract
+
+- CI code/배포 SHA ea146f629cc2f0de89ed540b0b0747757f4a8011. Fast 33960545431 성공(28s), Full/deploy/live 33960594951 성공. Linux browser 80/80, 실제 Pages 52/52, 공개 manifest 18 routes/28 files가 CI artifact와 일치한다.
+- 결과/evidence를 후속 문서 commit으로 저장한다. 해당 push는 Fast만 실행하며 preview를 재배포하지 않는다. main 문서 SHA와 실제 배포 SHA를 구분한다.
+- 공식 Pages Action의 Node 20 → forced Node 24 annotation은 알려진 upstream 유지보수 사항이다. Gate 실패는 없었다. P0F는 시작하지 않았다.
 
 - P0D는 이미 cb7605f/PR #1로 머지됐다. 승인된 HOME V2.1 문서는 별도 bb8460e commit으로 보존했다.
 - Fast push/PR → reusable quality gates; 수동 Full/deploy=false 기본; exact SHA와 main/ref guard 뒤에만 preview delivery.

@@ -1,0 +1,59 @@
+{
+  "task": "P0E",
+  "commit": "ea146f629cc2f0de89ed540b0b0747757f4a8011",
+  "runUrl": "https://github.com/cij5484/cho-youn-kyoung-v2/actions/runs/33960594951",
+  "conclusion": "success",
+  "fullBrowser": {
+    "startTime": "2026-09-05T10:25:55.103Z",
+    "duration": 44098.668999999994,
+    "expected": 80,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "livePages": {
+    "startTime": "2026-09-05T10:27:32.049Z",
+    "duration": 28409.423,
+    "expected": 52,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "jobs": [
+    {
+      "name": "request",
+      "conclusion": "success",
+      "seconds": 3
+    },
+    {
+      "name": "full / quality",
+      "conclusion": "success",
+      "seconds": 96
+    },
+    {
+      "name": "deploy",
+      "conclusion": "success",
+      "seconds": 9
+    },
+    {
+      "name": "verify",
+      "conclusion": "success",
+      "seconds": 64
+    }
+  ],
+  "deployed": {
+    "commit": "ea146f629cc2f0de89ed540b0b0747757f4a8011",
+    "base": "/cho-youn-kyoung-v2/",
+    "routes": 18,
+    "files": 28,
+    "matchesUploadedManifest": true
+  },
+  "annotations": [
+    "Official Pages actions and their transitive upload-artifact target Node 20 and ran under forced Node 24; all jobs passed."
+  ],
+  "artifacts": [
+    "full-gate-ea146f629cc2f0de89ed540b0b0747757f4a8011",
+    "pages-verification-ea146f629cc2f0de89ed540b0b0747757f4a8011"
+  ],
+  "artifactRetentionDays": 14
+}

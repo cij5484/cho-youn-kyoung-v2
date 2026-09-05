@@ -151,15 +151,15 @@ Official workflow syntax/reuse references: [GitHub workflow syntax](https://docs
 
 ## PHASE 0 — individually approved units
 
-The common setup is React/TypeScript/Vite. React Router + Static Prerender passed the latest user-authorized P0C architecture gate and is APPROVED. P0D has verified the neutral locale/metadata contract locally; actual content/launch SEO remain future work. App-path names below are proposed file scope, not files already created.
+The common setup is React/TypeScript/Vite. React Router + Static Prerender passed the latest user-authorized P0C architecture gate and is APPROVED. P0D verified the neutral locale/metadata contract locally; P0E passed its CI/live integration. Actual content/launch SEO remain future work. App-path names below are proposed file scope, not files already created.
 
 | Unit | One objective / bounded work | Expected file scope | Validation and acceptance | Rollback / STOP |
 |---|---|---|---|---|
 | P0A — Project skeleton / base configuration | Minimal project and centrally defined preview base / root config; placeholder shell only. No real page design, audio or 3D | package/lockfile, TS/Vite config, minimal entry and shell, small deployment config | type/lint/build, minimal local shell and correct emitted asset prefixes; no product page implementation | Revert only new skeleton/config to pre-task checkpoint. **STOP for P0B approval** |
 | P0B — Local Routing / Static Prerender Spike — COMPLETE | Latest P0B approval limited execution to local neutral route proof; no deployment | official route/prerender config, static placement, fixture tests and P0B evidence | root/project artifacts and 34 local tests passed; architecture was conditionally recommended | P0B checkpoint retained. **STOP was followed; P0C was separately approved** |
 | P0C — Real GitHub Pages Deployment / Routing Verification — COMPLETE | Latest explicit approval included V2 repo creation, CI, real Pages routing and the architecture decision | V2 Git/workflow, deterministic placement, live tests, curated evidence and planning state | CI build/deploy/verify success; 42 live cases per browser environment; architecture APPROVE | Revert only V2 changes and preserve evidence. **STOP for P0D approval** |
-| P0D — KO / EN routing + metadata contract — COMPLETE locally | Complete the locale path/metadata/canonical/hreflang contract on the approved routing foundation | locale/path mapping and metadata fixtures/checks; no actual page design or full translation migration | 18 fixtures per base; 80 browser, 8 locale and 3 placement tests passed; actual translations and P0D live deployment remain separate | One separately approved task, split further if needed. **STOP for user review and next-task approval** |
-| P0E — CI Quality Gates + Delivery Contract | Preserve approved P0C/P0D contracts; Fast push/PR checks and explicit Full/preview delivery | workflows, gate commands, browser config and current delivery guide; no product/architecture implementation | type/lint/locale/placement, both builds, existing routing/metadata browser tests, workflow validation and actual CI evidence in P0E result | Preserve checkpoints; reverting old workflow can re-enable auto-deploy, so review the intended trigger policy. **STOP for P0F approval** |
+| P0D — KO / EN routing + metadata contract — COMPLETE | Complete the locale path/metadata/canonical/hreflang contract on the approved routing foundation | locale/path mapping and metadata fixtures/checks; no actual page design or full translation migration | 18 fixtures per base; 80 browser, 8 locale and 3 placement tests passed; actual translations remain separate; P0E subsequently passed 52 live cases | One separately approved task, split further if needed. **STOP for user review and next-task approval** |
+| P0E — CI Quality Gates + Delivery Contract — COMPLETE | Preserve approved P0C/P0D contracts; Fast push/PR checks and explicit Full/preview delivery | workflows, gate commands, browser config and current delivery guide; no product/architecture implementation | type/lint/locale/placement, both builds, existing routing/metadata browser tests, workflow validation and actual CI evidence in P0E result | Preserve checkpoints; reverting old workflow can re-enable auto-deploy, so review the intended trigger policy. **STOP for P0F approval** |
 | P0F — AGENTS.md / documentation wiring | Wire approved contracts and local run/check/stop guidance for future work | AGENTS.md, README/task links and existing planning docs only | document paths/commands match actual foundation; stop rule and next-unit policy discoverable | Revert documentation only. **STOP; P1 requires a separate bounded proposal and approval** |
 
 Sequence revision: the latest P0B instruction prohibited deployment; the latest P0C instruction explicitly authorized cij5484/cho-youn-kyoung-v2 creation/connection and its preview deployment. P0C completed that minimal reproducible pipeline. This authorization applies only to P0C and V2; no production/legacy changes or next-unit authorization is implied.
@@ -168,7 +168,7 @@ The stop rule is already binding in MASTER/HANDOFF before AGENTS.md is created i
 
 ### Routing/deployment spike acceptance matrix
 
-Each cell needs evidence at its owning gate. The latest P0C user instruction authorized the architecture decision from the specified 13-route real-host matrix; that gate passed and architecture is APPROVED. P0D now completes the neutral locale/hreflang contract locally; real translated content and P0D live deployment are not claimed complete. Missing release-matrix cells remain NOT TESTED and must not be relabeled complete.
+Each cell needs evidence at its owning gate. The latest P0C user instruction authorized the architecture decision from the specified 13-route real-host matrix; that gate passed and architecture is APPROVED. P0D completed the neutral locale/hreflang contract locally; P0E subsequently verified all 18 neutral routes in CI/live Pages. Real translated content is not complete. Missing release-matrix cells remain NOT TESTED and must not be relabeled complete.
 
 | Dimension | Required cases |
 |---|---|
@@ -243,10 +243,10 @@ The sequence in each row is a **queue of separate tasks**, not one combined task
 
 Repeated page units must stay individually reviewable. Validation may inspect dependent behavior without authorizing changes to those dependencies. No downstream implementation begins simply because one unit passed.
 
-## Readiness decision
+## Historical planning readiness decision
 
 **PHASE 0 implementation ready — limited to proposing/approving P0A.**
 The document contracts and bounded starter task are defined; later decisions are assigned to spikes and gates.
 This is not authorization to execute P0A, not proof of prerender suitability, and not approval to run P0A–F continuously.
 
-Current action: STOP after documentation report. Wait for explicit approval of one implementation task.
+The above readiness was the initial planning snapshot. Current action: P0E complete after local/CI/live evidence; STOP and wait for explicit approval of P0F. It has not started.

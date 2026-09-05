@@ -1,6 +1,6 @@
 # P0E — CI Quality Gates + Delivery Contract
 
-2026-09-05 · Implementation and local validation complete; remote CI/delivery evidence is pending at this commit.
+2026-09-05 · COMPLETE: local Full, actual Fast/Full CI, preview deployment and live verification passed.
 Only V2 foundation delivery is in scope. P0F and HOME/product implementation are not started.
 
 ## 1. What was changed
@@ -69,7 +69,7 @@ stay ignored. Future tasks follow their actual authorized commit/push/merge scop
 
 No automatic deployment on push/merge. pages.yml defaults deploy=false, checks expected_sha, and allows
 deploy=true only from main. Only the deploy job has Pages/OIDC write access. This is the existing V2
-preview URL only; no production CNAME/domain or legacy change. The planned P0E preview run proves
+preview URL only; no production CNAME/domain or legacy change. The completed P0E preview run proves
 fresh Linux installation, P0D metadata, full static checks, artifact delivery and real-host verification
 work together; it is not a deployment for HOME document appearance.
 
@@ -83,18 +83,25 @@ work together; it is not a deployment for HOME document appearance.
 
 ## 11. CI result
 
-Pending publication and actual P0E runs at this implementation commit. Do not infer remote success
-from local checks. The prior P0D merge run 33958333876 at cb7605f was read and confirmed successful;
-it is historical and does not validate P0E wiring.
+- Code/deployed SHA: `ea146f629cc2f0de89ed540b0b0747757f4a8011`, pushed to V2 main.
+- [Fast CI 33960545431](https://github.com/cij5484/cho-youn-kyoung-v2/actions/runs/33960545431): SUCCESS; quality job 28 seconds, Fast command 7 seconds. No deployment.
+- [Full/delivery 33960594951](https://github.com/cij5484/cho-youn-kyoung-v2/actions/runs/33960594951): SUCCESS; guard 3s, Full 96s, deploy 9s, live verification job 64s.
+- Linux Chromium: both-base browser 80/80 (44.1s), actual Pages 52/52 (28.4s), zero failed/skipped/flaky tests. Workflow syntax and embedded shell validation passed in CI.
+- [V2 preview](https://cij5484.github.io/cho-youn-kyoung-v2/): 18 fixture routes, 28 public files; fetched manifest matches the uploaded manifest and exact SHA. Live suite verified file hashes/MIME and true HTTP 404.
+- Pages remains workflow-based with `cname: null`. Evidence is retained in [evidence/p0e](evidence/p0e/README.md).
+
+Approved HOME documentation is commit `bb8460e`; P0D was already merged in `cb7605f` via PR #1.
+This result/evidence is a following documentation-only commit. The newer main documentation revision
+does not replace deployed `ea146f6`; its push runs Fast only. No second deployment is needed.
 
 ## 12. Build / lint / type-check results
 
-Local: all passed, including both root and project production builds. New CI runs will record their
-own results and exact SHA. No new npm or runtime/visual dependencies were installed.
+Local and actual Linux CI: all passed, including root and project production builds, type-check and lint.
+No new npm or runtime/visual dependencies were installed. Actionlint is a checksum-pinned CI validation tool.
 
 ## 13. P0C/P0D regression result
 
-Local 80-case suite and original 8+3 contract tests pass unchanged. Routing/locale source, React Router
+Local and Linux CI 80-case suites, original 8+3 contract tests and live Pages 52 cases pass unchanged. Routing/locale source, React Router
 config, Vite base config, public assets and static packager are untouched. Core browser test content
 is unchanged; only the runner selects Chromium on Linux and stores JSON evidence.
 
@@ -104,13 +111,15 @@ is unchanged; only the runner selects Chromium on Linux and stores JSON evidence
 - Manual deploy=true is a technical opt-in, not a substitute for recorded user approval.
 - Concurrent branch push and PR can each run Fast; Full remains explicit. External runner/tool download or cache propagation can fail visibly.
 - Evidence artifacts expire after 14 days; curated summaries persist. Dirty local manifest HEAD is not a clean source revision.
+- Official configure-pages/deploy-pages and upload-pages-artifact's transitive upload-artifact produced Node 20 deprecation annotations while the runner forced Node 24. All jobs succeeded; retain this upstream maintenance issue for a separate bounded update.
 - Safari/mobile product visuals, actual content, audio/3D and production custom domain remain outside P0E.
 
 ## 15. Documentation updated
 
 The existing Task Protocol is the single current delivery guide; README links commands/state/evidence.
 HANDOFF/Plan/Revision Log distinguish P0E from P0F. Historical P0A–D and HOME V2.1 reports remain historical.
-No AGENTS.md was created or finalized. Results/evidence will be updated after the actual CI run.
+No AGENTS.md was created or finalized. This report and compact evidence record actual completed runs,
+deployment identity and timing; raw generated reports remain ignored locally and in CI artifacts.
 
 ## 16. Recommended next bounded task
 
