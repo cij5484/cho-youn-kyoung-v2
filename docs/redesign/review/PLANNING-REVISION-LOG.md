@@ -1,5 +1,19 @@
 # Planning Revision Log — 2026-09-05
 
+Revision 1.2 · **P0C real Pages gate complete / React Router + Static Prerender APPROVE**.
+
+## P0C architecture decision revision
+
+- 최신 P0C 승인이 V2 저장소 생성·연결, CI/Pages 배포, 실제 13-route 검증과 architecture 판정을 명시적으로 포함했다.
+- 배포 SHA: 137b3420fda15b9670e109989da54230d959966e. Actions run 33955594780 build/deploy/verify 모두 성공.
+- 실제 Pages: Linux Chromium 42/42, Windows Edge 42/42. 원본 HTML/asset 23개와 배포 manifest hash 일치.
+- MASTER v1.7, Migration QA v1.2, HANDOFF, Implementation Plan v1.2, Audit v1.2, Task Protocol v1.1의 후보/미착수 상태를 해당 검증 범위에 맞게 갱신했다.
+- [Routing Architecture Decision](ROUTING-ARCHITECTURE-DECISION.md), [P0C 결과](../../../P0C-RESULT.md), [배포/배치 계약](../../../P0C-DEPLOYMENT.md)에 근거와 유지보수 조건을 기록했다.
+- 전체 locale/hreflang, 제품 디자인/콘텐츠, audio/mobile/3D, 운영 도메인 gate는 완료로 표시하지 않았다. 기존 디자인/기능 요구를 삭제하거나 축약하지 않았다.
+- P0A/P0B 결과와 아래 초기 문서 감사는 당시 기록으로 보존한다. 현재 STOP 지점은 P0C 완료이며, P0D에는 별도 승인이 필요하다.
+
+## Historical revision 1.1 — planning-only snapshot
+
 Revision 1.1 · 문서 갱신 완료 / 구현 미착수.
 PHASE 0 implementation ready는 P0A 개별 승인 대기 상태다.
 관련 기획 원문 갱신만 승인되었으며 역사적 baseline은 기존 ZIP에 보존한다.

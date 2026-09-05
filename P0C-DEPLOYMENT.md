@@ -85,8 +85,8 @@ Source maps, test reports, source files, planning documents, node_modules and ra
 
 ## Status and rollback
 
-Architecture approval is pending the P0C real-host gate at the time this pipeline is introduced.
-The final decision and deployment SHA are recorded in P0C-RESULT.md and the planning revision after verification.
+Architecture decision: APPROVE. The real-host gate passed in Linux Chromium (42/42) and Windows Edge (42/42).
+Verified deployment: 137b3420fda15b9670e109989da54230d959966e. See P0C-RESULT.md and the planning ADR for evidence and remaining product/locale gates.
 Checkpoint f71924f preserves the approved P0B source/planning baseline. Any rollback must stay within the V2
 repository/environment and preserve evidence; it must not affect the legacy production repository.
 P0D and later tasks require new explicit user approval. STOP after P0C reporting.

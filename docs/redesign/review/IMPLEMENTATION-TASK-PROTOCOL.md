@@ -1,6 +1,6 @@
 # Implementation Task Protocol — mandatory bounded work
 
-Revision 1.0 · 2026-09-05 · Approved user stop rule reflected · PLAN ONLY.
+Revision 1.1 · 2026-09-05 · P0C routing decision reflected; future units still require explicit approval.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
@@ -27,24 +27,24 @@ When tests fail, fix only the approved task's owner subsystem. If the fix expand
 
 ## PHASE 0 — individually approved units
 
-The common setup is React/TypeScript/Vite. React Router static prerender stays a replaceable spike candidate until its matrix passes. App-path names below are proposed file scope, not files already created.
+The common setup is React/TypeScript/Vite. React Router + Static Prerender passed the latest user-authorized P0C architecture gate and is APPROVED. Full locale/content/SEO contracts remain future work. App-path names below are proposed file scope, not files already created.
 
 | Unit | One objective / bounded work | Expected file scope | Validation and acceptance | Rollback / STOP |
 |---|---|---|---|---|
 | P0A — Project skeleton / base configuration | Minimal project and centrally defined preview base / root config; placeholder shell only. No real page design, audio or 3D | package/lockfile, TS/Vite config, minimal entry and shell, small deployment config | type/lint/build, minimal local shell and correct emitted asset prefixes; no product page implementation | Revert only new skeleton/config to pre-task checkpoint. **STOP for P0B approval** |
-| P0B — Routing + Pages deployment spike | Prove a replaceable candidate on actual Project Pages using small KO/EN sample routes and known/unknown path; bootstrap minimal test deployment only | isolated spike route config, minimal sample routes, small Pages bootstrap workflow and spike evidence | actual /cho-youn-kyoung-v2/ preview loads, direct sample/detail and 404 observations; initial per-route metadata/root-mode output evidence | Preserve result log; revert spike/bootstrapping without affecting legacy. **STOP for P0C approval** |
-| P0C — Clean URL / refresh / 404 | Expand deployment proof to all KO route shapes, direct URL, refresh, trailing slash, query and valid/unknown behavior | spike route fixtures/manifest, fallback handling, route checks and evidence only | every KO row in routing matrix passes, correct valid-vs-404 responses, no HashRouter, no wrong asset base | Revert only route-verification unit. **STOP for P0D approval** |
-| P0D — KO / EN route architecture | Prove equivalent locale paths, metadata/canonical/hreflang and root/subpath parity; report architecture decision | locale/path mapping, metadata fixture/output checks, consolidated spike ADR | every KO/EN route in both modes passes; known responses and metadata independently checked; prerender passes or remains unconfirmed with failure report | No framework freeze on partial success. **STOP for user review of architecture decision and next task** |
+| P0B — Local Routing / Static Prerender Spike — COMPLETE | Latest P0B approval limited execution to local neutral route proof; no deployment | official route/prerender config, static placement, fixture tests and P0B evidence | root/project artifacts and 34 local tests passed; architecture was conditionally recommended | P0B checkpoint retained. **STOP was followed; P0C was separately approved** |
+| P0C — Real GitHub Pages Deployment / Routing Verification — COMPLETE | Latest explicit approval included V2 repo creation, CI, real Pages routing and the architecture decision | V2 Git/workflow, deterministic placement, live tests, curated evidence and planning state | CI build/deploy/verify success; 42 live cases per browser environment; architecture APPROVE | Revert only V2 changes and preserve evidence. **STOP for P0D approval** |
+| P0D — KO / EN route architecture — NOT STARTED | Complete the locale path/metadata/canonical/hreflang contract on the approved routing foundation | locale/path mapping and metadata fixtures/checks; no actual page design or full translation migration | full locale matrix independently passes; do not count P0C samples as complete i18n | One separately approved task, split further if needed. **STOP for user review and next-task approval** |
 | P0E — Deployment workflow | Convert the proven bootstrap into reproducible preview delivery/CI; architecture decision must be accepted first | workflow, build artifact checks, environment/base settings and run guide | reproducible install from lockfile, build/type/lint, Pages artifact + route smoke; no operating-domain change | Restore previous tested deployment/workflow. **STOP for P0F approval** |
 | P0F — AGENTS.md / documentation wiring | Wire approved contracts and local run/check/stop guidance for future work | AGENTS.md, README/task links and existing planning docs only | document paths/commands match actual foundation; stop rule and next-unit policy discoverable | Revert documentation only. **STOP; P1 requires a separate bounded proposal and approval** |
 
-P0B prerequisite: a target GitHub repository/Pages destination and access are needed. If absent, its **explicit future task approval** must include creating only the named V2 target repository and minimal preview setup; otherwise P0B stops at that dependency. Do not create a repo now or silently add it to P0A. P0B bootstraps the test deploy; P0E hardens it, so there is no dependency on a nonexistent later workflow.
+Sequence revision: the latest P0B instruction prohibited deployment; the latest P0C instruction explicitly authorized cij5484/cho-youn-kyoung-v2 creation/connection and its preview deployment. P0C completed that minimal reproducible pipeline. This authorization applies only to P0C and V2; no production/legacy changes or next-unit authorization is implied.
 
 The stop rule is already binding in MASTER/HANDOFF before AGENTS.md is created in P0F. P0F is documentation wiring, not the first activation of the rule.
 
 ### Routing/deployment spike acceptance matrix
 
-Each cell needs a tested result and evidence. P0B samples; P0C covers KO; P0D completes locale/root coverage. Any missing cell means **architecture not yet frozen**.
+Each cell needs evidence at its owning gate. The latest P0C user instruction authorized the architecture decision from the specified 13-route real-host matrix; that gate passed and architecture is APPROVED. P0D still owns full locale/hreflang completion. Missing release-matrix cells remain NOT TESTED and must not be relabeled complete.
 
 | Dimension | Required cases |
 |---|---|

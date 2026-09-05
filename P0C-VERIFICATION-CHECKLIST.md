@@ -1,17 +1,17 @@
 # P0C proposal — actual GitHub Pages verification
 
-2026-09-05 · **NOT STARTED / NOT AUTHORIZED by P0B approval**.
-This is the P0B deliverable checklist, not a deployment workflow.
+2026-09-05 · **P0C COMPLETE / architecture APPROVE**.
+This checklist originated in P0B. The subsequent explicit P0C approval authorized the named V2 repository and real Pages deployment.
+All 13 required routes passed in CI Chromium and Windows Edge. See [P0C result](P0C-RESULT.md) and [curated evidence](evidence/p0c/README.md).
+Unchecked supplemental items below were not required to widen the latest P0C scope and remain explicitly unverified.
 
 ## One proposed objective and approval boundary
 
 Prove the existing P0B static artifact's direct request, refresh and unknown-route behavior on actual Project Pages.
 Keep the same neutral fixtures. No real page construction, i18n completion, production-domain change or P0D.
 
-The next approval must name an existing isolated V2 repository/Pages destination and authorize a minimal test upload.
-If a new repository is needed, its creation/remote connection must be explicitly included in that approval;
-P0B does not authorize either. Keep this bounded: use an existing destination where possible.
-If destination provisioning is substantial, propose that as its own task and STOP before route verification.
+The actual P0C approval named cij5484/cho-youn-kyoung-v2 and explicitly authorized repository creation/connection and Pages deployment.
+That setup and verification are now complete. No custom domain or production legacy repository was changed. No next task is authorized.
 
 Expected file scope: fixture test runner/evidence, and only the minimum Pages artifact configuration specifically approved.
 Do not automatically turn this into the P0E production workflow. Never touch legacy hosting or production DNS.
@@ -19,11 +19,11 @@ Rollback: retain the P0B artifact/checkpoint and revert only newly approved test
 
 ## Record before testing
 
-- [ ] Exact repository, Pages environment, test URL, uploaded revision, date, Node/npm/browser versions.
-- [ ] Build root is the CONTENTS of build-pages-preview/static/, with index.html at artifact root.
-- [ ] Generated route HTML, JS/CSS and public marker files match the tested artifact; no doubled base directory.
-- [ ] No Jekyll processing unexpectedly removes framework/static files. Record actual publishing mechanism.
-- [ ] Test metadata stays noindex; any placeholder canonical origin is recorded as a test value.
+- [x] Exact destination/revision/runtime recorded in P0C-RESULT.md and evidence/p0c/.
+- [x] CI uploads the contents of build-pages-preview/static/, with index.html at artifact root.
+- [x] All 23 published HTML/asset files match the deployed manifest's hashes; no doubled base.
+- [x] Official Actions artifact deployment used; all manifest files verified remotely.
+- [x] Preview remains noindex; canonical uses actual Pages origin. Root origin stays a placeholder.
 
 ## Every route must be tested directly on Pages
 
@@ -33,37 +33,37 @@ final HTTP status, visible route name and view-source title/description/canonica
 
 | Logical path | Direct / refresh / JS-off / metadata |
 |---|---|
-| / | NOT TESTED |
-| /works | NOT TESTED |
-| /albums | NOT TESTED |
-| /performances | NOT TESTED |
-| /album/test-album | NOT TESTED |
-| /performance/test-performance | NOT TESTED |
-| /media | NOT TESTED |
-| /about | NOT TESTED |
-| /contact | NOT TESTED |
-| /en | NOT TESTED |
-| /en/works | NOT TESTED |
-| /en/album/test-album | NOT TESTED |
-| /en/performance/test-performance | NOT TESTED |
+| / | PASS: both browser environments, HTTP 200, JS on/off, metadata/lang |
+| /works | PASS: both browser environments, HTTP 200, JS on/off, metadata/lang |
+| /albums | PASS: both browser environments, HTTP 200, JS on/off, metadata/lang |
+| /performances | PASS: both browser environments, HTTP 200, JS on/off, metadata/lang |
+| /album/test-album | PASS: both browser environments, HTTP 200, JS on/off, metadata/lang |
+| /performance/test-performance | PASS: both browser environments, HTTP 200, JS on/off, metadata/lang |
+| /media | PASS: both browser environments, HTTP 200, JS on/off, metadata/lang |
+| /about | PASS: both browser environments, HTTP 200, JS on/off, metadata/lang |
+| /contact | PASS: both browser environments, HTTP 200, JS on/off, metadata/lang |
+| /en | PASS: both browser environments, HTTP 200, JS on/off, metadata/lang |
+| /en/works | PASS: both browser environments, HTTP 200, JS on/off, metadata/lang |
+| /en/album/test-album | PASS: both browser environments, HTTP 200, JS on/off, metadata/lang |
+| /en/performance/test-performance | PASS: both browser environments, HTTP 200, JS on/off, metadata/lang |
 
 ## Host-specific acceptance cases
 
-- [ ] Existing routes end at HTTP 200 from actual static HTML; no valid-route 404 masked by JavaScript recovery.
+- [x] All 13 existing routes end at HTTP 200 from actual static HTML with JS on/off.
 - [ ] /cho-youn-kyoung-v2 and /cho-youn-kyoung-v2/ resolve consistently. Record actual status and Location.
-- [ ] /works and /works/ under the prefix: record actual trailing-slash redirects and avoid loops.
-- [ ] Query preservation: /works?p0b=1. Fragment preservation: /works?p0b=1#test.
+- [x] /works returns one 301 to /works/, then HTTP 200; slash form returns 200.
+- [x] Tested latest user variants /works?test=1, /works#test and /works?test=1#test; preserved.
 - [ ] If /works/index.html is publicly reachable, assess duplicate URL/canonical handling.
-- [ ] Unknown path /missing-route and /missing-route/ return HTTP 404, not HOME/200.
+- [x] Latest required /not-a-real-page returns HTTP 404 with JS on/off; client /missing-route/ refresh also returns 404.
 - [ ] Unknown KO/EN album and performance slugs return HTTP 404; no fallback that impersonates a valid page.
-- [ ] Record default Pages 404 body. If a custom 404 is separately approved, it must retain status 404 and a valid base-aware return link.
-- [ ] Do not map __spa-fallback.html to all requests or copy HOME HTML to 404.html as a recovery hack.
+- [x] Default Pages 404 body/title and JS-disabled screenshot saved. No custom 404 created.
+- [x] No rewrite; generated SPA fallback excluded from published artifact.
 - [ ] Exact case/encoded-path behavior: /Works, /album/TEST-ALBUM and malformed/encoded paths. Do not assume Windows case behavior matches Pages.
-- [ ] Module preload, entry JS, lazy route chunks, CSS and public SVG all return 200 with correct MIME types.
-- [ ] Deep-route JS-disabled navigation keeps the prefix; hydrated navigation, KO↔EN changes, back/forward remain within the same site.
-- [ ] No missing /__manifest requests, hydration errors, missing assets, or stale cached chunk imports.
+- [x] All manifest assets return 200, correct MIME and exact hashes; browser navigation loads route chunks successfully.
+- [x] Every route has working base-aware links; direct JS-off documents and hydrated per-route links/back/forward pass.
+- [x] No captured browser/page/HTTP errors during valid-route navigation; deployed file hashes match.
 - [ ] Test an updated artifact for stale-cache behavior; record cache headers and any limitations without adding a broad cache subsystem.
-- [ ] Confirm all intended valid slugs are enumerated. A dynamic route pattern alone does not create arbitrary static pages.
+- [x] All current 13 fixtures are explicitly enumerated; future production slugs must extend that inventory.
 
 ## Explicitly outside this P0C proposal
 

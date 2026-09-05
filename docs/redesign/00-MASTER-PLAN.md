@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 00 — REDESIGN MASTER PLAN
 
-**Version:** 1.6  
-**Status:** Approved Planning Baseline — 2026-09-05 user decisions incorporated; implementation not started  
+**Version:** 1.7  
+**Status:** Approved Planning Baseline — P0A–C complete; P0C routing architecture APPROVED; product implementation pending  
 **Legacy Repository:** `cij5484/cho-youn-kyoung`  
 **Target Repository:** `cij5484/cho-youn-kyoung-v2`  
 **Final Production Domain:** `https://choyounkyoung.com`  
@@ -573,7 +573,7 @@ Codex must not receive isolated implementation tasks without project context.
 **The only current canonical roadmap is PHASE 0–14.** The former 0–12 roadmap is historical and superseded; its feature requirements remain in the corresponding specifications.
 
 ## PHASE 0 — FOUNDATION
-Bounded project/base setup, routing/deployment spike, direct URL/refresh/404 checks, KO/EN route validation, deployment workflow, AGENTS/document wiring. React Router static prerender is a candidate until the spike passes.
+Bounded project/base setup, routing/deployment spike, direct URL/refresh/404 checks, KO/EN route validation, deployment workflow, AGENTS/document wiring. React Router + Static Prerender passed the real Pages P0C gate and is APPROVED; complete locale/SEO implementation remains separately scoped.
 
 ## PHASE 1 — CONTENT / DATA FOUNDATION
 Schemas, verified factual content, permanent IDs, translations, asset manifest and URL policy.
@@ -867,9 +867,10 @@ Mobile volume remains a requirement. Verify real programmatic control in P0 or t
 
 # 45. ROUTING / DEPLOYMENT SPIKE GATE — APPROVED
 
-React Router static prerender remains a candidate, not a frozen architecture.
-P0 must prove the Project Pages base /cho-youn-kyoung-v2/ and final domain root /, every public KO/EN route, direct navigation, refresh, valid route versus 404, per-route metadata, canonical and hreflang. Only after all routing spike checks pass may a bounded architecture decision be reported for approval.
+React Router Framework + ssr:false + explicit static prerender is APPROVED after the user-authorized P0C architecture gate. Actual Project Pages passed all 13 requested KO/EN fixture routes, direct/hard refresh, navigation/history, JS-off HTML, metadata/lang, real HTTP 404 and deployed asset hashes/MIME. Root-mode build/hosting was verified locally and root build runs in CI.
 
-Use P0B–D to collect evidence and P0E for the reproducible delivery workflow. Root-mode testing must not change the operating custom domain during P0. Actual domain/HTTPS cutover is P14.
+See [review/ROUTING-ARCHITECTURE-DECISION.md](review/ROUTING-ARCHITECTURE-DECISION.md) for the final decision and file-placement contract. This architectural decision does not mark full KO/EN content, reciprocal hreflang, final SEO or production-domain migration complete. Every future public route and slug still requires static HTML and its locale/metadata contract; these remain release gates.
 
-Do not fall back to HashRouter. Current authorization is documentation revision only; no project/repository/install/spike execution has begun.
+Actual user-approved sequence: P0B local spike, P0C real Pages/CI and architecture decision, then separately approved P0D locale contract. P0E may review/harden the proven workflow but is not automatically started. Root-mode testing must not change the operating custom domain during P0. Actual domain/HTTPS cutover is P14.
+
+Do not fall back to HashRouter. P0A–C have completed under separate approvals. STOP after P0C reporting; no later unit is authorized by this decision.

@@ -1,7 +1,7 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** Planning revision complete — PHASE 0 implementation ready (P0A only after explicit approval); implementation NOT STARTED  
+**Status:** P0A–P0C complete — React Router + Static Prerender APPROVED by the P0C evidence gate; STOP before P0D  
 **Revision:** 1.1 / 2026-09-05 user decisions 1–9 incorporated  
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
@@ -416,7 +416,7 @@ Stop and report:
 [ ] Same Album Detail Tracks/Reader/Credits/scroll/3D-DOM changes retain controllable playback
 [ ] Different-route navigation ends playback; no site-wide global player or return autoplay
 [ ] Accessible muted text #6D6962 verified on Canvas/Surface; original muted tone retained in appropriate roles
-[ ] React Router static prerender remains candidate until PHASE 0 routing/deployment spike passes
+[x] React Router + Static Prerender APPROVED after the P0C real GitHub Pages routing/deployment gate
 [ ] Spike verifies subpath and root, all KO/EN routes, direct navigation/refresh and valid-versus-404
 [ ] Spike verifies per-route metadata, canonical and hreflang; no HashRouter retreat
 [ ] No real playable source gives unavailable/disabled/coming-soon; no silent timer or false playing
@@ -452,13 +452,15 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 # 26. CURRENT HANDOFF STATE
 
 - Planning direction and the user's nine revisions are incorporated.
-- PHASE 0 implementation ready means P0A is specified and can start only after explicit P0A approval.
-- P0A/P0B/P0C/P0D/P0E/P0F: NOT STARTED; routing/deployment and mobile audio spikes: NOT RUN.
-- Prerender architecture: CANDIDATE / NOT FROZEN, pending complete P0 spike evidence.
-- No repository, web code, Vite project, npm install or deployment has been created.
+- P0A skeleton and P0B local routing spike were individually approved and completed.
+- P0C real GitHub Pages deployment/routing verification: COMPLETE; Linux Chromium 42/42 and Windows Edge 42/42 passed.
+- Prerender architecture: APPROVE — React Router Framework + ssr:false + explicit prerender + deterministic static artifact placement.
+- V2 public repository: cij5484/cho-youn-kyoung-v2. Verified deployment SHA: 137b3420fda15b9670e109989da54230d959966e.
+- P0D/P0E/P0F and actual product pages: NOT STARTED. Full locale/hreflang, audio/mobile and 3D gates remain pending.
+- Existing production repository/domain unchanged. See [P0C result](P0C-RESULT.md) and [architecture decision](docs/redesign/review/ROUTING-ARCHITECTURE-DECISION.md).
 - Design/function requirements remain; the ZIP preserves the historical baseline.
 - Checklist boxes stay unchecked until actual implementation/validation evidence exists. Document coverage lives in [HANDOFF audit](docs/redesign/review/HANDOFF-AUDIT.md).
-- Current stop point: documentation revision complete; wait for explicit approval of one next task.
+- Current stop point: P0C result and planning state updated; wait for explicit approval of one next bounded task. Recommendation: P0D locale path/metadata contract only.
 
 # 27. FINAL HANDOFF RULE
 

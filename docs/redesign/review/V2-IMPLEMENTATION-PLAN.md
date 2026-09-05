@@ -1,8 +1,8 @@
 # Cho Youn Kyoung Website V2 — 검토 및 구현 제안
 
-검토일: 2026-09-05 · Revision 1.1 · 요청 추론 수준: 높음 · 상태: **계획 방향 및 사용자 수정 1–9 반영 / 구현 미착수 / PHASE 0 implementation ready (P0A 개별 승인 대기)**
+검토일: 2026-09-05 · Revision 1.2 · 요청 추론 수준: 높음 · 상태: **P0A–C 완료 / React Router + Static Prerender APPROVE / P0D 승인 대기**
 
-현재 정본은 갱신된 MASTER의 PHASE 0–14다. React Router static prerender만은 P0 spike 검증 후 확정할 후보로 유지한다. 이 문서는 실제 구현 승인이 아니다.
+현재 정본은 갱신된 MASTER의 PHASE 0–14다. React Router + Static Prerender는 사용자가 지정한 P0C 실제 Pages gate 통과로 확정했다. 전체 locale/hreflang와 제품 구현은 별도 gate다. 이 문서는 실제 구현 승인이 아니다.
 
 ## 1. Understanding Summary
 
@@ -22,7 +22,7 @@ V2는 조윤경의 음악을 경험하는 Digital Artist Archive이자 공식 �
 
 모바일은 독립 구성과 실기기 검증 우선이다. 3D는 핵심 경험이지만 정보 접근의 관문이 되어서는 안 된다. Functional Complete와 Quality Approved를 구분한다.
 
-초기 작업에서 15개 기획 문서를 `docs/redesign/`, HANDOFF를 루트에 배치했다. 이번 사용자 승인에 따라 필요한 기획 원문과 HANDOFF를 갱신했으며 역사적 원본은 ZIP에 보존한다. 변경 내역은 [Planning Revision Log](PLANNING-REVISION-LOG.md)에 기록한다. 웹 코드, 의존성, 저장소, Vite 프로젝트, 배포는 생성·수정하지 않았다.
+초기 작업에서 15개 기획 문서를 `docs/redesign/`, HANDOFF를 루트에 배치했다. 이번 사용자 승인에 따라 필요한 기획 원문과 HANDOFF를 갱신했으며 역사적 원본은 ZIP에 보존한다. 변경 내역은 [Planning Revision Log](PLANNING-REVISION-LOG.md)에 기록한다. 이 초기 문서 작업 이후 개별 승인된 P0A–C에서 기반 코드·의존성·V2 저장소·실제 Pages 배포를 완료했다. 최신 근거는 [Architecture Decision](ROUTING-ARCHITECTURE-DECISION.md)과 [P0C 결과](../../../P0C-RESULT.md)에 있다.
 
 ## 2. Document Consistency Audit
 
@@ -43,7 +43,7 @@ V2는 조윤경의 음악을 경험하는 Digital Artist Archive이자 공식 �
 | A5 | Open input — P2/P3 자산 승인 전 | 승인 시안/지정 사진/트레이 참조의 정확한 파일은 아직 미확인. P0A skeleton 차단 사유는 아님 |
 | A6 | Interpretation documented | 예술 의도는 목적, 사용성/접근성/성능은 품질 gate로 적용. 기능을 제거하는 승인으로 해석하지 않음 |
 | A7 | Resolved / calculated | 02 §3에 #6D6962 accessible muted text 추가. Canvas 4.8024:1 / Surface 5.1429:1. #77736C의 적절한 장식/큰 글자 용도 보존 |
-| R1 | Candidate / spike pending | React Router static prerender를 architecture 확정값에서 제외. P0B–D 전체 matrix 통과 후 확정 검토 |
+| R1 | APPROVED — P0C real-host gate passed | React Router Framework + static prerender + 검증된 파일 배치. 실제 Pages/CI와 root build 증명; 전체 locale/hreflang는 P0D |
 | R2 | Covered | 실제 playable source가 없으면 unavailable/disabled/coming soon. legacy silent clock 및 false playing 금지 |
 | R3 | Covered | MASTER §43, HANDOFF §25, Task Protocol에 1개 작업→검증→7항목 보고→STOP→명시 승인 계약 반영 |
 
@@ -53,7 +53,7 @@ V2는 조윤경의 음악을 경험하는 Digital Artist Archive이자 공식 �
 
 | ID | 판정 | 누락 | 계획에 보완할 내용 / 결정 시점 |
 |---|---|---|---|
-| M1 | Covered / spike pending | Pages clean URL·응답 코드·SEO 출력 계약 | 정적 HTML은 후보. P0B–D에서 subpath/root와 KO/EN 전체 matrix 검증 후 architecture 확정 |
+| M1 | Architecture APPROVED / locale release gate pending | Pages clean URL·응답 코드·SEO 출력 계약 | P0C 요청 13 route와 HTTP/HTML/metadata gate 통과. 전체 EN/hreflang·실제 SEO 콘텐츠는 후속 검증 |
 | M2 | Covered in plan / execution pending | 번역 미완료/미확정 콘텐츠 공개 정책 | KO/EN 검토 상태 분리, 최종 EN 미완료면 출시 게이트 보류. P1 |
 | M3 | Covered in plan / execution pending | 정량 성능 예산, 측정 조건, 승인 담당 | §11의 잠정 예산을 P0–3 실험으로 확정. P12까지 미루지 않음 |
 | M4 | Covered / test pending | 오디오·영상·HOME sample 소유권 및 오류 | route-local owner, same-route 유지와 route-exit 종료, truthful source states, CORS/volume spike. P3 |
@@ -97,7 +97,7 @@ HOME Scene 02 영문 키워드와 KO 기본 route는 충돌하지 않는다. 시
 
 ## 4. Proposed V2 Architecture
 
-**기반 방향: React + TypeScript + Vite. 검증 후보: React Router Framework Mode static prerender + 클라이언트 상호작용.** 후보를 아직 최종 architecture로 고정하지 않는다. P0B–D에서 Pages subpath/root, 모든 KO/EN 경로·refresh·404·metadata/canonical/hreflang이 증명된 후 결정한다. 운영 Node 서버/API는 기본 범위에 필요하지 않다는 방향이며, 후보 출력의 콘텐츠/metadata와 browser-only 3D 경계를 spike에서 확인한다.
+**확정 기반: React + TypeScript + Vite + React Router Framework Mode static prerender + 클라이언트 상호작용.** 최신 사용자 승인에 따른 P0C 실제 Pages gate를 통과해 APPROVE로 판정했다. 명시적 slug 열거, 파일 배치 검사, 실제 404와 배포 SHA/hash 확인을 유지한다. 전체 KO/EN 번역·hreflang·최종 metadata는 별도 완료 기준이다. 운영 Node 서버/API는 기본 범위에 필요하지 않으며, 실제 콘텐츠와 browser-only 3D 경계는 해당 후속 gate에서 검증한다.
 
 일반 SPA보다 초기 구조가 조금 늘지만, 공개 작품 수가 작고 clean URL·언어별 검색·공유가 중요하므로 build-time 출력이 적합하다. React Router의 `ssr:false`와 prerender는 정적 배포를 지원한다. 동적 slug는 콘텐츠에서 명시적으로 열거해야 한다. [React Router 공식 문서](https://reactrouter.com/how-to/pre-rendering)
 
@@ -161,13 +161,13 @@ C:\choyounkyoung-v2\
 | 검색 노출 | noindex / production sitemap 제출 제외 | 검토 완료된 콘텐츠만 index |
 | custom domain | 설정하지 않음 | P14 인계 시 설정 |
 
-후보 설계에서는 단일 deployment config가 bundler base, router basename, asset helper, prerender path, 절대 metadata URL을 생성한다. 실제 출력 구조는 spike 통과 후 확정한다. 도메인과 base는 분리한다. CDN 절대 URL에는 base를 붙이지 않는다. CSS url, font, texture, booklet, download, audio path까지 확인한다. Vite 역시 Project Pages에는 저장소 subpath, custom domain에는 `/` base를 안내한다. [Vite 배포 문서](https://vite.dev/guide/static-deploy.html)
+확정 설계에서는 단일 deployment config가 bundler base, router basename, asset helper, prerender path, 절대 metadata URL을 생성한다. 실제 출력은 official client/를 보존하고 deterministic packager로 static/을 구성한다. 파일 내용 변경 없이 basename prefix만 정리하며 CI/실제 Pages에서 검증했다. 도메인과 base는 분리한다. CDN 절대 URL에는 base를 붙이지 않는다. CSS url, font, texture, booklet, download, audio path까지 확인한다. Vite 역시 Project Pages에는 저장소 subpath, custom domain에는 `/` base를 안내한다. [Vite 배포 문서](https://vite.dev/guide/static-deploy.html)
 
-검증 대상 공개 route는 `/`, `/works`, `/albums`, `/performances`, `/album/:id`, `/performance/:id`, `/media`, `/about`, `/contact`와 `/en` 및 모든 `/en/...` 대응 route다. 아래 정적 출력/fallback 상세는 검증 후보이며 승인된 최종 구조로 간주하지 않는다. publishable 콘텐츠에서 route manifest를 생성한다. 알려진 모든 route에 대응하는 directory/index.html을 배포 산출물로 제공한다. 생성기의 base와 실제 출력 디렉터리 조합은 P0 배포 smoke test로 고정한다.
+검증 대상 공개 route는 `/`, `/works`, `/albums`, `/performances`, `/album/:id`, `/performance/:id`, `/media`, `/about`, `/contact`와 `/en` 및 모든 `/en/...` 대응 route다. P0C 지정 13개 neutral route의 실제 정적 출력/호스팅을 검증했다. publishable 콘텐츠에서 route manifest를 생성하고 알려진 모든 route에 대응하는 directory/index.html을 배포 산출물로 제공한다. 생성기의 base와 출력 디렉터리 조합은 P0C CI/실제 Pages에서 증명한 파일 배치 계약을 따른다. 전체 EN 경로는 P0D에서 완성한다.
 
-**Fallback 전략:** 정상 공개 route의 직접 방문은 정적 HTML로 처리한다. 별도 404.html은 제한된 SPA 복구 shell을 포함할 수 있으나, 알려진 route만 복구하고 unknown slug는 의미 있는 404로 남긴다. GitHub Pages는 custom 404를 지원한다. 404 화면에서 JS로 복구한 뒤 화면이 보인다는 사실을 정상 HTTP 200으로 오인하지 않는다. `_redirects` 같은 타 호스팅 rewrite 기능을 Pages에 있다고 가정하지 않는다. [GitHub custom 404](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site)
+**404 전략:** 정상 공개 route의 직접 방문은 정적 HTML로 처리하고, unknown 경로는 실제 호스트 HTTP 404로 남긴다. 생성된 SPA fallback은 배포물에서 제외하며 JS 복구로 누락된 정상 페이지를 숨기지 않는다. P0C는 GitHub 기본 404 화면을 검증했다. 향후 별도 승인된 제품 404.html도 상태 코드 404와 base-aware 복귀 경로를 유지해야 한다. `_redirects` 같은 타 호스팅 rewrite 기능을 Pages에 있다고 가정하지 않는다. [GitHub custom 404](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site)
 
-P0 시험은 root/subpath × KO/EN × index/detail × 직접 방문/refresh/내부 이동/back-forward이며 실제 Pages 응답 코드와 HTML metadata/canonical/hreflang도 확인한다. [Task Protocol의 전체 matrix](IMPLEMENTATION-TASK-PROTOCOL.md)를 P0B→C→D의 개별 승인 단위로 완성한 뒤 architecture 결정 보고를 한다. 최종 custom domain의 `/` base와 domain metadata는 격리된 root-mode 정적 테스트로 증명하고, 실제 운영 도메인/DNS/HTTPS 인계는 P14까지 수행하지 않는다. 디렉터리 URL의 trailing slash는 호스트 정규화를 따르고 canonical·sitemap은 동일 규칙을 쓴다. slash 유무 모두 루프 없이 도달해야 한다. 모든 새 작품은 route manifest와 정적 페이지 생성이 함께 성공해야 공개된다.
+P0 시험은 root/subpath × KO/EN × index/detail × 직접 방문/refresh/내부 이동/back-forward이며 실제 Pages 응답 코드와 HTML metadata/canonical/hreflang도 확인한다. 최신 사용자 지시에 따라 P0C의 실제 13-route gate로 architecture를 결정했다. [Task Protocol의 전체 matrix](IMPLEMENTATION-TASK-PROTOCOL.md) 중 전체 locale/hreflang 구현은 P0D 이후 개별 승인 gate로 남는다. 최종 custom domain의 `/` base와 domain metadata는 격리된 root-mode 정적 테스트로 증명하고, 실제 운영 도메인/DNS/HTTPS 인계는 P14까지 수행하지 않는다. 디렉터리 URL의 trailing slash는 호스트 정규화를 따르고 canonical·sitemap은 동일 규칙을 쓴다. slash 유무 모두 루프 없이 도달해야 한다. 모든 새 작품은 route manifest와 정적 페이지 생성이 함께 성공해야 공개된다.
 
 Legacy compatibility는 HashRouter가 아닌 작은 URL 정규화 계층이다. 기존 `/#/album/{id}`, `/#/performance/{id}`와 기존 다른 hash route를 검증된 V2 경로로 replace한다. 실제 legacy `/performance` 별칭은 `/performances`로 매핑한다. ordinary section hash는 건드리지 않는다. query·인코딩을 안전하게 보존하고 외부 URL/알 수 없는 ID를 임의 redirect하지 않는다. URL fragment는 서버에 전달되지 않으므로 hash 호환 처리는 클라이언트에서 해야 한다. 구형 hash URL의 작품별 OG를 서버가 구분할 수 없는 한계가 있으며 새 clean URL로 공유한다.
 
@@ -405,12 +405,12 @@ Gate 기록 양식: 작업 ID, 기준 commit/artifact, 환경, 수행 항목, �
 
 ### PHASE 0 — Foundation
 
-- 입력: **P0A 하나의 명시적 구현 승인**. 전체 계획 승인은 실제 구현 승인과 다르다. Prerender 확정을 입력 조건으로 요구하지 않고 P0 spike 결과로 결정한다.
-- 작업 큐: P0A skeleton/base → STOP → P0B routing/actual Pages spike → STOP → P0C clean/direct/refresh/404 → STOP → P0D KO/EN·metadata·root/subpath 및 architecture 결정 보고 → STOP → P0E 재현 가능한 workflow → STOP → P0F AGENTS/document wiring → STOP. 매 화살표 사이에 명시적 승인이 필요하다.
-- P0B에 필요한 target repo/preview 접근은 그 작업의 향후 승인 범위로 명시한다. 실제 Pages spike용 최소 bootstrap을 P0B에서 마련하고 P0E에서 검증된 workflow로 정리하므로 순환 의존성이 없다. P0A에 원격 repo/배포를 몰래 포함하지 않는다.
-- 초기 실험: subpath/root 후보 출력, 모든 KO/EN direct/refresh/valid-vs-404/per-route metadata/canonical/hreflang matrix. root mode는 운영 도메인 변경 없이 시험한다. 모바일 volume/CORS는 별도 승인된 P0 Audio unit 또는 P3 AUDIO-01에서 실제 capability를 검증한다. 페이지·3D 구현을 spike에 섞지 않는다.
+- 입력: **각 단위의 명시적 구현 승인**. 전체 계획 승인은 다음 구현 승인과 다르다. P0A–C는 각각 승인되어 완료됐으며 현재 다음 단위 승인을 기다린다.
+- 최신 승인 이력/큐: P0A skeleton 완료 → STOP → P0B local routing spike 완료 → STOP → P0C 실제 V2 Pages/CI·routing·architecture APPROVE → STOP → P0D locale/metadata 계약(미착수) → STOP → P0E 필요 시 workflow 강화 → STOP → P0F AGENTS/document wiring. 매 화살표 사이에 명시적 승인이 필요하다.
+- P0B는 사용자 지시대로 로컬 검증만 수행했다. P0C에서 cij5484/cho-youn-kyoung-v2의 생성·연결·배포가 명시적으로 승인되어 완료됐다. 기존 production repository/domain은 변경하지 않았다.
+- 검증 상태: subpath/root 출력과 P0C 지정 KO/EN direct/refresh/valid-vs-404/metadata/lang gate는 통과했다. 전체 locale/hreflang는 P0D gate다. root mode는 운영 도메인 변경 없이 시험한다. 모바일 volume/CORS는 별도 승인된 P0 Audio unit 또는 P3 AUDIO-01에서 실제 capability를 검증한다. 페이지·3D 구현을 spike에 섞지 않는다.
 - 산출물: foundation ADR, 실행 안내, 실제 preview artifact, route test matrix.
-- 완료 기준: 각 unit 검증·보고·STOP을 준수한다. 전체 routing spike matrix가 root/subpath·KO/EN에서 통과한 뒤 prerender architecture를 확정 검토한다. unknown 404, asset base, 정적 metadata를 확인하며 partial pass를 완료로 표시하지 않는다. P0E에서 재현 가능한 lint/type/build/deploy를 확인한다.
+- 완료 기준: 각 unit 검증·보고·STOP을 준수한다. P0C 지정 gate 통과로 architecture는 확정했지만 전체 locale/SEO, audio/3D와 생산 콘텐츠 완료를 의미하지 않는다. P0C에서 재현 가능한 lint/type/build/deploy와 실제 unknown 404/asset/metadata를 확인했다. 후속 QA는 남은 요구와 새 변경에 맞게 제한한다.
 - 중단 조건: clean URL이 화면만 복구되고 정상 응답/metadata를 제공하지 못하면 후속 페이지 개발 전 출력 구조부터 수정.
 
 ### PHASE 1 — Content / Data Foundation
@@ -541,16 +541,16 @@ Gate 기록 양식: 작업 ID, 기준 commit/artifact, 환경, 수행 항목, �
 
 ## 17. Recommendation Before Implementation
 
-**판정: PHASE 0 implementation ready — P0A 하나를 명시적으로 승인받아 시작할 준비가 됨.**
+**현재 판정: P0A–C 완료 / React Router + Static Prerender APPROVE / P0D 미착수.**
 
 정본 로드맵, 독립 ABOUT Delight, HOME 한정 Sou.P, mandatory Tray Lab, same-route audio scope, source truth, 대비 token, volume capability 검증 정책, bounded task/STOP 계약을 반영했다. 사용자 승인 사항을 다시 미정 질문으로 남기지 않는다.
 
-단, React Router static prerender는 **CANDIDATE / NOT FROZEN**이며 routing/deployment spike는 **NOT RUN**이다. P0B–D 전체 matrix를 검증한 뒤 architecture를 확정 검토한다. 자료 파일 식별, 공식 번역, 실제 기기 capability, visualMode 세부 schema는 지정된 후속 gate에서 다룬다. 이들은 P0A 최소 skeleton을 시작할 기획상 blocker는 아니다.
+React Router + Static Prerender는 P0C 실제 Pages gate로 **APPROVE**다. Linux CI Chromium 42/42, Windows Edge 42/42, 배포 SHA/파일 hash와 MIME 검증을 완료했다. 전체 locale/hreflang와 제품 QA가 자동 완료된 것은 아니다. 자료 파일 식별, 공식 번역, 실제 기기 capability, visualMode 세부 schema는 지정된 후속 gate에서 다룬다. 이들은 P0A 최소 skeleton을 시작할 기획상 blocker는 아니다.
 
-권장 다음 단위는 **P0A — project skeleton / base configuration**뿐이다. 한 가지 목표, 예상 파일 범위, 검증과 rollback은 Task Protocol에 있다. P0B부터 P0F까지 연속 실행할 권한은 없다.
+권장 다음 단위는 **P0D — KO/EN route·metadata 계약**이다. 새 승인이 필요하며 아직 시작하지 않았다. 한 가지 목표, 예상 파일 범위, 검증과 rollback은 Task Protocol에 있다. P0B부터 P0F까지 연속 실행할 권한은 없다.
 
-현재 완료: 사용자 수정 1–9에 따른 계획 원문 revision, 현재 HANDOFF 207항목 전수 감사, 최종 17절 계획, bounded task protocol, 변경 이력과 문서 검증.
+현재 완료: 기존 계획·감사·STOP 계약과 별도로 P0A 기반, P0B 로컬 spike, P0C 실제 Pages 배포/검증 및 architecture 결정. 과거 P0A/P0B 결과는 당시 상태 기록으로 보존한다.
 
-현재 미착수: repository/Git/Vite 프로젝트 생성, 실제 웹 코드 생성·수정, npm install, 앱 build/test, routing/audio spike, preview 배포와 운영 전환.
+현재 미착수: P0D 이후 개별 작업, 전체 i18n/hreflang, 실제 제품 디자인/콘텐츠, audio/mobile/3D, 운영 도메인 전환.
 
-**여기서 STOP. 사용자의 P0A 명시적 승인 전에는 어떤 구현도 시작하지 않는다.**
+**여기서 STOP. 사용자의 다음 단일 작업 명시적 승인 전에는 P0D 또는 다른 구현을 시작하지 않는다.**

@@ -1,8 +1,12 @@
 # Cho Youn Kyoung Website V2
 
-P0B routing/static prerender spike까지 완료했습니다. React + TypeScript + Vite 기반의
+P0C 실제 GitHub Pages 배포와 routing 검증까지 완료했습니다. React + TypeScript + Vite 기반의
 13개 neutral test route이며 실제 사이트 디자인·콘텐츠는 없습니다.
-**P0B 로컬 검증 완료 / architecture 조건부 추천 / P0C 미착수.**
+**P0A–C 완료 / React Router + Static Prerender APPROVE / P0D 미착수.**
+
+실제 preview: [GitHub Pages](https://cij5484.github.io/cho-youn-kyoung-v2/).
+검증된 배포 commit: `137b3420fda15b9670e109989da54230d959966e`.
+[배포·검증 결과](P0C-RESULT.md), [파일 배치와 CI 계약](P0C-DEPLOYMENT.md).
 
 ## 실행 환경
 
@@ -50,7 +54,7 @@ SPA fallback을 적용하지 않습니다. 두 preview 포트가 사용 중이�
 
 `config/build.ts`가 base, 출력 위치, canonical 예시 origin, preview port의 단일 설정입니다.
 `react-router.config.ts`의 basename과 Vite base는 이를 공유합니다.
-예시 origin의 `.invalid` 주소와 noindex 메타데이터는 테스트용이며 실제 SEO/domain 설정이 아닙니다.
+Pages origin은 V2 preview 실제 주소입니다. root origin만 `.invalid` 테스트 값으로 유지하며, noindex는 neutral preview용입니다. 운영 도메인은 연결하지 않았습니다.
 
 React Router Framework의 공식 `ssr:false + prerender`를 사용합니다.
 8.3.1의 raw subpath output은 HTML과 assets의 디렉터리 기준이 다르므로
@@ -59,7 +63,9 @@ client/는 원본 증거, static/은 검증 대상 artifact입니다. client/를
 공식 renderer나 의존성 코드를 패치하지 않았습니다. 이 배치 단계는 프로젝트 소유 코드로,
 framework 출력 구조가 바뀌면 재검증해야 합니다.
 
-`__spa-fallback.html`은 원본 산출물로 보존하지만 unknown request에 연결하지 않습니다.
+SPA fallback은 raw client/에만 보존하고 static/과 Pages 배포물에서는 제외합니다. unknown request는 실제 호스트 404입니다.
+`build-info.json`은 배포 SHA와 공개 파일 해시를 기록합니다. `EXPECTED_DEPLOY_SHA`를 지정한 `npm.cmd run test:pages`로 실제 Pages를 재검증합니다.
+로컬/CI 모두 `npm.cmd run test:placement`로 파일 배치 계약을 검사합니다.
 server/는 build 과정의 중간 결과이며 Pages에 필요한 runtime server가 아닙니다.
 P0A의 이전 dist/와 dist-pages-preview/는 보존된 과거 산출물이며 현재 검증 대상이 아닙니다.
 
@@ -84,13 +90,15 @@ React Router가 제공하며 커스텀 renderer를 만들지 않았습니다.
 
 ## 결과 및 승인 경계
 
-- [P0B 결과와 architecture 비교](P0B-RESULT.md)
-- [P0C 실제 Pages 검증 체크리스트 — 미실행](P0C-VERIFICATION-CHECKLIST.md)
+- [P0C 실제 Pages 결과](P0C-RESULT.md), [최종 architecture 결정](docs/redesign/review/ROUTING-ARCHITECTURE-DECISION.md)
+- [P0B 결과와 architecture 비교 — 당시 조건부 판정 기록](P0B-RESULT.md)
+- [P0C 실제 Pages 검증 체크리스트 — 실행 결과 반영](P0C-VERIFICATION-CHECKLIST.md)
 - [P0B checkpoint](P0B-CHECKPOINT.json), 이전 코드: .checkpoints/p0b-before/
 - [P0A 결과 — 과거 기록 보존](P0A-RESULT.md)
 - [작업 분할·STOP 규칙](docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md)
 - [기획 MASTER](docs/redesign/00-MASTER-PLAN.md), [기존 HANDOFF](CODEX-HANDOFF.md)
 
-기획·review 원본 21개는 hash 기준 동일합니다. P0B의 최신 사용자 지시가 이전 protocol의
-실제 deployment 문구를 이번 작업에 한해 대체합니다. repository/remote/deploy는 수행하지 않았습니다.
-**보고 후 STOP. 사용자의 명시적 승인 전에는 P0C 또는 다른 구현 단위를 시작하지 않습니다.**
+P0B까지 기획·review 원본 21개를 보존했습니다. P0C에서는 사용자 지시대로 관련 planning 상태만 architecture APPROVE로 갱신했습니다.
+P0A/P0B 결과는 과거 기록으로 보존하며 최신 상태는 P0C 결과와 ADR을 따릅니다. V2 repository/remote/Pages만 생성했습니다.
+문서·증거만 바뀐 commit은 재배포하지 않으므로 최신 main SHA와 `build-info.json`의 배포 코드 SHA를 구분합니다.
+**보고 후 STOP. 사용자의 명시적 승인 전에는 P0D 또는 다른 구현 단위를 시작하지 않습니다.**

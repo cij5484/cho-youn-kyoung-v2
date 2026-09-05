@@ -1,0 +1,1245 @@
+{
+  "environment": "linux-ci-chromium",
+  "deployedCommit": "137b3420fda15b9670e109989da54230d959966e",
+  "stats": {
+    "startTime": "2026-09-05T08:35:07.444Z",
+    "duration": 19542.476,
+    "expected": 42,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "JS enabled /: direct, hard refresh, link, back, forward",
+      "status": "passed",
+      "durationMs": 1543,
+      "evidence": [
+        {
+          "name": "route-result",
+          "data": {
+            "path": "/",
+            "directStatus": 200,
+            "hardRefreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/works/",
+            "internalNavigation": true,
+            "back": true,
+            "forward": true,
+            "errors": []
+          }
+        }
+      ]
+    },
+    {
+      "title": "JS enabled /works: direct, hard refresh, link, back, forward",
+      "status": "passed",
+      "durationMs": 1256,
+      "evidence": [
+        {
+          "name": "route-result",
+          "data": {
+            "path": "/works",
+            "directStatus": 200,
+            "hardRefreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/albums/",
+            "internalNavigation": true,
+            "back": true,
+            "forward": true,
+            "errors": []
+          }
+        }
+      ]
+    },
+    {
+      "title": "JS enabled /albums: direct, hard refresh, link, back, forward",
+      "status": "passed",
+      "durationMs": 1386,
+      "evidence": [
+        {
+          "name": "route-result",
+          "data": {
+            "path": "/albums",
+            "directStatus": 200,
+            "hardRefreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/performances/",
+            "internalNavigation": true,
+            "back": true,
+            "forward": true,
+            "errors": []
+          }
+        }
+      ]
+    },
+    {
+      "title": "JS enabled /performances: direct, hard refresh, link, back, forward",
+      "status": "passed",
+      "durationMs": 1213,
+      "evidence": [
+        {
+          "name": "route-result",
+          "data": {
+            "path": "/performances",
+            "directStatus": 200,
+            "hardRefreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/album/test-album/",
+            "internalNavigation": true,
+            "back": true,
+            "forward": true,
+            "errors": []
+          }
+        }
+      ]
+    },
+    {
+      "title": "JS enabled /album/test-album: direct, hard refresh, link, back, forward",
+      "status": "passed",
+      "durationMs": 1227,
+      "evidence": [
+        {
+          "name": "route-result",
+          "data": {
+            "path": "/album/test-album",
+            "directStatus": 200,
+            "hardRefreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/performance/test-performance/",
+            "internalNavigation": true,
+            "back": true,
+            "forward": true,
+            "errors": []
+          }
+        }
+      ]
+    },
+    {
+      "title": "JS enabled /performance/test-performance: direct, hard refresh, link, back, forward",
+      "status": "passed",
+      "durationMs": 1113,
+      "evidence": [
+        {
+          "name": "route-result",
+          "data": {
+            "path": "/performance/test-performance",
+            "directStatus": 200,
+            "hardRefreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/media/",
+            "internalNavigation": true,
+            "back": true,
+            "forward": true,
+            "errors": []
+          }
+        }
+      ]
+    },
+    {
+      "title": "JS enabled /media: direct, hard refresh, link, back, forward",
+      "status": "passed",
+      "durationMs": 1165,
+      "evidence": [
+        {
+          "name": "route-result",
+          "data": {
+            "path": "/media",
+            "directStatus": 200,
+            "hardRefreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/about/",
+            "internalNavigation": true,
+            "back": true,
+            "forward": true,
+            "errors": []
+          }
+        }
+      ]
+    },
+    {
+      "title": "JS enabled /about: direct, hard refresh, link, back, forward",
+      "status": "passed",
+      "durationMs": 1117,
+      "evidence": [
+        {
+          "name": "route-result",
+          "data": {
+            "path": "/about",
+            "directStatus": 200,
+            "hardRefreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/contact/",
+            "internalNavigation": true,
+            "back": true,
+            "forward": true,
+            "errors": []
+          }
+        }
+      ]
+    },
+    {
+      "title": "JS enabled /contact: direct, hard refresh, link, back, forward",
+      "status": "passed",
+      "durationMs": 1001,
+      "evidence": [
+        {
+          "name": "route-result",
+          "data": {
+            "path": "/contact",
+            "directStatus": 200,
+            "hardRefreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/en/",
+            "internalNavigation": true,
+            "back": true,
+            "forward": true,
+            "errors": []
+          }
+        }
+      ]
+    },
+    {
+      "title": "JS enabled /en: direct, hard refresh, link, back, forward",
+      "status": "passed",
+      "durationMs": 964,
+      "evidence": [
+        {
+          "name": "route-result",
+          "data": {
+            "path": "/en",
+            "directStatus": 200,
+            "hardRefreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/en/works/",
+            "internalNavigation": true,
+            "back": true,
+            "forward": true,
+            "errors": []
+          }
+        }
+      ]
+    },
+    {
+      "title": "JS enabled /en/works: direct, hard refresh, link, back, forward",
+      "status": "passed",
+      "durationMs": 1097,
+      "evidence": [
+        {
+          "name": "route-result",
+          "data": {
+            "path": "/en/works",
+            "directStatus": 200,
+            "hardRefreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/en/album/test-album/",
+            "internalNavigation": true,
+            "back": true,
+            "forward": true,
+            "errors": []
+          }
+        }
+      ]
+    },
+    {
+      "title": "JS enabled /en/album/test-album: direct, hard refresh, link, back, forward",
+      "status": "passed",
+      "durationMs": 1132,
+      "evidence": [
+        {
+          "name": "route-result",
+          "data": {
+            "path": "/en/album/test-album",
+            "directStatus": 200,
+            "hardRefreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/en/performance/test-performance/",
+            "internalNavigation": true,
+            "back": true,
+            "forward": true,
+            "errors": []
+          }
+        }
+      ]
+    },
+    {
+      "title": "JS enabled /en/performance/test-performance: direct, hard refresh, link, back, forward",
+      "status": "passed",
+      "durationMs": 992,
+      "evidence": [
+        {
+          "name": "route-result",
+          "data": {
+            "path": "/en/performance/test-performance",
+            "directStatus": 200,
+            "hardRefreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/",
+            "internalNavigation": true,
+            "back": true,
+            "forward": true,
+            "errors": []
+          }
+        }
+      ]
+    },
+    {
+      "title": "URL variant /works",
+      "status": "passed",
+      "durationMs": 534,
+      "evidence": [
+        {
+          "name": "url-variant",
+          "data": {
+            "requested": "/cho-youn-kyoung-v2/works",
+            "first": {
+              "url": "https://cij5484.github.io/cho-youn-kyoung-v2/works",
+              "status": 301,
+              "type": "text/html",
+              "cacheControl": "max-age=600",
+              "age": "0",
+              "location": "https://cij5484.github.io/cho-youn-kyoung-v2/works/",
+              "server": "GitHub.com"
+            },
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/works/"
+          }
+        }
+      ]
+    },
+    {
+      "title": "URL variant /works/",
+      "status": "passed",
+      "durationMs": 330,
+      "evidence": [
+        {
+          "name": "url-variant",
+          "data": {
+            "requested": "/cho-youn-kyoung-v2/works/",
+            "first": {
+              "url": "https://cij5484.github.io/cho-youn-kyoung-v2/works/",
+              "status": 200,
+              "type": "text/html; charset=utf-8",
+              "cacheControl": "max-age=600",
+              "etag": "W/\"6a9bd40f-1034\"",
+              "age": "0",
+              "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+              "server": "GitHub.com"
+            },
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/works/"
+          }
+        }
+      ]
+    },
+    {
+      "title": "URL variant /works?test=1",
+      "status": "passed",
+      "durationMs": 267,
+      "evidence": [
+        {
+          "name": "url-variant",
+          "data": {
+            "requested": "/cho-youn-kyoung-v2/works?test=1",
+            "first": {
+              "url": "https://cij5484.github.io/cho-youn-kyoung-v2/works?test=1",
+              "status": 301,
+              "type": "text/html",
+              "cacheControl": "max-age=600",
+              "age": "1",
+              "location": "https://cij5484.github.io/cho-youn-kyoung-v2/works/?test=1",
+              "server": "GitHub.com"
+            },
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/works/?test=1"
+          }
+        }
+      ]
+    },
+    {
+      "title": "URL variant /works#test",
+      "status": "passed",
+      "durationMs": 271,
+      "evidence": [
+        {
+          "name": "url-variant",
+          "data": {
+            "requested": "/cho-youn-kyoung-v2/works#test",
+            "first": {
+              "url": "https://cij5484.github.io/cho-youn-kyoung-v2/works",
+              "status": 301,
+              "type": "text/html",
+              "cacheControl": "max-age=600",
+              "age": "2",
+              "location": "https://cij5484.github.io/cho-youn-kyoung-v2/works/",
+              "server": "GitHub.com"
+            },
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/works/#test"
+          }
+        }
+      ]
+    },
+    {
+      "title": "URL variant /works?test=1#test",
+      "status": "passed",
+      "durationMs": 263,
+      "evidence": [
+        {
+          "name": "url-variant",
+          "data": {
+            "requested": "/cho-youn-kyoung-v2/works?test=1#test",
+            "first": {
+              "url": "https://cij5484.github.io/cho-youn-kyoung-v2/works?test=1",
+              "status": 301,
+              "type": "text/html",
+              "cacheControl": "max-age=600",
+              "age": "1",
+              "location": "https://cij5484.github.io/cho-youn-kyoung-v2/works/?test=1",
+              "server": "GitHub.com"
+            },
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/works/?test=1#test"
+          }
+        }
+      ]
+    },
+    {
+      "title": "URL variant /w%6Frks",
+      "status": "passed",
+      "durationMs": 390,
+      "evidence": [
+        {
+          "name": "url-variant",
+          "data": {
+            "requested": "/cho-youn-kyoung-v2/w%6Frks",
+            "first": {
+              "url": "https://cij5484.github.io/cho-youn-kyoung-v2/w%6Frks",
+              "status": 301,
+              "type": "text/html",
+              "cacheControl": "max-age=600",
+              "age": "0",
+              "location": "https://cij5484.github.io/cho-youn-kyoung-v2/works/",
+              "server": "GitHub.com"
+            },
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/works/"
+          }
+        }
+      ]
+    },
+    {
+      "title": "deployed identity, every artifact hash, MIME and cache headers",
+      "status": "passed",
+      "durationMs": 1114,
+      "evidence": [
+        {
+          "name": "asset-and-cache-evidence",
+          "data": {
+            "manifest": {
+              "schema": 1,
+              "commit": "137b3420fda15b9670e109989da54230d959966e",
+              "target": "pagesPreview",
+              "base": "/cho-youn-kyoung-v2/",
+              "routes": [
+                "/",
+                "/works",
+                "/albums",
+                "/performances",
+                "/album/test-album",
+                "/performance/test-performance",
+                "/media",
+                "/about",
+                "/contact",
+                "/en",
+                "/en/works",
+                "/en/album/test-album",
+                "/en/performance/test-performance"
+              ],
+              "files": [
+                {
+                  "path": "assets/entry.client-BJsw2Wlj.js",
+                  "bytes": 185824,
+                  "sha256": "5dcee0280970f372be2e91e324e3cf2a137c178e7305861da1b9f1e7d58ce173"
+                },
+                {
+                  "path": "assets/jsx-runtime-BDElqee1.js",
+                  "bytes": 118287,
+                  "sha256": "8fb2fddc1819854ddcedf0d3f5042f109cf6bc7bf50de2078381aeeaab34ac6b"
+                },
+                {
+                  "path": "assets/manifest-d6d252fb.js",
+                  "bytes": 7092,
+                  "sha256": "0fc69eab333104f6a700bb825dda5a363973394b0db16ca0f46e0087a35594f1"
+                },
+                {
+                  "path": "assets/not-found-B10rtxa3.js",
+                  "bytes": 9166,
+                  "sha256": "dbd7c48a4cb399bdfedf47d382473d2925d3269a13461f0d8d9f28059546ad32"
+                },
+                {
+                  "path": "assets/not-found-E6oQuLPd.js",
+                  "bytes": 77,
+                  "sha256": "da28147650435feabff9f2ae11b09f29f21d96279699d8dc03dc22a29ccae265"
+                },
+                {
+                  "path": "assets/paths-DCfAmRub.js",
+                  "bytes": 331,
+                  "sha256": "60b419fde9a4d95547a7117f936431cf1a9046a9c8685ee703955f5a5145c139"
+                },
+                {
+                  "path": "assets/root-Dej-fjv3.css",
+                  "bytes": 26,
+                  "sha256": "c78c557fef254afdaf41bd8bb4b93d62c8c39fd9a86edee6691db5fba881fddd"
+                },
+                {
+                  "path": "assets/root-QyFDB4o0.js",
+                  "bytes": 627,
+                  "sha256": "21a4e0124ec1d9a67809d926358c58a86b290c2c25386b66ddd58e7779c931b2"
+                },
+                {
+                  "path": "assets/spike-AiQ59bZj.js",
+                  "bytes": 904,
+                  "sha256": "329307e01943d2883e0d9d9838ba004a0466f071afe0a4b2c509e32dc38b9701"
+                },
+                {
+                  "path": "about/index.html",
+                  "bytes": 4148,
+                  "sha256": "452cb2229c74222319f7d923d868041b7517c0359c6ee0699d75d1e2d23fd0c9"
+                },
+                {
+                  "path": "album/test-album/index.html",
+                  "bytes": 4180,
+                  "sha256": "b5d92bf6aa3c18d1161851948477c08e22651c03445be73f00610d561421aeb5"
+                },
+                {
+                  "path": "albums/index.html",
+                  "bytes": 4153,
+                  "sha256": "f548fa02722aa1631b2e1f94c060d60537bd474c9999f17a84ed2b26d19c55e2"
+                },
+                {
+                  "path": "contact/index.html",
+                  "bytes": 4158,
+                  "sha256": "50fda658619f150cab472b9297807f865eee6bbc4538a56a5ab3ad053c6a2818"
+                },
+                {
+                  "path": "en/album/test-album/index.html",
+                  "bytes": 4186,
+                  "sha256": "e797cb63f159a4b6fa421321ce744a3faada76a951a73d794153721449a56c63"
+                },
+                {
+                  "path": "en/index.html",
+                  "bytes": 4139,
+                  "sha256": "96af2554b4992cc4fd05640b078300bbc1364b64250829024bc6d50ee373e6de"
+                },
+                {
+                  "path": "en/performance/test-performance/index.html",
+                  "bytes": 4228,
+                  "sha256": "be524d56173274ac9250d319f099a30e969de889ed8c6b63c0d530bea8b35771"
+                },
+                {
+                  "path": "en/works/index.html",
+                  "bytes": 4154,
+                  "sha256": "80d230a2ae4166012827e81727f61401e51c09a96ba90a5835e553d5f0225dc1"
+                },
+                {
+                  "path": "index.html",
+                  "bytes": 4134,
+                  "sha256": "08496d614cd579fe0cdb95cddbf974187eda08f9a239c7c7cfcdc7afc9110e7d"
+                },
+                {
+                  "path": "media/index.html",
+                  "bytes": 4148,
+                  "sha256": "aad3db48d70b1a9c1750f8125fc22d95257d1a42dbfe7d21b7085a21d7dcce2f"
+                },
+                {
+                  "path": "performance/test-performance/index.html",
+                  "bytes": 4222,
+                  "sha256": "2e32cc9cb683987c47e8efe0166c85db3be20762bcd9a04d181f5544aef5d579"
+                },
+                {
+                  "path": "performances/index.html",
+                  "bytes": 4183,
+                  "sha256": "eab964f5e340dd56fc1c800c1bcf9805cc2a688d39cb2b4720291ee2da9f14ff"
+                },
+                {
+                  "path": "works/index.html",
+                  "bytes": 4148,
+                  "sha256": "5ddc433bdc77a1814eddcba8bb956924ef6f8ec3f457c4f9de9ec42c392e2646"
+                },
+                {
+                  "path": "spike/path-check.svg",
+                  "bytes": 167,
+                  "sha256": "c3355379bcf7c089546d19d2a5160ddf5c3472040c4d6d447b2cc5e8852d23fb"
+                }
+              ]
+            },
+            "responses": [
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/build-info.json",
+                "status": 200,
+                "type": "application/json; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-fee\"",
+                "age": "7",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/assets/entry.client-BJsw2Wlj.js",
+                "status": 200,
+                "type": "application/javascript; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-2d5e0\"",
+                "age": "4",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/assets/jsx-runtime-BDElqee1.js",
+                "status": 200,
+                "type": "application/javascript; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-1ce0f\"",
+                "age": "4",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/assets/manifest-d6d252fb.js",
+                "status": 200,
+                "type": "application/javascript; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-1bb4\"",
+                "age": "4",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/assets/not-found-B10rtxa3.js",
+                "status": 200,
+                "type": "application/javascript; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-23ce\"",
+                "age": "4",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/assets/not-found-E6oQuLPd.js",
+                "status": 200,
+                "type": "application/javascript; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "\"6a9bd40f-4d\"",
+                "age": "0",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/assets/paths-DCfAmRub.js",
+                "status": 200,
+                "type": "application/javascript; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-14b\"",
+                "age": "4",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/assets/root-Dej-fjv3.css",
+                "status": 200,
+                "type": "text/css; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "\"6a9bd40f-1a\"",
+                "age": "4",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/assets/root-QyFDB4o0.js",
+                "status": 200,
+                "type": "application/javascript; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-273\"",
+                "age": "4",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/assets/spike-AiQ59bZj.js",
+                "status": 200,
+                "type": "application/javascript; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-388\"",
+                "age": "4",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/about/index.html",
+                "status": 200,
+                "type": "text/html; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-1034\"",
+                "age": "0",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/album/test-album/index.html",
+                "status": 200,
+                "type": "text/html; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-1054\"",
+                "age": "0",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/albums/index.html",
+                "status": 200,
+                "type": "text/html; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-1039\"",
+                "age": "0",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/contact/index.html",
+                "status": 200,
+                "type": "text/html; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-103e\"",
+                "age": "0",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/en/album/test-album/index.html",
+                "status": 200,
+                "type": "text/html; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-105a\"",
+                "age": "0",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/en/index.html",
+                "status": 200,
+                "type": "text/html; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-102b\"",
+                "age": "0",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/en/performance/test-performance/index.html",
+                "status": 200,
+                "type": "text/html; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-1084\"",
+                "age": "0",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/en/works/index.html",
+                "status": 200,
+                "type": "text/html; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-103a\"",
+                "age": "0",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/index.html",
+                "status": 200,
+                "type": "text/html; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-1026\"",
+                "age": "0",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/media/index.html",
+                "status": 200,
+                "type": "text/html; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-1034\"",
+                "age": "0",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/performance/test-performance/index.html",
+                "status": 200,
+                "type": "text/html; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-107e\"",
+                "age": "0",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/performances/index.html",
+                "status": 200,
+                "type": "text/html; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-1057\"",
+                "age": "0",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/works/index.html",
+                "status": 200,
+                "type": "text/html; charset=utf-8",
+                "cacheControl": "max-age=600",
+                "etag": "W/\"6a9bd40f-1034\"",
+                "age": "0",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              },
+              {
+                "url": "https://cij5484.github.io/cho-youn-kyoung-v2/spike/path-check.svg",
+                "status": 200,
+                "type": "image/svg+xml",
+                "cacheControl": "max-age=600",
+                "etag": "\"6a9bd40f-a7\"",
+                "age": "5",
+                "lastModified": "Sat, 05 Sep 2026 08:34:23 GMT",
+                "server": "GitHub.com"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "client 404 UI is separate from document HTTP 404",
+      "status": "passed",
+      "durationMs": 991,
+      "evidence": [
+        {
+          "name": "client-versus-document-404",
+          "data": {
+            "client": "React 404 UI",
+            "refresh": "HTTP 404, GitHub Pages default UI"
+          }
+        }
+      ]
+    },
+    {
+      "title": "static /: direct, refresh, document metadata and image",
+      "status": "passed",
+      "durationMs": 228,
+      "evidence": [
+        {
+          "name": "js-disabled",
+          "data": {
+            "path": "/",
+            "directStatus": 200,
+            "refreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/",
+            "title": "HOME (ko) | P0B",
+            "lang": "ko"
+          }
+        }
+      ]
+    },
+    {
+      "title": "static /works: direct, refresh, document metadata and image",
+      "status": "passed",
+      "durationMs": 227,
+      "evidence": [
+        {
+          "name": "js-disabled",
+          "data": {
+            "path": "/works",
+            "directStatus": 200,
+            "refreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/works/",
+            "title": "WORKS (ko) | P0B",
+            "lang": "ko"
+          }
+        }
+      ]
+    },
+    {
+      "title": "static /albums: direct, refresh, document metadata and image",
+      "status": "passed",
+      "durationMs": 688,
+      "evidence": [
+        {
+          "name": "js-disabled",
+          "data": {
+            "path": "/albums",
+            "directStatus": 200,
+            "refreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/albums/",
+            "title": "ALBUMS (ko) | P0B",
+            "lang": "ko"
+          }
+        }
+      ]
+    },
+    {
+      "title": "static /performances: direct, refresh, document metadata and image",
+      "status": "passed",
+      "durationMs": 240,
+      "evidence": [
+        {
+          "name": "js-disabled",
+          "data": {
+            "path": "/performances",
+            "directStatus": 200,
+            "refreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/performances/",
+            "title": "PERFORMANCES (ko) | P0B",
+            "lang": "ko"
+          }
+        }
+      ]
+    },
+    {
+      "title": "static /album/test-album: direct, refresh, document metadata and image",
+      "status": "passed",
+      "durationMs": 366,
+      "evidence": [
+        {
+          "name": "js-disabled",
+          "data": {
+            "path": "/album/test-album",
+            "directStatus": 200,
+            "refreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/album/test-album/",
+            "title": "ALBUM TEST (ko) | P0B",
+            "lang": "ko"
+          }
+        }
+      ]
+    },
+    {
+      "title": "static /performance/test-performance: direct, refresh, document metadata and image",
+      "status": "passed",
+      "durationMs": 238,
+      "evidence": [
+        {
+          "name": "js-disabled",
+          "data": {
+            "path": "/performance/test-performance",
+            "directStatus": 200,
+            "refreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/performance/test-performance/",
+            "title": "PERFORMANCE TEST (ko) | P0B",
+            "lang": "ko"
+          }
+        }
+      ]
+    },
+    {
+      "title": "static /media: direct, refresh, document metadata and image",
+      "status": "passed",
+      "durationMs": 365,
+      "evidence": [
+        {
+          "name": "js-disabled",
+          "data": {
+            "path": "/media",
+            "directStatus": 200,
+            "refreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/media/",
+            "title": "MEDIA (ko) | P0B",
+            "lang": "ko"
+          }
+        }
+      ]
+    },
+    {
+      "title": "static /about: direct, refresh, document metadata and image",
+      "status": "passed",
+      "durationMs": 684,
+      "evidence": [
+        {
+          "name": "js-disabled",
+          "data": {
+            "path": "/about",
+            "directStatus": 200,
+            "refreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/about/",
+            "title": "ABOUT (ko) | P0B",
+            "lang": "ko"
+          }
+        }
+      ]
+    },
+    {
+      "title": "static /contact: direct, refresh, document metadata and image",
+      "status": "passed",
+      "durationMs": 608,
+      "evidence": [
+        {
+          "name": "js-disabled",
+          "data": {
+            "path": "/contact",
+            "directStatus": 200,
+            "refreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/contact/",
+            "title": "CONTACT (ko) | P0B",
+            "lang": "ko"
+          }
+        }
+      ]
+    },
+    {
+      "title": "static /en: direct, refresh, document metadata and image",
+      "status": "passed",
+      "durationMs": 418,
+      "evidence": [
+        {
+          "name": "js-disabled",
+          "data": {
+            "path": "/en",
+            "directStatus": 200,
+            "refreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/en/",
+            "title": "HOME (en) | P0B",
+            "lang": "en"
+          }
+        }
+      ]
+    },
+    {
+      "title": "static /en/works: direct, refresh, document metadata and image",
+      "status": "passed",
+      "durationMs": 483,
+      "evidence": [
+        {
+          "name": "js-disabled",
+          "data": {
+            "path": "/en/works",
+            "directStatus": 200,
+            "refreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/en/works/",
+            "title": "WORKS (en) | P0B",
+            "lang": "en"
+          }
+        }
+      ]
+    },
+    {
+      "title": "static /en/album/test-album: direct, refresh, document metadata and image",
+      "status": "passed",
+      "durationMs": 537,
+      "evidence": [
+        {
+          "name": "js-disabled",
+          "data": {
+            "path": "/en/album/test-album",
+            "directStatus": 200,
+            "refreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/en/album/test-album/",
+            "title": "ALBUM TEST (en) | P0B",
+            "lang": "en"
+          }
+        }
+      ]
+    },
+    {
+      "title": "static /en/performance/test-performance: direct, refresh, document metadata and image",
+      "status": "passed",
+      "durationMs": 380,
+      "evidence": [
+        {
+          "name": "js-disabled",
+          "data": {
+            "path": "/en/performance/test-performance",
+            "directStatus": 200,
+            "refreshStatus": 200,
+            "finalUrl": "https://cij5484.github.io/cho-youn-kyoung-v2/en/performance/test-performance/",
+            "title": "PERFORMANCE TEST (en) | P0B",
+            "lang": "en"
+          }
+        }
+      ]
+    },
+    {
+      "title": "/not-a-real-page",
+      "status": "passed",
+      "durationMs": 270,
+      "evidence": [
+        {
+          "name": "real-404",
+          "data": {
+            "path": "/not-a-real-page",
+            "javaScriptEnabled": true,
+            "response": {
+              "url": "https://cij5484.github.io/cho-youn-kyoung-v2/not-a-real-page",
+              "status": 404,
+              "type": "text/html; charset=utf-8",
+              "etag": "W/\"6a99a332-24a3\"",
+              "age": "0",
+              "server": "GitHub.com"
+            },
+            "title": "Page not found · GitHub Pages",
+            "heading": "404"
+          }
+        }
+      ]
+    },
+    {
+      "title": "/album/not-a-real-album",
+      "status": "passed",
+      "durationMs": 389,
+      "evidence": [
+        {
+          "name": "real-404",
+          "data": {
+            "path": "/album/not-a-real-album",
+            "javaScriptEnabled": true,
+            "response": {
+              "url": "https://cij5484.github.io/cho-youn-kyoung-v2/album/not-a-real-album",
+              "status": 404,
+              "type": "text/html; charset=utf-8",
+              "etag": "W/\"6a99a332-24a3\"",
+              "age": "0",
+              "server": "GitHub.com"
+            },
+            "title": "Page not found · GitHub Pages",
+            "heading": "404"
+          }
+        }
+      ]
+    },
+    {
+      "title": "/performance/not-a-real-performance",
+      "status": "passed",
+      "durationMs": 303,
+      "evidence": [
+        {
+          "name": "real-404",
+          "data": {
+            "path": "/performance/not-a-real-performance",
+            "javaScriptEnabled": true,
+            "response": {
+              "url": "https://cij5484.github.io/cho-youn-kyoung-v2/performance/not-a-real-performance",
+              "status": 404,
+              "type": "text/html; charset=utf-8",
+              "etag": "W/\"6a99a332-24a3\"",
+              "age": "0",
+              "server": "GitHub.com"
+            },
+            "title": "Page not found · GitHub Pages",
+            "heading": "404"
+          }
+        }
+      ]
+    },
+    {
+      "title": "/en/not-a-real-page",
+      "status": "passed",
+      "durationMs": 296,
+      "evidence": [
+        {
+          "name": "real-404",
+          "data": {
+            "path": "/en/not-a-real-page",
+            "javaScriptEnabled": true,
+            "response": {
+              "url": "https://cij5484.github.io/cho-youn-kyoung-v2/en/not-a-real-page",
+              "status": 404,
+              "type": "text/html; charset=utf-8",
+              "etag": "W/\"6a99a332-24a3\"",
+              "age": "0",
+              "server": "GitHub.com"
+            },
+            "title": "Page not found · GitHub Pages",
+            "heading": "404"
+          }
+        }
+      ]
+    },
+    {
+      "title": "/not-a-real-page",
+      "status": "passed",
+      "durationMs": 218,
+      "evidence": [
+        {
+          "name": "real-404",
+          "data": {
+            "path": "/not-a-real-page",
+            "javaScriptEnabled": false,
+            "response": {
+              "url": "https://cij5484.github.io/cho-youn-kyoung-v2/not-a-real-page",
+              "status": 404,
+              "type": "text/html; charset=utf-8",
+              "etag": "W/\"6a99a332-24a3\"",
+              "age": "1",
+              "server": "GitHub.com"
+            },
+            "title": "Page not found · GitHub Pages",
+            "heading": "404"
+          }
+        }
+      ]
+    },
+    {
+      "title": "/album/not-a-real-album",
+      "status": "passed",
+      "durationMs": 175,
+      "evidence": [
+        {
+          "name": "real-404",
+          "data": {
+            "path": "/album/not-a-real-album",
+            "javaScriptEnabled": false,
+            "response": {
+              "url": "https://cij5484.github.io/cho-youn-kyoung-v2/album/not-a-real-album",
+              "status": 404,
+              "type": "text/html; charset=utf-8",
+              "etag": "W/\"6a99a332-24a3\"",
+              "age": "1",
+              "server": "GitHub.com"
+            },
+            "title": "Page not found · GitHub Pages",
+            "heading": "404"
+          }
+        }
+      ]
+    },
+    {
+      "title": "/performance/not-a-real-performance",
+      "status": "passed",
+      "durationMs": 146,
+      "evidence": [
+        {
+          "name": "real-404",
+          "data": {
+            "path": "/performance/not-a-real-performance",
+            "javaScriptEnabled": false,
+            "response": {
+              "url": "https://cij5484.github.io/cho-youn-kyoung-v2/performance/not-a-real-performance",
+              "status": 404,
+              "type": "text/html; charset=utf-8",
+              "etag": "W/\"6a99a332-24a3\"",
+              "age": "1",
+              "server": "GitHub.com"
+            },
+            "title": "Page not found · GitHub Pages",
+            "heading": "404"
+          }
+        }
+      ]
+    },
+    {
+      "title": "/en/not-a-real-page",
+      "status": "passed",
+      "durationMs": 292,
+      "evidence": [
+        {
+          "name": "real-404",
+          "data": {
+            "path": "/en/not-a-real-page",
+            "javaScriptEnabled": false,
+            "response": {
+              "url": "https://cij5484.github.io/cho-youn-kyoung-v2/en/not-a-real-page",
+              "status": 404,
+              "type": "text/html; charset=utf-8",
+              "etag": "W/\"6a99a332-24a3\"",
+              "age": "0",
+              "server": "GitHub.com"
+            },
+            "title": "Page not found · GitHub Pages",
+            "heading": "404"
+          }
+        }
+      ]
+    }
+  ]
+}
