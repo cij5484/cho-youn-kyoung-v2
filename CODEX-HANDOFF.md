@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** P0A–P0E approved; P0F canonical/delivery complete; P1A result APPROVED; lifecycle follow-up / main delivery authorized — STOP before P1B\
-**Revision:** 1.4 / 2026-09-05 — P1A approval and Asset Lifecycle Policy; prior decisions and HOME V2.1 preserved\
+**Status:** P0A–P0F approved; P1A + lifecycle delivery approved; P1B single-album source audit REVIEW READY — STOP before migration/P1C\
+**Revision:** 1.5 / 2026-09-05 — P1B source audit and user-confirmed facts; prior decisions and HOME V2.1 preserved\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 ---
@@ -475,7 +475,10 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 - P0F delivery confirmed: b3c12d8f9d2e89db7e2ad206e61c2dabf29d5c23 / Fast CI 33962909498 success, rechecked before P1A.
 - P1A Content/Data Schema: IMPLEMENTED / locally VERIFIED / result APPROVED. [Contract](docs/redesign/review/CONTENT-SCHEMA-CONTRACT.md), [result](P1A-RESULT.md). Five neutral domains; data-only route adapter, no migration/template integration.
 - User separately authorized minimal Asset Lifecycle Policy and P1A delivery: validate, logical commit, V2 main push, Fast CI confirmation and clean-tree check. AssetRecord.lifecycle distinguishes candidates from approved assets; no release consumer or real asset migration is implemented. The result/evidence records checks before this delivery commit; Git history and the matching Fast Actions run provide the post-push receipt.
-- Current stop point: P1A + lifecycle delivery report. [Task Protocol](docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md) owns Fast/Full checks and delivery states. P1B, preview deployment and any next implementation still require explicit approval.
+- P1A + lifecycle delivery completed and user APPROVED: 159133c3fec42d2c9c09e900482aa3e137fcee07 / Fast CI 33965248251 SUCCESS. No new preview deployment.
+- P1B — Single Album Source Audit: only 조윤경 해금산조 – 지영희류 was audited. [Audit](docs/redesign/review/album-audits/JI-YOUNG-HEE-SANJO-SOURCE-AUDIT.md) and [evidence](evidence/p1b/ji-young-hee-sanjo-source-audit.json) own the result. User confirmed 2026-09-08 release date, 떨기나무 Recording/Mixing/Mastering and artwork matching final print. Retailer differences remain traced; current release is upcoming as of 2026-09-05.
+- P1B result: READY WITH NON-BLOCKING GAPS for limited KO record preparation, not public release approval. 15 provisional image candidates, 6 reachable audio URLs (partial HTTP proof only), 3D PARTIAL, full EN edition missing. Runtime/schema/assets and legacy were not modified; no migration or delivery performed by P1B.
+- Current stop point: P1B audit report / REVIEW READY. [Task Protocol](docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md) owns gates and delivery states. Proposed next: one Album KO Record Mapping Review; actual migration/P1C, commit/push and deployment require their applicable explicit authorization.
 
 <a id="knowledge-status"></a>
 
@@ -497,7 +500,8 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 | P0E CI/delivery | APPROVED / IMPLEMENTED / VERIFIED; historical actual run evidence in P0E result |
 | HOME V2.1 | APPROVED DESIGN DIRECTION / NOT YET IMPLEMENTED / NOT QUALITY APPROVED |
 | P0F knowledge wiring | APPROVED canonical / IMPLEMENTED / VERIFIED; delivery completed |
-| P1A content schema | Result APPROVED / IMPLEMENTED / locally VERIFIED with neutral fixtures; lifecycle follow-up and main delivery authorized; template integration and migration pending |
+| P1A content schema | Result + lifecycle delivery APPROVED / IMPLEMENTED / VERIFIED with neutral fixtures; template integration and migration pending |
+| P1B single-album source audit | Audit REVIEW READY; core date/credit/final-print facts user confirmed; limited KO preparation READY WITH NON-BLOCKING GAPS; no actual record or asset migration |
 | Blender Capability Spike | REQUIRED BEFORE RELEVANT 3D PRODUCTION / NOT EXECUTED; Blender adoption undecided; Motion §47 owns acceptance |
 | CD Tray Lab | MANDATORY / NOT IMPLEMENTED / BLOCKING Album Detail package Quality Approved until its gate passes |
 | Haegeum 3D master | FUTURE EXPERIMENT / HIGH PRIORITY / NOT IMPLEMENTED; NOT BLOCKING first release, not disposable optional decoration; Motion §48 |
