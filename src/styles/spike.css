@@ -1,0 +1,4 @@
+/* A non-visual marker proves that an emitted CSS asset loads under both bases. */
+:root {
+  --p0b-css-loaded: 1;
+}
