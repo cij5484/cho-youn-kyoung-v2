@@ -1,11 +1,11 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 04 — HOME
 
-**Version:** 1.1  
-**Status:** Approved HOME Baseline  
+**Version:** 2.1\
+**Status:** HOME V2.1 Art Direction — documentation revised; visual implementation/quality approval pending\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`  
 **Art Direction:** Contemporary Editorial / Ivory  
-**Narrative Structure:** Artist → Instrument → Sound → Works → Album Object → Performance → Artist Reveal → Closure
+**Narrative Structure:** ARTIST → INSTRUMENT → SOUND → WORK → OBJECT → STAGE → ARTIST → NAME
 
 ---
 
@@ -14,6 +14,10 @@
 HOME is not a conventional landing page.
 
 It is the primary authored experience of the V2 website.
+
+**V2.1 raises the bar from a well-made contemporary artist homepage to a HOME that feels like one of Cho Youn Kyoung’s digital artworks.** Within approximately the first five seconds, the visitor should feel “우와, 홈페이지 진짜 잘 만들었다.” This is a first-impression quality goal, not a five-second loading/entrance timer or a reason to delay access.
+
+Quality comes from typography, photography, crop, composition, depth, whitespace, interaction timing, transition continuity and physical response. More effects are not the solution. Contemporary Editorial / Ivory and **Static Color, Dynamic Composition** remain canonical.
 
 The visitor should progressively understand:
 
@@ -32,18 +36,22 @@ HOME must feel cinematic and carefully authored while preserving normal navigati
 
 Do not make every scene equally intense.
 
-Approved intensity:
+V2.1 canonical rhythm and approximate experience budgets:
 
-```text
-01 HERO             ★★★★★
-02 HAEGEUM          ★★★★☆
-03 SOUND            ★★★☆☆
-04 SELECTED WORKS   ★★★★☆
-05 ALBUM 3D         ★★★★★
-06 PERFORMANCE      ★★☆☆☆
-07 ABOUT            ★★☆☆☆
-08 OUTRO            ★★★☆☆
-```
+| Scene | Narrative | Intensity | Approximate length | Role |
+|---|---|---|---|---|
+| 01 HERO | ARTIST | 5/5 | 100–120vh | First-five-seconds peak; Moving Editorial Poster |
+| 02 HAEGEUM | INSTRUMENT | 4.5/5 | 120–160vh | Continuous transformation from Hero |
+| 03 SOUND | SOUND / LISTEN | 3/5 | 70–90vh | Quiet pause; explicit optional listening |
+| 04 SELECTED WORKS | WORK | 4/5 | 100–130vh | Long asymmetric editorial surface, 4–5 works |
+| 05 ALBUM OBJECT | OBJECT | 5/5 | 110–140vh | Second major visual peak; collectible objects |
+| 06 PERFORMANCE | STAGE | 2.5/5 | 80–100vh | First major Ivory → Dark Stage change; restrained motion |
+| 07 ABOUT | ARTIST | 2/5 | 80–100vh | Ivory; first clear face; short introduction |
+| 08 OUTRO | NAME | 3/5 | 80–100vh | Name/two-line resolution; Sou.P signature |
+
+**STRONG → STRONG → QUIET → ACTIVE → PEAK → QUIET → QUIET → RESOLVE**
+
+These are experience/scroll budgets for later prototype review, not fixed CSS heights, forced dwell times or added pin spacers. Intensity means perceived emphasis, not animation quantity or amplitude. Scene 02's 120–160vh and the 01→02 transition's 1.2–1.6 viewport range describe an overlapping continuous journey, not two mandatory durations to add together. Adjust at real typography, viewport and mobile/reduced-motion review; do not stretch sparse content to fill a target.
 
 This rhythm is mandatory design guidance.
 
@@ -89,9 +97,13 @@ Approved:
 - Oversized `CHO / YOUN / KYOUNG`
 - Three-line English display typography
 - Asymmetric large portrait
-- Portrait occupies roughly the right 55–65% visual region, but avoid a rigid 50/50 split
+- Portrait is composed around the right 58–62% visual zone on desktop; this is an optical composition guide, not a rigid two-column width. Cropping beyond the viewport is allowed.
 - Intentional empty grid columns
 - Transforming Editorial Navigation integrated into the Hero composition
+- Two extremely thin structural lines
+- Controlled depth and subtle parallax
+
+**MOVING EDITORIAL POSTER** is the canonical Hero direction. The first viewport must work as an independent art poster/editorial artwork, not merely a large headline next to a portrait. The three-line CHO / YOUN / KYOUNG name is graphic structure: allow roughly 55–65% of viewport height for the overall name composition, tuned by breakpoint and actual type metrics. This height guide is distinct from the portrait’s right-side visual zone.
 
 ## Navigation
 
@@ -106,11 +118,11 @@ Do not implement a standard fixed header from the first frame unless required as
 
 ## Portrait Sequence
 
-Start with the approved side/back close-up portrait.
+Start with a side/back or partial-face close-up. The approved candidate family is the existing purple hanbok portrait set, especially side/back close-ups. The exact file and final desktop/mobile crops are not yet selected or quality-approved.
 
 The face should not be immediately presented as a full frontal identity shot.
 
-On initial scroll, naturally transition toward the approved 3/4 back portrait where the haegeum becomes more visible.
+On initial scroll, preserve the planned progression toward a 3/4 back portrait where the haegeum becomes more visible. A clear frontal/clear 3/4 identity reveal belongs to Scene 07; this earlier instrument reveal must not use up that later payoff.
 
 **Do not use a click/drag puzzle to reveal the artist.**
 
@@ -126,7 +138,7 @@ Approved:
 
 Do not repeatedly switch z-depth across every line.
 
-The mask must respect face, silhouette, clothing, and portrait crop.
+The mask must respect face, silhouette, clothing, and portrait crop. At most 1–2 very precise intersections should define the composition; avoid the impression of text simply pasted on top of a photograph.
 
 If the layering is not precise enough, simplify rather than accepting a mediocre mask.
 
@@ -134,7 +146,7 @@ If the layering is not precise enough, simplify rather than accepting a mediocre
 
 Suggested:
 1. background
-2. fine line
+2. two-line motif
 3. portrait
 4. typography
 5. small foreground detail
@@ -153,7 +165,7 @@ Use controlled depth, not wobble.
 
 Recompose vertically.
 
-Possible direction:
+Historical vertical-stack study — not the V2.1 canonical composition or sufficient evidence of completion:
 ```text
 CHO
 YOUN
@@ -166,7 +178,7 @@ HAEGEUM ARTIST
 
 No pointer parallax.
 
-Use scroll-based depth only.
+Use lighter scroll-based depth only. Recompose the same three-line name with a more aggressive authored crop, touch-safe editorial navigation and fewer layers. Do not scale down desktop depth crossings; choose mobile intersections independently, including none when that gives a stronger poster. Mobile receives the same first-viewport quality gate.
 
 ## Reduced Motion
 
@@ -176,7 +188,7 @@ Use scroll-based depth only.
 
 ## Asset Requirements
 
-Current portrait assets are sufficient for planning.
+The purple hanbok side/back set is sufficient as a planning candidate, not proof of final-scale quality. No source resolution/crop or masking inspection was performed in this documentation revision.
 
 Before final implementation, verify:
 - source resolution
@@ -184,7 +196,7 @@ Before final implementation, verify:
 - masking edge quality
 - tonal compatibility with Ivory background
 
-If better source material materially improves the Hero, request it.
+If the candidate is missing or fails final-scale resolution, crop or masking quality, request the appropriate original or dedicated mobile asset before final visual approval. Do not quietly compromise, over-enlarge or substitute an unrelated image to call the Hero finished.
 
 ## Acceptance Criteria
 
@@ -207,7 +219,20 @@ If better source material materially improves the Hero, request it.
 
 # 5. TRANSITION 01 → 02
 
-The Hero line motif should become the visual bridge into the haegeum scene.
+The Hero's two-line motif is the structural bridge into the haegeum scene.
+
+The normal-motion contract is one scene transforming into the next, not Hero fade-out followed by an unrelated Haegeum fade-in:
+
+| Outgoing anchor | Continuous change | Incoming role |
+|---|---|---|
+| CHO / YOUN / KYOUNG | spacing, depth and position change | typography gives space to the instrument |
+| Portrait | authored crop and depth evolve | artist/instrument connection stays legible |
+| Two extremely thin lines | alignment, tension and guiding role evolve | instrument structural guides |
+| Haegeum imagery | progressively occupies the frame | HEAD/PEG → STRINGS/BOW → RESONANCE → FULL HAEGEUM |
+
+Review approximately 1.2–1.6 viewport of continuous travel, within/overlapping the Scene 02 experience budget. Do not append an extra long pinned cinematic sequence. Native scroll remains reversible and interruptible: reversing, stopping or skipping scroll must settle at the corresponding current composition without a reset or forced playback. No snap-scrolling or mandatory interaction to proceed.
+
+Reduced-motion or unsupported-motion fallback may use the existing restrained crop/fade/static sequence while preserving anchors, ordering and information. That explicit accessibility fallback is not permission to substitute a generic crossfade for the default direction.
 
 The portrait and typography move at different scroll rates.
 
@@ -238,7 +263,7 @@ Approved 4-stage continuous sequence:
 
 1. `HEAD / PEG`
 2. `STRINGS / BOW`
-3. `RESONATOR`
+3. `RESONANCE` — expressed through resonator/body material and surface imagery (the former RESONATOR subject remains)
 4. `FULL HAEGEUM`
 
 ## Visual Method
@@ -268,11 +293,11 @@ These words are visual design elements, not explanatory copy.
 
 Do not add Korean helper labels in this scene.
 
-Do not add long instrument-history text.
+Do not add long instrument-history text. Reveal only the keyword relevant to the current stage; never show LINE / TENSION / RESONANCE / HAEGEUM all at once.
 
 ## Continuous Line
 
-One primary line visually connects all four stages.
+Two extremely thin lines form one continuous structural motif across all four stages. One strand may temporarily lead the guide or Works-axis role; it remains part of the pair, not a replacement one-line system.
 
 The line may begin as an abstract editorial rule and progressively become associated with:
 
@@ -281,7 +306,7 @@ The line may begin as an abstract editorial rule and progressively become associ
 - vibration
 - resonance
 
-The line must maintain narrative continuity across the sequence.
+The pair must maintain narrative continuity across the sequence and retain the bowed-string behavior in §26 / 03 §45. Most of its visible length stays nearly straight.
 
 ## Final Reveal
 
@@ -329,7 +354,7 @@ If existing crops are insufficient at final scale, request dedicated detail phot
 ## Acceptance Criteria
 
 - Scene feels like an authored visual exploration, not a product manual
-- one line clearly connects all stages
+- the two-line motif clearly connects all stages, with one strand allowed to lead a specific guide role
 - imagery remains sharp at intended scale
 - final full haegeum reveal is visually satisfying
 - mobile does not become a long slideshow
@@ -363,7 +388,7 @@ Turn the instrument into sound.
 
 ## Narrative Role
 
-This is the first explicit listening moment on HOME.
+This is the first explicit listening moment on HOME and an intentional quiet pause after two strong scenes. Its 3/5 emphasis comes from presence, not continuous animation.
 
 ## Core Experience
 
@@ -386,14 +411,17 @@ Before activation:
 - `LISTEN` is clear
 
 After activation:
-- sound begins immediately
+- request actual playback immediately after LISTEN; only successful playback is represented as playing, with truthful pending/error/unavailable states
 - line movement responds subtly
 - response should feel organic, not like a generic audio visualizer
+- rising energy increases restrained vibration frequency/density; falling energy increases damping/stabilization
+- tension, sustained friction and subtle resonance take priority over visible amplitude; the pair stays nearly straight
 
 Avoid:
 - equalizer bars
 - large waveform
 - exaggerated beat animation
+- sine-wave animation or exaggerated vertical oscillation
 
 ## Sound Hierarchy
 
@@ -454,7 +482,7 @@ When needed, request:
 
 # 9. TRANSITION 03 → 04
 
-One sound line extends horizontally and becomes the axis of the Selected Works drag rail.
+One strand of the two-line motif extends horizontally and becomes the Selected Works editorial exploration axis. The other can remain quiet/recede; preserve the pair’s identity for the Outro rather than inventing a new decorative system.
 
 This is an intentional signature transition.
 
@@ -475,7 +503,7 @@ Show that the artist has a substantial body of work without turning HOME into an
 ## Composition
 
 Approved:
-- asymmetric horizontal drag rail
+- one long asymmetric editorial surface, explored horizontally on desktop; the rail is an input structure, not a row of cards
 - 4–5 selected works
 - varying image sizes / crops / vertical positions
 - large whitespace
@@ -495,14 +523,15 @@ No summary paragraph on HOME.
 ## Interaction
 
 Desktop:
-- direct drag
+- direct drag and optional wheel exploration within the surface
+- wheel support must not hijack normal vertical page travel; direction/bounds hand control back to the document
 - inertia
 - soft settle / restrained snap
 - custom cursor `DRAG`
 
 Mobile:
-- swipe
-- vertical page scroll must remain reliable
+- vertical-first composition; horizontal swipe only where necessary and intentional
+- vertical page scroll must remain reliable; keep tap/link and non-drag alternatives
 
 ## Detail Entry
 
@@ -513,7 +542,7 @@ The selected image/artwork should expand/reposition into the detail Hero where p
 Fallback:
 - transform + opacity transition
 
-Navigation must remain functional without shared transition support.
+Navigation must remain functional without shared transition support. Match image/object character to its Detail Hero; do not mechanically repeat the same hover animation across every work.
 
 ## Accessibility
 
@@ -566,13 +595,16 @@ Present the 2026 albums as physical artworks.
 ## Core Composition
 
 Approved primary concept:
-- three 2026 albums
-- one 3D collection
+- three 2026 albums as the content collection; simultaneous live WebGL count is not a requirement
+- one coherent physical collectible/exhibition-object collection
 - Ivory environment
 - sculptural grouping
 - selected album comes forward
 - unselected albums recede
-- selected album becomes rotatable
+- selected album is the focused manipulation target
+- stable, mostly static default pose in the Ivory exhibition space; no perpetual idle rotation
+
+V2.1 prioritizes the perceptual quality of a physical object over displaying three live objects. Approach gives a subtle response and ROTATE cue, intentional drag explores the object, and selection brings it forward. This describes the experience, not a requirement to drag before selecting; tap/keyboard detail access remains available. The full continuity sequence below still governs supported state transitions.
 
 ## Interaction
 
@@ -662,7 +694,7 @@ Reuse geometry/math/logic only after compatibility review.
 
 If the three-object collection cannot maintain required visual quality, performance, or mobile usability:
 
-**Fallback to one high-quality 3D album object that swaps between albums.**
+**Prefer one high-quality 3D album object with album switching whenever three simultaneous live objects weaken visual quality, mobile performance or interaction quality.** All three albums remain selectable; this is the preferred quality-preserving presentation under those conditions, not an inferior emergency version.
 
 This fallback is approved.
 
@@ -756,7 +788,7 @@ Do not add another drag rail or active 3D interaction here.
 
 ## Visual Role
 
-This is HOME’s primary dark contrast moment.
+This is HOME’s first major Ivory → Dark Stage tone change and its primary dark contrast moment. At 2.5/5 it must feel quieter after the Album Object peak, even though the tonal contrast is strong.
 
 It must not become a second permanent color system.
 
@@ -806,14 +838,14 @@ Reveal the person behind the instrument, recordings, and performances.
 
 ## Narrative Role
 
-This is the first clear frontal identity reveal.
+This is the first comparatively clear identity reveal: front-facing or clear 3/4. Hero’s side/back/partial-face approach gives this quiet return to Ivory its purpose.
 
 Do not continue hiding the face here.
 
 ## Composition
 
 Approved:
-- one strong front-facing portrait
+- one strong front-facing or clear 3/4 portrait
 - large scale
 - 2–3 sentence artist introduction
 - role/position only if concise
@@ -842,7 +874,7 @@ Do not shrink a desktop two-column block blindly.
 
 Current assets are sufficient for planning.
 
-Before production, review front-facing portrait quality.
+Before production, review the front-facing or clear 3/4 portrait quality and its distinction from the earlier partial-face Hero.
 
 If a new portrait would materially improve the final emotional payoff, proactively request it.
 
@@ -897,7 +929,7 @@ This scene should breathe.
 
 ## Line Resolution
 
-The two-line motif resolves into a final simple hairline under/near the artist name.
+The two-line motif returns in a resolved, restrained form under/near the oversized name. A strand may lead a final editorial rule while the pair’s identity remains legible; it is the completion of the initial name/line composition, not a new motif.
 
 Narrative:
 
@@ -1052,6 +1084,28 @@ Requirements:
 
 # 24. HOME ACCEPTANCE SUMMARY
 
+## V2.1 Hero and major-scene Visual Quality Gate — mandatory
+
+Functional Complete and Quality Approved are separate for Hero and major HOME scenes as well as 3D. A working large title + portrait is not completion of the Moving Editorial Poster.
+
+Review at least:
+- first viewport screenshot alone works as an art poster
+- typography hierarchy and three-line composition are intentional
+- portrait crop feels authored, not accidental
+- image/text overlap is precise; the few depth crossings are convincing
+- no generic portfolio-template feeling
+- no SaaS-style cards
+- no repeated fade-up pattern
+- no excessive rounded UI
+- no unnecessary visual effect
+- no animation for animation's sake
+- motion remains responsive and interruptible
+- mobile composition receives equivalent art-direction attention
+
+Evidence at the later visual-review task: desktop and independently composed mobile first-viewport screenshots; the initial approximately five seconds; forward/reverse/interruptible 01→02 travel; reduced-motion/static equivalents; actual font metrics, crop/source identity and viewport. Do not invent numeric scores to substitute for visual judgment. Record Functional Complete and Quality Approved separately, with explicit user review before advancing. No visual gate was executed or passed in this documentation revision.
+
+The first-frame quality goal does not override loading, readable navigation, contrast, input, asset fidelity or the existing 3D/Tray/Continuity gates. If photography cannot support the scale, record the missing asset rather than claiming quality approval.
+
 HOME is approved only when:
 
 - first impression feels premium and distinctive
@@ -1078,3 +1132,16 @@ HOME should not feel like eight sections.
 It should feel like one continuous authored journey:
 
 **ARTIST → INSTRUMENT → SOUND → WORK → OBJECT → STAGE → ARTIST → NAME**
+
+
+# 26. V2.1 STRUCTURAL MOTIF / REFERENCE RATIONALE
+
+The pair is structural, not decoration: Hero composition → Haegeum guides → Sound response → Selected Works axis → Outro resolution. A strand can change emphasis without losing the two-string/bow identity. Do not force it to animate or appear prominently in every scene; Performance and About retain their quiet roles.
+
+Haegeum is a bowed-string instrument. Preserve micro vibration, vibration density, tension, damping, sustained friction and subtle resonance; lines remain mostly straight. No large waveform, equalizer bounce, sine-wave animation or exaggerated vertical oscillation. Scroll-only visual changes are not evidence of playing audio.
+
+The user's recent reference-review principles are adopted as design rationale: immersive artist-world feeling, confident editorial typography, work-first personal identity, gallery/archive restraint, strong first viewport, and content depth behind elegant presentation. These are user-supplied principles, not claims of a new site-by-site reference audit in this task.
+
+Derive an independent visual identity from Haegeum, two strings/bow, tension/resonance, physical album objects, Sanjo/Jeongak materiality and Cho Youn Kyoung photography. Do not directly copy any reference site's layout, animation, type composition, source code or unique interaction. Earlier Art Direction V1 remains historical context; V2.1 is the current HOME direction, not permission to discard the retained detailed requirements.
+
+This is documentation only. No HOME/React/CSS, image manipulation, asset migration, audio/motion/3D, dependency change, deployment or P0E work is authorized by this revision. See [revision report](review/HOME-V2.1-REVISION-REPORT.md) for conflicts, asset needs and the STOP boundary.

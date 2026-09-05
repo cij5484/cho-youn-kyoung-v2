@@ -1,7 +1,7 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 03 — MOTION SYSTEM
 
-**Version:** 1.5  
+**Version:** 1.6\
 **Status:** Approved Motion Baseline  
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`  
 **Motion Direction:** Quiet Motion / Physical Response
@@ -47,8 +47,9 @@ Stronger motion allowed:
 - Haegeum sequence
 - Selected Works
 - 3D Album
-- Performance teaser
 - Works → Detail transition
+
+HOME V2.1 Performance teaser is a quiet contrast zone after the Album Object peak, not another strong-motion zone. Sound and About are deliberate pauses. The intensity sequence is 5 / 4.5 / 3 / 4 / 5 / 2.5 / 2 / 3; these are perceptual emphases, not mandatory movement amplitudes. See 04 §2 for experience budgets.
 
 ## READING ZONES
 Minimal motion:
@@ -153,6 +154,8 @@ Foreground     10–24px
 
 Relative depth matters more than exact pixels.
 
+HOME V2.1 Hero uses subtle controlled depth; these generic prototype offsets are not mandatory values. Moving a whole straight line in depth is distinct from local vibration displacement: the 8–20px fine-line parallax range must not be reused as audio-wave amplitude.
+
 ---
 
 # 9. POINTER PARALLAX
@@ -191,6 +194,8 @@ Image:
 - subtle opacity
 
 Avoid stacking too many effects.
+
+Do not use repeated fade-up reveals as the HOME narrative system. Its first viewport must already have poster quality, and default Hero→Haegeum continuity cannot be replaced by unrelated fade-out/fade-in.
 
 ---
 
@@ -267,9 +272,11 @@ General ABOUT/MEDIA/CONTACT transitions remain restrained.
 
 # 17. LINE MOTION
 
-Thin line motion is a signature candidate.
+HOME V2.1 commits to a two-line structural motif. It changes role across Hero → Haegeum → Sound → Selected Works → Outro; a leading strand may form the Works axis without discarding the pair. Use motion at selected transitions only, not continuous decoration. Apply the bowed-string rule in §45 throughout.
 
-Use at selected transitions only, not continuously.
+For Hero→Haegeum, map typography spacing/depth/position, portrait crop/depth, both line guides and incoming imagery into one scroll-linked composition. Stages: HEAD/PEG → STRINGS/BOW → RESONANCE (resonator imagery retained) → FULL HAEGEUM. Show only the current minimal keyword: LINE / TENSION / RESONANCE / HAEGEUM. Native continuous scroll, no snap; preferred 1.2–1.6 viewport overlaps Scene 02's 120–160vh budget, not added pin duration. Stop/reverse/interrupt must inherit the current state without jumps. Reduced-motion static/crop/fade fallback preserves sequence and anchors.
+
+SOUND is a static pause until explicit LISTEN. During actual playback, rising energy increases restrained frequency/density; falling energy damps/stabilizes, with almost-straight lines. No autoplay, scroll-triggered sound or fabricated playing state. Selected Works supports desktop drag/optional wheel without trapping vertical scroll, and restrained work-specific hover/shared Detail Hero transitions.
 
 ---
 
@@ -449,10 +456,12 @@ Use delta-time based motion:
 
 If a 3D scene can idle, use demand/minimal rendering.
 
-Continuous auto-rotation may render continuously, but reduce work when:
+Where a separately approved non-HOME scene uses continuous auto-rotation, reduce work when:
 - offscreen
 - reduced-motion is enabled
 - document is hidden
+
+HOME V2.1 Album Object defaults to stable/static. Approach → subtle response / ROTATE → intentional drag → selection → forward focus is a physical response, not autonomous idle spectacle or a mandatory drag prerequisite. If three simultaneous live objects reduce quality, prefer one high-quality object plus album switching; retain the collection and State Continuity/Tray/Lab gates.
 
 ---
 
@@ -712,6 +721,8 @@ For every state boundary:
 
 Complex 3D has two independent completion states.
 
+HOME V2.1 extends this distinction to Hero and major scenes: functional large typography + portrait does not constitute a Moving Editorial Poster. Apply 04 §24 screenshot/crop/type/overlap/interruptibility/mobile Visual Quality Gate and explicit user review. Existing 3D quality requirements below remain unchanged.
+
 ## Functional Complete
 The feature works.
 
@@ -762,7 +773,7 @@ The haegeum is a bowed-string instrument.
 
 Its visual sound language must not behave like percussion, plucked-string impact, or a generic equalizer.
 
-**Avoid large vertical oscillation, bouncing, or exaggerated waveform displacement.**
+**Avoid large vertical oscillation, bouncing, large waveform/equalizer movement or sine-wave animation.**
 
 Prioritize:
 
@@ -787,7 +798,7 @@ without causing large-amplitude movement.
 
 This rule applies to:
 
-- HOME Scene 03 sound landscape
+- HOME two-line motif from Hero through Haegeum, Scene 03 sound landscape, Works axis and Outro
 - Album Detail track player
 - same-Album-Detail-route persistent mini player visualization
 - any later audio-reactive haegeum motif

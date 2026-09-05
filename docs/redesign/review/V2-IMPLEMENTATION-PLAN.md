@@ -1,6 +1,6 @@
 # Cho Youn Kyoung Website V2 — 검토 및 구현 제안
 
-검토일: 2026-09-05 · Revision 1.3 · 요청 추론 수준: 높음 · 상태: **P0A–D 완료(P0D 로컬) / React Router + Static Prerender APPROVE / P0E 승인 대기**
+검토일: 2026-09-05 · Revision 1.4 · 요청 추론 수준: 높음 · 상태: **HOME V2.1 문서 개정 완료 / P0E 미착수**. P0A–D 및 APPROVED routing/locale 계약은 유지한다.
 
 현재 정본은 갱신된 MASTER의 PHASE 0–14다. React Router + Static Prerender는 사용자가 지정한 P0C 실제 Pages gate 통과로 확정했다. P0D neutral locale/hreflang 계약은 두 base에서 통과했고 실제 번역·제품 구현과 운영 SEO는 별도 gate다. 이 문서는 실제 구현 승인이 아니다.
 
@@ -214,6 +214,12 @@ HOME은 측후면 Hero, 해금이 드러나는 3/4 컷, 정면 identity reveal, 
 
 ## 8. Motion Architecture
 
+HOME V2.1 정본은 [04 HOME](../04-HOME.md)이다. Hero는 Moving Editorial Poster이며 이름/portrait/two lines/nav의 구성에서 첫 약 5초의 digital-artwork 인상을 만든다. 8-scene intensity는 5/4.5/3/4/5/2.5/2/3, rhythm은 STRONG→STRONG→QUIET→ACTIVE→PEAK→QUIET→QUIET→RESOLVE다. Scene별 vh는 04 §2의 prototype 경험 예산이며 고정 height/강제 체류가 아니다.
+
+Hero→Haegeum은 type spacing/depth/position, portrait crop/depth, two-line guide, instrument imagery가 한 장면처럼 변형된다. HEAD/PEG→STRINGS/BOW→RESONANCE→FULL HAEGEUM에 현재 keyword만 최소 노출한다. 1.2–1.6 viewport는 Scene 02 120–160vh와 겹쳐 검토하며 추가 pin으로 합산하지 않는다. Native continuous scroll, reverse/interrupt continuity, no snap을 지킨다. Default fade-out/fade-in 교체는 금지지만 reduced-motion의 정적/crop/fade 대안은 유지한다.
+
+SOUND는 LISTEN 후 실제 10–20초 fragment만 재생하고 전후에는 quiet pause다. Bowed-string pair는 거의 straight하게 frequency/density/tension/damping/sustained friction/resonance로 반응한다. 한 strand가 Selected Works axis를 맡아도 two-line identity는 Outro의 name과 함께 resolve된다. 작품별 hover를 동일하게 복제하거나 fade-up을 모든 scene에 반복하지 않는다.
+
 공유 motion token과 입력 정책을 먼저 만든다. CSS transform/opacity → WAAPI → 필요한 RAF 순서이며, 하나의 scroll/visibility 관측 체계를 공유한다. motion 값은 React state로 매 프레임 전파하지 않는다. 자연 스크롤을 유지하고 장면별 시작/끝 anchor와 강도를 명시한다.
 
 | 시스템 | 계약 |
@@ -260,7 +266,7 @@ AudioContext는 명시적 user gesture에서 활성화한다. 분석이 불가�
 
 달라지는 frame delta, 빠른 드래그 후 즉시 OPEN, inertia 중 SELECT, 연속 클릭, pointercancel, 화면회전, reduced-motion 전환, route back/forward, texture 실패, WebGL context loss를 별도로 시험한다. snapshot은 큰 texture 자체가 아니라 작은 숫자 상태와 asset/preset 식별자를 전달한다. 전환 중 canvas 두 개를 오래 겹쳐 GPU 메모리를 배로 쓰지 않는다.
 
-HOME collection은 승인된 세 2026 앨범으로 시작한다. 품질이 안 되면 승인된 단일 object 교체형 → 의도적으로 만든 static collection 순서로 낮춘다. 상세 정보·OPEN/READ/LISTEN은 DOM 대안으로 항상 도달한다.
+HOME collection은 세 2026 앨범의 physical collectible/exhibition identity를 유지한다. V2.1은 세 개 동시 live WebGL이 visual/mobile/input 품질을 해치면 한 고품질 object + album switching을 우선한다. 세 앨범 선택은 유지하고, 안정적 live 3D가 불가능하면 의도적으로 만든 static collection을 사용한다. Idle은 stable/static이며 접근→subtle response/ROTATE→intentional drag→selection→forward focus가 연속적이어야 한다. Drag가 detail 진입 필수 조건은 아니다. 상세 정보·OPEN/READ/LISTEN은 DOM 대안으로 항상 도달한다.
 
 Tray는 empty plate → seated CD → underlying print → material/light → release/lift → full package 순서로 확인한다. transparent plate, circular recess, hub, support forms, lip, seating height가 핵심이다. CAD 제조 수준을 목표로 하지 않는다. procedural 첫 시도 후 perceptual gate 실패 시 Blender/GLB 경로를 검토한다. geometry를 material 오류 보상에 사용하거나 회색 opacity로 투명 재질을 가장하지 않는다.
 
@@ -276,8 +282,8 @@ P2부터 실제 작은 화면 구성을 만들고 P3 Lab부터 실기기에 배�
 
 | 영역 | 모바일 구성 |
 |---|---|
-| Hero/Nav | 큰 세 줄 이름, 독립 crop, 읽기 쉬운 menu/locale, scroll depth. pointer parallax 없음 |
-| Haegeum | 4단계와 연결선 유지, 동시 layer 수 축소 |
+| Hero/Nav | Moving Editorial Poster, 세 줄 이름 재구성, 더 과감한 독립 crop, touch-safe nav, lighter scroll depth. pointer parallax 없음; desktop depth crossing 축소 복제 금지 |
+| Haegeum | 4단계와 two-line structural motif 유지, 동시 layer 수 축소 |
 | Works | featured full width + 읽히는 범위의 2열, sticky text filter, index 직접 탭 |
 | Albums | SANJO/JEONGAK 세로 chapter와 prerender, 불필요한 sticky category 없음 |
 | Album detail | 큰 object + 아래 최소 정보, 명시적 OPEN, scroll 우선, 필요하면 명시적 rotate mode |
@@ -347,6 +353,8 @@ reduced motion에서는 parallax/auto rotate/큰 확대를 제거하고 필요 �
 
 시각 QA는 device/browser/viewport/preset/state가 같은 screenshot과 사람이 보는 motion 영상으로 판단한다. 영상 캡처만으로 물리 상태 증거를 대체하지 않는다. inverse transition과 route return도 포함한다.
 
+HOME V2.1 Hero/주요 Scene은 Functional Complete와 Quality Approved를 분리한다. 첫 viewport screenshot만으로 art poster가 되는지, 의도적 type hierarchy/crop/정교한 overlap, generic template/SaaS cards/repeated fade-up/excessive rounding/불필요한 effect 부재, responsive·interruptible motion, 동등한 mobile art-direction attention을 04 §24로 검토한다. Desktop/mobile 첫 프레임과 첫 약 5초, 정방향/역방향/중단 transition, reduced-motion 자료로 사용자 시각 승인을 받는다. 이번 문서 revision은 이를 실행하거나 통과한 증거가 아니다.
+
 Gate 기록 양식: 작업 ID, 기준 commit/artifact, 환경, 수행 항목, 통과/실패/미검증, 알려진 제한, Functional Complete 여부, Quality Approved 여부, 승인자. 자동 시험이 통과해도 사용자 시각 승인 없이 최종 3D Quality Approved로 표기하지 않는다.
 
 ## 14. Required User Assets / Questions
@@ -355,8 +363,8 @@ Gate 기록 양식: 작업 ID, 기준 commit/artifact, 환경, 수행 항목, �
 
 | 자료 | 정확히 필요한 것 / 이유 | 필수 여부 | 지금 진행 가능? / 막히는 지점 |
 |---|---|---|---|
-| 승인 시안 식별 | HOME Art Direction V1 파일 또는 위치, 승인된 Hero 측후면·3/4 컷 지정. 의도 오해 방지 | 시안 존재 시 확인 필수 | 계획 가능 / P2 시각 기준 freeze 전 |
-| HOME portrait | 원본 해상도, 피사체 경계 좋은 측후면·해금 포함 3/4·정면 reveal, 사용 가능한 mobile crop | 최종 Hero용 적합한 source 필수, 추가 촬영은 조건부 | prototype 가능 / P4 장면 최종 승인 전 |
+| 승인 시안 식별 | HOME V2.1 문서가 현 정본; V1 시안은 역사적 참조. Purple hanbok side/back 후보의 정확한 파일·crop·font metric을 구분 | 후보 방향은 확정, final source/crop은 미검증 | 계획 가능 / P2 시각 기준 freeze 전 |
+| HOME portrait | 최종 scale을 견디는 purple hanbok side/back/partial-face 원본, 해금 포함 3/4 back, Scene 07 clear front/3/4, 독립 mobile crop | 최종 Hero용 적합한 source 필수; 없거나 약하면 타협 없이 요청, 추가 촬영은 조건부 | 문서 진행 가능 / 해당 final crop·mask 승인 전 |
 | 해금 detail | head/peg, strings/bow, resonator, full instrument 원본. 필요 시 접촉부 macro | 기존 crop이 버티면 추가 촬영 선택 | 계획/시험 가능 / P4 큰 화면 crop 품질 부족 시 |
 | 앨범 4종 | final front/back/spine/interior/CD label/booklet 순서와 실제 패키지 치수·타입 | 각 공개 3D에 필요한 면과 치수 필수 | rough model 가능 / P3 geometry/material freeze, P6–7 최종 승인 전 |
 | Tray 참조 | 문서가 가리키는 기존 참조 위치. 필요할 때 정면/45도/hub close-up, 폭·높이·두께·직경 | 기존 자료 우선, 추가 측정 조건부 | planning 가능 / P3 인지·seating 판정 불가 시 |
@@ -440,11 +448,11 @@ Gate 기록 양식: 작업 ID, 기준 commit/artifact, 환경, 수행 항목, �
 
 ### PHASE 4 — HOME
 
-- 입력: P2 composition, P3 승인된 동작/3D, 선택 작품/대표 음원.
-- 작업: 01 Hero/Nav → 02 해금 4단계 → 03 LISTEN → 04 selected 4–5작 → 05 three-album collection → 06 dark performance → 07 정면 reveal → 08 name/footer/Sou.P 순으로 구현.
+- 입력: HOME V2.1 문서, P2 desktop/mobile poster composition 및 적합한 source, P3 승인된 동작/3D, 선택 작품/대표 음원.
+- 작업 큐: 01 Moving Editorial Poster/Nav → 01→02 continuous transition → 02 해금 4단계 → 03 quiet LISTEN → 04 긴 asymmetric surface 4–5작 → 05 physical album collection(품질상 필요 시 one live object + switching) → 06 quiet Dark Stage → 07 Ivory clear front/3/4 reveal 2–3문장 → 08 name/two-line resolve/footer/Sou.P. 각 화살표는 자동 진행 승인이 아니다.
 - 한 장면의 제한된 작업 또는 한 인접 경계만 승인받아 구현한다. 해당 범위에서 desktop/mobile/reduced-motion을 검증하고 7항목 보고 후 STOP한다. HOME 전체를 한 작업으로 구현하거나 다음 장면으로 자동 진행하지 않는다.
 - 산출물: scene별 acceptance와 전환 anchor 표, desktop/mobile screenshot·motion 기록.
-- 완료 기준: 첫 프레임과 이야기 흐름 시각 승인, scroll/input 품질, no autoplay, offscreen 비용 제어. P3 미승인 3D는 최종 HOME 승인 불가.
+- 완료 기준: 04 §24의 Hero/major-scene Visual Quality Gate, 첫 프레임과 이야기 흐름 사용자 시각 승인, scroll/input 품질, no autoplay, offscreen 비용 제어. P3 미승인 3D는 최종 HOME 승인 불가. 단순 큰 이름+portrait를 Moving Editorial Poster 완료로 처리하지 않는다.
 
 ### PHASE 5 — WORKS
 
@@ -540,6 +548,8 @@ Gate 기록 양식: 작업 ID, 기준 commit/artifact, 환경, 수행 항목, �
 이번 검토는 기획 문서와 로컬 legacy 일부의 읽기 전용 조사, 공식 기술 문서 확인이다. 전체 legacy 함수/자산의 정밀 감사, 링크의 실재 유효성, CORS, GPU/모바일 성능, 실제 운영 사이트 화면은 검증하지 않았다. 문서가 말하는 기존 기술의 검증 이력을 V2 적합성으로 전환하지 않았다.
 
 ## 17. Recommendation Before Implementation
+
+HOME V2.1 문서 개정을 완료했다. 코드·CSS·React component·이미지 수정·asset migration·motion/3D·dependencies·배포는 변경하지 않았고 P0E도 시작하지 않았다. [V2.1 revision report](HOME-V2.1-REVISION-REPORT.md)를 검토한 뒤 별도 명시적 승인으로 P0E 한 단위만 진행하는 것이 다음 권장 작업이다. 이전 P0C/P0D 계약과 검증 이력은 그대로 유지한다.
 
 **현재 판정: P0A–D 완료(P0D 로컬) / React Router + Static Prerender APPROVE / P0E 미착수.**
 

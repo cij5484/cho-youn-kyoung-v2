@@ -1,7 +1,7 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 02 — DESIGN SYSTEM
 
-**Version:** 1.2  
+**Version:** 1.3\
 **Status:** Approved Design Baseline  
 **Parent:** `00-MASTER-PLAN.md`  
 **Art Direction:** Contemporary Editorial / Ivory
@@ -122,6 +122,8 @@ Suggested line-height:
 
 실제 값은 prototype에서 optical adjustment한다.
 
+HOME V2.1 Hero는 Moving Editorial Poster다. CHO / YOUN / KYOUNG 세 줄의 전체 composition이 viewport 높이 약 55–65%를 점유하도록 허용하되 실제 font metric/breakpoint/crop으로 조정한다. 위 general display token의 상한을 Hero의 절대 한계로 강제하지 않는다. Font family 결정은 유지하며 headline 크기만 키운 결과를 완료로 판단하지 않는다.
+
 ---
 
 # 6. LETTER SPACING / CASE
@@ -205,9 +207,13 @@ border-radius: 0;
 
 Hero:
 - large, high presence
+- HOME V2.1: purple hanbok side/back/partial-face close-up 후보, desktop 오른쪽 약 58–62% visual zone
+- viewport 밖 crop 허용; 정확한 source/crop/해상도는 추후 검토
+- typography와 1–2개 정교한 front/back intersection, 단순 사진 위 text overlay 금지
 
 About:
 - more static editorial portrait
+- HOME Scene 07에서 처음 clear front-facing/3/4 face를 보여준다; standalone ABOUT의 별도 portrait 구성 요구는 유지
 
 Supporting:
 - use different photo sets/angles
@@ -275,6 +281,8 @@ border-width: 1px;
 
 Special fine lines can be visually around `0.5–1px`.
 
+HOME V2.1의 두 extremely thin lines는 decoration이 아니라 structural motif다: Hero → Haegeum guide → Sound → Selected Works axis → Outro resolve. 한 strand가 axis를 맡을 수 있지만 pair의 정체성은 유지한다. 대부분 straight하며 tension/micro vibration/density/damping/sustained friction/subtle resonance를 표현한다. Generic curve/resonance-circle 허용은 이 pair를 큰 waveform/equalizer/sine-wave로 바꾸는 허가가 아니다. 03 §45와 04 §26을 따른다.
+
 ---
 
 # 15. BUTTON / LINK SYSTEM
@@ -306,6 +314,8 @@ Active state can use:
 
 Header must not dominate the Hero.
 
+HOME V2.1 초기 nav는 poster composition에 녹아 있고 scroll 이후 compact functional header가 된다. Readability, focus와 touch target은 시각적 절제 때문에 희생하지 않는다.
+
 ---
 
 # 17. SECTION NUMBERING
@@ -331,6 +341,8 @@ color: var(--color-canvas);
 
 Dark areas must not destroy the Ivory identity.
 
+HOME에서는 Scene 06 Performance가 첫 큰 Ivory→Dark Stage 전환이며, Album Object peak 다음이라 motion은 오히려 조용하다. Scene 07 About에서 Ivory로 돌아온다.
+
 ---
 
 # 19. SELECTED WORKS
@@ -349,8 +361,10 @@ Use:
 - composition
 - motion
 
-Desktop: drag  
-Mobile: swipe
+HOME V2.1은 4–5작을 서로 다른 scale/crop/vertical placement로 놓은 하나의 긴 asymmetric editorial surface다. 동일 카드 carousel이 아니며 hover를 작품마다 기계적으로 반복하지 않는다.
+
+Desktop: drag / optional wheel with native vertical-scroll escape.
+Mobile: vertical-first; intentional horizontal interaction only where needed.
 
 ---
 
@@ -412,7 +426,7 @@ Avoid scattered magic numbers where a shared design value exists.
 
 # 24. ART DIRECTION REFERENCE
 
-Approved HOME Art Direction V1 is a visual reference for:
+Earlier approved HOME Art Direction V1 remains a historical visual reference for:
 - tone
 - spacing
 - composition
@@ -425,7 +439,9 @@ Approved HOME Art Direction V1 is a visual reference for:
 
 It is **not** a pixel-perfect final layout specification.
 
-Actual layout will be defined in `04-HOME.md`.
+The current canonical HOME direction is V2.1 in [04-HOME.md](04-HOME.md), which preserves and raises these principles. Typography/photography/crop/composition/depth/whitespace/timing/continuity/physical response create the digital-artwork impression. Reference principles guide independent design, not copied layout, animation, typography composition, source code or unique interaction.
+
+Hero and major scenes require the Visual Quality Gate in 04 §24: first viewport works alone as an art poster, precise crop/type overlap, no generic template/SaaS cards/repeated fade-up/excessive rounding or unnecessary effects, responsive interruptible motion, equivalent mobile art direction. Functional completion is separate from Quality Approved. No UI or visual gate implementation is included in this document revision.
 
 ---
 

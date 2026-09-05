@@ -2,7 +2,7 @@
 ## CODEX HANDOFF
 
 **Status:** P0A–P0D complete (P0D local) — React Router + Static Prerender APPROVED; STOP before P0E\
-**Revision:** 1.1 / 2026-09-05 user decisions 1–9 incorporated  
+**Revision:** 1.2 / 2026-09-05 user decisions 1–9 preserved; HOME V2.1 documentation revision incorporated\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 ---
@@ -108,24 +108,28 @@ Do not redesign the legacy project in place.
 
 # 7. HOME CHECKLIST
 
+**Current HOME canonical direction: V2.1, Moving Editorial Poster.** See [04 HOME](docs/redesign/04-HOME.md) §2/§24/§26 and [revision report](docs/redesign/review/HOME-V2.1-REVISION-REPORT.md). These are planned requirements, not completed visuals. First viewport must work as an art poster; first ~5-second impact comes from composition/type/photo/crop/depth/space/timing/physical continuity, not more effects. Name composition may occupy 55–65% viewport height; desktop portrait uses the right 58–62% visual zone. Exact crop/source needs review.
+
+Rhythm: STRONG → STRONG → QUIET → ACTIVE → PEAK → QUIET → QUIET → RESOLVE, with intensities 5/4.5/3/4/5/2.5/2/3. Scene budgets and the overlapping 1.2–1.6 viewport Hero→Haegeum transition follow 04 §2/§5. No default unrelated crossfade, snap or long forced pin. Mobile is independently art-directed with vertical scroll > tap > intentional horizontal gesture > free 3D manipulation. Hero/major scenes require explicit Visual Quality Gate approval in addition to Functional Complete. No visual gate is passed by this document update.
+
 [ ] Transforming Editorial Navigation  
-[ ] CHO / YOUN / KYOUNG oversized Hero  
+[ ] CHO / YOUN / KYOUNG oversized Moving Editorial Poster Hero
 [ ] Asymmetric portrait  
 [ ] Only 1–2 precise text/portrait depth crossings  
 [ ] Hero starts side/back portrait  
 [ ] Scroll reveals 3/4 portrait with haegeum  
 [ ] No decorative loading intro  
 [ ] Haegeum 4-stage sequence  
-[ ] One connecting line  
+[ ] Two-line structural motif; one strand can lead the connecting guide/Works axis
 [ ] English keywords only  
 [ ] Interactive Sound Landscape  
 [ ] No audio autoplay  
-[ ] Selected Works asymmetric drag  
+[ ] Selected Works long asymmetric editorial surface; desktop drag/optional wheel, mobile vertical-first
 [ ] 4–5 selected works  
-[ ] 2026 three-album 3D collection  
-[ ] Approved single-object fallback  
+[ ] 2026 three-album physical collection; simultaneous live object count is quality-dependent
+[ ] Prefer one high-quality live object + album switching if three weaken quality; stable/static idle
 [ ] Performance Dark Stage  
-[ ] About clear front-facing portrait reveal  
+[ ] About first clear front-facing or clear 3/4 portrait reveal, Ivory, 2–3 sentences
 [ ] Outro oversized artist name  
 [ ] Sou.P Easter Egg preserved only in HOME Outro / Footer; not repeated on ABOUT
 
@@ -462,7 +466,8 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 - Existing production repository/domain unchanged. See [P0C result](P0C-RESULT.md) and [architecture decision](docs/redesign/review/ROUTING-ARCHITECTURE-DECISION.md).
 - Design/function requirements remain; the ZIP preserves the historical baseline.
 - Checklist boxes stay unchecked until actual implementation/validation evidence exists. Document coverage lives in [HANDOFF audit](docs/redesign/review/HANDOFF-AUDIT.md).
-- Current stop point: P0D contract/result/planning updated; STOP for explicit next-task approval. Recommendation: P0E delivery-check wiring on the existing pipeline, including deployment only if approved.
+- HOME V2.1 documentation revision: COMPLETE; existing HOME requirements retained and quality bar raised. No HOME/React/CSS, image manipulation/migration, motion/3D, dependency, deployment or P0E work performed. Asset suitability and all HOME visual gates remain unverified.
+- Current stop point: HOME V2.1 document report; STOP for user review/explicit next-task approval. P0E remains the recommended next foundation unit only after approval, with no HOME implementation bundled into it.
 
 # 27. FINAL HANDOFF RULE
 

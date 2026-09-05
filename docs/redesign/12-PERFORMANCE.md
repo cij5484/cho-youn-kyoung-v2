@@ -1,7 +1,7 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 12 — PERFORMANCE
 
-**Version:** 1.1  
+**Version:** 1.2\
 **Status:** Approved Performance Baseline  
 **Parent:** `00-MASTER-PLAN.md`
 
@@ -63,6 +63,8 @@ Use:
 - avoid blocking decorative assets
 
 Do not preload every large image on the page.
+
+HOME V2.1 first-five-seconds impact comes from the first viewport composition and prompt photography/type presentation, not a five-second preloader, forced entrance or early WebGL initialization. Keep the existing media/font/loading and responsiveness priorities. A weak final-scale portrait must trigger an asset request, not an unbounded image download or more effects.
 
 ---
 
@@ -126,6 +128,8 @@ Do not decode/analyze every track before the user needs it.
 # 9. 3D LAB PERFORMANCE
 
 Every major 3D experience must be profiled in isolation before page integration.
+
+For HOME V2.1, compare three simultaneous live album objects against one high-quality live object plus album switching. If the former weakens visual quality, mobile performance or interaction, prefer the latter while retaining all three album choices. Do not lower physical-object quality just to maintain live object count. This decision requires future Lab evidence; no profiling was performed in this documentation task.
 
 Measure:
 - frame stability
@@ -194,6 +198,8 @@ Continuous rendering is justified for:
 - intentional auto movement
 
 Do not keep 60fps loops alive without visible need.
+
+HOME V2.1 Album Object idles stable/static; Sound is visually quiet without explicit playback, and Performance/About are quiet after the 3D peak. Pause offscreen work rather than running every HOME scene simultaneously.
 
 ---
 
@@ -365,6 +371,8 @@ Do not treat launch as the end of performance work.
 ---
 
 # 27. PERFORMANCE ACCEPTANCE CRITERIA
+
+HOME V2.1 01→02 travel should first be reviewed around 1.2–1.6 viewport within the Scene 02 budget. It is not an extra long pinned sequence. Preserve native vertical scroll and interruptibility; optional desktop wheel exploration must return control at its bounds. Mobile priority stays vertical scroll > tap > intentional horizontal gesture > free 3D manipulation.
 
 A feature is approved only when:
 

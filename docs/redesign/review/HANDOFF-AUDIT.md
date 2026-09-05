@@ -1,14 +1,14 @@
 # CODEX HANDOFF — 최종 Document Consistency Audit
 
-Revision 1.3 · 2026-09-05 · 기존 207항목 기획 감사 보존 / P0C architecture APPROVE 유지 / P0D local locale contract 반영.
+Revision 1.4 · 2026-09-05 · 기존 207항목 보존 / HOME V2.1 문서 변경만 추가 대조. P0C/P0D 계약은 유지.
 
 아래 표의 제품별 미착수는 기획 coverage와 제품 구현 상태다. P0A–C 기반 검증은 [P0C 결과](../../../P0C-RESULT.md)와 [Architecture Decision](ROUTING-ARCHITECTURE-DECISION.md)에 별도로 증명하며, 전체 제품/locale 구현 완료로 확장하지 않는다.
 
 현재 HANDOFF **207개 체크박스 = 기존 187개 + 승인 revision 계약 20개**를 실제 최신 원문과 일대일 대조했다.
 **Covered 205 / Ambiguous 2 / Missing 0 / Conflict 0.**
-Covered는 문서 계약이 있다는 뜻이며 구현·실기기·routing spike·품질 승인이 끝났다는 뜻이 아니다. 실제 체크박스는 모두 미체크로 유지한다.
+Covered는 문서 계약이 있다는 뜻이며 구현·실기기·routing spike·품질 승인이 끝났다는 뜻이 아니다. HOME 제품 품질 체크박스는 미체크로 유지한다. 이전에 검증된 foundation/spike 항목의 완료 상태는 변경하지 않는다.
 
-최신 HANDOFF 행 번호와 항목 문구를 사용한다. §는 해당 기획서의 번호 절이다. Task Protocol은 [Implementation Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md), MASTER는 [00](../00-MASTER-PLAN.md), HANDOFF는 [현재 파일](../../../CODEX-HANDOFF.md)이다. 나머지 번호는 docs/redesign의 같은 번호 원문이다.
+표의 행 번호는 최초 감사 baseline 식별자로 보존한다. V2.1에서 바뀐 HOME 항목 문구는 아래 표와 개정 addendum으로 추적하며, 현재 파일의 물리적 행 번호와 동일하다고 가정하지 않는다. §는 해당 기획서의 번호 절이다. Task Protocol은 [Implementation Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md), MASTER는 [00](../00-MASTER-PLAN.md), HANDOFF는 [현재 파일](../../../CODEX-HANDOFF.md)이다. 나머지 번호는 docs/redesign의 같은 번호 원문이다.
 
 
 ## 4. LEGACY NON-INHERITANCE CHECKLIST
@@ -62,23 +62,23 @@ Covered는 문서 계약이 있다는 뜻이며 구현·실기기·routing spike
 | 현재 HANDOFF 행 | 체크 항목 | 판정 | 문서 근거 | 해석 / 검증 상태 |
 |---|---|---|---|---|
 | 111 | Transforming Editorial Navigation | **Covered** | [04](../04-HOME.md) §4 / Navigation | 문서에 명시. 실제 구현/시험은 미착수. |
-| 112 | CHO / YOUN / KYOUNG oversized Hero | **Covered** | [04](../04-HOME.md) §4 / Composition | 문서에 명시. 실제 구현/시험은 미착수. |
+| 112 | CHO / YOUN / KYOUNG oversized Moving Editorial Poster Hero | **Covered** | [04](../04-HOME.md) §4 / Composition | 문서에 명시. 실제 구현/시험은 미착수. |
 | 113 | Asymmetric portrait | **Covered** | [04](../04-HOME.md) §4 / Composition | 문서에 명시. 실제 구현/시험은 미착수. |
 | 114 | Only 1–2 precise text/portrait depth crossings | **Covered** | [04](../04-HOME.md) §4 / Typography Layering | 문서에 명시. 실제 구현/시험은 미착수. |
 | 115 | Hero starts side/back portrait | **Covered** | [04](../04-HOME.md) §4 / Portrait Sequence | 문서에 명시. 실제 구현/시험은 미착수. |
 | 116 | Scroll reveals 3/4 portrait with haegeum | **Covered** | [04](../04-HOME.md) §4 / Portrait Sequence | 문서에 명시. 실제 구현/시험은 미착수. |
 | 117 | No decorative loading intro | **Covered** | [04](../04-HOME.md) §3–4 | 문서에 명시. 실제 구현/시험은 미착수. |
 | 118 | Haegeum 4-stage sequence | **Covered** | [04](../04-HOME.md) §6 / Structure | 문서에 명시. 실제 구현/시험은 미착수. |
-| 119 | One connecting line | **Covered** | [04](../04-HOME.md) §6 / Continuous Line | 문서에 명시. 실제 구현/시험은 미착수. |
+| 119 | Two-line structural motif; one strand can lead the connecting guide/Works axis | **Covered** | [04](../04-HOME.md) §6 / Continuous Line | 문서에 명시. 실제 구현/시험은 미착수. |
 | 120 | English keywords only | **Covered** | [04](../04-HOME.md) §6 / Text | 문서에 명시. 실제 구현/시험은 미착수. |
 | 121 | Interactive Sound Landscape | **Covered** | [04](../04-HOME.md) §8 | 문서에 명시. 실제 구현/시험은 미착수. |
 | 122 | No audio autoplay | **Covered** | [04](../04-HOME.md) §8 / Core Experience | 문서에 명시. 실제 구현/시험은 미착수. |
-| 123 | Selected Works asymmetric drag | **Covered** | [04](../04-HOME.md) §10 | 문서에 명시. 실제 구현/시험은 미착수. |
+| 123 | Selected Works long asymmetric editorial surface; desktop drag/optional wheel, mobile vertical-first | **Covered** | [04](../04-HOME.md) §10 | 문서에 명시. 실제 구현/시험은 미착수. |
 | 124 | 4–5 selected works | **Covered** | [04](../04-HOME.md) §10 / Composition | 문서에 명시. 실제 구현/시험은 미착수. |
-| 125 | 2026 three-album 3D collection | **Covered** | [04](../04-HOME.md) §12 / Core Composition | 문서에 명시. 실제 구현/시험은 미착수. |
-| 126 | Approved single-object fallback | **Covered** | [04](../04-HOME.md) §12 / Fallback | 문서에 명시. 실제 구현/시험은 미착수. |
+| 125 | 2026 three-album physical collection; simultaneous live object count is quality-dependent | **Covered** | [04](../04-HOME.md) §12 / Core Composition | 문서에 명시. 실제 구현/시험은 미착수. |
+| 126 | Prefer one high-quality live object + album switching if three weaken quality; stable/static idle | **Covered** | [04](../04-HOME.md) §12 / Fallback | 문서에 명시. 실제 구현/시험은 미착수. |
 | 127 | Performance Dark Stage | **Covered** | [04](../04-HOME.md) §14 | 문서에 명시. 실제 구현/시험은 미착수. |
-| 128 | About clear front-facing portrait reveal | **Covered** | [04](../04-HOME.md) §16 | 문서에 명시. 실제 구현/시험은 미착수. |
+| 128 | About first clear front-facing or clear 3/4 portrait reveal, Ivory, 2–3 sentences | **Covered** | [04](../04-HOME.md) §16 | 문서에 명시. 실제 구현/시험은 미착수. |
 | 129 | Outro oversized artist name | **Covered** | [04](../04-HOME.md) §18 | 문서에 명시. 실제 구현/시험은 미착수. |
 | 130 | Sou.P Easter Egg preserved only in HOME Outro / Footer; not repeated on ABOUT | **Covered** | [04](../04-HOME.md) §18 / Sou.P Credit | 문서에 명시. 실제 구현/시험은 미착수. |
 
@@ -339,3 +339,12 @@ Covered는 문서 계약이 있다는 뜻이며 구현·실기기·routing spike
 **P0A–D COMPLETE (P0D local) / React Router + Static Prerender APPROVE.**
 P0C 실제 Pages/CI와 P0D neutral locale/metadata 로컬 검증을 완료했다. 실제 번역·audio·3D·제품 구현은 후속 gate다. 제품 출시용 hreflang/canonical checklist는 실제 콘텐츠 QA까지 미완료이며 spike checkbox만 완료 처리했다. [P0D contract](LOCALE-METADATA-CONTRACT.md), [result](../../../P0D-RESULT.md).
 P0D 보고 후 STOP. P0E–F 또는 제품 구현을 자동 진행하지 않는다.
+
+
+## HOME V2.1 documentation addendum — current stop point
+
+The user approved only an art-direction document revision before P0E. HOME's prior detailed requirements remain, with the single-line/count/geometry/rhythm conflicts resolved as recorded in [V2.1 report](HOME-V2.1-REVISION-REPORT.md). HOME §24 adds a mandatory poster-quality/major-scene gate separate from functional completion; no implementation or visual gate was performed here.
+
+Cross-document owners: MASTER §6/§20, Design §5/§10/§14/§24, Motion §3/§17/§43/§45, HOME §1–§26, Responsive §5–§9/§19/§23, Performance §4/§9/§13/§27 and Implementation Plan's HOME subsections. The 207 existing checklist items are retained, with expanded HOME wording and no new completion marks. Asset suitability remains unverified, and actual source/crop review is a later bounded task.
+
+Routing/locale architecture documents and source are intentionally unchanged. P0E and all website implementation remain NOT STARTED in this revision. **STOP for the user's document review and explicit next-task approval.**

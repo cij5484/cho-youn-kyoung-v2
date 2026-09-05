@@ -1,7 +1,7 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 00 — REDESIGN MASTER PLAN
 
-**Version:** 1.8\
+**Version:** 1.9\
 **Status:** Approved Planning Baseline — P0A–D complete (P0D local); P0C routing architecture APPROVED; product implementation pending\
 **Legacy Repository:** `cij5484/cho-youn-kyoung`  
 **Target Repository:** `cij5484/cho-youn-kyoung-v2`  
@@ -106,6 +106,8 @@ Precise
 특정 섹션이나 인터랙션을 설계할 때 더 나은 판단을 위해 추가 레퍼런스 조사가 필요하면 적극적으로 조사한다.
 
 **Reference research should be problem-driven, not decorative.**
+
+V2.1에는 사용자가 최근 검토에서 전달한 원칙을 반영한다: immersive artist world, confident editorial typography, work-first identity, gallery/archive restraint, strong first viewport, elegant presentation 안의 깊은 콘텐츠. 이번 문서 작업에서 해당 사이트들을 새로 조사했다는 뜻은 아니다. Layout/animation/type composition/source code/unique interaction을 직접 복제하지 않는다. 독자성은 해금·두 현/활·tension/resonance·physical albums·Sanjo/Jeongak materiality·조윤경 photography에서 만든다.
 
 분석 기준:
 
@@ -331,6 +333,20 @@ Acceptance:
 # 20. HOME STRATEGY
 
 HOME은 사이트 소개 페이지가 아니라 V2의 핵심 작품이다.
+
+**HOME Art Direction V2.1 — documentation revision only.** 목표를 “잘 만들어진 현대적인 아티스트 홈페이지”에서 “HOME 자체가 조윤경의 하나의 디지털 작품처럼 느껴지는 홈페이지”로 상향한다. 첫 약 5초의 인상은 “우와, 홈페이지 진짜 잘 만들었다.”여야 하며, 이는 대기/로딩 시간을 뜻하지 않는다. Typography, photography, crop, composition, depth, whitespace, interaction timing, transition continuity, physical response로 품질을 만든다. 효과 수를 늘리는 것이 목표가 아니다.
+
+Contemporary Editorial / Ivory, Static Color, Dynamic Composition 및 **ARTIST → INSTRUMENT → SOUND → WORK → OBJECT → STAGE → ARTIST → NAME**을 유지한다. 정본 세부 계약은 [04 HOME V2.1](04-HOME.md)이다.
+
+- Rhythm: STRONG → STRONG → QUIET → ACTIVE → PEAK → QUIET → QUIET → RESOLVE. 강도/길이는 04 §2의 8-scene 표를 따른다.
+- Hero: Moving Editorial Poster. 세 줄 이름은 viewport 높이 약 55–65%까지 허용하는 graphic structure이며 실제 font metric/breakpoint로 조정한다. Portrait는 desktop 오른쪽 58–62% visual zone, purple hanbok side/back/partial-face 후보, 정교한 1–2개 depth intersection. Nav는 composition에서 compact header로 변형된다.
+- 두 가는 선은 Hero→Haegeum→Sound→Selected Works→Outro의 구조적 motif다. Bowed-string tension/resonance를 거의 straight한 micro vibration/density/damping으로 표현한다.
+- Hero→Haegeum은 요소의 spacing/depth/crop/position이 이어지는 변형이다. 1.2–1.6 viewport를 Scene 02 예산과 겹쳐 검토하고 snap/긴 강제 pin을 사용하지 않는다.
+- SOUND는 조용한 LISTEN, 10–20초 대표 fragment, explicit playback only. Selected Works는 4–5작의 긴 asymmetric editorial surface다.
+- Album Object는 두 번째 peak. 세 2026 앨범을 유지하되 동시 live 3개가 품질을 해치면 한 고품질 object + switching을 우선한다. Idle은 안정적/정적이다.
+- Performance는 첫 큰 Dark Stage 전환이지만 움직임은 줄인다. About은 Ivory로 돌아와 처음 명확한 front/clear 3/4 portrait와 2–3문장. Outro는 이름/두 선의 resolve, EXPLORE ALL WORKS 한 primary CTA, 기존 Sou.P secret.
+- Mobile은 더 과감한 crop과 typography 재구성, 독립 depth 판단, lighter scroll parallax, touch-safe nav, vertical-first gesture와 감소한 WebGL 비용을 사용한다.
+- Functional Complete만으로 Hero/주요 Scene을 승인하지 않는다. 04 §24의 poster screenshot·crop/type/mask·interruptibility·동등한 mobile attention gate와 사용자 시각 승인이 필요하다. 이번 문서 작업에서 시각 gate를 통과한 것은 아니다.
 
 현재 scene direction:
 

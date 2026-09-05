@@ -1,6 +1,23 @@
 # Planning Revision Log — 2026-09-05
 
-Revision 1.3 · **P0D locale/metadata contract complete locally / architecture APPROVE retained**.
+Revision 1.4 · **HOME Art Direction V2.1 documentation revision complete / STOP before P0E**.
+
+## HOME V2.1 art-direction revision — documentation only
+
+- User request: raise HOME from a contemporary artist homepage to a digital artwork; retain Contemporary Editorial / Ivory and Static Color, Dynamic Composition. All eight narrative scenes and prior detailed requirements remain.
+- HOME v1.1 → v2.1 is the canonical scene specification. MASTER v1.9, Design v1.3, Motion v1.6, Responsive v1.2, Performance v1.2, HANDOFF revision 1.2, Plan/Audit/this log v1.4 carry only the related art-direction/quality/STOP changes.
+- Hero becomes Moving Editorial Poster: first ~5-second impression, three-line name at roughly 55–65% viewport height, desktop portrait zone refined 55–65% → 58–62%, purple hanbok side/back/partial-face candidate, 1–2 precise depth crossings, transforming editorial navigation.
+- Old single connecting line is now the two-line structural system; a strand may still lead the guide/Works axis. RESONATOR imagery remains within the RESONANCE stage. Haegeum 4 → 4.5/5 and Performance 2 → 2.5/5; full approximate scene lengths are in HOME §2.
+- Hero→Haegeum is continuous composition transformation, with 1.2–1.6 viewport reviewed as overlapping Scene 02's 120–160vh, not extra pin length. Native scroll/reverse/interrupt and reduced-motion fallback are retained.
+- SOUND is the 10–20s explicit-LISTEN pause; Selected Works is one asymmetric surface; Album Object preserves three album choices but prioritizes one high-quality live object with switching when simultaneous three-object quality suffers. Idle stays stable/static.
+- Quiet Dark Performance → Ivory clear front/3/4 About → name/two-line Outro resolution preserves the Sou.P signature and its exact existing discovery rules.
+- Added Hero/major-scene Visual Quality Gate, independent mobile art direction and asset needs. Functional completion cannot stand in for Quality Approved.
+- References are the user's supplied review principles; no new reference-site inspection or source-image quality verification is claimed.
+- [HOME V2.1 revision report](HOME-V2.1-REVISION-REPORT.md) records old→new mapping, resolved conflicts, asset needs, preserved documents and scope checks.
+- No web source/CSS/React/assets/dependencies/animation/3D/deployment/PR or P0E work. P0C/P0D architecture, locale/canonical/hreflang contracts and historical evidence are unchanged. Document changes remain local for review.
+- **STOP after this report. P0E needs a new explicit approval.**
+
+## Historical revision 1.3 — P0D locale contract
 
 ## P0D locale contract revision
 

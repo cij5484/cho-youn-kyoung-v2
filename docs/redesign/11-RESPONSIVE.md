@@ -1,7 +1,7 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 11 — RESPONSIVE
 
-**Version:** 1.1  
+**Version:** 1.2\
 **Status:** Approved Responsive Baseline  
 **Parent:** `00-MASTER-PLAN.md`  
 **Primary Principle:** Mobile Primary / Recompose, Do Not Scale Down
@@ -95,17 +95,20 @@ Desktop:
 - asymmetric portrait
 - editorial navigation
 - CHO / YOUN / KYOUNG
-- pointer parallax
-- precise foreground/background type masking
+- subtle pointer parallax where supported; never a requirement for perception/navigation
+- 1–2 precise foreground/background type crossings
+- Moving Editorial Poster, not a standard title/portrait split
 
 Mobile:
-- independently recomposed portrait crop
+- independently recomposed, more aggressive authored portrait crop
 - large stacked typography
-- scroll-based depth
+- lighter scroll-based depth
 - no pointer parallax
 - mobile-specific navigation composition
 
 Do not reuse a desktop crop if it weakens the mobile Hero.
+
+Keep CHO / YOUN / KYOUNG but recompose its typography, touch-safe nav and portrait as one strong first viewport. Do not shrink desktop foreground/background crossings; decide mobile overlaps independently. Desktop name-height/portrait-zone guides are not mobile fixed dimensions. Request a separate mobile crop/original if needed; do not trade away first-impression quality.
 
 ---
 
@@ -113,14 +116,14 @@ Do not reuse a desktop crop if it weakens the mobile Hero.
 
 Desktop:
 - multi-layer crop/cutout composition
-- continuous connecting line
+- continuous two-line structural motif; one strand can lead a guide role
 - asymmetry
 
 Mobile:
 - vertical 4-stage sequence
 - fewer simultaneous layers
 - strong crop quality
-- line continuity preserved
+- two-line continuity preserved; mostly straight with bowed-string tension/resonance
 
 Do not force horizontal desktop geometry into mobile.
 
@@ -144,10 +147,10 @@ The bowed-string micro-vibration rule applies equally.
 # 8. SELECTED WORKS
 
 Desktop:
-- asymmetric horizontal drag rail
+- long asymmetric editorial surface; drag / optional wheel, not equal-size cards
 
 Mobile:
-- swipe-compatible composition
+- vertical-first editorial composition; horizontal swipe only where needed
 - vertical page scroll remains primary
 - no drag gesture that traps the page
 
@@ -167,6 +170,8 @@ Mobile:
 - static/pre-render fallback if necessary
 
 Mobile fallback must still feel premium.
+
+HOME V2.1 prefers one high-quality live album with switching when three simultaneous objects harm visual, mobile or input quality. The three-album collection remains available. Default objects are stable/static; do not add idle loops to replace composition.
 
 ---
 
@@ -298,8 +303,8 @@ Default priority:
 
 1. vertical page scroll
 2. explicit tap
-3. horizontal swipe/drag
-4. 3D rotation
+3. intentional horizontal swipe/drag
+4. free 3D manipulation
 
 A decorative interaction must never overpower primary navigation/scrolling.
 
@@ -341,6 +346,8 @@ Emulation is useful but does not replace real hardware for:
 
 Responsive design must respect reduced motion at every viewport.
 
+HOME V2.1 scene vh/transition budgets in 04 §2/§5 are optical experience guides. Adjust for mobile browser chrome, orientation, readable copy and reduced motion; do not add empty height, scroll-lock or long pins to meet them.
+
 Do not create a mobile-only animation that ignores the global reduced-motion system.
 
 ---
@@ -348,6 +355,10 @@ Do not create a mobile-only animation that ignores the global reduced-motion sys
 # 23. RESPONSIVE ACCEPTANCE CRITERIA
 
 Responsive work is approved when:
+
+HOME Hero mobile review has the same Visual Quality Gate as desktop (04 §24): a standalone poster-quality first viewport, authored crop/type hierarchy and deliberate overlaps. Functional completion alone is insufficient; no mobile visual gate has been passed in this documentation revision.
+
+Retained responsive criteria:
 
 - mobile feels authored, not compressed
 - no important crop is accidental
