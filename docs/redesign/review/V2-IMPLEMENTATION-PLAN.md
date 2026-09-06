@@ -1,6 +1,6 @@
 # Cho Youn Kyoung Website V2 — 검토 및 구현 제안
 
-검토일: 2026-09-06 · Revision 1.19 · 상태: **P2A visual 승인·main delivery 완료 / P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN & delivered / P2C B canonical APPROVED / P2D APPROVED / delivery 후 P2E 한 단위**. HOME V2.1 및 P0 routing/locale/CI 계약은 유지한다. 현재 결과·승인 경계는 [HANDOFF](../../../CODEX-HANDOFF.md)를 따른다.
+검토일: 2026-09-06 · Revision 1.21 · 상태: **P2A visual 승인·main delivery 완료 / P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN & delivered / P2C B canonical APPROVED / P2D APPROVED & DELIVERED / P2E VISUAL APPROVED / DELIVERY → P2F ONLY**. HOME V2.1 및 P0 routing/locale/CI 계약은 유지한다. 현재 결과·승인 경계는 [HANDOFF](../../../CODEX-HANDOFF.md)를 따른다.
 
 현재 정본은 갱신된 MASTER의 PHASE 0–14다. React Router + Static Prerender는 사용자가 지정한 P0C 실제 Pages gate 통과로 확정했다. P0D neutral locale/hreflang 계약은 두 base에서 통과했고 실제 번역·제품 구현과 운영 SEO는 별도 gate다. 이 문서는 실제 구현 승인이 아니다.
 
@@ -589,3 +589,6 @@ P1C 승인 후 P1D에서 그 한 건만 private draft로 등록·검증했고 �
 사용자는 P2C 결과를 승인하고 **B — Bold Cropped**를 HOME Hero canonical visual direction으로 선택했다. A/C는 [P2C 결과](../../../P2C-RESULT.md)와 comparison evidence로만 보존한다. P2B는 `d81bdbe` main delivery / Fast CI 34015866401 SUCCESS로 유지된다.
 
 완료된 한 단위 **P2D — Bold Cropped Hero Refinement & Device QA Bundle**: A 원본 후보 감사·선택 B typography/crop/intersection/two lines 및 독립 mobile refinement → B native first-scroll/reverse·고정 Bold navigation·reduced/failure 보완 → C Full·실제 Mac Safari smoke·시각 evidence와 12-field 보고 → **STOP**. `src/hero`의 단일 B를 Lab에서만 사용하며 public HOME/다음 scene은 구현하지 않는다. 새 폴더 42장은 모두 약 1.57MP로 큰 원본을 대체하지 못했다. [Hero guide](HOME-HERO-VISUAL-PROTOTYPE.md), [P2D 결과](../../../P2D-RESULT.md)가 검증과 상태를 소유한다. 당시 **REVIEW READY**로 보고했고 사용자가 이후 승인했다. Composition **APPROVED**; Bold Cropped visual direction **APPROVED**; motion / interaction **LOCALLY VERIFIED**; portrait assets **PROVISIONAL**; final Retina quality **PENDING HIGH-RES SOURCE**. The current approximately 1024×1536 pair does not block subsequent authorized HOME work. When larger originals of attachments 3 and 7 arrive, replace their asset references and repeat Hero Retina QA. Physical-mobile and final HOME QA remain separate. P2D delivery 후 P2E 한 단위만 진행한다. 고해상도 원본·물리적 휴대폰·VoiceOver·열/성능 및 HOME 전체 entrance/조합 QA는 남는다. commit/push/deploy 또는 다음 bounded task를 자동 진행하지 않는다.
+
+
+P2D는 `d758ee1` main delivery / Fast CI 34026552008 SUCCESS로 완료했다. P2E 한 단위에서 동일 Hero stage→해금 4단계, 155svh 연속 scroll, 독립 mobile, reduced/static/keyboard/locale/failure를 검증했다. Full 38 Node +191 browser 통과. [P2E 결과](../../../P2E-RESULT.md)와 [guide](HOME-HAEGEUM-TRANSITION-PROTOTYPE.md)를 따른다. 실사 매크로 해상도·AI final reference 교체·physical device QA는 구분된 미완료 gate다. **P2E visual direction APPROVED**. Review/deliver P2E with main push and Fast CI; proceed only to P2F after clean delivery. Any delivery problem requires STOP before refinement. SOUND/WORKS/3D/다음 Phase를 시작하지 않는다.

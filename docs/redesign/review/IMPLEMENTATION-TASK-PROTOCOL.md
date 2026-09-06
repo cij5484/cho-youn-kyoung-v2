@@ -1,6 +1,6 @@
 # Implementation Task Protocol — mandatory bounded work
 
-Revision 1.17 · 2026-09-06 · P2D approved / delivery authorized; P2E only after delivery; enlarged bundle and terminal STOP retained.
+Revision 1.19 · 2026-09-06 · P2D delivered; P2E visual approved / delivery gate before P2F; enlarged bundle and terminal STOP retained.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
@@ -50,7 +50,7 @@ Do not install dependencies again for every small task if the tested lockfile/en
 | Gate | Command / owner | Required work |
 |---|---|---|
 | Fast | `npm.cmd run gate:fast` | type-check → lint → locale/metadata, navigation and content unit contracts → placement contracts → root production build/prerender/placement → `test:content:visibility` and `test:design-system:artifacts` on that fresh artifact |
-| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → 84 route/browser cases over both strict static hosts → 11 development-only Design System Lab cases → 26 canonical Bold Editorial Navigation Lab cases → 44 single-B Hero cases (22 Chromium / 22 WebKit) |
+| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → 84 route/browser cases over both strict static hosts → 11 development-only Design System Lab cases → 26 canonical Bold Editorial Navigation Lab cases → 44 single-B Hero cases (22 Chromium / 22 WebKit) → 26 Haegeum cases (13 each engine) |
 | Live deployment | `npm.cmd run test:pages` with actual `EXPECTED_DEPLOY_SHA` | 18-route JS on/off metadata, refresh/history, variants, actual HTTP 404, artifact identity/hash/MIME/cache |
 | Workflow configuration | actionlint 1.7.12 | YAML, expressions, reusable workflow input/job wiring; Linux also checks embedded shell |
 
@@ -71,7 +71,7 @@ missing/pending checks on documentation-only PRs. A branch push plus an open PR 
 concurrency cancels superseded runs on the same event ref. No repository ruleset is silently changed.
 
 Full runs through an explicit pages.yml workflow_dispatch. It repeats Fast on that exact revision,
-then checks both static bases, all 84 route/browser cases and three Lab suites (11 foundation + 26 navigation + 44 Hero). A failed type/lint/unit/build/placement/browser
+then checks both static bases, all 84 route/browser cases and four Lab suites (11 foundation + 26 navigation + 44 Hero + 26 Haegeum). A failed type/lint/unit/build/placement/browser
 step fails the job; upload/deploy depend on that success. Full without deployment retains test evidence
 but never uploads the special Pages artifact. Only successful Full with deploy=true uploads static/.
 
@@ -353,6 +353,13 @@ At that report: **VISUAL DIRECTION CANDIDATES READY FOR USER SELECTION**. The us
 P2C and selected **B — Bold Cropped**. A/C remain comparison evidence only. No P2C commit/push/deploy or next HOME task. Sources and frozen P2B files remain unchanged.
 `test:hero` owns port 4177. Full includes the new Hero cases; Fast remains browser-free and never deploys.
 
+## P2E — Hero → Haegeum Transition Prototype Bundle — visual approved / delivery authorized
+
+P2D delivered as `d758ee10aceaa5fc037c82e4d3fdb108068aecea`; [Fast CI 34026552008](https://github.com/cij5484/cho-youn-kyoung-v2/actions/runs/34026552008) SUCCESS, main/origin equal and tree clean before this task.
+A: authentic photo audit and reference principles. B: one native scroll composition, approved B → HEAD/PEG → STRINGS/BOW → RESONANCE → FULL HAEGEUM, shared two-line guides, separate mobile and semantic static reduced-motion. C: Full regression, Chromium/WebKit/device evidence, video and requested 16-field report → STOP.
+Scope: small reusable Hero/controller extension; new Haegeum source/Lab 4178, tests/config/CI/artifact exclusion and owning docs. No public HOME or content migration, dependency, SOUND, WORKS, other pages, 3D/Blender or deployment. 1.2–1.6 viewport travel overlaps the existing Hero exit, without an additional pin sequence.
+Inputs: approved P2D/Bold navigation/P2A tokens, supplied real photographs and HOME/Motion/Responsive/Accessibility contracts. Missing isolated beige full-instrument baseline and macro resolution remain explicit asset requests; no generated documentary substitute. Rollback: ignored `.checkpoints/p2e-before/`, 285-file clean delivered snapshot; preserve all prior evidence. User visual selection remains the terminal gate. Full passed 38 Node +191 browser; [result](../../../P2E-RESULT.md), [guide](HOME-HAEGEUM-TRANSITION-PROTOTYPE.md) and [evidence](../../../evidence/p2e/README.md) own findings. Supplied beige image was identified as AI generated; its provisional editorial role is visibly disclosed, without treating it as documentary. **REPORT → STOP.**
+
 ## P2D — Bold Cropped Hero Refinement & Device QA Bundle — result approved
 
 Current approval: Composition **APPROVED**; Bold Cropped visual direction **APPROVED**; motion / interaction **LOCALLY VERIFIED**; portrait assets **PROVISIONAL**; final Retina quality **PENDING HIGH-RES SOURCE**. The current approximately 1024×1536 pair does not block subsequent authorized HOME work. When larger originals of attachments 3 and 7 arrive, replace their asset references and repeat Hero Retina QA. Physical-mobile and final HOME QA remain separate. User authorizes review, logical commits, main push and exact-SHA Fast CI before P2E. Historical scope/checks below remain evidence for the reviewed implementation. The delivery checkpoint preserves 285 files under `.checkpoints/p2d-delivery-before/`; approval edits affect current owners only, with P2C/P2D reports/evidence preserved.
@@ -470,4 +477,4 @@ The document contracts and bounded starter task are defined; later decisions are
 This is not authorization to execute P0A, not proof of prerender suitability, and not approval to run P0A–F continuously.
 
 The above readiness was the initial planning snapshot. P0F and P1A lifecycle/delivery completed; P1B audit was
-subsequently delivered, and P1C/P1D are approved and delivered. P2A was subsequently visually approved and delivered. P2D result is now approved with provisional portraits. Deliver it, then only the expressly authorized P2E transition bundle. **P2E report → STOP → user approval.**
+subsequently delivered, and P1C/P1D are approved and delivered. P2A was subsequently visually approved and delivered. P2D result is now approved with provisional portraits. P2D is delivered and P2E subsequently visually approved. Deliver P2E, verify main/Fast/clean tree, then only the expressly authorized P2F refinement/quality/device bundle. **P2F report → STOP → user approval.**

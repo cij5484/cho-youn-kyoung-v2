@@ -8,10 +8,10 @@ export function posterState(progress: number, exchange = true) {
   return { aperture: 1 - Math.sin(Math.PI * phase) ** 4, next: phase > .5 ? 1 : 0 }
 }
 
-export function followProgress(current: number, target: number, elapsed: number) {
+export function followProgress(current: number, target: number, elapsed: number, midpoint = HERO_EXCHANGE_MIDPOINT) {
   let next = current + (target - current) * (1 - Math.exp(-elapsed / 90))
   if (Math.abs(next - target) < .0001) next = target
   // Even a large wheel/keyboard jump receives one fully closed frame before the pose changes.
-  if ((current < .5 && next > .5) || (current > .5 && next < .5)) return HERO_EXCHANGE_MIDPOINT
+  if ((current < midpoint && next > midpoint) || (current > midpoint && next < midpoint)) return midpoint
   return next
 }

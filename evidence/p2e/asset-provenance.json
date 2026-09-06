@@ -1,0 +1,43 @@
+{
+  "source": {
+    "path": ".checkpoints/p2d-before/source-audit/조윤경님 (37)_2차보정.png",
+    "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (37)_2차보정.png",
+    "name": "조윤경님 (37)_2차보정.png",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 2400207,
+    "sha256": "d1c716ed357b5ddc255292fa24348f7dcac6ed38f3318089ab5d133d31954ad9"
+  },
+  "derivative": {
+    "path": "src/haegeum/assets/haegeum-playing.webp",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 315796,
+    "sha256": "23bab7e4a15e1374321e019759dc20af337cccac856bdacc7f97876314b61ecd",
+    "method": "Chromium canvas WebP .94; native dimensions; no crop, retouch, upscale, generated pixels or master overwrite"
+  },
+  "status": "AUTHENTIC USER PHOTO / PROVISIONAL LAB ONLY; isolated full instrument and macro sources requested",
+  "editorialReference": {
+    "source": "/Users/joon/Downloads/ChatGPT Image 2026년 8월 10일 오후 10_38_53.png",
+    "sha256": "785da7c350d9b30d16032a8f6a63371ae84c495df23d0390957f72db87aa9c3b",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 2342187,
+    "provenance": "USER CONFIRMED AI GENERATED",
+    "role": "Labelled provisional final reveal; NOT documentary, NOT a physical geometry reference",
+    "derivative": {
+      "path": "src/haegeum/assets/haegeum-editorial-ai.webp",
+      "bytes": 64914,
+      "sha256": "25ad8811d78640ad6a4aaa446eb3b71996db0909bbf7316a602c3d8a07ba32e3",
+      "method": "Native dimensions WebP .94, no crop/retouch/upscale"
+    }
+  },
+  "multiViewReference": {
+    "path": "/Users/joon/Downloads/ChatGPT Image 2026년 8월 10일 오후 09_51_59(1).png",
+    "bytes": 2143648,
+    "width": 1448,
+    "height": 1086,
+    "sha256": "69b6a942415099b8ee3ad4f6d0618e9460234d02fe30a9f77e9236a1ee34f694",
+    "status": "User-supplied visual reference alongside confirmed AI image; not independently authenticated; no factual geometry/3D use; not imported by runtime"
+  }
+}

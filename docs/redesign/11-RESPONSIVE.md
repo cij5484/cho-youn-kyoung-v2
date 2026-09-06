@@ -127,6 +127,8 @@ Mobile:
 
 Do not force horizontal desktop geometry into mobile.
 
+P2E uses independent mobile crop/focal/line/type geometry at 390/320px, with keywords above the image field. Chromium/WebKit viewport tests are engine evidence, not physical-phone approval. See [P2E guide](review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md).
+
 ---
 
 # 7. HOME SOUND

@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, type ReactNode } from 'react'
 import { useHeroMotion } from './useHeroMotion.ts'
 import initialPortrait from './assets/portrait-initial.webp'
 import instrumentPortrait from './assets/portrait-instrument.webp'
@@ -12,8 +12,12 @@ const Name = () => <><span className="word word-cho">CHO</span><span className="
 export function BoldHero({ continuationId }: { continuationId: string }) {
   const scene = useRef<HTMLElement>(null)
   useHeroMotion(scene)
-  return <section ref={scene} className="bold-hero poster-scene" aria-labelledby="artist-name">
-    <div className="poster-stage">
+  return <section ref={scene} className="bold-hero poster-scene" aria-labelledby="artist-name"><HeroPoster continuationId={continuationId} /></section>
+}
+
+// Shared poster DOM keeps the approved first frame identical in the continuation Lab.
+export function HeroPoster({ continuationId, children }: { continuationId: string; children?: ReactNode }) {
+  return <div className="poster-stage">
       <h1 id="artist-name" className="hero-visually-hidden" lang="en">CHO YOUN KYOUNG</h1>
       <div className="poster-type poster-type-back" aria-hidden="true" lang="en"><Name /></div>
       <figure className="portrait-plane" lang="ko" aria-label="조윤경의 보라 한복 옆·뒤태에서 해금이 보이는 모습으로 이어지는 사진">
@@ -25,6 +29,6 @@ export function BoldHero({ continuationId }: { continuationId: string }) {
       <p className="poster-signature"><span lang="ko">조윤경</span><span lang="en">HAEGEUM ARTIST</span></p>
       <p className="poster-aside" lang="en">TWO STRINGS.<br />A WORLD BETWEEN.</p>
       <a className="poster-scroll" href={`#${continuationId}`}><span lang="en">SCROLL TO SHIFT</span><span aria-hidden="true">↓</span></a>
+      {children}
     </div>
-  </section>
 }

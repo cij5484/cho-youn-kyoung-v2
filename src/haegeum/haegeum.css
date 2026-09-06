@@ -1,0 +1,62 @@
+/* One 155svh native travel budget includes the Hero exit; no second pinned scene. */
+.haegeum-experience { --scroll-distance: 155svh; --hero-exit: 0; --head-focus: 0; --incoming: 0; --full-reveal: 0; }
+.haegeum-experience .poster-type .word { translate: calc(var(--hero-exit) * -115vw) calc(var(--hero-exit) * -12vh); }
+.haegeum-experience .poster-type .word-youn { translate: calc(var(--hero-exit) * 90vw) calc(var(--hero-exit) * -7vh); }
+.haegeum-experience .poster-type .word-kyoung { translate: calc(var(--hero-exit) * -110vw) calc(var(--hero-exit) * 18vh); }
+.haegeum-experience .poster-signature, .haegeum-experience .poster-aside, .haegeum-experience .poster-scroll { translate: 0 calc(var(--hero-exit) * 115vh); }
+.haegeum-experience .portrait-plane { translate: calc(var(--head-focus) * -8vw - var(--incoming) * 110vw) 0; clip-path: inset(calc(var(--head-focus) * 2.5%) calc((1 - var(--aperture)) * 45% + var(--head-focus) * 38%) calc(var(--head-focus) * 8%) calc((1 - var(--aperture)) * 55%)); }
+.haegeum-experience .poster-type-front { translate: 0 0; }
+.haegeum-experience .poster-lines { z-index: 9; }
+.instrument-field { position: absolute; inset: 0; margin: 0; z-index: 6; pointer-events: none; overflow: clip; visibility: hidden; }
+.instrument-field img { position: absolute; inset: 0 auto auto 0; max-inline-size: none; }
+.editorial-field { z-index: 7; }
+.playing-field { translate: calc(var(--full-reveal) * -110vw) 0; }
+.instrument-keyword { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+.instrument-keyword span { position: absolute; left: 3%; top: var(--keyword-y, 25%); display: none; font-family: var(--font-display); font-size: 17vw; line-height: .9; letter-spacing: -.055em; white-space: nowrap; font-weight: 400; }
+.instrument-keyword span:nth-child(3) { font-size: 13.5vw; }
+.instrument-keyword span:nth-child(4) { font-size: 16vw; }
+.keyword-front { z-index: 8; color: var(--color-canvas); }
+[data-instrument-stage="full"] .keyword-back { z-index: 8; }
+.instrument-index { clip-path: inset(calc((1 - var(--index-entry, 0)) * 100%) 0 0); position: absolute; left: var(--page-gutter); bottom: 4%; display: flex; align-items: baseline; gap: 32px; z-index: 10; font-family: var(--font-ui); font-size: var(--micro); letter-spacing: .07em; }
+.stage-number { font-family: var(--font-display); font-size: 2.7rem; letter-spacing: -.05em; }
+.editorial-disclosure { position: absolute; right: 7%; bottom: 2%; font-size: .5625rem; letter-spacing: .1em; z-index: 10; }
+.haegeum-experience:not([data-instrument-stage="full"]) .editorial-disclosure { visibility: hidden; }
+.haegeum-experience[data-instrument-stage="hero"] .instrument-index { visibility: hidden; }
+.sequence-skip { position: absolute; right: var(--page-gutter); bottom: 4%; z-index: 12; min-block-size: 44px; align-items: center; font-size: var(--micro); display: flex; transform: translateY(200%); }
+.sequence-skip:focus { transform: none; background: var(--color-canvas); padding-inline: var(--space-2); }
+.instrument-static { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); }
+@media (max-width: 639px) {
+  .haegeum-experience { --scroll-distance: 155svh; }
+  .haegeum-experience .poster-type .word { translate: calc(var(--hero-exit) * -115vw) calc(var(--hero-exit) * -5vh); }
+  .haegeum-experience .poster-type .word-youn { translate: calc(var(--hero-exit) * 115vw) 0; }
+  .haegeum-experience .poster-type .word-kyoung { translate: calc(var(--hero-exit) * -115vw) calc(var(--hero-exit) * 7vh); }
+  .haegeum-experience .portrait-plane { translate: calc(var(--head-focus) * -8vw - var(--incoming) * 110vw) 0; clip-path: inset(calc(var(--head-focus) * 2%) calc((1 - var(--aperture)) * 45% + var(--head-focus) * 17%) calc(var(--head-focus) * 12%) calc((1 - var(--aperture)) * 55%)); }
+  .instrument-keyword span { left: 3%; font-size: 25vw; }
+  .instrument-keyword span:nth-child(2) { font-size: 22vw; }
+  .instrument-keyword span:nth-child(3) { font-size: 17.5vw; }
+  .instrument-keyword span:nth-child(4) { font-size: 21.5vw; }
+  .instrument-index { bottom: 3%; gap: 16px; font-size: .5625rem; }
+  .stage-number { font-size: 2rem; }
+  .editorial-disclosure { bottom: 1%; right: 4%; font-size: .5rem; }
+  .keyword-front { display: none; }
+  .keyword-back { z-index: 8; }
+}
+/* Semantic document-order sequence for preference, enlarged text or failed motion imagery. */
+.haegeum-experience[data-motion="reduced"] { block-size: auto; }
+.haegeum-experience[data-motion="reduced"] .poster-stage { position: relative; }
+.haegeum-experience[data-motion="reduced"] .instrument-keyword,
+.haegeum-experience[data-motion="reduced"] .instrument-field,
+.haegeum-experience[data-motion="reduced"] .instrument-index,
+.haegeum-experience[data-motion="reduced"] .editorial-disclosure { display: none; }
+.haegeum-experience[data-motion="reduced"] .instrument-static { position: relative; inline-size: auto; block-size: auto; overflow: visible; clip-path: none; padding: var(--space-7) var(--page-gutter); }
+.static-detail { max-inline-size: 1200px; margin-inline: auto; padding-block: var(--space-7); border-top: 1px solid var(--line-color); }
+.static-detail h3 { font-family: var(--font-display); font-size: clamp(1.5rem, 9vw, 8rem); overflow-wrap: anywhere; font-weight: 400; line-height: 1; margin-block: var(--space-3); letter-spacing: -.04em; }
+.static-crop { block-size: min(70svh, 620px); overflow: hidden; background: var(--color-surface); }
+.static-crop img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+.static-head img { object-position: 25% 26%; }
+.static-bow img { object-position: 60% 60%; transform: scale(1.25); }
+.static-body img { object-position: 71% 61%; transform: scale(2.3); transform-origin: 71% 61%; }
+.static-full img { object-fit: contain; }
+
+/* Scroll-linked paper only during the photo crossing; approved initial header remains transparent. */
+.hero-shell:has(.haegeum-experience) > .editorial-navigation { background: color-mix(in srgb, var(--color-canvas) calc(var(--navigation-paper, 0) * 100%), transparent); }

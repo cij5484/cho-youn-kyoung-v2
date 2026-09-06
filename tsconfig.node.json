@@ -33,6 +33,8 @@
     "vite.navigation.config.ts",
     "playwright.navigation.config.ts",
     "vite.hero.config.ts",
-    "playwright.hero.config.ts"
+    "playwright.hero.config.ts",
+    "vite.haegeum.config.ts",
+    "playwright.haegeum.config.ts"
   ]
 }

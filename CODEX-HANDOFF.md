@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** P2A visually APPROVED and delivered to V2 main; P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN and delivered; P2C B — Bold Cropped canonical direction APPROVED; P2D APPROVED — delivery authorized; P2E is the only next authorized bundle\
-**Revision:** 1.16 / 2026-09-06 — P2D approved with provisional assets; delivery before P2E\
+**Status:** P2A visually APPROVED and delivered to V2 main; P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN and delivered; P2C B — Bold Cropped canonical direction APPROVED; P2D APPROVED & DELIVERED with provisional portraits; P2E VISUAL DIRECTION APPROVED / DELIVERY AUTHORIZED; P2F ONLY AFTER DELIVERY GATE\
+**Revision:** 1.18 / 2026-09-06 — P2E visual approval and delivery; P2F approval boundary\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 ---
@@ -505,7 +505,10 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 - P2D puts the reusable single B module in `src/hero`, mounted only by `labs/hero`; tunes typography/crop/intersections/two lines and dedicated 390/320px composition; preserves frozen P2B; adds stable-viewport scroll, closed-frame forward/reverse exchange, late-image protection and no idle RAF. Further audit of 42 supplied retouched PNGs found no larger source; keep confirmed 3→7. [P2D result](P2D-RESULT.md), [guide](docs/redesign/review/HOME-HERO-VISUAL-PROTOTYPE.md), [evidence](evidence/p2d/README.md).
 - Historical P2D review checkpoint: **REVIEW READY / STOP**. Full: 38 Node + 84 route + 11 foundation + 26 navigation + 44 Hero cases (22 Chromium / 22 WebKit). Actual Mac Safari initial/menu/scroll/reverse smoke observations are separate from engine automation. Final visual/source quality, physical iPhone/Android/VoiceOver/thermal QA and broader HOME entrance remain open. No public HOME, next scene, Haegeum transition, content migration, 3D, commit/push/deploy or automatic next task.
 
-- Current user approval: Composition **APPROVED**; Bold Cropped visual direction **APPROVED**; motion / interaction **LOCALLY VERIFIED**; portrait assets **PROVISIONAL**; final Retina quality **PENDING HIGH-RES SOURCE**. The current approximately 1024×1536 pair does not block subsequent authorized HOME work. When larger originals of attachments 3 and 7 arrive, replace their asset references and repeat Hero Retina QA. Physical-mobile and final HOME QA remain separate. Review and deliver P2D first; only then execute P2E Hero→Haegeum prototype. P2E must report and STOP; SOUND and subsequent scenes are not authorized.
+- Current user approval: Composition **APPROVED**; Bold Cropped visual direction **APPROVED**; motion / interaction **LOCALLY VERIFIED**; portrait assets **PROVISIONAL**; final Retina quality **PENDING HIGH-RES SOURCE**. The current approximately 1024×1536 pair does not block subsequent authorized HOME work. When larger originals of attachments 3 and 7 arrive, replace their asset references and repeat Hero Retina QA. Physical-mobile and final HOME QA remain separate. The authorized sequence was P2D delivery followed only by P2E Hero→Haegeum prototype; both scoped operations are now complete. P2E visual direction is now approved; deliver it and verify exact-SHA Fast/clean main before P2F. SOUND and subsequent scenes are not authorized.
+
+- P2D delivery completed: `d758ee1`, [Fast CI](https://github.com/cij5484/cho-youn-kyoung-v2/actions/runs/34026552008) SUCCESS; all 87 committed files and clean starting tree recorded in [receipt](evidence/p2e/delivery-p2d.json).
+- P2E completed only the Hero→Haegeum boundary/four-stage prototype. Full: 38 Node + 191 browser (84 routes, 11 foundation, 26 frozen navigation, 44 Hero, 26 Haegeum). [Guide](docs/redesign/review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md), [result](P2E-RESULT.md), [evidence](evidence/p2e/README.md). User confirmed the supplied beige image is AI generated; use is labelled provisional editorial, not documentary/geometry evidence. No SOUND or next scene. Historical P2E report/evidence are preserved; the user subsequently approved the direction and authorized delivery followed only by P2F.
 
 <a id="knowledge-status"></a>
 
@@ -533,8 +536,9 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 | P1D KO Draft Integration Bundle | Result APPROVED / IMPLEMENTED / VERIFIED; 2b544d6 delivered, Fast CI 34002461467 success; one private draft remains excluded |
 | P2A Design System Foundation | Visual/result APPROVED; 7714907 delivered to V2 main; Fast CI 34004955387 success; no deployment |
 | P2B canonical Bold navigation | User visually APPROVED / IMPLEMENTED / VERIFIED LOCALLY / **QUALITY APPROVED FOR HERO INTEGRATION / FROZEN**; one Bold runtime, archived Refined evidence, 500ms entry / 400ms exit; `d81bdbe` delivered to main, Fast CI 34015866401 SUCCESS; Safari real-device and final HOME QA remain open; P2B delivery did not implement HOME/P2C or deploy |
-| P2C Hero & Bold Navigation prototype | User approved result and selected **B — Bold Cropped** as canonical; 3→7 pair retained; A/C comparison evidence only; not delivered |
-| P2D Bold Cropped refinement / device QA | Composition **APPROVED**; Bold Cropped visual direction **APPROVED**; motion / interaction **LOCALLY VERIFIED**; portrait assets **PROVISIONAL**; final Retina quality **PENDING HIGH-RES SOURCE**. User authorizes logical commit / main push / Fast CI, then only P2E. Public HOME remains unimplemented. |
+| P2C Hero & Bold Navigation prototype | User approved result and selected **B — Bold Cropped** as canonical; 3→7 pair retained; A/C comparison evidence only; delivered with P2D `d758ee1` |
+| P2D Bold Cropped refinement / device QA | Composition **APPROVED**; Bold Cropped visual direction **APPROVED**; motion / interaction **LOCALLY VERIFIED**; portrait assets **PROVISIONAL**; final Retina quality **PENDING HIGH-RES SOURCE**. Delivered `d758ee10aceaa5fc037c82e4d3fdb108068aecea`; Fast CI 34026552008 SUCCESS, clean main/origin baseline before P2E. Public HOME remains unimplemented. |
+| P2E Hero → Haegeum | **VISUAL DIRECTION APPROVED / DELIVERY AUTHORIZED**; one 155svh timeline, 26 Chromium/WebKit cases, static four-stage fallback. Real-photo macros provisional; final beige image is disclosed user-confirmed AI reference, not documentary. Commit/main push/Fast are authorized before P2F; deployment is not authorized. |
 | Blender Capability Spike | REQUIRED BEFORE RELEVANT 3D PRODUCTION / NOT EXECUTED; Blender adoption undecided; Motion §47 owns acceptance |
 | CD Tray Lab | MANDATORY / NOT IMPLEMENTED / BLOCKING Album Detail package Quality Approved until its gate passes |
 | Haegeum 3D master | FUTURE EXPERIMENT / HIGH PRIORITY / NOT IMPLEMENTED; NOT BLOCKING first release, not disposable optional decoration; Motion §48 |

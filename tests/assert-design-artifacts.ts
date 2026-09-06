@@ -6,12 +6,12 @@ import { getBuildTarget, type BuildTargetName } from '../config/build.ts'
 export async function assertDesignArtifacts(targetName: BuildTargetName) {
   const target = getBuildTarget(targetName)
   let fontBytes = 0, fontFiles = 0, javascriptBytes = 0
-  const markers = ['P2A_DESIGN_SYSTEM_LAB_ONLY', 'lab-sheet', 'Design foundation', 'labs/design-system', 'P2B_NAVIGATION_LAB_ONLY', 'editorial-navigation', 'navigation-menu', 'nav-lab-space', 'labs/navigation', 'P2C_HERO_LAB_ONLY', 'P2D_HERO_LAB_ONLY', 'bold-hero', 'src/hero', 'poster-scene', 'portrait-initial', 'portrait-instrument', 'labs/hero']
+  const markers = ['P2A_DESIGN_SYSTEM_LAB_ONLY', 'lab-sheet', 'Design foundation', 'labs/design-system', 'P2B_NAVIGATION_LAB_ONLY', 'editorial-navigation', 'navigation-menu', 'nav-lab-space', 'labs/navigation', 'P2C_HERO_LAB_ONLY', 'P2D_HERO_LAB_ONLY', 'bold-hero', 'src/hero', 'poster-scene', 'portrait-initial', 'portrait-instrument', 'labs/hero', 'P2E_HAEGEUM_LAB_ONLY', 'haegeum-experience', 'haegeum-playing', 'haegeum-editorial-ai', 'src/haegeum', 'labs/haegeum']
   async function inspect(directory: string) {
     for (const entry of await readdir(directory, { withFileTypes: true })) {
       const path = resolve(directory, entry.name)
       if (entry.isDirectory()) { await inspect(path); continue }
-      assert.ok(!path.includes('/lab/') && !/portrait-(initial|instrument)|labs\/hero/.test(path), `Lab artifact path: ${path}`)
+      assert.ok(!path.includes('/lab/') && !/portrait-(initial|instrument)|haegeum-(playing|editorial-ai)|labs\/(hero|haegeum)/.test(path), `Lab artifact path: ${path}`)
       const bytes = await readFile(path)
       for (const marker of markers) assert.ok(!bytes.includes(Buffer.from(marker)), `Lab content leaked: ${path}`)
       if (entry.name.endsWith('.woff2')) { fontFiles++; fontBytes += bytes.length }

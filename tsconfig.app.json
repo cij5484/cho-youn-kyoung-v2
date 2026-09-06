@@ -34,6 +34,7 @@
     "src",
     ".react-router/types/**/*",
     "labs/navigation",
-    "labs/hero"
+    "labs/hero",
+    "labs/haegeum"
   ]
 }

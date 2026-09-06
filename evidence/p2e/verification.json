@@ -1,0 +1,702 @@
+{
+  "task": "P2E",
+  "status": "IMPLEMENTED / VERIFIED LOCALLY / VISUAL REVIEW PENDING / STOP",
+  "date": "2026-09-06",
+  "baseline": "d758ee10aceaa5fc037c82e4d3fdb108068aecea",
+  "baselineFiles": 285,
+  "preservedBaselineFiles": 267,
+  "validation": {
+    "full": "PASS",
+    "typeCheck": "PASS",
+    "lint": "PASS",
+    "node": 38,
+    "browser": 191,
+    "route": 84,
+    "foundation": 11,
+    "frozenNavigation": 26,
+    "hero": 44,
+    "haegeum": 26,
+    "actionlint": "PASS",
+    "labBuildGuard": "PASS",
+    "links": 216,
+    "fragments": 11,
+    "handoffCheckboxes": 207,
+    "initialPosterDifferencePixels": 0
+  },
+  "artifacts": {
+    "root": {
+      "routes": 18,
+      "publicFiles": 284,
+      "javascriptBytes": 324591,
+      "cssBytes": 170068,
+      "payloadDelta": 0,
+      "heroInstrumentAndPrivateDraftExcluded": true
+    },
+    "pages-preview": {
+      "routes": 18,
+      "publicFiles": 284,
+      "javascriptBytes": 326277,
+      "cssBytes": 174875,
+      "payloadDelta": 0,
+      "heroInstrumentAndPrivateDraftExcluded": true
+    }
+  },
+  "performance": {
+    "frameSamples": 313,
+    "medianFrameMs": 16.699999999999818,
+    "p95FrameMs": 16.700000000000728,
+    "maxFrameMs": 16.800000000000182,
+    "interactionLongTasks": [],
+    "idleRequestedAnimationFrames": 0,
+    "scope": "Local macOS Chromium, unthrottled development server, 1440x1000, native wheel forward/reverse through full sequence, no recording during sample. Not production CWV, physical touch, thermal or device quality approval."
+  },
+  "videos": [
+    {
+      "file": "desktop-realtime.webm",
+      "duration": 16.44,
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "file": "mobile-realtime.webm",
+      "duration": 16.4,
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "sourceStatus": {
+    "headAndPlaying": "AUTHENTIC SUPPLIED PHOTOGRAPHS / PROVISIONAL RESOLUTION",
+    "final": "USER-CONFIRMED AI / DISCLOSED PROVISIONAL EDITORIAL REFERENCE / NOT DOCUMENTARY",
+    "multiview": "REFERENCE ONLY / NOT RUNTIME / NOT VERIFIED GEOMETRY"
+  },
+  "p2dDelivery": {
+    "commit": "d758ee10aceaa5fc037c82e4d3fdb108068aecea",
+    "branch": "main",
+    "remote": "origin/main",
+    "cleanTreeBeforeP2E": true,
+    "fastCI": {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T10:07:42Z",
+      "headSha": "d758ee10aceaa5fc037c82e4d3fdb108068aecea",
+      "name": "V2 Fast CI",
+      "status": "completed",
+      "updatedAt": "2026-09-06T10:08:16Z",
+      "url": "https://github.com/cij5484/cho-youn-kyoung-v2/actions/runs/34026552008"
+    },
+    "localFast": "PASS; .checkpoints/p2d-delivery-before/fast.txt",
+    "preservedReviewedFull": "evidence/p2d/full-gate.txt; 38 Node +165 browser",
+    "committedFiles": [
+      ".github/workflows/quality-gates.yml",
+      "AGENTS.md",
+      "CODEX-HANDOFF.md",
+      "P2C-ASSET-READINESS-RESULT.md",
+      "P2C-RESULT.md",
+      "P2D-RESULT.md",
+      "README.md",
+      "docs/redesign/04-HOME.md",
+      "docs/redesign/review/HOME-HERO-ASSET-READINESS.md",
+      "docs/redesign/review/HOME-HERO-VISUAL-PROTOTYPE.md",
+      "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md",
+      "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md",
+      "eslint.config.js",
+      "evidence/p2c/b-1024.png",
+      "evidence/p2c/b-1920.png",
+      "evidence/p2c/b-320-text-200.png",
+      "evidence/p2c/b-768.png",
+      "evidence/p2c/b-aperture-intermediate.png",
+      "evidence/p2c/b-desktop-realtime.webm",
+      "evidence/p2c/b-first-scroll.png",
+      "evidence/p2c/b-menu-open.png",
+      "evidence/p2c/b-mobile-first-scroll.png",
+      "evidence/p2c/b-mobile-menu-open.png",
+      "evidence/p2c/b-pointer-depth.png",
+      "evidence/p2c/desktop-a.png",
+      "evidence/p2c/desktop-b.png",
+      "evidence/p2c/desktop-c.png",
+      "evidence/p2c/hero-prototype.json",
+      "evidence/p2c/local-performance.json",
+      "evidence/p2c/mobile-a-390.png",
+      "evidence/p2c/mobile-b-320.png",
+      "evidence/p2c/mobile-b-390.png",
+      "evidence/p2c/mobile-c-390.png",
+      "evidence/p2c/portrait-contact-sheet.png",
+      "evidence/p2c/portrait-inventory.json",
+      "evidence/p2c/provided-portraits.json",
+      "evidence/p2d/README.md",
+      "evidence/p2d/b-1024.png",
+      "evidence/p2d/b-1920.png",
+      "evidence/p2d/b-320-text-200.png",
+      "evidence/p2d/b-768.png",
+      "evidence/p2d/b-aperture-intermediate.png",
+      "evidence/p2d/b-desktop-realtime.webm",
+      "evidence/p2d/b-first-scroll.png",
+      "evidence/p2d/b-menu-open.png",
+      "evidence/p2d/b-mobile-first-scroll.png",
+      "evidence/p2d/b-mobile-menu-open.png",
+      "evidence/p2d/b-pointer-depth.png",
+      "evidence/p2d/b-reduced-motion.png",
+      "evidence/p2d/b-wide-dpr2.jpg",
+      "evidence/p2d/desktop-b.png",
+      "evidence/p2d/folder-contact-sheet.jpg",
+      "evidence/p2d/folder-inventory.json",
+      "evidence/p2d/full-gate.txt",
+      "evidence/p2d/hero-refinement.json",
+      "evidence/p2d/hero-test-results.json",
+      "evidence/p2d/local-performance.json",
+      "evidence/p2d/mobile-b-320.png",
+      "evidence/p2d/mobile-b-390.png",
+      "evidence/p2d/portrait-provenance.json",
+      "evidence/p2d/safari-device-qa.md",
+      "evidence/p2d/webkit-aperture-intermediate.png",
+      "evidence/p2d/webkit-b-1440-initial.png",
+      "evidence/p2d/webkit-b-320-initial.png",
+      "evidence/p2d/webkit-b-390-initial.png",
+      "evidence/p2d/webkit-first-scroll.png",
+      "evidence/p2d/webkit-reduced.png",
+      "labs/hero/HeroLab.tsx",
+      "labs/hero/hero.css",
+      "labs/hero/index.html",
+      "labs/hero/main.tsx",
+      "package.json",
+      "playwright.hero.config.ts",
+      "src/hero/BoldHero.tsx",
+      "src/hero/assets/portrait-initial-640.webp",
+      "src/hero/assets/portrait-initial.webp",
+      "src/hero/assets/portrait-instrument-640.webp",
+      "src/hero/assets/portrait-instrument.webp",
+      "src/hero/hero.css",
+      "src/hero/motion.ts",
+      "src/hero/useHeroMotion.ts",
+      "tests/assert-design-artifacts.ts",
+      "tests/hero.spec.ts",
+      "tests/routing-spike.spec.ts",
+      "tsconfig.app.json",
+      "tsconfig.node.json",
+      "vite.hero.config.ts"
+    ],
+    "deploy": "NOT PERFORMED"
+  },
+  "p2eDelivery": {
+    "commit": "NOT PERFORMED",
+    "push": "NOT PERFORMED",
+    "remoteCI": "NOT RUN FOR P2E",
+    "deploy": "NOT PERFORMED",
+    "tree": "Local P2E review diff"
+  },
+  "openQA": [
+    "User visual review / motion freeze",
+    "Authentic isolated full-instrument photo and macro source quality",
+    "Physical iPhone/Android, actual Safari motion walkthrough, VoiceOver and thermal QA",
+    "Hero 3/7 larger originals and Retina QA, nonblocking for other authorized HOME tasks"
+  ],
+  "changes": [
+    {
+      "path": ".github/workflows/quality-gates.yml",
+      "before": "5e3a6b1fd5ae51ec8d1653601b7e626b9de683df7bc41296acb95de9dec47ee2",
+      "after": "936c2a1fffa2edab0451c221c26a4d3f93079b509d00189431fec25dfe49dbcc"
+    },
+    {
+      "path": "AGENTS.md",
+      "before": "ed281bd042ad233385b144752ab143a2215ebec56512964d27af656afd416943",
+      "after": "5d0f2aefa4026567329e921f6a5d5addb27d6c3de391e3b5900fa6a884da6bb4"
+    },
+    {
+      "path": "CODEX-HANDOFF.md",
+      "before": "e01bb9d668606bb1441f060e393459a6a7e3acd3dedfb5e64c34dfa97bfb7ed2",
+      "after": "6626a742d73c8c8e9443c3a7734e8665e636188999ed944440b0ca1b1ffa92d1"
+    },
+    {
+      "path": "README.md",
+      "before": "35c5aeac9c4bb4b760e7d0f8c5469fefcff9f22d9f41dbf26a488559b45d5e3c",
+      "after": "a0f738e5c050dd59eeb3fd16eea9a396796f20e2815fbc1e841f46ff2776c42f"
+    },
+    {
+      "path": "docs/redesign/03-MOTION-SYSTEM.md",
+      "before": "d4f78a01488945a2b94e25cbd1b6a1459a775385db805642014a0796a8908fb3",
+      "after": "73bb4e9bdd77c1b5531dcdd4f88ba4ce7e669171e4b0d435426de7c9009177a3"
+    },
+    {
+      "path": "docs/redesign/04-HOME.md",
+      "before": "87f07ca57b4c13eaff9cb0a269c8ceca40b73d3c4f3c25542811378cacd1c549",
+      "after": "71f6719b594dcfcf9fe43aabaf12adb36292dd90a120ef135d65633816ec49b8"
+    },
+    {
+      "path": "docs/redesign/11-RESPONSIVE.md",
+      "before": "447428fdac7a335afe5399d79ce77e5feefa7e473204b9d6a8fdfc64181a6e0d",
+      "after": "6e891a91a7fde00487a5856026512f5a93277170b5b92ca3c91dfd2bf02fe6ca"
+    },
+    {
+      "path": "docs/redesign/13-ACCESSIBILITY.md",
+      "before": "dbe426f49dfb190d62d6a849264a008e2438cb5cc2c9d2fe648f71f37f745ae6",
+      "after": "6084c5e30d9e5707e843fced29162a52819562e646e22e010218d1af46b4af38"
+    },
+    {
+      "path": "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md",
+      "before": "3d39377e3ad2f63e48d8598eac1dd9aae876d0909fe309ce5df07477c5c702ad",
+      "after": "a9b488fca3dd1f77496c2a6834f5da4b23d18d6089df53d803b394861415dd05"
+    },
+    {
+      "path": "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md",
+      "before": "017d6f4b397630dbbaec0a7d2808ab50be32b195a48f5ca69aecf1150b0c5e19",
+      "after": "f70f729b250ce24f760a9d3461fe1956cc1c3901270e9742b22135551a342989"
+    },
+    {
+      "path": "package.json",
+      "before": "01d89a2906c738e61d648185f033fbd7718a3480e90326e821ea618a8d1caa79",
+      "after": "c5913d139888071392a733238a0a962b69fc016afb6ef7d686b77c75ff949dc7"
+    },
+    {
+      "path": "src/hero/BoldHero.tsx",
+      "before": "5bab34a140063c51d1041bc15cae288b8e63cbf3df8a12c403618698d661432c",
+      "after": "a99fc0f6c9b40005ead04a2c02e9eec0c1f7a71bb4d926f6592ec323a6fdb330"
+    },
+    {
+      "path": "src/hero/motion.ts",
+      "before": "591fab708945fd4a1387153121bd10dfaad472f1e74e6d4e1c0afbc042455edd",
+      "after": "bcf416409b21104a930affa3da5a65eeaa93d9b2ff59bd3ebc49f5d324d92983"
+    },
+    {
+      "path": "src/hero/useHeroMotion.ts",
+      "before": "4f65df5b156e2dd0c88173dc45f562a3dd05eba03bddd7d103dc899ec244eece",
+      "after": "b61c6c590c02060937097965644d8a4bc80f4334b5c16c55aa4ad8d9f9da0a08"
+    },
+    {
+      "path": "tests/assert-design-artifacts.ts",
+      "before": "d7438da9101525c93eff90e8283322f575108db92e78f43c79e9f6a21a6cbd3d",
+      "after": "f40c918d88365d1c1be5ef4c75977b76cf8cc6572b9344349ce5c0a467435cf2"
+    },
+    {
+      "path": "tests/routing-spike.spec.ts",
+      "before": "50696519c27896ff4a4687b98b3ff5fce518d3e456c35d57ad3e7a9c1b27ae19",
+      "after": "f53d4141c4b44627c5529526aecb40301f42e832ae85cb3f2e60cccad902a494"
+    },
+    {
+      "path": "tsconfig.app.json",
+      "before": "beb342c9569fb6d816bd5d56f5e1f19edbb23011ac8defa990b4ae88c6182671",
+      "after": "e624eef4682598030d94b7e37c9e48d865753aa3288a9aff8f04a97cdb104bb6"
+    },
+    {
+      "path": "tsconfig.node.json",
+      "before": "135b071092d684495438a74a28abbf342e84b91d7a4e12bec29ea7063d1bad1f",
+      "after": "d7d86f19d7643b6db714eea90f2a960c43305cec7e38900f1aa71730047b6303"
+    },
+    {
+      "path": "P2E-RESULT.md",
+      "after": "a89a6fb05cab9fcc22ba089cc0358bb62b551176927ae74ab90f4cdefb8d9ecd"
+    },
+    {
+      "path": "docs/redesign/review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md",
+      "after": "151c40c45a69b3bef0354d063c9b1465ab2b13413647ab154e0f7b3391538d02"
+    },
+    {
+      "path": "evidence/p2e/README.md",
+      "after": "5312f355b80b9991fd439de7d8bdeb31dd237e74ce74d74e1f563b3a752cd68e"
+    },
+    {
+      "path": "evidence/p2e/asset-provenance.json",
+      "after": "24604e26456cdf7dbded5a9beb593a7866ab6c8c5f0d1d9b5c1ac8cb09322257"
+    },
+    {
+      "path": "evidence/p2e/delivery-p2d.json",
+      "after": "809f04e66b875cb7a1f51186aabec400865c09aafcc3e5246ec2a8dcf35d7512"
+    },
+    {
+      "path": "evidence/p2e/desktop-bow-entry.png",
+      "after": "e11ed7f07b295eae4e3b0ae9f8b5ca47f07e59be618f7d528dd945afa5e8438f"
+    },
+    {
+      "path": "evidence/p2e/desktop-bow.png",
+      "after": "74adfe7936afc88f1684c1c05700897a573c47b6095935a008a74573f53a745a"
+    },
+    {
+      "path": "evidence/p2e/desktop-full-entry.png",
+      "after": "178ed844dbe119fac535ed767217dc036f79ca643ad9e4e76fda240d16a31730"
+    },
+    {
+      "path": "evidence/p2e/desktop-full.png",
+      "after": "818c31982f375b1c2edba297318c406316cee61a97f42ffbbd86d3b9ad98d3f1"
+    },
+    {
+      "path": "evidence/p2e/desktop-head.png",
+      "after": "0fbc0985e93daabcbd0df700ef57fe291d7643c5c2f26b5c2dcf7c64ecfc177a"
+    },
+    {
+      "path": "evidence/p2e/desktop-hero-exit.png",
+      "after": "dff41d37909cb37cafbab59f103d596c02036bfbf5ce0cfc3ee690e0472940b7"
+    },
+    {
+      "path": "evidence/p2e/desktop-initial.png",
+      "after": "650ff5b6c717a1600605a844a006897400b005efe369bd0540ec04131f3fd1a3"
+    },
+    {
+      "path": "evidence/p2e/desktop-menu.png",
+      "after": "afa7362f62c62a81ae7c6f9084e9d49b3ef910d7253917e81bb99daca42bcac5"
+    },
+    {
+      "path": "evidence/p2e/desktop-realtime.webm",
+      "after": "fff73713a74d6e8fd615f175d0e1e5ea48c3de62b6b980cb0f6975be6db9a587"
+    },
+    {
+      "path": "evidence/p2e/desktop-resonance.png",
+      "after": "25ed16f315221d29f60befb37e7fb1ab1de894cda57e0e0dc9e83eb6d1a66d8b"
+    },
+    {
+      "path": "evidence/p2e/full-gate.txt",
+      "after": "6a48986f6f3da6c7ef216bd0dcbdd1c966c5f44a008457ff8825a962031db6d4"
+    },
+    {
+      "path": "evidence/p2e/haegeum-test-results.json",
+      "after": "5c9f5c06ed10d3a848c4e44b89d4bffb19f48b73b4dea69fa09d478dbae07a38"
+    },
+    {
+      "path": "evidence/p2e/initial-comparison.json",
+      "after": "679eab39a8e57aab1b1e1dbe91c98369d251a966673fb5232d908844ecf73b1d"
+    },
+    {
+      "path": "evidence/p2e/lab-build-guard.txt",
+      "after": "98bfb8884ff8534d52da1b051fe522732110221a9a680a172018d589ccb79fa4"
+    },
+    {
+      "path": "evidence/p2e/local-performance.json",
+      "after": "5eabddd7a399a62c75318a4add55b7735e335acfb259f3e664bc9e61d75eafc0"
+    },
+    {
+      "path": "evidence/p2e/mobile-320-bow.png",
+      "after": "787f6954380a6f88966ac085ce81b6d3ad38504229202e75829e65eb985ca1a7"
+    },
+    {
+      "path": "evidence/p2e/mobile-320-full.png",
+      "after": "af07cb11c926a493904fe84127097e368f1a11a7c401f369b02b4c19b68b828a"
+    },
+    {
+      "path": "evidence/p2e/mobile-320-head.png",
+      "after": "b4e3b989c4f76fa2458ce7e374fd80f69eaf1ddba2eac596e07070b7e568bb43"
+    },
+    {
+      "path": "evidence/p2e/mobile-320-initial.png",
+      "after": "17eda7ecbcbc8a5285818f41242172371e9f565f13899d1ddc4dcd8de78edef7"
+    },
+    {
+      "path": "evidence/p2e/mobile-320-resonance.png",
+      "after": "4c661641faec92ab3279c6c543b4f693f31f089f01c3f226a25131dd72365c54"
+    },
+    {
+      "path": "evidence/p2e/mobile-390-bow.png",
+      "after": "27c28e3fdc27570b5dac40cc10d63818c1a9eac60c7cb427c7111eec5b9585f9"
+    },
+    {
+      "path": "evidence/p2e/mobile-390-full.png",
+      "after": "10b1142aee1be121c189609796a2b24acfdeb61468e0caf91e6bd63b537d5630"
+    },
+    {
+      "path": "evidence/p2e/mobile-390-head.png",
+      "after": "09cf36528088f4a45b3e5e7a83590fd3215fef23f82424fd4eb2987ae6a12e74"
+    },
+    {
+      "path": "evidence/p2e/mobile-390-initial.png",
+      "after": "5051622c5d5954c84935bfc6003bb2d190a516d6e2fe5516d97072f20cd19b8a"
+    },
+    {
+      "path": "evidence/p2e/mobile-390-resonance.png",
+      "after": "7428a8f8a55b169441acb8a01a0d0822dbf722751bc5b8fea0612c9caf8561a1"
+    },
+    {
+      "path": "evidence/p2e/mobile-realtime.webm",
+      "after": "5c9f993a450971c34e90ec83ff113a0587d872774957c75d4273a01c33e3ef01"
+    },
+    {
+      "path": "evidence/p2e/mobile-reduced-sequence.png",
+      "after": "7d8aaac2ad9492b7b02e9fd3714960b5198b3c58ae7f615ab47f29bbfd1da9ab"
+    },
+    {
+      "path": "evidence/p2e/overview.png",
+      "after": "e28ac3cf89ded2b822958b43ea58e7e333e78e7313812186d78db350952d971c"
+    },
+    {
+      "path": "evidence/p2e/reduced-sequence.png",
+      "after": "7a77a73de9a6d811bdde8592d9009c77f6e0e4ce31b9954f1f4e3b55ddcadaee"
+    },
+    {
+      "path": "evidence/p2e/tablet-bow.png",
+      "after": "35e1072712b79ec71046c3f6421817647cd23a71ecf0526a0cb9c8acf6d06d46"
+    },
+    {
+      "path": "evidence/p2e/text-200.png",
+      "after": "9257c3a80ee9b40621950c2127fb08f89a71f0743dd9003949c172a31b2b0f27"
+    },
+    {
+      "path": "evidence/p2e/video-metadata.json",
+      "after": "a789b0d897db0d93ff0755a178dd6a95458b096b568cd9973ad9dde4e8ad2a81"
+    },
+    {
+      "path": "evidence/p2e/webkit-bow.png",
+      "after": "4005a4f2a25e9b60b28bde2fb8dbead881d487b79f6c87439542f3fec3b9e05f"
+    },
+    {
+      "path": "evidence/p2e/webkit-full.png",
+      "after": "64025652013ca4c1c4b540cea8cd3196dfefbbd37e9c4662711a2c44ae3a3d73"
+    },
+    {
+      "path": "evidence/p2e/webkit-head.png",
+      "after": "c9cd967d53740af91137b778fc31b920550b85fa3e745324cf062bd64ce0e6b2"
+    },
+    {
+      "path": "evidence/p2e/webkit-resonance.png",
+      "after": "de3cbc6f1fb3a36ec0fafbe5c5423fd56f4a0cacbea083cf5f1408f1fed6a605"
+    },
+    {
+      "path": "evidence/p2e/wide-full.png",
+      "after": "8ac77ce11bc2b7f339dd896906f20db94805380a7a3ec82b12517acacf4ae933"
+    },
+    {
+      "path": "labs/haegeum/HaegeumLab.tsx",
+      "after": "e8cb4edef29f0da37c60bbeae83e300edceaa0372940c9ffe3501844ddddd2a9"
+    },
+    {
+      "path": "labs/haegeum/haegeum.css",
+      "after": "eb56c0a03b7818f51f97c561c84acbfd3432ae8fe4e2f5ee60f4b485768aa09a"
+    },
+    {
+      "path": "labs/haegeum/index.html",
+      "after": "1978958a0d022d2e95c2fd8ab716b2dee7dfa87988320eddebd0db336c8b7cca"
+    },
+    {
+      "path": "labs/haegeum/main.tsx",
+      "after": "941764a0d861cc7e0e43f9f97a70b4e950bc6ad43d734b3031ac5c20f15a4685"
+    },
+    {
+      "path": "playwright.haegeum.config.ts",
+      "after": "c8e2c5f152f0fadaeb60ead06cc94c1e626934a2c575e7b4e511c8680d2b59e5"
+    },
+    {
+      "path": "src/haegeum/HaegeumExperience.tsx",
+      "after": "b1cdbc9be646c59b41d181e9022a748471eb34a5832a0b4ad90df7339b6d675a"
+    },
+    {
+      "path": "src/haegeum/assets/haegeum-editorial-ai.webp",
+      "after": "25ad8811d78640ad6a4aaa446eb3b71996db0909bbf7316a602c3d8a07ba32e3"
+    },
+    {
+      "path": "src/haegeum/assets/haegeum-playing.webp",
+      "after": "23bab7e4a15e1374321e019759dc20af337cccac856bdacc7f97876314b61ecd"
+    },
+    {
+      "path": "src/haegeum/choreography.ts",
+      "after": "6f02ad1fead591f950637e7070f52f06b66ac27aea1dc6f65a69e8d6738062ce"
+    },
+    {
+      "path": "src/haegeum/haegeum.css",
+      "after": "7c84683d0ba151023bc8d8f2ed823405d144a6087285ce8ae1c7edd1fd6a3ca8"
+    },
+    {
+      "path": "tests/haegeum.spec.ts",
+      "after": "e800fa2394009499dbdc402433fa5fa473b181830a194261ae9c3ad8df465f42"
+    },
+    {
+      "path": "vite.haegeum.config.ts",
+      "after": "908eceed8fd592b38bee2b1a3bd88ad071ec1a2d3e2021e216b980dfdb29583d"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/p2e/README.md",
+      "bytes": 1897,
+      "sha256": "5312f355b80b9991fd439de7d8bdeb31dd237e74ce74d74e1f563b3a752cd68e"
+    },
+    {
+      "path": "evidence/p2e/asset-provenance.json",
+      "bytes": 2065,
+      "sha256": "24604e26456cdf7dbded5a9beb593a7866ab6c8c5f0d1d9b5c1ac8cb09322257"
+    },
+    {
+      "path": "evidence/p2e/delivery-p2d.json",
+      "bytes": 3917,
+      "sha256": "809f04e66b875cb7a1f51186aabec400865c09aafcc3e5246ec2a8dcf35d7512"
+    },
+    {
+      "path": "evidence/p2e/desktop-bow-entry.png",
+      "bytes": 668379,
+      "sha256": "e11ed7f07b295eae4e3b0ae9f8b5ca47f07e59be618f7d528dd945afa5e8438f"
+    },
+    {
+      "path": "evidence/p2e/desktop-bow.png",
+      "bytes": 999454,
+      "sha256": "74adfe7936afc88f1684c1c05700897a573c47b6095935a008a74573f53a745a"
+    },
+    {
+      "path": "evidence/p2e/desktop-full-entry.png",
+      "bytes": 531681,
+      "sha256": "178ed844dbe119fac535ed767217dc036f79ca643ad9e4e76fda240d16a31730"
+    },
+    {
+      "path": "evidence/p2e/desktop-full.png",
+      "bytes": 298857,
+      "sha256": "818c31982f375b1c2edba297318c406316cee61a97f42ffbbd86d3b9ad98d3f1"
+    },
+    {
+      "path": "evidence/p2e/desktop-head.png",
+      "bytes": 559678,
+      "sha256": "0fbc0985e93daabcbd0df700ef57fe291d7643c5c2f26b5c2dcf7c64ecfc177a"
+    },
+    {
+      "path": "evidence/p2e/desktop-hero-exit.png",
+      "bytes": 1009571,
+      "sha256": "dff41d37909cb37cafbab59f103d596c02036bfbf5ce0cfc3ee690e0472940b7"
+    },
+    {
+      "path": "evidence/p2e/desktop-initial.png",
+      "bytes": 1008325,
+      "sha256": "650ff5b6c717a1600605a844a006897400b005efe369bd0540ec04131f3fd1a3"
+    },
+    {
+      "path": "evidence/p2e/desktop-menu.png",
+      "bytes": 44031,
+      "sha256": "afa7362f62c62a81ae7c6f9084e9d49b3ef910d7253917e81bb99daca42bcac5"
+    },
+    {
+      "path": "evidence/p2e/desktop-realtime.webm",
+      "bytes": 2212621,
+      "sha256": "fff73713a74d6e8fd615f175d0e1e5ea48c3de62b6b980cb0f6975be6db9a587"
+    },
+    {
+      "path": "evidence/p2e/desktop-resonance.png",
+      "bytes": 686044,
+      "sha256": "25ed16f315221d29f60befb37e7fb1ab1de894cda57e0e0dc9e83eb6d1a66d8b"
+    },
+    {
+      "path": "evidence/p2e/full-gate.txt",
+      "bytes": 182959,
+      "sha256": "6a48986f6f3da6c7ef216bd0dcbdd1c966c5f44a008457ff8825a962031db6d4"
+    },
+    {
+      "path": "evidence/p2e/haegeum-test-results.json",
+      "bytes": 30434,
+      "sha256": "5c9f5c06ed10d3a848c4e44b89d4bffb19f48b73b4dea69fa09d478dbae07a38"
+    },
+    {
+      "path": "evidence/p2e/initial-comparison.json",
+      "bytes": 115,
+      "sha256": "679eab39a8e57aab1b1e1dbe91c98369d251a966673fb5232d908844ecf73b1d"
+    },
+    {
+      "path": "evidence/p2e/lab-build-guard.txt",
+      "bytes": 812,
+      "sha256": "98bfb8884ff8534d52da1b051fe522732110221a9a680a172018d589ccb79fa4"
+    },
+    {
+      "path": "evidence/p2e/local-performance.json",
+      "bytes": 435,
+      "sha256": "5eabddd7a399a62c75318a4add55b7735e335acfb259f3e664bc9e61d75eafc0"
+    },
+    {
+      "path": "evidence/p2e/mobile-320-bow.png",
+      "bytes": 171921,
+      "sha256": "787f6954380a6f88966ac085ce81b6d3ad38504229202e75829e65eb985ca1a7"
+    },
+    {
+      "path": "evidence/p2e/mobile-320-full.png",
+      "bytes": 106488,
+      "sha256": "af07cb11c926a493904fe84127097e368f1a11a7c401f369b02b4c19b68b828a"
+    },
+    {
+      "path": "evidence/p2e/mobile-320-head.png",
+      "bytes": 115475,
+      "sha256": "b4e3b989c4f76fa2458ce7e374fd80f69eaf1ddba2eac596e07070b7e568bb43"
+    },
+    {
+      "path": "evidence/p2e/mobile-320-initial.png",
+      "bytes": 166743,
+      "sha256": "17eda7ecbcbc8a5285818f41242172371e9f565f13899d1ddc4dcd8de78edef7"
+    },
+    {
+      "path": "evidence/p2e/mobile-320-resonance.png",
+      "bytes": 178357,
+      "sha256": "4c661641faec92ab3279c6c543b4f693f31f089f01c3f226a25131dd72365c54"
+    },
+    {
+      "path": "evidence/p2e/mobile-390-bow.png",
+      "bytes": 316114,
+      "sha256": "27c28e3fdc27570b5dac40cc10d63818c1a9eac60c7cb427c7111eec5b9585f9"
+    },
+    {
+      "path": "evidence/p2e/mobile-390-full.png",
+      "bytes": 160187,
+      "sha256": "10b1142aee1be121c189609796a2b24acfdeb61468e0caf91e6bd63b537d5630"
+    },
+    {
+      "path": "evidence/p2e/mobile-390-head.png",
+      "bytes": 219660,
+      "sha256": "09cf36528088f4a45b3e5e7a83590fd3215fef23f82424fd4eb2987ae6a12e74"
+    },
+    {
+      "path": "evidence/p2e/mobile-390-initial.png",
+      "bytes": 308919,
+      "sha256": "5051622c5d5954c84935bfc6003bb2d190a516d6e2fe5516d97072f20cd19b8a"
+    },
+    {
+      "path": "evidence/p2e/mobile-390-resonance.png",
+      "bytes": 289638,
+      "sha256": "7428a8f8a55b169441acb8a01a0d0822dbf722751bc5b8fea0612c9caf8561a1"
+    },
+    {
+      "path": "evidence/p2e/mobile-realtime.webm",
+      "bytes": 1839509,
+      "sha256": "5c9f993a450971c34e90ec83ff113a0587d872774957c75d4273a01c33e3ef01"
+    },
+    {
+      "path": "evidence/p2e/mobile-reduced-sequence.png",
+      "bytes": 1337988,
+      "sha256": "7d8aaac2ad9492b7b02e9fd3714960b5198b3c58ae7f615ab47f29bbfd1da9ab"
+    },
+    {
+      "path": "evidence/p2e/overview.png",
+      "bytes": 816314,
+      "sha256": "e28ac3cf89ded2b822958b43ea58e7e333e78e7313812186d78db350952d971c"
+    },
+    {
+      "path": "evidence/p2e/reduced-sequence.png",
+      "bytes": 3407854,
+      "sha256": "7a77a73de9a6d811bdde8592d9009c77f6e0e4ce31b9954f1f4e3b55ddcadaee"
+    },
+    {
+      "path": "evidence/p2e/tablet-bow.png",
+      "bytes": 713977,
+      "sha256": "35e1072712b79ec71046c3f6421817647cd23a71ecf0526a0cb9c8acf6d06d46"
+    },
+    {
+      "path": "evidence/p2e/text-200.png",
+      "bytes": 882850,
+      "sha256": "9257c3a80ee9b40621950c2127fb08f89a71f0743dd9003949c172a31b2b0f27"
+    },
+    {
+      "path": "evidence/p2e/video-metadata.json",
+      "bytes": 213,
+      "sha256": "a789b0d897db0d93ff0755a178dd6a95458b096b568cd9973ad9dde4e8ad2a81"
+    },
+    {
+      "path": "evidence/p2e/webkit-bow.png",
+      "bytes": 1404401,
+      "sha256": "4005a4f2a25e9b60b28bde2fb8dbead881d487b79f6c87439542f3fec3b9e05f"
+    },
+    {
+      "path": "evidence/p2e/webkit-full.png",
+      "bytes": 424390,
+      "sha256": "64025652013ca4c1c4b540cea8cd3196dfefbbd37e9c4662711a2c44ae3a3d73"
+    },
+    {
+      "path": "evidence/p2e/webkit-head.png",
+      "bytes": 749481,
+      "sha256": "c9cd967d53740af91137b778fc31b920550b85fa3e745324cf062bd64ce0e6b2"
+    },
+    {
+      "path": "evidence/p2e/webkit-resonance.png",
+      "bytes": 1016000,
+      "sha256": "de3cbc6f1fb3a36ec0fafbe5c5423fd56f4a0cacbea083cf5f1408f1fed6a605"
+    },
+    {
+      "path": "evidence/p2e/wide-full.png",
+      "bytes": 333506,
+      "sha256": "8ac77ce11bc2b7f339dd896906f20db94805380a7a3ec82b12517acacf4ae933"
+    }
+  ]
+}

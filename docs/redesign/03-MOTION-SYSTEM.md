@@ -315,6 +315,8 @@ General ABOUT/MEDIA/CONTACT transitions remain restrained.
 
 HOME V2.1 commits to a two-line structural motif. It changes role across Hero → Haegeum → Sound → Selected Works → Outro; a leading strand may form the Works axis without discarding the pair. Use motion at selected transitions only, not continuous decoration. Apply the bowed-string rule in §45 throughout.
 
+P2E implementation evidence: [continuous transition guide](review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md). One 155svh native timeline includes the approved Hero exit and four stages; no added motion dependency. The user approved this visual direction; P2F may refine this sequence after successful P2E delivery, without authorization for following scenes.
+
 For Hero→Haegeum, map typography spacing/depth/position, portrait crop/depth, both line guides and incoming imagery into one scroll-linked composition. Stages: HEAD/PEG → STRINGS/BOW → RESONANCE (resonator imagery retained) → FULL HAEGEUM. Show only the current minimal keyword: LINE / TENSION / RESONANCE / HAEGEUM. Native continuous scroll, no snap; preferred 1.2–1.6 viewport overlaps Scene 02's 120–160vh budget, not added pin duration. Stop/reverse/interrupt must inherit the current state without jumps. Reduced-motion static/crop/fade fallback preserves sequence and anchors.
 
 SOUND is a static pause until explicit LISTEN. During actual playback, rising energy increases restrained frequency/density; falling energy damps/stabilizes, with almost-straight lines. No autoplay, scroll-triggered sound or fabricated playing state. Selected Works supports desktop drag/optional wheel without trapping vertical scroll, and restrained work-specific hover/shared Detail Hero transitions.

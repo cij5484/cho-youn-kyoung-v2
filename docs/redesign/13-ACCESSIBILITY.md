@@ -104,6 +104,8 @@ Simplify:
 
 Do not hide content or remove hierarchy.
 
+P2E preserves HEAD/PEG → STRINGS/BOW → RESONANCE → FULL HAEGEUM as ordered semantic static figures when motion is reduced, text reflows or continuation imagery fails. Generated reference provenance remains visible and in alt text. The [P2E guide](review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md) records keyboard/skip/locale/failure checks and remaining physical-device/assistive-technology QA.
+
 ---
 
 # 8. 3D FALLBACK

@@ -211,3 +211,21 @@ Full은 Chromium/WebKit 각 22 Hero case를 포함합니다. Safari Mac smoke와
 수동 서버를 종료해야 테스트가 자체 4177 서버를 시작합니다. localhost-only / noindex / 별도 build 금지.
 public HOME, 번역 콘텐츠, 다음 scene, content migration, 3D, commit/push/deploy는 이번에 수행하지 않습니다.
 최종 시각 승인·큰 원본·물리적 휴대폰 QA를 남기고 **STOP**합니다.
+
+
+### P2E — Hero → Haegeum development prototype
+
+P2D `d758ee1` main push 및 [Fast CI 34026552008](https://github.com/cij5484/cho-youn-kyoung-v2/actions/runs/34026552008) 성공.
+[연속 변형 guide](docs/redesign/review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md), [결과](P2E-RESULT.md), [시각 증거](evidence/p2e/README.md).
+
+```sh
+npm run dev:haegeum
+# http://127.0.0.1:4178/ 또는 /en/
+npm run test:haegeum
+```
+
+동일 Hero stage 안에서 HEAD/PEG → STRINGS/BOW → RESONANCE → FULL HAEGEUM으로 이어집니다.
+155svh native travel, 별도 mobile 구성과 정적 reduced-motion sequence. 베이지 final reference는 사용자가
+AI 생성으로 확인한 임시 editorial 자산이며 화면·alt·문서에서 공개합니다. 실제 실물/구조 자료로 취급하지 않습니다.
+Full은 기존 165 browser +26 Haegeum =191 browser와 38 Node를 검사합니다. 포트 4178 수동 서버는 테스트 전에 종료합니다.
+Lab-only, noindex, build 차단, public HOME·content·SOUND·다음 scene·3D·배포 없음. **P2E 시각 방향 승인**. main delivery/Fast/clean 확인 후 P2F refinement·quality·device QA만 승인되었으며, 완료 후 STOP합니다.

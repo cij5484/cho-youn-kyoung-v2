@@ -225,6 +225,8 @@ If the candidate is missing or fails final-scale resolution, crop or masking qua
 
 The Hero's two-line motif is the structural bridge into the haegeum scene.
 
+P2E [development prototype](review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md) implements one shared stage and 155svh travel including the Hero exit, with separately authored mobile and a static four-stage fallback. Local verification is complete and the user approved this canonical visual direction. P2F refinement/quality/device QA follows only after P2E delivery succeeds. This is not public HOME or approval for SOUND/the next scene.
+
 The normal-motion contract is one scene transforming into the next, not Hero fade-out followed by an unrelated Haegeum fade-in:
 
 | Outgoing anchor | Continuous change | Incoming role |
@@ -315,6 +317,8 @@ The pair must maintain narrative continuity across the sequence and retain the b
 ## Final Reveal
 
 Use the current beige-background full haegeum image as the planning/final-reveal baseline.
+
+P2E source clarification: the user supplied that reference and explicitly confirmed it is **AI generated**. It is used only as a visibly disclosed **PROVISIONAL EDITORIAL STUDY**, not a documentary photograph or verified physical geometry. Real supplied photo (37) validates the bow/resonator relationship; attachment 7 supplies head/peg continuity. Request authentic isolated full-instrument and macro sources before final photographic/structural sign-off. The multiview sheet is reference only. See the [source audit and requests](review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md#source-audit-and-requests).
 
 The final full instrument should feel like the previous details resolve into one object.
 
