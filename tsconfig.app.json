@@ -33,6 +33,7 @@
   "include": [
     "src",
     ".react-router/types/**/*",
-    "labs/navigation"
+    "labs/navigation",
+    "labs/hero"
   ]
 }

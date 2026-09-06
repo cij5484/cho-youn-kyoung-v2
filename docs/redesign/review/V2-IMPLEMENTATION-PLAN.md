@@ -1,6 +1,6 @@
 # Cho Youn Kyoung Website V2 — 검토 및 구현 제안
 
-검토일: 2026-09-06 · Revision 1.15 · 상태: **P2A visual 승인·main delivery 완료 / P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN**. HOME V2.1 및 P0 routing/locale/CI 계약은 유지한다. 현재 결과·승인 경계는 [HANDOFF](../../../CODEX-HANDOFF.md)를 따른다.
+검토일: 2026-09-06 · Revision 1.19 · 상태: **P2A visual 승인·main delivery 완료 / P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN & delivered / P2C B canonical APPROVED / P2D APPROVED / delivery 후 P2E 한 단위**. HOME V2.1 및 P0 routing/locale/CI 계약은 유지한다. 현재 결과·승인 경계는 [HANDOFF](../../../CODEX-HANDOFF.md)를 따른다.
 
 현재 정본은 갱신된 MASTER의 PHASE 0–14다. React Router + Static Prerender는 사용자가 지정한 P0C 실제 Pages gate 통과로 확정했다. P0D neutral locale/hreflang 계약은 두 base에서 통과했고 실제 번역·제품 구현과 운영 SEO는 별도 gate다. 이 문서는 실제 구현 승인이 아니다.
 
@@ -40,7 +40,7 @@ V2는 조윤경의 음악을 경험하는 Digital Artist Archive이자 공식 �
 | A2 | Resolved / Covered | MASTER §37, 02 §26, 03 §40, 04 §18, 10 §11: Sou.P는 HOME Outro/Footer만, ABOUT는 별도 작은 Delight |
 | A3 | Resolved / Covered | MASTER §44, 07 §21·30: 같은 Album Detail 내부만 유지, 다른 route로 이동 시 종료. global player 금지 |
 | A4 | Contract Covered / capability NOT TESTED | 07 §26·31, 11/12/13/14: 모바일 volume 요구 유지. P0 또는 Audio spike 후 capability UX/fallback 보고, 억지 우회 금지 |
-| A5 | Open input — P2/P3 자산 승인 전 | 승인 시안/지정 사진/트레이 참조의 정확한 파일은 아직 미확인. P0A skeleton 차단 사유는 아님 |
+| A5 | Portrait identity resolved; final-scale/3D input open | P2C는 사용자 확정 portrait 3→7과 A/B/C 시안을 확보했다. 최종 high-DPR crop/mask 품질, 시각 선택, P3 tray 참조는 별도 gate로 남는다. P0A skeleton의 과거 차단 사유는 아니었음 |
 | A6 | Interpretation documented | 예술 의도는 목적, 사용성/접근성/성능은 품질 gate로 적용. 기능을 제거하는 승인으로 해석하지 않음 |
 | A7 | Resolved / calculated | 02 §3에 #6D6962 accessible muted text 추가. Canvas 4.8024:1 / Surface 5.1429:1. #77736C의 적절한 장식/큰 글자 용도 보존 |
 | R1 | APPROVED — P0C real-host gate passed | React Router Framework + static prerender + 검증된 파일 배치. 실제 Pages/CI와 root build 증명; neutral locale/hreflang는 P0D 로컬 검증 완료 |
@@ -426,7 +426,7 @@ Gate 기록 양식: 작업 ID, 기준 commit/artifact, 환경, 수행 항목, �
 
 ### PHASE 0 — Foundation
 
-현재 delivery: push/PR은 type/lint/locale/content/placement/root build 및 draft artifact 제외 Fast gate를 실행한다. Full은 두 base의 84개 route/browser, 11개 Design System Lab, 26개 canonical Bold navigation Lab 회귀를 검사하며 수동 deploy=false가 기본이다. 승인된 exact SHA/main의 deploy=true만 배포한다. P0E/P0F 당시 승인·검증 이력은 각 결과에 보존하고 현재 bundle은 P2B Freeze 결과를 따른다.
+현재 delivery: push/PR은 type/lint/locale/content/placement/root build 및 draft artifact 제외 Fast gate를 실행한다. Full은 두 base의 84개 route/browser, 11개 Design System Lab, 26개 canonical Bold navigation Lab 및 44개 Hero 회귀(Chromium/WebKit 각 22)를 검사하며 수동 deploy=false가 기본이다. 승인된 exact SHA/main의 deploy=true만 배포한다. P0E/P0F 당시 승인·검증 이력은 각 결과에 보존하고 현재 bundle은 P2D 결과를 따른다.
 
 - 입력: **각 단위의 명시적 구현 승인**. 전체 계획 승인은 다음 구현 승인과 다르다. P0A–E는 각각 승인되어 완료됐으며 P0F 문서 결과를 보고하고 멈춘다.
 - 최신 승인 이력/큐: P0A skeleton 완료 → STOP → P0B local routing spike 완료 → STOP → P0C 실제 V2 Pages/CI·routing·architecture APPROVE → STOP → P0D locale/metadata 계약 완료 → STOP → P0E CI/Full/실제 Pages 검증 완료 → STOP → P0F AGENTS/Project Knowledge Wiring canonical APPROVED. 매 화살표 사이에 명시적 승인이 필요하다.
@@ -584,4 +584,8 @@ P1C 승인 후 P1D에서 그 한 건만 private draft로 등록·검증했고 �
 공식 authored/reviewed EN과 최종 SEO, 실제 HOME/제품 composition, audio/mobile/3D, 운영 도메인 전환. P0E preview는 이 작업에서 재배포하지 않는다.
 
 **P2A visual 승인 후 7714907로 commit·main push했고 Fast CI 34004955387이 성공했다.**
-[Foundation guide](DESIGN-SYSTEM-FOUNDATION.md)가 font/token/layout/base의 구현 정본이다. 최초 P2B 결과/증거는 이력으로 보존한다. 사용자가 initial navigation을 artist name + MENU로 정정하고 세로 링크 scroll morph를 취소했다. 사용자가 **P2B Bold** 시각 결과를 승인하고 **QUALITY APPROVED FOR HERO INTEGRATION**으로 freeze했다. 현재 한 단위는 A 단일 Bold runtime 정리 → B canonical 승인/QA 문서 → C Full 검증·commit/main push·Fast CI·clean tree 확인이다. WORKS/PERFORMANCES와 image/detail motion은 정본에 문서로만 기록한다. [Navigation guide](EDITORIAL-NAVIGATION-PROTOTYPE.md)와 [Freeze 결과](../../../P2B-FREEZE-RESULT.md)를 따른다. Letter Slip X +3px / Y ±7px / 300ms / 20ms, MENU-origin diagonal Ivory reveal 500ms / close 400ms, mask trigger와 index 강조를 유지한다. Refined는 기존 Lab/evidence로만 보존하며 runtime 선택 분기는 없다. Hero 조합 근거 없이 Bold 수치를 미리 낮추지 않는다. Safari 실기기와 최종 HOME 조합 QA는 남아 있다. canonical motion·committed files·SHA·CI·남은 QA·추천 P2C 보고 후 STOP; HOME Hero, P2C, 공개 전환, content migration, 3D/Blender 또는 다음 Phase로 자동 진행하지 않는다.
+[Foundation guide](DESIGN-SYSTEM-FOUNDATION.md)가 font/token/layout/base의 구현 정본이다. 최초 P2B 결과/증거는 이력으로 보존한다. 사용자가 initial navigation을 artist name + MENU로 정정하고 세로 링크 scroll morph를 취소했다. 사용자가 **P2B Bold** 시각 결과를 승인하고 **QUALITY APPROVED FOR HERO INTEGRATION**으로 freeze했다. 직전 P2B freeze 단위는 A 단일 Bold runtime 정리 → B canonical 승인/QA 문서 → C Full 검증·commit/main push·Fast CI·clean tree 확인이다. WORKS/PERFORMANCES와 image/detail motion은 정본에 문서로만 기록한다. [Navigation guide](EDITORIAL-NAVIGATION-PROTOTYPE.md)와 [Freeze 결과](../../../P2B-FREEZE-RESULT.md)를 따른다. Letter Slip X +3px / Y ±7px / 300ms / 20ms, MENU-origin diagonal Ivory reveal 500ms / close 400ms, mask trigger와 index 강조를 유지한다. Refined는 기존 Lab/evidence로만 보존하며 runtime 선택 분기는 없다. Hero 조합 근거 없이 Bold 수치를 미리 낮추지 않는다. Safari 실기기와 최종 HOME 조합 QA는 남아 있다. canonical motion·committed files·SHA·CI·남은 QA·추천 P2C 보고 후 STOP; HOME Hero, P2C, 공개 전환, content migration, 3D/Blender 또는 다음 Phase로 자동 진행하지 않는다.
+
+사용자는 P2C 결과를 승인하고 **B — Bold Cropped**를 HOME Hero canonical visual direction으로 선택했다. A/C는 [P2C 결과](../../../P2C-RESULT.md)와 comparison evidence로만 보존한다. P2B는 `d81bdbe` main delivery / Fast CI 34015866401 SUCCESS로 유지된다.
+
+완료된 한 단위 **P2D — Bold Cropped Hero Refinement & Device QA Bundle**: A 원본 후보 감사·선택 B typography/crop/intersection/two lines 및 독립 mobile refinement → B native first-scroll/reverse·고정 Bold navigation·reduced/failure 보완 → C Full·실제 Mac Safari smoke·시각 evidence와 12-field 보고 → **STOP**. `src/hero`의 단일 B를 Lab에서만 사용하며 public HOME/다음 scene은 구현하지 않는다. 새 폴더 42장은 모두 약 1.57MP로 큰 원본을 대체하지 못했다. [Hero guide](HOME-HERO-VISUAL-PROTOTYPE.md), [P2D 결과](../../../P2D-RESULT.md)가 검증과 상태를 소유한다. 당시 **REVIEW READY**로 보고했고 사용자가 이후 승인했다. Composition **APPROVED**; Bold Cropped visual direction **APPROVED**; motion / interaction **LOCALLY VERIFIED**; portrait assets **PROVISIONAL**; final Retina quality **PENDING HIGH-RES SOURCE**. The current approximately 1024×1536 pair does not block subsequent authorized HOME work. When larger originals of attachments 3 and 7 arrive, replace their asset references and repeat Hero Retina QA. Physical-mobile and final HOME QA remain separate. P2D delivery 후 P2E 한 단위만 진행한다. 고해상도 원본·물리적 휴대폰·VoiceOver·열/성능 및 HOME 전체 entrance/조합 QA는 남는다. commit/push/deploy 또는 다음 bounded task를 자동 진행하지 않는다.

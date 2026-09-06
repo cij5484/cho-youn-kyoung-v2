@@ -17,7 +17,7 @@ export default defineConfig([
     extends: [js.configs.recommended, tseslint.configs.recommended],
   },
   {
-    files: ['src/**/*.{ts,tsx}', 'labs/navigation/**/*.{ts,tsx}'],
+    files: ['src/**/*.{ts,tsx}', 'labs/navigation/**/*.{ts,tsx}', 'labs/hero/**/*.{ts,tsx}'],
     languageOptions: { globals: globals.browser },
     extends: [
       reactHooks.configs.flat.recommended,

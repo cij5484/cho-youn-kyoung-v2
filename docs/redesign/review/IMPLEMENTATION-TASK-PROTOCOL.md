@@ -1,6 +1,6 @@
 # Implementation Task Protocol — mandatory bounded work
 
-Revision 1.13 · 2026-09-06 · P2B visually approved canonical Bold freeze and authorized delivery; enlarged bundle and terminal STOP retained.
+Revision 1.17 · 2026-09-06 · P2D approved / delivery authorized; P2E only after delivery; enlarged bundle and terminal STOP retained.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
@@ -50,7 +50,7 @@ Do not install dependencies again for every small task if the tested lockfile/en
 | Gate | Command / owner | Required work |
 |---|---|---|
 | Fast | `npm.cmd run gate:fast` | type-check → lint → locale/metadata, navigation and content unit contracts → placement contracts → root production build/prerender/placement → `test:content:visibility` and `test:design-system:artifacts` on that fresh artifact |
-| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → 84 route/browser cases over both strict static hosts → 11 development-only Design System Lab cases → 26 canonical Bold Editorial Navigation Lab cases |
+| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → 84 route/browser cases over both strict static hosts → 11 development-only Design System Lab cases → 26 canonical Bold Editorial Navigation Lab cases → 44 single-B Hero cases (22 Chromium / 22 WebKit) |
 | Live deployment | `npm.cmd run test:pages` with actual `EXPECTED_DEPLOY_SHA` | 18-route JS on/off metadata, refresh/history, variants, actual HTTP 404, artifact identity/hash/MIME/cache |
 | Workflow configuration | actionlint 1.7.12 | YAML, expressions, reusable workflow input/job wiring; Linux also checks embedded shell |
 
@@ -71,7 +71,7 @@ missing/pending checks on documentation-only PRs. A branch push plus an open PR 
 concurrency cancels superseded runs on the same event ref. No repository ruleset is silently changed.
 
 Full runs through an explicit pages.yml workflow_dispatch. It repeats Fast on that exact revision,
-then checks both static bases, all 84 route/browser cases and both Lab suites (11 foundation + 26 navigation). A failed type/lint/unit/build/placement/browser
+then checks both static bases, all 84 route/browser cases and three Lab suites (11 foundation + 26 navigation + 44 Hero). A failed type/lint/unit/build/placement/browser
 step fails the job; upload/deploy depend on that success. Full without deployment retains test evidence
 but never uploads the special Pages artifact. Only successful Full with deploy=true uploads static/.
 
@@ -330,7 +330,57 @@ P2B changes remain a local review diff. No HOME Hero/portrait/Haegeum/Selected W
 migration/EN edition, domain/deployment or P2C execution. Functional validation is distinct from visual approval.
 **REPORT → STOP → USER APPROVAL.** A proposed next bundle is not authorization.
 
-## P2B Canonical Bold Freeze & Delivery — current authorized bundle
+## P2C — HOME Hero & Bold Navigation Visual Prototype Bundle — user approved B
+
+One user-authorized objective: three Moving Editorial Poster visual candidates ready for user selection.
+A: authentic portrait audit/fit, then canonical/bold-cropped/experimental compositions with P2A typography.
+B: compare the ten user criteria, recommend without selecting for the user; dedicated mobile 390/320px,
+native depth and first-scroll response with frozen P2B. C: same-viewport A/B/C evidence, recommended candidate
+initial/pointer/scroll/menu/mobile and normal-speed video where practical; focused checks plus Full; the user's
+20 report fields; **REPORT → STOP → USER VISUAL SELECTION**. No following HOME task is automatic.
+
+Scope: isolated `labs/hero/` with local Vite/Playwright harness if source readiness passes, its source audit,
+minimal current docs and evidence. No production HOME route, Haegeum transition/scene, Sound, Works, 3D,
+Blender, content migration or deployment. Inputs: exact authentic portrait, HOME V2.1/P2A and frozen P2B.
+Rollback: clean `d81bdbe0e18310abdd6c89f90682afde9716217d`, 211 files saved with hashes to ignored
+`.checkpoints/p2c-before-d81bdbe/`; preserve earlier reports, evidence and all frozen runtime files.
+
+The first [asset checkpoint](../../../P2C-ASSET-READINESS-RESULT.md) is preserved as history. The user supplied
+seven authentic portraits and confirmed **3→7**. [Current source audit](HOME-HERO-ASSET-READINESS.md),
+[Hero guide](HOME-HERO-VISUAL-PROTOTYPE.md), [20-field result](../../../P2C-RESULT.md) and
+[evidence](../../../evidence/p2c/hero-prototype.json) own the resolved input, candidates and validation.
+At that report: **VISUAL DIRECTION CANDIDATES READY FOR USER SELECTION**. The user subsequently approved
+P2C and selected **B — Bold Cropped**. A/C remain comparison evidence only. No P2C commit/push/deploy or next HOME task. Sources and frozen P2B files remain unchanged.
+`test:hero` owns port 4177. Full includes the new Hero cases; Fast remains browser-free and never deploys.
+
+## P2D — Bold Cropped Hero Refinement & Device QA Bundle — result approved
+
+Current approval: Composition **APPROVED**; Bold Cropped visual direction **APPROVED**; motion / interaction **LOCALLY VERIFIED**; portrait assets **PROVISIONAL**; final Retina quality **PENDING HIGH-RES SOURCE**. The current approximately 1024×1536 pair does not block subsequent authorized HOME work. When larger originals of attachments 3 and 7 arrive, replace their asset references and repeat Hero Retina QA. Physical-mobile and final HOME QA remain separate. User authorizes review, logical commits, main push and exact-SHA Fast CI before P2E. Historical scope/checks below remain evidence for the reviewed implementation. The delivery checkpoint preserves 285 files under `.checkpoints/p2d-delivery-before/`; approval edits affect current owners only, with P2C/P2D reports/evidence preserved.
+
+User-authorized objective: refine selected B into a reusable single-direction Hero and verify its actual visual,
+input and device behavior. Do not reopen A/B/C selection. A: source audit and precise type/photo/motif/mobile
+refinement. B: native first-scroll/depth/reverse continuity, frozen navigation integration and failure/reduced-motion
+behavior. C: six widths, desktop/mobile/DPR evidence, actual Safari where possible, Chromium/WebKit Full regression,
+minimal canonical updates, the user's 12-field report, then **STOP → USER APPROVAL**.
+
+Scope: `src/hero` (module, CSS, native controller, math, four unchanged WebPs moved from Lab), `labs/hero`, Hero
+harness/tests, Hero artifact exclusion, CI's additional WebKit installation, current owning docs and `evidence/p2d`.
+Inputs: user-selected B, confirmed attachment 3→7, P2A and frozen P2B. The additional 42 PNGs in the user-supplied
+folder were audited as working copies; all approximately 1.57MP, no larger selected source. No substitute adopted.
+Rollback: all 250 pre-P2D working files saved with hashes under ignored `.checkpoints/p2d-before/`, based on
+`d81bdbe0e18310abdd6c89f90682afde9716217d`. Restore only this bundle's changes; preserve approved P2C and earlier evidence.
+
+Validation: type/lint, all 38 Node contracts, both production builds and 84 routes, 11 foundation, 26 frozen
+navigation and 44 Hero engine cases. P2C's duplicate A/C runtime cases retire with explicit B selection; B retains
+all six widths, depth/aperture/reverse, failure, keyboard/locale and glyph checks. New cases cover no selector,
+large-jump closed-frame continuity/idle RAF, late download, primary failure and viewport changes. WebKit on macOS
+uses native Option+Tab link traversal; assertions are not relaxed. Production artifact exclusion remains required.
+No new dependency, public HOME route, full Hero→Haegeum, following scene, content migration, 3D, Blender, domain,
+commit/push/deploy or automatic next phase. [P2D result](../../../P2D-RESULT.md) and [evidence](../../../evidence/p2d/README.md)
+separate tested environments from open high-resolution, physical-phone, accessibility and final visual QA.
+**REVIEW READY is not final Quality Approved. REPORT → STOP.**
+
+## P2B Canonical Bold Freeze & Delivery — completed delivery
 
 User visually approved P2B and selected **BOLD VERSION** as the canonical production direction:
 **QUALITY APPROVED FOR HERO INTEGRATION / FROZEN**. This approval explicitly authorizes commit, main push,
@@ -420,5 +470,4 @@ The document contracts and bounded starter task are defined; later decisions are
 This is not authorization to execute P0A, not proof of prerender suitability, and not approval to run P0A–F continuously.
 
 The above readiness was the initial planning snapshot. P0F and P1A lifecycle/delivery completed; P1B audit was
-subsequently delivered, and P1C/P1D are approved and delivered. P2A was subsequently visually approved and delivered. Current unit is P2B Canonical Bold Freeze & Delivery
-above and in [HANDOFF](../../../CODEX-HANDOFF.md). **STOP after P2B; no HOME Hero, P2C or next Phase.**
+subsequently delivered, and P1C/P1D are approved and delivered. P2A was subsequently visually approved and delivered. P2D result is now approved with provisional portraits. Deliver it, then only the expressly authorized P2E transition bundle. **P2E report → STOP → user approval.**

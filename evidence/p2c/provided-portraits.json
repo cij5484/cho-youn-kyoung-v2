@@ -1,0 +1,115 @@
+{
+  "status": "SOURCE IDENTITY RESOLVED / PROVISIONAL PROTOTYPE USE",
+  "pairUserConfirmed": [
+    3,
+    7
+  ],
+  "files": [
+    {
+      "attachment": 1,
+      "originalFile": "codex-clipboard-70e972cc-518c-4101-be8c-51399f761cd1.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 1708854,
+      "sha256": "20bb91033efa015353ebaf2ddd4d3ba34dd4d67ec24555bc5029eb36c2f847a2",
+      "role": "rear full-body; other scene candidate; not runtime"
+    },
+    {
+      "attachment": 2,
+      "originalFile": "codex-clipboard-39df76b9-4dcf-4395-a456-cc4cc84be718.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 1909587,
+      "sha256": "09188802303e152170ce017113983a57ee3af3988ccac3b91045eacbefa3e00b",
+      "role": "audited alternate; not runtime"
+    },
+    {
+      "attachment": 3,
+      "originalFile": "codex-clipboard-82cd21d2-c269-4af6-8259-9551d6a1283b.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 2285118,
+      "sha256": "a62f1f073e45e23eb8c098733eebc96e1a4c89650574bb64332e4246c525e501",
+      "role": "confirmed initial side/back"
+    },
+    {
+      "attachment": 4,
+      "originalFile": "codex-clipboard-5b5a3d5d-e3ca-49ae-bb48-1521c8e7322a.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 2190335,
+      "sha256": "33e587d3cbd27bf1b8aa308af8bfc44bcb504ce4ad2b00c634f36352ccc605e6",
+      "role": "audited alternate; not runtime"
+    },
+    {
+      "attachment": 5,
+      "originalFile": "codex-clipboard-5296d4bd-6d66-4f5c-b3ee-d5c96791d625.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2278324,
+      "sha256": "d7f3545d73993d6cc4d3b07a1e68cba8fb327ccee4dfbb45605404de3f2165b3",
+      "role": "audited alternate; not runtime"
+    },
+    {
+      "attachment": 6,
+      "originalFile": "codex-clipboard-0e78fe3f-93e4-4a5a-9ca3-45834c333a4f.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 2372760,
+      "sha256": "7e559ecc070da2ead0b120a7081c53ed02185c6e6fc77bb4aace017108d4f50f",
+      "role": "audited alternate; not runtime"
+    },
+    {
+      "attachment": 7,
+      "originalFile": "codex-clipboard-0267b539-332c-4740-9877-24ec0df9d576.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2288564,
+      "sha256": "30fbcbedea17c69720627f32cbd35231e17493553008b03f6607349033e5146c",
+      "role": "confirmed first-scroll 3/4 back with haegeum"
+    }
+  ],
+  "sourceUnmodified": true,
+  "runtimeCopies": [],
+  "masterQuality": "Clipboard PNGs, not confirmed camera masters; high-DPR final quality open",
+  "derivatives": [
+    {
+      "path": "labs/hero/assets/portrait-initial.webp",
+      "sourceAttachment": 3,
+      "width": 1023,
+      "height": 1537,
+      "bytes": 303928,
+      "sha256": "2355d43ed6fa4f30b4f2ee7b2f872e7905d0182f72ab702e84f11ed71b144c94",
+      "method": "Chromium canvas WebP quality .94; optional proportional resize; no crop, retouch or generated pixels"
+    },
+    {
+      "path": "labs/hero/assets/portrait-initial-640.webp",
+      "sourceAttachment": 3,
+      "width": 640,
+      "height": 962,
+      "bytes": 128348,
+      "sha256": "93c8052566f9278879aafa021e01488f8c9dc10b7e33b378d37b77a1e7104b81",
+      "method": "Chromium canvas WebP quality .94; optional proportional resize; no crop, retouch or generated pixels"
+    },
+    {
+      "path": "labs/hero/assets/portrait-instrument.webp",
+      "sourceAttachment": 7,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 273188,
+      "sha256": "c856ca80cdd9274e1494d3d834fb0de562ce2cdebac651391b904f6386b5552b",
+      "method": "Chromium canvas WebP quality .94; optional proportional resize; no crop, retouch or generated pixels"
+    },
+    {
+      "path": "labs/hero/assets/portrait-instrument-640.webp",
+      "sourceAttachment": 7,
+      "width": 640,
+      "height": 960,
+      "bytes": 112516,
+      "sha256": "887632ef12760cfc0edbb1aa3d73fe295e86acc8a5a5e078091d7fc303507b0b",
+      "method": "Chromium canvas WebP quality .94; optional proportional resize; no crop, retouch or generated pixels"
+    }
+  ],
+  "allSuppliedFilesUnmodified": true,
+  "resolutionLimit": "Provided clipboard PNGs are verified inputs, not claimed camera masters; large/high-DPR final use needs larger originals."
+}

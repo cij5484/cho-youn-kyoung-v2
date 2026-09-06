@@ -1,0 +1,562 @@
+{
+  "task": "P2D",
+  "date": "2026-09-06",
+  "status": "REVIEW READY / LOCALLY VERIFIED / STOP",
+  "canonicalDirection": "B — Bold Cropped, user approved in P2C",
+  "baseline": "d81bdbe0e18310abdd6c89f90682afde9716217d",
+  "checkpointFiles": 250,
+  "preservedBaselineFiles": 229,
+  "validation": {
+    "full": "PASS",
+    "typeCheck": "PASS",
+    "lint": "PASS",
+    "nodeTests": 38,
+    "routeBrowserTests": 84,
+    "foundationTests": 11,
+    "navigationTests": 26,
+    "heroTests": 44,
+    "chromiumHeroTests": 22,
+    "webkitHeroTests": 22,
+    "actionlint": "PASS",
+    "heroBuildGuard": "PASS: explicit rejection",
+    "fullLogSha256": "102cc4483507387bf422cde98b438af8e713791c48329b9d1cc03dd91d178656",
+    "links": 228,
+    "fragments": 8,
+    "handoffCheckboxes": 207,
+    "sevenProvidedOriginalsUnchanged": true,
+    "fortyTwoAuditCopiesVerified": true,
+    "dependenciesUnchanged": true,
+    "legacyWorkingTreeClean": true
+  },
+  "productionArtifacts": {
+    "root": {
+      "routes": 18,
+      "publicFiles": 284,
+      "filesIncludingBuildInfo": 285,
+      "javascriptBytes": 324591,
+      "cssBytes": 170068,
+      "payloadDelta": 0,
+      "heroAndPrivateDraftExcluded": true
+    },
+    "pages-preview": {
+      "routes": 18,
+      "publicFiles": 284,
+      "filesIncludingBuildInfo": 285,
+      "javascriptBytes": 326277,
+      "cssBytes": 174875,
+      "payloadDelta": 0,
+      "heroAndPrivateDraftExcluded": true
+    }
+  },
+  "nativeSafari": {
+    "version": "26.6.2",
+    "macOS": "26.6.2",
+    "scope": "Actual Mac native UI: initial, menu, scroll/reverse, keyboard visibility, Esc and MENU focus restore",
+    "evidence": "evidence/p2d/safari-device-qa.md",
+    "nativeScreenshots": "Emitted inline in the task; webkit PNGs are separate engine captures",
+    "physicalPhoneVerified": false
+  },
+  "performance": {
+    "scope": "Local Chromium, macOS, unthrottled Vite development server, 1440x1000, no recording during sample. Diagnostic, not production CWV or real-device approval.",
+    "idleRAF": 0,
+    "frameSamples": 241,
+    "p95FrameMs": 16.799999999999727,
+    "interactionLongTasks": 0,
+    "videoSeconds": 16.2,
+    "videoFps": 25
+  },
+  "frozenNavigationHashes": {
+    "src/navigation/EditorialNavigation.tsx": "8c163330e4aed8403c2a60bd7b1703f82ce2bcf1c44dbccab3b7f0a6143639ca",
+    "src/navigation/menu-reveal.ts": "168ac08902370628ae76611e0a3b1d7cd0c0778da994b84d19663a3d63e3c22e",
+    "src/navigation/model.ts": "0b1917cb97d8b1c2b208366d08ac8f95b5a391322399efb9e4a17ac10d2ee70c",
+    "src/navigation/navigation.css": "c495a7a097fdffea39cfeffb94f6d9da49351cbbee60ba1358e00b37f03fd271"
+  },
+  "changes": [
+    {
+      "path": ".github/workflows/quality-gates.yml",
+      "status": "modified",
+      "before": "475a9806ce3c7dbf7c398da9bbd4b2853127916a41828b090df65a631744aaaa",
+      "after": "5e3a6b1fd5ae51ec8d1653601b7e626b9de683df7bc41296acb95de9dec47ee2"
+    },
+    {
+      "path": "AGENTS.md",
+      "status": "modified",
+      "before": "18b8a348d772906d04a017f84f2f65f9c510a133ed56d5e1d55483913e4accf3",
+      "after": "4c5d94b6e0690987db823951f27d371b35abd83e80fd9ea75442af1a971346db"
+    },
+    {
+      "path": "CODEX-HANDOFF.md",
+      "status": "modified",
+      "before": "3e9d565768905ee0bd1bb8416535f56594d0c523ee16dbd85cd0bc2a4f84e56e",
+      "after": "858ac5a84078a1de8f08fbc64a87d5de0f51c7f3019690af0958b5386610f1d5"
+    },
+    {
+      "path": "README.md",
+      "status": "modified",
+      "before": "86148283ca6d27282101da1350b22bb7ffdd76df67009d963c1f94e64f5ae809",
+      "after": "3369ae8d6753eb6f26317e4c6a3183c1597a54a56b5723d58893149296035fdd"
+    },
+    {
+      "path": "docs/redesign/04-HOME.md",
+      "status": "modified",
+      "before": "d7439a20259bb4df59bad1f20e72729adfcf2c748454d9a817e7f1edf2186f5d",
+      "after": "7a5f2e0c179b5dabfbf924d5a399775f63daa0e8e0f3b678b8b035a2caaf49f8"
+    },
+    {
+      "path": "docs/redesign/review/HOME-HERO-ASSET-READINESS.md",
+      "status": "modified",
+      "before": "391f6d209b5e3fb36b95035f3b699eba268645e9926b562bc8dbb8942784ac2a",
+      "after": "5a164dcc559f692775f73a9e211cb205422bbf88963f2f1642f4bf941380c7c3"
+    },
+    {
+      "path": "docs/redesign/review/HOME-HERO-VISUAL-PROTOTYPE.md",
+      "status": "modified",
+      "before": "98dec244df3186cf8b8e42c3d12c6a32285d1bf612d952e5ee5cca91cb39d513",
+      "after": "f5e6786ae5559bfc79f96b53aa2d6e2bb4b26e3601dd031b60d0dd03f73b2a12"
+    },
+    {
+      "path": "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md",
+      "status": "modified",
+      "before": "9a23a73e4b45322175aefc11277c0d43cfb2b0035d07168f37b7e37ac1a74687",
+      "after": "dc27affe4370cabe7cd3b39a9b3a21d0c038858881160ae18df342083d680920"
+    },
+    {
+      "path": "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md",
+      "status": "modified",
+      "before": "1c11b40f4cc9375ca370dbf14585bc7259fa87375421b819e1858f4eaa0baab6",
+      "after": "844c2f603d02f914b9e155c90c03601a0881687a066fb0ed2b760fa816b139ca"
+    },
+    {
+      "path": "labs/hero/HeroLab.tsx",
+      "status": "modified",
+      "before": "2434482b761fbdc6f401e3b04e6c093c880deac88fefc1b6c2fbda8c1ae06d95",
+      "after": "eb6b3cf2d14fd4f7587a4e1f5f7ce5e3d79ef87e966654eff505df8bdfc733ab"
+    },
+    {
+      "path": "labs/hero/assets/portrait-initial-640.webp",
+      "status": "removed",
+      "before": "93c8052566f9278879aafa021e01488f8c9dc10b7e33b378d37b77a1e7104b81",
+      "after": null
+    },
+    {
+      "path": "labs/hero/assets/portrait-initial.webp",
+      "status": "removed",
+      "before": "2355d43ed6fa4f30b4f2ee7b2f872e7905d0182f72ab702e84f11ed71b144c94",
+      "after": null
+    },
+    {
+      "path": "labs/hero/assets/portrait-instrument-640.webp",
+      "status": "removed",
+      "before": "887632ef12760cfc0edbb1aa3d73fe295e86acc8a5a5e078091d7fc303507b0b",
+      "after": null
+    },
+    {
+      "path": "labs/hero/assets/portrait-instrument.webp",
+      "status": "removed",
+      "before": "c856ca80cdd9274e1494d3d834fb0de562ce2cdebac651391b904f6386b5552b",
+      "after": null
+    },
+    {
+      "path": "labs/hero/hero.css",
+      "status": "modified",
+      "before": "7951242f0331d7830fca4d06538d3b4c1756db8f2b4a223f821b87d229f3616a",
+      "after": "cb40d636aeb5e4060ee84255c4373371f3a5fcf2e51b4ad98e808aa3d1826558"
+    },
+    {
+      "path": "labs/hero/index.html",
+      "status": "modified",
+      "before": "e5ade4b391a3980c0ff1000b78eb69ba6949672cffd9c09006acdf1e8c3b4c95",
+      "after": "87875eecbb42e53ec740506c52d4741df8105b1c2132b04f7f7259994ee575cc"
+    },
+    {
+      "path": "labs/hero/usePosterMotion.ts",
+      "status": "removed",
+      "before": "ac9fce45e2658c04dfb5da94767b5b123183b670e2cce27440238852bdb83a15",
+      "after": null
+    },
+    {
+      "path": "playwright.hero.config.ts",
+      "status": "modified",
+      "before": "d145a349d946e735b96b95cbc3f77005024f7c5f333f72a493876c77a727d10a",
+      "after": "b73e9ca5b97cd031c45372c2d8fe47a8aee38d174345421c6cfbbe54e8dac157"
+    },
+    {
+      "path": "tests/assert-design-artifacts.ts",
+      "status": "modified",
+      "before": "ed21223a3335b51568f142bfdc0d30533e78ce91d08bb9dd451468d5d84e07fd",
+      "after": "d7438da9101525c93eff90e8283322f575108db92e78f43c79e9f6a21a6cbd3d"
+    },
+    {
+      "path": "tests/hero.spec.ts",
+      "status": "modified",
+      "before": "d9ef9ff7a92bb27e5c7fa5ace8d0110676ee0b70695fe2ff87f1b4bc8e454faa",
+      "after": "521e1f3566d2c46c9cbf6657b9c5fd20db9f175241526940f68115a6abba992c"
+    },
+    {
+      "path": "vite.hero.config.ts",
+      "status": "modified",
+      "before": "c2190dc157ce6d564bc90cc6ade93698cec00b399f9eaeadd4e53c7ee28b6747",
+      "after": "6ac422ab50d0715fa4082d83db8ddeb104cc2cc2a4e7623c0f0e5f8534bba1c1"
+    },
+    {
+      "path": "P2D-RESULT.md",
+      "status": "added",
+      "sha256": "6d17b72c5d2a5ae4646b8534b67123d80bee04ed9d855eb688f4c03657e1a503"
+    },
+    {
+      "path": "evidence/p2d/README.md",
+      "status": "added",
+      "sha256": "b684ed41543845db6c1ccb631282f6e88f0f782ff4daa82177fc985ed4fb250f"
+    },
+    {
+      "path": "evidence/p2d/b-1024.png",
+      "status": "added",
+      "sha256": "49984fd8e29f6de17ae89f191b37a6ed4b9ca728832982fa8b166ac2a546c82d"
+    },
+    {
+      "path": "evidence/p2d/b-1920.png",
+      "status": "added",
+      "sha256": "622ca66789d0c982b1d9fb57309a919971cc4368b17c7e6e9718b5dee90162c4"
+    },
+    {
+      "path": "evidence/p2d/b-320-text-200.png",
+      "status": "added",
+      "sha256": "2bd5d7f9b2cf6b9923eb8fc4c7e34cfb0bbe59e7d7f31e24870d4ff0071dfb24"
+    },
+    {
+      "path": "evidence/p2d/b-768.png",
+      "status": "added",
+      "sha256": "5e9c4b825ed91c74c7f778c3814cf3dab6436224abbb4d337eafdef6038d4dfd"
+    },
+    {
+      "path": "evidence/p2d/b-aperture-intermediate.png",
+      "status": "added",
+      "sha256": "ffc840c36c20fa60848ce33c13acd978d3a7aafd6ea0570efab58922d3b2e4ab"
+    },
+    {
+      "path": "evidence/p2d/b-desktop-realtime.webm",
+      "status": "added",
+      "sha256": "8b77acebdec7c0ef67c63d8181ffa4e630208d5590351f1c3773ee97a5efbfaa"
+    },
+    {
+      "path": "evidence/p2d/b-first-scroll.png",
+      "status": "added",
+      "sha256": "bf75fa53982316b26e7f3cead46adb763dc1916913492581c708825d99a748be"
+    },
+    {
+      "path": "evidence/p2d/b-menu-open.png",
+      "status": "added",
+      "sha256": "a502528cf28911b294bec23c3b3c4c99d8107e7cf9849cf80d9ab683a53c2aa2"
+    },
+    {
+      "path": "evidence/p2d/b-mobile-first-scroll.png",
+      "status": "added",
+      "sha256": "b3221cb9b521e995ea8b403cceff6883c5b0a843acc569363ec521dba73fa8f3"
+    },
+    {
+      "path": "evidence/p2d/b-mobile-menu-open.png",
+      "status": "added",
+      "sha256": "1393eccb1b20a2ecb554aca47bd2579da63d66e1a9c535a61a79b92ca7f5ec15"
+    },
+    {
+      "path": "evidence/p2d/b-pointer-depth.png",
+      "status": "added",
+      "sha256": "27d1278e3418a6bb5a3fb19e1360d2af1af278e42d439b6d1666dc8e191acbef"
+    },
+    {
+      "path": "evidence/p2d/b-reduced-motion.png",
+      "status": "added",
+      "sha256": "650ff5b6c717a1600605a844a006897400b005efe369bd0540ec04131f3fd1a3"
+    },
+    {
+      "path": "evidence/p2d/b-wide-dpr2.jpg",
+      "status": "added",
+      "sha256": "7c5f0315aef04b01ebd6509d0dea46f2d4a67e582058f1e28a90a869a2951b84"
+    },
+    {
+      "path": "evidence/p2d/desktop-b.png",
+      "status": "added",
+      "sha256": "650ff5b6c717a1600605a844a006897400b005efe369bd0540ec04131f3fd1a3"
+    },
+    {
+      "path": "evidence/p2d/folder-contact-sheet.jpg",
+      "status": "added",
+      "sha256": "d7720d06805d2cbed216040da91a0c27b042e7019756fa2000a783f079dce507"
+    },
+    {
+      "path": "evidence/p2d/folder-inventory.json",
+      "status": "added",
+      "sha256": "42ac1ac25e5d27c40a7e7cb9758dfdd8ea4e3c432467cb02bd5fbf0c42cefad2"
+    },
+    {
+      "path": "evidence/p2d/full-gate.txt",
+      "status": "added",
+      "sha256": "102cc4483507387bf422cde98b438af8e713791c48329b9d1cc03dd91d178656"
+    },
+    {
+      "path": "evidence/p2d/hero-test-results.json",
+      "status": "added",
+      "sha256": "5f2e0a510f076ae32f1f87002ebb418a923a1ee9bee38690ccd1bfa23744f426"
+    },
+    {
+      "path": "evidence/p2d/local-performance.json",
+      "status": "added",
+      "sha256": "675043ce655296e5648e49f605b9f618325cad63753d32a8d8086675e05628bb"
+    },
+    {
+      "path": "evidence/p2d/mobile-b-320.png",
+      "status": "added",
+      "sha256": "17eda7ecbcbc8a5285818f41242172371e9f565f13899d1ddc4dcd8de78edef7"
+    },
+    {
+      "path": "evidence/p2d/mobile-b-390.png",
+      "status": "added",
+      "sha256": "0597cf430af4edffe49e9e2942121bb1008697a1dd02c10d92e0b022c9d7f4ab"
+    },
+    {
+      "path": "evidence/p2d/portrait-provenance.json",
+      "status": "added",
+      "sha256": "9ff40a706b37c1ab173a20c348ac2323a017cddc62679a1cedd4c892703e0608"
+    },
+    {
+      "path": "evidence/p2d/safari-device-qa.md",
+      "status": "added",
+      "sha256": "a11e23fc60d59e4d8f9225ccd04877cecb195ddb38389017ce59f4cb14592c9d"
+    },
+    {
+      "path": "evidence/p2d/webkit-aperture-intermediate.png",
+      "status": "added",
+      "sha256": "6dce96a0910fa538856fbb8ab696f2e9913ac8a0b796b2447ab52f685e37a323"
+    },
+    {
+      "path": "evidence/p2d/webkit-b-1440-initial.png",
+      "status": "added",
+      "sha256": "29ba85a5715729a34d676b803f687d797cdfbaa5472e9ce0fbb33dbb6f01ab87"
+    },
+    {
+      "path": "evidence/p2d/webkit-b-320-initial.png",
+      "status": "added",
+      "sha256": "39ab10157f2ae7ae904422fd2850665678de055bbe68bb2185db9a1a08be5877"
+    },
+    {
+      "path": "evidence/p2d/webkit-b-390-initial.png",
+      "status": "added",
+      "sha256": "a5871ad4d2ee2e7a3adbe0d98387bfa9f2b0e81d44014d940a961644c1c72243"
+    },
+    {
+      "path": "evidence/p2d/webkit-first-scroll.png",
+      "status": "added",
+      "sha256": "49e1dc653e7e0ca43e83560a84e7c22f1a53a0ece5f47fd2a206fe6d5cc87814"
+    },
+    {
+      "path": "evidence/p2d/webkit-reduced.png",
+      "status": "added",
+      "sha256": "5fcc5933d7fc089fd8f611d160293b87686ac3b14da750416758a02b3cd78148"
+    },
+    {
+      "path": "src/hero/BoldHero.tsx",
+      "status": "added",
+      "sha256": "5bab34a140063c51d1041bc15cae288b8e63cbf3df8a12c403618698d661432c"
+    },
+    {
+      "path": "src/hero/assets/portrait-initial-640.webp",
+      "status": "added",
+      "sha256": "93c8052566f9278879aafa021e01488f8c9dc10b7e33b378d37b77a1e7104b81"
+    },
+    {
+      "path": "src/hero/assets/portrait-initial.webp",
+      "status": "added",
+      "sha256": "2355d43ed6fa4f30b4f2ee7b2f872e7905d0182f72ab702e84f11ed71b144c94"
+    },
+    {
+      "path": "src/hero/assets/portrait-instrument-640.webp",
+      "status": "added",
+      "sha256": "887632ef12760cfc0edbb1aa3d73fe295e86acc8a5a5e078091d7fc303507b0b"
+    },
+    {
+      "path": "src/hero/assets/portrait-instrument.webp",
+      "status": "added",
+      "sha256": "c856ca80cdd9274e1494d3d834fb0de562ce2cdebac651391b904f6386b5552b"
+    },
+    {
+      "path": "src/hero/hero.css",
+      "status": "added",
+      "sha256": "824616ff626045e638a57714f1a3c77796e32e90aaf13ac38e41c60d1673f860"
+    },
+    {
+      "path": "src/hero/motion.ts",
+      "status": "added",
+      "sha256": "591fab708945fd4a1387153121bd10dfaad472f1e74e6d4e1c0afbc042455edd"
+    },
+    {
+      "path": "src/hero/useHeroMotion.ts",
+      "status": "added",
+      "sha256": "4f65df5b156e2dd0c88173dc45f562a3dd05eba03bddd7d103dc899ec244eece"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/p2d/README.md",
+      "sha256": "b684ed41543845db6c1ccb631282f6e88f0f782ff4daa82177fc985ed4fb250f",
+      "bytes": 2889
+    },
+    {
+      "path": "evidence/p2d/b-1024.png",
+      "sha256": "49984fd8e29f6de17ae89f191b37a6ed4b9ca728832982fa8b166ac2a546c82d",
+      "bytes": 664314
+    },
+    {
+      "path": "evidence/p2d/b-1920.png",
+      "sha256": "622ca66789d0c982b1d9fb57309a919971cc4368b17c7e6e9718b5dee90162c4",
+      "bytes": 1223005
+    },
+    {
+      "path": "evidence/p2d/b-320-text-200.png",
+      "sha256": "2bd5d7f9b2cf6b9923eb8fc4c7e34cfb0bbe59e7d7f31e24870d4ff0071dfb24",
+      "bytes": 264573
+    },
+    {
+      "path": "evidence/p2d/b-768.png",
+      "sha256": "5e9c4b825ed91c74c7f778c3814cf3dab6436224abbb4d337eafdef6038d4dfd",
+      "bytes": 688219
+    },
+    {
+      "path": "evidence/p2d/b-aperture-intermediate.png",
+      "sha256": "ffc840c36c20fa60848ce33c13acd978d3a7aafd6ea0570efab58922d3b2e4ab",
+      "bytes": 658876
+    },
+    {
+      "path": "evidence/p2d/b-desktop-realtime.webm",
+      "sha256": "8b77acebdec7c0ef67c63d8181ffa4e630208d5590351f1c3773ee97a5efbfaa",
+      "bytes": 1920645
+    },
+    {
+      "path": "evidence/p2d/b-first-scroll.png",
+      "sha256": "bf75fa53982316b26e7f3cead46adb763dc1916913492581c708825d99a748be",
+      "bytes": 1016025
+    },
+    {
+      "path": "evidence/p2d/b-menu-open.png",
+      "sha256": "a502528cf28911b294bec23c3b3c4c99d8107e7cf9849cf80d9ab683a53c2aa2",
+      "bytes": 44187
+    },
+    {
+      "path": "evidence/p2d/b-mobile-first-scroll.png",
+      "sha256": "b3221cb9b521e995ea8b403cceff6883c5b0a843acc569363ec521dba73fa8f3",
+      "bytes": 306428
+    },
+    {
+      "path": "evidence/p2d/b-mobile-menu-open.png",
+      "sha256": "1393eccb1b20a2ecb554aca47bd2579da63d66e1a9c535a61a79b92ca7f5ec15",
+      "bytes": 24825
+    },
+    {
+      "path": "evidence/p2d/b-pointer-depth.png",
+      "sha256": "27d1278e3418a6bb5a3fb19e1360d2af1af278e42d439b6d1666dc8e191acbef",
+      "bytes": 1008607
+    },
+    {
+      "path": "evidence/p2d/b-reduced-motion.png",
+      "sha256": "650ff5b6c717a1600605a844a006897400b005efe369bd0540ec04131f3fd1a3",
+      "bytes": 1008325
+    },
+    {
+      "path": "evidence/p2d/b-wide-dpr2.jpg",
+      "sha256": "7c5f0315aef04b01ebd6509d0dea46f2d4a67e582058f1e28a90a869a2951b84",
+      "bytes": 634416
+    },
+    {
+      "path": "evidence/p2d/desktop-b.png",
+      "sha256": "650ff5b6c717a1600605a844a006897400b005efe369bd0540ec04131f3fd1a3",
+      "bytes": 1008325
+    },
+    {
+      "path": "evidence/p2d/folder-contact-sheet.jpg",
+      "sha256": "d7720d06805d2cbed216040da91a0c27b042e7019756fa2000a783f079dce507",
+      "bytes": 465468
+    },
+    {
+      "path": "evidence/p2d/folder-inventory.json",
+      "sha256": "42ac1ac25e5d27c40a7e7cb9758dfdd8ea4e3c432467cb02bd5fbf0c42cefad2",
+      "bytes": 19209
+    },
+    {
+      "path": "evidence/p2d/full-gate.txt",
+      "sha256": "102cc4483507387bf422cde98b438af8e713791c48329b9d1cc03dd91d178656",
+      "bytes": 178360
+    },
+    {
+      "path": "evidence/p2d/hero-test-results.json",
+      "sha256": "5f2e0a510f076ae32f1f87002ebb418a923a1ee9bee38690ccd1bfa23744f426",
+      "bytes": 49971
+    },
+    {
+      "path": "evidence/p2d/local-performance.json",
+      "sha256": "675043ce655296e5648e49f605b9f618325cad63753d32a8d8086675e05628bb",
+      "bytes": 6055
+    },
+    {
+      "path": "evidence/p2d/mobile-b-320.png",
+      "sha256": "17eda7ecbcbc8a5285818f41242172371e9f565f13899d1ddc4dcd8de78edef7",
+      "bytes": 166743
+    },
+    {
+      "path": "evidence/p2d/mobile-b-390.png",
+      "sha256": "0597cf430af4edffe49e9e2942121bb1008697a1dd02c10d92e0b022c9d7f4ab",
+      "bytes": 317380
+    },
+    {
+      "path": "evidence/p2d/portrait-provenance.json",
+      "sha256": "9ff40a706b37c1ab173a20c348ac2323a017cddc62679a1cedd4c892703e0608",
+      "bytes": 1620
+    },
+    {
+      "path": "evidence/p2d/safari-device-qa.md",
+      "sha256": "a11e23fc60d59e4d8f9225ccd04877cecb195ddb38389017ce59f4cb14592c9d",
+      "bytes": 2463
+    },
+    {
+      "path": "evidence/p2d/webkit-aperture-intermediate.png",
+      "sha256": "6dce96a0910fa538856fbb8ab696f2e9913ac8a0b796b2447ab52f685e37a323",
+      "bytes": 736376
+    },
+    {
+      "path": "evidence/p2d/webkit-b-1440-initial.png",
+      "sha256": "29ba85a5715729a34d676b803f687d797cdfbaa5472e9ce0fbb33dbb6f01ab87",
+      "bytes": 1303490
+    },
+    {
+      "path": "evidence/p2d/webkit-b-320-initial.png",
+      "sha256": "39ab10157f2ae7ae904422fd2850665678de055bbe68bb2185db9a1a08be5877",
+      "bytes": 204082
+    },
+    {
+      "path": "evidence/p2d/webkit-b-390-initial.png",
+      "sha256": "a5871ad4d2ee2e7a3adbe0d98387bfa9f2b0e81d44014d940a961644c1c72243",
+      "bytes": 365084
+    },
+    {
+      "path": "evidence/p2d/webkit-first-scroll.png",
+      "sha256": "49e1dc653e7e0ca43e83560a84e7c22f1a53a0ece5f47fd2a206fe6d5cc87814",
+      "bytes": 1301682
+    },
+    {
+      "path": "evidence/p2d/webkit-reduced.png",
+      "sha256": "5fcc5933d7fc089fd8f611d160293b87686ac3b14da750416758a02b3cd78148",
+      "bytes": 696768
+    }
+  ],
+  "delivery": {
+    "commit": "NOT PERFORMED",
+    "push": "NOT PERFORMED",
+    "remoteCI": "NOT RUN FOR P2D",
+    "deploy": "NOT PERFORMED",
+    "workingTree": "Uncommitted P2C/P2D review diff"
+  },
+  "openGates": [
+    "User P2D visual/freeze approval",
+    "Larger originals of confirmed attachments 3 and 7 for wide/Retina source QA",
+    "Physical mobile Safari/Android/VoiceOver and sustained device performance",
+    "Broader HOME entrance/final composition, separately bounded; no next scene started"
+  ]
+}

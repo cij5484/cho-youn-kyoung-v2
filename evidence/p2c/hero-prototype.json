@@ -1,0 +1,375 @@
+{
+  "status": "VISUAL DIRECTION CANDIDATES READY FOR USER SELECTION / STOP",
+  "date": "2026-09-06",
+  "baseline": "d81bdbe0e18310abdd6c89f90682afde9716217d",
+  "selection": "PENDING USER",
+  "recommendation": [
+    "B",
+    "C",
+    "A"
+  ],
+  "pair": [
+    3,
+    7
+  ],
+  "scope": "P2C development-only Hero; no next scene, content migration or production HOME",
+  "validation": {
+    "full": "PASS",
+    "typeCheck": "PASS",
+    "lint": "PASS",
+    "nodeTests": 38,
+    "routingTests": 84,
+    "foundationTests": 11,
+    "frozenNavigationTests": 26,
+    "heroTests": 33,
+    "actionlint": "PASS",
+    "heroStandaloneBuild": "Rejected by explicit development-only guard",
+    "fullLogSha256": "4fc5b5549d93397833723b7ab6ccd5858a71278cfaffa549d1f7f174e862a520",
+    "docLinks": 176,
+    "docAnchors": 8,
+    "originalHashesVerified": 7,
+    "preservedBaselineFiles": 202,
+    "handoffCheckboxesPreserved": 207,
+    "numberedSectionsPreserved": true,
+    "diffCheck": "PASS",
+    "workingTree": "review diff, not clean",
+    "commitPushRemoteCIDeploy": "NOT PERFORMED FOR P2C"
+  },
+  "frozenNavigationSourceHashes": {
+    "src/navigation/EditorialNavigation.tsx": "8c163330e4aed8403c2a60bd7b1703f82ce2bcf1c44dbccab3b7f0a6143639ca",
+    "src/navigation/menu-reveal.ts": "168ac08902370628ae76611e0a3b1d7cd0c0778da994b84d19663a3d63e3c22e",
+    "src/navigation/model.ts": "0b1917cb97d8b1c2b208366d08ac8f95b5a391322399efb9e4a17ac10d2ee70c",
+    "src/navigation/navigation.css": "c495a7a097fdffea39cfeffb94f6d9da49351cbbee60ba1358e00b37f03fd271"
+  },
+  "productionArtifacts": {
+    "root": {
+      "routes": 18,
+      "filesIncludingBuildInfo": 285,
+      "publicFiles": 284,
+      "javascriptBytes": 324591,
+      "cssBytes": 170068,
+      "heroAndDraftExclusion": "PASS: raw client/static marker and route tests"
+    },
+    "pages-preview": {
+      "routes": 18,
+      "filesIncludingBuildInfo": 285,
+      "publicFiles": 284,
+      "javascriptBytes": 326277,
+      "cssBytes": 174875,
+      "heroAndDraftExclusion": "PASS: raw client/static marker and route tests"
+    }
+  },
+  "localPerformance": {
+    "scope": "Local Chromium, macOS, unthrottled Vite development server, 1440x1000, no recording during sample. Diagnostic, not production CWV or real-device approval.",
+    "idleRAF": 0,
+    "frameSamples": 240,
+    "p95FrameMs": 16.799999999999727,
+    "longTasks": 0,
+    "recordingFps": 25
+  },
+  "evidence": [
+    {
+      "path": "evidence/p2c/b-1024.png",
+      "sha256": "8194b0621d0a116f5e435220d5bfbe23a23656463494051ae9ff6da20233c4a3",
+      "bytes": 665847
+    },
+    {
+      "path": "evidence/p2c/b-1920.png",
+      "sha256": "18b7f2e6e2af8bad33e750b9de59e56c910ace74353c2ea11ffcc3a6b40d9145",
+      "bytes": 1249783
+    },
+    {
+      "path": "evidence/p2c/b-320-text-200.png",
+      "sha256": "6ce7abaafcba72856a6586f9544614f234c12655486d7961e0eb148068385f07",
+      "bytes": 358344
+    },
+    {
+      "path": "evidence/p2c/b-768.png",
+      "sha256": "832cb9c95b5bfca0f7ee572b97d1e9def6581de8b08260f4fa2383a0cd80b87e",
+      "bytes": 686515
+    },
+    {
+      "path": "evidence/p2c/b-aperture-intermediate.png",
+      "sha256": "5e7feeddb44629965cca42dda5c9ecc7d29fc3d8a6b9a4ab464e3b74eb4aabec",
+      "bytes": 731650
+    },
+    {
+      "path": "evidence/p2c/b-desktop-realtime.webm",
+      "sha256": "026a0b570ec581ea234fcf9df9dc3fe6c6ea3e032b979e0696fee60e21c46fef",
+      "bytes": 1671338
+    },
+    {
+      "path": "evidence/p2c/b-first-scroll.png",
+      "sha256": "cc691164649347b5a0d1f4157dbb2420a1b5320c67daf5bccad7ea63dc049c7e",
+      "bytes": 1034061
+    },
+    {
+      "path": "evidence/p2c/b-menu-open.png",
+      "sha256": "7a3da00e5dc79f2c495e7c15e5fbe7ec8555bcf85e420e19a212af8fc01ed3ca",
+      "bytes": 44219
+    },
+    {
+      "path": "evidence/p2c/b-mobile-first-scroll.png",
+      "sha256": "0a8d7a51a5d468133fcf2b94cafd095a41472624b34c7ae3b1371c8bf90350f0",
+      "bytes": 308952
+    },
+    {
+      "path": "evidence/p2c/b-mobile-menu-open.png",
+      "sha256": "1393eccb1b20a2ecb554aca47bd2579da63d66e1a9c535a61a79b92ca7f5ec15",
+      "bytes": 24825
+    },
+    {
+      "path": "evidence/p2c/b-pointer-depth.png",
+      "sha256": "bf0f13760792eddc178a1601ae45285437b3492d411eeca08343123a8d2441c4",
+      "bytes": 1020714
+    },
+    {
+      "path": "evidence/p2c/desktop-a.png",
+      "sha256": "d4ed5770a6e93d21ee33a85a0f82f1da6e39556fb2ad0676b420cf7c10d048fe",
+      "bytes": 767453
+    },
+    {
+      "path": "evidence/p2c/desktop-b.png",
+      "sha256": "5ddebe40fcf593d5e615bba9268459c8b320e359dba9065cfca3b4e6ffde4cca",
+      "bytes": 1023983
+    },
+    {
+      "path": "evidence/p2c/desktop-c.png",
+      "sha256": "7296868d3de85bbefcc62eb30cdd474a382502851f07a387da9e4281f9831501",
+      "bytes": 699841
+    },
+    {
+      "path": "evidence/p2c/mobile-a-390.png",
+      "sha256": "beebe56ccf14bd2530e14ef83d729ecc02d0eb113bed6588dc47bc8393a1323b",
+      "bytes": 263184
+    },
+    {
+      "path": "evidence/p2c/mobile-b-320.png",
+      "sha256": "8caab54770ca20524bd4a69026deb133a7db81af2713064a965db44b9109c1d6",
+      "bytes": 167148
+    },
+    {
+      "path": "evidence/p2c/mobile-b-390.png",
+      "sha256": "5a8768023154e0738bf67d2a0f67c8c69f962b40a6418c6f049f1aab7b268d82",
+      "bytes": 318217
+    },
+    {
+      "path": "evidence/p2c/mobile-c-390.png",
+      "sha256": "2bad7e4bbf2087c024f4c520a48854e424ae68216c833e80218f8c47cd0ac7b4",
+      "bytes": 260641
+    },
+    {
+      "path": "evidence/p2c/portrait-contact-sheet.png",
+      "sha256": "9dd33a0aa10323c4dfa5bbdbecfc27c775ecf7888b4fe634dfd63e79c1db6242",
+      "bytes": 1454101
+    }
+  ],
+  "files": [
+    {
+      "path": ".github/workflows/quality-gates.yml",
+      "sha256": "475a9806ce3c7dbf7c398da9bbd4b2853127916a41828b090df65a631744aaaa"
+    },
+    {
+      "path": "CODEX-HANDOFF.md",
+      "sha256": "3e9d565768905ee0bd1bb8416535f56594d0c523ee16dbd85cd0bc2a4f84e56e"
+    },
+    {
+      "path": "P2C-ASSET-READINESS-RESULT.md",
+      "sha256": "a1c20f487944ee3d2c8a43712956cf60129dc3eee367773dac787d713a9abb19"
+    },
+    {
+      "path": "P2C-RESULT.md",
+      "sha256": "d00fc184543a173fb0cd9a83aca4f5c343b53aca9d83263f7455a9fd6644c8de"
+    },
+    {
+      "path": "README.md",
+      "sha256": "86148283ca6d27282101da1350b22bb7ffdd76df67009d963c1f94e64f5ae809"
+    },
+    {
+      "path": "docs/redesign/04-HOME.md",
+      "sha256": "d7439a20259bb4df59bad1f20e72729adfcf2c748454d9a817e7f1edf2186f5d"
+    },
+    {
+      "path": "docs/redesign/review/HOME-HERO-ASSET-READINESS.md",
+      "sha256": "391f6d209b5e3fb36b95035f3b699eba268645e9926b562bc8dbb8942784ac2a"
+    },
+    {
+      "path": "docs/redesign/review/HOME-HERO-VISUAL-PROTOTYPE.md",
+      "sha256": "98dec244df3186cf8b8e42c3d12c6a32285d1bf612d952e5ee5cca91cb39d513"
+    },
+    {
+      "path": "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md",
+      "sha256": "9a23a73e4b45322175aefc11277c0d43cfb2b0035d07168f37b7e37ac1a74687"
+    },
+    {
+      "path": "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md",
+      "sha256": "1c11b40f4cc9375ca370dbf14585bc7259fa87375421b819e1858f4eaa0baab6"
+    },
+    {
+      "path": "eslint.config.js",
+      "sha256": "eee39d3d7b0a1977bbc0a704d7dfef1a258ed2a4f08340979187cdfb0a1affb8"
+    },
+    {
+      "path": "evidence/p2c/b-1024.png",
+      "sha256": "8194b0621d0a116f5e435220d5bfbe23a23656463494051ae9ff6da20233c4a3"
+    },
+    {
+      "path": "evidence/p2c/b-1920.png",
+      "sha256": "18b7f2e6e2af8bad33e750b9de59e56c910ace74353c2ea11ffcc3a6b40d9145"
+    },
+    {
+      "path": "evidence/p2c/b-320-text-200.png",
+      "sha256": "6ce7abaafcba72856a6586f9544614f234c12655486d7961e0eb148068385f07"
+    },
+    {
+      "path": "evidence/p2c/b-768.png",
+      "sha256": "832cb9c95b5bfca0f7ee572b97d1e9def6581de8b08260f4fa2383a0cd80b87e"
+    },
+    {
+      "path": "evidence/p2c/b-aperture-intermediate.png",
+      "sha256": "5e7feeddb44629965cca42dda5c9ecc7d29fc3d8a6b9a4ab464e3b74eb4aabec"
+    },
+    {
+      "path": "evidence/p2c/b-desktop-realtime.webm",
+      "sha256": "026a0b570ec581ea234fcf9df9dc3fe6c6ea3e032b979e0696fee60e21c46fef"
+    },
+    {
+      "path": "evidence/p2c/b-first-scroll.png",
+      "sha256": "cc691164649347b5a0d1f4157dbb2420a1b5320c67daf5bccad7ea63dc049c7e"
+    },
+    {
+      "path": "evidence/p2c/b-menu-open.png",
+      "sha256": "7a3da00e5dc79f2c495e7c15e5fbe7ec8555bcf85e420e19a212af8fc01ed3ca"
+    },
+    {
+      "path": "evidence/p2c/b-mobile-first-scroll.png",
+      "sha256": "0a8d7a51a5d468133fcf2b94cafd095a41472624b34c7ae3b1371c8bf90350f0"
+    },
+    {
+      "path": "evidence/p2c/b-mobile-menu-open.png",
+      "sha256": "1393eccb1b20a2ecb554aca47bd2579da63d66e1a9c535a61a79b92ca7f5ec15"
+    },
+    {
+      "path": "evidence/p2c/b-pointer-depth.png",
+      "sha256": "bf0f13760792eddc178a1601ae45285437b3492d411eeca08343123a8d2441c4"
+    },
+    {
+      "path": "evidence/p2c/desktop-a.png",
+      "sha256": "d4ed5770a6e93d21ee33a85a0f82f1da6e39556fb2ad0676b420cf7c10d048fe"
+    },
+    {
+      "path": "evidence/p2c/desktop-b.png",
+      "sha256": "5ddebe40fcf593d5e615bba9268459c8b320e359dba9065cfca3b4e6ffde4cca"
+    },
+    {
+      "path": "evidence/p2c/desktop-c.png",
+      "sha256": "7296868d3de85bbefcc62eb30cdd474a382502851f07a387da9e4281f9831501"
+    },
+    {
+      "path": "evidence/p2c/local-performance.json",
+      "sha256": "02ff5024d4310f65742d94d6edf39c317d0a56edba03ebe3167a37bd0e5cacd7"
+    },
+    {
+      "path": "evidence/p2c/mobile-a-390.png",
+      "sha256": "beebe56ccf14bd2530e14ef83d729ecc02d0eb113bed6588dc47bc8393a1323b"
+    },
+    {
+      "path": "evidence/p2c/mobile-b-320.png",
+      "sha256": "8caab54770ca20524bd4a69026deb133a7db81af2713064a965db44b9109c1d6"
+    },
+    {
+      "path": "evidence/p2c/mobile-b-390.png",
+      "sha256": "5a8768023154e0738bf67d2a0f67c8c69f962b40a6418c6f049f1aab7b268d82"
+    },
+    {
+      "path": "evidence/p2c/mobile-c-390.png",
+      "sha256": "2bad7e4bbf2087c024f4c520a48854e424ae68216c833e80218f8c47cd0ac7b4"
+    },
+    {
+      "path": "evidence/p2c/portrait-contact-sheet.png",
+      "sha256": "9dd33a0aa10323c4dfa5bbdbecfc27c775ecf7888b4fe634dfd63e79c1db6242"
+    },
+    {
+      "path": "evidence/p2c/portrait-inventory.json",
+      "sha256": "012026e4054bfdd937fb1ebbc08618f8c27e3130a345b6ab67159c65a5ff7cb3"
+    },
+    {
+      "path": "evidence/p2c/provided-portraits.json",
+      "sha256": "37ac032a7db9a464798a692fda267e28be575ee41745c2f792a53c71a7b52a5c"
+    },
+    {
+      "path": "labs/hero/HeroLab.tsx",
+      "sha256": "2434482b761fbdc6f401e3b04e6c093c880deac88fefc1b6c2fbda8c1ae06d95"
+    },
+    {
+      "path": "labs/hero/assets/portrait-initial-640.webp",
+      "sha256": "93c8052566f9278879aafa021e01488f8c9dc10b7e33b378d37b77a1e7104b81"
+    },
+    {
+      "path": "labs/hero/assets/portrait-initial.webp",
+      "sha256": "2355d43ed6fa4f30b4f2ee7b2f872e7905d0182f72ab702e84f11ed71b144c94"
+    },
+    {
+      "path": "labs/hero/assets/portrait-instrument-640.webp",
+      "sha256": "887632ef12760cfc0edbb1aa3d73fe295e86acc8a5a5e078091d7fc303507b0b"
+    },
+    {
+      "path": "labs/hero/assets/portrait-instrument.webp",
+      "sha256": "c856ca80cdd9274e1494d3d834fb0de562ce2cdebac651391b904f6386b5552b"
+    },
+    {
+      "path": "labs/hero/hero.css",
+      "sha256": "7951242f0331d7830fca4d06538d3b4c1756db8f2b4a223f821b87d229f3616a"
+    },
+    {
+      "path": "labs/hero/index.html",
+      "sha256": "e5ade4b391a3980c0ff1000b78eb69ba6949672cffd9c09006acdf1e8c3b4c95"
+    },
+    {
+      "path": "labs/hero/main.tsx",
+      "sha256": "7af490dbe87a097335e7787bdca71f5a0ca5d9dcdafdcc046e657b27c1ec4e76"
+    },
+    {
+      "path": "labs/hero/usePosterMotion.ts",
+      "sha256": "ac9fce45e2658c04dfb5da94767b5b123183b670e2cce27440238852bdb83a15"
+    },
+    {
+      "path": "package.json",
+      "sha256": "01d89a2906c738e61d648185f033fbd7718a3480e90326e821ea618a8d1caa79"
+    },
+    {
+      "path": "playwright.hero.config.ts",
+      "sha256": "d145a349d946e735b96b95cbc3f77005024f7c5f333f72a493876c77a727d10a"
+    },
+    {
+      "path": "tests/assert-design-artifacts.ts",
+      "sha256": "ed21223a3335b51568f142bfdc0d30533e78ce91d08bb9dd451468d5d84e07fd"
+    },
+    {
+      "path": "tests/hero.spec.ts",
+      "sha256": "d9ef9ff7a92bb27e5c7fa5ace8d0110676ee0b70695fe2ff87f1b4bc8e454faa"
+    },
+    {
+      "path": "tests/routing-spike.spec.ts",
+      "sha256": "50696519c27896ff4a4687b98b3ff5fce518d3e456c35d57ad3e7a9c1b27ae19"
+    },
+    {
+      "path": "tsconfig.app.json",
+      "sha256": "beb342c9569fb6d816bd5d56f5e1f19edbb23011ac8defa990b4ae88c6182671"
+    },
+    {
+      "path": "tsconfig.node.json",
+      "sha256": "135b071092d684495438a74a28abbf342e84b91d7a4e12bec29ea7063d1bad1f"
+    },
+    {
+      "path": "vite.hero.config.ts",
+      "sha256": "c2190dc157ce6d564bc90cc6ade93698cec00b399f9eaeadd4e53c7ee28b6747"
+    }
+  ],
+  "remainingQA": [
+    "User visual selection",
+    "Larger authentic sources for final wide/high-DPR review",
+    "Safari and physical mobile QA",
+    "Final selected Hero crop/contrast/entrance and future transition"
+  ]
+}

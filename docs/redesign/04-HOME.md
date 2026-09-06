@@ -97,13 +97,13 @@ Approved:
 - Oversized `CHO / YOUN / KYOUNG`
 - Three-line English display typography
 - Asymmetric large portrait
-- Portrait is composed around the right 58–62% visual zone on desktop; this is an optical composition guide, not a rigid two-column width. Cropping beyond the viewport is allowed.
+- User-selected P2C **B — Bold Cropped** supersedes the earlier A 58–62% optical guide: a central/right photograph begins around 26.5% in the refined desktop composition and fills the edge. Preserve the strong crop; breakpoint geometry belongs to the selected Hero guide.
 - Intentional empty grid columns
 - Artist name + MENU trigger integrated into the Hero composition; final scroll behavior reviewed with the Hero
 - Two extremely thin structural lines
 - Controlled depth and subtle parallax
 
-**MOVING EDITORIAL POSTER** is the canonical Hero direction. The first viewport must work as an independent art poster/editorial artwork, not merely a large headline next to a portrait. The three-line CHO / YOUN / KYOUNG name is graphic structure: allow roughly 55–65% of viewport height for the overall name composition, tuned by breakpoint and actual type metrics. This height guide is distinct from the portrait’s right-side visual zone.
+**MOVING EDITORIAL POSTER** is the canonical Hero direction. The first viewport must work as an independent art poster/editorial artwork, not merely a large headline next to a portrait. The three-line CHO / YOUN / KYOUNG name is graphic structure: B uses a larger three-row graphic field, with size constrained by both width and stable viewport height and precision measured from actual glyphs. The former 55–65% name-height guide is a historical A reference, not a requirement to shrink approved B.
 
 ## Navigation
 
@@ -114,12 +114,11 @@ User correction, 2026-09-06:
 - menu links appear within the opened editorial panel; P2B Bold trigger/panel/item motion is QUALITY APPROVED FOR HERO INTEGRATION / FROZEN; Refined is archived Lab/evidence only. Preserve canonical Bold tuning until actual Hero composition review; Safari real-device and final HOME QA remain open
 - do not add a replacement navigation morph before actual Hero composition
 
-P2C will judge any small continuous spacing/scale/surface change of these same two header elements with the real Hero.
-That future judgment is not authorization to implement HOME/P2C in the refinement. Keep navigation readable and discoverable.
+P2C selected B; P2D keeps these same two elements with a transparent surface and Ink trigger, preserving frozen Bold motion. Actual Mac Safari smoke QA is recorded in the P2D result; physical mobile and final HOME QA remain open. No separate header morph is introduced.
 
 ## Portrait Sequence
 
-Start with a side/back or partial-face close-up. The approved candidate family is the existing purple hanbok portrait set, especially side/back close-ups. The exact file and final desktop/mobile crops are not yet selected or quality-approved.
+Start with a side/back or partial-face close-up. The approved candidate family is the existing purple hanbok portrait set, especially side/back close-ups. The user confirmed attachment 3→7 and selected B. Final high-resolution source and refinement quality approval remain separate.
 
 The face should not be immediately presented as a full frontal identity shot.
 
@@ -134,12 +133,12 @@ The reveal must be intuitive and scroll-driven.
 Typography and portrait may cross in depth.
 
 Approved:
-- only 1–2 precise front/back crossings
+- the original A used 1–2 precise crossings; approved B instead uses one consistent photographic boundary across its three-line type field
 - some letters may appear behind the subject, others in front
 
 Do not repeatedly switch z-depth across every line.
 
-The mask must respect face, silhouette, clothing, and portrait crop. At most 1–2 very precise intersections should define the composition; avoid the impression of text simply pasted on top of a photograph.
+B uses identical type geometry on both sides of one photographic aperture, not arbitrary per-letter depth switches or a claimed silhouette cutout. Respect face, clothing and crop; retain the approved three-line field while keeping the aperture boundary exact.
 
 If the layering is not precise enough, simplify rather than accepting a mediocre mask.
 
@@ -189,7 +188,11 @@ Use lighter scroll-based depth only. Recompose the same three-line name with a m
 
 ## Asset Requirements
 
-The purple hanbok side/back set is sufficient as a planning candidate, not proof of final-scale quality. No source resolution/crop or masking inspection was performed in this documentation revision.
+The user supplied seven authentic purple-hanbok PNGs and explicitly confirmed attachment **3 → 7** for the initial and first-scroll portraits. Native dimensions are 1023×1537 and 1024×1536; these support the P2C comparison but do not establish final large/high-DPR quality.
+
+P2C, 2026-09-06: **B — Bold Cropped is APPROVED AS THE CANONICAL HOME HERO VISUAL DIRECTION**. A/C remain [comparison evidence](../../P2C-RESULT.md), not runtime choices. [Hero guide](review/HOME-HERO-VISUAL-PROTOTYPE.md), [source audit](review/HOME-HERO-ASSET-READINESS.md) and [P2D result](../../P2D-RESULT.md) own the selected refinement. P2B remains frozen. `src/hero` is reusable source mounted only by the development Lab; production HOME remains unimplemented. The further 42-file folder contains no higher-resolution replacement. P2D result is now user approved. Composition **APPROVED**; Bold Cropped visual direction **APPROVED**; motion / interaction **LOCALLY VERIFIED**; portrait assets **PROVISIONAL**; final Retina quality **PENDING HIGH-RES SOURCE**. The current approximately 1024×1536 pair does not block subsequent authorized HOME work. When larger originals of attachments 3 and 7 arrive, replace their asset references and repeat Hero Retina QA. Physical-mobile and final HOME QA remain separate. Delivery is authorized before the separately bounded P2E transition prototype; no subsequent scene is authorized.
+
+The Lab uses a photographic aperture with matching type clipping, without claiming a transparent silhouette mask. The photographic aperture closes then reopens to the instrument portrait under direct, reversible scroll; the selected B alone runs that handover; A/C survive as historical evidence. P2D adds settled native scroll and a guaranteed closed crossing frame for rapid forward/reverse input. Input-driven motion is tested; the canonical short entrance remains a later selected-direction refinement. No full Hero→Haegeum scene is implemented.
 
 Before final implementation, verify:
 - source resolution

@@ -31,6 +31,8 @@
     "playwright.design-system.config.ts",
     "tests/**/*.ts",
     "vite.navigation.config.ts",
-    "playwright.navigation.config.ts"
+    "playwright.navigation.config.ts",
+    "vite.hero.config.ts",
+    "playwright.hero.config.ts"
   ]
 }

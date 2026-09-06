@@ -1,0 +1,45 @@
+{
+  "pairUserConfirmed": [
+    3,
+    7
+  ],
+  "sourceStatus": "Provided PNG derivatives, camera originals not verified",
+  "derivatives": [
+    {
+      "path": "src/hero/assets/portrait-initial.webp",
+      "sourceAttachment": 3,
+      "width": 1023,
+      "height": 1537,
+      "bytes": 303928,
+      "sha256": "2355d43ed6fa4f30b4f2ee7b2f872e7905d0182f72ab702e84f11ed71b144c94",
+      "method": "Chromium canvas WebP quality .94; optional proportional resize; no crop, retouch or generated pixels"
+    },
+    {
+      "path": "src/hero/assets/portrait-initial-640.webp",
+      "sourceAttachment": 3,
+      "width": 640,
+      "height": 962,
+      "bytes": 128348,
+      "sha256": "93c8052566f9278879aafa021e01488f8c9dc10b7e33b378d37b77a1e7104b81",
+      "method": "Chromium canvas WebP quality .94; optional proportional resize; no crop, retouch or generated pixels"
+    },
+    {
+      "path": "src/hero/assets/portrait-instrument.webp",
+      "sourceAttachment": 7,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 273188,
+      "sha256": "c856ca80cdd9274e1494d3d834fb0de562ce2cdebac651391b904f6386b5552b",
+      "method": "Chromium canvas WebP quality .94; optional proportional resize; no crop, retouch or generated pixels"
+    },
+    {
+      "path": "src/hero/assets/portrait-instrument-640.webp",
+      "sourceAttachment": 7,
+      "width": 640,
+      "height": 960,
+      "bytes": 112516,
+      "sha256": "887632ef12760cfc0edbb1aa3d73fe295e86acc8a5a5e078091d7fc303507b0b",
+      "method": "Chromium canvas WebP quality .94; optional proportional resize; no crop, retouch or generated pixels"
+    }
+  ]
+}

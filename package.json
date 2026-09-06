@@ -26,12 +26,14 @@
     "test:pages": "playwright test --config playwright.pages.config.ts",
     "check": "npm run type-check && npm run lint && npm run build",
     "gate:fast": "npm run type-check && npm run lint && npm run test:locale && npm run test:navigation:contract && npm run test:content && npm run test:placement && npm run build && npm run test:content:visibility && npm run test:design-system:artifacts",
-    "gate:full": "npm run gate:fast && npm run build:pages-preview && npm run test:spike && npm run test:design-system && npm run test:navigation",
+    "gate:full": "npm run gate:fast && npm run build:pages-preview && npm run test:spike && npm run test:design-system && npm run test:navigation && npm run test:hero",
     "test:content": "node --test tests/content-contract.test.ts tests/draft-content.test.ts",
     "test:content:visibility": "node --test tests/content-visibility.test.ts",
     "dev:navigation": "vite --config vite.navigation.config.ts",
     "test:navigation": "playwright test --config playwright.navigation.config.ts",
-    "test:navigation:contract": "node --test tests/navigation-model.test.ts"
+    "test:navigation:contract": "node --test tests/navigation-model.test.ts",
+    "dev:hero": "vite --config vite.hero.config.ts",
+    "test:hero": "playwright test --config playwright.hero.config.ts"
   },
   "dependencies": {
     "@fontsource-variable/cormorant-garamond": "5.3.0",

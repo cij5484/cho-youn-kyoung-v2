@@ -1,0 +1,352 @@
+{
+  "task": "P2C asset readiness only; full prototype pending",
+  "recordedAt": "2026-09-06T06:37:07.063Z",
+  "status": "ASSET INPUT REQUIRED / NOT VISUAL DIRECTION CANDIDATES READY",
+  "v2PortraitAssetsFound": 0,
+  "sourceRepository": "cij5484/cho-youn-kyoung",
+  "sourceRevision": "d9adba12a58e0c97f51d140d129c02f13855989a",
+  "sourceTreeClean": true,
+  "sourceEvidence": [
+    "docs/ASSET-SPECIFICATIONS.md (user-provided 08–34 WebP files)",
+    "src/data/profile.ts (artist gallery identities/captions)"
+  ],
+  "files": [
+    {
+      "path": "public/assets/artist/profile/portrait.jpg",
+      "bytes": 2320048,
+      "sha256": "0a83b329f6ee07cb52cefe54057c6a047ad797099adf179ac0a8a0e6e3d99fdf",
+      "width": 1800,
+      "height": 2700,
+      "assessment": "Authentic frontal identity portrait; narrative belongs to later clear-face reveal, not selected for this Hero."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-01.jpg",
+      "bytes": 210397,
+      "sha256": "b44f5d8b351cf46637d57c804489a1c898439e097a28e453212e152dd42d17ed",
+      "width": 1067,
+      "height": 1600,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-02.jpg",
+      "bytes": 238427,
+      "sha256": "3e9bdd6729adffa0c526b6dff49a0101b829d74a8c004c5cd07594d03010304c",
+      "width": 1066,
+      "height": 1600,
+      "assessment": "Authentic black-outfit close side profile; 1066x1600 lower-resolution JPG, face prominent."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-03.jpg",
+      "bytes": 138820,
+      "sha256": "ee7a1ef00a46dd6a94b20b4244dc578aa4e5ca83ef399027dada9b621171d510",
+      "width": 1067,
+      "height": 1600,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-04.jpg",
+      "bytes": 175777,
+      "sha256": "471f1e66f9e7f394532c830d8b4f44b284311975e3906b1648caf82c8abcd9eb",
+      "width": 1066,
+      "height": 1600,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-05.jpg",
+      "bytes": 194642,
+      "sha256": "398825d32d9332329c7ce1f8b3ba6ef43e77080eea57820742abbf984a4fe904",
+      "width": 1066,
+      "height": 1600,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-06.jpg",
+      "bytes": 134626,
+      "sha256": "cdeda631fb88819677e853bbbdfff169dc6752c5e64f0bdb57ae7d51a236f57d",
+      "width": 1067,
+      "height": 1600,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-07.jpg",
+      "bytes": 165282,
+      "sha256": "f6c1291f46563e72165f4b23229bbd87ddc17d5f260e5292e08874bcde9a2e32",
+      "width": 1066,
+      "height": 1600,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-08.webp",
+      "bytes": 71212,
+      "sha256": "1ad64b82ecb7e7833e31245ee85056cbb6a091912a94a0388640cc201e4b53c8",
+      "width": 1600,
+      "height": 2400,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-09.webp",
+      "bytes": 127384,
+      "sha256": "8b6eee4bb74c904e593b08818a1067aa05864a535c59b8404df28a863656eb3d",
+      "width": 1600,
+      "height": 2400,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-10.webp",
+      "bytes": 102412,
+      "sha256": "34ce077b9642ee46c671fc5e01465bde915f342ccb00999ae13f794f744561b2",
+      "width": 1600,
+      "height": 2400,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-11.webp",
+      "bytes": 61084,
+      "sha256": "9314a1498c6379db8d003dfb0c827917d4fdf7164ffebd60d0a909d24a8343e2",
+      "width": 1600,
+      "height": 2400,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-12.webp",
+      "bytes": 56392,
+      "sha256": "bd72090d70f1c2ccf3c7f0f0d4d9081b06497b69bb0ad2ee5f13023ab7d7c09a",
+      "width": 1600,
+      "height": 2400,
+      "assessment": "Authentic black outfit, side-facing with visible face and instrument. Not the specified purple family."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-13.webp",
+      "bytes": 159236,
+      "sha256": "30a9bef5e51e53b13f60c4f5e009fd10d4062f142a7006eb67ceb6121d07492f",
+      "width": 1618,
+      "height": 2400,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-14.webp",
+      "bytes": 88652,
+      "sha256": "9a24ccde83b1e229dcb2b4483f9ec26149e9ba341dc68773404346209b2eca3b",
+      "width": 1569,
+      "height": 2400,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-15.webp",
+      "bytes": 220982,
+      "sha256": "15017ae42af6f6a9a4589c4d00887b3d2213ca58c7bc8b891853abf43e3e4545",
+      "width": 1600,
+      "height": 2400,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-16.webp",
+      "bytes": 252550,
+      "sha256": "5e5fede91e324b150f142200eb5aeaedfa2766399ae859dac740aa95977641c3",
+      "width": 1600,
+      "height": 2400,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-17.webp",
+      "bytes": 265384,
+      "sha256": "8d30c08923e8aa9ad0c9d4cad2ac8bb6e9dc2e89dfdb052a970f78758cc6f74b",
+      "width": 1600,
+      "height": 2400,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-18.webp",
+      "bytes": 186438,
+      "sha256": "cf2ce69c4b767b2179510d229aaa21686f63028a943cc9b4441c488baf0a6c92",
+      "width": 1600,
+      "height": 2400,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-19.webp",
+      "bytes": 115536,
+      "sha256": "bd350fbcd0ec15d095accadbf11c4b3116a1d69af58ddb0e71ea4f43b1d8a282",
+      "width": 1600,
+      "height": 2400,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-20.webp",
+      "bytes": 336244,
+      "sha256": "0f6f12281b9e29e85d9863e7c4bc9798396fad0cdc759447ffc69ecd5236f6e7",
+      "width": 1600,
+      "height": 2400,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-21.webp",
+      "bytes": 115404,
+      "sha256": "e99785070101d441fac685dd8433824a567edc7a8fa0e2c2c311e2319dec3495",
+      "width": 1600,
+      "height": 2400,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-22.webp",
+      "bytes": 127442,
+      "sha256": "300194baae36698303f7941950a38ad73f8c1e6e6da31e085d3cf2f79a551916",
+      "width": 1600,
+      "height": 2400,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-23.webp",
+      "bytes": 74822,
+      "sha256": "f41cafcbcafa67a584f5869cd7ee8e33e1e702453ccd71bd00ca24bfe7b931f5",
+      "width": 2400,
+      "height": 1600,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-24.webp",
+      "bytes": 84978,
+      "sha256": "d2694c1ad7239c9c3bdf685e1fde8f8b622967a0e0892432452ee38f5494aacc",
+      "width": 1600,
+      "height": 2400,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-25.webp",
+      "bytes": 178148,
+      "sha256": "465aff79506e017abaf1d8b715ed356436c6a61ace92bd2dfb6fd1dd423651b1",
+      "width": 2400,
+      "height": 1600,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-26.webp",
+      "bytes": 271088,
+      "sha256": "12b7b2997a358501db852aa321f106ca7bb57506569da00d037e2629b76b7f46",
+      "width": 1600,
+      "height": 2400,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-27.webp",
+      "bytes": 132086,
+      "sha256": "1ebf5ebde55c75045214db3019e85d152a67d5a6e1d7d46ab096e9756ae7c8a9",
+      "width": 1600,
+      "height": 2400,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-28.webp",
+      "bytes": 55930,
+      "sha256": "2cbf0335f6bff4b9ef82c7c3b30b6148dbb53ba0c6793b00c2929bf767247a8d",
+      "width": 2400,
+      "height": 1600,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-29.webp",
+      "bytes": 131414,
+      "sha256": "2e5ccfcb3c8bc13bacf7171d51ea765cd4f766fe81c41d7c62101056cc55fe5c",
+      "width": 2400,
+      "height": 1600,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-30.webp",
+      "bytes": 199326,
+      "sha256": "bae46a8489583dc875dddcc93f819915502992edb1755bed3078826831c6d39e",
+      "width": 2400,
+      "height": 1600,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-31.webp",
+      "bytes": 321636,
+      "sha256": "affc824404464c742808cf380c4b0a142aa98d3e2d6fc2728d2190e39440c049",
+      "width": 1591,
+      "height": 2400,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-32.webp",
+      "bytes": 242834,
+      "sha256": "549a8abd0328f04cd1a6ea7bce4723ca8379fa2a35c2d20c0190c5141a0eb88e",
+      "width": 2400,
+      "height": 1600,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-33.webp",
+      "bytes": 142110,
+      "sha256": "a03d1666bde2fa93a6ca75d759805b3f01e8b19243800297bbdf9bfd0797c079",
+      "width": 1600,
+      "height": 2400,
+      "assessment": "Inspected in contact sheet; not selected as the missing purple side/back source."
+    },
+    {
+      "path": "public/assets/artist/gallery/profile-gallery-34.webp",
+      "bytes": 391548,
+      "sha256": "89456710a3fa4e1a60a8fc567ce545a72f66dd0be8a6c981b6dc586b0c77f09c",
+      "width": 1600,
+      "height": 2400,
+      "assessment": "Authentic red jacket / violet skirt, side/three-quarter face. 1600x2400 non-alpha derivative; no confirmed link to the requested purple side/back set."
+    }
+  ],
+  "exactRequestedPurpleOriginal": "Not identified in accessible V2 or local legacy sources. Do not infer equivalence from violet skirt or filename.",
+  "sourceAssetsCopiedToRuntime": false,
+  "syntheticOrReplacementPersonCreated": false,
+  "contactSheet": {
+    "path": "evidence/p2c/portrait-contact-sheet.png",
+    "kind": "Browser screenshot of source-image inventory; not a Hero candidate, no portrait edits",
+    "sha256": "9dd33a0aa10323c4dfa5bbdbecfc27c775ecf7888b4fe634dfd63e79c1db6242"
+  },
+  "request": {
+    "requiredNow": "Exact purple-hanbok side/back or partial-face source file/path; existing suitable authenticated variant identification also resolves source ambiguity",
+    "resolution": "Native original preferred; target ~2400–3200px long edge for 900–1100px tall desktop crops at DPR2, reassess using actual subject crop; 3200px is not a blanket minimum",
+    "cropRoom": "Uncropped head/hair/shoulders/sleeves and both side margins; mobile crop from the same original where feasible",
+    "mask": "Original unflattened/layered or existing clean alpha mask optional; inspect hair/clothing edge at display size first"
+  },
+  "implementation": {
+    "hero": false,
+    "navigationChanged": false,
+    "productionRoutesChanged": false,
+    "dependenciesChanged": false
+  },
+  "next": "Resume the same P2C A/B/C bundle after source identification; no next HOME phase.",
+  "verification": {
+    "status": "PASS",
+    "baseline": "d81bdbe0e18310abdd6c89f90682afde9716217d",
+    "unchangedBaselineFiles": 207,
+    "sourceImagesDecoded": 35,
+    "sourceHashesVerified": 35,
+    "legacyWorkingTreeClean": true,
+    "frozenNavigationSourceHashes": {
+      "src/navigation/EditorialNavigation.tsx": "8c163330e4aed8403c2a60bd7b1703f82ce2bcf1c44dbccab3b7f0a6143639ca",
+      "src/navigation/menu-reveal.ts": "168ac08902370628ae76611e0a3b1d7cd0c0778da994b84d19663a3d63e3c22e",
+      "src/navigation/model.ts": "0b1917cb97d8b1c2b208366d08ac8f95b5a391322399efb9e4a17ac10d2ee70c",
+      "src/navigation/navigation.css": "c495a7a097fdffea39cfeffb94f6d9da49351cbbee60ba1358e00b37f03fd271"
+    },
+    "docLinksChecked": 113,
+    "docAnchorsChecked": 5,
+    "handoffCheckboxesPreserved": 207,
+    "numberedSectionsPreserved": true,
+    "diffCheck": "PASS",
+    "typeLintBuild": "NOT RERUN: only documentation and audit evidence changed",
+    "modifiedDocs": [
+      "CODEX-HANDOFF.md",
+      "docs/redesign/04-HOME.md",
+      "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md",
+      "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md"
+    ],
+    "scopeFiles": [
+      "CODEX-HANDOFF.md",
+      "docs/redesign/04-HOME.md",
+      "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md",
+      "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md",
+      "P2C-ASSET-READINESS-RESULT.md",
+      "docs/redesign/review/HOME-HERO-ASSET-READINESS.md",
+      "evidence/p2c/portrait-contact-sheet.png",
+      "evidence/p2c/portrait-inventory.json"
+    ]
+  }
+}

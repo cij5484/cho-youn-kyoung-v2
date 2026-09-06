@@ -1,0 +1,8 @@
+@import '../../src/styles/foundation.css';
+@import '../../src/navigation/navigation.css';
+@import '../../src/hero/hero.css';
+
+.hero-review { padding-block: var(--space-9); background: var(--color-surface); position: relative; }
+.hero-review h2 { font-family: var(--font-display); font-size: var(--display-l); font-weight: 400; line-height: 1; margin-block: var(--space-5) var(--space-7); overflow-wrap: anywhere; }
+.hero-review p + p { margin-top: var(--space-3); }
+.lab-destination { min-block-size: 80svh; padding-block: var(--space-10); }

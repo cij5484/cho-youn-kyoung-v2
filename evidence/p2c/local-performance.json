@@ -1,0 +1,187 @@
+{
+  "idleRequestedAnimationFrames": 0,
+  "frameSamples": 240,
+  "medianFrameMs": 16.699999999999818,
+  "p95FrameMs": 16.799999999999727,
+  "maxFrameMs": 33.40000000000009,
+  "interactionLongTasks": [],
+  "resources": [
+    {
+      "url": "/hero.css",
+      "bytes": 230330,
+      "duration": 3.9000000059604645
+    },
+    {
+      "url": "/@vite/client",
+      "bytes": 204757,
+      "duration": 3.2999999970197678
+    },
+    {
+      "url": "/main.tsx",
+      "bytes": 2269,
+      "duration": 3.800000011920929
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/config/build.ts",
+      "bytes": 2028,
+      "duration": 12.199999988079071
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/node_modules/.vite/deps/react-router.js",
+      "bytes": 1581541,
+      "duration": 15.399999991059303
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/node_modules/.vite/deps/react-dom_client.js",
+      "bytes": 2868042,
+      "duration": 17.5
+    },
+    {
+      "url": "/HeroLab.tsx",
+      "bytes": 26182,
+      "duration": 13.5
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/node_modules/vite/dist/client/env.mjs",
+      "bytes": 3478,
+      "duration": 14.599999994039536
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/node_modules/.vite/deps/react_jsx-dev-runtime.js",
+      "bytes": 34797,
+      "duration": 14.700000002980232
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/src/navigation/EditorialNavigation.tsx",
+      "bytes": 25921,
+      "duration": 1.8999999910593033
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/src/spike/fixtures.ts",
+      "bytes": 6533,
+      "duration": 2
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/node_modules/.vite/deps/react.js",
+      "bytes": 130129,
+      "duration": 2
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/src/routing/locale-contract.ts",
+      "bytes": 11779,
+      "duration": 2.0999999940395355
+    },
+    {
+      "url": "/usePosterMotion.ts",
+      "bytes": 12273,
+      "duration": 4.200000002980232
+    },
+    {
+      "url": "/assets/portrait-initial.webp",
+      "bytes": 393,
+      "duration": 4.100000008940697
+    },
+    {
+      "url": "/assets/portrait-instrument.webp",
+      "bytes": 404,
+      "duration": 4.299999997019768
+    },
+    {
+      "url": "/assets/portrait-initial-640.webp",
+      "bytes": 421,
+      "duration": 4.600000008940697
+    },
+    {
+      "url": "/assets/portrait-instrument-640.webp",
+      "bytes": 432,
+      "duration": 4.700000002980232
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/node_modules/.vite/deps/rolldown-runtime-BPOCksWG.js",
+      "bytes": 6419,
+      "duration": 2.5
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/src/navigation/model.ts",
+      "bytes": 3503,
+      "duration": 1.8999999910593033
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/src/spike/paths.ts",
+      "bytes": 2827,
+      "duration": 2.0999999940395355
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/src/navigation/menu-reveal.ts",
+      "bytes": 15554,
+      "duration": 2.199999988079071
+    },
+    {
+      "url": "/assets/portrait-initial.webp",
+      "bytes": 303928,
+      "duration": 1.5
+    },
+    {
+      "url": "/assets/portrait-instrument.webp",
+      "bytes": 273188,
+      "duration": 1.4000000059604645
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-117-wght-normal.woff2",
+      "bytes": 14460,
+      "duration": 11.200000002980232
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-latin-wght-normal.woff2",
+      "bytes": 26004,
+      "duration": 11.300000011920929
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/cormorant-garamond/files/cormorant-garamond-latin-wght-normal.woff2",
+      "bytes": 37640,
+      "duration": 11.200000002980232
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-114-wght-normal.woff2",
+      "bytes": 16212,
+      "duration": 6.4000000059604645
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-118-wght-normal.woff2",
+      "bytes": 14664,
+      "duration": 6.4000000059604645
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-98-wght-normal.woff2",
+      "bytes": 12180,
+      "duration": 4.399999991059303
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-110-wght-normal.woff2",
+      "bytes": 17608,
+      "duration": 4.600000008940697
+    },
+    {
+      "url": "/@fs/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-119-wght-normal.woff2",
+      "bytes": 16676,
+      "duration": 4.700000002980232
+    }
+  ],
+  "images": [
+    {
+      "source": "/assets/portrait-initial.webp",
+      "width": 1152,
+      "height": 1730,
+      "displayWidth": 1040,
+      "displayHeight": 1000
+    },
+    {
+      "source": "/assets/portrait-instrument.webp",
+      "width": 1152,
+      "height": 1728,
+      "displayWidth": 1040,
+      "displayHeight": 1000
+    }
+  ],
+  "scope": "Local Chromium, macOS, unthrottled Vite development server, 1440x1000, no recording during sample. Diagnostic, not production CWV or real-device approval."
+}

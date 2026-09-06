@@ -1,0 +1,384 @@
+{
+  "readMethod": "Finder copy to ignored workspace audit folder; original files untouched",
+  "count": 42,
+  "files": [
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (1)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (1)_2차보정.png",
+      "name": "조윤경님 (1)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 1869700,
+      "sha256": "5383ae3349b07d3a94485cbf014e729d5726d23dd179539578e33503d0e849cc"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (2)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (2)_2차보정.png",
+      "name": "조윤경님 (2)_2차보정.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2064160,
+      "sha256": "6a31b1514ba1a5908ad3639d7c0834b00e30e121153dc3ff06b27735c0dea6c4"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (3)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (3)_2차보정.png",
+      "name": "조윤경님 (3)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 1789121,
+      "sha256": "d8ce6837070680086b83d3fb36f2cdacfa47d952f47187d1da8e3c137a321b6a"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (4)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (4)_2차보정.png",
+      "name": "조윤경님 (4)_2차보정.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1958314,
+      "sha256": "9b002916ff31c743101c41a298f71b2283705724e0593ff25f94659c0edeee5f"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (5)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (5)_2차보정.png",
+      "name": "조윤경님 (5)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 1772847,
+      "sha256": "b93bb05cc847c3d3f6cbdd77d56396a574727186fd5f80ad53d1e24629bb228c"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (6)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (6)_2차보정.png",
+      "name": "조윤경님 (6)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 1809038,
+      "sha256": "8ef730bb3c6e777dc4ab6fed73d5e71b5fca18959f4600efefb5945f7addb43b"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (7)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (7)_2차보정.png",
+      "name": "조윤경님 (7)_2차보정.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1927535,
+      "sha256": "72fcacb053d16569043bed944f7826d74b5e1c6512ef07e3b646f68c04cdfed8"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (8)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (8)_2차보정.png",
+      "name": "조윤경님 (8)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 1834897,
+      "sha256": "5e354bffa72113fc9e357d2609d3971536604d6d78ad2eec95ea72ae2dabb472"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (9)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (9)_2차보정.png",
+      "name": "조윤경님 (9)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 1808054,
+      "sha256": "7cbd02a7951160df75a6aafe8c10873b8a6cf8fc9d1a7d8d3f3360911479dfbf"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (10)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (10)_2차보정.png",
+      "name": "조윤경님 (10)_2차보정.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2193636,
+      "sha256": "10fb6c7e1e4559068264c94c0bcec70583be737aaef837eb8137d565c6d46da9"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (11)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (11)_2차보정.png",
+      "name": "조윤경님 (11)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 2006884,
+      "sha256": "d4cb20a0ccf5a5ca7241342da0a5c51155632b5537f9bb3d1161d9b845841a29"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (12)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (12)_2차보정.png",
+      "name": "조윤경님 (12)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 2019053,
+      "sha256": "e1ee1d138843fe580f96d276505bd5ee828b8b3e50ebd24b6f7dbab77fdb15ee"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (13)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (13)_2차보정.png",
+      "name": "조윤경님 (13)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 2109886,
+      "sha256": "fe4212680d21533ebd247f0b6aab1d71d504ed882d9c0019752423d0aa031e42"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (14)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (14)_2차보정.png",
+      "name": "조윤경님 (14)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 2074078,
+      "sha256": "f5cbc6dcbb5840065e1555242651f1ac36263752a8cd4237172c592086484c06"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (15)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (15)_2차보정.png",
+      "name": "조윤경님 (15)_2차보정.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2133100,
+      "sha256": "ef31f5512ace815ad83fcb2463283cd90e458833e6c564254f0314398da5d247"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (16)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (16)_2차보정.png",
+      "name": "조윤경님 (16)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 2061823,
+      "sha256": "309bd348b8c680b8dde80187d99d92be2b0406a2d1add9fa90a20ab6af7421b7"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (17)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (17)_2차보정.png",
+      "name": "조윤경님 (17)_2차보정.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2176945,
+      "sha256": "70a771f9b99daf436f1dbba2277e447740e8825c76ab0567912323113fefe975"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (18)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (18)_2차보정.png",
+      "name": "조윤경님 (18)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 1956065,
+      "sha256": "b41aee3f58fb948a97de38e0b211ce5e83cb0437a3268987a20b255239c5e36e"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (20)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (20)_2차보정.png",
+      "name": "조윤경님 (20)_2차보정.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2103736,
+      "sha256": "513c5990eb5dd655a4d1982d32b19ec21e0b1b7824260a9c09fee07f428f28e2"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (23)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (23)_2차보정.png",
+      "name": "조윤경님 (23)_2차보정.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2382022,
+      "sha256": "9f61b80d85428cf78f88e6709c1ef0aa435d1753f511880146a2012a55db0956"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (24)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (24)_2차보정.png",
+      "name": "조윤경님 (24)_2차보정.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2430000,
+      "sha256": "0987bcbfef9ecdd4c232a8f97153c3295a16a544d51814eedb61dc504b7ca689"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (25)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (25)_2차보정.png",
+      "name": "조윤경님 (25)_2차보정.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2206466,
+      "sha256": "26aee1519e11be730d90ea338f74205a49eadea10370eb11fc1fefe2dd78e893"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (27)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (27)_2차보정.png",
+      "name": "조윤경님 (27)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 1756743,
+      "sha256": "7ed7a0929aad0987c0a0604d955e1ea2083653ff116eade382957524fe22ef3c"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (28)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (28)_2차보정.png",
+      "name": "조윤경님 (28)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 1720773,
+      "sha256": "a6e11094c1d94f08af14aee48254b045e6e98ca5a16fa1df6af4f0b1f9d849ee"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (29)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (29)_2차보정.png",
+      "name": "조윤경님 (29)_2차보정.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2373753,
+      "sha256": "9ac234906b7fcd96b86995fb1c38e85a97024fc9ee36ddf992de026e870c06f8"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (30)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (30)_2차보정.png",
+      "name": "조윤경님 (30)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 2125232,
+      "sha256": "8b156113a45efaf919d4fe5b29cc28d8ce19c5368ae37aa4997c3344b8a6663d"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (31)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (31)_2차보정.png",
+      "name": "조윤경님 (31)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 2131353,
+      "sha256": "c828e686bda2969c58de0b0f29149514a58ccf9e6f9ab675c8977d78845e6501"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (32)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (32)_2차보정.png",
+      "name": "조윤경님 (32)_2차보정.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2320621,
+      "sha256": "d75cc0a076c304e04bf1aaf9167b674396490f701bcc37900c56141e2c8266d0"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (33)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (33)_2차보정.png",
+      "name": "조윤경님 (33)_2차보정.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2234608,
+      "sha256": "8f88c6047c9fab3a7f0c649ee1a2acfb22eb926e9047a905a39a4ed5f693047c"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (34)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (34)_2차보정.png",
+      "name": "조윤경님 (34)_2차보정.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2281598,
+      "sha256": "6e6d968042fb117d8fb456881bc023bbef4f8f918178476b40370aa884f9b2e6"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (35)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (35)_2차보정.png",
+      "name": "조윤경님 (35)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 1901771,
+      "sha256": "e4c9c8b87925d12688952719f3c41f423ba332df1df96efdefc7e4a4754a2f6e"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (36)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (36)_2차보정.png",
+      "name": "조윤경님 (36)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 1886348,
+      "sha256": "cb238367163a5626c7487e92c3c0cc21c04cb67871698aeb304a49caaa0edd20"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (37)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (37)_2차보정.png",
+      "name": "조윤경님 (37)_2차보정.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2400207,
+      "sha256": "d1c716ed357b5ddc255292fa24348f7dcac6ed38f3318089ab5d133d31954ad9"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (38)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (38)_2차보정.png",
+      "name": "조윤경님 (38)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 1969614,
+      "sha256": "67dd8fd14819d6a05a7015654c47ab01f30279f56c323ed92ba0192b1a12a0eb"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (39)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (39)_2차보정.png",
+      "name": "조윤경님 (39)_2차보정.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2147085,
+      "sha256": "abc243af9bba9c8ad58a8ed55a7c34f86d240a3b3810d5a6c640a2c9eaa18316"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (40)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (40)_2차보정.png",
+      "name": "조윤경님 (40)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 2169802,
+      "sha256": "e0c8913d56a3884070b36fc9e52343aac9dc1f78c715e263422004a2e0a1743d"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (41)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (41)_2차보정.png",
+      "name": "조윤경님 (41)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 2158641,
+      "sha256": "df756cdc71780b0d5eb4bdb20a8856e13eb244482f19e7e1669c1d91cd25cd3a"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (42)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (42)_2차보정.png",
+      "name": "조윤경님 (42)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 2009292,
+      "sha256": "4a9c9552ba8f88a8338923f800a30ab6fbff4150dd69c8a7ab180067173b94fc"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (45)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (45)_2차보정.png",
+      "name": "조윤경님 (45)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 2140067,
+      "sha256": "40164af9179da0eaafa665e6cf346a0e43aa33f1aa0700f0c3c5e2ec4fc7274d"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (47)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (47)_2차보정.png",
+      "name": "조윤경님 (47)_2차보정.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2692316,
+      "sha256": "9c79573e6f94cdad838d25d6129fae8392bdada2c6460e3f0db6176f0bec2fad"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (48)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (48)_2차보정.png",
+      "name": "조윤경님 (48)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 1825316,
+      "sha256": "8dee515c338171afa5480d02b3985b73e3ddec05b4b1cb847d756a45e5699f61"
+    },
+    {
+      "path": ".checkpoints/p2d-before/source-audit/조윤경님 (49)_2차보정.png",
+      "sourcePath": "/Users/joon/Downloads/gpt 보정/조윤경님 (49)_2차보정.png",
+      "name": "조윤경님 (49)_2차보정.png",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 1822408,
+      "sha256": "b39d8233b0845e70b87bd921e15e94e68fa0445ee52662cb63ff86ee9ef53afd"
+    }
+  ]
+}

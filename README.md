@@ -129,7 +129,7 @@ React Router가 제공하며 커스텀 renderer를 만들지 않았습니다.
 - [P0C 실제 Pages 결과](P0C-RESULT.md), [최종 architecture 결정](docs/redesign/review/ROUTING-ARCHITECTURE-DECISION.md)
 - [P0B 결과와 architecture 비교 — 당시 조건부 판정 기록](P0B-RESULT.md)
 - [P0C 실제 Pages 검증 체크리스트 — 실행 결과 반영](P0C-VERIFICATION-CHECKLIST.md)
-- [P0B checkpoint](P0B-CHECKPOINT.json), 이전 코드: .checkpoints/p0b-before/
+- P0B checkpoint/이전 코드: 로컬 전용 `P0B-CHECKPOINT.json` / `.checkpoints/p0b-before/` (새 clone에 포함되지 않음). 공유 이력은 위 P0B 결과를 참조합니다.
 - [P0A 결과 — 과거 기록 보존](P0A-RESULT.md)
 - [작업 분할·STOP 규칙](docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md)
 - [기획 MASTER](docs/redesign/00-MASTER-PLAN.md), [기존 HANDOFF](CODEX-HANDOFF.md)
@@ -184,6 +184,30 @@ npm run test:navigation
 
 초기 화면은 artist name + MENU입니다. 초기 세로 링크/scroll morph는 사용자 정정으로 취소했습니다.
 Canonical Bold만 실행합니다: Letter Slip X +3px / Y ±7px / 300ms / 20ms stagger, MENU-origin diagonal Ivory reveal 500ms, reverse close 400ms, MENU/CLOSE mask, selected underline 없이 index 강조. Hover만으로 열지 않습니다. Refined는 기존 Lab/evidence의 PNG·영상·보고서로만 보존하고 선택 버튼·prop·query 분기는 제거했습니다. KO/EN semantic counterpart와 reduced-motion 계약을 유지합니다.
-기존 foundation Lab은 4175입니다. Full 검증 전에 수동 4175/4176 서버를 종료하세요. 테스트는 자체 서버를 실행합니다.
-두 Lab 모두 production route/prerender/metadata에 등록되지 않으며 별도 Vite build를 거부합니다.
-Full은 38 Node + 84 route + 11 foundation + 26 canonical Bold navigation cases를 포함합니다. 사용자가 commit/main push/Fast CI 확인을 승인했으며 최종 delivery 보고와 해당 SHA의 GitHub run이 push/CI 결과를 기록합니다. 배포는 이 작업의 범위가 아닙니다. Safari 실기기·최종 HOME 조합 QA는 남아 있으며 P2C는 별도 승인 후 진행합니다.
+기존 foundation Lab은 4175입니다. Full 검증 전에 수동 4175/4176/4177 서버를 종료하세요. 테스트는 자체 서버를 실행합니다.
+세 Lab 모두 production route/prerender/metadata에 등록되지 않으며 별도 Vite build를 거부합니다.
+Full은 38 Node + 84 route + 11 foundation + 26 canonical Bold navigation + 44 Hero cases (Chromium 22 + WebKit 22)를 포함합니다. 사용자가 commit/main push/Fast CI 확인을 승인했으며 최종 delivery 보고와 해당 SHA의 GitHub run이 push/CI 결과를 기록합니다. 배포는 이 작업의 범위가 아닙니다. P2C에서 B를 선택했고 P2D에서 아래 단일 Hero를 다듬었습니다. 실제 Mac Safari smoke와 물리적 휴대폰 QA는 구분해 보고합니다.
+
+
+## HOME Hero / 단일 Bold Cropped Lab
+
+[P2C 비교 이력](P2C-RESULT.md), [P2D 결과](P2D-RESULT.md), [Hero guide](docs/redesign/review/HOME-HERO-VISUAL-PROTOTYPE.md),
+[자산 감사](docs/redesign/review/HOME-HERO-ASSET-READINESS.md)를 따릅니다.
+
+```sh
+npm run dev:hero
+# http://127.0.0.1:4177/ 또는 /en/
+npm run test:hero
+# 브라우저가 없을 때 한 번: npx playwright install chromium webkit
+```
+
+**P2D APPROVED**. Composition **APPROVED**; Bold Cropped visual direction **APPROVED**; motion / interaction **LOCALLY VERIFIED**; portrait assets **PROVISIONAL**; final Retina quality **PENDING HIGH-RES SOURCE**.
+The current approximately 1024×1536 pair does not block subsequent authorized HOME work. When larger originals of attachments 3 and 7 arrive, replace their asset references and repeat Hero Retina QA. Physical-mobile and final HOME QA remain separate.
+`src/hero`의 단일 B를 개발 Lab에서만 사용합니다. A/C는 원래 screenshot/video/result evidence로 보존하며
+query·prop·UI 선택 분기가 없습니다. 이전 `?study=a/c` URL도 B를 표시합니다. 사진은 승인된 첨부 3→7과
+동일한 WebP 4개입니다. 추가 폴더 42장은 모두 약 1.57MP이며 큰 원본 대체물은 없었습니다.
+
+Full은 Chromium/WebKit 각 22 Hero case를 포함합니다. Safari Mac smoke와 실제 휴대폰 검증은 별개입니다.
+수동 서버를 종료해야 테스트가 자체 4177 서버를 시작합니다. localhost-only / noindex / 별도 build 금지.
+public HOME, 번역 콘텐츠, 다음 scene, content migration, 3D, commit/push/deploy는 이번에 수행하지 않습니다.
+최종 시각 승인·큰 원본·물리적 휴대폰 QA를 남기고 **STOP**합니다.
