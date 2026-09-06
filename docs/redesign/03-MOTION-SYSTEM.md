@@ -1,10 +1,10 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 03 — MOTION SYSTEM
 
-**Version:** 1.7\
-**Status:** Approved Motion Baseline  
+**Version:** 1.9\
+**Status:** Approved Motion Baseline / P2B canonical Bold frozen for Hero integration; future directions remain documentation only\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`  
-**Motion Direction:** Quiet Motion / Physical Response
+**Motion Direction:** Meaningful Motion / Physical Response
 
 ---
 
@@ -20,7 +20,16 @@ It should create:
 - musical rhythm
 - spatial understanding
 
-**Quiet Motion / Physical Response**
+**Meaningful Motion / Physical Response**
+
+**BOLD, CURATED, PURPOSEFUL** is the current art/motion criterion. The primary visual ambition is a memorable
+first-visit “wow, this site is beautifully made” response. Important movement should have character; animation
+quantity is not a quality measure. Use expressive/contemporary motion while protecting input, mobile and accessibility.
+
+2026-09-06 user clarification: do not use meaningless animation. This is not a directive to use as little
+animation as possible. Clear scene meaning, navigation, spatial transitions and object relationships justify
+bold, contemporary and experimental motion. Do not make V2 timid by default; each movement needs a precise
+visual or interaction role. Quiet zones remain intentional contrasts within that larger rhythm.
 
 The site should not constantly animate by itself.
 It should feel alive and physical when the user scrolls, points, drags, swipes, opens, or rotates.
@@ -40,6 +49,16 @@ It should feel alive and physical when the user scrolls, points, drags, swipes, 
 ---
 
 # 3. EXPERIENCE VS READING ZONES
+
+Signature-moment candidates, preserved for their separately authorized owner tasks:
+1. HOME Hero
+2. Hero → Haegeum
+3. WORKS cluster → expanded archive transformation
+4. Album 3D physical interaction
+5. Work / Album / Performance → Detail shared transition
+
+Do not settle for generic fade or simple slide as their default visual direction. These are quality ambitions,
+not permission to implement those pages/3D in P2B. Reduced-motion functional alternatives remain mandatory.
 
 ## EXPERIENCE ZONES
 Stronger motion allowed:
@@ -188,10 +207,19 @@ Text:
 - subtle stagger
 - typical translate `20–40px`
 
-Image:
-- clip/mask
-- slight scale correction
-- subtle opacity
+Image — small canonical vocabulary, selected by asset and narrative role:
+
+| Vocabulary | Role / candidate fit |
+|---|---|
+| Mask Reveal | Open a structural aperture for artwork, poster or photography |
+| Crop Expand | Preserve a focal point as an editorial crop opens into a larger composition |
+| Depth Enter | Establish a foreground/background relationship with controlled depth |
+| Lateral Reveal | Connect adjacent positions in an index or editorial sequence |
+| Shared Object Transition | Carry the same work visual into its destination, retaining position/size/crop continuity |
+
+Do not assign an arbitrary new animation to every image or use the same fade-up everywhere. Preserve asset
+meaning, focus and static/reduced-motion alternatives. These 2026-09-06 directions are planning only in P2B:
+no image components, page transitions or animation framework are implemented by the navigation refinement.
 
 Avoid stacking too many effects.
 
@@ -244,9 +272,16 @@ It is an action hint, not a decorative blob.
 
 # 15. HOVER
 
-Hover should be minimal and precise.
+Hover should have a clear, precise role; its restraint is not a prohibition on expressive typography.
 
 Use 1–2 effects, not many at once.
+
+P2B's user-approved canonical motion is **BOLD LETTER SLIP**: large navigation letters alternate small diagonal slopes,
+deterministically returning to the original baseline. Frozen tuning: X +3px, Y ±7px, 300ms and 20ms
+character stagger; no random, bounce, elastic, blur or distortion. Rotation is unnecessary. Letter Slip is primary;
+index response may support it, while extra underline and competing resonance markers are omitted. Hover alone
+never opens the menu. Touch translates identity into tap/focus/opening/selected states. Reduced motion removes
+the per-character movement and stagger. Current tuning/evidence: [navigation guide](review/EDITORIAL-NAVIGATION-PROTOTYPE.md).
 
 ---
 
@@ -256,6 +291,12 @@ Album and Performance Detail entry may use a strong cinematic shared-element tra
 
 Concept:
 `Work preview → artwork/image expansion → reposition → Detail Hero`
+
+2026-09-06 future direction, DOCUMENT ONLY: Works / Album / Performance entry should preserve the same
+visual object's outgoing position, size and crop as it moves toward Detail Hero. Avoid a disappearing old image
+followed by an unrelated new one. Preserve navigation, focus and cancellation if enhancement is unavailable.
+Complex archive reorganization/shared transitions may separately evaluate GSAP Flip for payload, actual need,
+reuse and maintenance. No library adoption or page implementation is authorized by P2B.
 
 Use browser-native View Transition API as a prototype candidate where appropriate.
 
@@ -584,6 +625,15 @@ Do not mix multiple animation libraries without a clear need.
 
 # 37. PROFESSIONAL WORKFLOW
 
+Prototype strategy: when a single safe option obscures the visual potential, compare **REFINED VERSION vs BOLD
+VERSION**. Prefer an expressive first candidate, then remove what lacks purpose in visual review. Differences must
+be legible and tied to composition/input; stacking effects for their own sake is not the goal. P2B compared a
+top-down Refined reveal with a MENU-side angled Bold reveal in its preserved review evidence. The user selected
+Bold: **QUALITY APPROVED FOR HERO INTEGRATION / FROZEN**. The runtime has one canonical direction; Refined is
+Lab/evidence only. Preserve 500ms opening, 400ms closing, MENU/CLOSE mask, index emphasis and no selected underline.
+Do not lower Bold tuning until actual Hero coexistence provides a reason to tune within Bold. Safari real-device
+QA and final HOME composition remain open; neither is implied by this scoped approval.
+
 `Concept → Motion Intent → Prototype → Interaction Test → Performance Test → Integration → Regression Test`
 
 Do not add animation as decoration after the page is “finished.”
@@ -591,6 +641,12 @@ Do not add animation as decoration after the page is “finished.”
 ---
 
 # 38. REFERENCE RESEARCH
+
+Actively research and adopt proven interaction principles and structural ideas: navigation, type hover, image
+reveal, scroll choreography, layout transformation, shared transitions, cursors, spatial composition and galleries.
+Translate them through Ivory editorial structure, Haegeum/two strings/bow, tension/resonance, album objects,
+photography and typography. Do not copy exact layout, visual composition, timing values, original assets, branding
+or source code. Record what was studied, adopted and independently tuned; prototype within the approved owner task.
 
 When an interaction/section needs better ideas or practical verification, research real production references.
 

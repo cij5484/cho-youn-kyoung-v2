@@ -1,7 +1,7 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 05 — WORKS
 
-**Version:** 1.0  
+**Version:** 1.1\
 **Status:** Approved WORKS Baseline  
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`  
 **Page Role:** Visual Archive + Functional Archive
@@ -65,6 +65,13 @@ Fallback:
 ---
 
 # 4. WORKS INTRO / DUAL PORTAL
+
+2026-09-06 future motion direction — DOCUMENT ONLY, not implemented in P2B: explore an initial compact /
+scattered work cluster that expands and reorganizes with native scroll into the full editorial archive composition.
+Prefer continuous spatial transformation over generic gallery fade-in. Preserve the ALBUMS/PERFORMANCES identity,
+archive access and functional routes in the structure below. The later WORKS prototype must reconcile the cluster
+with this dual-portal baseline and separately validate mobile, reduced motion and direct navigation. Complex layout
+tools such as GSAP Flip require their own fit/payload decision; this note does not authorize implementation.
 
 ## Desktop
 

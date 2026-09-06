@@ -26,6 +26,7 @@ recorded revision; current status lives in HANDOFF, delivery policy in Task Prot
 | Motion / 3D / future asset pipeline | [Motion](docs/redesign/03-MOTION-SYSTEM.md) §§20–27, 42–48; [Album Detail](docs/redesign/07-ALBUM-DETAIL.md) §§10–15, 44 |
 | Other pages | HANDOFF §1 links each page specification (WORKS, ALBUMS, PERFORMANCES, detail, ABOUT/MEDIA/CONTACT) |
 | Mobile / quality | [Responsive](docs/redesign/11-RESPONSIVE.md), [Performance](docs/redesign/12-PERFORMANCE.md), [Accessibility](docs/redesign/13-ACCESSIBILITY.md) |
+| Navigation prototype | [Editorial Navigation guide](docs/redesign/review/EDITORIAL-NAVIGATION-PROTOTYPE.md); P2A foundation; P0D locale contract |
 | Routing / locale | [Routing ADR](docs/redesign/review/ROUTING-ARCHITECTURE-DECISION.md), [Locale Metadata Contract](docs/redesign/review/LOCALE-METADATA-CONTRACT.md) |
 | Content / assets / release | [Content Schema Contract](docs/redesign/review/CONTENT-SCHEMA-CONTRACT.md); MASTER §§10–13, 28–29, 38–39; [Legacy audit](docs/redesign/01-CURRENT-SITE-AUDIT.md), [Migration QA](docs/redesign/14-MIGRATION-QA.md) |
 | Commands / CI / delivery | [README](README.md) for human setup; Task Protocol for gates, commit/push/deploy, evidence and failure handling |
@@ -65,8 +66,14 @@ claim product quality approval from a successful build or neutral fixture.
   lessons after fit review for V2 quality, architecture, performance and maintainability.
 - Preserve **Contemporary Editorial / Ivory**, **Static Color, Dynamic Composition**, and HOME V2.1's
   **Moving Editorial Poster**. Avoid generic portfolio, SaaS or template composition. The detailed design
-  direction is approved. P2A implements the Design System foundation; actual HOME remains unimplemented.
+  direction is approved. P2A foundation is visually approved and delivered. P2B Bold navigation is **QUALITY APPROVED FOR HERO INTEGRATION / FROZEN**, implemented only in a separate Lab; actual HOME remains unimplemented. Refined is archived Lab/evidence only. Safari real-device QA and final HOME composition remain open; do not lower Bold tuning before Hero review.
   Read the [foundation guide](docs/redesign/review/DESIGN-SYSTEM-FOUNDATION.md) and owning visual specs; current approval is in HANDOFF.
+- Current art/motion criterion: **BOLD, CURATED, PURPOSEFUL**. Aim for a memorable first-visit impression;
+  restraint means purposeful curation, not minimal effects. Actively study and reinterpret proven interaction
+  principles in V2's Ivory, Haegeum/two-string/bow, tension/resonance, albums, photography and typography.
+  Never copy exact layouts/compositions/timings, original assets, branding or source code. When useful compare
+  Refined and Bold prototypes, starting with a more expressive candidate and editing through visual review.
+  MASTER §§2/6, Design §§1/2 and Motion §§1/3/37/38 own this policy. It never expands the authorized task scope.
 - Mobile and Desktop are first-class. Recompose typography, crop and depth; prioritize vertical scroll,
   touch-native interaction, real-device QA and thermal/GPU behavior. Reduced motion and intentional static
   fallback must preserve information and visual care. Desktop screenshots do not prove mobile quality.

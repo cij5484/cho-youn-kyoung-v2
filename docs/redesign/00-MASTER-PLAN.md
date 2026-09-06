@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 00 — REDESIGN MASTER PLAN
 
-**Version:** 1.14\
-**Status:** Approved Planning Baseline — P1C/P1D approved and delivered; P2A Design System Foundation REVIEW READY; enlarged bounded-task policy retained; HOME/product visual approval pending\
+**Version:** 1.18\
+**Status:** Approved Planning Baseline — P1C/P1D approved and delivered; P2A visually approved and delivered; P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN; enlarged bounded-task policy retained; HOME/product visual approval pending\
 **Legacy Repository:** `cij5484/cho-youn-kyoung`  
 **Target Repository:** `cij5484/cho-youn-kyoung-v2`  
 **Final Production Domain:** `https://choyounkyoung.com`  
@@ -26,6 +26,11 @@ V2가 최종 QA를 통과한 이후에만 기존 `choyounkyoung.com`을 새 프�
 ---
 
 # 2. CORE OBJECTIVE
+
+2026-09-06 사용자 추가 기준: **BOLD, CURATED, PURPOSEFUL.** 처음 방문자가 “우와, 홈페이지 정말 잘
+만들었다”라고 느끼는 수준을 최우선 시각 목표로 둔다. 효과 수를 최소화하는 방향으로 restraint를
+해석하지 않는다. 명확한 목적과 visual quality가 있는 expressive / experimental interaction을 적극 검토한다.
+기억할 만한 character가 중요한 움직임마다 있어야 하며 사용성·모바일 성능·접근성 계약은 함께 지킨다.
 
 목표는 단순히 “예쁜 연주자 홈페이지”가 아니다.
 
@@ -92,6 +97,14 @@ Precise
 ---
 
 # 6. REFERENCE POLICY
+
+2026-09-06 Reference Adoption Policy: 고품질 사이트의 navigation, typography hover, image reveal, scroll
+choreography, layout transformation, shared transition, cursor, spatial composition, gallery의 검증된 원리와
+structural idea를 적극 연구·도입한다. 초기 V2부터 좋은 reference의 강점을 학습하고 구현할 수 있다.
+Exact layout / visual composition / timing values, original assets, branding, source code는 복제하지 않는다.
+Ivory editorial language, 해금, 두 현/활, tension/resonance, album objects, photography, typography로 재해석한다.
+필요하면 REFINED vs BOLD를 비교하며, 처음부터 안전하게 축소하기보다 과감한 prototype에서 불필요한
+요소를 visual review로 덜어낸다. 이것은 아래 특정 reference의 직접 복제 금지를 완화하는 허가가 아니다.
 
 특정 사이트를 복제하지 않는다.
 
@@ -919,5 +932,7 @@ Actual user-approved sequence: P0B local spike, P0C real Pages/CI and architectu
 
 Do not fall back to HashRouter. P0A–E, P0F and P1A lifecycle/delivery completed under separate approvals.
 P1B audit was delivered; P1C/P1D are approved and delivered through main 2b544d6 with successful Fast CI.
-The explicitly authorized P2A Design System Foundation is REVIEW READY; see HANDOFF and P2A result.
-No HOME Hero, P2B, public record release, Blender/3D or deployment is authorized by that foundation scope.
+P2A visual result and delivery were approved; main 7714907 and Fast CI 34004955387 succeeded.
+The user visually approved P2B Bold as the canonical production direction: QUALITY APPROVED FOR HERO INTEGRATION / FROZEN. See HANDOFF and P2B-FREEZE-RESULT. Refined is archived Lab/evidence only; Safari real-device and final HOME composition QA remain open. Motion §1 owns the user clarification: meaningful motion may be bold and experimental. WORKS/PERFORMANCES and shared-image directions are documented only; no next-page implementation is authorized.
+The user corrected initial navigation to artist name + MENU, canceling the initial-link scroll morph. Final Hero/header behavior is deferred to P2C.
+No HOME Hero, P2C, public record release, Blender/3D or deployment is authorized by the navigation bundle.

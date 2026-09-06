@@ -1,7 +1,7 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 11 — RESPONSIVE
 
-**Version:** 1.2\
+**Version:** 1.4\
 **Status:** Approved Responsive Baseline  
 **Parent:** `00-MASTER-PLAN.md`  
 **Primary Principle:** Mobile Primary / Recompose, Do Not Scale Down
@@ -263,12 +263,15 @@ Preserve image quality and editorial rhythm.
 # 16. NAVIGATION
 
 Desktop:
-- Transforming Editorial Navigation → compact functional header
+- artist name + MENU trigger; opened panel contains links
+- initial vertical-link scroll morph canceled by the 2026-09-06 user correction; final header/Hero interaction is reserved for P2C
 
 Mobile:
 - independently designed navigation
 - clear access to WORKS / MEDIA / ABOUT / CONTACT / language switch
 - avoid desktop menu shrinkage
+- translate the same editorial reveal into tap/focus/opening and selected/index emphasis; Letter Slip and index translation apply only to fine hover pointers
+- hover alone never opens the menu; touch must not retain or repeatedly trigger per-character movement
 
 The mobile menu must not feel like an afterthought.
 

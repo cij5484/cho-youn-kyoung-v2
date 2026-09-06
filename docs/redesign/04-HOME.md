@@ -2,7 +2,7 @@
 ## 04 — HOME
 
 **Version:** 2.1\
-**Status:** HOME V2.1 Art Direction — documentation revised; visual implementation/quality approval pending\
+**Status:** HOME V2.1 Art Direction — navigation and BOLD/CURATED/PURPOSEFUL policy 2026-09-06; visual implementation/quality approval pending\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`  
 **Art Direction:** Contemporary Editorial / Ivory  
 **Narrative Structure:** ARTIST → INSTRUMENT → SOUND → WORK → OBJECT → STAGE → ARTIST → NAME
@@ -99,7 +99,7 @@ Approved:
 - Asymmetric large portrait
 - Portrait is composed around the right 58–62% visual zone on desktop; this is an optical composition guide, not a rigid two-column width. Cropping beyond the viewport is allowed.
 - Intentional empty grid columns
-- Transforming Editorial Navigation integrated into the Hero composition
+- Artist name + MENU trigger integrated into the Hero composition; final scroll behavior reviewed with the Hero
 - Two extremely thin structural lines
 - Controlled depth and subtle parallax
 
@@ -107,14 +107,15 @@ Approved:
 
 ## Navigation
 
-Initial Hero state:
-- navigation items are positioned as part of the editorial composition
-- navigation remains clearly readable and discoverable
+User correction, 2026-09-06:
+- initial state is CHO YOUN KYOUNG at top left + MENU trigger at top right
+- there is no separate left-side vertical navigation in the initial frame
+- the former initial-link → compact-header morph requirement is canceled
+- menu links appear within the opened editorial panel; P2B Bold trigger/panel/item motion is QUALITY APPROVED FOR HERO INTEGRATION / FROZEN; Refined is archived Lab/evidence only. Preserve canonical Bold tuning until actual Hero composition review; Safari real-device and final HOME QA remain open
+- do not add a replacement navigation morph before actual Hero composition
 
-After scroll:
-- navigation transforms into a compact functional header
-
-Do not implement a standard fixed header from the first frame unless required as a fallback.
+P2C will judge any small continuous spacing/scale/surface change of these same two header elements with the real Hero.
+That future judgment is not authorization to implement HOME/P2C in the refinement. Keep navigation readable and discoverable.
 
 ## Portrait Sequence
 
@@ -1135,6 +1136,13 @@ It should feel like one continuous authored journey:
 
 
 # 26. V2.1 STRUCTURAL MOTIF / REFERENCE RATIONALE
+
+2026-09-06 user art/motion update: **BOLD, CURATED, PURPOSEFUL**. HOME Hero and Hero→Haegeum are signature
+WOW-moment candidates alongside future WORKS reorganization, Album 3D and shared detail entry. Do not default
+to generic fade/simple slide or interpret restraint as minimal effects. Start expressive and curate through visual
+review; compare Refined/Bold when useful. Adopt reference interaction principles and structural ideas actively,
+translated through the V2 identity; do not copy exact layouts, compositions, timing values, assets, branding or code.
+MASTER §6 and Motion §§1/3/37/38 own the policy. This update is documentation only during P2B and authorizes no HOME implementation.
 
 The pair is structural, not decoration: Hero composition → Haegeum guides → Sound response → Selected Works axis → Outro resolution. A strand can change emphasis without losing the two-string/bow identity. Do not force it to animate or appear prominently in every scene; Performance and About retain their quiet roles.
 

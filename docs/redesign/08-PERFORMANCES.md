@@ -1,7 +1,7 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 08 — PERFORMANCES
 
-**Version:** 1.0  
+**Version:** 1.1\
 **Status:** Approved PERFORMANCES Baseline  
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`, `05-WORKS.md`  
 **Page Role:** Cinematic Timeline Archive
@@ -248,6 +248,11 @@ Approved:
 
 A large visual frame remains spatially stable while the active performance changes.
 
+2026-09-06 strengthened future direction — DOCUMENT ONLY in P2B: pair the persistent large Stage Visual with
+a left/index list on desktop. Scroll-active item and hover/focus preview should drive the same stage; hover is an
+enhancement, not required navigation. Preserve chronology and direct record access. Resolve competing scroll/hover
+selection and independently compose mobile in the later PERFORMANCES bundle, not in navigation refinement.
+
 The Stage Window is not limited to photography.
 
 It may display:
@@ -274,6 +279,11 @@ When the active performance changes:
 - transition internal visual through mask/crop/depth
 - move title/metadata with restrained timing
 - preserve overall layout stability
+
+Prefer crop, mask, depth and shared visual movement to a default crossfade. Keep a small vocabulary from
+[Motion §11](03-MOTION-SYSTEM.md), chosen by asset type; do not invent unrelated transitions for individual records.
+Work/Album/Performance → Detail should carry the same visual object and crop toward the destination (Motion §16).
+These are preserved planning directions, with no runtime implementation or real asset migration in P2B.
 
 Avoid:
 - carousel slide movement

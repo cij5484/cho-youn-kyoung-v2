@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 02 — DESIGN SYSTEM
 
-**Version:** 1.4\
-**Status:** Approved Design Baseline / P2A foundation implemented and locally verified; visual result review pending\
+**Version:** 1.8\
+**Status:** Approved Design Baseline / P2A visual result approved and delivered; P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN\
 **Parent:** `00-MASTER-PLAN.md`  
 **Art Direction:** Contemporary Editorial / Ivory
 
@@ -20,17 +20,23 @@
 
 **Static Color, Dynamic Composition.**
 
+2026-09-06 art criterion: **BOLD, CURATED, PURPOSEFUL**. 첫 방문에서 높은 완성도와 기억에 남는 인상을
+주는 것이 최우선 시각 목표다. Clear purpose와 visual quality를 가진 화려함·실험성을 적극 허용한다.
+필요하면 Refined / Bold를 비교하며 더 과감한 초기 prototype에서 불필요한 효과를 visual review로 덜어낸다.
+Ivory world와 정보 접근성은 유지한다. Reference adoption은 MASTER §6, motion signature는 Motion §3을 따른다.
+
 ---
 
 # 2. VISUAL CHARACTER
 
 Desired:
-- quiet
+- bold, curated, purposeful
+- quiet where narrative contrast requires it
 - refined
 - premium
 - artistic
 - contemporary
-- restrained
+- restrained through curation, not minimized effects
 - readable
 - image-led
 - generous whitespace
@@ -305,16 +311,14 @@ Desktop navigation should remain concise.
 Typical labels:
 HOME / WORKS / MEDIA / ABOUT / CONTACT
 
-Small uppercase Sans.
+Artist/trigger/index utilities use small uppercase Sans; opened primary links use editorial display typography.
 
-Active state can use:
-- thin underline
-- accent
-- line
+Selected menu state uses stronger Ink, subtle display weight and corresponding index-number emphasis.
+Keep horizontal row hairlines as structure. Do not add a selected underline or an extra long hover underline.
 
 Header must not dominate the Hero.
 
-HOME V2.1 초기 nav는 poster composition에 녹아 있고 scroll 이후 compact functional header가 된다. Readability, focus와 touch target은 시각적 절제 때문에 희생하지 않는다.
+2026-09-06 사용자 최종 통합: 초기 header는 좌상단 CHO YOUN KYOUNG + 우상단 MENU trigger다. 별도 세로 링크의 scroll morph 요구는 취소됐다. Click/keyboard/tap으로만 열며 hover-open은 금지한다. 사용자는 P2B Bold를 QUALITY APPROVED FOR HERO INTEGRATION으로 승인·freeze했다. MENU/CLOSE mask, MENU origin diagonal Ivory reveal, opening 500ms / closing 400ms, Letter Slip X +3px / Y ±7px / 300ms / 20ms stagger를 canonical 기준으로 유지한다. Refined는 Lab/evidence 이력으로만 남기며 runtime 선택 분기는 없다. 실제 Hero와 경쟁한다는 후속 visual evidence 이전에 Bold 수치를 보수적으로 낮추지 않는다. Letter Slip은 교대하는 작은 문자별 대각선 이동이며 index 반응만 보조한다. Selected/hover underline은 제거하고 row separator는 유지한다. 최종 Hero 결합과 필요한 header scroll 변화는 P2C에서 판단하며 이번에는 구현하지 않는다. Readability, focus와 touch target은 시각적 절제 때문에 희생하지 않는다. [현재 navigation guide](review/EDITORIAL-NAVIGATION-PROTOTYPE.md)가 tuning과 증거를 소유한다.
 
 ---
 
@@ -512,5 +516,6 @@ owns the CSS roles, font delivery/fallback, safe gutters, 4/12-column primitives
 and the development-only specimen. [P2A result](../../P2A-RESULT.md) owns validation and screenshot evidence.
 
 The three approved families and nine palette values are retained. No HOME composition, navigation choreography,
-portrait, artwork, audio reaction or 3D is implemented by this foundation. Functional/browser verification is not
-user visual approval. REPORT → STOP; P2B/HOME requires a separate explicit task.
+portrait, artwork, audio reaction or 3D is implemented by this foundation. P2A subsequently received user visual approval and was delivered as 7714907.
+The separately authorized [P2B Navigation Prototype](review/EDITORIAL-NAVIGATION-PROTOTYPE.md) consumes these
+roles only in its isolated Lab. Bold is visually approved and frozen for Hero integration; Safari real-device QA and final HOME composition remain open. REPORT → STOP before HOME/P2C.
