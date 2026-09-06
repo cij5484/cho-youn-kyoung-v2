@@ -157,6 +157,7 @@ partial; automated WebKit is separate. Physical phones, VoiceOver/TalkBack and s
 
 P2G’s result is user approved while SOUND remains **REVIEW READY / FREEZE CANDIDATE**. Final auditory and
 refined visual judgment require user review; this document does not self-grant QUALITY APPROVED / FROZEN.
-P2H delivery is authorized (logical commit/main push/Fast CI); exact delivery outcome is reported with the task.
+P2G `dab4617` and P2H `7e1bd37` are delivered to main; exact-SHA Fast CI 34056689232 SUCCESS.
+Clean main/origin was verified before this documentation receipt. [Delivery / files](../../../evidence/p2h/delivery.json).
 No deployment. P2F remains **QUALITY APPROVED / FROZEN**. **REPORT → STOP → USER APPROVAL**.
 No WORKS or next scene is authorized.
