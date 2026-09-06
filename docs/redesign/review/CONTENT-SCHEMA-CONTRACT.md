@@ -201,7 +201,7 @@ import boundary, not proof against accidental serialization: artifact/route excl
    prove exclusion before/after its release date and in a mixed public/draft catalog; publication is not deployment permission.
 6. Run `type-check`, `lint`, `test:content`, `test:locale` and the applicable gates. Fast includes content/locale/placement,
    a fresh root build, then `test:content:visibility` on its complete client/static output. Full adds the project build
-   and 84 route/browser cases, including draft KO/EN direct/client 404, metadata, font delivery and both-artifact exclusion; P2A adds an isolated 11-case Design System Lab suite. Windows uses
+   and 84 route/browser cases, including draft KO/EN direct/client 404, metadata, font delivery and both-artifact exclusion; P2A adds an isolated 11-case Design System Lab suite; P2B runs 26 canonical Bold navigation Lab cases without content integration. Windows uses
    `npm.cmd run <command>`; macOS/Linux use `npm run <command>` with the required Node/npm versions.
 
 When a later authorized edit changes approved copy/fields, update the real-record regression to the new owning review.

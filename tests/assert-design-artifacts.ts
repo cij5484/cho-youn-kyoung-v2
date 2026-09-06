@@ -6,7 +6,7 @@ import { getBuildTarget, type BuildTargetName } from '../config/build.ts'
 export async function assertDesignArtifacts(targetName: BuildTargetName) {
   const target = getBuildTarget(targetName)
   let fontBytes = 0, fontFiles = 0, javascriptBytes = 0
-  const markers = ['P2A_DESIGN_SYSTEM_LAB_ONLY', 'lab-sheet', 'Design foundation', 'labs/design-system']
+  const markers = ['P2A_DESIGN_SYSTEM_LAB_ONLY', 'lab-sheet', 'Design foundation', 'labs/design-system', 'P2B_NAVIGATION_LAB_ONLY', 'editorial-navigation', 'navigation-menu', 'nav-lab-space', 'labs/navigation']
   async function inspect(directory: string) {
     for (const entry of await readdir(directory, { withFileTypes: true })) {
       const path = resolve(directory, entry.name)

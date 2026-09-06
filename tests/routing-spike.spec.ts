@@ -180,7 +180,7 @@ test('production font delivery preserves the base and never exposes the Design S
   const target = getBuildTarget(info.project.name)
   const result = await assertDesignArtifacts(info.project.name as 'root' | 'pagesPreview')
   await info.attach('design-artifacts', { body: JSON.stringify(result), contentType: 'application/json' })
-  for (const path of ['lab/design-system/', 'labs/design-system/index.html']) {
+  for (const path of ['lab/design-system/', 'labs/design-system/index.html', 'lab/navigation/', 'labs/navigation/index.html']) {
     expect((await request.get(`${target.base}${path}`)).status()).toBe(404)
   }
   const fontResponses: { url: string; status: number; mime: string }[] = []

@@ -1,0 +1,918 @@
+{
+  "task": "P2B Refinement — Editorial Menu Reveal",
+  "recordedAt": "2026-09-06T03:06:00.226Z",
+  "baseline": {
+    "head": "771490731afd42f1be133685dbfe3d63ebf23568",
+    "checkpoint": ".checkpoints/p2b-refinement-before",
+    "startedAt": "2026-09-06T02:45:02.922Z",
+    "priorWorkingFiles": 161
+  },
+  "status": "REVIEW READY / visual approval pending / STOP",
+  "userCorrection": {
+    "initial": "artist name + MENU at every width",
+    "canceled": "initial vertical links and their scroll-to-compact morph",
+    "heroDecision": "deferred to separately authorized P2C"
+  },
+  "implementation": {
+    "trigger": {
+      "shiftPx": 3,
+      "hairlinePx": 24,
+      "durationMs": 180,
+      "hoverSymbolShiftPx": 1,
+      "openSymbolRotationDeg": 45
+    },
+    "reveal": {
+      "durationMs": 420,
+      "tracks": 15,
+      "staggerMs": 12.6,
+      "totalStaggerMs": 50.4,
+      "reverse": "same currentTime, playbackRate -1/+1",
+      "native": true,
+      "scrollMorphRemoved": true
+    },
+    "items": {
+      "hoverShiftPx": 5,
+      "hairlineMs": 240,
+      "otherLargeLabelOpacity": 0.94,
+      "mobileHover": false
+    },
+    "reducedMotion": "immediate state; no spatial hover offsets",
+    "dependenciesChanged": false
+  },
+  "validation": {
+    "command": "CI=1 npm exec --yes --package=node@24.15.0 --package=npm@11.12.1 -- npm run gate:full",
+    "exitCode": 0,
+    "environment": {
+      "os": "macOS arm64",
+      "node": "24.15.0",
+      "npm": "11.12.1",
+      "playwright": "1.63.0",
+      "browser": "Chromium"
+    },
+    "nodeTests": 38,
+    "browserTests": 115,
+    "typeCheck": "PASS",
+    "lint": "PASS / zero warnings",
+    "reports": {
+      "routing": {
+        "path": "test-results/results.json",
+        "sha256": "23d71193f4c9221b7f5d20c87c582e9f85fd5a9f0239b399f600e57657e81d5f",
+        "stats": {
+          "startTime": "2026-09-06T03:00:03.056Z",
+          "duration": 24447.104,
+          "expected": 84,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "attachments": [
+          {
+            "name": "draft-exclusion",
+            "data": {
+              "target": "root",
+              "scannedFiles": {
+                "client": 286,
+                "static": 285
+              },
+              "routes": 18,
+              "privateDraftsExcluded": 1
+            }
+          },
+          {
+            "name": "design-artifacts",
+            "data": {
+              "target": "root",
+              "routes": 18,
+              "labExcluded": true,
+              "localFontUrls": 253,
+              "fontFiles": 253,
+              "fontBytes": 9896644,
+              "javascriptBytes": 324591
+            }
+          },
+          {
+            "name": "draft-exclusion",
+            "data": {
+              "target": "pagesPreview",
+              "scannedFiles": {
+                "client": 286,
+                "static": 285
+              },
+              "routes": 18,
+              "privateDraftsExcluded": 1
+            }
+          },
+          {
+            "name": "design-artifacts",
+            "data": {
+              "target": "pagesPreview",
+              "routes": 18,
+              "labExcluded": true,
+              "localFontUrls": 253,
+              "fontFiles": 253,
+              "fontBytes": 9896644,
+              "javascriptBytes": 326277
+            }
+          }
+        ]
+      },
+      "foundation": {
+        "path": "test-results/design-system-results.json",
+        "sha256": "d9db612b628069951d0968a8884f38f294b0a7643c55d2f3f267a8ecb3dbccd2",
+        "stats": {
+          "startTime": "2026-09-06T03:00:27.849Z",
+          "duration": 3522.823,
+          "expected": 11,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "attachments": [
+          {
+            "name": "design-metrics",
+            "data": {
+              "loading": {
+                "cls": 0.0010838627869405866,
+                "lcp": 120,
+                "width": 1440,
+                "scrollWidth": 1440,
+                "fontRequests": 17,
+                "fontBytes": 394560,
+                "fontOrigins": [
+                  "http://127.0.0.1:4175"
+                ],
+                "loadedFamilies": [
+                  "Cormorant Garamond Variable",
+                  "Noto Sans KR Variable",
+                  "Noto Serif KR Variable"
+                ]
+              },
+              "contrast": [
+                {
+                  "role": "muted",
+                  "ratio": 4.802375530639211,
+                  "opacity": "1"
+                },
+                {
+                  "role": "canvas",
+                  "ratio": 4.802375530639211,
+                  "opacity": "1"
+                },
+                {
+                  "role": "surface",
+                  "ratio": 5.142899773122183,
+                  "opacity": "1"
+                },
+                {
+                  "role": "dark",
+                  "ratio": 12.063339626240044,
+                  "opacity": "1"
+                }
+              ]
+            }
+          },
+          {
+            "name": "design-metrics",
+            "data": {
+              "loading": {
+                "cls": 0.0006100057929663271,
+                "lcp": 108,
+                "width": 390,
+                "scrollWidth": 390,
+                "fontRequests": 17,
+                "fontBytes": 394560,
+                "fontOrigins": [
+                  "http://127.0.0.1:4175"
+                ],
+                "loadedFamilies": [
+                  "Cormorant Garamond Variable",
+                  "Noto Sans KR Variable",
+                  "Noto Serif KR Variable"
+                ]
+              },
+              "contrast": [
+                {
+                  "role": "muted",
+                  "ratio": 4.802375530639211,
+                  "opacity": "1"
+                },
+                {
+                  "role": "canvas",
+                  "ratio": 4.802375530639211,
+                  "opacity": "1"
+                },
+                {
+                  "role": "surface",
+                  "ratio": 5.142899773122183,
+                  "opacity": "1"
+                },
+                {
+                  "role": "dark",
+                  "ratio": 12.063339626240044,
+                  "opacity": "1"
+                }
+              ]
+            }
+          },
+          {
+            "name": "design-metrics",
+            "data": {
+              "loading": {
+                "cls": 0.02375465698242188,
+                "lcp": 52,
+                "width": 320,
+                "scrollWidth": 320,
+                "fontRequests": 17,
+                "fontBytes": 394560,
+                "fontOrigins": [
+                  "http://127.0.0.1:4175"
+                ],
+                "loadedFamilies": [
+                  "Cormorant Garamond Variable",
+                  "Noto Sans KR Variable",
+                  "Noto Serif KR Variable"
+                ]
+              },
+              "contrast": [
+                {
+                  "role": "muted",
+                  "ratio": 4.802375530639211,
+                  "opacity": "1"
+                },
+                {
+                  "role": "canvas",
+                  "ratio": 4.802375530639211,
+                  "opacity": "1"
+                },
+                {
+                  "role": "surface",
+                  "ratio": 5.142899773122183,
+                  "opacity": "1"
+                },
+                {
+                  "role": "dark",
+                  "ratio": 12.063339626240044,
+                  "opacity": "1"
+                }
+              ]
+            }
+          },
+          {
+            "name": "design-metrics",
+            "data": {
+              "loading": {
+                "cls": 0.0045865889405831695,
+                "lcp": 56,
+                "width": 768,
+                "scrollWidth": 768,
+                "fontRequests": 17,
+                "fontBytes": 394560,
+                "fontOrigins": [
+                  "http://127.0.0.1:4175"
+                ],
+                "loadedFamilies": [
+                  "Cormorant Garamond Variable",
+                  "Noto Sans KR Variable",
+                  "Noto Serif KR Variable"
+                ]
+              },
+              "contrast": [
+                {
+                  "role": "muted",
+                  "ratio": 4.802375530639211,
+                  "opacity": "1"
+                },
+                {
+                  "role": "canvas",
+                  "ratio": 4.802375530639211,
+                  "opacity": "1"
+                },
+                {
+                  "role": "surface",
+                  "ratio": 5.142899773122183,
+                  "opacity": "1"
+                },
+                {
+                  "role": "dark",
+                  "ratio": 12.063339626240044,
+                  "opacity": "1"
+                }
+              ]
+            }
+          },
+          {
+            "name": "design-metrics",
+            "data": {
+              "loading": {
+                "cls": 0.002026269382900662,
+                "lcp": 56,
+                "width": 1920,
+                "scrollWidth": 1920,
+                "fontRequests": 17,
+                "fontBytes": 394560,
+                "fontOrigins": [
+                  "http://127.0.0.1:4175"
+                ],
+                "loadedFamilies": [
+                  "Cormorant Garamond Variable",
+                  "Noto Sans KR Variable",
+                  "Noto Serif KR Variable"
+                ]
+              },
+              "contrast": [
+                {
+                  "role": "muted",
+                  "ratio": 4.802375530639211,
+                  "opacity": "1"
+                },
+                {
+                  "role": "canvas",
+                  "ratio": 4.802375530639211,
+                  "opacity": "1"
+                },
+                {
+                  "role": "surface",
+                  "ratio": 5.142899773122183,
+                  "opacity": "1"
+                },
+                {
+                  "role": "dark",
+                  "ratio": 12.063339626240044,
+                  "opacity": "1"
+                }
+              ]
+            }
+          },
+          {
+            "name": "delayed-font-metrics",
+            "data": {
+              "cls": 0.001007331891025641,
+              "lcp": 44,
+              "width": 390,
+              "scrollWidth": 390,
+              "fontRequests": 17,
+              "fontBytes": 394560,
+              "fontOrigins": [
+                "http://127.0.0.1:4175"
+              ],
+              "loadedFamilies": [
+                "Cormorant Garamond Variable",
+                "Noto Serif KR Variable",
+                "Noto Sans KR Variable"
+              ]
+            }
+          },
+          {
+            "name": "delayed-font-metrics",
+            "data": {
+              "cls": 0.0010838627869405866,
+              "lcp": 44,
+              "width": 1440,
+              "scrollWidth": 1440,
+              "fontRequests": 17,
+              "fontBytes": 394560,
+              "fontOrigins": [
+                "http://127.0.0.1:4175"
+              ],
+              "loadedFamilies": [
+                "Cormorant Garamond Variable",
+                "Noto Serif KR Variable",
+                "Noto Sans KR Variable"
+              ]
+            }
+          }
+        ]
+      },
+      "navigation": {
+        "path": "test-results/navigation-results.json",
+        "sha256": "ea48e7fb4544f9930865342dd76d5f4fa57f1098346db09c063f5a7396522724",
+        "stats": {
+          "startTime": "2026-09-06T03:00:31.643Z",
+          "duration": 20839.287,
+          "expected": 20,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "attachments": [
+          {
+            "name": "reveal-timeline",
+            "data": {
+              "duration": 420,
+              "evidenceTime": 180,
+              "clip": "inset(0px 0px 18.1785%)",
+              "tracks": [
+                {
+                  "duration": 420,
+                  "time": 180
+                },
+                {
+                  "duration": 420,
+                  "time": 180
+                },
+                {
+                  "duration": 420,
+                  "time": 180
+                },
+                {
+                  "duration": 420,
+                  "time": 180
+                },
+                {
+                  "duration": 420,
+                  "time": 180
+                },
+                {
+                  "duration": 420,
+                  "time": 180
+                },
+                {
+                  "duration": 420,
+                  "time": 180
+                },
+                {
+                  "duration": 420,
+                  "time": 180
+                },
+                {
+                  "duration": 420,
+                  "time": 180
+                },
+                {
+                  "duration": 420,
+                  "time": 180
+                },
+                {
+                  "duration": 420,
+                  "time": 180
+                },
+                {
+                  "duration": 420,
+                  "time": 180
+                },
+                {
+                  "duration": 420,
+                  "time": 180
+                },
+                {
+                  "duration": 420,
+                  "time": 180
+                },
+                {
+                  "duration": 420,
+                  "time": 180
+                }
+              ],
+              "contrast": [
+                {
+                  "ratio": 4.802375530639211,
+                  "minimum": 4.5
+                },
+                {
+                  "ratio": 4.802375530639211,
+                  "minimum": 4.5
+                },
+                {
+                  "ratio": 4.802375530639211,
+                  "minimum": 4.5
+                },
+                {
+                  "ratio": 4.802375530639211,
+                  "minimum": 4.5
+                },
+                {
+                  "ratio": 15.793808899857163,
+                  "minimum": 3
+                },
+                {
+                  "ratio": 4.802375530639211,
+                  "minimum": 4.5
+                },
+                {
+                  "ratio": 15.793808899857163,
+                  "minimum": 3
+                },
+                {
+                  "ratio": 4.802375530639211,
+                  "minimum": 4.5
+                },
+                {
+                  "ratio": 4.264417008968116,
+                  "minimum": 3
+                },
+                {
+                  "ratio": 4.802375530639211,
+                  "minimum": 4.5
+                },
+                {
+                  "ratio": 4.264417008968116,
+                  "minimum": 3
+                },
+                {
+                  "ratio": 4.802375530639211,
+                  "minimum": 4.5
+                },
+                {
+                  "ratio": 4.264417008968116,
+                  "minimum": 3
+                }
+              ]
+            }
+          },
+          {
+            "name": "interrupt-continuity",
+            "data": {
+              "closing": {
+                "before": {
+                  "time": 210,
+                  "clip": "inset(0px 0px 12.7107%)"
+                },
+                "after": {
+                  "time": 210,
+                  "clip": "inset(0px 0px 12.7107%)"
+                },
+                "rates": [
+                  -1,
+                  -1,
+                  -1,
+                  -1,
+                  -1,
+                  -1,
+                  -1,
+                  -1,
+                  -1,
+                  -1,
+                  -1,
+                  -1,
+                  -1,
+                  -1,
+                  -1
+                ]
+              },
+              "opening": {
+                "before": {
+                  "time": 150,
+                  "clip": "inset(0px 0px 25.3882%)"
+                },
+                "after": {
+                  "time": 150,
+                  "clip": "inset(0px 0px 25.3882%)"
+                },
+                "rates": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "artifacts": {
+      "root": {
+        "routes": 18,
+        "publicFiles": 284,
+        "javascriptBytes": 324591,
+        "cssBytes": 170068,
+        "productionPayloadDeltaBytes": 0
+      },
+      "pagesPreview": {
+        "routes": 18,
+        "publicFiles": 284,
+        "javascriptBytes": 326277,
+        "cssBytes": 174875,
+        "productionPayloadDeltaBytes": 0
+      }
+    },
+    "actionlint": "1.7.12 PASS",
+    "labBuild": "rejected as intended",
+    "fullLogSha256": "44ce93d4d54278808e27cc0957ddff526cb5fe574b21cb453ba19348c1a0a61b"
+  },
+  "visualReview": {
+    "agentInspected": true,
+    "userApproval": "pending",
+    "screenshots": [
+      {
+        "path": "evidence/p2b-refinement/trigger-hover.png",
+        "sha256": "02d0aec95514e0b5f27ff3a7e88fe96b27c288ff29f0c763c875671a5285cc41",
+        "width": 1440,
+        "height": 1000,
+        "capture": "settled browser state",
+        "edited": false
+      },
+      {
+        "path": "evidence/p2b-refinement/opening-180ms.png",
+        "sha256": "8e8c12f77c189de201b29e78ed9b7508431b2f35184cc5ebb87e9e0a577a91cf",
+        "width": 1440,
+        "height": 1000,
+        "capture": "native animation paused at 180ms",
+        "edited": false
+      },
+      {
+        "path": "evidence/p2b-refinement/fully-opened.png",
+        "sha256": "8dc26e929be63993cc342e8217b2d35064a6e3592deea9d1f406928d4b12039e",
+        "width": 1440,
+        "height": 1000,
+        "capture": "settled browser state",
+        "edited": false
+      },
+      {
+        "path": "evidence/p2b-refinement/menu-item-hover.png",
+        "sha256": "71a2e74ac9a1bdd52be9c71df15f546d40c362b96838152ec2c52caa6f28b272",
+        "width": 1440,
+        "height": 1000,
+        "capture": "settled browser state",
+        "edited": false
+      },
+      {
+        "path": "evidence/p2b-refinement/mobile-opened.png",
+        "sha256": "3854db41fb72f55a62a8760f9e333aec4215b0542861fd43d3665f632888c006",
+        "width": 390,
+        "height": 844,
+        "capture": "settled browser state",
+        "edited": false
+      },
+      {
+        "path": "evidence/p2b-refinement/close-trigger-hover.png",
+        "sha256": "66252eb2ec6ae4f10196133aefd73f25b4a21819c7c2d64eda42016ca4e06014",
+        "width": 1440,
+        "height": 1000,
+        "capture": "settled browser state",
+        "edited": false
+      },
+      {
+        "path": "evidence/p2b-refinement/closing-150ms.png",
+        "sha256": "eedb54606c8b31c6cfbc0b87834f586c10139be72419615a4d79ca8f77440137",
+        "width": 1280,
+        "height": 720,
+        "capture": "native reverse animation paused at 150ms",
+        "edited": false
+      },
+      {
+        "path": "evidence/p2b-refinement/small-mobile-opened.png",
+        "sha256": "ab5d9e3cc5d6707c0c2dde0cf7ea2f099b21d38661b84a2bfbb95f6fe64b7a48",
+        "width": 320,
+        "height": 800,
+        "capture": "settled browser state",
+        "edited": false
+      }
+    ],
+    "preview": "http://127.0.0.1:4176/",
+    "limits": [
+      "Actual Hero/portrait absent; final header treatment deferred to P2C",
+      "420ms pace/stagger requires user visual review",
+      "No real iPhone/Android/Safari/screen-reader/hardware pacing QA"
+    ]
+  },
+  "scopeAndDocuments": {
+    "status": "PASS",
+    "modified": [
+      "CODEX-HANDOFF.md",
+      "README.md",
+      "docs/redesign/00-MASTER-PLAN.md",
+      "docs/redesign/02-DESIGN-SYSTEM.md",
+      "docs/redesign/04-HOME.md",
+      "docs/redesign/11-RESPONSIVE.md",
+      "docs/redesign/review/CONTENT-SCHEMA-CONTRACT.md",
+      "docs/redesign/review/DESIGN-SYSTEM-FOUNDATION.md",
+      "docs/redesign/review/EDITORIAL-NAVIGATION-PROTOTYPE.md",
+      "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md",
+      "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md",
+      "labs/navigation/NavigationLab.tsx",
+      "src/navigation/EditorialNavigation.tsx",
+      "src/navigation/navigation.css",
+      "tests/navigation.spec.ts"
+    ],
+    "added": [
+      "P2B-REFINEMENT-RESULT.md",
+      "src/navigation/menu-reveal.ts",
+      "evidence/p2b-refinement/menu-reveal.json",
+      "evidence/p2b-refinement/trigger-hover.png",
+      "evidence/p2b-refinement/opening-180ms.png",
+      "evidence/p2b-refinement/fully-opened.png",
+      "evidence/p2b-refinement/menu-item-hover.png",
+      "evidence/p2b-refinement/mobile-opened.png",
+      "evidence/p2b-refinement/close-trigger-hover.png",
+      "evidence/p2b-refinement/closing-150ms.png",
+      "evidence/p2b-refinement/small-mobile-opened.png"
+    ],
+    "refinementChangedFiles": 26,
+    "preservedFiles": 146,
+    "unchangedFileHashes": {
+      "P2B-RESULT.md": "3b811bd5b884a2b3aa06d34283cfeb79971cadac875f2b9f776a3bcae03d3ea3",
+      "evidence/p2b/desktop-compact.png": "4eeb2adb22cd476ad44ceba5d1bd89513926922b674fc441ee37c5eb700652ec",
+      "evidence/p2b/desktop-initial.png": "81ea1b0a08b99aedae9d9e7adafa004f6f5a8638a0f71d193ba1bdbbfc200a90",
+      "evidence/p2b/desktop-midpoint.png": "56f452e9fff3c28af590aa6856a77025e96c148b33073d7ab8108c742b851f91",
+      "evidence/p2b/mobile-initial.png": "4a00a7b882146645fb548cb9288c09061e84db9d3f344afbb8c9848eb1036855",
+      "evidence/p2b/mobile-menu.png": "6a1497f3ccff5245e772562b04fee8c65a957e7d866beec47798cee95357ed67",
+      "evidence/p2b/navigation-prototype.json": "a2777f543aa0bb8010a20c676b50f4caa9f9447684b4aee63cc5ef3e3326af21",
+      "evidence/p2b/p2a-delivery-ci.json": "1560ece71bf705e0841f1fc0e68d74acdded1da19c9a7d18c6526accbd0c5754",
+      "evidence/p2b/small-mobile-menu.png": "1b05dd5ddaadfda42ca37948d93e7d74ee7f2a5c08f4e694fc14acd87499c3ff",
+      "evidence/p2b/tablet-menu.png": "085d726ad2840e6d43cac4c9206af6c10bcbf44db13db07a88ecd6da24466fe3",
+      "evidence/p2b/wide-initial.png": "f8dc62de7528d2eb2b7bb3e5352efe10cb4a52c55cdd7111c89f2b7d6408a3a7",
+      "labs/navigation/index.html": "2d44f45268916f7afbb3bea4535f8f067d022df74a0efa8ddfb94171cee690dd",
+      "labs/navigation/lab.css": "9f2f7fdf17e7d1664e5753f2b3c949ba4ed424553bd1cb796bcf08b80966cc25",
+      "labs/navigation/main.tsx": "805f9669366cdf9a38b2e011d81ddde87f9ebe34433e5c40ae57e6e250246955",
+      "playwright.navigation.config.ts": "9997376e4a204287eacff8114ebdc4211a835329b76f793a7b5d9a4908f436ec",
+      "src/navigation/model.ts": "0b1917cb97d8b1c2b208366d08ac8f95b5a391322399efb9e4a17ac10d2ee70c",
+      "tests/navigation-model.test.ts": "55755e5e33f0216a4fbc4cb5bae94662dd02e2e84f4463b63efd97fdb22d0ec6",
+      "vite.navigation.config.ts": "f31414cd9a4d099d0829f06a903cfe0c5f663baa2f7b4ca069b1f9f0c1edbf27",
+      ".gitattributes": "57c3c1e3dfe96f5c516b40ea04d50a9fcea8d626fb70b2e85472d51f933f6e2c",
+      ".github/workflows/ci.yml": "e3758da9076008d645b1d0eac7dea26bf512c3836b5bb7376835e900daf7e9c8",
+      ".github/workflows/pages.yml": "13b37838d3af9ccfb1a5e9c827ddddaa8dec165bf417f371c2e6c9cfe7f0fc92",
+      ".github/workflows/quality-gates.yml": "5f08b1d19bc979bc26310d2acef7174c0571f7077fbb6a5a10ce65c5a08041b4",
+      ".gitignore": "7869e7954f945a1f15c3c41cd507b577997ffa391e1f759cf36883f204b02573",
+      ".npmrc": "be85cc462e740587626bbcbb1c3ed1c40b26e62ec072e8cbd2768f23915c28e6",
+      "AGENTS.md": "4db4685825e8b88f44fdd465c551f2d403633f9c3506afb99ba0757069b276d7",
+      "P0A-RESULT.md": "09596366dee21a55e25cd13810739acd6f4df90939b1305cd5d51b8386e68d2b",
+      "P0B-RESULT.md": "d03ee1f9c2daea3c8507de4e0efdf2878732be8de46b2bfefb5f4d559955b908",
+      "P0C-DEPLOYMENT.md": "2eb28a140eb9634b9c60ad5182aeb054ac1158aec28b38aab84eee379602254d",
+      "P0C-RESULT.md": "2fd2cc30508bb0c63b07f3eb43f4dda0089aad935db2924d550f2a7a8a2da5b9",
+      "P0C-VERIFICATION-CHECKLIST.md": "cbce5025c54fcf0eaec384bb0c35b15a1a2a7a2f85f70cc981c9b0eba5885e44",
+      "P0D-RESULT.md": "89f9392d94bc79458ec6f3b92fdbe223140ab6e0a0f5b9b6cea0eae1b21fcdc1",
+      "P0E-RESULT.md": "bc5002604ca4159ae94d5961f7c913aaadc06b6e73b027be8e3bbf1f869f0a0b",
+      "P0F-RESULT.md": "4e4830c48dd6177c0f5d2449cb35f5835a3fd873cba922e9847ae4bebc9e75bd",
+      "P1A-RESULT.md": "c2bcb8f70164c58cd3359c7a54ec0cefc4334e90622c1ca935f627fca90aaf5d",
+      "P1C-RESULT.md": "b2798e2877ee41e0ef31beae131deed219f86cb2d1ce43fb9697d59948578138",
+      "P1D-RESULT.md": "c910ff306e833e3d3d88e0fe0eaee5a422a384ca1bbfd2ffe97ed6eddfdaac3e",
+      "P2A-RESULT.md": "0994d89c32a704710bd4556c07fa8710343b393924ea5a3b796b5fae2132392b",
+      "config/build.ts": "17a824820cf2e9a675a8c7bd778391eb8b61e2fa311508360b891a333ef80564",
+      "docs/redesign/01-CURRENT-SITE-AUDIT.md": "2f94027808dfa7d6dfe13b56251abb1e82d63220eb010b10dee09691915c36e5",
+      "docs/redesign/03-MOTION-SYSTEM.md": "2292a768a4ef8bc60b16ee0d88d0afbebb3dce9632ba10dd91585d8545d459c2",
+      "docs/redesign/05-WORKS.md": "2b4f7366ed7f6ceb80d27fb2e355d65088c86576413d3bd13a7ccffd11e66956",
+      "docs/redesign/06-ALBUMS.md": "d8e479c7ba6b4e5bce7be288ed1228a7fbd7858f11163f6887e1d808064bbb36",
+      "docs/redesign/07-ALBUM-DETAIL.md": "4e02efed6dbe6e0986ef748967964c6661a675bfc59f2aa4e609d4f544c190b5",
+      "docs/redesign/08-PERFORMANCES.md": "e3dbc5407a782485bdcd38a3987023f6e9ffc51838f3a5db3cbda91c34967530",
+      "docs/redesign/09-PERFORMANCE-DETAIL.md": "730df78869694a1f0bc4bf936c85d2c1b3141bfd1a92d641f40ec248e3768c58",
+      "docs/redesign/10-ABOUT-MEDIA-CONTACT.md": "e08a62c3827ee2d0ca3f3aa28ed4152613e3d3feccdaf6b909ddc40e79b0426b",
+      "docs/redesign/12-PERFORMANCE.md": "c06f1391e7114d2db57c0fe860c6f4c9a38d9dbe131b2c24aeecef32731b6cb9",
+      "docs/redesign/13-ACCESSIBILITY.md": "dbe426f49dfb190d62d6a849264a008e2438cb5cc2c9d2fe648f71f37f745ae6",
+      "docs/redesign/14-MIGRATION-QA.md": "9d2a0dfb47bae1797fe5f6be34021ee045cb30504472f302fa539fa0726c4e9d",
+      "docs/redesign/review/HANDOFF-AUDIT.md": "f2faaafb44799bd9328a3fc70472f2af5095f5fc0a6c8094751a14b156e4bb94",
+      "docs/redesign/review/HOME-V2.1-REVISION-REPORT.md": "6ef7e7b3b89ddedbbd30b7266c3d41bc4bebe322b9ca26e05c0048fd542bd517",
+      "docs/redesign/review/LOCALE-METADATA-CONTRACT.md": "64e0a574a10b479bf1b989401337cd9bcd4bd1987108467be6938d06ecd2a920",
+      "docs/redesign/review/PLANNING-REVISION-LOG.md": "ce31e7a403e7bc3bff64156dbdc003429d974a900f942a36972d4174f4fe3b97",
+      "docs/redesign/review/ROUTING-ARCHITECTURE-DECISION.md": "157eb4a50e2b1aec25384d5ad8fed7f57d0a3bc9bc13e15e4bbd34237e785a78",
+      "docs/redesign/review/album-audits/JI-YOUNG-HEE-SANJO-KO-RECORD-MAPPING-REVIEW.md": "fb51de1756a5dce3bf4bdda7d339791130e4d2455bdc95dafe611db93a1c2361",
+      "docs/redesign/review/album-audits/JI-YOUNG-HEE-SANJO-SOURCE-AUDIT.md": "053328d08c9fb9131802e9c3887e6fdca17fc4e5ce4a5a337e44fb5b434840ca",
+      "eslint.config.js": "7c82b9432dd25bf6f2d8ee50574cd670758916be771a942742d53818dfe33cb9",
+      "evidence/p0c/README.md": "f3e9087c4b109e6d84099d2f7225a64c406cb2151c195e67db1368ebabaf4ae5",
+      "evidence/p0c/github-404-js-disabled.png": "7ba36da534a4420b5081aa2cd5e28d0393857158152ecb394ce258a88c58e3b6",
+      "evidence/p0c/github-actions.json": "65fb45b33abcc193c670bdbeab8ea521e9cb0813b2a802224d908445ecd91e2d",
+      "evidence/p0c/linux-ci-chromium.json": "6e953e6283a0236c0ef466c06b8645f9925fde53ba65e213fc7aa9b202b3d30e",
+      "evidence/p0c/real-pages-neutral.png": "2e1557d57d887ba72f9e037c6bbd313fa307b335953ca11dffe5e9746fa9db00",
+      "evidence/p0c/windows-edge.json": "41ab9912f155dd47265f92e9b2ef86450eeecbe9c25c1da25bb448354b3de5d6",
+      "evidence/p0d/README.md": "db0eb78e8dda23fa1ccfd111f4835c7d5a538b00146c22dff0aad9d48ed16d30",
+      "evidence/p0d/pagesPreview-neutral-shell.png": "672d4599df8bdeb1b633db731d16eff344593fffd1c9af22180d0d9bceadc414",
+      "evidence/p0d/root-neutral-shell.png": "672d4599df8bdeb1b633db731d16eff344593fffd1c9af22180d0d9bceadc414",
+      "evidence/p0d/verification.json": "a0faefb040e73949717f7b1236e6e5f1e35b71413d170124247792cc37ba2923",
+      "evidence/p0e/README.md": "46703e1a2d5667c518c86df7ebaaf85da83be8f1d0dfd7005e9d60b5ba4e1e7d",
+      "evidence/p0e/ci-results.json": "d1771f9cda0142a3eb3b8def238579cf543aa5ddbdec91dd9936898feea754a5",
+      "evidence/p0e/deployed-manifest.json": "804902314256c9369a0549d1e56580f38808c307af96da86300a7e630ac93b4d",
+      "evidence/p0e/fast-ci.json": "216854fe25fad7721e6308d3487bdc7d78b3b1ff479802b534d9489ce623f88d",
+      "evidence/p0e/full-delivery-ci.json": "4e308072169751b5124bee4eaa6e6904c819ab02224f9080debeb93631bd2f3f",
+      "evidence/p0e/local.json": "d7a20deac2080b2abbde335240ac5dc7dbef375b56ccc95e1fbad816e5bc9a56",
+      "evidence/p1a/results.json": "5d2d6d7767392144221bdf6f29ff18ab719e7a9bfd5292994c516889169a0ba0",
+      "evidence/p1b/ji-young-hee-sanjo-source-audit.json": "25607f59cde7effc00f9ed9c12add5136a1d44f7b5c2bc67e6d1e72df4cbfe43",
+      "evidence/p1c/ji-young-hee-sanjo-ko-mapping-review.json": "96f541bdb96653b499543a4128bdccc7ff6f918d4e9d2660ea1dff0aed48a040",
+      "evidence/p1d/ji-young-hee-sanjo-ko-draft-integration.json": "20796110f0f5f06526640bcfe85bab8d89c665796ce0dda553cb3d5c24c715ef",
+      "evidence/p2a/baseline-fast-ci.json": "347dbea57c27b6c2f05fbdcdd2616321f26cc6c50e9a8c622f9f51b7c8ffbea6",
+      "evidence/p2a/design-system-foundation.json": "25e129e0ed7fd703040153c36a98253e0e4bb54e818117033566bd40f908a6bc",
+      "evidence/p2a/desktop-first.png": "5cff726821c21caef0193dea8c08fb8cc9ec57f9e0930eeebf80ec76ee52242b",
+      "evidence/p2a/desktop-full.png": "8385503ea4d24bc6dd155b66dd98d9245b79292393c11e1d4049fb4a4f655a89",
+      "evidence/p2a/mobile-first.png": "97ad1a653ef7f29aad31de77432dfd5b8ed8563157a586597b8ba60a821991be",
+      "evidence/p2a/mobile-full.png": "811331ffbd3902dc5c92086043f3f5d318c0baa649386f296fd8ac9bab14300b",
+      "labs/design-system/index.html": "a2dd5d23694c0dc62f275a46f468756eda902355264bb7ad09f1b344a94538a7",
+      "labs/design-system/lab.css": "25ad3c166b2ce0c1039572d2ec07cb137df8d6f3c19b833c03f54e8466a1e7de",
+      "package-lock.json": "c1cd8995df2483039fd7ecf1ba85eb610024c908a2ff266c845306bdef230423",
+      "package.json": "644d4ee2b3b69b98e49d0b2ab77117c2a437ebc809d5ee78c71ccc44eeaa8b7e",
+      "playwright.config.ts": "53b535edf4629727330daba4904c16bf67b450c3efb81247d0b9f31893408bba",
+      "playwright.design-system.config.ts": "c6b2eecfd974e7f673dd31a42cd72d3bf8b9de62db519bb7657c6662401f8165",
+      "playwright.pages.config.ts": "ffabcd532343bb56afdf0085d5492b16708ecc726981a82460abfd9fcd7ccc5d",
+      "public/assets/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public/licenses/cormorant-garamond-OFL.txt": "732f37009943e7f4378cf37113c9bcc4716af002a8583511aa91ed5d37683e73",
+      "public/licenses/noto-sans-kr-OFL.txt": "18aabf190848725e2576eefb5c29ba06aac1029d02132252a7f312eac2e50cf3",
+      "public/licenses/noto-serif-kr-OFL.txt": "18aabf190848725e2576eefb5c29ba06aac1029d02132252a7f312eac2e50cf3",
+      "public/spike/path-check.svg": "c3355379bcf7c089546d19d2a5160ddf5c3472040c4d6d447b2cc5e8852d23fb",
+      "react-router.config.ts": "668ac9a9e250cb411ab72317801a0c1c4095ebd88243266a2a698af5fe77cd31",
+      "scripts/package-static.mjs": "3074ac87dc5070dde7f40b9d0cfd025bf09d00d403feecc558a0105a4debd60a",
+      "scripts/router.mjs": "60851fecbb60d3df561267560c8c277d84479cdf71c95f1e1282c2d8237402ff",
+      "scripts/static-layout.mjs": "e4f15bd111d368037f9225f9a447eb9d5b45460bc3f0ebd6018b4c17c7321e55",
+      "scripts/static-spike-server.mjs": "325dcad267b4c9110d91c72c3176be1187ecd75e3828d271427e075fcd3908a5",
+      "src/assets/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/components/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/config/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/content/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/content/assets.ts": "90959d5ed3c0d1deb87b7e1ee87834a170d6db2de601c32a2c276f284c22f8c0",
+      "src/content/catalog.ts": "6e397f1706076139e6800353740a39c96d2f58e614630cac7754b083017d5f8b",
+      "src/content/fixtures.ts": "d269b21e584ae1a12b2d641e5fb652f7f21c2cdf9203a524cbd9554cfffb2f79",
+      "src/content/models.ts": "2990d5c114f3eb34e704f4adfdeb0e1956acf8da9aff3aebacfcd7844d19eea1",
+      "src/content/records/ji-young-hee-sanjo.server.ts": "035155a2bf62b557670ba6590d4ae8a9a06607ba357f9d76b4f6631edae25923",
+      "src/content/registry.server.ts": "f7ad34c08f9913450135b6df092a820b9b9936d34f6bef0e1bc1aa97afdd2961",
+      "src/content/shared.ts": "c4724824800158e69c24a1072e8ba562b7dbaaeac6c6e86fec17d6ec034dd8fe",
+      "src/content/validation.ts": "218a52c253a9130b4e7e826801ceffee235a1fd92d842662f9ed6d6ea72ee319",
+      "src/features/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/root.tsx": "cd557449cd8f1608e025585f834ef763f0bef976670ef3a9b5d9d85ec018e219",
+      "src/routes.ts": "a01f138e384122c5afffe468b7a801ad7c01b6a456f017a753425c513d6c12b9",
+      "src/routes/not-found.tsx": "2ff0ae245dfa4bb110f94c689ab8d764e48fdc44047a4c4ce304a24b01df6c8e",
+      "src/routes/spike.tsx": "b2abedcdc3c36434e219cd889398d446755082587d2833ef64343457c1b97806",
+      "src/routing/locale-contract.ts": "1b4c21ff510137b4a9ca734c2e79298d1fa5855a49833785c579e62ecaf80db4",
+      "src/spike/fixtures.ts": "88aedd6d31510f523f9e9ddfeaacd22c5209b2cf08c3f67dd5d0345529cea265",
+      "src/spike/metadata.ts": "52630102f1b1cdf8048763410a08eef02cce404c67ce7f8180feca4715c6440f",
+      "src/spike/paths.ts": "13e28766a9dd1c967a8efa93c5f3e3da240a366109d53a10756a5d7dc6466116",
+      "src/styles/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/styles/base.css": "10e26dd6d5b18465fb558df834e6b389fd68a56c852c5423ac46bb65ad0ddfc2",
+      "src/styles/foundation.css": "2323df1d278cdbbefbb3d11b233b2b0fd35be4dceb872c25892bc5c8b6d601e1",
+      "src/styles/layout.css": "bfedcf6e14ae15684bd6343643a0109fc1bdf1dd501326baecf4aa87bba93bda",
+      "src/styles/spike.css": "35d990f46e8ad49778ca02c9a8bba4e7604ebe588c89cd3276e82580dc8184bf",
+      "src/styles/tokens.css": "4390c96c85f3dac05f5a94a0e03fb06ba46b41fa3c1c9a0cd434603600983645",
+      "src/styles/typography.css": "9cb76ea423c7501ddd383835773e4d95be558827a1d2fc9cd1784da3339a2020",
+      "tests/assert-design-artifacts.ts": "f21dce056e5d50be969aff151245d6f8b14b0d8c278c55d120f2a075943a0d39",
+      "tests/assert-draft-artifacts.ts": "cea8bba327463a23c6b4ede168d2f90fb9cb633dc11795bc6996d1771315d42d",
+      "tests/content-contract.test.ts": "493518e128e0bb9548e0147d00dec9e8699e143200a902daa90ced8e1b25aa7b",
+      "tests/content-types.test.ts": "c2dd3e20affffe811d51d743dc7b6b82f02a5a572dbb485e0aeb2532e360cc48",
+      "tests/content-visibility.test.ts": "ee62770ba4facfd33e1edccd32517e8a232540ec9481bbcf6c83cf929e259344",
+      "tests/design-artifacts.test.ts": "cb6529371bef49ff531efe4830ec2d68fab83d080e35263de44524db1f75d69a",
+      "tests/design-system.spec.ts": "2ba7eadfe0bf1e36b10ce57222813c730da862d41dda798c11060fe746970bf4",
+      "tests/draft-content.test.ts": "17242405f8a9f22cd4b05606e4cc9b0bd6cd4fbae470fd561359fedfbfb3d475",
+      "tests/locale-contract.test.ts": "03ce05c97a2af9645e63d490621b92bce09be14e76e58ef909e82c744616ad92",
+      "tests/metadata-assertions.ts": "526466beca856c3dd9242e1f9e6567930546ef4959513bf8a02dc4bc6b15f2d6",
+      "tests/pages/live.spec.ts": "3b7784454e46230c33934e529fb9bd88dd8776fcfb3fe3aa6ee038d1b273a9d8",
+      "tests/routing-spike.spec.ts": "df422d47639b0c8325252400d7f2b5ece3af6660b6fa4874c7996f3e44fa745b",
+      "tests/static-layout.test.mjs": "c51fcca6c6d15b79e706c7aab8bab78e9b8295a67966db29af7c8ae68d74888e",
+      "tsconfig.app.json": "6d8be2b85bbbe66336b5e7f811f2660de00cc7db98aaedca27e1a841ae557036",
+      "tsconfig.json": "3a11d1d758b82ceae1687b3b3b673d98febb16b81305239be576b6aa30148fed",
+      "tsconfig.node.json": "7e6733c6dce0de8905f3fa5bd69e9d83dd0961e295f088e33bd9cb16c693bf79",
+      "vite.config.ts": "b24755785f978270f2b94a64774b59d88020a3bf86c81abb5e818c9b7fd54164",
+      "vite.lab.config.ts": "4abb9883d624700f2364e201f54e7331cc7f30ddd357aa50284402bf2e6594a2"
+    },
+    "changedFileHashes": {
+      "CODEX-HANDOFF.md": "7bfa0bb743ae54846ded25b6caeed4badff950eb46011c3007d696bb0648c1be",
+      "README.md": "3b4a1090c109eeb32069128705d4bb071132ca4bddea4f5875ae36ecb5d2c50a",
+      "docs/redesign/00-MASTER-PLAN.md": "dada97b364e85949297b53c44ff40261f7e178793d7e4a2372570449e10da095",
+      "docs/redesign/02-DESIGN-SYSTEM.md": "1c8f5d0da8fcbd40d329148a23015fddcce68a338e2cda1b0da323bf465301fa",
+      "docs/redesign/04-HOME.md": "0636674500461c69fe318e46288f6166e576a1b9a4e59bd67b173cdf5dc553a2",
+      "docs/redesign/11-RESPONSIVE.md": "4d6fb4144319f272749c77a9b97e6fd45d156b984b7bdf90ed013fc7b9f2fd66",
+      "docs/redesign/review/CONTENT-SCHEMA-CONTRACT.md": "7e8331e2ceef9a1d5b86997090bb7f6774b7d1bf84647aba36831a2957107c95",
+      "docs/redesign/review/DESIGN-SYSTEM-FOUNDATION.md": "b31e72f2bd37446b4f3d46d6ba3c3c12b0d7d109667f8883194efaf016301946",
+      "docs/redesign/review/EDITORIAL-NAVIGATION-PROTOTYPE.md": "a9cc24599b868c09d7225db0a476f9abd6e03779bf4df0ae21ae84c12b561533",
+      "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md": "1ab50748c1ac9f96ebe1679a0080f900030085c4b0cada81a99ee76190082476",
+      "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md": "c03f250a884c9cda1221fe4d5237040af2d5f5ecd3f11f96949dc6a141ccc2df",
+      "labs/navigation/NavigationLab.tsx": "f4c4dcf9c15a46d67becca24c4320bdb1acb5c7bce7279db443d01cb1c1f3f0b",
+      "src/navigation/EditorialNavigation.tsx": "a6bb3f94eae2f49202031e83ae8beedbb20ba190a0f19b5b316b6cf01d461217",
+      "src/navigation/navigation.css": "ace36e26f841b313ad927bd291744f58c16e4a37e040e64b0f2a6d995a5de362",
+      "tests/navigation.spec.ts": "564d5c44f013e6b4413e901e9cb25d2ed5c79c421408e6bde6719df5330612fb",
+      "P2B-REFINEMENT-RESULT.md": "5b3551f0d9e2e802ad99c5c735dd491ae00a373bb09069052b126276bffd2ea7",
+      "src/navigation/menu-reveal.ts": "a9fedc3fdf66186ba71a78b233c7b72df0df58741e9bdb557be23c82513875e7",
+      "evidence/p2b-refinement/trigger-hover.png": "02d0aec95514e0b5f27ff3a7e88fe96b27c288ff29f0c763c875671a5285cc41",
+      "evidence/p2b-refinement/opening-180ms.png": "8e8c12f77c189de201b29e78ed9b7508431b2f35184cc5ebb87e9e0a577a91cf",
+      "evidence/p2b-refinement/fully-opened.png": "8dc26e929be63993cc342e8217b2d35064a6e3592deea9d1f406928d4b12039e",
+      "evidence/p2b-refinement/menu-item-hover.png": "71a2e74ac9a1bdd52be9c71df15f546d40c362b96838152ec2c52caa6f28b272",
+      "evidence/p2b-refinement/mobile-opened.png": "3854db41fb72f55a62a8760f9e333aec4215b0542861fd43d3665f632888c006",
+      "evidence/p2b-refinement/close-trigger-hover.png": "66252eb2ec6ae4f10196133aefd73f25b4a21819c7c2d64eda42016ca4e06014",
+      "evidence/p2b-refinement/closing-150ms.png": "eedb54606c8b31c6cfbc0b87834f586c10139be72419615a4d79ca8f77440137",
+      "evidence/p2b-refinement/small-mobile-opened.png": "ab5d9e3cc5d6707c0c2dde0cf7ea2f099b21d38661b84a2bfbb95f6fe64b7a48"
+    },
+    "handoffCheckboxesPreserved": 207,
+    "numberedSectionsPreserved": {
+      "docs/redesign/00-MASTER-PLAN.md": 45,
+      "docs/redesign/02-DESIGN-SYSTEM.md": 28,
+      "docs/redesign/04-HOME.md": 26,
+      "docs/redesign/11-RESPONSIVE.md": 24,
+      "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md": 17
+    },
+    "authorizedSpecChanges": "Design §16 / HOME §4 navigation / Responsive §16 plus current statuses",
+    "linksChecked": 198,
+    "anchorsChecked": 9,
+    "newBrokenLinks": [],
+    "knownBaselineMissingLinks": [
+      {
+        "file": "README.md",
+        "href": "P0B-CHECKPOINT.json",
+        "reason": "file"
+      }
+    ],
+    "oldP2BResultAndEvidencePreserved": true,
+    "diffCheck": "PASS"
+  },
+  "delivery": {
+    "head": "771490731afd42f1be133685dbfe3d63ebf23568",
+    "refinementCommitted": false,
+    "pushed": false,
+    "deployed": false
+  },
+  "stop": "REPORT → STOP → USER APPROVAL. No HOME/P2C implementation."
+}

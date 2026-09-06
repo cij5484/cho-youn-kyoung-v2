@@ -1,6 +1,6 @@
 # Cho Youn Kyoung Website V2 — 검토 및 구현 제안
 
-검토일: 2026-09-06 · Revision 1.11 · 상태: **P1C/P1D 승인·main delivery 완료 / P2A Design System Foundation REVIEW READY / visual 승인 대기**. HOME V2.1 및 P0 routing/locale/CI 계약은 유지한다. 현재 결과·승인 경계는 [HANDOFF](../../../CODEX-HANDOFF.md)를 따른다.
+검토일: 2026-09-06 · Revision 1.15 · 상태: **P2A visual 승인·main delivery 완료 / P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN**. HOME V2.1 및 P0 routing/locale/CI 계약은 유지한다. 현재 결과·승인 경계는 [HANDOFF](../../../CODEX-HANDOFF.md)를 따른다.
 
 현재 정본은 갱신된 MASTER의 PHASE 0–14다. React Router + Static Prerender는 사용자가 지정한 P0C 실제 Pages gate 통과로 확정했다. P0D neutral locale/hreflang 계약은 두 base에서 통과했고 실제 번역·제품 구현과 운영 SEO는 별도 gate다. 이 문서는 실제 구현 승인이 아니다.
 
@@ -216,6 +216,8 @@ HOME은 측후면 Hero, 해금이 드러나는 3/4 컷, 정면 identity reveal, 
 
 ## 8. Motion Architecture
 
+2026-09-06 사용자 최종 통합: 의미 없는 animation을 금지하며 animation 양 자체를 최소화하지 않는다. 장면·navigation·공간·object 관계가 명확한 bold / contemporary / experimental motion을 허용한다. BOLD, CURATED, PURPOSEFUL 기준으로 reference의 원리/구조를 적극 재해석하고 필요한 Refined/Bold 비교를 수행한다. Exact layout/composition/timing/assets/branding/code는 복제하지 않는다. Motion §§1/11/15/16이 원칙·Letter Slip·image vocabulary·same-object detail continuity를 소유한다. WORKS §4의 cluster→scroll archive reorganization, PERFORMANCES §§13/14의 persistent Stage Visual + left/index list는 이번 P2B에서 DOCUMENT ONLY다. 향후 복잡한 layout/shared transition의 GSAP Flip 적합성은 별도 bounded task에서 평가한다.
+
 HOME V2.1 정본은 [04 HOME](../04-HOME.md)이다. Hero는 Moving Editorial Poster이며 이름/portrait/two lines/nav의 구성에서 첫 약 5초의 digital-artwork 인상을 만든다. 8-scene intensity는 5/4.5/3/4/5/2.5/2/3, rhythm은 STRONG→STRONG→QUIET→ACTIVE→PEAK→QUIET→QUIET→RESOLVE다. Scene별 vh는 04 §2의 prototype 경험 예산이며 고정 height/강제 체류가 아니다.
 
 Hero→Haegeum은 type spacing/depth/position, portrait crop/depth, two-line guide, instrument imagery가 한 장면처럼 변형된다. HEAD/PEG→STRINGS/BOW→RESONANCE→FULL HAEGEUM에 현재 keyword만 최소 노출한다. 1.2–1.6 viewport는 Scene 02 120–160vh와 겹쳐 검토하며 추가 pin으로 합산하지 않는다. Native continuous scroll, reverse/interrupt continuity, no snap을 지킨다. Default fade-out/fade-in 교체는 금지지만 reduced-motion의 정적/crop/fade 대안은 유지한다.
@@ -424,7 +426,7 @@ Gate 기록 양식: 작업 ID, 기준 commit/artifact, 환경, 수행 항목, �
 
 ### PHASE 0 — Foundation
 
-현재 delivery: push/PR은 type/lint/locale/content/placement/root build 및 draft artifact 제외 Fast gate를 실행한다. Full은 두 base의 84개 route/browser와 11개 Design System Lab 회귀를 검사하며 수동 deploy=false가 기본이다. 승인된 exact SHA/main의 deploy=true만 배포한다. P0E/P0F 당시 승인·검증 이력은 각 결과에 보존하고 현재 bundle은 P1D 결과를 따른다.
+현재 delivery: push/PR은 type/lint/locale/content/placement/root build 및 draft artifact 제외 Fast gate를 실행한다. Full은 두 base의 84개 route/browser, 11개 Design System Lab, 26개 canonical Bold navigation Lab 회귀를 검사하며 수동 deploy=false가 기본이다. 승인된 exact SHA/main의 deploy=true만 배포한다. P0E/P0F 당시 승인·검증 이력은 각 결과에 보존하고 현재 bundle은 P2B Freeze 결과를 따른다.
 
 - 입력: **각 단위의 명시적 구현 승인**. 전체 계획 승인은 다음 구현 승인과 다르다. P0A–E는 각각 승인되어 완료됐으며 P0F 문서 결과를 보고하고 멈춘다.
 - 최신 승인 이력/큐: P0A skeleton 완료 → STOP → P0B local routing spike 완료 → STOP → P0C 실제 V2 Pages/CI·routing·architecture APPROVE → STOP → P0D locale/metadata 계약 완료 → STOP → P0E CI/Full/실제 Pages 검증 완료 → STOP → P0F AGENTS/Project Knowledge Wiring canonical APPROVED. 매 화살표 사이에 명시적 승인이 필요하다.
@@ -444,7 +446,7 @@ Gate 기록 양식: 작업 ID, 기준 commit/artifact, 환경, 수행 항목, �
 ### PHASE 2 — Design System
 
 - 입력: Ivory baseline, 승인 시안/사진 식별.
-- 작업: 3개 font, display/body/metadata tokens, 읽기용 대비 token, 12열/모바일 4열 또는 fluid, spacing, image ratios, links/buttons/focus, transforming nav와 mobile menu prototype.
+- 작업: 3개 font, display/body/metadata tokens, 읽기용 대비 token, 12열/모바일 4열 또는 fluid, spacing, image ratios, links/buttons/focus, artist + MENU와 editorial open panel / independent mobile menu prototype.
 - 산출물: desktop/mobile 대표 composition과 UI specimen, crop/mask 방향, global CSS 경계.
 - 완료 기준: 긴 한글/EN 제목·zoom·small mobile에서 읽힘. 작은 텍스트 대비와 hit target 확인. 사용자 시각 승인.
 
@@ -563,11 +565,11 @@ Gate 기록 양식: 작업 ID, 기준 commit/artifact, 환경, 수행 항목, �
 
 ## 17. Recommendation Before Implementation
 
-P0E 사용자 승인 범위에서 기존 architecture를 유지하고 Fast push/PR gate와 명시적 Full/preview delivery를 연결했다. P0E 실제 검증/배포 상태는 [결과](../../../P0E-RESULT.md), commit/push/deploy/STOP의 현재 정본은 [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md) CI/delivery 절이다. 과거 이력은 보존하며 운영 지도는 [AGENTS](../../../AGENTS.md), 현재 상태는 [HANDOFF §26](../../../CODEX-HANDOFF.md#knowledge-status), 현재 bundle 결과는 [P2A](../../../P2A-RESULT.md)다.
+P0E 사용자 승인 범위에서 기존 architecture를 유지하고 Fast push/PR gate와 명시적 Full/preview delivery를 연결했다. P0E 실제 검증/배포 상태는 [결과](../../../P0E-RESULT.md), commit/push/deploy/STOP의 현재 정본은 [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md) CI/delivery 절이다. 과거 이력은 보존하며 운영 지도는 [AGENTS](../../../AGENTS.md), 현재 상태는 [HANDOFF §26](../../../CODEX-HANDOFF.md#knowledge-status), 현재 bundle 결과는 [P2B Freeze](../../../P2B-FREEZE-RESULT.md)다.
 
 HOME V2.1은 문서 개정으로 승인됐고 bb8460e commit으로 보존됐다. 해당 작업에서 코드/asset/motion/3D는 구현하지 않았다. [V2.1 revision report](HOME-V2.1-REVISION-REPORT.md)는 당시 STOP 기록이다. 이후 별도로 승인된 P0E만 실행하며 P0C/P0D 계약을 유지했다.
 
-**현재 판정: React Router + Static Prerender APPROVE / P0E·P0F·P1A delivery COMPLETE / P1B audit delivered / P1C/P1D APPROVED & DELIVERED / P2A foundation REVIEW READY.**
+**현재 판정: React Router + Static Prerender APPROVE / P0E·P0F·P1A delivery COMPLETE / P1B audit delivered / P1C/P1D APPROVED & DELIVERED / P2A foundation APPROVED & DELIVERED / P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN.**
 
 정본 로드맵, 독립 ABOUT Delight, HOME 한정 Sou.P, mandatory Tray Lab, same-route audio scope, source truth, 대비 token, volume capability 검증 정책, bounded task/STOP 계약을 반영했다. 사용자 승인 사항을 다시 미정 질문으로 남기지 않는다.
 
@@ -581,5 +583,5 @@ P1C 승인 후 P1D에서 그 한 건만 private draft로 등록·검증했고 �
 현재 미착수: 공개 production record/asset 전환, 실제 content→template integration, Blender spike/모델/Tray/Haegeum 3D,
 공식 authored/reviewed EN과 최종 SEO, 실제 HOME/제품 composition, audio/mobile/3D, 운영 도메인 전환. P0E preview는 이 작업에서 재배포하지 않는다.
 
-**현재 P2A는 CSS foundation→개발용 Lab→시각/Full 회귀의 한 bundle이며, 17항목 결과 보고 후 STOP한다.**
-[Foundation guide](DESIGN-SYSTEM-FOUNDATION.md)가 font/token/layout/base의 구현 정본이다. P2A는 로컬 REVIEW READY이며 visual 승인은 대기한다. P2B, HOME Hero, 공개 전환, content migration, 3D/Blender 또는 다음 Phase로 자동 진행하지 않는다.
+**P2A visual 승인 후 7714907로 commit·main push했고 Fast CI 34004955387이 성공했다.**
+[Foundation guide](DESIGN-SYSTEM-FOUNDATION.md)가 font/token/layout/base의 구현 정본이다. 최초 P2B 결과/증거는 이력으로 보존한다. 사용자가 initial navigation을 artist name + MENU로 정정하고 세로 링크 scroll morph를 취소했다. 사용자가 **P2B Bold** 시각 결과를 승인하고 **QUALITY APPROVED FOR HERO INTEGRATION**으로 freeze했다. 현재 한 단위는 A 단일 Bold runtime 정리 → B canonical 승인/QA 문서 → C Full 검증·commit/main push·Fast CI·clean tree 확인이다. WORKS/PERFORMANCES와 image/detail motion은 정본에 문서로만 기록한다. [Navigation guide](EDITORIAL-NAVIGATION-PROTOTYPE.md)와 [Freeze 결과](../../../P2B-FREEZE-RESULT.md)를 따른다. Letter Slip X +3px / Y ±7px / 300ms / 20ms, MENU-origin diagonal Ivory reveal 500ms / close 400ms, mask trigger와 index 강조를 유지한다. Refined는 기존 Lab/evidence로만 보존하며 runtime 선택 분기는 없다. Hero 조합 근거 없이 Bold 수치를 미리 낮추지 않는다. Safari 실기기와 최종 HOME 조합 QA는 남아 있다. canonical motion·committed files·SHA·CI·남은 QA·추천 P2C 보고 후 STOP; HOME Hero, P2C, 공개 전환, content migration, 3D/Blender 또는 다음 Phase로 자동 진행하지 않는다.

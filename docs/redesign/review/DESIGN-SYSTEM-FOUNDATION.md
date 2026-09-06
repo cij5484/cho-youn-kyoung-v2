@@ -1,6 +1,6 @@
 # P2A — Design System Foundation
 
-2026-09-06 · IMPLEMENTED / VERIFIED LOCALLY / visual review pending.
+2026-09-06 · IMPLEMENTED / VERIFIED / visual result APPROVED and delivered as 7714907. Original evidence is historical.
 Art-direction owner: [02 Design System](../02-DESIGN-SYSTEM.md). HOME remains [V2.1](../04-HOME.md).
 This is the production CSS foundation and its development specimen, not a HOME composition or final page template.
 
@@ -125,4 +125,4 @@ Checks cover five viewport widths (320/390/768/1440/1920), fonts, actual rendere
 Desktop/mobile screenshots and exact results are in [P2A result](../../../P2A-RESULT.md).
 Browser emulation is not real iPhone/Android/Safari hardware QA or final visual approval.
 
-**STOP after P2A report. HOME Hero, P2B and later phases require explicit authorization.**
+**P2A STOP was followed; its visual result and delivery were approved.** The separately authorized [P2B navigation prototype](EDITORIAL-NAVIGATION-PROTOTYPE.md) consumes this foundation. Current Full additionally runs 26 canonical Bold navigation cases; Refined comparison evidence is archived. P2B is QUALITY APPROVED FOR HERO INTEGRATION / FROZEN, with real-device and final HOME composition QA open. HOME/P2C still require separate authorization.

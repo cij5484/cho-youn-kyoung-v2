@@ -1,0 +1,92 @@
+/* P2B refinement: artist + MENU only. P2A owns shared values; no scroll morph. */
+.editorial-navigation, .menu-top {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
+  padding: max(var(--space-2), env(safe-area-inset-top, 0px)) var(--safe-gutter-end) var(--space-2) var(--safe-gutter-start);
+}
+.editorial-navigation { position: fixed; inset: 0 0 auto; z-index: 20; background: var(--color-canvas); }
+.editorial-navigation a, .navigation-menu a { text-decoration: none; }
+.nav-signature { display: inline-flex; align-items: center; min-inline-size: 0; overflow-wrap: anywhere; min-block-size: var(--touch-target); font-size: var(--micro); letter-spacing: .04em; font-weight: 500; }
+.menu-toggle {
+  position: relative; display: inline-flex; flex: 0 0 auto; align-items: center; gap: var(--space-3);
+  min-inline-size: var(--touch-target); min-block-size: var(--touch-target); padding: var(--space-1) 0;
+  color: var(--text-secondary); font-size: var(--ui); transition: color var(--action-duration) var(--action-ease);
+}
+.trigger-copy { letter-spacing: .01em; transition: transform var(--action-duration) var(--action-ease), letter-spacing var(--action-duration) var(--action-ease); }
+.trigger-window { display: block; overflow: hidden; inline-size: 3.6em; block-size: 1.8em; }
+.trigger-switch { display: block; }
+.trigger-switch > span { display: block; line-height: 1.8; }
+.trigger-symbol { inline-size: 14px; block-size: 14px; position: relative; transition: transform var(--action-duration) var(--action-ease); }
+.symbol-lines { position: absolute; inset: 0; }
+.symbol-lines::before, .symbol-lines::after { content: ''; position: absolute; background: currentColor; transition: transform var(--action-duration) var(--action-ease); }
+.symbol-lines::before { inline-size: 14px; block-size: 1px; inset: 6.5px 0 auto; }
+.symbol-lines::after { inline-size: 1px; block-size: 14px; inset: 0 auto 0 6.5px; }
+.menu-toggle:focus-visible { color: var(--text-primary); }
+.menu-toggle:focus-visible .trigger-copy { transform: translateX(3px); letter-spacing: .035em; }
+.menu-toggle:focus-visible .symbol-lines::before { transform: scaleX(.72); }
+.menu-toggle:focus-visible .symbol-lines::after { transform: translateY(-1px) scaleY(.72); }
+.editorial-navigation a, .editorial-navigation button, .navigation-menu a, .navigation-menu button { -webkit-tap-highlight-color: transparent; }
+.navigation-menu {
+  position: fixed; inset: 0; margin: 0; inline-size: 100%; max-inline-size: none;
+  block-size: var(--viewport-live); max-block-size: none; overflow-y: auto; overscroll-behavior-y: contain;
+  padding: 0; border: 0; color: var(--text-primary); background: transparent; isolation: isolate;
+}
+.navigation-menu::backdrop { background: transparent; }
+.navigation-menu[open] { display: flex; flex-direction: column; }
+.menu-surface { position: fixed; inset: 0; background: var(--color-surface); z-index: -1; pointer-events: none; }
+.menu-top { position: sticky; inset-block-start: 0; z-index: 1; background: var(--color-surface); }
+.navigation-menu .trigger-switch { transform: translateY(-50%); }
+.navigation-menu .symbol-lines { transform: rotate(45deg); }
+.menu-content { display: flex; flex: 1; flex-direction: column; padding: var(--space-5) var(--safe-gutter-end) max(var(--space-4), env(safe-area-inset-bottom, 0px)) var(--safe-gutter-start); }
+.menu-intro { display: flex; align-items: center; gap: var(--space-4); padding-bottom: var(--space-2); }
+.menu-index-mask { overflow: hidden; }
+.menu-intro h2 { font-weight: 400; letter-spacing: .08em; color: var(--text-secondary); }
+.menu-entry-rule { flex: 1; block-size: var(--hairline); background: var(--line-color); transform-origin: right; }
+.menu-links { padding: 0; margin: 0; list-style: none; }
+.menu-links a { display: block; position: relative; min-block-size: var(--touch-target); padding-block: var(--space-3); }
+.menu-item-mask { display: block; overflow: hidden; padding-block: var(--space-1); margin-block: calc(-1 * var(--space-1)); }
+.menu-item-reveal { display: flex; align-items: baseline; gap: var(--space-4); }
+.nav-index { flex: 0 0 1.25rem; font-family: var(--font-ui); font-size: var(--micro); color: var(--text-secondary); transition: transform var(--action-duration) var(--action-ease), color var(--action-duration) var(--action-ease); }
+.menu-item-label { display: inline-block; min-inline-size: 0; overflow-wrap: anywhere; padding-inline-end: 4px; font-family: var(--font-display); font-size: var(--display-m); font-weight: 400; line-height: 1.25; color: var(--text-secondary); transition: color var(--action-duration) var(--action-ease); }
+/* Approved Bold Letter Slip; Refined survives only as archived Lab evidence. */
+.navigation-menu { --letter-slip-x: 3px; --letter-slip-distance: 7px; --letter-slip-duration: 300ms; }
+/* Positions are deterministic. Leave has no stagger, returning every letter to its exact baseline. */
+.menu-letter { display: inline-block; transition: transform var(--letter-slip-duration) var(--action-ease); }
+.menu-letter:nth-child(odd) { --letter-slip-y: var(--letter-slip-distance); }
+.menu-letter:nth-child(even) { --letter-slip-y: calc(-1 * var(--letter-slip-distance)); }
+.menu-row-rule { position: absolute; inset: auto 0 0; block-size: var(--hairline); background: var(--line-color); transform-origin: right; }
+.menu-links [aria-current] .menu-item-label { color: var(--text-primary); font-weight: 500; }
+.menu-links [aria-current] .nav-index { color: var(--text-primary); font-weight: 600; }
+.menu-links a:focus-visible .menu-item-label, .menu-links a:focus-visible .nav-index { color: var(--text-primary); }
+.menu-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3); padding-top: var(--space-6); margin-top: auto; }
+.menu-bottom p { color: var(--text-secondary); }
+.nav-languages { display: flex; gap: var(--space-1); align-items: center; }
+.nav-languages a, .nav-languages button { display: inline-flex; align-items: center; justify-content: center; min-block-size: var(--touch-target); min-inline-size: var(--touch-target); font-size: var(--ui); }
+.nav-languages button { padding: 0; }
+.nav-languages [aria-current] { text-decoration: underline; text-decoration-thickness: var(--hairline); text-underline-offset: .4em; }
+.nav-languages a:focus-visible { text-underline-offset: .5em; }
+.skip-link { z-index: 30; position: fixed; }
+html:has(.editorial-navigation) { scroll-padding-top: var(--space-9); scrollbar-gutter: stable; }
+/* The reserved desktop scrollbar gutter belongs to the open plane; body keeps the underlying Canvas. */
+html:has(.navigation-menu[open]) { background: var(--color-surface); }
+@media (min-width: 70rem) {
+  .menu-content { padding-inline-start: calc(var(--safe-gutter-start) + (100% - var(--safe-gutter-start) - var(--safe-gutter-end)) / 3); }
+}
+@media (hover: hover) and (pointer: fine) {
+  .menu-toggle:hover { color: var(--text-primary); }
+  .menu-toggle:hover .trigger-copy { transform: translateX(3px); letter-spacing: .035em; }
+  .menu-toggle:hover .symbol-lines::before { transform: scaleX(.72); }
+  .menu-toggle:hover .symbol-lines::after { transform: translateY(-1px) scaleY(.72); }
+  .menu-links a:hover .menu-item-label, .menu-links a:hover .nav-index { color: var(--text-primary); }
+  .menu-links a:hover .menu-letter { transform: translate(var(--letter-slip-x), var(--letter-slip-y)); transition-delay: calc(var(--letter-order) * 20ms); }
+  .menu-links a:hover .nav-index, .menu-links a:focus-visible .nav-index { transform: translateX(2px); }
+  .nav-languages a:hover { text-decoration: underline; text-underline-offset: .5em; }
+}
+@media (hover: none) {
+  .menu-toggle:active { color: var(--text-primary); }
+  .menu-links a:active .menu-item-label, .menu-links a:active .nav-index { color: var(--text-primary); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .menu-toggle .trigger-copy, .menu-toggle .symbol-lines::before, .menu-toggle .symbol-lines::after,
+  .menu-links a .menu-letter, .menu-links a .nav-index { transform: none !important; transition-delay: 0s !important; }
+  .menu-toggle .trigger-copy { letter-spacing: .01em !important; }
+}

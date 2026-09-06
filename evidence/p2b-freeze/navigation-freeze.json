@@ -1,0 +1,1116 @@
+{
+  "task": "P2B — Canonical Bold Freeze & Delivery",
+  "recordedAt": "2026-09-06T06:01:15.435Z",
+  "status": "QUALITY APPROVED FOR HERO INTEGRATION / FROZEN; locally verified; main delivery explicitly authorized",
+  "baseline": {
+    "head": "771490731afd42f1be133685dbfe3d63ebf23568",
+    "checkpoint": ".checkpoints/p2b-freeze-before-7714907",
+    "priorWorkingFiles": 204,
+    "priorEvidenceHashesVerifiedBeforeEdits": 203
+  },
+  "canonical": {
+    "choice": "BOLD VERSION",
+    "letterSlip": {
+      "x": 3,
+      "y": [
+        7,
+        -7
+      ],
+      "durationMs": 300,
+      "characterStaggerMs": 20
+    },
+    "openingMs": 500,
+    "closingMs": 400,
+    "surface": "MENU-origin diagonal P2A Ivory Surface",
+    "trigger": "MENU/CLOSE mask",
+    "selected": "Ink / type 500 / index 600; no selected underline",
+    "hoverOpen": false,
+    "reducedMotion": "immediate states; no Letter Slip, stagger or reveal",
+    "runtimeModeSelection": false,
+    "refinedRole": "immutable historical Lab/evidence PNG/video/report reference only",
+    "tuningBoundary": "Do not lower before actual Hero coexistence review; tune within Bold if needed"
+  },
+  "validation": {
+    "status": "PASS",
+    "fullCommand": "CI=1 npm exec --yes --package=node@24.15.0 --package=npm@11.12.1 -- npm run gate:full",
+    "exitCode": 0,
+    "typeCheck": "PASS",
+    "lint": "PASS / zero warnings",
+    "node": 38,
+    "browser": 121,
+    "reports": {
+      "routing": {
+        "path": "test-results/results.json",
+        "sha256": "629355399ce6eddcb5ca33b945dc772d79af750699fd15a381c22980e0bc79e9",
+        "stats": {
+          "startTime": "2026-09-06T05:46:09.645Z",
+          "duration": 23994.93,
+          "expected": 84,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "attachments": [
+          {
+            "name": "draft-exclusion",
+            "data": {
+              "target": "root",
+              "scannedFiles": {
+                "client": 286,
+                "static": 285
+              },
+              "routes": 18,
+              "privateDraftsExcluded": 1
+            }
+          },
+          {
+            "name": "design-artifacts",
+            "data": {
+              "target": "root",
+              "routes": 18,
+              "labExcluded": true,
+              "localFontUrls": 253,
+              "fontFiles": 253,
+              "fontBytes": 9896644,
+              "javascriptBytes": 324591
+            }
+          },
+          {
+            "name": "draft-exclusion",
+            "data": {
+              "target": "pagesPreview",
+              "scannedFiles": {
+                "client": 286,
+                "static": 285
+              },
+              "routes": 18,
+              "privateDraftsExcluded": 1
+            }
+          },
+          {
+            "name": "design-artifacts",
+            "data": {
+              "target": "pagesPreview",
+              "routes": 18,
+              "labExcluded": true,
+              "localFontUrls": 253,
+              "fontFiles": 253,
+              "fontBytes": 9896644,
+              "javascriptBytes": 326277
+            }
+          }
+        ]
+      },
+      "foundation": {
+        "path": "test-results/design-system-results.json",
+        "sha256": "d42fff6760060b699480063b23695d26fb9c08e495a5fa77aad911d419fc08e6",
+        "stats": {
+          "startTime": "2026-09-06T05:46:33.939Z",
+          "duration": 3335.985,
+          "expected": 11,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "attachments": [
+          {
+            "name": "design-metrics",
+            "data": {
+              "loading": {
+                "cls": 0.002583375379774306,
+                "lcp": 96,
+                "width": 1440,
+                "scrollWidth": 1440,
+                "fontRequests": 17,
+                "fontBytes": 394560,
+                "fontOrigins": [
+                  "http://127.0.0.1:4175"
+                ],
+                "loadedFamilies": [
+                  "Cormorant Garamond Variable",
+                  "Noto Sans KR Variable",
+                  "Noto Serif KR Variable"
+                ]
+              },
+              "contrast": [
+                {
+                  "role": "muted",
+                  "ratio": 4.802375530639211,
+                  "opacity": "1"
+                },
+                {
+                  "role": "canvas",
+                  "ratio": 4.802375530639211,
+                  "opacity": "1"
+                },
+                {
+                  "role": "surface",
+                  "ratio": 5.142899773122183,
+                  "opacity": "1"
+                },
+                {
+                  "role": "dark",
+                  "ratio": 12.063339626240044,
+                  "opacity": "1"
+                }
+              ]
+            }
+          },
+          {
+            "name": "design-metrics",
+            "data": {
+              "loading": {
+                "cls": 0.0019850145939124667,
+                "lcp": 100,
+                "width": 390,
+                "scrollWidth": 390,
+                "fontRequests": 17,
+                "fontBytes": 394560,
+                "fontOrigins": [
+                  "http://127.0.0.1:4175"
+                ],
+                "loadedFamilies": [
+                  "Cormorant Garamond Variable",
+                  "Noto Sans KR Variable",
+                  "Noto Serif KR Variable"
+                ]
+              },
+              "contrast": [
+                {
+                  "role": "muted",
+                  "ratio": 4.802375530639211,
+                  "opacity": "1"
+                },
+                {
+                  "role": "canvas",
+                  "ratio": 4.802375530639211,
+                  "opacity": "1"
+                },
+                {
+                  "role": "surface",
+                  "ratio": 5.142899773122183,
+                  "opacity": "1"
+                },
+                {
+                  "role": "dark",
+                  "ratio": 12.063339626240044,
+                  "opacity": "1"
+                }
+              ]
+            }
+          },
+          {
+            "name": "design-metrics",
+            "data": {
+              "loading": {
+                "cls": 0.02375465698242188,
+                "lcp": 52,
+                "width": 320,
+                "scrollWidth": 320,
+                "fontRequests": 17,
+                "fontBytes": 394560,
+                "fontOrigins": [
+                  "http://127.0.0.1:4175"
+                ],
+                "loadedFamilies": [
+                  "Cormorant Garamond Variable",
+                  "Noto Sans KR Variable",
+                  "Noto Serif KR Variable"
+                ]
+              },
+              "contrast": [
+                {
+                  "role": "muted",
+                  "ratio": 4.802375530639211,
+                  "opacity": "1"
+                },
+                {
+                  "role": "canvas",
+                  "ratio": 4.802375530639211,
+                  "opacity": "1"
+                },
+                {
+                  "role": "surface",
+                  "ratio": 5.142899773122183,
+                  "opacity": "1"
+                },
+                {
+                  "role": "dark",
+                  "ratio": 12.063339626240044,
+                  "opacity": "1"
+                }
+              ]
+            }
+          },
+          {
+            "name": "design-metrics",
+            "data": {
+              "loading": {
+                "cls": 0.0045865889405831695,
+                "lcp": 48,
+                "width": 768,
+                "scrollWidth": 768,
+                "fontRequests": 17,
+                "fontBytes": 394560,
+                "fontOrigins": [
+                  "http://127.0.0.1:4175"
+                ],
+                "loadedFamilies": [
+                  "Cormorant Garamond Variable",
+                  "Noto Sans KR Variable",
+                  "Noto Serif KR Variable"
+                ]
+              },
+              "contrast": [
+                {
+                  "role": "muted",
+                  "ratio": 4.802375530639211,
+                  "opacity": "1"
+                },
+                {
+                  "role": "canvas",
+                  "ratio": 4.802375530639211,
+                  "opacity": "1"
+                },
+                {
+                  "role": "surface",
+                  "ratio": 5.142899773122183,
+                  "opacity": "1"
+                },
+                {
+                  "role": "dark",
+                  "ratio": 12.063339626240044,
+                  "opacity": "1"
+                }
+              ]
+            }
+          },
+          {
+            "name": "design-metrics",
+            "data": {
+              "loading": {
+                "cls": 0.002026269382900662,
+                "lcp": 48,
+                "width": 1920,
+                "scrollWidth": 1920,
+                "fontRequests": 17,
+                "fontBytes": 394560,
+                "fontOrigins": [
+                  "http://127.0.0.1:4175"
+                ],
+                "loadedFamilies": [
+                  "Cormorant Garamond Variable",
+                  "Noto Sans KR Variable",
+                  "Noto Serif KR Variable"
+                ]
+              },
+              "contrast": [
+                {
+                  "role": "muted",
+                  "ratio": 4.802375530639211,
+                  "opacity": "1"
+                },
+                {
+                  "role": "canvas",
+                  "ratio": 4.802375530639211,
+                  "opacity": "1"
+                },
+                {
+                  "role": "surface",
+                  "ratio": 5.142899773122183,
+                  "opacity": "1"
+                },
+                {
+                  "role": "dark",
+                  "ratio": 12.063339626240044,
+                  "opacity": "1"
+                }
+              ]
+            }
+          },
+          {
+            "name": "delayed-font-metrics",
+            "data": {
+              "cls": 0.001007331891025641,
+              "lcp": 48,
+              "width": 390,
+              "scrollWidth": 390,
+              "fontRequests": 17,
+              "fontBytes": 394560,
+              "fontOrigins": [
+                "http://127.0.0.1:4175"
+              ],
+              "loadedFamilies": [
+                "Cormorant Garamond Variable",
+                "Noto Serif KR Variable",
+                "Noto Sans KR Variable"
+              ]
+            }
+          },
+          {
+            "name": "delayed-font-metrics",
+            "data": {
+              "cls": 0.0010838627869405866,
+              "lcp": 48,
+              "width": 1440,
+              "scrollWidth": 1440,
+              "fontRequests": 17,
+              "fontBytes": 394560,
+              "fontOrigins": [
+                "http://127.0.0.1:4175"
+              ],
+              "loadedFamilies": [
+                "Cormorant Garamond Variable",
+                "Noto Serif KR Variable",
+                "Noto Sans KR Variable"
+              ]
+            }
+          }
+        ]
+      },
+      "navigation": {
+        "path": "test-results/navigation-results.json",
+        "sha256": "095695ad1fdd6cc582aa53ca881ede13aded47b1d60a6d85985fcf0eb1d1e690",
+        "stats": {
+          "startTime": "2026-09-06T05:46:37.527Z",
+          "duration": 32629.332,
+          "expected": 26,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "attachments": [
+          {
+            "name": "reveal-timeline",
+            "data": {
+              "duration": 500,
+              "evidenceTime": 180,
+              "clip": "polygon(19.555% 0%, 100% 0%, 100% 100%, 23.466% 100%)",
+              "tracks": [
+                {
+                  "duration": 500,
+                  "time": 180
+                },
+                {
+                  "duration": 500,
+                  "time": 180
+                },
+                {
+                  "duration": 500,
+                  "time": 180
+                },
+                {
+                  "duration": 500,
+                  "time": 180
+                },
+                {
+                  "duration": 500,
+                  "time": 180
+                },
+                {
+                  "duration": 500,
+                  "time": 180
+                },
+                {
+                  "duration": 500,
+                  "time": 180
+                },
+                {
+                  "duration": 500,
+                  "time": 180
+                },
+                {
+                  "duration": 500,
+                  "time": 180
+                },
+                {
+                  "duration": 500,
+                  "time": 180
+                },
+                {
+                  "duration": 500,
+                  "time": 180
+                },
+                {
+                  "duration": 500,
+                  "time": 180
+                },
+                {
+                  "duration": 500,
+                  "time": 180
+                },
+                {
+                  "duration": 500,
+                  "time": 180
+                },
+                {
+                  "duration": 500,
+                  "time": 180
+                },
+                {
+                  "duration": 500,
+                  "time": 180
+                }
+              ],
+              "contrast": [
+                {
+                  "ratio": 5.142899773122183,
+                  "minimum": 4.5
+                },
+                {
+                  "ratio": 5.142899773122183,
+                  "minimum": 4.5
+                },
+                {
+                  "ratio": 5.142899773122183,
+                  "minimum": 4.5
+                },
+                {
+                  "ratio": 16.913707745174833,
+                  "minimum": 4.5
+                },
+                {
+                  "ratio": 16.913707745174833,
+                  "minimum": 3
+                },
+                {
+                  "ratio": 16.913707745174833,
+                  "minimum": 4.5
+                },
+                {
+                  "ratio": 16.913707745174833,
+                  "minimum": 3
+                },
+                {
+                  "ratio": 5.142899773122183,
+                  "minimum": 4.5
+                },
+                {
+                  "ratio": 5.142899773122183,
+                  "minimum": 3
+                },
+                {
+                  "ratio": 5.142899773122183,
+                  "minimum": 4.5
+                },
+                {
+                  "ratio": 5.142899773122183,
+                  "minimum": 3
+                },
+                {
+                  "ratio": 5.142899773122183,
+                  "minimum": 4.5
+                },
+                {
+                  "ratio": 5.142899773122183,
+                  "minimum": 3
+                }
+              ]
+            }
+          },
+          {
+            "name": "interrupt-continuity",
+            "data": {
+              "closing": {
+                "before": {
+                  "time": 210,
+                  "clip": "polygon(13.1587% 0%, 100% 0%, 100% 100%, 15.7905% 100%)"
+                },
+                "after": {
+                  "time": 210,
+                  "clip": "polygon(13.1587% 0%, 100% 0%, 100% 100%, 15.7905% 100%)"
+                },
+                "rates": [
+                  -1.25,
+                  -1.25,
+                  -1.25,
+                  -1.25,
+                  -1.25,
+                  -1.25,
+                  -1.25,
+                  -1.25,
+                  -1.25,
+                  -1.25,
+                  -1.25,
+                  -1.25,
+                  -1.25,
+                  -1.25,
+                  -1.25,
+                  -1.25
+                ]
+              },
+              "opening": {
+                "before": {
+                  "time": 150,
+                  "clip": "polygon(28.2622% 0%, 100% 0%, 100% 100%, 33.9147% 100%)"
+                },
+                "after": {
+                  "time": 150,
+                  "clip": "polygon(28.2622% 0%, 100% 0%, 100% 100%, 33.9147% 100%)"
+                },
+                "rates": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              }
+            }
+          },
+          {
+            "name": "letter-slip",
+            "data": {
+              "motion": "bold",
+              "x": 3,
+              "alternatingY": [
+                7,
+                -7
+              ],
+              "duration": 300,
+              "stagger": 20,
+              "repeat": 2,
+              "baselineRestored": true,
+              "accessibleName": "WORKS"
+            }
+          },
+          {
+            "name": "real-time-events",
+            "data": {
+              "motion": "bold",
+              "events": [
+                {
+                  "phase": "opening",
+                  "at": 945.0999999940395
+                },
+                {
+                  "phase": "open",
+                  "at": 1473.6999999955297
+                },
+                {
+                  "phase": "closing",
+                  "at": 3859.39999999851
+                },
+                {
+                  "phase": "closed",
+                  "at": 4274.5
+                },
+                {
+                  "phase": "opening",
+                  "at": 5030.29999999702
+                },
+                {
+                  "phase": "closing",
+                  "at": 5170.5999999940395
+                },
+                {
+                  "phase": "opening",
+                  "at": 5259.29999999702
+                },
+                {
+                  "phase": "open",
+                  "at": 5790.29999999702
+                },
+                {
+                  "phase": "closing",
+                  "at": 6405
+                },
+                {
+                  "phase": "closed",
+                  "at": 6807.69999999553
+                }
+              ],
+              "openedIn": 528.6000000014901,
+              "closedIn": 415.1000000014901,
+              "note": "Native browser playback at normal speed, including real rapid reversal. No paused/retimed animation in the video."
+            }
+          },
+          {
+            "name": "bold-reveal",
+            "data": {
+              "duration": 500,
+              "sampledAt": 180,
+              "tracks": 16,
+              "clip": "polygon(19.555% 0%, 100% 0%, 100% 100%, 23.466% 100%)",
+              "typeSkew": 0
+            }
+          }
+        ]
+      }
+    },
+    "artifacts": {
+      "root": {
+        "routes": 18,
+        "publicFiles": 284,
+        "javascriptBytes": 324591,
+        "cssBytes": 170068,
+        "productionPayloadDeltaBytes": 0
+      },
+      "pagesPreview": {
+        "routes": 18,
+        "publicFiles": 284,
+        "javascriptBytes": 326277,
+        "cssBytes": 174875,
+        "productionPayloadDeltaBytes": 0
+      }
+    },
+    "actionlint": "1.7.12 PASS",
+    "labProductionBuild": "rejected by explicit development-only guard",
+    "fullLog": ".checkpoints/p2b-freeze-before-7714907/full-gate.log",
+    "fullLogSha256": "f34b7ac8d4f9eae0492997027aaa4b85cc1089dbac92197abb5c3ac28f90f040",
+    "retiredTests": "Nine Refined-only duplicates: six widths, reversal, glyph baseline, video; all Bold behavior remains tested, stale Refined query regression added",
+    "environment": {
+      "os": "macOS arm64",
+      "node": "24.15.0",
+      "npm": "11.12.1",
+      "browser": "Playwright Chromium"
+    }
+  },
+  "visual": {
+    "userApproval": "explicit; BOLD VERSION; QUALITY APPROVED FOR HERO INTEGRATION",
+    "nativeImagesInspected": true,
+    "screenshots": [
+      {
+        "path": "evidence/p2b-freeze/bold-fully-opened.png",
+        "sha256": "a502528cf28911b294bec23c3b3c4c99d8107e7cf9849cf80d9ab683a53c2aa2",
+        "width": 1440,
+        "height": 1000,
+        "prior": "evidence/p2b-letter-slip/bold-fully-opened.png",
+        "identicalToApprovedPNG": true,
+        "capture": "settled native browser state",
+        "edited": false
+      },
+      {
+        "path": "evidence/p2b-freeze/bold-mobile-opened.png",
+        "sha256": "1393eccb1b20a2ecb554aca47bd2579da63d66e1a9c535a61a79b92ca7f5ec15",
+        "width": 390,
+        "height": 844,
+        "prior": "evidence/p2b-letter-slip/bold-mobile-opened.png",
+        "identicalToApprovedPNG": true,
+        "capture": "settled native browser state",
+        "edited": false
+      },
+      {
+        "path": "evidence/p2b-freeze/bold-opening-180ms.png",
+        "sha256": "e5568c1ac0f4e1f40b3eba82d90c5382f6702c60a5a02c81face9046d542a5e5",
+        "width": 1440,
+        "height": 1000,
+        "prior": "evidence/p2b-letter-slip/bold-opening-180ms.png",
+        "identicalToApprovedPNG": true,
+        "capture": "native timeline paused at 180ms",
+        "edited": false
+      },
+      {
+        "path": "evidence/p2b-freeze/bold-trigger-hover.png",
+        "sha256": "d7a16adbed0fd02d2a77966cfae52cb51c8eb4f939bcab5c25008472b9dc3542",
+        "width": 1440,
+        "height": 1000,
+        "prior": "evidence/p2b-letter-slip/bold-trigger-hover.png",
+        "identicalToApprovedPNG": false,
+        "capture": "settled native browser state",
+        "edited": false
+      },
+      {
+        "path": "evidence/p2b-freeze/bold-works-letter-slip.png",
+        "sha256": "64dc15de2e579c18d124e1df8f86562598bcb6ff27955d8e8c7eb4abe5d71a7e",
+        "width": 1440,
+        "height": 1000,
+        "prior": "evidence/p2b-letter-slip/bold-works-letter-slip.png",
+        "identicalToApprovedPNG": true,
+        "capture": "settled native browser state",
+        "edited": false
+      }
+    ],
+    "triggerDifference": "Neutral Lab comparison buttons removed; approved trigger values unchanged",
+    "recording": [
+      {
+        "name": "real-time-events",
+        "data": {
+          "motion": "bold",
+          "events": [
+            {
+              "phase": "opening",
+              "at": 945.0999999940395
+            },
+            {
+              "phase": "open",
+              "at": 1473.6999999955297
+            },
+            {
+              "phase": "closing",
+              "at": 3859.39999999851
+            },
+            {
+              "phase": "closed",
+              "at": 4274.5
+            },
+            {
+              "phase": "opening",
+              "at": 5030.29999999702
+            },
+            {
+              "phase": "closing",
+              "at": 5170.5999999940395
+            },
+            {
+              "phase": "opening",
+              "at": 5259.29999999702
+            },
+            {
+              "phase": "open",
+              "at": 5790.29999999702
+            },
+            {
+              "phase": "closing",
+              "at": 6405
+            },
+            {
+              "phase": "closed",
+              "at": 6807.69999999553
+            }
+          ],
+          "openedIn": 528.6000000014901,
+          "closedIn": 415.1000000014901,
+          "note": "Native browser playback at normal speed, including real rapid reversal. No paused/retimed animation in the video."
+        }
+      }
+    ],
+    "remainingQA": [
+      "Safari real-device",
+      "iOS/Android hardware performance",
+      "actual screen-reader output",
+      "final HOME composition and Hero/navigation balance"
+    ]
+  },
+  "scope": {
+    "freezeModified": [
+      "AGENTS.md",
+      "CODEX-HANDOFF.md",
+      "README.md",
+      "docs/redesign/00-MASTER-PLAN.md",
+      "docs/redesign/02-DESIGN-SYSTEM.md",
+      "docs/redesign/03-MOTION-SYSTEM.md",
+      "docs/redesign/04-HOME.md",
+      "docs/redesign/review/CONTENT-SCHEMA-CONTRACT.md",
+      "docs/redesign/review/DESIGN-SYSTEM-FOUNDATION.md",
+      "docs/redesign/review/EDITORIAL-NAVIGATION-PROTOTYPE.md",
+      "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md",
+      "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md",
+      "labs/navigation/NavigationLab.tsx",
+      "labs/navigation/lab.css",
+      "src/navigation/EditorialNavigation.tsx",
+      "src/navigation/menu-reveal.ts",
+      "src/navigation/navigation.css",
+      "tests/navigation.spec.ts"
+    ],
+    "freezeAdded": [
+      "P2B-FREEZE-RESULT.md",
+      "evidence/p2b-freeze/bold-fully-opened.png",
+      "evidence/p2b-freeze/bold-mobile-opened.png",
+      "evidence/p2b-freeze/bold-opening-180ms.png",
+      "evidence/p2b-freeze/bold-trigger-hover.png",
+      "evidence/p2b-freeze/bold-works-letter-slip.png",
+      "evidence/p2b-freeze/navigation-freeze.json"
+    ],
+    "preservedFiles": 186,
+    "historicalReportsAndEvidencePreserved": {
+      "P2B-LETTER-SLIP-RESULT.md": "10e22cfd56f389d24ba06919d982d62c7167622e717a9755ba6faa5652e7b3aa",
+      "P2B-REFINEMENT-RESULT.md": "5b3551f0d9e2e802ad99c5c735dd491ae00a373bb09069052b126276bffd2ea7",
+      "P2B-RESULT.md": "3b811bd5b884a2b3aa06d34283cfeb79971cadac875f2b9f776a3bcae03d3ea3",
+      "evidence/p2b-letter-slip/bold-closed-menu.png": "6f42faf4ff7364a1045549ddc756eca0bfb4f55703af5f5da7882785100827d4",
+      "evidence/p2b-letter-slip/bold-closing-150ms.png": "3028399b97d70479946d4a2177e1ce12d912a12eed762f7c7c59bb4cf3a555c0",
+      "evidence/p2b-letter-slip/bold-fully-opened.png": "a502528cf28911b294bec23c3b3c4c99d8107e7cf9849cf80d9ab683a53c2aa2",
+      "evidence/p2b-letter-slip/bold-media-letter-slip.png": "f2588fd6e1ea7e3e4e35b23850857c06c10ff81cd64cf15d8c50605354a84909",
+      "evidence/p2b-letter-slip/bold-mobile-opened.png": "1393eccb1b20a2ecb554aca47bd2579da63d66e1a9c535a61a79b92ca7f5ec15",
+      "evidence/p2b-letter-slip/bold-opening-180ms.png": "e5568c1ac0f4e1f40b3eba82d90c5382f6702c60a5a02c81face9046d542a5e5",
+      "evidence/p2b-letter-slip/bold-real-time.webm": "f463f6a7136f4dec5b5377ebbb96f6f0524dd88a5ad67e090997ab617826d177",
+      "evidence/p2b-letter-slip/bold-reduced-motion.png": "5f6934032d7fb81bc870fc496df4dd48f4180ec715c42476555d28911cf8e508",
+      "evidence/p2b-letter-slip/bold-small-mobile-opened.png": "2c1613f46ccbbce1b6a8b2e3c5e8292f06ee2b1ead5f21bae41476a2da0b740a",
+      "evidence/p2b-letter-slip/bold-tablet-landscape-opened.png": "9f9ecf116354120a43f47c25973020cbe103cc130ba131eba76cec58c6e2b6e3",
+      "evidence/p2b-letter-slip/bold-tablet-opened.png": "88b2b4951c99d050b44df03ab32bcbdc6388cc4a5bad858f9eef887e11ebdf5e",
+      "evidence/p2b-letter-slip/bold-trigger-hover.png": "d473be63345a74a2a456940dd8383a88cdf565cb162a7585d98e2768facc16d0",
+      "evidence/p2b-letter-slip/bold-wide-opened.png": "786bd50e7ad61caa496cf34e5fb2a8f6af8537a2d7aad5ee8beac2f1da4bebe7",
+      "evidence/p2b-letter-slip/bold-works-letter-slip.png": "64dc15de2e579c18d124e1df8f86562598bcb6ff27955d8e8c7eb4abe5d71a7e",
+      "evidence/p2b-letter-slip/navigation.json": "17e2f1f44baf0f860de4e25f87240635e85e96ee890d6fada232d2d314cc0862",
+      "evidence/p2b-letter-slip/refined-close-trigger-hover.png": "79a632296705cea34194882e85f971a2ea37318b25ee3eede24d3f446f043e8d",
+      "evidence/p2b-letter-slip/refined-closed-menu.png": "1813cdf00f4faaeb7b3794400746b03cead6108b85a32b9a8b59cb1f65353668",
+      "evidence/p2b-letter-slip/refined-closing-150ms.png": "511ad7f0f0f3eda3237c7c451846e3c587a48e571180b5751a9292bdb6f0818c",
+      "evidence/p2b-letter-slip/refined-fully-opened.png": "3b993f6759ab3a612ace9af78d961170df20974fa382c0c2de696b8c9f2f1781",
+      "evidence/p2b-letter-slip/refined-media-letter-slip.png": "9ab19b3bdbc59bd45d43138de72904b6bb7e3a5cb0d24b9bf0b6ab0949d3579d",
+      "evidence/p2b-letter-slip/refined-mobile-opened.png": "973a0adfa3a4552914eaf1f99e85f2357ed131fb647bbe9b9520eee9682e91c4",
+      "evidence/p2b-letter-slip/refined-opening-180ms.png": "ece1fe8653c44ae726f788b26bc0e2ee3b3cb4b76889cc5d9a2a7b49d3c9190d",
+      "evidence/p2b-letter-slip/refined-real-time.webm": "733af5497009aebb7bb1dc24cfb479d3a34aa73acdd29621d07c951607583f89",
+      "evidence/p2b-letter-slip/refined-reduced-motion.png": "af685e31239bd603d027ea8bb2a53812081815744fbda60b101200c1a8e21f4d",
+      "evidence/p2b-letter-slip/refined-selected-home.png": "1c5140e8fbacf295689b6778a0957703c4dc7062fc1c40771b291786f27697ad",
+      "evidence/p2b-letter-slip/refined-small-mobile-opened.png": "433ac9eb45faa3d6e62296249c635b81c7d9de610951a6be3f251a97b8973152",
+      "evidence/p2b-letter-slip/refined-tablet-landscape-opened.png": "d7183e6006eb860b21c9065f1b89025f367b0ff7c3a8ae8298aceaf3c9143845",
+      "evidence/p2b-letter-slip/refined-tablet-opened.png": "52d4fd450f791be30d1fae55882d6c4b997fdb3ae335a051212df4aed3d34123",
+      "evidence/p2b-letter-slip/refined-trigger-hover.png": "11a43923af7ef5870a11e3c2ea9ce8a5bbea2d4227fd99608aa30b0d5a822d8d",
+      "evidence/p2b-letter-slip/refined-wide-opened.png": "6da07a1f6ba291db95c0b571c64f3c234004c681ad1c7076d235c21a7d3f953e",
+      "evidence/p2b-letter-slip/refined-works-letter-slip.png": "ffea11f7350c7c724367f251d9368b1930266355373d9042d890cf44e1fcc619",
+      "evidence/p2b-refinement/close-trigger-hover.png": "66252eb2ec6ae4f10196133aefd73f25b4a21819c7c2d64eda42016ca4e06014",
+      "evidence/p2b-refinement/closing-150ms.png": "eedb54606c8b31c6cfbc0b87834f586c10139be72419615a4d79ca8f77440137",
+      "evidence/p2b-refinement/fully-opened.png": "8dc26e929be63993cc342e8217b2d35064a6e3592deea9d1f406928d4b12039e",
+      "evidence/p2b-refinement/menu-item-hover.png": "71a2e74ac9a1bdd52be9c71df15f546d40c362b96838152ec2c52caa6f28b272",
+      "evidence/p2b-refinement/menu-reveal.json": "c4453c4d5629678f6258638e7d897facbf7ba23732a857ca53a697189bbf73b2",
+      "evidence/p2b-refinement/mobile-opened.png": "3854db41fb72f55a62a8760f9e333aec4215b0542861fd43d3665f632888c006",
+      "evidence/p2b-refinement/opening-180ms.png": "8e8c12f77c189de201b29e78ed9b7508431b2f35184cc5ebb87e9e0a577a91cf",
+      "evidence/p2b-refinement/small-mobile-opened.png": "ab5d9e3cc5d6707c0c2dde0cf7ea2f099b21d38661b84a2bfbb95f6fe64b7a48",
+      "evidence/p2b-refinement/trigger-hover.png": "02d0aec95514e0b5f27ff3a7e88fe96b27c288ff29f0c763c875671a5285cc41",
+      "evidence/p2b/desktop-compact.png": "4eeb2adb22cd476ad44ceba5d1bd89513926922b674fc441ee37c5eb700652ec",
+      "evidence/p2b/desktop-initial.png": "81ea1b0a08b99aedae9d9e7adafa004f6f5a8638a0f71d193ba1bdbbfc200a90",
+      "evidence/p2b/desktop-midpoint.png": "56f452e9fff3c28af590aa6856a77025e96c148b33073d7ab8108c742b851f91",
+      "evidence/p2b/mobile-initial.png": "4a00a7b882146645fb548cb9288c09061e84db9d3f344afbb8c9848eb1036855",
+      "evidence/p2b/mobile-menu.png": "6a1497f3ccff5245e772562b04fee8c65a957e7d866beec47798cee95357ed67",
+      "evidence/p2b/navigation-prototype.json": "a2777f543aa0bb8010a20c676b50f4caa9f9447684b4aee63cc5ef3e3326af21",
+      "evidence/p2b/p2a-delivery-ci.json": "1560ece71bf705e0841f1fc0e68d74acdded1da19c9a7d18c6526accbd0c5754",
+      "evidence/p2b/small-mobile-menu.png": "1b05dd5ddaadfda42ca37948d93e7d74ee7f2a5c08f4e694fc14acd87499c3ff",
+      "evidence/p2b/tablet-menu.png": "085d726ad2840e6d43cac4c9206af6c10bcbf44db13db07a88ecd6da24466fe3",
+      "evidence/p2b/wide-initial.png": "f8dc62de7528d2eb2b7bb3e5352efe10cb4a52c55cdd7111c89f2b7d6408a3a7"
+    },
+    "numberedSectionsPreserved": {
+      "docs/redesign/00-MASTER-PLAN.md": 45,
+      "docs/redesign/02-DESIGN-SYSTEM.md": 28,
+      "docs/redesign/03-MOTION-SYSTEM.md": 48,
+      "docs/redesign/04-HOME.md": 26,
+      "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md": 17
+    },
+    "allowedOwnerSections": {
+      "docs/redesign/00-MASTER-PLAN.md": [
+        "45"
+      ],
+      "docs/redesign/02-DESIGN-SYSTEM.md": [
+        "16",
+        "28"
+      ],
+      "docs/redesign/03-MOTION-SYSTEM.md": [
+        "15",
+        "37"
+      ],
+      "docs/redesign/04-HOME.md": [
+        "4"
+      ]
+    },
+    "handoffCheckboxesPreserved": 207,
+    "linksChecked": 329,
+    "anchorsChecked": 12,
+    "newBrokenLinks": [],
+    "knownBaselineMissingLinks": [
+      {
+        "file": "README.md",
+        "href": "P0B-CHECKPOINT.json",
+        "reason": "file"
+      }
+    ],
+    "deliveryFiles": [
+      ".github/workflows/quality-gates.yml",
+      "AGENTS.md",
+      "CODEX-HANDOFF.md",
+      "P2B-FREEZE-RESULT.md",
+      "P2B-LETTER-SLIP-RESULT.md",
+      "P2B-REFINEMENT-RESULT.md",
+      "P2B-RESULT.md",
+      "README.md",
+      "docs/redesign/00-MASTER-PLAN.md",
+      "docs/redesign/02-DESIGN-SYSTEM.md",
+      "docs/redesign/03-MOTION-SYSTEM.md",
+      "docs/redesign/04-HOME.md",
+      "docs/redesign/05-WORKS.md",
+      "docs/redesign/08-PERFORMANCES.md",
+      "docs/redesign/11-RESPONSIVE.md",
+      "docs/redesign/review/CONTENT-SCHEMA-CONTRACT.md",
+      "docs/redesign/review/DESIGN-SYSTEM-FOUNDATION.md",
+      "docs/redesign/review/EDITORIAL-NAVIGATION-PROTOTYPE.md",
+      "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md",
+      "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md",
+      "eslint.config.js",
+      "evidence/p2b-freeze/bold-fully-opened.png",
+      "evidence/p2b-freeze/bold-mobile-opened.png",
+      "evidence/p2b-freeze/bold-opening-180ms.png",
+      "evidence/p2b-freeze/bold-trigger-hover.png",
+      "evidence/p2b-freeze/bold-works-letter-slip.png",
+      "evidence/p2b-freeze/navigation-freeze.json",
+      "evidence/p2b-letter-slip/bold-closed-menu.png",
+      "evidence/p2b-letter-slip/bold-closing-150ms.png",
+      "evidence/p2b-letter-slip/bold-fully-opened.png",
+      "evidence/p2b-letter-slip/bold-media-letter-slip.png",
+      "evidence/p2b-letter-slip/bold-mobile-opened.png",
+      "evidence/p2b-letter-slip/bold-opening-180ms.png",
+      "evidence/p2b-letter-slip/bold-real-time.webm",
+      "evidence/p2b-letter-slip/bold-reduced-motion.png",
+      "evidence/p2b-letter-slip/bold-small-mobile-opened.png",
+      "evidence/p2b-letter-slip/bold-tablet-landscape-opened.png",
+      "evidence/p2b-letter-slip/bold-tablet-opened.png",
+      "evidence/p2b-letter-slip/bold-trigger-hover.png",
+      "evidence/p2b-letter-slip/bold-wide-opened.png",
+      "evidence/p2b-letter-slip/bold-works-letter-slip.png",
+      "evidence/p2b-letter-slip/navigation.json",
+      "evidence/p2b-letter-slip/refined-close-trigger-hover.png",
+      "evidence/p2b-letter-slip/refined-closed-menu.png",
+      "evidence/p2b-letter-slip/refined-closing-150ms.png",
+      "evidence/p2b-letter-slip/refined-fully-opened.png",
+      "evidence/p2b-letter-slip/refined-media-letter-slip.png",
+      "evidence/p2b-letter-slip/refined-mobile-opened.png",
+      "evidence/p2b-letter-slip/refined-opening-180ms.png",
+      "evidence/p2b-letter-slip/refined-real-time.webm",
+      "evidence/p2b-letter-slip/refined-reduced-motion.png",
+      "evidence/p2b-letter-slip/refined-selected-home.png",
+      "evidence/p2b-letter-slip/refined-small-mobile-opened.png",
+      "evidence/p2b-letter-slip/refined-tablet-landscape-opened.png",
+      "evidence/p2b-letter-slip/refined-tablet-opened.png",
+      "evidence/p2b-letter-slip/refined-trigger-hover.png",
+      "evidence/p2b-letter-slip/refined-wide-opened.png",
+      "evidence/p2b-letter-slip/refined-works-letter-slip.png",
+      "evidence/p2b-refinement/close-trigger-hover.png",
+      "evidence/p2b-refinement/closing-150ms.png",
+      "evidence/p2b-refinement/fully-opened.png",
+      "evidence/p2b-refinement/menu-item-hover.png",
+      "evidence/p2b-refinement/menu-reveal.json",
+      "evidence/p2b-refinement/mobile-opened.png",
+      "evidence/p2b-refinement/opening-180ms.png",
+      "evidence/p2b-refinement/small-mobile-opened.png",
+      "evidence/p2b-refinement/trigger-hover.png",
+      "evidence/p2b/desktop-compact.png",
+      "evidence/p2b/desktop-initial.png",
+      "evidence/p2b/desktop-midpoint.png",
+      "evidence/p2b/mobile-initial.png",
+      "evidence/p2b/mobile-menu.png",
+      "evidence/p2b/navigation-prototype.json",
+      "evidence/p2b/p2a-delivery-ci.json",
+      "evidence/p2b/small-mobile-menu.png",
+      "evidence/p2b/tablet-menu.png",
+      "evidence/p2b/wide-initial.png",
+      "labs/navigation/NavigationLab.tsx",
+      "labs/navigation/index.html",
+      "labs/navigation/lab.css",
+      "labs/navigation/main.tsx",
+      "package.json",
+      "playwright.navigation.config.ts",
+      "src/navigation/EditorialNavigation.tsx",
+      "src/navigation/menu-reveal.ts",
+      "src/navigation/model.ts",
+      "src/navigation/navigation.css",
+      "tests/assert-design-artifacts.ts",
+      "tests/navigation-model.test.ts",
+      "tests/navigation.spec.ts",
+      "tests/routing-spike.spec.ts",
+      "tsconfig.app.json",
+      "tsconfig.node.json",
+      "vite.navigation.config.ts"
+    ],
+    "deliveryFileHashes": {
+      ".github/workflows/quality-gates.yml": "5f08b1d19bc979bc26310d2acef7174c0571f7077fbb6a5a10ce65c5a08041b4",
+      "AGENTS.md": "18b8a348d772906d04a017f84f2f65f9c510a133ed56d5e1d55483913e4accf3",
+      "CODEX-HANDOFF.md": "1bf6bd1eaafadc25fd7369b2a3fe05ff0d122e710c9e790f44370555800305da",
+      "P2B-FREEZE-RESULT.md": "db36a3a6c0c99e96e17182424774140b4ea8b1b08fda852a1251560d1edff4d0",
+      "P2B-LETTER-SLIP-RESULT.md": "10e22cfd56f389d24ba06919d982d62c7167622e717a9755ba6faa5652e7b3aa",
+      "P2B-REFINEMENT-RESULT.md": "5b3551f0d9e2e802ad99c5c735dd491ae00a373bb09069052b126276bffd2ea7",
+      "P2B-RESULT.md": "3b811bd5b884a2b3aa06d34283cfeb79971cadac875f2b9f776a3bcae03d3ea3",
+      "README.md": "5ebf5bcdbfcc2b7e77357e9af58c247772ee19ebece110ec0d9b36773f3de671",
+      "docs/redesign/00-MASTER-PLAN.md": "91173b7c638f23a582bfe0153238c7ea5cf6f5d01cfd720abbd17c68d291c804",
+      "docs/redesign/02-DESIGN-SYSTEM.md": "9041a6c6770ff75e6ca93055dcc2780bb4ebf5a9dd8a8ea157d6baa8105fe1f5",
+      "docs/redesign/03-MOTION-SYSTEM.md": "d4f78a01488945a2b94e25cbd1b6a1459a775385db805642014a0796a8908fb3",
+      "docs/redesign/04-HOME.md": "6208ba7347ef65380290f16c23cd00d9fbfc9e41455440e6ce2e3767a6a5ad6f",
+      "docs/redesign/05-WORKS.md": "408a9c7e86e17e1b70d6e44cd71fde050497aad8eaf282c9b900cbcb2938fa27",
+      "docs/redesign/08-PERFORMANCES.md": "3de451eeb54037dc08799c246b828a52b303c2c8a383d24a09e3b887af8db79b",
+      "docs/redesign/11-RESPONSIVE.md": "447428fdac7a335afe5399d79ce77e5feefa7e473204b9d6a8fdfc64181a6e0d",
+      "docs/redesign/review/CONTENT-SCHEMA-CONTRACT.md": "cdbb2dee9b82856241a92a1b5aef55d2c722ea105e83ea596eafcdf70cb66cc1",
+      "docs/redesign/review/DESIGN-SYSTEM-FOUNDATION.md": "341d759a7912902d3a3a964caa97d94d6181e0a55280e8431d4df901e03ea5c0",
+      "docs/redesign/review/EDITORIAL-NAVIGATION-PROTOTYPE.md": "c9aac1d216858aefa7745e5c1fa1ad43591d197e96abe528c8333f54fc11ffc8",
+      "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md": "c94da6ebbee58c4606c72ae8c09bf97bf49f41c59c087c8165207ba3ba8caeef",
+      "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md": "23cd57266bd4a9f61a069e8d350bbe38cd70047dd214a27923a3e5e7fc1bc9cb",
+      "eslint.config.js": "7c82b9432dd25bf6f2d8ee50574cd670758916be771a942742d53818dfe33cb9",
+      "evidence/p2b-freeze/bold-fully-opened.png": "a502528cf28911b294bec23c3b3c4c99d8107e7cf9849cf80d9ab683a53c2aa2",
+      "evidence/p2b-freeze/bold-mobile-opened.png": "1393eccb1b20a2ecb554aca47bd2579da63d66e1a9c535a61a79b92ca7f5ec15",
+      "evidence/p2b-freeze/bold-opening-180ms.png": "e5568c1ac0f4e1f40b3eba82d90c5382f6702c60a5a02c81face9046d542a5e5",
+      "evidence/p2b-freeze/bold-trigger-hover.png": "d7a16adbed0fd02d2a77966cfae52cb51c8eb4f939bcab5c25008472b9dc3542",
+      "evidence/p2b-freeze/bold-works-letter-slip.png": "64dc15de2e579c18d124e1df8f86562598bcb6ff27955d8e8c7eb4abe5d71a7e",
+      "evidence/p2b-letter-slip/bold-closed-menu.png": "6f42faf4ff7364a1045549ddc756eca0bfb4f55703af5f5da7882785100827d4",
+      "evidence/p2b-letter-slip/bold-closing-150ms.png": "3028399b97d70479946d4a2177e1ce12d912a12eed762f7c7c59bb4cf3a555c0",
+      "evidence/p2b-letter-slip/bold-fully-opened.png": "a502528cf28911b294bec23c3b3c4c99d8107e7cf9849cf80d9ab683a53c2aa2",
+      "evidence/p2b-letter-slip/bold-media-letter-slip.png": "f2588fd6e1ea7e3e4e35b23850857c06c10ff81cd64cf15d8c50605354a84909",
+      "evidence/p2b-letter-slip/bold-mobile-opened.png": "1393eccb1b20a2ecb554aca47bd2579da63d66e1a9c535a61a79b92ca7f5ec15",
+      "evidence/p2b-letter-slip/bold-opening-180ms.png": "e5568c1ac0f4e1f40b3eba82d90c5382f6702c60a5a02c81face9046d542a5e5",
+      "evidence/p2b-letter-slip/bold-real-time.webm": "f463f6a7136f4dec5b5377ebbb96f6f0524dd88a5ad67e090997ab617826d177",
+      "evidence/p2b-letter-slip/bold-reduced-motion.png": "5f6934032d7fb81bc870fc496df4dd48f4180ec715c42476555d28911cf8e508",
+      "evidence/p2b-letter-slip/bold-small-mobile-opened.png": "2c1613f46ccbbce1b6a8b2e3c5e8292f06ee2b1ead5f21bae41476a2da0b740a",
+      "evidence/p2b-letter-slip/bold-tablet-landscape-opened.png": "9f9ecf116354120a43f47c25973020cbe103cc130ba131eba76cec58c6e2b6e3",
+      "evidence/p2b-letter-slip/bold-tablet-opened.png": "88b2b4951c99d050b44df03ab32bcbdc6388cc4a5bad858f9eef887e11ebdf5e",
+      "evidence/p2b-letter-slip/bold-trigger-hover.png": "d473be63345a74a2a456940dd8383a88cdf565cb162a7585d98e2768facc16d0",
+      "evidence/p2b-letter-slip/bold-wide-opened.png": "786bd50e7ad61caa496cf34e5fb2a8f6af8537a2d7aad5ee8beac2f1da4bebe7",
+      "evidence/p2b-letter-slip/bold-works-letter-slip.png": "64dc15de2e579c18d124e1df8f86562598bcb6ff27955d8e8c7eb4abe5d71a7e",
+      "evidence/p2b-letter-slip/navigation.json": "17e2f1f44baf0f860de4e25f87240635e85e96ee890d6fada232d2d314cc0862",
+      "evidence/p2b-letter-slip/refined-close-trigger-hover.png": "79a632296705cea34194882e85f971a2ea37318b25ee3eede24d3f446f043e8d",
+      "evidence/p2b-letter-slip/refined-closed-menu.png": "1813cdf00f4faaeb7b3794400746b03cead6108b85a32b9a8b59cb1f65353668",
+      "evidence/p2b-letter-slip/refined-closing-150ms.png": "511ad7f0f0f3eda3237c7c451846e3c587a48e571180b5751a9292bdb6f0818c",
+      "evidence/p2b-letter-slip/refined-fully-opened.png": "3b993f6759ab3a612ace9af78d961170df20974fa382c0c2de696b8c9f2f1781",
+      "evidence/p2b-letter-slip/refined-media-letter-slip.png": "9ab19b3bdbc59bd45d43138de72904b6bb7e3a5cb0d24b9bf0b6ab0949d3579d",
+      "evidence/p2b-letter-slip/refined-mobile-opened.png": "973a0adfa3a4552914eaf1f99e85f2357ed131fb647bbe9b9520eee9682e91c4",
+      "evidence/p2b-letter-slip/refined-opening-180ms.png": "ece1fe8653c44ae726f788b26bc0e2ee3b3cb4b76889cc5d9a2a7b49d3c9190d",
+      "evidence/p2b-letter-slip/refined-real-time.webm": "733af5497009aebb7bb1dc24cfb479d3a34aa73acdd29621d07c951607583f89",
+      "evidence/p2b-letter-slip/refined-reduced-motion.png": "af685e31239bd603d027ea8bb2a53812081815744fbda60b101200c1a8e21f4d",
+      "evidence/p2b-letter-slip/refined-selected-home.png": "1c5140e8fbacf295689b6778a0957703c4dc7062fc1c40771b291786f27697ad",
+      "evidence/p2b-letter-slip/refined-small-mobile-opened.png": "433ac9eb45faa3d6e62296249c635b81c7d9de610951a6be3f251a97b8973152",
+      "evidence/p2b-letter-slip/refined-tablet-landscape-opened.png": "d7183e6006eb860b21c9065f1b89025f367b0ff7c3a8ae8298aceaf3c9143845",
+      "evidence/p2b-letter-slip/refined-tablet-opened.png": "52d4fd450f791be30d1fae55882d6c4b997fdb3ae335a051212df4aed3d34123",
+      "evidence/p2b-letter-slip/refined-trigger-hover.png": "11a43923af7ef5870a11e3c2ea9ce8a5bbea2d4227fd99608aa30b0d5a822d8d",
+      "evidence/p2b-letter-slip/refined-wide-opened.png": "6da07a1f6ba291db95c0b571c64f3c234004c681ad1c7076d235c21a7d3f953e",
+      "evidence/p2b-letter-slip/refined-works-letter-slip.png": "ffea11f7350c7c724367f251d9368b1930266355373d9042d890cf44e1fcc619",
+      "evidence/p2b-refinement/close-trigger-hover.png": "66252eb2ec6ae4f10196133aefd73f25b4a21819c7c2d64eda42016ca4e06014",
+      "evidence/p2b-refinement/closing-150ms.png": "eedb54606c8b31c6cfbc0b87834f586c10139be72419615a4d79ca8f77440137",
+      "evidence/p2b-refinement/fully-opened.png": "8dc26e929be63993cc342e8217b2d35064a6e3592deea9d1f406928d4b12039e",
+      "evidence/p2b-refinement/menu-item-hover.png": "71a2e74ac9a1bdd52be9c71df15f546d40c362b96838152ec2c52caa6f28b272",
+      "evidence/p2b-refinement/menu-reveal.json": "c4453c4d5629678f6258638e7d897facbf7ba23732a857ca53a697189bbf73b2",
+      "evidence/p2b-refinement/mobile-opened.png": "3854db41fb72f55a62a8760f9e333aec4215b0542861fd43d3665f632888c006",
+      "evidence/p2b-refinement/opening-180ms.png": "8e8c12f77c189de201b29e78ed9b7508431b2f35184cc5ebb87e9e0a577a91cf",
+      "evidence/p2b-refinement/small-mobile-opened.png": "ab5d9e3cc5d6707c0c2dde0cf7ea2f099b21d38661b84a2bfbb95f6fe64b7a48",
+      "evidence/p2b-refinement/trigger-hover.png": "02d0aec95514e0b5f27ff3a7e88fe96b27c288ff29f0c763c875671a5285cc41",
+      "evidence/p2b/desktop-compact.png": "4eeb2adb22cd476ad44ceba5d1bd89513926922b674fc441ee37c5eb700652ec",
+      "evidence/p2b/desktop-initial.png": "81ea1b0a08b99aedae9d9e7adafa004f6f5a8638a0f71d193ba1bdbbfc200a90",
+      "evidence/p2b/desktop-midpoint.png": "56f452e9fff3c28af590aa6856a77025e96c148b33073d7ab8108c742b851f91",
+      "evidence/p2b/mobile-initial.png": "4a00a7b882146645fb548cb9288c09061e84db9d3f344afbb8c9848eb1036855",
+      "evidence/p2b/mobile-menu.png": "6a1497f3ccff5245e772562b04fee8c65a957e7d866beec47798cee95357ed67",
+      "evidence/p2b/navigation-prototype.json": "a2777f543aa0bb8010a20c676b50f4caa9f9447684b4aee63cc5ef3e3326af21",
+      "evidence/p2b/p2a-delivery-ci.json": "1560ece71bf705e0841f1fc0e68d74acdded1da19c9a7d18c6526accbd0c5754",
+      "evidence/p2b/small-mobile-menu.png": "1b05dd5ddaadfda42ca37948d93e7d74ee7f2a5c08f4e694fc14acd87499c3ff",
+      "evidence/p2b/tablet-menu.png": "085d726ad2840e6d43cac4c9206af6c10bcbf44db13db07a88ecd6da24466fe3",
+      "evidence/p2b/wide-initial.png": "f8dc62de7528d2eb2b7bb3e5352efe10cb4a52c55cdd7111c89f2b7d6408a3a7",
+      "labs/navigation/NavigationLab.tsx": "1ee0b82b15a84585f82efe623a65d65c10a9880d4b268db401620c347bec6375",
+      "labs/navigation/index.html": "2d44f45268916f7afbb3bea4535f8f067d022df74a0efa8ddfb94171cee690dd",
+      "labs/navigation/lab.css": "9f2f7fdf17e7d1664e5753f2b3c949ba4ed424553bd1cb796bcf08b80966cc25",
+      "labs/navigation/main.tsx": "805f9669366cdf9a38b2e011d81ddde87f9ebe34433e5c40ae57e6e250246955",
+      "package.json": "644d4ee2b3b69b98e49d0b2ab77117c2a437ebc809d5ee78c71ccc44eeaa8b7e",
+      "playwright.navigation.config.ts": "9997376e4a204287eacff8114ebdc4211a835329b76f793a7b5d9a4908f436ec",
+      "src/navigation/EditorialNavigation.tsx": "8c163330e4aed8403c2a60bd7b1703f82ce2bcf1c44dbccab3b7f0a6143639ca",
+      "src/navigation/menu-reveal.ts": "168ac08902370628ae76611e0a3b1d7cd0c0778da994b84d19663a3d63e3c22e",
+      "src/navigation/model.ts": "0b1917cb97d8b1c2b208366d08ac8f95b5a391322399efb9e4a17ac10d2ee70c",
+      "src/navigation/navigation.css": "c495a7a097fdffea39cfeffb94f6d9da49351cbbee60ba1358e00b37f03fd271",
+      "tests/assert-design-artifacts.ts": "f21dce056e5d50be969aff151245d6f8b14b0d8c278c55d120f2a075943a0d39",
+      "tests/navigation-model.test.ts": "55755e5e33f0216a4fbc4cb5bae94662dd02e2e84f4463b63efd97fdb22d0ec6",
+      "tests/navigation.spec.ts": "4a1d51ed77b8a78c7e93c9ab32e62f873da65f8a73ff2bc2fc5538b7045df5bc",
+      "tests/routing-spike.spec.ts": "df422d47639b0c8325252400d7f2b5ece3af6660b6fa4874c7996f3e44fa745b",
+      "tsconfig.app.json": "6d8be2b85bbbe66336b5e7f811f2660de00cc7db98aaedca27e1a841ae557036",
+      "tsconfig.node.json": "7e6733c6dce0de8905f3fa5bd69e9d83dd0961e295f088e33bd9cb16c693bf79",
+      "vite.navigation.config.ts": "f31414cd9a4d099d0829f06a903cfe0c5f663baa2f7b4ca069b1f9f0c1edbf27"
+    },
+    "dependenciesAndLockfileChanged": false,
+    "diffCheck": "PASS"
+  },
+  "delivery": {
+    "authorization": "User explicitly approved logical commits, V2 main push, exact-SHA Fast CI and clean-tree verification",
+    "receiptOwner": "Final task delivery message, git history and matching GitHub Fast CI run; this source evidence precedes commit creation",
+    "deployment": false
+  },
+  "stop": "REPORT → STOP. P2C recommendation only; HOME/P2C not started."
+}

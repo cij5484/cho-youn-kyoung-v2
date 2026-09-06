@@ -12,7 +12,10 @@
       "vite/client"
     ],
     "skipLibCheck": true,
-    "rootDirs": [".", "./.react-router/types"],
+    "rootDirs": [
+      ".",
+      "./.react-router/types"
+    ],
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
@@ -29,6 +32,7 @@
   },
   "include": [
     "src",
-    ".react-router/types/**/*"
+    ".react-router/types/**/*",
+    "labs/navigation"
   ]
 }

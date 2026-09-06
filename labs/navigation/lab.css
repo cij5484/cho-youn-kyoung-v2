@@ -1,0 +1,17 @@
+@import '../../src/styles/foundation.css';
+@import '../../src/navigation/navigation.css';
+
+/* Neutral boundary fixture, never a HOME Hero or production template. */
+.nav-lab-space { min-block-size: var(--viewport-stable); position: relative; display: flex; align-items: center; padding-block: var(--space-10); }
+.nav-lab-note { max-inline-size: 38rem; margin-inline-start: 35%; display: grid; gap: var(--space-4); }
+.nav-lab-note h1 { font-family: var(--font-display); font-size: var(--display-m); font-weight: 400; line-height: 1.1; }
+.nav-lab-note p { color: var(--text-secondary); }
+.nav-lab-foot { position: absolute; inset: auto var(--safe-gutter-end) var(--space-4) var(--safe-gutter-start); display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-1); color: var(--text-secondary); }
+.nav-lab-reading { min-block-size: 120vh; padding-block: var(--section-space); border-top: var(--hairline) solid var(--line-color); }
+.nav-lab-reading h2 { font-family: var(--font-display); font-weight: 400; font-size: var(--display-m); }
+.nav-lab-tools { margin-top: var(--space-8); max-inline-size: var(--reading-width); }
+.nav-lab-tools .text-action { display: flex; inline-size: fit-content; }
+@media (max-width: 69.999rem) {
+  .nav-lab-note { margin-inline-start: 0; max-inline-size: 30rem; }
+  .nav-lab-space { align-items: center; }
+}
