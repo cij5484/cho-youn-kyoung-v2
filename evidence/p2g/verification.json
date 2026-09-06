@@ -1,0 +1,925 @@
+{
+  "task": "P2G",
+  "date": "2026-09-06",
+  "status": "IMPLEMENTED / LOCALLY VERIFIED / REVIEW READY / STOP",
+  "quality": {
+    "p2f": "QUALITY APPROVED / FROZEN",
+    "sound": "REVIEW READY; user visual/auditory approval pending"
+  },
+  "baseline": "b5c6aa053a38bdb1dafbcbeb724890f26ae334cf",
+  "baselineFiles": 392,
+  "preservedBaselineFiles": 374,
+  "validation": {
+    "full": "PASS",
+    "node": 38,
+    "browser": 247,
+    "route": 84,
+    "foundation": 11,
+    "frozenNavigation": 26,
+    "hero": 44,
+    "haegeum": 32,
+    "sound": 50,
+    "chromiumSound": 25,
+    "webkitSound": 25,
+    "typeCheck": "PASS",
+    "lint": "PASS",
+    "actionlint": "PASS",
+    "labBuildGuard": "PASS",
+    "labNoindex": "HTTP X-Robots-Tag and HTML meta noindex observed",
+    "links": 309,
+    "fragments": 10,
+    "handoffCheckboxes": 207,
+    "initialPosterDifferencePixels": 0,
+    "masterAndRuntimeImageHashesPreserved": true,
+    "dependenciesUnchanged": true,
+    "fullLogSha256": "b71f7e54a1158974d44a286ff5518e65d32ef497792ee69eff255341e462693b"
+  },
+  "p2fDelivery": {
+    "commit": "b5c6aa053a38bdb1dafbcbeb724890f26ae334cf",
+    "subject": "feat: freeze approved Hero to Haegeum refinement",
+    "fastCI": {
+      "conclusion": "success",
+      "headSha": "b5c6aa053a38bdb1dafbcbeb724890f26ae334cf",
+      "status": "completed",
+      "url": "https://github.com/cij5484/cho-youn-kyoung-v2/actions/runs/34032488461"
+    },
+    "localFast": "PASS",
+    "reviewedFull": "38 Node +197 browser; hash verified, not rerun for delivery",
+    "cleanMainOriginBeforeSound": true,
+    "deploy": false,
+    "files": [
+      "AGENTS.md",
+      "CODEX-HANDOFF.md",
+      "P2F-RESULT.md",
+      "README.md",
+      "docs/redesign/03-MOTION-SYSTEM.md",
+      "docs/redesign/04-HOME.md",
+      "docs/redesign/11-RESPONSIVE.md",
+      "docs/redesign/13-ACCESSIBILITY.md",
+      "docs/redesign/review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md",
+      "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md",
+      "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md",
+      "evidence/p2f/README.md",
+      "evidence/p2f/delivery-p2e.json",
+      "evidence/p2f/desktop-bow-entry.png",
+      "evidence/p2f/desktop-bow.png",
+      "evidence/p2f/desktop-full-entry.png",
+      "evidence/p2f/desktop-full-seed.png",
+      "evidence/p2f/desktop-full-settle.png",
+      "evidence/p2f/desktop-full.png",
+      "evidence/p2f/desktop-head.png",
+      "evidence/p2f/desktop-hero-exit.png",
+      "evidence/p2f/desktop-initial.png",
+      "evidence/p2f/desktop-menu.png",
+      "evidence/p2f/desktop-realtime.webm",
+      "evidence/p2f/desktop-resonance.png",
+      "evidence/p2f/full-gate.txt",
+      "evidence/p2f/haegeum-test-results.json",
+      "evidence/p2f/initial-comparison.json",
+      "evidence/p2f/lab-build-guard.txt",
+      "evidence/p2f/laptop-bow.png",
+      "evidence/p2f/laptop-full.png",
+      "evidence/p2f/laptop-head.png",
+      "evidence/p2f/local-performance.json",
+      "evidence/p2f/mobile-320-bow.png",
+      "evidence/p2f/mobile-320-full.png",
+      "evidence/p2f/mobile-320-head.png",
+      "evidence/p2f/mobile-320-initial.png",
+      "evidence/p2f/mobile-320-resonance.png",
+      "evidence/p2f/mobile-390-bow.png",
+      "evidence/p2f/mobile-390-full.png",
+      "evidence/p2f/mobile-390-head.png",
+      "evidence/p2f/mobile-390-initial.png",
+      "evidence/p2f/mobile-390-resonance.png",
+      "evidence/p2f/mobile-realtime.webm",
+      "evidence/p2f/mobile-reduced-sequence.png",
+      "evidence/p2f/overview.png",
+      "evidence/p2f/reduced-sequence.png",
+      "evidence/p2f/safari-device-qa.md",
+      "evidence/p2f/tablet-bow.png",
+      "evidence/p2f/text-200.png",
+      "evidence/p2f/verification.json",
+      "evidence/p2f/video-metadata.json",
+      "evidence/p2f/webkit-bow.png",
+      "evidence/p2f/webkit-full.png",
+      "evidence/p2f/webkit-head.png",
+      "evidence/p2f/webkit-resonance.png",
+      "evidence/p2f/wide-bow.png",
+      "evidence/p2f/wide-full.png",
+      "evidence/p2f/wide-head.png",
+      "evidence/p2f/wide-initial.png",
+      "evidence/p2f/wide-resonance.png",
+      "labs/haegeum/HaegeumLab.tsx",
+      "labs/haegeum/index.html",
+      "src/haegeum/HaegeumExperience.tsx",
+      "src/haegeum/assets.ts",
+      "src/haegeum/choreography.ts",
+      "src/haegeum/haegeum.css",
+      "tests/haegeum.spec.ts"
+    ]
+  },
+  "p2gDelivery": {
+    "commit": "NOT PERFORMED",
+    "push": "NOT PERFORMED",
+    "remoteCI": "No P2G CI; local uncommitted review bundle",
+    "deploy": "NOT PERFORMED",
+    "workingTree": "Scoped P2G changes intentionally remain for review; P2F baseline was clean"
+  },
+  "artifacts": {
+    "root": {
+      "routes": 18,
+      "publicFiles": 284,
+      "javascriptBytes": 324591,
+      "cssBytes": 170068,
+      "payloadDelta": 0,
+      "heroInstrumentSoundAndPrivateDraftExcluded": true
+    },
+    "pages-preview": {
+      "routes": 18,
+      "publicFiles": 284,
+      "javascriptBytes": 326277,
+      "cssBytes": 174875,
+      "payloadDelta": 0,
+      "heroInstrumentSoundAndPrivateDraftExcluded": true
+    }
+  },
+  "audio": {
+    "sourceURL": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/hanbeomsu/04_long-sanjo_jungjungmori.mp3",
+    "httpStatus": 200,
+    "sourceDurationSeconds": 278.7558333333333,
+    "startSeconds": 166,
+    "endSeconds": 184,
+    "durationSeconds": 18,
+    "fadeInMs": 25,
+    "fadeOutMs": 280,
+    "gain": "unchanged",
+    "provenance": "actual legacy performance recording; no synthetic audio",
+    "selection": "Highest ranked18s energy-rise window; 2.78x RMS over preceding3s, energetic spectrum with easing end. Signal-based choice, user listening review pending.",
+    "crossOriginHeader": "No Access-Control-Allow-Origin in curl HEAD; prepare same-origin short derivative instead of depending on external analyser CORS",
+    "master": "11,152,365-byte320kbps48kHz stereo MP3 preserved only in ignored checkpoint; not committed",
+    "derivative": {
+      "path": "src/sound/assets/hanbeomsu-jungjungmori-preview.m4a",
+      "bytes": 434470,
+      "sha256": "00ae2adee523857da413aa7cb28521026bcfcc5fadde9db0e8f845cf5145708c",
+      "encoding": "AAC stereo192kbps target/48kHz via macOS afconvert; source-level preserved",
+      "duration": "18.000s container; Chromium exposes18.048s including AAC frame padding",
+      "playability": "Actual currentTime advance, running AudioContext, nonzero analyser RMS in local Chromium and WebKit"
+    },
+    "sourceSha256": "2f5fd7df98bd431164708d33e8a6e15108e5abfd6642831b346c342d4e83b546"
+  },
+  "performance": {
+    "environment": "Headless Chromium on current Mac, unthrottled local development server; isolated from other browser suites. Not field CWV, native Safari, physical phone, thermal or battery certification.",
+    "results": [
+      {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "mobileEmulation": false,
+        "initial": {
+          "audioPayloadRequests": 0,
+          "context": "not-created",
+          "src": null
+        },
+        "stages": [
+          {
+            "name": "idle",
+            "durationMs": 1504.7999999970198,
+            "rafCallbacks": 0,
+            "visualUpdates": 0,
+            "frameIntervalP95Ms": null,
+            "longTasks": [],
+            "unpromptedLayoutShift": 0,
+            "state": "idle",
+            "context": "not-created",
+            "energy": 0,
+            "mediaTime": 0
+          },
+          {
+            "name": "playing",
+            "durationMs": 4005.1000000089407,
+            "rafCallbacks": 241,
+            "visualUpdates": 121,
+            "frameIntervalP95Ms": 16.800000000000182,
+            "longTasks": [],
+            "unpromptedLayoutShift": 0,
+            "state": "playing",
+            "context": "running",
+            "energy": 0.7289,
+            "mediaTime": 4.291918
+          },
+          {
+            "name": "settled-pause",
+            "durationMs": 1504.7000000029802,
+            "rafCallbacks": 0,
+            "visualUpdates": 0,
+            "frameIntervalP95Ms": null,
+            "longTasks": [],
+            "unpromptedLayoutShift": 0,
+            "state": "paused",
+            "context": "suspended",
+            "energy": 0,
+            "mediaTime": 4.325333
+          },
+          {
+            "name": "offscreen",
+            "durationMs": 1505.2999999970198,
+            "rafCallbacks": 0,
+            "visualUpdates": 0,
+            "frameIntervalP95Ms": null,
+            "longTasks": [],
+            "unpromptedLayoutShift": 0,
+            "state": "paused",
+            "context": "suspended",
+            "energy": 0,
+            "mediaTime": 4.624
+          }
+        ]
+      },
+      {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "mobileEmulation": true,
+        "initial": {
+          "audioPayloadRequests": 0,
+          "context": "not-created",
+          "src": null
+        },
+        "stages": [
+          {
+            "name": "idle",
+            "durationMs": 1504.1000000089407,
+            "rafCallbacks": 0,
+            "visualUpdates": 0,
+            "frameIntervalP95Ms": null,
+            "longTasks": [],
+            "unpromptedLayoutShift": 0,
+            "state": "idle",
+            "context": "not-created",
+            "energy": 0,
+            "mediaTime": 0
+          },
+          {
+            "name": "playing",
+            "durationMs": 4004.5,
+            "rafCallbacks": 240,
+            "visualUpdates": 120,
+            "frameIntervalP95Ms": 16.800000000000182,
+            "longTasks": [],
+            "unpromptedLayoutShift": 0,
+            "state": "playing",
+            "context": "running",
+            "energy": 0.7499,
+            "mediaTime": 4.319807
+          },
+          {
+            "name": "settled-pause",
+            "durationMs": 1504.7999999970198,
+            "rafCallbacks": 0,
+            "visualUpdates": 0,
+            "frameIntervalP95Ms": null,
+            "longTasks": [],
+            "unpromptedLayoutShift": 0,
+            "state": "paused",
+            "context": "suspended",
+            "energy": 0,
+            "mediaTime": 4.344298
+          },
+          {
+            "name": "offscreen",
+            "durationMs": 1503.8999999910593,
+            "rafCallbacks": 0,
+            "visualUpdates": 0,
+            "frameIntervalP95Ms": null,
+            "longTasks": [],
+            "unpromptedLayoutShift": 0,
+            "state": "paused",
+            "context": "suspended",
+            "energy": 0,
+            "mediaTime": 4.648298
+          }
+        ]
+      }
+    ]
+  },
+  "videos": [
+    {
+      "file": "desktop-real-time.webm",
+      "width": 1440,
+      "height": 1000,
+      "duration": 30.48,
+      "readyState": 4,
+      "decodedFrameAtSeconds": 4
+    },
+    {
+      "file": "mobile-real-time.webm",
+      "width": 390,
+      "height": 844,
+      "duration": 26.56,
+      "readyState": 4,
+      "decodedFrameAtSeconds": 4
+    }
+  ],
+  "nativeSafari": {
+    "status": "NOT VERIFIED: Mac locked, automatic unlock failed",
+    "webkitAutomation": "25 Sound cases PASS; separate engine coverage",
+    "physicalPhone": false,
+    "evidence": "evidence/p2g/safari-device-qa.md"
+  },
+  "nonBlocking": [
+    "Existing provisional instrument/Hero assets and Retina sources",
+    "Physical phones, VoiceOver/TalkBack and sustained thermal QA",
+    "Native Safari walkthrough when Mac unlocked"
+  ],
+  "remainingQualityGates": [
+    "User SOUND visual approval",
+    "Auditory review of 02:46–03:04 selection and ending"
+  ],
+  "changes": [
+    {
+      "path": ".github/workflows/quality-gates.yml",
+      "before": "936c2a1fffa2edab0451c221c26a4d3f93079b509d00189431fec25dfe49dbcc",
+      "after": "4b6dff95074c29224975f41ceb5c59abd54ea5005286702924ede46301be50b9"
+    },
+    {
+      "path": "AGENTS.md",
+      "before": "57f32b07f879dca98b29360f93afd0948929b07d1b66f81db0247c0cf903d4fd",
+      "after": "f7b4471e1b3da35530ebefcabefa5eb5eda28c61d3f0a1b7de48c08130a4671e"
+    },
+    {
+      "path": "CODEX-HANDOFF.md",
+      "before": "ca1b3456527d7c9c429fc528033dcd5c4b20eef2303a7f9db7f6398d5dbba667",
+      "after": "12128bf1fca4df80b1d4e9b47f3b51f617e003844b03f040592c1c9b1a4b3161"
+    },
+    {
+      "path": "README.md",
+      "before": "6e0b1d19145337fe189f16cc36c3c0d7536a8d265fe78ed2b78bf4ab0c651a32",
+      "after": "c9c561241c320413ae3ad11c0858eae5c78dc981d52cbdfacd6a9c15fda74319"
+    },
+    {
+      "path": "docs/redesign/03-MOTION-SYSTEM.md",
+      "before": "6462fa1d7e87120ea9853ac54535ac51169e03649ca8d44fa74154e5cedd6b18",
+      "after": "92e3ca789a104f5d9ac03dc10a5bd5f58559041ec3e2090c89cabd7c4f433119"
+    },
+    {
+      "path": "docs/redesign/04-HOME.md",
+      "before": "b84f9cd7997e239e6ff61e2adbde6282184abbd166dfa0bc757a7fa22dd72985",
+      "after": "a3f676513edf92598b69b85e367ad6f253456ab821bb102a667260a91561df6b"
+    },
+    {
+      "path": "docs/redesign/11-RESPONSIVE.md",
+      "before": "5f523429c6e43c8bd60dc9fffc216163a92c98aff74c41474bda05c0d3f24714",
+      "after": "5668e0db5d7a094501cf96650431afaf0711d8462b8f7dcb98fef819c8cfd105"
+    },
+    {
+      "path": "docs/redesign/12-PERFORMANCE.md",
+      "before": "c06f1391e7114d2db57c0fe860c6f4c9a38d9dbe131b2c24aeecef32731b6cb9",
+      "after": "f2b0f2fd282be50fb225dbd34af9be187235cecccc14000c35c15122e4c7bc39"
+    },
+    {
+      "path": "docs/redesign/13-ACCESSIBILITY.md",
+      "before": "9a6aefc49cb1980ec7af965a7ead484ab331560c82fbd10245cb271c097f081b",
+      "after": "9e34416a6e5a2923e52b5cca45b8e795d34e45534feddb4f7b582fb77a3831bd"
+    },
+    {
+      "path": "docs/redesign/review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md",
+      "before": "a681d736523d5b018a1734291b0f62e613696ae06ec29a0617aa0161178f52f2",
+      "after": "5fa3a37df8965c5e05bd74efb09e2d189fbe9164605a19393470720cd355801e"
+    },
+    {
+      "path": "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md",
+      "before": "689907b69fd239c9e2c30f10d68f1a8a73d5c2360bd96a5b3ad4e6b499732df6",
+      "after": "bba66a818ea6e1a90423f126bf07b930caf1013d58ebd07c607e2d6351757d6e"
+    },
+    {
+      "path": "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md",
+      "before": "5ca198d3d532c53c97b29650e0d5703dce43e739aee0bd57611adf1db6ae405f",
+      "after": "8a5657acedb73d8e431c291eed910f842b5410bf62f36d4b0ca090f5ae87c632"
+    },
+    {
+      "path": "eslint.config.js",
+      "before": "eee39d3d7b0a1977bbc0a704d7dfef1a258ed2a4f08340979187cdfb0a1affb8",
+      "after": "887af12692bd228ed406dc8090a6990efc740b3bfeeb989587bba05f5467d41f"
+    },
+    {
+      "path": "package.json",
+      "before": "c5913d139888071392a733238a0a962b69fc016afb6ef7d686b77c75ff949dc7",
+      "after": "1ceddf787997bbe4f507761d429842f1b649a856354df527533358b034c0635d"
+    },
+    {
+      "path": "src/haegeum/HaegeumExperience.tsx",
+      "before": "9ea1bb952ca4211b12c3bc185f952a5db02cea0eef7a46bd0b1de0b6ef870710",
+      "after": "9b51ef3024735905375b2718ba9cb17983c33de176137b4fe705c6d9c9343de6"
+    },
+    {
+      "path": "tests/assert-design-artifacts.ts",
+      "before": "f40c918d88365d1c1be5ef4c75977b76cf8cc6572b9344349ce5c0a467435cf2",
+      "after": "99d9bd1c406aa6aacb55cf722d9c9b94be846d36d01a69ba5dea4678eef0426c"
+    },
+    {
+      "path": "tsconfig.app.json",
+      "before": "e624eef4682598030d94b7e37c9e48d865753aa3288a9aff8f04a97cdb104bb6",
+      "after": "6d893ed80d8d19a1e5620269eaae9eb5c90323fbb74bea47fa576a28fd648391"
+    },
+    {
+      "path": "tsconfig.node.json",
+      "before": "d7d86f19d7643b6db714eea90f2a960c43305cec7e38900f1aa71730047b6303",
+      "after": "a6b2ade343b28699af4b7899b0a4e98cf655aa066267cca6b9a96f6613380e37"
+    },
+    {
+      "path": "P2G-RESULT.md",
+      "after": "f0d367afa66e88e086187ee824859494506b8c7036415809a614cc8f7ca92d67"
+    },
+    {
+      "path": "docs/redesign/review/HOME-SOUND-EXPERIENCE.md",
+      "after": "68b939d20d2c24f19bf7c0ac8315c676f3968abf06c585cf5e3aa1587e0fc5ec"
+    },
+    {
+      "path": "evidence/p2g/README.md",
+      "after": "e31da55c5337deeac94bca6ded7b41b58f8fb653750c6f1a1e82dd48fc4d4500"
+    },
+    {
+      "path": "evidence/p2g/audio-analysis.json",
+      "after": "a6c62aaf0bb9b9c9676e985af5fa0960d10b3e2e62e4db3692aec6e729027625"
+    },
+    {
+      "path": "evidence/p2g/audio-audit.json",
+      "after": "48fa0b068749a48df0af5151001a91f333da247ae1b88c757a002fa69c5d83b9"
+    },
+    {
+      "path": "evidence/p2g/capture-states.json",
+      "after": "68fba2dbb78e4d21e46e2e6d9f45690181aee3ca7936e0d8a307c3fa7c30f1bd"
+    },
+    {
+      "path": "evidence/p2g/damping.json",
+      "after": "bc38131a697a4af4032ba2d814ea32b8acda5b4711406270a46c53fc228105bb"
+    },
+    {
+      "path": "evidence/p2g/delivery-p2f.json",
+      "after": "68ba2569c8ce3340b7f9b69906161c23420dd439477de58bb65402ab6aff6dd3"
+    },
+    {
+      "path": "evidence/p2g/desktop-completed.png",
+      "after": "48be828d347e4e055a94f9c576220157ee468770202fa1ca19205569becfdb1e"
+    },
+    {
+      "path": "evidence/p2g/desktop-damping.png",
+      "after": "febc1b1d1ea7b77ceb154a6ab6decc35a393d21e3cca28492e24d9c48e11a766"
+    },
+    {
+      "path": "evidence/p2g/desktop-full.png",
+      "after": "5b697eae028104e1b28569738d20f51fa61640604f7b60b34317917cc66b464a"
+    },
+    {
+      "path": "evidence/p2g/desktop-hover.png",
+      "after": "b650402b88c742a6605aad71891175626e9a0ce0627e93ba8128baaafffb0023"
+    },
+    {
+      "path": "evidence/p2g/desktop-idle.png",
+      "after": "163c4371bc6a0ea2aef9bf6834c813d39208002d1841bf7e0f114bc15a1ab84b"
+    },
+    {
+      "path": "evidence/p2g/desktop-initial.png",
+      "after": "650ff5b6c717a1600605a844a006897400b005efe369bd0540ec04131f3fd1a3"
+    },
+    {
+      "path": "evidence/p2g/desktop-paused.png",
+      "after": "b38fa559597cfd53eeda77d75116b6da12afa976cdee96bcddfe01ced795f2f8"
+    },
+    {
+      "path": "evidence/p2g/desktop-playing.png",
+      "after": "a9ea95ff845a8b1ef7f96836df8780d2ada7cf60e5a73e589eb3defc5dd0c1c6"
+    },
+    {
+      "path": "evidence/p2g/desktop-real-time.webm",
+      "after": "a9c639ca9177f272d90801519c43e5d327a79a5a2abd302f6dbc26610ba4cba2"
+    },
+    {
+      "path": "evidence/p2g/desktop-release-early.png",
+      "after": "464b9b58be43b324bbb4fec9e3eaa7a2a978150a5d302a1ee9c0f4aad53d6e36"
+    },
+    {
+      "path": "evidence/p2g/desktop-release-late.png",
+      "after": "10cf99920131b288500eebcad81a48bab8aaa68897d33161cb7dce6f4b72b43d"
+    },
+    {
+      "path": "evidence/p2g/desktop-release-mid.png",
+      "after": "c2d01f37d43bab72a9dd536809f1ffce16358e792ba3e72ebb5536ce08fc990e"
+    },
+    {
+      "path": "evidence/p2g/full-gate.txt",
+      "after": "b71f7e54a1158974d44a286ff5518e65d32ef497792ee69eff255341e462693b"
+    },
+    {
+      "path": "evidence/p2g/initial-comparison.json",
+      "after": "679eab39a8e57aab1b1e1dbe91c98369d251a966673fb5232d908844ecf73b1d"
+    },
+    {
+      "path": "evidence/p2g/lab-build-guard.txt",
+      "after": "2c692d9a3427266b24c3855481aceff31fa241607d16cad405a33f3f2ec6e40a"
+    },
+    {
+      "path": "evidence/p2g/laptop-idle.png",
+      "after": "0e0881009cc3599f10afe560be659a6c7a6d11e5fdba54b765f95bfe870bd774"
+    },
+    {
+      "path": "evidence/p2g/mobile-320-full.png",
+      "after": "70b19fd2925661c41b3a4f44b085c061a0b6e1acb73bcf8ccb4d9a452a99610d"
+    },
+    {
+      "path": "evidence/p2g/mobile-320-idle.png",
+      "after": "f5da844a8b8dd3d3cbc798e2e3ea3c81ad5771ff11ffbf6805c4601c4a54bd3e"
+    },
+    {
+      "path": "evidence/p2g/mobile-320-playing.png",
+      "after": "5ac8c90fea868111321cf9edb6ea702d3d0e400e8c073c5a69d8189e76cafbdd"
+    },
+    {
+      "path": "evidence/p2g/mobile-320-release.png",
+      "after": "a0bfa2534519c14b67c207a28d3ad54a448ed23ecae1c8ff189997ab2a3be5dc"
+    },
+    {
+      "path": "evidence/p2g/mobile-390-full.png",
+      "after": "2a1d1a492be6d47361fe3004b999c3afb1e46063f595041f964ae4abdf582b82"
+    },
+    {
+      "path": "evidence/p2g/mobile-390-idle.png",
+      "after": "27e74e0b5e9e7d0c00af953a8955d5e758bf073bfcd0ad280b532196d468ad85"
+    },
+    {
+      "path": "evidence/p2g/mobile-390-playing.png",
+      "after": "29d643b31db5502c6acae09f6b8a14cb7edc2a10374c34420854e5e8ae683696"
+    },
+    {
+      "path": "evidence/p2g/mobile-390-release.png",
+      "after": "dcb118538a2c4d65e3e7dcb4ba9bd8a7baf9317b5a01cd04d885cc9762065270"
+    },
+    {
+      "path": "evidence/p2g/mobile-en-idle.png",
+      "after": "c50e265d086e9f88adf26fadb889449f7f04eaae8615d437e93e8298dd470e02"
+    },
+    {
+      "path": "evidence/p2g/mobile-real-time.webm",
+      "after": "0d55be8f23a34af1c33f43f4b108058742d0009544d4ec73fc73ace76d4fa4d7"
+    },
+    {
+      "path": "evidence/p2g/performance.json",
+      "after": "8516d1eb95eca738eb768e6fb98a3a2caae82011b8e790639ff96aeae3386281"
+    },
+    {
+      "path": "evidence/p2g/reduced-desktop-playing.png",
+      "after": "ffeae3ce7c30b66a0203137848afbd511f8dc5acfc5f9b8d4d08374a25706478"
+    },
+    {
+      "path": "evidence/p2g/reduced-desktop.png",
+      "after": "0eca4f157ce72867602da850a69d5838fc2981d0745d307ad7e0b06e63a9a3ff"
+    },
+    {
+      "path": "evidence/p2g/reduced-mobile-playing.png",
+      "after": "f9f8f6eccb49d11457c101219cd89a4d1a3deef15a63d9286929a7cf29f36779"
+    },
+    {
+      "path": "evidence/p2g/reduced-mobile.png",
+      "after": "2c8360a7ba0a827b07ba4bbfc67c64f4fdcb509ca808056212d3f23464020559"
+    },
+    {
+      "path": "evidence/p2g/safari-device-qa.md",
+      "after": "78976f97e26ed720706cdfddf66864f24aed14f48e7ef79746cf207418da8b04"
+    },
+    {
+      "path": "evidence/p2g/sound-test-results.json",
+      "after": "51438fc361d36ebdf9f3d2437e40fad11a485c47e7fd4b499b5d09f84eb0cecb"
+    },
+    {
+      "path": "evidence/p2g/tablet-idle.png",
+      "after": "f508875ae4feaad024e4d9b728e2ffc068273cdabfde59324a8fbb778042ae7d"
+    },
+    {
+      "path": "evidence/p2g/text-200.png",
+      "after": "aa8ffffeb136652e0345422889008b3ebbeb102817f00dcbf39aaa113e023f89"
+    },
+    {
+      "path": "evidence/p2g/video-timeline.json",
+      "after": "a8063ac2c4798fe316f97c2a53d0d04d4f05150e4acd60977fa15b9f1881d0ad"
+    },
+    {
+      "path": "evidence/p2g/video-verification.json",
+      "after": "10108d5b874c41fb798383556ed8218eda24f19734b6b38f27ff5878c19c94cb"
+    },
+    {
+      "path": "evidence/p2g/webkit-idle.png",
+      "after": "39fa2e7bc6928ea6dee960fbba44758331665cc947044f6b8f35ef8ee51f80ea"
+    },
+    {
+      "path": "evidence/p2g/webkit-playing.png",
+      "after": "971a06282fd3e2d44f43f5e84b99693c0c48eaed6a74e5ff4dd852e551d91c49"
+    },
+    {
+      "path": "evidence/p2g/webkit-release.png",
+      "after": "0ae6ee86f39ab43a15ade285a6d3baa0917e21772ef62d8142eed7b692be93c9"
+    },
+    {
+      "path": "evidence/p2g/wide-idle.png",
+      "after": "6e1efd0986ec378f70eddc22ec96acb74c7238ce80b3480efa31a9e00ef624c7"
+    },
+    {
+      "path": "labs/sound/SoundLab.tsx",
+      "after": "302b9cca84bff3704e5acacdef03d599b3c9562c542b78e9a96e6dfaf183c091"
+    },
+    {
+      "path": "labs/sound/index.html",
+      "after": "61b352b484228b5ff1ded3167c0331bdca37c21a469905771a1707c67cce7d4f"
+    },
+    {
+      "path": "labs/sound/main.tsx",
+      "after": "0de710c5ba50f747176d98907dab76b3842543224b1b0644d6270c42a1caccb2"
+    },
+    {
+      "path": "labs/sound/sound.css",
+      "after": "b604f0b47cd3fd56673b5a03ac4718db0e8780bc29d2ffd0ecc59ee6b6a0825e"
+    },
+    {
+      "path": "playwright.sound.config.ts",
+      "after": "93f4bb708dc1039461a5f62a7c66d28c5aa720df0fddbbbdca0e682e5dc889b0"
+    },
+    {
+      "path": "src/sound/SoundExperience.tsx",
+      "after": "4e13e20c8c31e21e5a55471ebf96924b6194574e1e644685092390ed49df8f8d"
+    },
+    {
+      "path": "src/sound/SoundSurface.tsx",
+      "after": "81e7c3b92dd6687bb6b1ea0c7f862d7aaa4bc84e49603c9211188b7a09092f36"
+    },
+    {
+      "path": "src/sound/assets/hanbeomsu-jungjungmori-preview.m4a",
+      "after": "00ae2adee523857da413aa7cb28521026bcfcc5fadde9db0e8f845cf5145708c"
+    },
+    {
+      "path": "src/sound/continuation.ts",
+      "after": "9ae762f926a2df77e14ef1f9489b02715f56a41f0457f184df7eb41590956546"
+    },
+    {
+      "path": "src/sound/controller.ts",
+      "after": "e682682c8ed77e26cb3a576aeb350623278c80a6af1aeb01280cbdd45788c61f"
+    },
+    {
+      "path": "src/sound/line-response.ts",
+      "after": "e428dc8a60fc5472756d16c949deb9d2a305d30c8962470b2c61af7c0e6ad503"
+    },
+    {
+      "path": "src/sound/sound.css",
+      "after": "cb1de63c0f782fb9a1b3891581ded85ee35ccf50a822b86d27ccd584c41587d4"
+    },
+    {
+      "path": "src/sound/source.ts",
+      "after": "a21ab66607d4bb6c6cb1e9274ab46192590b462909235dfbf67c5106caac0524"
+    },
+    {
+      "path": "tests/sound.spec.ts",
+      "after": "e4bd1d91a62b0209cb1a81b617568c5587155beca6e7556be52a9be387da72d7"
+    },
+    {
+      "path": "vite.sound.config.ts",
+      "after": "d811d8d8a26e9a97e90700353acbe115fae76cbe4dc9d0f9eee7c55091440afa"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/p2g/README.md",
+      "bytes": 4663,
+      "sha256": "e31da55c5337deeac94bca6ded7b41b58f8fb653750c6f1a1e82dd48fc4d4500"
+    },
+    {
+      "path": "evidence/p2g/audio-analysis.json",
+      "bytes": 22136,
+      "sha256": "a6c62aaf0bb9b9c9676e985af5fa0960d10b3e2e62e4db3692aec6e729027625"
+    },
+    {
+      "path": "evidence/p2g/audio-audit.json",
+      "bytes": 4897,
+      "sha256": "48fa0b068749a48df0af5151001a91f333da247ae1b88c757a002fa69c5d83b9"
+    },
+    {
+      "path": "evidence/p2g/capture-states.json",
+      "bytes": 9037,
+      "sha256": "68fba2dbb78e4d21e46e2e6d9f45690181aee3ca7936e0d8a307c3fa7c30f1bd"
+    },
+    {
+      "path": "evidence/p2g/damping.json",
+      "bytes": 3960,
+      "sha256": "bc38131a697a4af4032ba2d814ea32b8acda5b4711406270a46c53fc228105bb"
+    },
+    {
+      "path": "evidence/p2g/delivery-p2f.json",
+      "bytes": 3115,
+      "sha256": "68ba2569c8ce3340b7f9b69906161c23420dd439477de58bb65402ab6aff6dd3"
+    },
+    {
+      "path": "evidence/p2g/desktop-completed.png",
+      "bytes": 39040,
+      "sha256": "48be828d347e4e055a94f9c576220157ee468770202fa1ca19205569becfdb1e"
+    },
+    {
+      "path": "evidence/p2g/desktop-damping.png",
+      "bytes": 43516,
+      "sha256": "febc1b1d1ea7b77ceb154a6ab6decc35a393d21e3cca28492e24d9c48e11a766"
+    },
+    {
+      "path": "evidence/p2g/desktop-full.png",
+      "bytes": 297835,
+      "sha256": "5b697eae028104e1b28569738d20f51fa61640604f7b60b34317917cc66b464a"
+    },
+    {
+      "path": "evidence/p2g/desktop-hover.png",
+      "bytes": 37885,
+      "sha256": "b650402b88c742a6605aad71891175626e9a0ce0627e93ba8128baaafffb0023"
+    },
+    {
+      "path": "evidence/p2g/desktop-idle.png",
+      "bytes": 36284,
+      "sha256": "163c4371bc6a0ea2aef9bf6834c813d39208002d1841bf7e0f114bc15a1ab84b"
+    },
+    {
+      "path": "evidence/p2g/desktop-initial.png",
+      "bytes": 1008325,
+      "sha256": "650ff5b6c717a1600605a844a006897400b005efe369bd0540ec04131f3fd1a3"
+    },
+    {
+      "path": "evidence/p2g/desktop-paused.png",
+      "bytes": 41456,
+      "sha256": "b38fa559597cfd53eeda77d75116b6da12afa976cdee96bcddfe01ced795f2f8"
+    },
+    {
+      "path": "evidence/p2g/desktop-playing.png",
+      "bytes": 42018,
+      "sha256": "a9ea95ff845a8b1ef7f96836df8780d2ada7cf60e5a73e589eb3defc5dd0c1c6"
+    },
+    {
+      "path": "evidence/p2g/desktop-real-time.webm",
+      "bytes": 2021644,
+      "sha256": "a9c639ca9177f272d90801519c43e5d327a79a5a2abd302f6dbc26610ba4cba2"
+    },
+    {
+      "path": "evidence/p2g/desktop-release-early.png",
+      "bytes": 291129,
+      "sha256": "464b9b58be43b324bbb4fec9e3eaa7a2a978150a5d302a1ee9c0f4aad53d6e36"
+    },
+    {
+      "path": "evidence/p2g/desktop-release-late.png",
+      "bytes": 39984,
+      "sha256": "10cf99920131b288500eebcad81a48bab8aaa68897d33161cb7dce6f4b72b43d"
+    },
+    {
+      "path": "evidence/p2g/desktop-release-mid.png",
+      "bytes": 80482,
+      "sha256": "c2d01f37d43bab72a9dd536809f1ffce16358e792ba3e72ebb5536ce08fc990e"
+    },
+    {
+      "path": "evidence/p2g/full-gate.txt",
+      "bytes": 191773,
+      "sha256": "b71f7e54a1158974d44a286ff5518e65d32ef497792ee69eff255341e462693b"
+    },
+    {
+      "path": "evidence/p2g/initial-comparison.json",
+      "bytes": 115,
+      "sha256": "679eab39a8e57aab1b1e1dbe91c98369d251a966673fb5232d908844ecf73b1d"
+    },
+    {
+      "path": "evidence/p2g/lab-build-guard.txt",
+      "bytes": 803,
+      "sha256": "2c692d9a3427266b24c3855481aceff31fa241607d16cad405a33f3f2ec6e40a"
+    },
+    {
+      "path": "evidence/p2g/laptop-idle.png",
+      "bytes": 33416,
+      "sha256": "0e0881009cc3599f10afe560be659a6c7a6d11e5fdba54b765f95bfe870bd774"
+    },
+    {
+      "path": "evidence/p2g/mobile-320-full.png",
+      "bytes": 83064,
+      "sha256": "70b19fd2925661c41b3a4f44b085c061a0b6e1acb73bcf8ccb4d9a452a99610d"
+    },
+    {
+      "path": "evidence/p2g/mobile-320-idle.png",
+      "bytes": 20795,
+      "sha256": "f5da844a8b8dd3d3cbc798e2e3ea3c81ad5771ff11ffbf6805c4601c4a54bd3e"
+    },
+    {
+      "path": "evidence/p2g/mobile-320-playing.png",
+      "bytes": 21779,
+      "sha256": "5ac8c90fea868111321cf9edb6ea702d3d0e400e8c073c5a69d8189e76cafbdd"
+    },
+    {
+      "path": "evidence/p2g/mobile-320-release.png",
+      "bytes": 78468,
+      "sha256": "a0bfa2534519c14b67c207a28d3ad54a448ed23ecae1c8ff189997ab2a3be5dc"
+    },
+    {
+      "path": "evidence/p2g/mobile-390-full.png",
+      "bytes": 158745,
+      "sha256": "2a1d1a492be6d47361fe3004b999c3afb1e46063f595041f964ae4abdf582b82"
+    },
+    {
+      "path": "evidence/p2g/mobile-390-idle.png",
+      "bytes": 22980,
+      "sha256": "27e74e0b5e9e7d0c00af953a8955d5e758bf073bfcd0ad280b532196d468ad85"
+    },
+    {
+      "path": "evidence/p2g/mobile-390-playing.png",
+      "bytes": 24627,
+      "sha256": "29d643b31db5502c6acae09f6b8a14cb7edc2a10374c34420854e5e8ae683696"
+    },
+    {
+      "path": "evidence/p2g/mobile-390-release.png",
+      "bytes": 149740,
+      "sha256": "dcb118538a2c4d65e3e7dcb4ba9bd8a7baf9317b5a01cd04d885cc9762065270"
+    },
+    {
+      "path": "evidence/p2g/mobile-en-idle.png",
+      "bytes": 27503,
+      "sha256": "c50e265d086e9f88adf26fadb889449f7f04eaae8615d437e93e8298dd470e02"
+    },
+    {
+      "path": "evidence/p2g/mobile-real-time.webm",
+      "bytes": 782767,
+      "sha256": "0d55be8f23a34af1c33f43f4b108058742d0009544d4ec73fc73ace76d4fa4d7"
+    },
+    {
+      "path": "evidence/p2g/performance.json",
+      "bytes": 3768,
+      "sha256": "8516d1eb95eca738eb768e6fb98a3a2caae82011b8e790639ff96aeae3386281"
+    },
+    {
+      "path": "evidence/p2g/reduced-desktop-playing.png",
+      "bytes": 36884,
+      "sha256": "ffeae3ce7c30b66a0203137848afbd511f8dc5acfc5f9b8d4d08374a25706478"
+    },
+    {
+      "path": "evidence/p2g/reduced-desktop.png",
+      "bytes": 36097,
+      "sha256": "0eca4f157ce72867602da850a69d5838fc2981d0745d307ad7e0b06e63a9a3ff"
+    },
+    {
+      "path": "evidence/p2g/reduced-mobile-playing.png",
+      "bytes": 19903,
+      "sha256": "f9f8f6eccb49d11457c101219cd89a4d1a3deef15a63d9286929a7cf29f36779"
+    },
+    {
+      "path": "evidence/p2g/reduced-mobile.png",
+      "bytes": 19877,
+      "sha256": "2c8360a7ba0a827b07ba4bbfc67c64f4fdcb509ca808056212d3f23464020559"
+    },
+    {
+      "path": "evidence/p2g/safari-device-qa.md",
+      "bytes": 1958,
+      "sha256": "78976f97e26ed720706cdfddf66864f24aed14f48e7ef79746cf207418da8b04"
+    },
+    {
+      "path": "evidence/p2g/sound-test-results.json",
+      "bytes": 56196,
+      "sha256": "51438fc361d36ebdf9f3d2437e40fad11a485c47e7fd4b499b5d09f84eb0cecb"
+    },
+    {
+      "path": "evidence/p2g/tablet-idle.png",
+      "bytes": 27529,
+      "sha256": "f508875ae4feaad024e4d9b728e2ffc068273cdabfde59324a8fbb778042ae7d"
+    },
+    {
+      "path": "evidence/p2g/text-200.png",
+      "bytes": 31099,
+      "sha256": "aa8ffffeb136652e0345422889008b3ebbeb102817f00dcbf39aaa113e023f89"
+    },
+    {
+      "path": "evidence/p2g/video-timeline.json",
+      "bytes": 3189,
+      "sha256": "a8063ac2c4798fe316f97c2a53d0d04d4f05150e4acd60977fa15b9f1881d0ad"
+    },
+    {
+      "path": "evidence/p2g/video-verification.json",
+      "bytes": 322,
+      "sha256": "10108d5b874c41fb798383556ed8218eda24f19734b6b38f27ff5878c19c94cb"
+    },
+    {
+      "path": "evidence/p2g/webkit-idle.png",
+      "bytes": 62659,
+      "sha256": "39fa2e7bc6928ea6dee960fbba44758331665cc947044f6b8f35ef8ee51f80ea"
+    },
+    {
+      "path": "evidence/p2g/webkit-playing.png",
+      "bytes": 74597,
+      "sha256": "971a06282fd3e2d44f43f5e84b99693c0c48eaed6a74e5ff4dd852e551d91c49"
+    },
+    {
+      "path": "evidence/p2g/webkit-release.png",
+      "bytes": 125862,
+      "sha256": "0ae6ee86f39ab43a15ade285a6d3baa0917e21772ef62d8142eed7b692be93c9"
+    },
+    {
+      "path": "evidence/p2g/wide-idle.png",
+      "bytes": 43151,
+      "sha256": "6e1efd0986ec378f70eddc22ec96acb74c7238ce80b3480efa31a9e00ef624c7"
+    }
+  ]
+}

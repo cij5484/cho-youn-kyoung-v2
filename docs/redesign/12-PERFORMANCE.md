@@ -123,6 +123,12 @@ Requirements:
 
 Do not decode/analyze every track before the user needs it.
 
+P2G HOME uses one same-origin 434,470-byte AAC excerpt, with `preload="none"` and no media URL or AudioContext
+until explicit activation. Analysis runs only while visible playback or its short damping needs it; reduced
+motion stays static. Offscreen/hidden state pauses media and suspends the context; route/source departure
+removes the source, closes/disconnects the graph and removes observers, listeners and paths. No dependency is
+added. [Sound evidence](review/HOME-SOUND-EXPERIENCE.md) distinguishes local measurements from phone/thermal QA.
+
 ---
 
 # 9. 3D LAB PERFORMANCE

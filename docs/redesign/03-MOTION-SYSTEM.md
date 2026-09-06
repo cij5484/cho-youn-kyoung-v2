@@ -869,6 +869,13 @@ This rule applies to:
 
 The visual system should suggest sustained bow friction and string tension rather than impact.
 
+P2G implementation: the same two Hero/Haegeum line holders become an actual analyser-driven microtexture
+only after the Full→Sound release. A 1024-sample live buffer drives energy and friction at about 30 visual
+updates/second, with anchored ends and displacement bounded to ±0.62px desktop / ±0.34px mobile.
+Pause/end damps to the exact straight pair and stops work. Reduced motion remains static during actual audio.
+No fake oscillator, equalizer, per-frame React state or idle animation. These are the current review tuning,
+not a new universal timing standard. [Implementation/evidence](review/HOME-SOUND-EXPERIENCE.md).
+
 ---
 
 # 46. FINAL MOTION PRINCIPLE

@@ -35,6 +35,8 @@
     "vite.hero.config.ts",
     "playwright.hero.config.ts",
     "vite.haegeum.config.ts",
-    "playwright.haegeum.config.ts"
+    "playwright.haegeum.config.ts",
+    "vite.sound.config.ts",
+    "playwright.sound.config.ts"
   ]
 }

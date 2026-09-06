@@ -1,0 +1,106 @@
+{
+  "date": "2026-09-06",
+  "legacyURLs": 29,
+  "sources": [
+    {
+      "url": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/yeongsan/01_sangryeongsan.mp3",
+      "permission": "NOT YET APPROVED for V2",
+      "initialPythonHEAD": "HTTP Error 403: Forbidden",
+      "httpStatus": 200,
+      "headers": {
+        "date": "Sun, 06 Sep 2026 12:39:11 GMT",
+        "content-type": "audio/mpeg",
+        "content-length": "32349384",
+        "connection": "keep-alive",
+        "accept-ranges": "bytes",
+        "etag": "\"5c06e71c3c31010444635a825fbe65bf\"",
+        "last-modified": "Tue, 01 Sep 2026 10:48:42 GMT",
+        "server": "cloudflare",
+        "cf-ray": "a36d88f729842eb7-LAX"
+      },
+      "technical": "HTTP headers verified; not browser-decoded/auditioned"
+    },
+    {
+      "url": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/pyeongjo/01_sangryeongsan.mp3",
+      "permission": "NOT YET APPROVED for V2",
+      "initialPythonHEAD": "HTTP Error 403: Forbidden",
+      "httpStatus": 200,
+      "headers": {
+        "date": "Sun, 06 Sep 2026 12:39:11 GMT",
+        "content-type": "audio/mpeg",
+        "content-length": "32647968",
+        "connection": "keep-alive",
+        "accept-ranges": "bytes",
+        "etag": "\"f0fcfbe1358d4f18f5c1210ad1a63e2f\"",
+        "last-modified": "Tue, 01 Sep 2026 10:02:09 GMT",
+        "server": "cloudflare",
+        "cf-ray": "a36d88f71ef9e9e1-LAX"
+      },
+      "technical": "HTTP headers verified; not browser-decoded/auditioned"
+    },
+    {
+      "url": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/jiyounghee/01_jinyang.mp3",
+      "permission": "NOT YET APPROVED for V2",
+      "initialPythonHEAD": "HTTP Error 403: Forbidden",
+      "httpStatus": 200,
+      "headers": {
+        "date": "Sun, 06 Sep 2026 12:39:11 GMT",
+        "content-type": "audio/mpeg",
+        "content-length": "30849853",
+        "connection": "keep-alive",
+        "accept-ranges": "bytes",
+        "etag": "\"1f9c476ac67735fb73376745cfe0e339\"",
+        "last-modified": "Mon, 24 Aug 2026 11:57:09 GMT",
+        "server": "cloudflare",
+        "cf-ray": "a36d88f71c470f27-LAX"
+      },
+      "technical": "HTTP headers verified; not browser-decoded/auditioned"
+    },
+    {
+      "url": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/hanbeomsu/01_daseureum.mp3",
+      "permission": "NOT YET APPROVED for V2",
+      "initialPythonHEAD": "HTTP Error 403: Forbidden",
+      "httpStatus": 200,
+      "headers": {
+        "date": "Sun, 06 Sep 2026 12:39:11 GMT",
+        "content-type": "audio/mpeg",
+        "content-length": "3448365",
+        "connection": "keep-alive",
+        "accept-ranges": "bytes",
+        "etag": "\"92569fe1c3a248112c587eaedfb9da89\"",
+        "last-modified": "Wed, 19 Aug 2026 04:13:29 GMT",
+        "server": "cloudflare",
+        "cf-ray": "a36d88f71b81bd64-LAX"
+      },
+      "technical": "HTTP headers verified; not browser-decoded/auditioned"
+    }
+  ],
+  "runtimeSelection": "Real Han Beom-su Ryu Jungjungmori 18-second candidate; no development synthetic audio needed",
+  "userDirection": "한범수류 중중모리 하이라이트 부분... 네가 판단해봐. 가장 극적인 부분",
+  "authorization": "User selected track and delegated highlight selection in reply to the website-preview scope question. Authorized HOME excerpt candidate; exact auditory selection remains review ready.",
+  "selected": {
+    "sourceURL": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/hanbeomsu/04_long-sanjo_jungjungmori.mp3",
+    "httpStatus": 200,
+    "sourceDurationSeconds": 278.7558333333333,
+    "startSeconds": 166,
+    "endSeconds": 184,
+    "durationSeconds": 18,
+    "fadeInMs": 25,
+    "fadeOutMs": 280,
+    "gain": "unchanged",
+    "provenance": "actual legacy performance recording; no synthetic audio",
+    "selection": "Highest ranked18s energy-rise window; 2.78x RMS over preceding3s, energetic spectrum with easing end. Signal-based choice, user listening review pending.",
+    "crossOriginHeader": "No Access-Control-Allow-Origin in curl HEAD; prepare same-origin short derivative instead of depending on external analyser CORS",
+    "master": "11,152,365-byte320kbps48kHz stereo MP3 preserved only in ignored checkpoint; not committed",
+    "derivative": {
+      "path": "src/sound/assets/hanbeomsu-jungjungmori-preview.m4a",
+      "bytes": 434470,
+      "sha256": "00ae2adee523857da413aa7cb28521026bcfcc5fadde9db0e8f845cf5145708c",
+      "encoding": "AAC stereo192kbps target/48kHz via macOS afconvert; source-level preserved",
+      "duration": "18.000s container; Chromium exposes18.048s including AAC frame padding",
+      "playability": "Actual currentTime advance, running AudioContext, nonzero analyser RMS in local Chromium and WebKit"
+    },
+    "sourceSha256": "2f5fd7df98bd431164708d33e8a6e15108e5abfd6642831b346c342d4e83b546"
+  },
+  "localAudioFilesAtAuditStart": 0
+}

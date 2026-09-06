@@ -1,0 +1,137 @@
+{
+  "environment": "Headless Chromium on current Mac, unthrottled local development server; isolated from other browser suites. Not field CWV, native Safari, physical phone, thermal or battery certification.",
+  "results": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobileEmulation": false,
+      "initial": {
+        "audioPayloadRequests": 0,
+        "context": "not-created",
+        "src": null
+      },
+      "stages": [
+        {
+          "name": "idle",
+          "durationMs": 1504.7999999970198,
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95Ms": null,
+          "longTasks": [],
+          "unpromptedLayoutShift": 0,
+          "state": "idle",
+          "context": "not-created",
+          "energy": 0,
+          "mediaTime": 0
+        },
+        {
+          "name": "playing",
+          "durationMs": 4005.1000000089407,
+          "rafCallbacks": 241,
+          "visualUpdates": 121,
+          "frameIntervalP95Ms": 16.800000000000182,
+          "longTasks": [],
+          "unpromptedLayoutShift": 0,
+          "state": "playing",
+          "context": "running",
+          "energy": 0.7289,
+          "mediaTime": 4.291918
+        },
+        {
+          "name": "settled-pause",
+          "durationMs": 1504.7000000029802,
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95Ms": null,
+          "longTasks": [],
+          "unpromptedLayoutShift": 0,
+          "state": "paused",
+          "context": "suspended",
+          "energy": 0,
+          "mediaTime": 4.325333
+        },
+        {
+          "name": "offscreen",
+          "durationMs": 1505.2999999970198,
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95Ms": null,
+          "longTasks": [],
+          "unpromptedLayoutShift": 0,
+          "state": "paused",
+          "context": "suspended",
+          "energy": 0,
+          "mediaTime": 4.624
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "mobileEmulation": true,
+      "initial": {
+        "audioPayloadRequests": 0,
+        "context": "not-created",
+        "src": null
+      },
+      "stages": [
+        {
+          "name": "idle",
+          "durationMs": 1504.1000000089407,
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95Ms": null,
+          "longTasks": [],
+          "unpromptedLayoutShift": 0,
+          "state": "idle",
+          "context": "not-created",
+          "energy": 0,
+          "mediaTime": 0
+        },
+        {
+          "name": "playing",
+          "durationMs": 4004.5,
+          "rafCallbacks": 240,
+          "visualUpdates": 120,
+          "frameIntervalP95Ms": 16.800000000000182,
+          "longTasks": [],
+          "unpromptedLayoutShift": 0,
+          "state": "playing",
+          "context": "running",
+          "energy": 0.7499,
+          "mediaTime": 4.319807
+        },
+        {
+          "name": "settled-pause",
+          "durationMs": 1504.7999999970198,
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95Ms": null,
+          "longTasks": [],
+          "unpromptedLayoutShift": 0,
+          "state": "paused",
+          "context": "suspended",
+          "energy": 0,
+          "mediaTime": 4.344298
+        },
+        {
+          "name": "offscreen",
+          "durationMs": 1503.8999999910593,
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95Ms": null,
+          "longTasks": [],
+          "unpromptedLayoutShift": 0,
+          "state": "paused",
+          "context": "suspended",
+          "energy": 0,
+          "mediaTime": 4.648298
+        }
+      ]
+    }
+  ]
+}

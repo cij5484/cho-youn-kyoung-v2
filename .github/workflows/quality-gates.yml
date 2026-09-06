@@ -61,6 +61,9 @@ jobs:
       - name: Full gate - development-only Hero to Haegeum Lab
         if: inputs.full
         run: npm run test:haegeum
+      - name: Full gate - development-only HOME Sound Lab
+        if: inputs.full
+        run: npm run test:sound
       - name: Retain full-gate evidence
         if: always() && inputs.full
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6

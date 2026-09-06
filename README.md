@@ -47,6 +47,7 @@ Project Pages base의 dev 실행은 `npm.cmd run dev:pages-preview`입니다.
 npm.cmd run type-check
 npm.cmd run lint
 npm.cmd run test:locale
+npm.cmd run test:navigation:contract
 npm.cmd run test:content
 npm.cmd run test:placement
 npm.cmd run build
@@ -55,14 +56,18 @@ npm.cmd run test:design-system:artifacts
 npm.cmd run build:pages-preview
 npm.cmd run test:spike
 npm.cmd run test:design-system
+npm.cmd run test:navigation
+npm.cmd run test:hero
+npm.cmd run test:haegeum
+npm.cmd run test:sound
 ```
 
-`check`는 type-check/lint/root build만 실행합니다. 전체 로컬 계약 검증은 위의 열한 명령입니다.
+`check`는 type-check/lint/root build만 실행합니다. 전체 로컬 계약 검증은 위 명령들을 포함하는 `gate:full`입니다.
 두 build는 같은 framework typegen/cache를 사용하므로 순서대로 실행합니다.
 
 일반 코드 확인은 `npm.cmd run gate:fast`, routing/metadata/CI 변경의 전체 확인은
-`npm.cmd run gate:full`을 사용합니다. Fast는 위의 첫 여덟 명령, Full은 열한 명령 전체입니다.
-Push/PR마다 Fast + workflow syntax 검사를 수행하고, 브라우저 설치/84개 route + 11개 Lab Full은 명시적 수동 실행과 배포 전에 수행합니다.
+`npm.cmd run gate:full`을 사용합니다. Fast는 위의 첫 아홉 명령, Full은 위 전체 명령입니다.
+Push/PR마다 Fast + workflow syntax 검사를 수행하고, 브라우저 설치와 84 route + 11 foundation + 26 navigation + 44 Hero + 32 Haegeum + 50 Sound Full은 명시적 수동 실행과 배포 전에 수행합니다.
 Linux CI는 Chromium, 기본 로컬 설정은 Edge입니다. 이 Mac에서는 기존 Chromium을 `CI=1`로 선택해 같은 assertion을 실행합니다.
 macOS/Linux 명령은 `npm.cmd` 대신 `npm`을 사용합니다. Node 24.x/npm 11.x 요구사항은 동일합니다.
 
@@ -240,4 +245,21 @@ Full: 38 Node +197 browser. [결과](P2F-RESULT.md), [시각 증거/영상](evid
 [실제 Safari 검증 한계](evidence/p2f/safari-device-qa.md).
 사용자가 P2F 시각 결과를 승인했습니다: **QUALITY APPROVED / FROZEN**. 기존 결과·evidence는 당시 기록을 보존합니다.
 실제 Safari motion 미검증은 future QA로 남기며, 원본/Retina·휴대폰·VoiceOver·열 검증은 non-blocking입니다.
-P2G에서 P2F commit/main push/Fast CI 성공 후 SOUND 한 장면만 REVIEW READY까지 진행하고 STOP합니다. 배포는 하지 않습니다.
+P2F는 `b5c6aa0`로 main delivery했고 exact-SHA Fast CI 34032488461이 성공했습니다. P2G는 아래 SOUND 한 장면까지 구현하고 STOP합니다. 배포는 하지 않습니다.
+
+### P2G — Full Haegeum → HOME Sound / REVIEW READY
+
+```sh
+npm run dev:sound
+npm run test:sound
+```
+
+[Sound preview](http://127.0.0.1:4179/) · [English counterpart](http://127.0.0.1:4179/en/).
+기존 Hero/Haegeum을 지나면 같은 두 선이 수평의 SOUND 공간으로 이어집니다. LISTEN을 선택해야
+한범수류 중중모리 **02:46–03:04 / 18초** 후보가 재생됩니다. 자동 재생은 없고 PAUSE / RESUME / REPLAY를 제공합니다.
+사용자가 곡과 하이라이트 선택을 위임했습니다. 최종 구간의 청각적 검토와 SOUND 시각 승인은 남아 있습니다.
+
+`src/sound`의 미리듣기는 Lab에서만 사용합니다. 434,470-byte AAC 한 건이며 원본은 수정하지 않았습니다.
+noindex / Lab build 차단 / public artifact 제외를 유지합니다. 실제 content record나 production HOME은 추가하지 않았습니다.
+[구현 정본](docs/redesign/review/HOME-SOUND-EXPERIENCE.md), [결과](P2G-RESULT.md), [시각·영상 증거](evidence/p2g/README.md).
+P2G 변경은 로컬 검토 상태이며 commit/push/배포하지 않았습니다. **REVIEW READY → STOP → 사용자 승인**.

@@ -1,6 +1,6 @@
 # Implementation Task Protocol — mandatory bounded work
 
-Revision 1.21 · 2026-09-06 · P2F user QUALITY APPROVED / FROZEN; P2G closeout then SOUND only; enlarged coherent bundle and terminal STOP retained.
+Revision 1.22 · 2026-09-06 · P2F user QUALITY APPROVED / FROZEN; P2F delivered; P2G SOUND REVIEW READY / STOP; enlarged coherent bundle and terminal STOP retained.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
@@ -52,7 +52,7 @@ Do not install dependencies again for every small task if the tested lockfile/en
 | Gate | Command / owner | Required work |
 |---|---|---|
 | Fast | `npm.cmd run gate:fast` | type-check → lint → locale/metadata, navigation and content unit contracts → placement contracts → root production build/prerender/placement → `test:content:visibility` and `test:design-system:artifacts` on that fresh artifact |
-| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → 84 route/browser cases over both strict static hosts → 11 development-only Design System Lab cases → 26 canonical Bold Editorial Navigation Lab cases → 44 single-B Hero cases (22 Chromium / 22 WebKit) → 32 Haegeum cases (16 each engine) |
+| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → 84 route/browser cases over both strict static hosts → 11 development-only Design System Lab cases → 26 canonical Bold Editorial Navigation Lab cases → 44 single-B Hero cases (22 Chromium / 22 WebKit) → 32 Haegeum cases (16 each engine) → 50 Sound cases (25 each engine) |
 | Live deployment | `npm.cmd run test:pages` with actual `EXPECTED_DEPLOY_SHA` | 18-route JS on/off metadata, refresh/history, variants, actual HTTP 404, artifact identity/hash/MIME/cache |
 | Workflow configuration | actionlint 1.7.12 | YAML, expressions, reusable workflow input/job wiring; Linux also checks embedded shell |
 
@@ -355,12 +355,41 @@ At that report: **VISUAL DIRECTION CANDIDATES READY FOR USER SELECTION**. The us
 P2C and selected **B — Bold Cropped**. A/C remain comparison evidence only. No P2C commit/push/deploy or next HOME task. Sources and frozen P2B files remain unchanged.
 `test:hero` owns port 4177. Full includes the new Hero cases; Fast remains browser-free and never deploys.
 
+## P2G — P2F Closeout + HOME Sound Experience — REVIEW READY / STOP
+
+One coherent enlarged bundle: approximately 120–180 minute sizing target, six tightly related subtasks.
+A: approved P2F review/delivery/Fast/clean gate → B: real audio source audit and user-delegated highlight →
+C: Full→Sound spatial release/desktop composition → D: explicit media state and live bowed-string response →
+E: mobile/reduced/keyboard/lifecycle → F: Full validation, evidence, 19-field report and STOP.
+
+Delivered P2F: `b5c6aa053a38bdb1dafbcbeb724890f26ae334cf`, Fast CI 34032488461 SUCCESS.
+The P2G rollback baseline is that clean commit plus the 392-file `.checkpoints/p2g-before/` snapshot.
+Revert only P2G-owned changes; preserve historical evidence, masters, private records and other user work.
+Scope: `src/sound`, development `labs/sound` on 4179, backward-compatible Haegeum continuation props,
+Sound tests/config/Full CI wiring/artifact exclusion, relevant canonical owners, source audit and result/evidence.
+No dependency, public HOME mount, album record migration, production domain or deployment. Frozen Hero/navigation
+source, original Haegeum choreography/CSS/images and all prior result/evidence remain unchanged.
+
+The user chose Han Beom-su Ryu Jungjungmori and delegated the dramatic highlight. The real 18-second
+02:46–03:04 candidate is authorized for this requested HOME preview; final auditory selection remains review.
+Only LISTEN / PAUSE / RESUME / REPLAY and truthful loading/error state are required in HOME; full Album controls
+remain separately specified. Media and analysis start only on explicit activation, stop offscreen/on departure,
+and retain actual listening with static visuals under reduced motion.
+
+Validation: Fast + both production bases + existing 197 browser checks + 50 Sound checks in Chromium/WebKit;
+workflow syntax, Lab build rejection/noindex, private/locale/route/prerender exclusion, responsive and real-time
+visual evidence, lifecycle/performance measurement. Native Safari and physical phone coverage are recorded honestly.
+Report the user's 19 requested fields. **P2F QUALITY APPROVED / FROZEN; SOUND REVIEW READY → STOP.**
+P2G is local and uncommitted pending review. Recommended next only after approval: SOUND auditory selection,
+refinement and device QA/freeze. No WORKS, next scene, unrelated page or 3D follows automatically.
+[Guide](HOME-SOUND-EXPERIENCE.md), [result](../../../P2G-RESULT.md), [evidence](../../../evidence/p2g/README.md).
+
 ## P2F — Hero → Haegeum Refinement, Quality Gate & Device QA — QUALITY APPROVED / FROZEN
 
 Subsequent user approval (P2G): no special visual problems; composition/motion frozen. Portrait/Retina, authentic
 macro/full replacement, phones, VoiceOver and thermal QA remain non-blocking. Native Safari settlement is still
-unverified future QA, never implied passed. Historical result/evidence below are immutable. P2G must first deliver
-P2F with logical commit/main push/exact-SHA Fast CI; any delivery problem requires STOP before SOUND.
+unverified future QA, never implied passed. Historical result/evidence below are immutable. This delivery gate was completed before SOUND:
+`b5c6aa0` main push, exact-SHA Fast CI 34032488461 SUCCESS and clean main/origin. [Receipt](../../../evidence/p2g/delivery-p2f.json).
 
 Precondition fulfilled: reviewed P2E feature `0873b75` and CI `c73a3be` pushed to main; exact-SHA Fast CI 34029859649
 SUCCESS; clean main/origin. No delivery problem remains. P2E direction is user-approved and canonical.
@@ -500,4 +529,4 @@ The document contracts and bounded starter task are defined; later decisions are
 This is not authorization to execute P0A, not proof of prerender suitability, and not approval to run P0A–F continuously.
 
 The above readiness was the initial planning snapshot. P0F and P1A lifecycle/delivery completed; P1B audit was
-subsequently delivered, and P1C/P1D are approved and delivered. P2A was subsequently visually approved and delivered. P2D result is now approved with provisional portraits. P2D is delivered and P2E subsequently visually approved. P2E delivery/main/Fast/clean-tree gate is complete. P2F is now user QUALITY APPROVED / FROZEN; remaining device/assets QA does not revoke that approval. Only P2G closeout followed by SOUND is authorized, with delivery failure STOP and terminal SOUND review/report STOP.
+subsequently delivered, and P1C/P1D are approved and delivered. P2A was subsequently visually approved and delivered. P2D result is now approved with provisional portraits. P2D is delivered and P2E subsequently visually approved. P2E delivery/main/Fast/clean-tree gate is complete. P2F is now user QUALITY APPROVED / FROZEN; remaining device/assets QA does not revoke that approval. P2G closeout and SOUND are complete through REVIEW READY / STOP; visual/auditory selection and any next bounded task require user approval.

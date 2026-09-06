@@ -1,0 +1,18 @@
+[
+  {
+    "file": "desktop-real-time.webm",
+    "width": 1440,
+    "height": 1000,
+    "duration": 30.48,
+    "readyState": 4,
+    "decodedFrameAtSeconds": 4
+  },
+  {
+    "file": "mobile-real-time.webm",
+    "width": 390,
+    "height": 844,
+    "duration": 26.56,
+    "readyState": 4,
+    "decodedFrameAtSeconds": 4
+  }
+]

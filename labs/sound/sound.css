@@ -1,0 +1,4 @@
+@import '../haegeum/haegeum.css';
+@import '../../src/sound/sound.css';
+.sound-review { padding-block: var(--space-6); border-top: 1px solid var(--line-color); background: var(--color-surface); position: relative; font-size: var(--micro); color: var(--text-secondary); }
+.sound-review p + p { margin-block-start: var(--space-2); }

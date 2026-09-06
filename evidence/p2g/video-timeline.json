@@ -1,0 +1,133 @@
+[
+  {
+    "path": "evidence/p2g/desktop-real-time.webm",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "mobileEmulation": false,
+    "audioTrack": false,
+    "speed": "real time, unedited",
+    "note": "Playwright records silent visual video; real media playback state is captured, listen in Lab or supplied excerpt for audio.",
+    "events": [
+      {
+        "label": "Full Haegeum",
+        "at": 1547.2999999970198,
+        "scrollY": 1550,
+        "mediaTime": 0,
+        "state": "idle"
+      },
+      {
+        "label": "SOUND idle",
+        "at": 6265.29999999702,
+        "scrollY": 2350,
+        "mediaTime": 0,
+        "state": "idle"
+      },
+      {
+        "label": "LISTEN explicit activation",
+        "at": 6972.5999999940395,
+        "scrollY": 2350,
+        "mediaTime": 0.005333,
+        "state": "playing"
+      },
+      {
+        "label": "PAUSE",
+        "at": 10210.09999999404,
+        "scrollY": 2350,
+        "mediaTime": 3.213519,
+        "state": "paused"
+      },
+      {
+        "label": "RESUME",
+        "at": 11227.39999999106,
+        "scrollY": 2350,
+        "mediaTime": 3.217647,
+        "state": "loading"
+      },
+      {
+        "label": "Natural end",
+        "at": 26106.70000000298,
+        "scrollY": 2350,
+        "mediaTime": 18.048,
+        "state": "ended"
+      },
+      {
+        "label": "REPLAY",
+        "at": 27827.59999999404,
+        "scrollY": 2350,
+        "mediaTime": 0.665907,
+        "state": "playing"
+      },
+      {
+        "label": "Reverse/offscreen pauses",
+        "at": 28841.79999999702,
+        "scrollY": 1880,
+        "mediaTime": 0.693333,
+        "state": "paused"
+      },
+      {
+        "label": "Return stays paused",
+        "at": 29847.59999999404,
+        "scrollY": 2350,
+        "mediaTime": 0.693333,
+        "state": "paused"
+      }
+    ]
+  },
+  {
+    "path": "evidence/p2g/mobile-real-time.webm",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "mobileEmulation": true,
+    "audioTrack": false,
+    "speed": "real time, unedited",
+    "note": "Playwright records silent visual video; real media playback state is captured, listen in Lab or supplied excerpt for audio.",
+    "events": [
+      {
+        "label": "Full Haegeum",
+        "at": 1561.5,
+        "scrollY": 1308,
+        "mediaTime": 0,
+        "state": "idle"
+      },
+      {
+        "label": "SOUND idle",
+        "at": 6281.29999999702,
+        "scrollY": 1983,
+        "mediaTime": 0,
+        "state": "idle"
+      },
+      {
+        "label": "LISTEN explicit activation",
+        "at": 6355.20000000298,
+        "scrollY": 1983,
+        "mediaTime": 0.009308,
+        "state": "playing"
+      },
+      {
+        "label": "PAUSE",
+        "at": 9592.79999999702,
+        "scrollY": 1983,
+        "mediaTime": 3.242667,
+        "state": "paused"
+      },
+      {
+        "label": "RESUME",
+        "at": 10608.20000000298,
+        "scrollY": 1983,
+        "mediaTime": 3.245988,
+        "state": "loading"
+      },
+      {
+        "label": "Natural end",
+        "at": 25406.70000000298,
+        "scrollY": 1983,
+        "mediaTime": 18.048,
+        "state": "ended"
+      }
+    ]
+  }
+]

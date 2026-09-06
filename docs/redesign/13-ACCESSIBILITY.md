@@ -125,7 +125,7 @@ All factual content remains accessible without WebGL.
 
 No autoplay audio.
 
-Audio controls must include:
+Album Detail's full audio player controls must include:
 - play/pause
 - seek
 - volume
@@ -133,6 +133,13 @@ Audio controls must include:
 - track navigation
 
 Controls must have accessible names.
+
+P2G's explicitly scoped HOME excerpt uses one named LISTEN / PAUSE / RESUME / REPLAY control,
+with keyboard activation, visible focus and polite loading/playing/paused/ended/error announcements.
+This 10–20 second optional preview has no seek, volume, mute or track-list UI; the full-player requirements
+above remain for Album Detail. Reduced motion keeps actual listening and the ordered static narrative,
+with a straight decorative pair. No source or unapproved source means disabled/unavailable, never a false clock.
+See the [Sound guide](review/HOME-SOUND-EXPERIENCE.md) for offscreen/route cleanup and device QA limits.
 
 ---
 

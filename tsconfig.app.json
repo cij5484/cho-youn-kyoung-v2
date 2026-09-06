@@ -35,6 +35,7 @@
     ".react-router/types/**/*",
     "labs/navigation",
     "labs/hero",
-    "labs/haegeum"
+    "labs/haegeum",
+    "labs/sound"
   ]
 }

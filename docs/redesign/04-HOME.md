@@ -386,6 +386,11 @@ The visual language should suggest:
 
 The transition must not feel like leaving one page and opening an audio widget.
 
+P2G's [Sound Lab](review/HOME-SOUND-EXPERIENCE.md) retains the approved P2F 155svh journey and adds
+80svh of release: the Full image closes a proportional aperture toward its string axis, its own typography
+mask releases, and the original two lines extend into a horizontal listening field. The Sound surface shares
+the stage before native scrolling carries it out. No crossfade/reset or new scroll controller is introduced.
+
 ---
 
 # 8. SCENE 03 — MUSICAL WORLD / INTERACTIVE SOUND LANDSCAPE
@@ -397,6 +402,11 @@ Turn the instrument into sound.
 ## Narrative Role
 
 This is the first explicit listening moment on HOME and an intentional quiet pause after two strong scenes. Its 3/5 emphasis comes from presence, not continuous animation.
+
+P2G implements this single scene only in a development Lab: asymmetrical large LISTEN, Ivory negative space,
+a short caption and real optional audio. The user selected Han Beom-su Ryu Jungjungmori and delegated the
+dramatic excerpt choice; 02:46–03:04 (18 seconds) is the signal-informed candidate. Exact auditory selection
+and SOUND visual quality remain REVIEW READY, awaiting user review. No album record or public route is added.
 
 ## Core Experience
 

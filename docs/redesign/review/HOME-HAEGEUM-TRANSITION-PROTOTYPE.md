@@ -161,5 +161,7 @@ Subsequent user decision: **QUALITY APPROVED / FROZEN** with no special visual c
 gate passed. Historical [native limitations](../../../evidence/p2f/safari-device-qa.md) remain unverified future QA,
 not a claim of native Safari/phone success or a reason to revoke the user-approved composition/motion.
 Authentic full/macro sources, portrait/Retina, physical iPhone/Android, VoiceOver and thermal checks remain non-blocking.
-P2G alone is authorized after successful P2F delivery: Full→SOUND through REVIEW READY, then **REPORT → STOP**.
+P2F delivery is complete: `b5c6aa0`, main push, exact-SHA Fast CI 34032488461 SUCCESS and clean main/origin
+before SOUND. P2G's [Full→SOUND guide](HOME-SOUND-EXPERIENCE.md) records the completed development-only
+continuation through **REVIEW READY / REPORT / STOP**. The standalone P2F choreography remains frozen.
 No WORKS, 3D, other pages, actual content migration or deployment.

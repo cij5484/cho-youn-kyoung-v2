@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { HeroPoster } from '../hero/BoldHero.tsx'
-import { useHeroMotion } from '../hero/useHeroMotion.ts'
+import { useHeroMotion, type HeroContinuation } from '../hero/useHeroMotion.ts'
 import { haegeumContinuation } from './choreography.ts'
 import { instrumentAssets, sourceDisclosure } from './assets.ts'
 
@@ -12,19 +12,20 @@ const stages = [
   { word: 'HAEGEUM', subject: 'FULL HAEGEUM', image: full, crop: 'full' },
 ]
 const disclosure = sourceDisclosure(full)
-export function HaegeumExperience() {
+// Optional continuation uses the existing native timeline contract; standalone P2F defaults stay frozen.
+export function HaegeumExperience({ continuation = haegeumContinuation, continuationId = 'haegeum-end', className = '' }: { continuation?: HeroContinuation; continuationId?: string; className?: string }) {
   const scene = useRef<HTMLElement>(null)
-  useHeroMotion(scene, haegeumContinuation)
+  useHeroMotion(scene, continuation)
   const failed = () => { if (scene.current) scene.current.dataset.instrumentError = 'true' }
-  return <section ref={scene} className="bold-hero poster-scene haegeum-experience" aria-labelledby="artist-name">
-    <HeroPoster continuationId="haegeum-end">
+  return <section ref={scene} className={`bold-hero poster-scene haegeum-experience${className ? ` ${className}` : ''}`} aria-labelledby="artist-name">
+    <HeroPoster continuationId={continuationId}>
       <div className="instrument-keyword keyword-back" aria-hidden="true" lang="en">{stages.map(s => <span key={s.word}>{s.word}</span>)}</div>
       <figure className="instrument-field playing-field" aria-hidden="true"><img className="playing-image" src={playing.src} width={playing.width} height={playing.height} alt="" onError={failed} decoding="async" /></figure>
       <figure className="instrument-field editorial-field" aria-hidden="true"><img className="editorial-image" src={full.src} width={full.width} height={full.height} alt="" onError={failed} decoding="async" /></figure>
       <div className="instrument-keyword keyword-front" aria-hidden="true" lang="en">{stages.map(s => <span key={s.word}>{s.word}</span>)}</div>
       <p className="instrument-index" aria-hidden="true" lang="en"><span className="stage-number">01</span><span className="stage-subject">HEAD / PEG</span></p>
       {disclosure && <p className="editorial-disclosure" lang="en">{disclosure}</p>}
-      <a className="sequence-skip" href="#haegeum-end">SKIP SEQUENCE ↓</a>
+      <a className="sequence-skip" href={`#${continuationId}`}>SKIP SEQUENCE ↓</a>
     </HeroPoster>
     <div className="instrument-static" lang="en">
       <h2 className="hero-visually-hidden">Haegeum — four perspectives</h2>
