@@ -1,0 +1,7 @@
+The following is a diff from the previous accessibility tree for Window: "Sound — P2G HOME experience" with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 49-52
+~								47 버튼 미리듣기 일시 정지
+~								48 text 재생 중 두 현 사이, 남는 울림. 한범수류 해금산조 · 중중모리 조윤경 / 해금 · 18초 미리듣기
++						83 container
++							84 text P2G / REVIEW BOUNDARY Hero → Haegeum: QUALITY APPROVED / FROZEN. SOUND: review candidate. 한범수류 중중모리 02:46–03:04 · 18s. Candidate excerpt; final listening review pending. Full Haegeum remains a disclosed AI editorial reference. No following HOME scene is implemented.
+The focused UI element is 9 container

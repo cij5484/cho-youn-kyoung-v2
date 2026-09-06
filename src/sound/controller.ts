@@ -37,6 +37,7 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
     const result=lines.paint(playing && analyser ? samples : null,dt,false)
     root.dataset.audioEnergy=result.energy.toFixed(4); root.dataset.analysisFrames=String(++frames)
     if (playing && analyser || result.unsettled) request()
+    else { previous=0; lastDraw=0 }
   }
   function pause(next: PlaybackPhase = 'paused') {
     const position=media.currentTime
@@ -80,7 +81,12 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
     if (!src || !eligible() || disposed) return
     const token=++intent; desired=true; change('loading')
     prepare()
-    if (media.ended || media.error) { hasPlayed=false; media.load(); media.currentTime=0 }
+    if (media.ended || media.error) {
+      hasPlayed=false
+      // A completed excerpt is already buffered. Only a failed source needs a fresh load.
+      if (media.error) media.load()
+      media.currentTime=0
+    }
     timeout=window.setTimeout(()=>{ if(token===intent && desired && ['loading','buffering'].includes(phase)) pause('error') },12000)
     try {
       // Both calls happen inside the explicit activation, before awaiting either promise.

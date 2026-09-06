@@ -1,6 +1,6 @@
 # Cho Youn Kyoung Website V2 — 검토 및 구현 제안
 
-검토일: 2026-09-06 · Revision 1.24 · 상태: **P2A visual 승인·main delivery 완료 / P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN & delivered / P2C B canonical APPROVED / P2D APPROVED & DELIVERED / P2E VISUAL APPROVED & DELIVERED / P2F QUALITY APPROVED / FROZEN · P2F delivered / P2G SOUND REVIEW READY / STOP**. HOME V2.1 및 P0 routing/locale/CI 계약은 유지한다. 현재 결과·승인 경계는 [HANDOFF](../../../CODEX-HANDOFF.md)를 따른다.
+검토일: 2026-09-07 · Revision 1.25 · 상태: **P2A visual 승인·main delivery 완료 / P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN & delivered / P2C B canonical APPROVED / P2D APPROVED & DELIVERED / P2E VISUAL APPROVED & DELIVERED / P2F QUALITY APPROVED / FROZEN · P2F delivered / P2G result APPROVED / P2H SOUND REVIEW READY · FREEZE CANDIDATE / STOP**. HOME V2.1 및 P0 routing/locale/CI 계약은 유지한다. 현재 결과·승인 경계는 [HANDOFF](../../../CODEX-HANDOFF.md)를 따른다.
 
 현재 정본은 갱신된 MASTER의 PHASE 0–14다. React Router + Static Prerender는 사용자가 지정한 P0C 실제 Pages gate 통과로 확정했다. P0D neutral locale/hreflang 계약은 두 base에서 통과했고 실제 번역·제품 구현과 운영 SEO는 별도 gate다. 이 문서는 실제 구현 승인이 아니다.
 
@@ -599,8 +599,11 @@ replacement configuration. Full 38 Node +197 browser (32 Haegeum, 16 per engine)
 navigation are preserved. [Result](../../../P2F-RESULT.md), [evidence](../../../evidence/p2f/README.md).
 **QUALITY APPROVED / FROZEN**, by subsequent explicit user visual approval. Native Safari settlement remains
 unverified future QA alongside authentic sources/Retina, physical phones, VoiceOver and sustained thermal checks.
-P2F delivery/Fast CI/clean gate succeeded: `b5c6aa0`, Fast CI 34032488461 SUCCESS. P2G Full→SOUND is now
-**REVIEW READY / STOP**, Lab only and locally uncommitted. [Result](../../../P2G-RESULT.md),
-[guide](HOME-SOUND-EXPERIENCE.md), [evidence](../../../evidence/p2g/README.md). The user selected Han Beom-su Ryu
-Jungjungmori and delegated the dramatic excerpt; 02:46–03:04 / 18s awaits auditory review. Recommended next,
-only after approval: SOUND selection/refinement/device QA/freeze. WORKS or the next HOME scene is not authorized.
+P2F delivery/Fast CI/clean gate succeeded: `b5c6aa0`, Fast CI 34032488461 SUCCESS. P2G result is user approved
+and preserved as `dab4617`. Its [result](../../../P2G-RESULT.md) and [evidence](../../../evidence/p2g/README.md)
+retain their historical revision. P2H refines the same SOUND, retains 02:46–03:04 / 18s, and ends at
+**REVIEW READY / FREEZE CANDIDATE / STOP**. Full 38 Node +255 browser, with actual Safari playback/pause/end/replay/focus
+partially verified; other native/physical QA and user auditory/refined visual judgment remain explicit.
+[Current result](../../../P2H-RESULT.md), [guide](HOME-SOUND-EXPERIENCE.md), [evidence](../../../evidence/p2h/README.md).
+Delivery is authorized; exact commit/main/Fast outcome is in the completion report. No deployment or next scene.
+Recommended only after approval: SOUND auditory/native-device closeout and freeze decision.

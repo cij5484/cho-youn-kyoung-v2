@@ -1,6 +1,6 @@
 # Implementation Task Protocol — mandatory bounded work
 
-Revision 1.22 · 2026-09-06 · P2F user QUALITY APPROVED / FROZEN; P2F delivered; P2G SOUND REVIEW READY / STOP; enlarged coherent bundle and terminal STOP retained.
+Revision 1.23 · 2026-09-07 · P2G result APPROVED; P2H SOUND REVIEW READY / FREEZE CANDIDATE / STOP; enlarged coherent bundle and terminal STOP retained.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
@@ -52,7 +52,7 @@ Do not install dependencies again for every small task if the tested lockfile/en
 | Gate | Command / owner | Required work |
 |---|---|---|
 | Fast | `npm.cmd run gate:fast` | type-check → lint → locale/metadata, navigation and content unit contracts → placement contracts → root production build/prerender/placement → `test:content:visibility` and `test:design-system:artifacts` on that fresh artifact |
-| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → 84 route/browser cases over both strict static hosts → 11 development-only Design System Lab cases → 26 canonical Bold Editorial Navigation Lab cases → 44 single-B Hero cases (22 Chromium / 22 WebKit) → 32 Haegeum cases (16 each engine) → 50 Sound cases (25 each engine) |
+| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → 84 route/browser cases over both strict static hosts → 11 development-only Design System Lab cases → 26 canonical Bold Editorial Navigation Lab cases → 44 single-B Hero cases (22 Chromium / 22 WebKit) → 32 Haegeum cases (16 each engine) → 58 Sound cases (29 each engine) |
 | Live deployment | `npm.cmd run test:pages` with actual `EXPECTED_DEPLOY_SHA` | 18-route JS on/off metadata, refresh/history, variants, actual HTTP 404, artifact identity/hash/MIME/cache |
 | Workflow configuration | actionlint 1.7.12 | YAML, expressions, reusable workflow input/job wiring; Linux also checks embedded shell |
 
@@ -73,7 +73,7 @@ missing/pending checks on documentation-only PRs. A branch push plus an open PR 
 concurrency cancels superseded runs on the same event ref. No repository ruleset is silently changed.
 
 Full runs through an explicit pages.yml workflow_dispatch. It repeats Fast on that exact revision,
-then checks both static bases, all 84 route/browser cases and four Lab suites (11 foundation + 26 navigation + 44 Hero + 32 Haegeum). A failed type/lint/unit/build/placement/browser
+then checks both static bases, all 84 route/browser cases and five Lab suites (11 foundation + 26 navigation + 44 Hero + 32 Haegeum + 58 Sound). A failed type/lint/unit/build/placement/browser
 step fails the job; upload/deploy depend on that success. Full without deployment retains test evidence
 but never uploads the special Pages artifact. Only successful Full with deploy=true uploads static/.
 
@@ -355,6 +355,27 @@ At that report: **VISUAL DIRECTION CANDIDATES READY FOR USER SELECTION**. The us
 P2C and selected **B — Bold Cropped**. A/C remain comparison evidence only. No P2C commit/push/deploy or next HOME task. Sources and frozen P2B files remain unchanged.
 `test:hero` owns port 4177. Full includes the new Hero cases; Fast remains browser-free and never deploys.
 
+## P2H — SOUND Refinement, Native Safari / Device QA & Freeze — REVIEW READY / STOP
+
+The user approved P2G’s result while explicitly retaining SOUND at REVIEW READY. Only P2H was authorized.
+A: verify/preserve the approved P2G bundle as `dab4617` → B: retain 02:46–03:04 and audit the original audio →
+C: refine local-friction lines, damping/resume/replay and existing composition → D: actual Safari/available device QA →
+E: Full, responsive/accessibility/resource/performance/evidence → F: current docs, logical commit/main push/Fast CI,
+clean tree, the user’s 15-field report → STOP. No fresh approval is needed between these authorized subtasks.
+
+Scope: `src/sound`, its Lab and related tests, current Sound/HOME/Motion/Responsive/Accessibility/Performance owners,
+operating/status docs and new P2H report/evidence. Rollback: `dab4617` plus the 457-file P2H snapshot. Preserve frozen
+Hero/navigation/Haegeum, original audio/images and historical P2G evidence. No new dependency/architecture.
+No audio replacement without user approval, no WORKS/next scene/other page/3D/Blender/public HOME/deployment.
+
+Validation: 38 Node +255 browser (58 Sound, split 29/29); actual Safari is partial, with explicit evidence of
+play/pause/end/replay/focus and a Mac-lock limitation before native resume/menu/reverse/reduced completion.
+Phone, AT, thermal and musical listening judgment remain separately recorded future checks. A technically
+reviewable bundle may be delivered, but green tests do not grant the final SOUND QUALITY APPROVED / FROZEN label.
+Current status: **REVIEW READY / FREEZE CANDIDATE / STOP**. Recommend only auditory/native-device closeout and a
+user freeze decision. No following scene is authorized. [Result](../../../P2H-RESULT.md),
+[guide](HOME-SOUND-EXPERIENCE.md), [evidence](../../../evidence/p2h/README.md).
+
 ## P2G — P2F Closeout + HOME Sound Experience — REVIEW READY / STOP
 
 One coherent enlarged bundle: approximately 120–180 minute sizing target, six tightly related subtasks.
@@ -380,7 +401,8 @@ Validation: Fast + both production bases + existing 197 browser checks + 50 Soun
 workflow syntax, Lab build rejection/noindex, private/locale/route/prerender exclusion, responsive and real-time
 visual evidence, lifecycle/performance measurement. Native Safari and physical phone coverage are recorded honestly.
 Report the user's 19 requested fields. **P2F QUALITY APPROVED / FROZEN; SOUND REVIEW READY → STOP.**
-P2G is local and uncommitted pending review. Recommended next only after approval: SOUND auditory selection,
+At the original P2G report it was local/uncommitted. The user subsequently approved the result; P2H preserves it
+as `dab4617` and follows the current boundary above. The original recommendation was SOUND auditory selection,
 refinement and device QA/freeze. No WORKS, next scene, unrelated page or 3D follows automatically.
 [Guide](HOME-SOUND-EXPERIENCE.md), [result](../../../P2G-RESULT.md), [evidence](../../../evidence/p2g/README.md).
 
@@ -529,4 +551,4 @@ The document contracts and bounded starter task are defined; later decisions are
 This is not authorization to execute P0A, not proof of prerender suitability, and not approval to run P0A–F continuously.
 
 The above readiness was the initial planning snapshot. P0F and P1A lifecycle/delivery completed; P1B audit was
-subsequently delivered, and P1C/P1D are approved and delivered. P2A was subsequently visually approved and delivered. P2D result is now approved with provisional portraits. P2D is delivered and P2E subsequently visually approved. P2E delivery/main/Fast/clean-tree gate is complete. P2F is now user QUALITY APPROVED / FROZEN; remaining device/assets QA does not revoke that approval. P2G closeout and SOUND are complete through REVIEW READY / STOP; visual/auditory selection and any next bounded task require user approval.
+subsequently delivered, and P1C/P1D are approved and delivered. P2A was subsequently visually approved and delivered. P2D result is now approved with provisional portraits. P2D is delivered and P2E subsequently visually approved. P2E delivery/main/Fast/clean-tree gate is complete. P2F is now user QUALITY APPROVED / FROZEN; remaining device/assets QA does not revoke that approval. P2G result is user approved; P2H refinement is complete through REVIEW READY / FREEZE CANDIDATE / STOP. Final auditory/refined visual selection and any next bounded task require user approval.

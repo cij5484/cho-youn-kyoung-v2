@@ -139,7 +139,9 @@ with keyboard activation, visible focus and polite loading/playing/paused/ended/
 This 10–20 second optional preview has no seek, volume, mute or track-list UI; the full-player requirements
 above remain for Album Detail. Reduced motion keeps actual listening and the ordered static narrative,
 with a straight decorative pair. No source or unapproved source means disabled/unavailable, never a false clock.
-See the [Sound guide](review/HOME-SOUND-EXPERIENCE.md) for offscreen/route cleanup and device QA limits.
+P2H removes the entry clip after readiness so the full focus outline is visible, and extends only the inline
+type-mask room for italic glyphs. Actual Safari Option-Tab/Return and visible focus were observed; native reduced
+motion/VoiceOver are not claimed complete. See the [Sound guide](review/HOME-SOUND-EXPERIENCE.md) for lifecycle and QA limits.
 
 ---
 

@@ -1,6 +1,6 @@
 # HOME Sound — Full Haegeum → LISTEN
 
-2026-09-06 · P2G · **REVIEW READY / STOP**. User visual/auditory selection remains pending.
+2026-09-07 · P2H · **REVIEW READY / FREEZE CANDIDATE / STOP**. P2G result is user approved; SOUND quality approval remains pending.
 Owners: [HOME §§7–8](../04-HOME.md), [Motion §45](../03-MOTION-SYSTEM.md), [Responsive §7](../11-RESPONSIVE.md),
 [Accessibility §§9–11](../13-ACCESSIBILITY.md), [Performance §8](../12-PERFORMANCE.md),
 [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md).
@@ -21,8 +21,9 @@ non-blocking for the approved composition/motion. They are not reported as compl
 
 ## Scope and implementation boundary
 
-P2G is one 120–180 minute coherent bundle, with six related subtasks: approved delivery → source audit → spatial
-release/composition → real media/live response → mobile/accessibility/lifecycle → Full/evidence/report/STOP.
+P2G created the approved review baseline. P2H is one 120–180 minute coherent bundle with six related subtasks:
+P2G preservation → retained audio audit → line/composition refinement → native/device QA → lifecycle/Full/evidence
+→ documentation/delivery/report/STOP. P2G is preserved in logical commit `dab4617`; its report/evidence stay historical.
 No WORKS, other page, Album/Haegeum3D, Blender, next scene, production domain or deployment.
 
 `src/sound` contains reusable source, native continuation, surface and route-scoped audio/line controllers.
@@ -47,7 +48,8 @@ ARTIST → four instrument perspectives → optional SOUND. The static Sound pai
 
 Desktop: wide pair, asymmetrical large serif LISTEN to the right, quiet editorial index and short caption to the
 left. Intensity 3/5: the previous huge imagery resolves into Ivory negative space. Mobile 390/320 has a higher,
-shorter pair, its own LISTEN placement and a compact lower caption composition. Captions and state use P2A's
+shorter pair, its own LISTEN placement and a compact lower caption composition. P2H aligns the desktop control
+with the pair’s right endpoint and stacks the caption at 320px, preserving the 390px two-column arrangement. Captions and state use P2A's
 micro token; no pills, play circle, glass, glow or extra color.
 
 ## Actual source and selection
@@ -88,21 +90,25 @@ No seek/volume/mute/track-list UI belongs to this 18s HOME excerpt; Album Detail
 Media starts only in the explicit activation handler. `play()` and `AudioContext.resume()` are invoked before
 awaiting either. Real events and current media/context state own playing/loading/buffering/paused/ended/error.
 Queued stale events cannot override a later user intent. Loading can be cancelled; a 12s unsuccessful pending
-request becomes an honest retry state. End settles the pair, replay starts actual media from zero, pause/resume
+request becomes an honest retry state. End settles the pair; replay reuses the buffered media from zero (only a failed source reloads). Pause/resume
 keeps actual position. Before suspension the controller commits the native media position, preventing the
 observed WebKit buffered-clock rollback. Internal/native seeks are reconciled even though HOME exposes no seek widget.
 
 ## Bowed-string response and cost
 
 The original line holders receive two small SVG paths only inside the Sound owner. 1024 live time-domain samples
-provide RMS and sampled friction. Higher energy increases sampling density and fine instability. Endpoints remain
+provide RMS and interpolated local sample differences for friction. A saturating pressure envelope prevents
+large raw waveform drift; DC input remains straight. Higher energy increases sampling density and fine instability. Endpoints remain
 anchored; maximum displacement is about ±.62px desktop / ±.34px mobile. No equalizer, large sine wave, beat bounce,
 canvas/GPU scene, precomputed fake clock or React per-frame updates.
 
 Visual analysis targets 30Hz. Coarse media events update React status/time; frame work uses refs/local data and DOM
-path attributes. Pause/end energy decays with a 58ms response constant and settles to the exact original straight
-path, then stops scheduling. Reduced/fallback layouts keep static lines while real listening remains available.
-Pointer micro-response is secondary and limited to idle hover. There is no audio request or AudioContext before
+path attributes. Energy uses an 85ms attack / 65ms release; spatial following is 35ms during play and 55ms toward straight on
+pause/end. A zero-time interruption preserves the current path. The pair settles exactly, then stops scheduling.
+The visual clock is cleared at settlement so a long pause does not cause a stale-time jump on resume. Reduced/fallback layouts keep static lines while real listening remains available.
+The type-mask hover/focus carries the pointer response; the line itself does not translate on hover.
+After entry, the surface clip is removed so keyboard focus is not cut off. The italic mask permits horizontal
+glyph overhang while retaining vertical reveal clipping, verified in actual Mac Safari. There is no audio request or AudioContext before
 activation (Vite's tiny `?import` URL module is JavaScript, not an audio payload).
 
 Offscreen/reverse or hidden-document states pause audio, suspend the context and stop visual work; returning does
@@ -120,21 +126,37 @@ Technical references checked: [W3C Web Audio media-source/analysis contract](htt
 [context suspension](https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/suspend).
 These inform actual-state control and resource lifetime; no source code, branding or exact timing is copied.
 
+## P2H audio review
+
+The exact 434,470-byte derivative and original master are unchanged. No alternative is proposed or substituted.
+[Current signal review](../../../evidence/p2h/audio-review.json) finds energy at the start, approximately 13.18dB
+between the 10th/90th percentile short-window RMS, and a quieter end. These measurements support retaining the
+candidate, not a claim of critical audition, verified cadence or bowed-string musical identity. The decoded
+lossy source contains 30 near-full-scale samples; that alone does not prove audible clipping. An optional
+lossless master and user listening check can resolve this later. The existing 25ms/280ms edge treatment remains.
+
 ## Validation / terminal gate
 
-Final Full passed: **38 Node + 247 browser** (84 route, 11 foundation, 26 navigation, 44 Hero,
-32 Haegeum, 50 Sound; the Sound cases split 25 Chromium / 25 WebKit). Type/lint, private content/schema/locale,
-root/project build/prerender/metadata/404, actionlint, Lab build rejection/noindex and public exclusion passed.
-Existing public payload is unchanged. The approved initial Hero has zero differing pixels at 1440×1000,
-excluding the right 16px scrollbar. Original portrait/instrument masters and runtime image hashes are preserved.
+P2H Full: **38 Node + 255 browser** (84 route, 11 foundation, 26 navigation, 44 Hero, 32 Haegeum,
+58 Sound: 29 Chromium / 29 WebKit). The added regressions cover buffered replay, DC rejection/local friction and
+interruption damping, 320px KO/EN state readability, and repeated route resource teardown. Keyboard focus also
+requires the settled surface clip to be absent. No assertions were relaxed and no dependency was added.
+Type/lint, private content/schema/locale, root/project build/prerender/metadata/404, actionlint, Lab build rejection,
+noindex and public exclusion remain required. Frozen Hero/Haegeum/navigation/assets and historical evidence are preserved.
 
-[Result](../../../P2G-RESULT.md), [screenshots/videos](../../../evidence/p2g/README.md),
-[validation and file hashes](../../../evidence/p2g/verification.json), [performance](../../../evidence/p2g/performance.json).
-The local unthrottled Chromium sample observed no idle/settled/offscreen visual frames; about 30Hz analysis
-during actual playback, p95 frame interval 16.8ms and no long task. This is not phone/thermal or field CWV approval.
+[Result](../../../P2H-RESULT.md), [visual/audio evidence](../../../evidence/p2h/README.md),
+[verification](../../../evidence/p2h/verification.json), [performance](../../../evidence/p2h/performance.json).
+Local measurements are development-browser samples, not field CWV or thermal certification. Idle, settled pause
+and offscreen states stop visual work; no media payload or context exists before activation. Route/source teardown
+closes contexts and removes media nodes, observers, handlers and SVGs. No claim of exhaustive memory-leak proof.
 
-Native Mac Safari could not be operated because the Mac was locked. WebKit automation is separate evidence;
-physical phones, VoiceOver/TalkBack and long-session device checks remain open. The 18-second fragment's
-phrasing/ending, release aperture/type simultaneity and actual-device perception of subpixel friction remain review items.
-P2G is local/uncommitted; no P2G push or deployment. SOUND is **REVIEW READY**, not QUALITY APPROVED.
-P2F remains **QUALITY APPROVED / FROZEN**. **REPORT → STOP → USER APPROVAL**; no next scene is authorized.
+[Native/device QA](../../../evidence/p2h/safari-device-qa.md): actual Mac Safari verified initial/Full release,
+LISTEN, advancing playback, pause, natural end, Replay and Option-Tab/Return with a visible full focus outline.
+The Mac locked before post-resume, menu/reverse and native reduced-motion completion. Those remain explicitly
+partial; automated WebKit is separate. Physical phones, VoiceOver/TalkBack and sustained thermal QA remain future.
+
+P2G’s result is user approved while SOUND remains **REVIEW READY / FREEZE CANDIDATE**. Final auditory and
+refined visual judgment require user review; this document does not self-grant QUALITY APPROVED / FROZEN.
+P2H delivery is authorized (logical commit/main push/Fast CI); exact delivery outcome is reported with the task.
+No deployment. P2F remains **QUALITY APPROVED / FROZEN**. **REPORT → STOP → USER APPROVAL**.
+No WORKS or next scene is authorized.

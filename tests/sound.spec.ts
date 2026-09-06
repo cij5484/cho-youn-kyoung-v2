@@ -43,6 +43,7 @@ test('no audio request or context before activation; keyboard starts actual anal
   expect(payloads).toEqual([]);await expect(root(page)).toHaveAttribute('data-audio-context','not-created')
   expect(await audio(page).getAttribute('src')).toBeNull();expect(await audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBe(0)
   await trigger(page).focus();await expect(trigger(page)).toBeFocused();expect(await trigger(page).evaluate(el=>getComputedStyle(el).outlineStyle)).not.toBe('none')
+  expect(await page.locator('.listen-composition').evaluate(el=>getComputedStyle(el).clipPath)).toBe('none')
   await trigger(page).press('Enter');await expect(root(page)).toHaveAttribute('data-audio-state','playing')
   await expect.poll(()=>audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeGreaterThan(.5)
   await expect.poll(async()=>Number(await root(page).getAttribute('data-audio-energy'))).toBeGreaterThan(.05)
@@ -209,4 +210,71 @@ test('resizing active playback to mobile settles every old desktop sample on pau
   await page.waitForTimeout(200);await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','paused')
   await expect(page.locator('.sound-thread path').first()).toHaveAttribute('d','M0 3H1000')
   const count=await root(page).getAttribute('data-analysis-frames');await page.waitForTimeout(350);expect(await root(page).getAttribute('data-analysis-frames')).toBe(count)
+})
+
+test('replay reuses buffered media and its single graph instead of issuing another load',async({page})=>{
+  await page.addInitScript(()=>{window.soundContexts=[];const Native=window.AudioContext;window.AudioContext=class extends Native{constructor(options?:AudioContextOptions){super(options);window.soundContexts.push(this)}}})
+  await ready(page);await seek(page)
+  await audio(page).evaluate(el=>{el.dataset.loads='0';el.addEventListener('loadstart',()=>{el.dataset.loads=String(Number(el.dataset.loads)+1)})})
+  await listen(page);await audio(page).evaluate(el=>{const a=el as HTMLAudioElement;a.currentTime=a.duration-.1})
+  await expect(root(page)).toHaveAttribute('data-audio-state','ended')
+  const loads=await audio(page).getAttribute('data-loads')
+  await listen(page);expect(await audio(page).getAttribute('data-loads')).toBe(loads)
+  expect(await page.evaluate(()=>window.soundContexts.length)).toBe(1)
+  expect(await audio(page).evaluate(el=>(el as HTMLAudioElement).currentTime)).toBeLessThan(1)
+})
+
+test('line friction rejects DC drift, retains current points and damps after interruption',async({page})=>{
+  await ready(page)
+  const observation=await page.evaluate(async()=>{
+    const moduleURL=performance.getEntriesByType('resource').find(entry=>entry.name.includes('/src/sound/line-response.ts'))!.name
+    const {createLineResponse}=await import(moduleURL)
+    const holder=document.createElement('i'),controller=createLineResponse([holder],()=>false)
+    const constant=new Float32Array(1024).fill(.2)
+    for(let i=0;i<12;i++)controller.paint(constant,33,false)
+    const values=()=>[...holder.querySelector('path')!.getAttribute('d')!.matchAll(/L[\d.]+ ([\d.]+)/g)].map(m=>Number(m[1])-3)
+    const dcMax=Math.max(...values().map(Math.abs))
+    const rough=new Float32Array(1024).map((_,i)=>(i%7-3)*.06)
+    for(let i=0;i<8;i++)controller.paint(rough,33,false)
+    const activeMax=Math.max(...values().map(Math.abs)),before=holder.querySelector('path')!.getAttribute('d')
+    controller.paint(null,0,false);const zeroTimePause=holder.querySelector('path')!.getAttribute('d')
+    const damping=[]
+    for(let i=0;i<22;i++){controller.paint(null,33,false);damping.push(Math.max(0,...values().map(Math.abs)))}
+    const settled=holder.querySelector('path')!.getAttribute('d');controller.destroy()
+    return{dcMax,activeMax,before,zeroTimePause,damping,settled,remaining:holder.childElementCount}
+  })
+  expect(observation.dcMax).toBe(0);expect(observation.activeMax).toBeGreaterThan(.01);expect(observation.activeMax).toBeLessThan(.63)
+  expect(observation.zeroTimePause).toBe(observation.before)
+  observation.damping.slice(1).forEach((value,i)=>expect(value).toBeLessThanOrEqual(observation.damping[i]+.001))
+  expect(observation.settled).toBe('M0 3H1000');expect(observation.remaining).toBe(0)
+})
+
+test('320px KO and EN captions and all listening states have distinct readable space',async({page})=>{
+  await page.setViewportSize({width:320,height:568})
+  for(const path of ['/','/en/']){
+    await ready(page,path);await seek(page)
+    for(const state of ['idle','playing','paused']){
+      if(state==='playing')await listen(page)
+      if(state==='paused'){await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','paused')}
+      const info=(await page.locator('.listen-composition').boundingBox())!,caption=(await page.locator('.sound-caption').boundingBox())!
+      expect(caption.y).toBeGreaterThan(info.y+info.height+8);expect(caption.y+caption.height).toBeLessThan(556)
+      expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true)
+      const text=(await page.locator('.listen-mask').boundingBox())!,mark=(await page.locator('.listen-mark').boundingBox())!
+      expect(text.x+text.width).toBeLessThan(mark.x-3)
+    }
+  }
+})
+
+test('eight route returns release every previous context and do not accumulate Sound DOM',async({page})=>{
+  await page.addInitScript(()=>{window.soundContexts=[];const Native=window.AudioContext;window.AudioContext=class extends Native{constructor(options?:AudioContextOptions){super(options);window.soundContexts.push(this)}}})
+  await ready(page)
+  for(let i=0;i<8;i++){
+    await seek(page);await listen(page)
+    await expect(page.locator('audio')).toHaveCount(1);await expect(page.locator('.sound-thread')).toHaveCount(2)
+    await page.getByRole('button',{name:'MENU',exact:true}).click();await expect(page.locator('dialog')).toHaveAttribute('data-phase','open')
+    await page.getByRole('link',{name:i%2===0?'English':'한국어',exact:true}).click()
+    await expect.poll(()=>page.evaluate(()=>window.soundContexts.every(c=>c.state==='closed'))).toBe(true)
+    await expect(root(page)).toHaveAttribute('data-audio-context','not-created')
+  }
+  expect(await page.evaluate(()=>window.soundContexts.length)).toBe(8)
 })

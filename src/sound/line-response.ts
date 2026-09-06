@@ -15,19 +15,28 @@ export function createLineResponse(holders: HTMLElement[], mobile: () => boolean
       let sum = 0
       if (samples) for (const s of samples) sum += s*s
       const target = samples ? Math.min(1,Math.sqrt(sum/samples.length)*5) : 0
-      energy += (target-energy)*(1-Math.exp(-dt/(target>energy ? 70 : 58)))
+      energy += (target-energy)*(1-Math.exp(-dt/(target>energy ? 85 : 65)))
       if (energy < .002 || reduced) energy = 0
       const count = mobile() ? 64 : 128, limit = mobile() ? .34 : .62
+      // Sample local friction, not the raw waveform. Interpolation avoids index steps as density changes.
+      const sample = (position: number) => {
+        if (!samples) return 0
+        const wrapped = ((position % samples.length) + samples.length) % samples.length
+        const index = Math.floor(wrapped), fraction = wrapped-index
+        return samples[index]*(1-fraction) + samples[(index+1)%samples.length]*fraction
+      }
+      const pressure = 1-Math.exp(-energy*6)
       paths.forEach((path,line) => {
         const ys = points[line], commands = ['M0 3']
         // Resizing to the smaller mobile sample budget must not leave old desktop points settling forever.
         ys.fill(0,count)
         for(let i=1;i<count;i++) {
           const edge = Math.min(1,i/8,(count-i)/8)
-          const index = Math.floor(i*(3+energy*10)+line*113) % (samples?.length ?? 1)
-          const friction = samples ? Math.max(-1,Math.min(1,samples[index]*4)) : ys[i]/limit
-          const y = energy ? friction*energy*limit*edge : 0
-          ys[i] += (y-ys[i])*(1-Math.exp(-dt/32))
+          const index = i*(3+energy*20)+line*113
+          const friction = Math.tanh((sample(index+2)-sample(index-2))*8)
+          // Pressure saturates early; stronger passages chiefly change density and instability.
+          const y = samples && energy ? friction*pressure*limit*(.62+.12*energy)*edge : 0
+          ys[i] += (y-ys[i])*(1-Math.exp(-dt/(samples ? 35 : 55)))
           if (!energy && Math.abs(ys[i]) < .002) ys[i]=0
           commands.push(`L${(i/count*1000).toFixed(2)} ${(3+ys[i]).toFixed(3)}`)
         }

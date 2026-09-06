@@ -315,7 +315,7 @@ General ABOUT/MEDIA/CONTACT transitions remain restrained.
 
 HOME V2.1 commits to a two-line structural motif. It changes role across Hero → Haegeum → Sound → Selected Works → Outro; a leading strand may form the Works axis without discarding the pair. Use motion at selected transitions only, not continuous decoration. Apply the bowed-string rule in §45 throughout.
 
-P2E implementation evidence: [continuous transition guide](review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md). One 155svh native timeline includes the approved Hero exit and four stages; no added motion dependency. The user approved this visual direction; P2F has locally refined this sequence after successful P2E delivery: resonator-anchored pullback, mask-led opening, persistent pair and independent keyword depth. P2F is subsequently user **QUALITY APPROVED / FROZEN**. Native Safari settlement remains unverified future QA. Only P2G Full→SOUND is authorized after successful P2F delivery, ending at SOUND REVIEW READY / STOP.
+P2E implementation evidence: [continuous transition guide](review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md). One 155svh native timeline includes the approved Hero exit and four stages; no added motion dependency. The user approved this visual direction; P2F has locally refined this sequence after successful P2E delivery: resonator-anchored pullback, mask-led opening, persistent pair and independent keyword depth. P2F is subsequently user **QUALITY APPROVED / FROZEN**. Native Safari settlement remains unverified future QA. P2G Full→SOUND is result-approved; P2H refines that same Sound owner and ends at REVIEW READY / FREEZE CANDIDATE / STOP.
 
 For Hero→Haegeum, map typography spacing/depth/position, portrait crop/depth, both line guides and incoming imagery into one scroll-linked composition. Stages: HEAD/PEG → STRINGS/BOW → RESONANCE (resonator imagery retained) → FULL HAEGEUM. Show only the current minimal keyword: LINE / TENSION / RESONANCE / HAEGEUM. Native continuous scroll, no snap; preferred 1.2–1.6 viewport overlaps Scene 02's 120–160vh budget, not added pin duration. Stop/reverse/interrupt must inherit the current state without jumps. Reduced-motion static/crop/fade fallback preserves sequence and anchors.
 
@@ -874,7 +874,11 @@ only after the Full→Sound release. A 1024-sample live buffer drives energy and
 updates/second, with anchored ends and displacement bounded to ±0.62px desktop / ±0.34px mobile.
 Pause/end damps to the exact straight pair and stops work. Reduced motion remains static during actual audio.
 No fake oscillator, equalizer, per-frame React state or idle animation. These are the current review tuning,
-not a new universal timing standard. [Implementation/evidence](review/HOME-SOUND-EXPERIENCE.md).
+not a new universal timing standard. P2H uses interpolated local sample differences rather than raw waveform
+amplitude: 85ms energy attack / 65ms release, 35ms point following / 55ms pause damping, saturating pressure and
+higher density with rising energy. No synthetic phase/random oscillator. Paused points are retained at zero time;
+settlement clears the visual clock, and buffered replay retains the same graph. The line no longer translates on
+hover, avoiding a click-time reset. [Implementation/evidence](review/HOME-SOUND-EXPERIENCE.md).
 
 ---
 

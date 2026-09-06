@@ -1,0 +1,8 @@
+failed to load config from /Users/joon/Documents/choyounkyoung-V2/vite.sound.config.ts
+error during build:
+Error: Sound Lab is development-only; use dev:sound
+    at file:///Users/joon/Documents/choyounkyoung-V2/node_modules/.vite-temp/vite.sound.config.ts.timestamp-1788724605473-8fa783d7a1a9d8.mjs:6:33
+    at loadConfigFromFile (file:///Users/joon/Documents/choyounkyoung-V2/node_modules/vite/dist/node/chunks/node.js:36977:62)
+    at async resolveConfig (file:///Users/joon/Documents/choyounkyoung-V2/node_modules/vite/dist/node/chunks/node.js:36581:22)
+    at async createBuilder (file:///Users/joon/Documents/choyounkyoung-V2/node_modules/vite/dist/node/chunks/node.js:34217:17)
+    at async CAC.<anonymous> (file:///Users/joon/Documents/choyounkyoung-V2/node_modules/vite/dist/node/cli.js:765:19)

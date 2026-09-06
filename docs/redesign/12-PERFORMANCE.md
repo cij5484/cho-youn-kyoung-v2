@@ -127,7 +127,10 @@ P2G HOME uses one same-origin 434,470-byte AAC excerpt, with `preload="none"` an
 until explicit activation. Analysis runs only while visible playback or its short damping needs it; reduced
 motion stays static. Offscreen/hidden state pauses media and suspends the context; route/source departure
 removes the source, closes/disconnects the graph and removes observers, listeners and paths. No dependency is
-added. [Sound evidence](review/HOME-SOUND-EXPERIENCE.md) distinguishes local measurements from phone/thermal QA.
+added. P2H replays the buffered excerpt without another media load or analyser creation; only a failed source
+reloads. Eight route returns close each old context and preserve exactly one audio element/two paths per current
+scene. This bounded resource regression is not an exhaustive heap-leak certification.
+[Sound evidence](review/HOME-SOUND-EXPERIENCE.md) distinguishes local measurements from phone/thermal QA.
 
 ---
 

@@ -1,0 +1,39 @@
+{
+  "date": "2026-09-07",
+  "verdict": "RETAIN 02:46–03:04. No clearly superior musical candidate established; no unauthorized replacement.",
+  "method": "Read-only decoded-signal audit; no claim of critical listening or verified jangdan/cadence. User/manual auditory review recorded separately.",
+  "sourceHash": "2f5fd7df98bd431164708d33e8a6e15108e5abfd6642831b346c342d4e83b546",
+  "derivativeHash": "00ae2adee523857da413aa7cb28521026bcfcc5fadde9db0e8f845cf5145708c",
+  "timecode": [
+    166,
+    184
+  ],
+  "duration": 18,
+  "signal": {
+    "firstEnergyAboveThresholdMs": 0,
+    "first250msRMS": 0.07695414870977402,
+    "firstSecondRMS": 0.18785224854946136,
+    "wholeRMS": 0.18106047809123993,
+    "lastSecondRMS": 0.10027831047773361,
+    "last250msRMS": 0.06732545793056488,
+    "rmsP10": 0.0614741574972868,
+    "rmsP90": 0.28024826645851136,
+    "dynamicSpreadDb": 13.17700698789527,
+    "peak": 1.0,
+    "decodedFullScaleSamples": 30,
+    "fullScaleNote": "30 decoded 16-bit samples reach near full scale; this alone does not establish audible clipping or the pre-codec master level. Retain source; lossless master is an optional future quality input."
+  },
+  "boundaries": {
+    "entryMs": 25,
+    "exitMs": 280,
+    "gain": "unchanged",
+    "note": "Existing short fades suppress PCM edge discontinuity; they do not prove phrase/cadence completeness. Excerpt remains an intentional preview, not a whole musical phrase claim."
+  },
+  "alternatives": [],
+  "musicalQuestions": {
+    "identity": "Artist/track provenance supports the intended Sanjo identity; audible identity needs human hearing.",
+    "start": "No silent lead-in by energy threshold; interest itself is a listening judgment.",
+    "dynamics": "Measured activity varies inside 18s; specific bowing articulation is not inferred solely from RMS.",
+    "ending": "Last-second energy and existing release are measured; user should confirm that the cut respects musical breath."
+  }
+}

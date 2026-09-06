@@ -145,7 +145,8 @@ Mobile:
 The bowed-string micro-vibration rule applies equally.
 
 P2G recomposes the scene at 390px with higher lines, a separately placed 64px-minimum LISTEN target and
-two lower caption columns; 320px preserves readable micro text and word boundaries. Desktop has a wider
+two lower caption columns. P2H stacks the 320px caption and credit with 16px separation, preserving readable
+micro text and word boundaries across KO/EN and idle/playing/paused states; 390px keeps its independent two-column layout. Desktop has a wider
 pair and right-weighted type. No horizontal drag or gesture interception is used. Reduced motion, image failure
 and 200% text reflow preserve a static ARTIST → HAEGEUM → SOUND reading order. Browser emulation is recorded
 separately from native Safari, physical-phone and assistive-technology QA in the [Sound guide](review/HOME-SOUND-EXPERIENCE.md).

@@ -2,14 +2,14 @@
 .continues-to-sound { --scroll-distance: 235svh; }
 .sound-region { position: absolute; inset: 155svh 0 0; pointer-events: none; }
 .sound-surface { position: sticky; top: 0; block-size: max(620px, 100svh); color: var(--color-ink); isolation: isolate; }
-.sound-surface > :not(audio, .sound-anchor) { clip-path: inset(0 0 calc((1 - var(--sound-entry)) * 100%) 0); }
+[data-sound-ready="false"] .sound-surface > :not(audio, .sound-anchor) { clip-path: inset(0 0 calc((1 - var(--sound-entry)) * 100%) 0); }
 .sound-anchor { position: absolute; top: calc(80svh + var(--space-9)); left: 0; inline-size: 1px; block-size: 1px; }
 .sound-index { position: absolute; top: 23%; left: 6.5%; display: flex; align-items: baseline; gap: var(--space-6); font-family: var(--font-ui); font-size: var(--micro); letter-spacing: .12em; }
 .sound-index > span:first-child { font-family: var(--font-display); font-size: 2.7rem; letter-spacing: -.05em; }
-.listen-composition { position: absolute; top: 48%; left: 52%; right: 6%; pointer-events: auto; }
+.listen-composition { position: absolute; top: 48%; left: 52%; right: 6.5%; pointer-events: auto; }
 .listen-trigger { display: flex; align-items: baseline; justify-content: space-between; inline-size: 100%; padding: 0 0 .06em; border: 0; background: none; color: var(--color-ink); cursor: pointer; font-family: var(--font-display); font-weight: 400; font-size: clamp(4rem, 10.8vw, 13rem); letter-spacing: -.047em; line-height: 1; text-align: left; }
 .listen-trigger:disabled { cursor: default; color: var(--text-secondary); }
-.listen-mask { position: relative; display: block; overflow: clip; padding: .055em .035em .09em; margin: -.055em -.035em -.09em; }
+.listen-mask { position: relative; display: block; overflow: visible; clip-path: inset(0 -.14em); padding: .055em .035em .09em; margin: -.055em -.035em -.09em; }
 .listen-mask > span { display: block; transition: transform 320ms cubic-bezier(.2,.65,.2,1); }
 .listen-mask .listen-echo { position: absolute; inset: .055em .035em auto; transform: translateY(115%) translateX(-3px); font-style: italic; }
 .listen-mark { font-family: var(--font-ui); font-size: .13em; letter-spacing: 0; transform: translateY(-.2em); transition: transform 320ms; }
@@ -37,7 +37,6 @@
   .listen-trigger:not(:disabled):hover .listen-mask > span:first-child { transform: translateY(-115%) translateX(3px); }
   .listen-trigger:not(:disabled):hover .listen-echo { transform: translateY(0) translateX(3px); }
   .listen-trigger:not(:disabled):hover .listen-mark { transform: translate(3px,-.4em); }
-  [data-sound-ready="true"][data-audio-state="idle"]:has(.listen-trigger:hover) .sound-thread { translate: 0 -.5px; }
 }
 @media (max-width:639px) {
   .continues-to-sound { --scroll-distance: 235svh; }
@@ -53,6 +52,10 @@
   .sound-credit { font-size: var(--micro); line-height: 1.7; margin: 0; }
   .listen-trigger:focus-visible { outline-offset: 6px; }
   .listen-trigger:active .listen-mark { transform: translate(2px,-.3em); }
+}
+@media (max-width:359px) {
+  .sound-caption { top: 68%; display: block; }
+  .sound-credit { margin-block-start: 16px; }
 }
 /* Reduced motion, image fallback and enlarged text preserve ARTIST→INSTRUMENT→SOUND in DOM order. */
 [data-sound-static="true"] .sound-region { position: relative; inset: auto; min-block-size: 80svh; }

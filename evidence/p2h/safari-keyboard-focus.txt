@@ -1,0 +1,2 @@
+There has been no change in the accessibility tree for Window: "Sound — P2H refinement".
+The focused UI element is 178 버튼 미리듣기 재생

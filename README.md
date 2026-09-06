@@ -67,7 +67,7 @@ npm.cmd run test:sound
 
 일반 코드 확인은 `npm.cmd run gate:fast`, routing/metadata/CI 변경의 전체 확인은
 `npm.cmd run gate:full`을 사용합니다. Fast는 위의 첫 아홉 명령, Full은 위 전체 명령입니다.
-Push/PR마다 Fast + workflow syntax 검사를 수행하고, 브라우저 설치와 84 route + 11 foundation + 26 navigation + 44 Hero + 32 Haegeum + 50 Sound Full은 명시적 수동 실행과 배포 전에 수행합니다.
+Push/PR마다 Fast + workflow syntax 검사를 수행하고, 브라우저 설치와 84 route + 11 foundation + 26 navigation + 44 Hero + 32 Haegeum + 58 Sound Full은 명시적 수동 실행과 배포 전에 수행합니다.
 Linux CI는 Chromium, 기본 로컬 설정은 Edge입니다. 이 Mac에서는 기존 Chromium을 `CI=1`로 선택해 같은 assertion을 실행합니다.
 macOS/Linux 명령은 `npm.cmd` 대신 `npm`을 사용합니다. Node 24.x/npm 11.x 요구사항은 동일합니다.
 
@@ -247,7 +247,7 @@ Full: 38 Node +197 browser. [결과](P2F-RESULT.md), [시각 증거/영상](evid
 실제 Safari motion 미검증은 future QA로 남기며, 원본/Retina·휴대폰·VoiceOver·열 검증은 non-blocking입니다.
 P2F는 `b5c6aa0`로 main delivery했고 exact-SHA Fast CI 34032488461이 성공했습니다. P2G는 아래 SOUND 한 장면까지 구현하고 STOP합니다. 배포는 하지 않습니다.
 
-### P2G — Full Haegeum → HOME Sound / REVIEW READY
+### P2G / P2H — HOME Sound refinement / REVIEW READY
 
 ```sh
 npm run dev:sound
@@ -262,4 +262,8 @@ npm run test:sound
 `src/sound`의 미리듣기는 Lab에서만 사용합니다. 434,470-byte AAC 한 건이며 원본은 수정하지 않았습니다.
 noindex / Lab build 차단 / public artifact 제외를 유지합니다. 실제 content record나 production HOME은 추가하지 않았습니다.
 [구현 정본](docs/redesign/review/HOME-SOUND-EXPERIENCE.md), [결과](P2G-RESULT.md), [시각·영상 증거](evidence/p2g/README.md).
-P2G 변경은 로컬 검토 상태이며 commit/push/배포하지 않았습니다. **REVIEW READY → STOP → 사용자 승인**.
+P2G 결과는 승인되어 `dab4617`에 보존했습니다. P2H는 같은 SOUND만 다듬었습니다: 마찰 밀도·damping,
+buffered replay, 320px caption, Safari focus/type-mask 보완. Full 38 Node +255 browser (Sound 58) 검증.
+실제 Safari 재생·pause·end·replay·focus는 확인했으나 Mac 잠금으로 나머지 native QA는 미완료입니다.
+[현재 결과](P2H-RESULT.md), [현재 증거](evidence/p2h/README.md). Commit/main push/Fast CI는 이번에 승인된 delivery이며
+정확한 결과는 완료 보고를 따릅니다. 배포 없음. **REVIEW READY / FREEZE CANDIDATE → STOP → 사용자 승인**.

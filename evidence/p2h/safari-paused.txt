@@ -1,0 +1,5 @@
+The following is a diff from the previous accessibility tree for Window: "Sound — P2H refinement" with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 180
+~								178 버튼 미리듣기 계속 듣기
+~								179 text 일시 정지 두 현 사이, 남는 울림. 한범수류 해금산조 · 중중모리 조윤경 / 해금 · 18초 미리듣기
+The focused UI element is 178 버튼 미리듣기 계속 듣기

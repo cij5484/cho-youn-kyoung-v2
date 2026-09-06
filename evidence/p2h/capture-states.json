@@ -1,0 +1,467 @@
+[
+  {
+    "file": "desktop-initial.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "dpr": 1
+    },
+    "scrollY": 0,
+    "progress": "0.00000",
+    "target": "0.00000",
+    "ready": "false",
+    "static": "false",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "desktop-full.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "dpr": 1
+    },
+    "scrollY": 1550,
+    "progress": "0.65957",
+    "target": "0.65957",
+    "ready": "false",
+    "static": "false",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "desktop-release-early.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "dpr": 1
+    },
+    "scrollY": 1727,
+    "progress": "0.73489",
+    "target": "0.73489",
+    "ready": "false",
+    "static": "false",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "desktop-release-mid.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "dpr": 1
+    },
+    "scrollY": 1974,
+    "progress": "0.84000",
+    "target": "0.84000",
+    "ready": "false",
+    "static": "false",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "desktop-release-late.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "dpr": 1
+    },
+    "scrollY": 2221,
+    "progress": "0.94511",
+    "target": "0.94511",
+    "ready": "false",
+    "static": "false",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "desktop-idle.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "dpr": 1
+    },
+    "scrollY": 2350,
+    "progress": "1.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "false",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "desktop-hover.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "dpr": 1
+    },
+    "scrollY": 2350,
+    "progress": "1.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "false",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "desktop-playing.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "dpr": 1
+    },
+    "scrollY": 2350,
+    "progress": "1.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "false",
+    "audioState": "playing",
+    "mediaTime": 1.088
+  },
+  {
+    "file": "desktop-damping.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "dpr": 1
+    },
+    "scrollY": 2350,
+    "progress": "1.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "false",
+    "audioState": "paused",
+    "mediaTime": 1.136
+  },
+  {
+    "file": "desktop-paused.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "dpr": 1
+    },
+    "scrollY": 2350,
+    "progress": "1.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "false",
+    "audioState": "paused",
+    "mediaTime": 1.136
+  },
+  {
+    "file": "desktop-completed.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "dpr": 1
+    },
+    "scrollY": 2350,
+    "progress": "1.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "false",
+    "audioState": "ended",
+    "mediaTime": 18.048
+  },
+  {
+    "file": "mobile-390-full.png",
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "dpr": 1
+    },
+    "scrollY": 1308,
+    "progress": "0.65961",
+    "target": "0.65961",
+    "ready": "false",
+    "static": "false",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "mobile-390-release.png",
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "dpr": 1
+    },
+    "scrollY": 1666,
+    "progress": "0.84014",
+    "target": "0.84014",
+    "ready": "false",
+    "static": "false",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "mobile-390-idle.png",
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "dpr": 1
+    },
+    "scrollY": 1983,
+    "progress": "1.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "false",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "mobile-390-playing.png",
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "dpr": 1
+    },
+    "scrollY": 1983,
+    "progress": "1.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "false",
+    "audioState": "playing",
+    "mediaTime": 1.065065
+  },
+  {
+    "file": "mobile-320-full.png",
+    "viewport": {
+      "width": 320,
+      "height": 568,
+      "dpr": 1
+    },
+    "scrollY": 881,
+    "progress": "0.65993",
+    "target": "0.65993",
+    "ready": "false",
+    "static": "false",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "mobile-320-release.png",
+    "viewport": {
+      "width": 320,
+      "height": 568,
+      "dpr": 1
+    },
+    "scrollY": 1121,
+    "progress": "0.83970",
+    "target": "0.83970",
+    "ready": "false",
+    "static": "false",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "mobile-320-idle.png",
+    "viewport": {
+      "width": 320,
+      "height": 568,
+      "dpr": 1
+    },
+    "scrollY": 1335,
+    "progress": "1.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "false",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "mobile-320-playing.png",
+    "viewport": {
+      "width": 320,
+      "height": 568,
+      "dpr": 1
+    },
+    "scrollY": 1335,
+    "progress": "1.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "false",
+    "audioState": "playing",
+    "mediaTime": 1.070561
+  },
+  {
+    "file": "wide-idle.png",
+    "viewport": {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 1
+    },
+    "scrollY": 2538,
+    "progress": "1.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "false",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "laptop-idle.png",
+    "viewport": {
+      "width": 1366,
+      "height": 768,
+      "dpr": 1
+    },
+    "scrollY": 1805,
+    "progress": "1.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "false",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "tablet-idle.png",
+    "viewport": {
+      "width": 768,
+      "height": 1024,
+      "dpr": 1
+    },
+    "scrollY": 2406,
+    "progress": "1.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "false",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "mobile-en-idle.png",
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "dpr": 1
+    },
+    "scrollY": 1983,
+    "progress": "1.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "false",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "reduced-desktop.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "dpr": 1
+    },
+    "scrollY": 4909,
+    "progress": "0.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "true",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "reduced-desktop-playing.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "dpr": 1
+    },
+    "scrollY": 4909,
+    "progress": "0.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "true",
+    "audioState": "playing",
+    "mediaTime": 0.568196
+  },
+  {
+    "file": "reduced-mobile.png",
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "dpr": 1
+    },
+    "scrollY": 4173,
+    "progress": "0.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "true",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "reduced-mobile-playing.png",
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "dpr": 1
+    },
+    "scrollY": 4173,
+    "progress": "0.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "true",
+    "audioState": "playing",
+    "mediaTime": 0.565333
+  },
+  {
+    "file": "text-200.png",
+    "viewport": {
+      "width": 320,
+      "height": 568,
+      "dpr": 1
+    },
+    "scrollY": 4846,
+    "progress": "0.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "true",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "webkit-release.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "dpr": 1
+    },
+    "scrollY": 1974,
+    "progress": "0.84000",
+    "target": "0.84000",
+    "ready": "false",
+    "static": "false",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "webkit-idle.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "dpr": 1
+    },
+    "scrollY": 2350,
+    "progress": "1.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "false",
+    "audioState": "idle",
+    "mediaTime": 0
+  },
+  {
+    "file": "webkit-playing.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "dpr": 1
+    },
+    "scrollY": 2350,
+    "progress": "1.00000",
+    "target": "1.00000",
+    "ready": "true",
+    "static": "false",
+    "audioState": "playing",
+    "mediaTime": 0.4479678326610297
+  }
+]

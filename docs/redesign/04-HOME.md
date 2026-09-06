@@ -225,7 +225,7 @@ If the candidate is missing or fails final-scale resolution, crop or masking qua
 
 The Hero's two-line motif is the structural bridge into the haegeum scene.
 
-P2E [development prototype](review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md) implements one shared stage and 155svh travel including the Hero exit, with separately authored mobile and a static four-stage fallback. Local verification is complete and the user approved this canonical visual direction. P2E delivery succeeded. P2F refines the same choreography into a body-anchored full-object pullback and independently framed mobile climax. The user subsequently approved P2F: **QUALITY APPROVED / FROZEN**. Native Safari motion remains unverified future QA; provisional sources/Retina, physical phones, VoiceOver and thermal checks are non-blocking. Public HOME is still unimplemented. P2G alone authorizes Full→SOUND after P2F delivery/CI, through REVIEW READY and STOP.
+P2E [development prototype](review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md) implements one shared stage and 155svh travel including the Hero exit, with separately authored mobile and a static four-stage fallback. Local verification is complete and the user approved this canonical visual direction. P2E delivery succeeded. P2F refines the same choreography into a body-anchored full-object pullback and independently framed mobile climax. The user subsequently approved P2F: **QUALITY APPROVED / FROZEN**. Native Safari motion remains unverified future QA; provisional sources/Retina, physical phones, VoiceOver and thermal checks are non-blocking. Public HOME is still unimplemented. P2G completed Full→SOUND and its result is approved; P2H refines only SOUND through REVIEW READY / FREEZE CANDIDATE and STOP.
 
 The normal-motion contract is one scene transforming into the next, not Hero fade-out followed by an unrelated Haegeum fade-in:
 
@@ -406,7 +406,10 @@ This is the first explicit listening moment on HOME and an intentional quiet pau
 P2G implements this single scene only in a development Lab: asymmetrical large LISTEN, Ivory negative space,
 a short caption and real optional audio. The user selected Han Beom-su Ryu Jungjungmori and delegated the
 dramatic excerpt choice; 02:46–03:04 (18 seconds) is the signal-informed candidate. Exact auditory selection
-and SOUND visual quality remain REVIEW READY, awaiting user review. No album record or public route is added.
+and SOUND visual quality remain REVIEW READY. P2G result is approved; P2H retains the audio and continuous release,
+refines local friction/damping, buffers replay, aligns the desktop type and stacks 320px captions. Native Safari
+verified playback/pause/end/replay/focus with the entry mask removed at readiness; other native checks remain partial.
+SOUND is a freeze candidate awaiting final auditory/visual judgment. No album record or public route is added.
 
 ## Core Experience
 

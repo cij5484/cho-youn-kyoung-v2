@@ -18,7 +18,7 @@ export function SoundLab() {
     <main id="sound-main" ref={main} tabIndex={-1}>
       {isHome ? <SoundExperience key={location.pathname} locale={locale} /> : <section className="lab-destination page-frame flow"><p className="type-micro">P2G / navigation fixture</p><h1>{location.pathname}</h1><Link to={locale==='ko' ? '/' : '/en/'}>Return to HOME study →</Link></section>}
       <footer id="sound-end" className="sound-review page-frame">
-        <p className="type-micro">P2G / REVIEW BOUNDARY</p>
+        <p className="type-micro">P2H / REVIEW BOUNDARY</p>
         <p>Hero → Haegeum: QUALITY APPROVED / FROZEN. SOUND: review candidate.</p>
         <p>한범수류 중중모리 02:46–03:04 · 18s. Candidate excerpt; final listening review pending.</p>
         <p>Full Haegeum remains a disclosed AI editorial reference. No following HOME scene is implemented.</p>
