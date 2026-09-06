@@ -1,0 +1,7 @@
+@import '@fontsource-variable/cormorant-garamond';
+@import '@fontsource-variable/noto-serif-kr';
+@import '@fontsource-variable/noto-sans-kr';
+@import './tokens.css';
+@import './base.css';
+@import './typography.css';
+@import './layout.css';

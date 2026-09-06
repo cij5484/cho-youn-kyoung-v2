@@ -1,6 +1,6 @@
 # Implementation Task Protocol — mandatory bounded work
 
-Revision 1.8 · 2026-09-06 · user-approved enlarged bundles / P1D private draft integration; explicit delivery and terminal STOP retained.
+Revision 1.9 · 2026-09-06 · approved P1C/P1D delivery / P2A foundation and Lab validation; enlarged bundle and terminal STOP retained.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
@@ -24,7 +24,7 @@ When tests fail, fix only the approved task's owner subsystem. If the fix expand
 
 ## Result report — user fields first, seven by default
 
-Use explicit user-requested report fields when supplied (P1D has 12). Otherwise use:
+Use explicit user-requested report fields when supplied (P1D has 12; P2A has 17). Otherwise use:
 
 1. **What was changed** — behavior and purpose.
 2. **Files changed** — actual paths and roles, including an empty list if none.
@@ -49,8 +49,8 @@ Do not install dependencies again for every small task if the tested lockfile/en
 
 | Gate | Command / owner | Required work |
 |---|---|---|
-| Fast | `npm.cmd run gate:fast` | type-check → lint → locale/metadata and content unit contracts → placement contracts → root production build/prerender/placement → `test:content:visibility` on that fresh artifact |
-| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → 80 existing + 2 draft-exclusion browser cases over both strict static hosts |
+| Fast | `npm.cmd run gate:fast` | type-check → lint → locale/metadata and content unit contracts → placement contracts → root production build/prerender/placement → `test:content:visibility` and `test:design-system:artifacts` on that fresh artifact |
+| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → 84 route/browser cases over both strict static hosts → 11 development-only Design System Lab browser cases |
 | Live deployment | `npm.cmd run test:pages` with actual `EXPECTED_DEPLOY_SHA` | 18-route JS on/off metadata, refresh/history, variants, actual HTTP 404, artifact identity/hash/MIME/cache |
 | Workflow configuration | actionlint 1.7.12 | YAML, expressions, reusable workflow input/job wiring; Linux also checks embedded shell |
 
@@ -60,7 +60,9 @@ it is not the complete Fast gate. Root and project builds must run sequentially 
 Local Full defaults to installed Edge; Linux CI installs the pinned Playwright package's Chromium. The current Mac
 uses the same installed Chromium with `CI=1` and the pinned Node/npm environment, without changing assertions.
 `test:content` includes the real draft regression; `test:content:visibility` checks root client/static output after build.
-Full checks both artifacts and real draft KO/EN 404/metadata exclusion. Test assertions
+Full checks both artifacts and real draft KO/EN 404/metadata exclusion, font base/MIME and Lab exclusion.
+The separate Lab suite uses pinned Playwright Chromium on all platforms; prepare it once if missing.
+`test:design-system` owns port 4175 and rejects an already running manual Lab server. Test assertions
 are the same. No reduced route sample or retry was introduced to hide failures.
 
 Fast runs on every branch push and PR, including documents, through ci.yml → reusable quality-gates.yml.
@@ -69,7 +71,7 @@ missing/pending checks on documentation-only PRs. A branch push plus an open PR 
 concurrency cancels superseded runs on the same event ref. No repository ruleset is silently changed.
 
 Full runs through an explicit pages.yml workflow_dispatch. It repeats Fast on that exact revision,
-then checks both static bases and all 82 browser cases. A failed type/lint/unit/build/placement/browser
+then checks both static bases, all 84 route/browser cases and the 11-case Lab suite. A failed type/lint/unit/build/placement/browser
 step fails the job; upload/deploy depend on that success. Full without deployment retains test evidence
 but never uploads the special Pages artifact. Only successful Full with deploy=true uploads static/.
 
@@ -292,6 +294,22 @@ checkpoint in ignored `.checkpoints/p1d-before-306d757/`; restore only P1D chang
 Task scope, files, results and the user's 12 fields are recorded in [P1D-RESULT](../../../P1D-RESULT.md).
 **REPORT → STOP → USER APPROVAL** ends the whole bundle. No next bundle or Phase automatically follows.
 
+## P2A — Design System Foundation Bundle — REVIEW READY
+
+The user approved P1C/P1D and explicitly authorized their baseline delivery before this one bundle.
+Clean exact commits 306d757/2b544d6 and recorded hashes matched; V2 main push and Fast CI 34002461467
+succeeded before P2A implementation. P2A authorizes (A) production font/palette/type/grid/base CSS,
+(B) an isolated development Lab, and (C) desktop/mobile/accessibility/font/public-exclusion Full regression,
+minimal current documentation and the user's 17-field report. [Result/task card](../../../P2A-RESULT.md)
+and [Foundation guide](DESIGN-SYSTEM-FOUNDATION.md) own files, evidence and API.
+
+Baseline/rollback: 2b544d63a5079f15d1653ddb3ea59a8b4bb06ea0; ignored `.checkpoints/p2a-before-2b544d6/`.
+The Lab is not registered in production routes/prerender/SEO. Font assets and licenses are public foundation
+assets; the P1D album remains private. P2A changes are a local review diff, not pushed/deployed.
+No HOME Hero/portrait/Haegeum/Selected Works/final templates, motion choreography, content migration,
+other albums, 3D/Blender, domain work or automatic P2B. Visual review remains distinct from green tests.
+**REPORT → STOP → USER APPROVAL.**
+
 ## Chunking the rest of PHASE 1–14
 
 The sequence in each row is a planning queue. Under the 2026-09-06 revision, 2–3 strongly related entries within
@@ -325,5 +343,5 @@ The document contracts and bounded starter task are defined; later decisions are
 This is not authorization to execute P0A, not proof of prerender suitability, and not approval to run P0A–F continuously.
 
 The above readiness was the initial planning snapshot. P0F and P1A lifecycle/delivery completed; P1B audit was
-subsequently delivered and P1C is approved. Current user-authorized unit is the P1D private draft integration
-bundle above and in [HANDOFF](../../../CODEX-HANDOFF.md). **STOP after P1D; no public release or next Phase.**
+subsequently delivered, and P1C/P1D are approved and delivered. Current unit is P2A Design System Foundation
+above and in [HANDOFF](../../../CODEX-HANDOFF.md). **STOP after P2A; no HOME Hero, P2B or next Phase.**

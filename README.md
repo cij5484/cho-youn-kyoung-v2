@@ -1,7 +1,7 @@
 # Cho Youn Kyoung Website V2
 
 P0E에서 승인된 KO/EN routing·metadata 계약을 CI와 명시적 delivery 절차에 연결했습니다. React + TypeScript + Vite 기반의
-18개 neutral test route이며 실제 사이트 디자인·번역·콘텐츠는 없습니다.
+18개 neutral test route에 P2A production CSS foundation을 적용했습니다. 실제 HOME/template·공식 번역은 미구현이며 실제 앨범은 private draft입니다.
 **React Router + Static Prerender APPROVE / HOME V2.1 문서 승인 / P0F documentation / AGENTS canonical APPROVED.**
 
 [P0D 결과](P0D-RESULT.md), [언어·metadata 계약](docs/redesign/review/LOCALE-METADATA-CONTRACT.md),
@@ -27,7 +27,7 @@ Blender는 아직 채택/실행되지 않았습니다. 필수 capability spike�
 ## 실행 환경
 
 Node.js 24.x / npm 11.x. 직접 의존성은 exact version과 lockfile로 고정합니다.
-새 설치는 `npm.cmd ci --include=dev`입니다. 브라우저 검증에는 설치된 Microsoft Edge를 사용합니다.
+새 설치는 `npm.cmd ci --include=dev`입니다. route suite의 로컬 기본은 Microsoft Edge이고 Design System Lab suite는 Playwright Chromium입니다. Chromium이 없는 환경에서는 최초 한 번 `npx playwright install chromium`으로 준비합니다.
 
 ## 개발 실행
 
@@ -51,16 +51,18 @@ npm.cmd run test:content
 npm.cmd run test:placement
 npm.cmd run build
 npm.cmd run test:content:visibility
+npm.cmd run test:design-system:artifacts
 npm.cmd run build:pages-preview
 npm.cmd run test:spike
+npm.cmd run test:design-system
 ```
 
-`check`는 type-check/lint/root build만 실행합니다. 전체 로컬 계약 검증은 위의 아홉 명령입니다.
+`check`는 type-check/lint/root build만 실행합니다. 전체 로컬 계약 검증은 위의 열한 명령입니다.
 두 build는 같은 framework typegen/cache를 사용하므로 순서대로 실행합니다.
 
 일반 코드 확인은 `npm.cmd run gate:fast`, routing/metadata/CI 변경의 전체 확인은
-`npm.cmd run gate:full`을 사용합니다. Fast는 위의 첫 일곱 명령, Full은 아홉 명령 전체입니다.
-Push/PR마다 Fast + workflow syntax 검사를 수행하고, 브라우저 설치/82-case Full은 명시적 수동 실행과 배포 전에 수행합니다.
+`npm.cmd run gate:full`을 사용합니다. Fast는 위의 첫 여덟 명령, Full은 열한 명령 전체입니다.
+Push/PR마다 Fast + workflow syntax 검사를 수행하고, 브라우저 설치/84개 route + 11개 Lab Full은 명시적 수동 실행과 배포 전에 수행합니다.
 Linux CI는 Chromium, 기본 로컬 설정은 Edge입니다. 이 Mac에서는 기존 Chromium을 `CI=1`로 선택해 같은 assertion을 실행합니다.
 macOS/Linux 명령은 `npm.cmd` 대신 `npm`을 사용합니다. Node 24.x/npm 11.x 요구사항은 동일합니다.
 
@@ -109,10 +111,13 @@ src/routing/locale-contract.ts KO/EN pairing, switch 결과, authored 상태, me
 src/content/records/*.server.ts 실제 content record (현재 지영희류 private KO draft 한 건)
 src/content/registry.server.ts 실제 record/asset reference의 명시적 등록, client import 금지
 src/spike/                    경로 fixture, URL 및 테스트 metadata
-src/styles/spike.css          비시각 CSS 로딩 확인 marker
+src/styles/foundation.css     production font/token/base/type/layout 진입점
+src/styles/spike.css          기존 비시각 CSS 로딩 확인 marker
+labs/design-system/           별도 dev-only HTML/CSS specimen, production route 등록 없음
+public/licenses/              세 font family의 원본 OFL notice
 public/spike/path-check.svg   새로 만든 16px 경로 검증 fixture
 scripts/                      CLI 실행, 정적 artifact 배치, 검증용 서버
-tests/                        두 base의 82개 Playwright + locale/content/placement + root artifact 검증
+tests/                        84개 route + 11개 Lab browser, locale/content/placement + artifact 검증
 docs/redesign/                기존 기획·review 문서 보존
 ```
 
@@ -133,7 +138,7 @@ P0B까지 기획·review 원본 21개를 보존했습니다. P0C에서는 사용
 P0A–D 결과는 당시 기록으로 보존합니다. 현재 delivery 상태/CI run/배포 증거는 P0E 결과를 따릅니다.
 모든 push는 Fast 검사만 하며 문서 변경 때문에 배포할 필요는 없습니다. 실제 preview 배포는 사용자 승인 범위에서
 pages.yml을 deploy=true와 승인된 full SHA로 명시적으로 실행합니다. main SHA와 실제 배포 SHA를 구분합니다.
-**현재 P1C 결과 승인 / P1D private KO draft bundle REVIEW READY. 결과 보고 후 STOP. 공개 전환·다음 bundle/Phase는 별도 승인 대상입니다.**
+**P1C/P1D 승인·main push·Fast CI 완료. 현재 P2A Design System Foundation REVIEW READY / visual 승인 대기. P2A 결과 보고 후 STOP; HOME/P2B 자동 진행 없음.**
 
 ## 실제 콘텐츠 추가 절차
 
@@ -147,3 +152,20 @@ P1D의 private는 사이트 공개 제외 상태이며 공개 Git 저장소의 �
 `test:content`는 실제 draft와 기존 public fixture를 함께 검증합니다. `test:content:visibility`는 **fresh root build 후**
 전체 client/static의 HTML·JS·manifest에 초안 내용이 없는지 검사하며 Fast에 포함됩니다. Full은 Project Pages artifact와
 실제 KO/EN unknown route 및 metadata 제외도 확인합니다. 자세한 기준은 Content Schema Contract를 따릅니다.
+
+
+## Design System foundation / 개발용 Lab
+
+[Foundation guide](docs/redesign/review/DESIGN-SYSTEM-FOUNDATION.md)와 [P2A 결과](P2A-RESULT.md)를 따릅니다.
+`src/styles/foundation.css`를 root에서 한 번 import하며 fonts/tokens/base/typography/layout을 공유합니다.
+세 Fontsource variable asset package만 추가했고 runtime UI/motion library는 없습니다.
+
+```sh
+npm run dev:design-system
+```
+
+`http://127.0.0.1:4175/`에서 색상·KO/EN 글자·grid·lines·actions·Ivory/Dark Stage를 확인합니다.
+HTML stylesheet link로 foundation을 직접 로드합니다. 이 별도 Vite config는 localhost/noindex 전용이며 build를 거부합니다.
+production router/SEO/catalog에는 등록하지 않습니다. 정적 두 base에서 Lab 주소는 404입니다.
+`npm run test:design-system`은 자체 Lab 서버를 시작·종료하므로 포트 4175의 수동 dev 서버를 먼저 종료합니다.
+P2A 전용 Lab은 실제 HOME이나 최종 template이 아닙니다.

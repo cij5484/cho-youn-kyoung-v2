@@ -65,7 +65,8 @@ claim product quality approval from a successful build or neutral fixture.
   lessons after fit review for V2 quality, architecture, performance and maintainability.
 - Preserve **Contemporary Editorial / Ivory**, **Static Color, Dynamic Composition**, and HOME V2.1's
   **Moving Editorial Poster**. Avoid generic portfolio, SaaS or template composition. The detailed design
-  direction is approved; actual HOME and Design System are not yet implemented. Read their owning specs.
+  direction is approved. P2A implements the Design System foundation; actual HOME remains unimplemented.
+  Read the [foundation guide](docs/redesign/review/DESIGN-SYSTEM-FOUNDATION.md) and owning visual specs; current approval is in HANDOFF.
 - Mobile and Desktop are first-class. Recompose typography, crop and depth; prioritize vertical scroll,
   touch-native interaction, real-device QA and thermal/GPU behavior. Reduced motion and intentional static
   fallback must preserve information and visual care. Desktop screenshots do not prove mobile quality.

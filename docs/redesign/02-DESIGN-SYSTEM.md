@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 02 — DESIGN SYSTEM
 
-**Version:** 1.3\
-**Status:** Approved Design Baseline  
+**Version:** 1.4\
+**Status:** Approved Design Baseline / P2A foundation implemented and locally verified; visual result review pending\
 **Parent:** `00-MASTER-PLAN.md`  
 **Art Direction:** Contemporary Editorial / Ivory
 
@@ -501,3 +501,16 @@ The credit must feel like a signature, not an advertisement.
 
 **At first the visitor notices the beauty of the site.  
 Then the website disappears, and only the music and work remain.**
+
+
+---
+
+# 28. P2A PRODUCTION FOUNDATION / IMPLEMENTATION BOUNDARY
+
+The original 27 art-direction sections remain canonical. [Design System Foundation](review/DESIGN-SYSTEM-FOUNDATION.md)
+owns the CSS roles, font delivery/fallback, safe gutters, 4/12-column primitives, base/focus/touch/reduced-motion
+and the development-only specimen. [P2A result](../../P2A-RESULT.md) owns validation and screenshot evidence.
+
+The three approved families and nine palette values are retained. No HOME composition, navigation choreography,
+portrait, artwork, audio reaction or 3D is implemented by this foundation. Functional/browser verification is not
+user visual approval. REPORT → STOP; P2B/HOME requires a separate explicit task.

@@ -1,0 +1,80 @@
+/* P2A production foundation — values owned by 02-DESIGN-SYSTEM.md. */
+:root {
+  color-scheme: light;
+  --color-canvas: #f4f0e8;
+  --color-surface: #faf8f3;
+  --color-ink: #171715;
+  --color-charcoal: #2b2a27;
+  --color-muted: #77736c; /* Decoration or qualifying large text only. */
+  --color-muted-text: #6d6962;
+  --color-hairline: #d8d1c6;
+  --color-accent: #9a8164; /* Sparse decoration; never small text/focus. */
+  --color-dark-stage: #151513;
+  --text-primary: var(--color-ink);
+  --text-secondary: var(--color-muted-text);
+  --background: var(--color-canvas);
+  --focus-color: var(--color-ink);
+  --line-color: var(--color-hairline);
+
+  --font-display: 'Cormorant Garamond Variable', 'Noto Serif KR Variable', Georgia, serif;
+  --font-display-ko: 'Noto Serif KR Variable', 'Batang', serif;
+  --font-body: 'Noto Sans KR Variable', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --font-ui: var(--font-body);
+  --font-metadata: var(--font-body);
+
+  --display-xl: clamp(3.25rem, 1.5rem + 8vw, 10rem);
+  --display-l: clamp(3rem, 1.5rem + 5vw, 6rem);
+  --display-m: clamp(2rem, 1.2rem + 3vw, 4rem);
+  --display-ko: clamp(1.75rem, 1.05rem + 2.6vw, 3.5rem);
+  --heading: clamp(1.5rem, 1.2rem + 1vw, 2.5rem);
+  --body-large: clamp(1.0625rem, 1rem + .3vw, 1.25rem);
+  --body: 1rem;
+  --ui: .875rem;
+  --metadata: .8125rem;
+  --micro: .75rem;
+  --leading-display: .95;
+  --leading-display-ko: 1.4;
+  --leading-body: 1.8;
+
+  --space-1: .5rem;
+  --space-2: .75rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --space-7: 4rem;
+  --space-8: 6rem;
+  --space-9: 8rem;
+  --space-10: 10rem;
+  --page-gutter: clamp(24px, 4vw, 72px);
+  --safe-gutter-start: max(var(--page-gutter), env(safe-area-inset-left, 0px));
+  --safe-gutter-end: max(var(--page-gutter), env(safe-area-inset-right, 0px));
+  --grid-gap: clamp(.75rem, 1.5vw, 2rem);
+  --section-space: clamp(4rem, 2.5rem + 5vw, 10rem);
+  --reading-width: 64ch;
+  --reading-width-ko: 38rem;
+  --touch-target: 44px;
+  --hairline: 1px;
+  --line-pair-gap: 6px;
+  --viewport-stable: 100vh;
+  --viewport-live: 100vh;
+  --action-duration: 180ms;
+  --action-ease: cubic-bezier(.22, .61, .36, 1);
+}
+
+@supports (height: 100svh) { :root { --viewport-stable: 100svh; } }
+@supports (height: 100dvh) { :root { --viewport-live: 100dvh; } }
+
+/* Occasional stage surface, not an automatic OS dark theme. */
+.dark-stage {
+  color-scheme: dark;
+  --background: var(--color-dark-stage);
+  --text-primary: var(--color-canvas);
+  --text-secondary: var(--color-hairline);
+  --focus-color: var(--color-canvas);
+  --line-color: var(--color-muted);
+  background: var(--background);
+  color: var(--text-primary);
+}
+
+@media (prefers-reduced-motion: reduce) { :root { --action-duration: 0ms; } }

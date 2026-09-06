@@ -1,6 +1,6 @@
 # Cho Youn Kyoung Website V2 — 검토 및 구현 제안
 
-검토일: 2026-09-06 · Revision 1.10 · 상태: **P1C 결과 승인 / 확대된 bounded bundle 정책 승인 / P1D private KO draft integration REVIEW READY**. HOME V2.1 및 P0 routing/locale/CI 계약은 유지한다. 현재 결과·승인 경계는 [HANDOFF](../../../CODEX-HANDOFF.md)를 따른다.
+검토일: 2026-09-06 · Revision 1.11 · 상태: **P1C/P1D 승인·main delivery 완료 / P2A Design System Foundation REVIEW READY / visual 승인 대기**. HOME V2.1 및 P0 routing/locale/CI 계약은 유지한다. 현재 결과·승인 경계는 [HANDOFF](../../../CODEX-HANDOFF.md)를 따른다.
 
 현재 정본은 갱신된 MASTER의 PHASE 0–14다. React Router + Static Prerender는 사용자가 지정한 P0C 실제 Pages gate 통과로 확정했다. P0D neutral locale/hreflang 계약은 두 base에서 통과했고 실제 번역·제품 구현과 운영 SEO는 별도 gate다. 이 문서는 실제 구현 승인이 아니다.
 
@@ -424,7 +424,7 @@ Gate 기록 양식: 작업 ID, 기준 commit/artifact, 환경, 수행 항목, �
 
 ### PHASE 0 — Foundation
 
-현재 delivery: push/PR은 type/lint/locale/content/placement/root build 및 draft artifact 제외 Fast gate를 실행한다. Full은 두 base와 82개 browser 회귀를 검사하며 수동 deploy=false가 기본이다. 승인된 exact SHA/main의 deploy=true만 배포한다. P0E/P0F 당시 승인·검증 이력은 각 결과에 보존하고 현재 bundle은 P1D 결과를 따른다.
+현재 delivery: push/PR은 type/lint/locale/content/placement/root build 및 draft artifact 제외 Fast gate를 실행한다. Full은 두 base의 84개 route/browser와 11개 Design System Lab 회귀를 검사하며 수동 deploy=false가 기본이다. 승인된 exact SHA/main의 deploy=true만 배포한다. P0E/P0F 당시 승인·검증 이력은 각 결과에 보존하고 현재 bundle은 P1D 결과를 따른다.
 
 - 입력: **각 단위의 명시적 구현 승인**. 전체 계획 승인은 다음 구현 승인과 다르다. P0A–E는 각각 승인되어 완료됐으며 P0F 문서 결과를 보고하고 멈춘다.
 - 최신 승인 이력/큐: P0A skeleton 완료 → STOP → P0B local routing spike 완료 → STOP → P0C 실제 V2 Pages/CI·routing·architecture APPROVE → STOP → P0D locale/metadata 계약 완료 → STOP → P0E CI/Full/실제 Pages 검증 완료 → STOP → P0F AGENTS/Project Knowledge Wiring canonical APPROVED. 매 화살표 사이에 명시적 승인이 필요하다.
@@ -563,11 +563,11 @@ Gate 기록 양식: 작업 ID, 기준 commit/artifact, 환경, 수행 항목, �
 
 ## 17. Recommendation Before Implementation
 
-P0E 사용자 승인 범위에서 기존 architecture를 유지하고 Fast push/PR gate와 명시적 Full/preview delivery를 연결했다. P0E 실제 검증/배포 상태는 [결과](../../../P0E-RESULT.md), commit/push/deploy/STOP의 현재 정본은 [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md) CI/delivery 절이다. 과거 이력은 보존하며 운영 지도는 [AGENTS](../../../AGENTS.md), 현재 상태는 [HANDOFF §26](../../../CODEX-HANDOFF.md#knowledge-status), 현재 bundle 결과는 [P1D](../../../P1D-RESULT.md)다.
+P0E 사용자 승인 범위에서 기존 architecture를 유지하고 Fast push/PR gate와 명시적 Full/preview delivery를 연결했다. P0E 실제 검증/배포 상태는 [결과](../../../P0E-RESULT.md), commit/push/deploy/STOP의 현재 정본은 [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md) CI/delivery 절이다. 과거 이력은 보존하며 운영 지도는 [AGENTS](../../../AGENTS.md), 현재 상태는 [HANDOFF §26](../../../CODEX-HANDOFF.md#knowledge-status), 현재 bundle 결과는 [P2A](../../../P2A-RESULT.md)다.
 
 HOME V2.1은 문서 개정으로 승인됐고 bb8460e commit으로 보존됐다. 해당 작업에서 코드/asset/motion/3D는 구현하지 않았다. [V2.1 revision report](HOME-V2.1-REVISION-REPORT.md)는 당시 STOP 기록이다. 이후 별도로 승인된 P0E만 실행하며 P0C/P0D 계약을 유지했다.
 
-**현재 판정: React Router + Static Prerender APPROVE / P0E·P0F·P1A delivery COMPLETE / P1B audit delivered / P1C mapping APPROVED / P1D private draft bundle REVIEW READY.**
+**현재 판정: React Router + Static Prerender APPROVE / P0E·P0F·P1A delivery COMPLETE / P1B audit delivered / P1C/P1D APPROVED & DELIVERED / P2A foundation REVIEW READY.**
 
 정본 로드맵, 독립 ABOUT Delight, HOME 한정 Sou.P, mandatory Tray Lab, same-route audio scope, source truth, 대비 token, volume capability 검증 정책, bounded task/STOP 계약을 반영했다. 사용자 승인 사항을 다시 미정 질문으로 남기지 않는다.
 
@@ -577,9 +577,9 @@ P1A 결과와 Asset Lifecycle Policy/main delivery는 완료됐고, 이후 P1B �
 
 현재 P1A schema 결과는 승인됐다. lifecycle 보완과 delivery 검증은 [P1A 결과](../../../P1A-RESULT.md)에 별도 기록한다. 이전 완료: 기존 계획·감사·STOP 계약과 별도로 P0A 기반, P0B 로컬 spike, P0C 실제 Pages 배포/검증 및 architecture 결정, P0D neutral KO/EN 계약과 로컬 검증, P0E Fast/Full CI·preview delivery·live 검증. [P0D 결과](../../../P0D-RESULT.md)를 따른다. 과거 P0A/P0B 결과는 당시 상태 기록으로 보존한다.
 
-P1C 승인 후 P1D에서 그 한 건만 private draft로 실제 등록하고 공개 제외·workflow·regression을 검증한다.
+P1C 승인 후 P1D에서 그 한 건만 private draft로 등록·검증했고 결과가 승인됐다. P2A 선행 delivery로 306d757/2b544d6을 V2 main에 push했으며 Fast CI 34002461467이 성공했다.
 현재 미착수: 공개 production record/asset 전환, 실제 content→template integration, Blender spike/모델/Tray/Haegeum 3D,
-공식 authored/reviewed EN과 최종 SEO, 실제 제품 디자인, audio/mobile/3D, 운영 도메인 전환. P0E preview는 이 작업에서 재배포하지 않는다.
+공식 authored/reviewed EN과 최종 SEO, 실제 HOME/제품 composition, audio/mobile/3D, 운영 도메인 전환. P0E preview는 이 작업에서 재배포하지 않는다.
 
-**P1D는 등록→공개 제외→workflow 검토의 한 bundle이며, 전체 검증과 12항목 결과 보고 후 STOP한다.**
-다음 bundle, 공개 전환, Design System/HOME, 3D/Blender 또는 다음 Phase로 자동 진행하지 않는다. 로컬 commit만 사용자 범위에서 허용된다.
+**현재 P2A는 CSS foundation→개발용 Lab→시각/Full 회귀의 한 bundle이며, 17항목 결과 보고 후 STOP한다.**
+[Foundation guide](DESIGN-SYSTEM-FOUNDATION.md)가 font/token/layout/base의 구현 정본이다. P2A는 로컬 REVIEW READY이며 visual 승인은 대기한다. P2B, HOME Hero, 공개 전환, content migration, 3D/Blender 또는 다음 Phase로 자동 진행하지 않는다.

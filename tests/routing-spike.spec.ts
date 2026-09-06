@@ -7,6 +7,7 @@ import { spikeRoutes, type SpikeRoute } from '../src/spike/fixtures.ts'
 import { expectLocaleMetadata } from './metadata-assertions.ts'
 import { assertDraftArtifactsExcluded } from './assert-draft-artifacts.ts'
 import { contentCatalog } from '../src/content/registry.server.ts'
+import { assertDesignArtifacts } from './assert-design-artifacts.ts'
 
 function pathAtBase(fixture: SpikeRoute, info: TestInfo, trailingSlash = true) {
   const { base } = getBuildTarget(info.project.name)
@@ -173,4 +174,26 @@ test('registered draft stays out of both artifacts and direct or client route me
       expect((await page.reload())?.status()).toBe(404)
     }
   }
+})
+
+test('production font delivery preserves the base and never exposes the Design System Lab', async ({ page, request }, info) => {
+  const target = getBuildTarget(info.project.name)
+  const result = await assertDesignArtifacts(info.project.name as 'root' | 'pagesPreview')
+  await info.attach('design-artifacts', { body: JSON.stringify(result), contentType: 'application/json' })
+  for (const path of ['lab/design-system/', 'labs/design-system/index.html']) {
+    expect((await request.get(`${target.base}${path}`)).status()).toBe(404)
+  }
+  const fontResponses: { url: string; status: number; mime: string }[] = []
+  page.on('response', response => {
+    if (response.url().endsWith('.woff2')) fontResponses.push({ url: response.url(), status: response.status(), mime: response.headers()['content-type'] })
+  })
+  await page.goto(target.base)
+  await page.evaluate(() => document.fonts.ready)
+  expect(fontResponses.length).toBeGreaterThan(0)
+  for (const font of fontResponses) {
+    expect(new URL(font.url).pathname.startsWith(`${target.base}assets/`)).toBe(true)
+    expect(font.status).toBe(200)
+    expect(font.mime).toBe('font/woff2')
+  }
+  await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(244, 240, 232)')
 })

@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { Links, Meta, Outlet, Scripts, useLocation } from 'react-router'
 import { logicalPath } from './spike/paths'
 import { languageOfPath } from './routing/locale-contract'
+import './styles/foundation.css'
 import './styles/spike.css'
 
 export function Layout({ children }: { children: ReactNode }) {
@@ -12,7 +13,7 @@ export function Layout({ children }: { children: ReactNode }) {
     <html lang={lang}>
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <link rel="icon" href="data:," />
         <Meta />
         <Links />

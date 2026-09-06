@@ -9,6 +9,9 @@
   },
   "packageManager": "npm@11.12.1",
   "scripts": {
+    "dev:design-system": "vite --config vite.lab.config.ts",
+    "test:design-system": "playwright test --config playwright.design-system.config.ts",
+    "test:design-system:artifacts": "node --test tests/design-artifacts.test.ts",
     "dev": "node scripts/router.mjs root dev --host 127.0.0.1",
     "dev:pages-preview": "node scripts/router.mjs pagesPreview dev --host 127.0.0.1",
     "type-check": "node scripts/router.mjs root typegen && tsc -b",
@@ -22,12 +25,15 @@
     "test:locale": "node --test tests/locale-contract.test.ts",
     "test:pages": "playwright test --config playwright.pages.config.ts",
     "check": "npm run type-check && npm run lint && npm run build",
-    "gate:fast": "npm run type-check && npm run lint && npm run test:locale && npm run test:content && npm run test:placement && npm run build && npm run test:content:visibility",
-    "gate:full": "npm run gate:fast && npm run build:pages-preview && npm run test:spike",
+    "gate:fast": "npm run type-check && npm run lint && npm run test:locale && npm run test:content && npm run test:placement && npm run build && npm run test:content:visibility && npm run test:design-system:artifacts",
+    "gate:full": "npm run gate:fast && npm run build:pages-preview && npm run test:spike && npm run test:design-system",
     "test:content": "node --test tests/content-contract.test.ts tests/draft-content.test.ts",
     "test:content:visibility": "node --test tests/content-visibility.test.ts"
   },
   "dependencies": {
+    "@fontsource-variable/cormorant-garamond": "5.3.0",
+    "@fontsource-variable/noto-sans-kr": "5.3.0",
+    "@fontsource-variable/noto-serif-kr": "5.3.0",
     "isbot": "5.2.2",
     "react": "19.2.8",
     "react-dom": "19.2.8",

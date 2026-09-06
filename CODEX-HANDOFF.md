@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** P1C result APPROVED; P1D Ji Young-hee Ryu KO Draft Integration Bundle REVIEW READY — one private draft, no public release / next Phase\
-**Revision:** 1.7 / 2026-09-06 — enlarged bounded-task policy and P1D private integration; prior facts/design preserved\
+**Status:** P1C/P1D APPROVED and delivered to V2 main; P2A Design System Foundation REVIEW READY — visual approval pending / STOP before P2B or HOME\
+**Revision:** 1.8 / 2026-09-06 — approved baseline push + Fast CI, P2A CSS foundation and isolated Lab; content/HOME contracts preserved\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 ---
@@ -487,10 +487,13 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 - P1B audit delivery subsequently completed through PR #2 / `07661e5b6061c6a46f9c4205a7737d3ab4b92c81`; Fast CI 33966319721 succeeded. This receipt was checked in the preceding repository-health review; it does not authorize runtime migration or asset/publication approval.
 - User explicitly authorized **P1C — Ji Young-hee Ryu Album KO Record Mapping Review** only, with STOP before P1D or production record registration. [Mapping review](docs/redesign/review/album-audits/JI-YOUNG-HEE-SANJO-KO-RECORD-MAPPING-REVIEW.md), [result](P1C-RESULT.md) and [evidence](evidence/p1c/ji-young-hee-sanjo-ko-mapping-review.json) own this unit. One document-only candidate maps confirmed facts, 6 tracks, 8 credits and one provisional cover reference; all editions/publication remain draft, no runtime asset/record or route is registered.
 - P1C source boundary: printed track times are preserved in the review table and not asserted as measured `durationSeconds`; barcode and other unsupported optional facts remain in P1B. Summary/alt/role wording are review drafts. Existing date/떨기나무/final-print confirmations are not reopened. EN/audio/CD/3D/story inputs retain their separate downstream gates.
-- P1C result is now explicitly APPROVED. Its original review/evidence remain the historical report, preserved in local commit `306d75758a3634396ed95313aa3a72952fc52203`; not pushed. Approval does not turn draft copy into authored/reviewed editions or approve public assets.
-- Current authorized bundle: **P1D — Ji Young-hee Ryu KO Draft Integration Bundle**. A: register one private KO draft in the real content layer; B: verify exclusion from public catalog/routes/prerender/metadata and emitted client data; C: minimally reconcile the addition workflow and enlarged task policy. Full validation and the user's 12-field report follow, then STOP. [P1D result/task card](P1D-RESULT.md) owns progress and evidence.
-- P1D completed: [actual record](src/content/records/ji-young-hee-sanjo.server.ts) and [registry](src/content/registry.server.ts); [evidence](evidence/p1d/ji-young-hee-sanjo-ko-draft-integration.json). All fields retain P1C draft states. Both bases keep 18 neutral routes and the same 28 public files; draft KO/EN is HTTP/client 404 with no public metadata or client data. Local validation is complete; result approval pending.
-- P1D excludes other albums, public publication, full EN, Design System/HOME, 3D/Blender and next Phase. Logical local commits are authorized after validation; push/deploy are not part of this bundle.
+- P1C result is now explicitly APPROVED. Its original review/evidence remain the historical report, preserved in local commit `306d75758a3634396ed95313aa3a72952fc52203`; subsequently pushed during the P2A baseline gate below. Approval does not turn draft copy into authored/reviewed editions or approve public assets.
+- Prior authorized bundle: **P1D — Ji Young-hee Ryu KO Draft Integration Bundle**. A: register one private KO draft in the real content layer; B: verify exclusion from public catalog/routes/prerender/metadata and emitted client data; C: minimally reconcile the addition workflow and enlarged task policy. Full validation and the user's 12-field report follow, then STOP. [P1D result/task card](P1D-RESULT.md) owns progress and evidence.
+- P1D completed: [actual record](src/content/records/ji-young-hee-sanjo.server.ts) and [registry](src/content/registry.server.ts); [evidence](evidence/p1d/ji-young-hee-sanjo-ko-draft-integration.json). All fields retain P1C draft states. Both bases keep 18 neutral routes and the same 28 public files; draft KO/EN is HTTP/client 404 with no public metadata or client data. That P1D validation is preserved; the user subsequently approved its result and delivery below.
+- P1D excluded other albums, public publication, full EN, Design System/HOME, 3D/Blender and next Phase. Its two local commits were then approved for the following baseline delivery gate.
+- P2A baseline gate COMPLETE: clean approved P1C `306d757` / P1D `2b544d6` and 114 recorded hashes verified; V2 main pushed to `2b544d63a5079f15d1653ddb3ea59a8b4bb06ea0`; [Fast CI 34002461467](https://github.com/cij5484/cho-youn-kyoung-v2/actions/runs/34002461467) SUCCESS before implementation. No deployment.
+- Current bundle **P2A — Design System Foundation**: production CSS tokens/fonts/base/layout, isolated localhost Lab, desktop/mobile/accessibility and Full regression. [Foundation guide](docs/redesign/review/DESIGN-SYSTEM-FOUNDATION.md), [result](P2A-RESULT.md), [evidence](evidence/p2a/design-system-foundation.json). Local 34 Node checks, 84 route cases, 11 Lab cases, both builds and actionlint pass. Visual/result approval pending; P2A changes are local and uncommitted.
+- P2A STOP boundary: no HOME Hero/portrait/Haegeum/Selected Works/final templates, navigation choreography, content migration, audio/3D/Blender, production domain/deploy or automatic P2B. Enlarged 2–3 related-subtask policy remains unchanged.
 
 <a id="knowledge-status"></a>
 
@@ -514,8 +517,9 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 | P0F knowledge wiring | APPROVED canonical / IMPLEMENTED / VERIFIED; delivery completed |
 | P1A content schema | Result + lifecycle delivery APPROVED / IMPLEMENTED / VERIFIED with neutral fixtures; template integration and migration pending |
 | P1B single-album source audit | Audit delivered via PR #2; core date/credit/final-print facts user confirmed; limited KO preparation READY WITH NON-BLOCKING GAPS; no actual record or asset migration |
-| P1C Ji Young-hee Ryu KO mapping review | Result APPROVED; original document-only review preserved in 306d757, not pushed; no authored-copy or asset publication approval |
-| P1D KO Draft Integration Bundle | IMPLEMENTED / VERIFIED LOCALLY / REVIEW READY; one private draft; 33 Fast checks + 82 browser cases and both builds pass; no public routes/assets or next Phase; result approval pending |
+| P1C Ji Young-hee Ryu KO mapping review | Result APPROVED; 306d757 delivered to main; original source/evidence preserved; no authored-copy or asset publication approval |
+| P1D KO Draft Integration Bundle | Result APPROVED / IMPLEMENTED / VERIFIED; 2b544d6 delivered, Fast CI 34002461467 success; one private draft remains excluded |
+| P2A Design System Foundation | IMPLEMENTED / VERIFIED LOCALLY / REVIEW READY; CSS foundation + dev-only Lab; visual approval pending, no HOME/P2B or P2A push/deploy |
 | Blender Capability Spike | REQUIRED BEFORE RELEVANT 3D PRODUCTION / NOT EXECUTED; Blender adoption undecided; Motion §47 owns acceptance |
 | CD Tray Lab | MANDATORY / NOT IMPLEMENTED / BLOCKING Album Detail package Quality Approved until its gate passes |
 | Haegeum 3D master | FUTURE EXPERIMENT / HIGH PRIORITY / NOT IMPLEMENTED; NOT BLOCKING first release, not disposable optional decoration; Motion §48 |

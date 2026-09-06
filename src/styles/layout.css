@@ -1,0 +1,28 @@
+/* Page-level primitives do not force a centered max-width or own any HOME composition. */
+.page-frame { padding-inline: var(--safe-gutter-start) var(--safe-gutter-end); }
+.editorial-grid {
+  --grid-columns: 4;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  gap: var(--grid-gap);
+}
+.editorial-grid > * { min-inline-size: 0; }
+/* Opt in per item. Mobile placement is explicit and independent of wide-screen placement. */
+.grid-item { grid-column: var(--column-mobile, 1 / -1); }
+@media (min-width: 60rem) {
+  .editorial-grid { --grid-columns: 12; }
+  .grid-item { grid-column: var(--column-wide, 1 / -1); }
+}
+.reading-measure { max-inline-size: var(--reading-width); }
+.reading-measure:lang(ko) { max-inline-size: var(--reading-width-ko); word-break: keep-all; overflow-wrap: anywhere; }
+.section-space { padding-block: var(--section-space); }
+.flow > * + * { margin-block-start: var(--flow-space, var(--space-4)); }
+/* Direct child of page-frame: avoids 100vw scrollbar overflow. */
+.full-bleed { margin-inline: calc(-1 * var(--safe-gutter-start)) calc(-1 * var(--safe-gutter-end)); }
+.overlap-plane { display: grid; isolation: isolate; }
+.overlap-plane > * { grid-area: 1 / 1; min-inline-size: 0; }
+.breakout { margin-inline: calc(-1 * var(--breakout-start, 0px)) calc(-1 * var(--breakout-end, 0px)); }
+.hairline { margin: 0; border: 0; border-block-start: var(--hairline) solid var(--line-color); }
+/* Decorative only. Essential input boundaries use a contrast-checked foreground instead. */
+.two-line { display: grid; gap: var(--line-pair-gap); color: var(--line-color); }
+.two-line::before, .two-line::after { content: ''; border-block-start: var(--hairline) solid currentColor; }

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="lab-identity" content="P2A_DESIGN_SYSTEM_LAB_ONLY" />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/lab.css" />
+    <title>P2A · Design System Lab</title>
+  </head>
+  <body>
+    <a class="skip-link text-action" href="#specimen">본문으로 건너뛰기</a>
+    <div class="lab-sheet page-frame">
+      <header class="lab-masthead">
+        <p class="type-micro label-caps" lang="en">Cho Youn Kyoung / V2</p>
+        <h1 class="type-ui" lang="en">Design foundation</h1>
+        <p class="type-micro numerals" lang="en">P2A · Development specimen</p>
+      </header>
+      <main id="specimen" tabindex="-1">
+        <section id="typography" class="lab-section" aria-labelledby="type-label">
+          <h2 id="type-label" class="type-micro label-caps" lang="en">01 — Type &amp; language</h2>
+          <div class="editorial-grid lab-type-grid">
+            <div class="grid-item lab-english flow" lang="en">
+              <p class="type-display" data-font="display">Line, space<br />&amp; resonance.</p>
+              <p class="type-micro">Cormorant Garamond · Display / 400</p>
+            </div>
+            <div class="grid-item lab-korean flow">
+              <p class="type-display-ko" data-font="korean">선과 여백,<br />그 사이의 울림.</p>
+              <p class="type-micro" lang="en">Noto Serif KR · Korean display / 400</p>
+            </div>
+          </div>
+          <div class="two-line lab-type-rule" aria-hidden="true"></div>
+          <div class="editorial-grid lab-reading-grid">
+            <div class="grid-item lab-body-ko flow reading-measure">
+              <p class="type-micro label-caps" lang="en">Body / Noto Sans KR</p>
+              <p class="type-body" data-font="body">선은 공간을 나누고, 여백은 읽는 속도를 만든다. 충분한 간격과 또렷한 글자는 작은 화면에서도 차분하게 이어진다.</p>
+            </div>
+            <div class="grid-item lab-body-en flow reading-measure" lang="en">
+              <p class="type-micro label-caps">Body / English</p>
+              <p class="type-body">A line gives structure. Space lets the eye rest. Typography holds its own rhythm, from a large display to the smallest piece of information.</p>
+            </div>
+            <div class="grid-item lab-meta flow">
+              <p class="type-micro label-caps" lang="en">Metadata / UI / micro</p>
+              <p class="type-metadata numerals" data-contrast="muted">2026.09.06 · SEOUL<br />자료 표기 · 6 items</p>
+              <p class="type-ui">기록 보기 <span aria-hidden="true">↗</span></p>
+              <p class="type-micro label-caps" lang="en">Static color.<br />Dynamic composition.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="lab-section" aria-labelledby="palette-label">
+          <h2 id="palette-label" class="type-micro label-caps" lang="en">02 — Palette &amp; contrast</h2>
+          <dl class="lab-palette">
+            <div><dt><span style="--swatch: var(--color-canvas)" aria-hidden="true"></span>Canvas</dt><dd>#F4F0E8</dd></div>
+            <div><dt><span style="--swatch: var(--color-surface)" aria-hidden="true"></span>Surface</dt><dd>#FAF8F3</dd></div>
+            <div><dt><span style="--swatch: var(--color-ink)" aria-hidden="true"></span>Ink</dt><dd>#171715</dd></div>
+            <div><dt><span style="--swatch: var(--color-charcoal)" aria-hidden="true"></span>Charcoal</dt><dd>#2B2A27</dd></div>
+            <div><dt><span style="--swatch: var(--color-muted)" aria-hidden="true"></span>Decorative muted</dt><dd>#77736C</dd></div>
+            <div><dt><span style="--swatch: var(--color-muted-text)" aria-hidden="true"></span>Text muted</dt><dd>#6D6962</dd></div>
+            <div><dt><span style="--swatch: var(--color-hairline)" aria-hidden="true"></span>Hairline</dt><dd>#D8D1C6</dd></div>
+            <div><dt><span style="--swatch: var(--color-accent)" aria-hidden="true"></span>Accent</dt><dd>#9A8164</dd></div>
+            <div><dt><span style="--swatch: var(--color-dark-stage)" aria-hidden="true"></span>Dark Stage</dt><dd>#151513</dd></div>
+          </dl>
+          <div class="lab-contrast-samples">
+            <p class="type-metadata" data-contrast="canvas">작은 정보도 선명하게. / Canvas · muted text</p>
+            <p class="type-metadata lab-surface" data-contrast="surface">작은 정보도 선명하게. / Surface · muted text</p>
+          </div>
+        </section>
+
+        <section class="lab-section" aria-labelledby="layout-label">
+          <h2 id="layout-label" class="type-micro label-caps" lang="en">03 — Grid, space &amp; structure</h2>
+          <div class="editorial-grid lab-column-guide" aria-hidden="true">
+            <span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span>
+            <span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span>
+          </div>
+          <div class="editorial-grid lab-placement">
+            <div class="grid-item lab-placement-copy flow">
+              <p class="type-display-ko">비워 두는 자리.</p>
+              <p class="type-metadata">넓은 화면은 12열, 작은 화면은 4열.<br />읽기 순서를 지키며 위치와 간격을 다시 잡는다.</p>
+            </div>
+            <figure class="grid-item lab-object overlap-plane" aria-label="Controlled overlap and object breakout specimen">
+              <div class="lab-object-plane" aria-hidden="true"></div>
+              <figcaption class="type-micro label-caps" lang="en">Object / breakout</figcaption>
+              <div class="two-line" aria-hidden="true"></div>
+            </figure>
+          </div>
+          <div class="lab-spacing" aria-label="Spacing scale in pixels at default text size">
+            <span style="--sample-space: var(--space-1)">8</span><span style="--sample-space: var(--space-2)">12</span>
+            <span style="--sample-space: var(--space-3)">16</span><span style="--sample-space: var(--space-4)">24</span>
+            <span style="--sample-space: var(--space-5)">32</span><span style="--sample-space: var(--space-6)">48</span>
+            <span style="--sample-space: var(--space-7)">64</span><span style="--sample-space: var(--space-8)">96</span>
+            <span style="--sample-space: var(--space-9)">128</span><span style="--sample-space: var(--space-10)">160</span>
+          </div>
+          <p class="type-micro lab-layout-caption" lang="en">Full bleed below · safe gutters inside · no fixed content container</p>
+        </section>
+
+        <section class="dark-stage full-bleed page-frame lab-stage" aria-labelledby="stage-label">
+          <h2 id="stage-label" class="type-micro label-caps" lang="en">04 — Dark Stage</h2>
+          <div class="editorial-grid">
+            <p class="grid-item lab-stage-type type-display" lang="en">A quieter<br />interval.</p>
+            <div class="grid-item lab-stage-copy flow">
+              <p class="type-lead">충분한 여백 위에<br />남는 소리.</p>
+              <p class="type-metadata" data-contrast="dark">Light text · same hierarchy.<br />한정된 어두운 무대.</p>
+              <a class="text-action" href="#typography">타이포그래피로 <span aria-hidden="true">↑</span></a>
+            </div>
+          </div>
+          <div class="two-line" aria-hidden="true"></div>
+        </section>
+
+        <section class="lab-section" aria-labelledby="action-label">
+          <h2 id="action-label" class="type-micro label-caps" lang="en">05 — Actions &amp; keyboard</h2>
+          <div class="editorial-grid lab-action-grid">
+            <div class="grid-item lab-action-copy flow reading-measure">
+              <p class="type-lead">작은 동작도 분명하게.</p>
+              <p class="type-body">본문의 <a href="#typography">밑줄 링크</a>와 독립된 동작을 구분한다. Tab 키로 초점을 확인하고, 입력한 문구를 초기화할 수 있다.</p>
+              <details><summary class="text-action">접근성 확인 안내</summary><p class="type-metadata">초점은 밝고 어두운 배경에서 모두 보인다. Reduced motion에서는 링크 전환이 즉시 적용된다.</p></details>
+            </div>
+            <form class="grid-item lab-form flow">
+              <label class="type-ui" for="sample-text">입력 표본</label>
+              <input id="sample-text" name="sample-text" value="여백과 울림" />
+              <div class="lab-actions">
+                <button class="text-action" type="reset">값 초기화 <span aria-hidden="true">↺</span></button>
+                <button class="text-action" type="button" disabled>사용 불가</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </main>
+      <footer class="lab-footer type-micro" lang="en">Foundation specimen · no production content · no HOME composition</footer>
+    </div>
+  </body>
+</html>

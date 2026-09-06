@@ -1,0 +1,25 @@
+.type-display {
+  font-family: var(--font-display);
+  font-size: var(--display-xl);
+  font-weight: 400;
+  line-height: var(--leading-display);
+  letter-spacing: -.02em;
+  overflow-wrap: anywhere;
+}
+.type-display-ko {
+  font-family: var(--font-display-ko);
+  font-size: var(--display-ko);
+  font-weight: 400;
+  line-height: var(--leading-display-ko);
+  letter-spacing: -.025em;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.type-body { font-family: var(--font-body); font-size: var(--body); line-height: var(--leading-body); }
+.type-lead { font-family: var(--font-body); font-size: var(--body-large); line-height: var(--leading-body); }
+.type-ui { font-family: var(--font-ui); font-size: var(--ui); line-height: 1.5; }
+.type-metadata { font-family: var(--font-metadata); font-size: var(--metadata); color: var(--text-secondary); line-height: 1.6; }
+.type-micro { font-family: var(--font-metadata); font-size: var(--micro); color: var(--text-secondary); line-height: 1.6; }
+/* English labels only: never apply uppercase tracking to a Korean sentence. */
+.label-caps { letter-spacing: .1em; text-transform: uppercase; }
+.numerals { font-variant-numeric: lining-nums tabular-nums; }

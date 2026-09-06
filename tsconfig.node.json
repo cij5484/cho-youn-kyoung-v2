@@ -23,10 +23,12 @@
   },
   "include": [
     "vite.config.ts",
+    "vite.lab.config.ts",
     "config/**/*.ts",
     "react-router.config.ts",
     "playwright.config.ts",
     "playwright.pages.config.ts",
+    "playwright.design-system.config.ts",
     "tests/**/*.ts"
   ]
 }

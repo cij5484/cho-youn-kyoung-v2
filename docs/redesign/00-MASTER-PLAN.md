@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 00 — REDESIGN MASTER PLAN
 
-**Version:** 1.13\
-**Status:** Approved Planning Baseline — P1C result approved; P1D private KO draft bundle authorized; enlarged bounded-task policy approved 2026-09-06; public product implementation pending\
+**Version:** 1.14\
+**Status:** Approved Planning Baseline — P1C/P1D approved and delivered; P2A Design System Foundation REVIEW READY; enlarged bounded-task policy retained; HOME/product visual approval pending\
 **Legacy Repository:** `cij5484/cho-youn-kyoung`  
 **Target Repository:** `cij5484/cho-youn-kyoung-v2`  
 **Final Production Domain:** `https://choyounkyoung.com`  
@@ -918,5 +918,6 @@ See [review/ROUTING-ARCHITECTURE-DECISION.md](review/ROUTING-ARCHITECTURE-DECISI
 Actual user-approved sequence: P0B local spike, P0C real Pages/CI and architecture decision, P0D locale contract, P0E CI/delivery, then P0F documentation wiring only. P0E Fast/Full and explicit approved-SHA deployment remain the current contract. Root-mode testing must not change the operating custom domain during P0. Actual domain/HTTPS cutover is P14.
 
 Do not fall back to HashRouter. P0A–E, P0F and P1A lifecycle/delivery completed under separate approvals.
-P1B audit was delivered and P1C mapping is approved. The current P1D scope is one private KO draft integration
-bundle; current result is in HANDOFF. No public product/Blender/3D work or deployment is authorized by that scope.
+P1B audit was delivered; P1C/P1D are approved and delivered through main 2b544d6 with successful Fast CI.
+The explicitly authorized P2A Design System Foundation is REVIEW READY; see HANDOFF and P2A result.
+No HOME Hero, P2B, public record release, Blender/3D or deployment is authorized by that foundation scope.

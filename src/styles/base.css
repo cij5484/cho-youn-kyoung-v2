@@ -1,0 +1,78 @@
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-block: var(--space-4);
+}
+body {
+  margin: 0;
+  min-inline-size: 0;
+  min-block-size: var(--viewport-stable);
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--body);
+  font-weight: 400;
+  line-height: var(--leading-body);
+  font-kerning: normal;
+}
+#root, main { min-inline-size: 0; }
+:where(h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd) { margin: 0; }
+:where(h1, h2, h3, h4, h5, h6) { font-size: var(--heading); font-weight: 500; line-height: 1.4; }
+:where(p, li, dd) { overflow-wrap: anywhere; }
+:where(img, picture, video, canvas, svg) { display: block; max-inline-size: 100%; }
+:where(img, video) { block-size: auto; }
+:where(iframe) { border: 0; max-inline-size: 100%; }
+[hidden] { display: none !important; }
+:where(button, input, select, textarea) { font: inherit; color: inherit; }
+:where(button, summary, input, select, textarea) { min-block-size: var(--touch-target); }
+:where(button, summary) { cursor: pointer; }
+:where(button) { background: transparent; border: 0; border-radius: 0; padding: var(--space-1) var(--space-2); }
+:where(button:disabled) { cursor: not-allowed; color: var(--text-secondary); }
+:where(a) {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .2em;
+  text-decoration-skip-ink: auto;
+}
+:where(a:hover) { text-decoration-thickness: 2px; }
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 4px;
+}
+::selection { background: var(--color-ink); color: var(--color-canvas); }
+.dark-stage ::selection { background: var(--color-canvas); color: var(--color-ink); }
+.text-action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-inline-size: var(--touch-target);
+  min-block-size: var(--touch-target);
+  padding: var(--space-1) 0;
+  font-family: var(--font-ui);
+  font-size: var(--ui);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .35em;
+  transition: text-underline-offset var(--action-duration) var(--action-ease);
+}
+.text-action:hover { text-underline-offset: .5em; }
+.text-action:disabled { text-decoration-style: dotted; }
+.skip-link { position: absolute; inset-inline-start: var(--safe-gutter-start); inset-block-start: var(--space-3); z-index: 10; }
+.skip-link:not(:focus) { clip-path: inset(50%); inline-size: 1px; block-size: 1px; overflow: hidden; white-space: nowrap; }
+.skip-link:focus { padding: var(--space-2); background: var(--background); }
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within { scroll-behavior: auto; }
+  /* No generic reveal utility. Later motion owners still require their own static fallback. */
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0ms !important;
+    transition-delay: 0ms !important;
+  }
+}
+@media (forced-colors: active) {
+  :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible { outline-color: Highlight; }
+}
