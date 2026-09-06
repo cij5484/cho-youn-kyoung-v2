@@ -1,20 +1,22 @@
 # Implementation Task Protocol — mandatory bounded work
 
-Revision 1.19 · 2026-09-06 · P2D delivered; P2E visual approved / delivery gate before P2F; enlarged bundle and terminal STOP retained.
+Revision 1.21 · 2026-09-06 · P2F user QUALITY APPROVED / FROZEN; P2G closeout then SOUND only; enlarged coherent bundle and terminal STOP retained.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
 
-**PLAN → SUBTASK A → SUBTASK B → SUBTASK C if tightly related → FULL VALIDATION → REPORT → STOP → USER APPROVAL**
+**PLAN → 4–6 TIGHTLY RELATED SUBTASKS → FULL VALIDATION → REPORT → STOP → USER APPROVAL**
 
-The user revised task size on 2026-09-06: about 2.5–3× the former microtask baseline. A bundle contains 2–3
-strongly related subtasks under one objective/owner, aiming for a fully verifiable result in roughly 60–90 minutes.
-Do not fill time artificially or drop checks to fit a deadline. Approval of the concrete bundle authorizes its A/B/C;
+The latest user revision on 2026-09-06 enlarges the previous bundle about 2×. A coherent bundle contains 4–6
+strongly related subtasks, aiming for a fully verifiable result in roughly 120–180 minutes.
+Do not fill time artificially or drop checks to fit a deadline. Approval of the concrete bundle authorizes its stated subtasks;
 do not introduce intermediate approval pauses. Plan their sequence, file/behavior scope, inputs, acceptance checks,
 full validation and rollback before edits. FULL VALIDATION covers all applicable checks, including Fast/Full below.
 Do not mix unrelated subsystems, or combine visual design, 3D and content migration to increase volume.
 Existing small queue entries can be bundled only under these constraints. Cross-Phase automation, whole HOME,
-multiple unrelated pages, cross-owner 3D edits and skipping quality/freeze gates remain prohibited.
+multiple unrelated pages, cross-owner 3D edits and skipping quality/freeze gates remain prohibited. Architecture
+changes need separate approval; major 3D remains in smaller units. Unexpected complexity or a direction choice
+requires STOP. User visual approval is required before proceeding to the next major scene.
 
 Every implementation bundle requires explicit user approval. Overall direction approval, a completed test, a proposed next task, or a phase title does not authorize the next bundle. Never execute several phases, several pages, the whole HOME, or multiple 3D subsystems automatically in one long session. A bundle can still require a split if its file/behavior scope becomes too broad.
 
@@ -50,7 +52,7 @@ Do not install dependencies again for every small task if the tested lockfile/en
 | Gate | Command / owner | Required work |
 |---|---|---|
 | Fast | `npm.cmd run gate:fast` | type-check → lint → locale/metadata, navigation and content unit contracts → placement contracts → root production build/prerender/placement → `test:content:visibility` and `test:design-system:artifacts` on that fresh artifact |
-| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → 84 route/browser cases over both strict static hosts → 11 development-only Design System Lab cases → 26 canonical Bold Editorial Navigation Lab cases → 44 single-B Hero cases (22 Chromium / 22 WebKit) → 26 Haegeum cases (13 each engine) |
+| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → 84 route/browser cases over both strict static hosts → 11 development-only Design System Lab cases → 26 canonical Bold Editorial Navigation Lab cases → 44 single-B Hero cases (22 Chromium / 22 WebKit) → 32 Haegeum cases (16 each engine) |
 | Live deployment | `npm.cmd run test:pages` with actual `EXPECTED_DEPLOY_SHA` | 18-route JS on/off metadata, refresh/history, variants, actual HTTP 404, artifact identity/hash/MIME/cache |
 | Workflow configuration | actionlint 1.7.12 | YAML, expressions, reusable workflow input/job wiring; Linux also checks embedded shell |
 
@@ -71,7 +73,7 @@ missing/pending checks on documentation-only PRs. A branch push plus an open PR 
 concurrency cancels superseded runs on the same event ref. No repository ruleset is silently changed.
 
 Full runs through an explicit pages.yml workflow_dispatch. It repeats Fast on that exact revision,
-then checks both static bases, all 84 route/browser cases and four Lab suites (11 foundation + 26 navigation + 44 Hero + 26 Haegeum). A failed type/lint/unit/build/placement/browser
+then checks both static bases, all 84 route/browser cases and four Lab suites (11 foundation + 26 navigation + 44 Hero + 32 Haegeum). A failed type/lint/unit/build/placement/browser
 step fails the job; upload/deploy depend on that success. Full without deployment retains test evidence
 but never uploads the special Pages artifact. Only successful Full with deploy=true uploads static/.
 
@@ -353,6 +355,27 @@ At that report: **VISUAL DIRECTION CANDIDATES READY FOR USER SELECTION**. The us
 P2C and selected **B — Bold Cropped**. A/C remain comparison evidence only. No P2C commit/push/deploy or next HOME task. Sources and frozen P2B files remain unchanged.
 `test:hero` owns port 4177. Full includes the new Hero cases; Fast remains browser-free and never deploys.
 
+## P2F — Hero → Haegeum Refinement, Quality Gate & Device QA — QUALITY APPROVED / FROZEN
+
+Subsequent user approval (P2G): no special visual problems; composition/motion frozen. Portrait/Retina, authentic
+macro/full replacement, phones, VoiceOver and thermal QA remain non-blocking. Native Safari settlement is still
+unverified future QA, never implied passed. Historical result/evidence below are immutable. P2G must first deliver
+P2F with logical commit/main push/exact-SHA Fast CI; any delivery problem requires STOP before SOUND.
+
+Precondition fulfilled: reviewed P2E feature `0873b75` and CI `c73a3be` pushed to main; exact-SHA Fast CI 34029859649
+SUCCESS; clean main/origin. No delivery problem remains. P2E direction is user-approved and canonical.
+A: existing timeline/crop/mask/depth and body-to-full climax → B: independent mobile/line/type and provisional asset
+configuration → C: desktop/laptop/mobile, Safari, reverse/fast/menu-interruption, reduced/failure, Full/evidence/report.
+Scope: `src/haegeum`, its development Lab/related tests, current HOME/Motion/Responsive/Accessibility owners and P2F
+result/evidence. Preserve initial B, frozen P2B, all historical evidence and masters. Rollback: `c73a3be` plus ignored
+`.checkpoints/p2f-before/` (340-file clean snapshot). No new dependency, public HOME or following scene.
+
+Quality criteria: continuous transformation, intentional independent mobile framing, memorable purposeful motion,
+complete-object resolution, reverse/fast stability and preserved accessibility. Functional validation alone does not
+grant user quality approval. Report REVIEW READY / freeze candidate with exact QA scope. Provisional images and
+unavailable physical phones may remain explicitly non-blocking; never claim actual device coverage from emulation.
+User requests 15 report fields. **REPORT → STOP → USER APPROVAL**; no SOUND/WORKS/3D/next scene.
+
 ## P2E — Hero → Haegeum Transition Prototype Bundle — visual approved / delivery authorized
 
 P2D delivered as `d758ee10aceaa5fc037c82e4d3fdb108068aecea`; [Fast CI 34026552008](https://github.com/cij5484/cho-youn-kyoung-v2/actions/runs/34026552008) SUCCESS, main/origin equal and tree clean before this task.
@@ -446,8 +469,8 @@ new dependency, commit/push or deployment. This refinement is one bounded task, 
 
 ## Chunking the rest of PHASE 1–14
 
-The sequence in each row is a planning queue. Under the 2026-09-06 revision, 2–3 strongly related entries within
-one owner may form an explicitly approved 60–90 minute bundle; unrelated entries remain separate. Write the task
+The sequence in each row is a planning queue. Under the latest 2026-09-06 revision, 4–6 strongly related entries within
+one coherent objective may form an explicitly approved 120–180 minute bundle; unrelated entries remain separate. Write the task
 card with actual scope, validation and rollback. REPORT → STOP → APPROVAL applies at the bundle boundary,
 not between its already-authorized subtasks. A Phase title never authorizes an automatic queue run.
 
@@ -477,4 +500,4 @@ The document contracts and bounded starter task are defined; later decisions are
 This is not authorization to execute P0A, not proof of prerender suitability, and not approval to run P0A–F continuously.
 
 The above readiness was the initial planning snapshot. P0F and P1A lifecycle/delivery completed; P1B audit was
-subsequently delivered, and P1C/P1D are approved and delivered. P2A was subsequently visually approved and delivered. P2D result is now approved with provisional portraits. P2D is delivered and P2E subsequently visually approved. Deliver P2E, verify main/Fast/clean tree, then only the expressly authorized P2F refinement/quality/device bundle. **P2F report → STOP → user approval.**
+subsequently delivered, and P1C/P1D are approved and delivered. P2A was subsequently visually approved and delivered. P2D result is now approved with provisional portraits. P2D is delivered and P2E subsequently visually approved. P2E delivery/main/Fast/clean-tree gate is complete. P2F is now user QUALITY APPROVED / FROZEN; remaining device/assets QA does not revoke that approval. Only P2G closeout followed by SOUND is authorized, with delivery failure STOP and terminal SOUND review/report STOP.

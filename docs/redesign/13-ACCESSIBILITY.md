@@ -104,7 +104,7 @@ Simplify:
 
 Do not hide content or remove hierarchy.
 
-P2E preserves HEAD/PEG → STRINGS/BOW → RESONANCE → FULL HAEGEUM as ordered semantic static figures when motion is reduced, text reflows or continuation imagery fails. Generated reference provenance remains visible and in alt text. The [P2E guide](review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md) records keyboard/skip/locale/failure checks and remaining physical-device/assistive-technology QA.
+P2E preserves HEAD/PEG → STRINGS/BOW → RESONANCE → FULL HAEGEUM as ordered semantic static figures when motion is reduced, text reflows or continuation imagery fails. Generated reference provenance remains visible and in alt text. P2F shows the disclosure from the first incoming full-image aperture, and derives alt/disclosure/intrinsic dimensions from one asset configuration; authenticated replacement is tested with a neutral fixture, never a fabricated documentary asset. The [P2E guide](review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md) records keyboard/skip/locale/failure checks and remaining physical-device/assistive-technology QA.
 
 ---
 

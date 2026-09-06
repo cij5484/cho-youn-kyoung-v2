@@ -1,6 +1,6 @@
 # Cho Youn Kyoung Website V2 — 검토 및 구현 제안
 
-검토일: 2026-09-06 · Revision 1.21 · 상태: **P2A visual 승인·main delivery 완료 / P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN & delivered / P2C B canonical APPROVED / P2D APPROVED & DELIVERED / P2E VISUAL APPROVED / DELIVERY → P2F ONLY**. HOME V2.1 및 P0 routing/locale/CI 계약은 유지한다. 현재 결과·승인 경계는 [HANDOFF](../../../CODEX-HANDOFF.md)를 따른다.
+검토일: 2026-09-06 · Revision 1.23 · 상태: **P2A visual 승인·main delivery 완료 / P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN & delivered / P2C B canonical APPROVED / P2D APPROVED & DELIVERED / P2E VISUAL APPROVED & DELIVERED / P2F QUALITY APPROVED / FROZEN · P2G delivery gate then SOUND only**. HOME V2.1 및 P0 routing/locale/CI 계약은 유지한다. 현재 결과·승인 경계는 [HANDOFF](../../../CODEX-HANDOFF.md)를 따른다.
 
 현재 정본은 갱신된 MASTER의 PHASE 0–14다. React Router + Static Prerender는 사용자가 지정한 P0C 실제 Pages gate 통과로 확정했다. P0D neutral locale/hreflang 계약은 두 base에서 통과했고 실제 번역·제품 구현과 운영 SEO는 별도 gate다. 이 문서는 실제 구현 승인이 아니다.
 
@@ -401,8 +401,8 @@ Gate 기록 양식: 작업 ID, 기준 commit/artifact, 환경, 수행 항목, �
 ## 15. PHASE 0–14 Implementation Plan
 
 단계 번호는 최신 MASTER §35와 HANDOFF §21의 **canonical PHASE 0–14**를 따른다. PHASE는 계획 그룹이며 자동 실행 단위가 아니다.
-2026-09-06 사용자 개정에 따라 **PLAN → SUBTASK A → SUBTASK B → SUBTASK C if tightly related → FULL VALIDATION → REPORT → STOP → USER APPROVAL**를 따른다.
-기존보다 약 2.5–3배 큰, 한 목표/owner 안의 강결합 2–3개 subtask와 약 60–90분 검증 가능 분량이 기준이다.
+2026-09-06 사용자 개정에 따라 **PLAN → 4–6 TIGHTLY RELATED SUBTASKS → FULL VALIDATION → REPORT → STOP → USER APPROVAL**를 따른다.
+직전 확대 bundle보다 약 2배 큰, 하나의 coherent bundle 안의 강결합 4–6개 subtask와 약 120–180분 검증 가능 분량이 기준이다. Architecture 변경은 별도 approval, major 3D는 작은 단위, 예상 밖 복잡성·방향 결정은 STOP하며 주요 scene 간에는 사용자 시각 승인이 필요하다.
 승인된 bundle 내부에서는 연속 수행하되 unrelated subsystem이나 시각 디자인/3D/콘텐츠 migration을 무리하게 섞지 않는다.
 다음 bundle/Phase 자동 진행, 전체 HOME 및 서로 다른 3D owner gate 생략은 여전히 금지다.
 
@@ -591,4 +591,12 @@ P1C 승인 후 P1D에서 그 한 건만 private draft로 등록·검증했고 �
 완료된 한 단위 **P2D — Bold Cropped Hero Refinement & Device QA Bundle**: A 원본 후보 감사·선택 B typography/crop/intersection/two lines 및 독립 mobile refinement → B native first-scroll/reverse·고정 Bold navigation·reduced/failure 보완 → C Full·실제 Mac Safari smoke·시각 evidence와 12-field 보고 → **STOP**. `src/hero`의 단일 B를 Lab에서만 사용하며 public HOME/다음 scene은 구현하지 않는다. 새 폴더 42장은 모두 약 1.57MP로 큰 원본을 대체하지 못했다. [Hero guide](HOME-HERO-VISUAL-PROTOTYPE.md), [P2D 결과](../../../P2D-RESULT.md)가 검증과 상태를 소유한다. 당시 **REVIEW READY**로 보고했고 사용자가 이후 승인했다. Composition **APPROVED**; Bold Cropped visual direction **APPROVED**; motion / interaction **LOCALLY VERIFIED**; portrait assets **PROVISIONAL**; final Retina quality **PENDING HIGH-RES SOURCE**. The current approximately 1024×1536 pair does not block subsequent authorized HOME work. When larger originals of attachments 3 and 7 arrive, replace their asset references and repeat Hero Retina QA. Physical-mobile and final HOME QA remain separate. P2D delivery 후 P2E 한 단위만 진행한다. 고해상도 원본·물리적 휴대폰·VoiceOver·열/성능 및 HOME 전체 entrance/조합 QA는 남는다. commit/push/deploy 또는 다음 bounded task를 자동 진행하지 않는다.
 
 
-P2D는 `d758ee1` main delivery / Fast CI 34026552008 SUCCESS로 완료했다. P2E 한 단위에서 동일 Hero stage→해금 4단계, 155svh 연속 scroll, 독립 mobile, reduced/static/keyboard/locale/failure를 검증했다. Full 38 Node +191 browser 통과. [P2E 결과](../../../P2E-RESULT.md)와 [guide](HOME-HAEGEUM-TRANSITION-PROTOTYPE.md)를 따른다. 실사 매크로 해상도·AI final reference 교체·physical device QA는 구분된 미완료 gate다. **P2E visual direction APPROVED**. Review/deliver P2E with main push and Fast CI; proceed only to P2F after clean delivery. Any delivery problem requires STOP before refinement. SOUND/WORKS/3D/다음 Phase를 시작하지 않는다.
+P2D는 `d758ee1` main delivery / Fast CI 34026552008 SUCCESS로 완료했다. P2E 한 단위에서 동일 Hero stage→해금 4단계, 155svh 연속 scroll, 독립 mobile, reduced/static/keyboard/locale/failure를 검증했다. Full 38 Node +191 browser 통과. [P2E 결과](../../../P2E-RESULT.md)와 [guide](HOME-HAEGEUM-TRANSITION-PROTOTYPE.md)를 따른다. 실사 매크로 해상도·AI final reference 교체·physical device QA는 구분된 미완료 gate다. **P2E visual direction APPROVED**. P2E feature `0873b75` / CI `c73a3be` main delivery, exact-SHA Fast CI 34029859649 SUCCESS and clean tree were verified before P2F. SOUND/WORKS/3D/다음 Phase를 시작하지 않는다.
+
+
+P2F completed the existing sequence's timing/crop/line/type refinement, body-anchored full reveal and image
+replacement configuration. Full 38 Node +197 browser (32 Haegeum, 16 per engine). Initial B pixels and frozen
+navigation are preserved. [Result](../../../P2F-RESULT.md), [evidence](../../../evidence/p2f/README.md).
+**QUALITY APPROVED / FROZEN**, by subsequent explicit user visual approval. Native Safari settlement remains
+unverified future QA alongside authentic sources/Retina, physical phones, VoiceOver and sustained thermal checks.
+Only P2G is authorized: P2F delivery/Fast CI/clean gate, then HOME SOUND through REVIEW READY/report/STOP.

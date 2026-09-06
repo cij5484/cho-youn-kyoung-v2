@@ -225,7 +225,7 @@ If the candidate is missing or fails final-scale resolution, crop or masking qua
 
 The Hero's two-line motif is the structural bridge into the haegeum scene.
 
-P2E [development prototype](review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md) implements one shared stage and 155svh travel including the Hero exit, with separately authored mobile and a static four-stage fallback. Local verification is complete and the user approved this canonical visual direction. P2F refinement/quality/device QA follows only after P2E delivery succeeds. This is not public HOME or approval for SOUND/the next scene.
+P2E [development prototype](review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md) implements one shared stage and 155svh travel including the Hero exit, with separately authored mobile and a static four-stage fallback. Local verification is complete and the user approved this canonical visual direction. P2E delivery succeeded. P2F refines the same choreography into a body-anchored full-object pullback and independently framed mobile climax. The user subsequently approved P2F: **QUALITY APPROVED / FROZEN**. Native Safari motion remains unverified future QA; provisional sources/Retina, physical phones, VoiceOver and thermal checks are non-blocking. Public HOME is still unimplemented. P2G alone authorizes Full→SOUND after P2F delivery/CI, through REVIEW READY and STOP.
 
 The normal-motion contract is one scene transforming into the next, not Hero fade-out followed by an unrelated Haegeum fade-in:
 

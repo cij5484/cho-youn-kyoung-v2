@@ -229,3 +229,15 @@ npm run test:haegeum
 AI 생성으로 확인한 임시 editorial 자산이며 화면·alt·문서에서 공개합니다. 실제 실물/구조 자료로 취급하지 않습니다.
 Full은 기존 165 browser +26 Haegeum =191 browser와 38 Node를 검사합니다. 포트 4178 수동 서버는 테스트 전에 종료합니다.
 Lab-only, noindex, build 차단, public HOME·content·SOUND·다음 scene·3D·배포 없음. **P2E 시각 방향 승인**. main delivery/Fast/clean 확인 후 P2F refinement·quality·device QA만 승인되었으며, 완료 후 STOP합니다.
+
+
+### P2F — Hero → Haegeum refinement / quality review
+
+P2E는 feature `0873b75` / CI `c73a3be` main push 및 [Fast CI 34029859649](https://github.com/cij5484/cho-youn-kyoung-v2/actions/runs/34029859649) 성공으로 delivery 완료했습니다.
+같은 `npm run dev:haegeum` / **http://127.0.0.1:4178/** 에서 P2F를 검토합니다.
+울림통 크롭이 전체 해금으로 펼쳐지는 pullback·mask, 독립 mobile과 자산 교체 설정을 보완했습니다.
+Full: 38 Node +197 browser. [결과](P2F-RESULT.md), [시각 증거/영상](evidence/p2f/README.md),
+[실제 Safari 검증 한계](evidence/p2f/safari-device-qa.md).
+사용자가 P2F 시각 결과를 승인했습니다: **QUALITY APPROVED / FROZEN**. 기존 결과·evidence는 당시 기록을 보존합니다.
+실제 Safari motion 미검증은 future QA로 남기며, 원본/Retina·휴대폰·VoiceOver·열 검증은 non-blocking입니다.
+P2G에서 P2F commit/main push/Fast CI 성공 후 SOUND 한 장면만 REVIEW READY까지 진행하고 STOP합니다. 배포는 하지 않습니다.

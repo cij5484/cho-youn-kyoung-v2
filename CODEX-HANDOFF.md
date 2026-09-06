@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** P2A visually APPROVED and delivered to V2 main; P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN and delivered; P2C B — Bold Cropped canonical direction APPROVED; P2D APPROVED & DELIVERED with provisional portraits; P2E VISUAL DIRECTION APPROVED / DELIVERY AUTHORIZED; P2F ONLY AFTER DELIVERY GATE\
-**Revision:** 1.18 / 2026-09-06 — P2E visual approval and delivery; P2F approval boundary\
+**Status:** P2A visually APPROVED and delivered to V2 main; P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN and delivered; P2C B — Bold Cropped canonical direction APPROVED; P2D APPROVED & DELIVERED with provisional portraits; P2E VISUAL DIRECTION APPROVED & DELIVERED; P2F QUALITY APPROVED / FROZEN; P2G authorized after successful P2F delivery gate\
+**Revision:** 1.20 / 2026-09-06 — user P2F freeze and P2G bounded authorization\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 ---
@@ -430,7 +430,7 @@ Stop and report:
 [ ] No real playable source gives unavailable/disabled/coming-soon; no silent timer or false playing
 [ ] Real mobile programmatic-volume capability tested in PHASE 0 or Audio spike
 [ ] Unsupported volume gets reported capability-based UX/fallback; no forced workaround
-[ ] PLAN → SUBTASK A → SUBTASK B → SUBTASK C if tightly related → FULL VALIDATION → REPORT → STOP → USER APPROVAL
+[ ] PLAN → 4–6 TIGHTLY RELATED SUBTASKS → FULL VALIDATION → REPORT → STOP → USER APPROVAL
 [ ] Each task has one goal, limited impact/file scope, immediate validation and easy rollback
 [ ] PHASE 0 uses individually approved P0A–F; no automatic next unit
 [ ] 3D geometry/materials/camera/lighting/drag/inertia/open/tray/disc/transition are separate reviewed units
@@ -440,12 +440,12 @@ Stop and report:
 # 25. IMPLEMENTATION CHUNKING / STOP RULE
 
 Mandatory sequence:
-PLAN → SUBTASK A → SUBTASK B → SUBTASK C if tightly related → FULL VALIDATION → REPORT → STOP → USER APPROVAL.
+PLAN → 4–6 TIGHTLY RELATED SUBTASKS → FULL VALIDATION → REPORT → STOP → USER APPROVAL.
 
-User revision 2026-09-06: enlarge the former microtask size by about 2.5–3×. One approved bundle may contain
-2–3 tightly related subtasks within one objective/owner, targeting a fully verifiable result in roughly 60–90
+Latest user revision 2026-09-06: enlarge the previous bundle about 2×. One approved coherent bundle may contain
+4–6 tightly related subtasks, targeting a fully verifiable result in roughly 120–180
 minutes. This is a planning target, not mandatory elapsed time or a reason to omit checks. No new approval is
-needed between already-authorized A/B/C. Do not mix unrelated subsystems or visual design/3D/content migration.
+needed between already-authorized subtasks. Architecture changes retain a separate approval gate; major 3D stays smaller. Unexpected complexity or a direction decision requires STOP. User visual approval gates the next major scene. Do not mix unrelated subsystems or visual design/3D/content migration.
 Full validation covers the complete bundle and its applicable Fast/Full gates. Other Phase/3D owner boundaries remain.
 
 No explicit next-task approval means STOP, even when the next task is obvious or tests passed. A broad direction/plan approval does not authorize continuous execution. A failed check permits only correction within the approved bounded scope; if another subsystem must change, report and request a new bounded approval.
@@ -505,7 +505,7 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 - P2D puts the reusable single B module in `src/hero`, mounted only by `labs/hero`; tunes typography/crop/intersections/two lines and dedicated 390/320px composition; preserves frozen P2B; adds stable-viewport scroll, closed-frame forward/reverse exchange, late-image protection and no idle RAF. Further audit of 42 supplied retouched PNGs found no larger source; keep confirmed 3→7. [P2D result](P2D-RESULT.md), [guide](docs/redesign/review/HOME-HERO-VISUAL-PROTOTYPE.md), [evidence](evidence/p2d/README.md).
 - Historical P2D review checkpoint: **REVIEW READY / STOP**. Full: 38 Node + 84 route + 11 foundation + 26 navigation + 44 Hero cases (22 Chromium / 22 WebKit). Actual Mac Safari initial/menu/scroll/reverse smoke observations are separate from engine automation. Final visual/source quality, physical iPhone/Android/VoiceOver/thermal QA and broader HOME entrance remain open. No public HOME, next scene, Haegeum transition, content migration, 3D, commit/push/deploy or automatic next task.
 
-- Current user approval: Composition **APPROVED**; Bold Cropped visual direction **APPROVED**; motion / interaction **LOCALLY VERIFIED**; portrait assets **PROVISIONAL**; final Retina quality **PENDING HIGH-RES SOURCE**. The current approximately 1024×1536 pair does not block subsequent authorized HOME work. When larger originals of attachments 3 and 7 arrive, replace their asset references and repeat Hero Retina QA. Physical-mobile and final HOME QA remain separate. The authorized sequence was P2D delivery followed only by P2E Hero→Haegeum prototype; both scoped operations are now complete. P2E visual direction is now approved; deliver it and verify exact-SHA Fast/clean main before P2F. SOUND and subsequent scenes are not authorized.
+- Current user approval: Composition **APPROVED**; Bold Cropped visual direction **APPROVED**; motion / interaction **LOCALLY VERIFIED**; portrait assets **PROVISIONAL**; final Retina quality **PENDING HIGH-RES SOURCE**. The current approximately 1024×1536 pair does not block subsequent authorized HOME work. When larger originals of attachments 3 and 7 arrive, replace their asset references and repeat Hero Retina QA. Physical-mobile and final HOME QA remain separate. The authorized sequence was P2D delivery followed only by P2E Hero→Haegeum prototype; both scoped operations are now complete. P2E direction is approved and delivered (`0873b75` / `c73a3be`, Fast CI 34029859649 SUCCESS, clean main before P2F). P2F is now user QUALITY APPROVED / FROZEN. Only P2G P2F closeout followed by SOUND is authorized; SOUND must stop at REVIEW READY before any next scene.
 
 - P2D delivery completed: `d758ee1`, [Fast CI](https://github.com/cij5484/cho-youn-kyoung-v2/actions/runs/34026552008) SUCCESS; all 87 committed files and clean starting tree recorded in [receipt](evidence/p2e/delivery-p2d.json).
 - P2E completed only the Hero→Haegeum boundary/four-stage prototype. Full: 38 Node + 191 browser (84 routes, 11 foundation, 26 frozen navigation, 44 Hero, 26 Haegeum). [Guide](docs/redesign/review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md), [result](P2E-RESULT.md), [evidence](evidence/p2e/README.md). User confirmed the supplied beige image is AI generated; use is labelled provisional editorial, not documentary/geometry evidence. No SOUND or next scene. Historical P2E report/evidence are preserved; the user subsequently approved the direction and authorized delivery followed only by P2F.
@@ -538,7 +538,8 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 | P2B canonical Bold navigation | User visually APPROVED / IMPLEMENTED / VERIFIED LOCALLY / **QUALITY APPROVED FOR HERO INTEGRATION / FROZEN**; one Bold runtime, archived Refined evidence, 500ms entry / 400ms exit; `d81bdbe` delivered to main, Fast CI 34015866401 SUCCESS; Safari real-device and final HOME QA remain open; P2B delivery did not implement HOME/P2C or deploy |
 | P2C Hero & Bold Navigation prototype | User approved result and selected **B — Bold Cropped** as canonical; 3→7 pair retained; A/C comparison evidence only; delivered with P2D `d758ee1` |
 | P2D Bold Cropped refinement / device QA | Composition **APPROVED**; Bold Cropped visual direction **APPROVED**; motion / interaction **LOCALLY VERIFIED**; portrait assets **PROVISIONAL**; final Retina quality **PENDING HIGH-RES SOURCE**. Delivered `d758ee10aceaa5fc037c82e4d3fdb108068aecea`; Fast CI 34026552008 SUCCESS, clean main/origin baseline before P2E. Public HOME remains unimplemented. |
-| P2E Hero → Haegeum | **VISUAL DIRECTION APPROVED / DELIVERY AUTHORIZED**; one 155svh timeline, 26 Chromium/WebKit cases, static four-stage fallback. Real-photo macros provisional; final beige image is disclosed user-confirmed AI reference, not documentary. Commit/main push/Fast are authorized before P2F; deployment is not authorized. |
+| P2E Hero → Haegeum | **VISUAL DIRECTION APPROVED / DELIVERED**; one 155svh timeline, 26 Chromium/WebKit cases, static four-stage fallback. Real-photo macros provisional; final beige image is disclosed user-confirmed AI reference, not documentary. Delivered feature `0873b75` and CI `c73a3be`; Fast CI 34029859649 SUCCESS; no deployment. |
+| P2F Hero → Haegeum refinement | **QUALITY APPROVED / FROZEN**, explicitly approved by the user. Same 155svh sequence, independent mobile and source replacement contract. Full 38 Node +197 browser previously passed. Native Safari motion/focus/reduced settlement remains unverified future QA; no claim of phone, VoiceOver or thermal verification. Provisional portrait/macro/full sources and Retina QA are non-blocking. Logical main delivery and exact-SHA Fast CI are the first P2G gate. |
 | Blender Capability Spike | REQUIRED BEFORE RELEVANT 3D PRODUCTION / NOT EXECUTED; Blender adoption undecided; Motion §47 owns acceptance |
 | CD Tray Lab | MANDATORY / NOT IMPLEMENTED / BLOCKING Album Detail package Quality Approved until its gate passes |
 | Haegeum 3D master | FUTURE EXPERIMENT / HIGH PRIORITY / NOT IMPLEMENTED; NOT BLOCKING first release, not disposable optional decoration; Motion §48 |
@@ -557,3 +558,8 @@ The implementation goal is not:
 The implementation goal is:
 
 **“Build a new, contemporary, high-quality artist website that uses only the legacy information and assets that still deserve to survive.”**
+
+
+P2F current evidence: [result](P2F-RESULT.md), [visual index](evidence/p2f/README.md),
+[verification](evidence/p2f/verification.json), [native Safari coverage](evidence/p2f/safari-device-qa.md).
+Current authorized bundle: **P2G — P2F Closeout + HOME Sound Experience**. Review/commit/main push/Fast CI must succeed before SOUND implementation. Then audio audit, continuous Full→Sound composition, explicit LISTEN/live subtle response, mobile/accessibility/performance, Full validation/evidence/report and STOP. No WORKS or following HOME scene. Historical P2F result/evidence retain their original review status; this current user approval supersedes that pending decision.

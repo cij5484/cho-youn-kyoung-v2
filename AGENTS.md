@@ -35,14 +35,16 @@ recorded revision; current status lives in HANDOFF, delivery policy in Task Prot
 
 ## One bounded task, then STOP
 
-**PLAN → SUBTASK A → SUBTASK B → SUBTASK C if tightly related → FULL VALIDATION → REPORT → STOP → USER APPROVAL.**
+**PLAN → 4–6 TIGHTLY RELATED SUBTASKS → FULL VALIDATION → REPORT → STOP → USER APPROVAL.**
 
-User revision 2026-09-06: size a bounded task about 2.5–3× larger than the former microtask baseline.
-Bundle 2–3 strongly related subtasks under one objective and owner, aiming for a reviewable, fully validated
-result in roughly 60–90 minutes. This is a sizing target, not a requirement to fill time or skip validation at
+Latest user revision 2026-09-06: size a bounded task about 2× the previous enlarged bundle.
+Bundle 4–6 strongly related subtasks under one coherent objective, aiming for a reviewable, fully validated
+result in roughly 120–180 minutes. This is a sizing target, not a requirement to fill time or skip validation at
 a deadline. State the subtask sequence, files, inputs, validation and rollback before edits. One approval of
-that concrete bundle covers A/B/related C; do not pause for a new approval between its authorized subtasks.
-Do not combine unrelated subsystems, or mix visual design, 3D and content migration to inflate a bundle.
+that concrete bundle covers its authorized subtasks; do not pause for a new approval between its authorized subtasks.
+Do not combine unrelated pages/subsystems, or mix visual design, 3D and content migration to inflate a bundle.
+Architecture changes retain separate approval; major 3D subsystems remain smaller units. Unexpected complexity
+or a required direction choice means STOP, not scope inflation. A major scene needs user visual approval before the next.
 
 Before edits identify one objective, limited file/behavior scope, required inputs, validation and rollback.
 Preserve user changes and existing planning/review evidence. Never execute several phases, multiple pages,
@@ -67,7 +69,7 @@ claim product quality approval from a successful build or neutral fixture.
   lessons after fit review for V2 quality, architecture, performance and maintainability.
 - Preserve **Contemporary Editorial / Ivory**, **Static Color, Dynamic Composition**, and HOME V2.1's
   **Moving Editorial Poster**. Avoid generic portfolio, SaaS or template composition. The detailed design
-  direction is approved. P2A foundation is visually approved and delivered. P2B Bold navigation is **QUALITY APPROVED FOR HERO INTEGRATION / FROZEN**, implemented in a separate Lab. P2C B — Bold Cropped is now the user-selected HOME Hero canonical direction; P2D refined that single module in `src/hero`, mounted only by its development Lab; its composition is approved and motion locally verified. Portraits are provisional and final Retina QA awaits larger 3/7 sources without blocking authorized HOME work. P2D is delivered as `d758ee1`. P2E Hero→Haegeum visual direction is user APPROVED and canonical. Deliver this reviewed Lab, then only P2F refinement/quality/device QA is authorized; no following scene is authorized. A/C remain comparison evidence, with no runtime selector; the public HOME remains unimplemented. Refined is archived Lab/evidence only. Safari real-device QA and final HOME composition remain open; do not lower Bold tuning before Hero review.
+  direction is approved. P2A foundation is visually approved and delivered. P2B Bold navigation is **QUALITY APPROVED FOR HERO INTEGRATION / FROZEN**, implemented in a separate Lab. P2C B — Bold Cropped is now the user-selected HOME Hero canonical direction; P2D refined that single module in `src/hero`, mounted only by its development Lab; its composition is approved and motion locally verified. Portraits are provisional and final Retina QA awaits larger 3/7 sources without blocking authorized HOME work. P2D is delivered as `d758ee1`. P2E Hero→Haegeum visual direction is user APPROVED and canonical. It is delivered as `0873b75` / `c73a3be` with successful Fast CI. The user approved P2F without special visual concerns: Hero → Haegeum is **QUALITY APPROVED / FROZEN**. Native Safari motion settlement remains honestly unverified future QA; it does not revoke this explicit composition/motion freeze. P2G alone is authorized: P2F delivery/CI first, then HOME SOUND through REVIEW READY and STOP. Provisional sources, Retina, physical phones, VoiceOver and sustained thermal QA are non-blocking follow-ups. A/C remain comparison evidence, with no runtime selector; the public HOME remains unimplemented. Refined is archived Lab/evidence only. Safari real-device QA and final HOME composition remain open; do not lower Bold tuning before Hero review.
   Read the [foundation guide](docs/redesign/review/DESIGN-SYSTEM-FOUNDATION.md) and owning visual specs; current approval is in HANDOFF.
 - Current art/motion criterion: **BOLD, CURATED, PURPOSEFUL**. Aim for a memorable first-visit impression;
   restraint means purposeful curation, not minimal effects. Actively study and reinterpret proven interaction

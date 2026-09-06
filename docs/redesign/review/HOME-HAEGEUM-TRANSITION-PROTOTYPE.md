@@ -1,6 +1,6 @@
 # Hero → Haegeum — continuous transition prototype
 
-2026-09-06 · P2E · **VISUAL DIRECTION APPROVED / CANONICAL**. One bounded prototype, not the complete HOME.
+2026-09-06 · P2E direction APPROVED / CANONICAL · P2F QUALITY APPROVED / FROZEN (subsequent user visual approval). One bounded prototype, not the complete HOME.
 Owners: [HOME §§5–6](../04-HOME.md), [Motion](../03-MOTION-SYSTEM.md), [Responsive](../11-RESPONSIVE.md),
 [Accessibility](../13-ACCESSIBILITY.md), [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md).
 [Approved Hero](HOME-HERO-VISUAL-PROTOTYPE.md) and frozen navigation are the starting point.
@@ -40,11 +40,11 @@ no simulated playback, free oscillation or claim to measure physical vibration.
 | HEAD / PEG · LINE | Photo 7 remains in the Hero's original plane; its side/back field narrows as type moves out. The pair aligns beside the visible strings below the pegs. | Authentic confirmed attachment 7; provisional resolution |
 | STRINGS / BOW · TENSION | The photographic opening spreads horizontally along the bow guide as the portrait field leaves; the current keyword is mask revealed. | Supplied real playing photo (37); actual bow/string contact |
 | RESONANCE | The **same playing image** changes focal position/scale toward the body. The two guides reorient with that detail. | Actual visible resonator material, not generated macro; visibly soft at large desktop scale |
-| FULL HAEGEUM | Body field and guide hand over to a vertical reveal; the full object resolves beside large typography. | User-confirmed AI-generated beige reference; visible and semantic disclosure, **PROVISIONAL / NOT DOCUMENTARY** |
+| FULL HAEGEUM | The resonator crop contracts onto a shared body anchor while the full image pulls back 2.7×→1× (mobile 2.1×→1×), inside an upward-expanding mask. The pair lengthens toward the string axis and the keyword settles above the body. | User-confirmed AI-generated beige reference; visible and semantic disclosure, **PROVISIONAL / NOT DOCUMENTARY** |
 
 Only the current keyword is visible in normal motion. Its own mask closes/opens around boundaries. No global
 scene opacity crossfade is used. Desktop photo/type boundaries share framing; final beige image uses Ink lettering
-for legibility. The initial approved B frame is preserved. Full-stage AI provenance is visible, not only hidden in docs.
+for legibility. The initial approved B frame is preserved. AI provenance appears from the first visible incoming full-image aperture, including before the FULL keyword, and remains in the semantic fallback.
 
 Mobile below 640px has separate crop boxes, focal targets, image scales, line coordinates and type positions.
 Keywords occupy upper breathing room; the bow keeps its horizontal contact inside the vertical page. There is no
@@ -101,3 +101,65 @@ P2E uses native scroll and the existing RAF controller. No new AI image was gene
 The user approved P2E visual direction after its recorded report/STOP. P2E delivery is authorized; P2F refinement/quality/device QA is the only next bundle after successful delivery. Physical mobile, complete Safari device walkthrough,
 real macro/isolated-photo replacement and final motion polish remain distinct. No SOUND, WORKS, Album 3D,
 Performance/About, Blender/Haegeum model, content migration, production domain, deployment or next phase.
+
+
+## P2F timing and visual resolution
+
+The user approved the P2E direction and authorized **only P2F — Hero → Haegeum Refinement, Quality Gate & Device QA**.
+P2E delivery: feature `0873b75`, CI wiring `c73a3becac3702845d8c410e7ced94789d41ee62`,
+[Fast CI 34029859649](https://github.com/cij5484/cho-youn-kyoung-v2/actions/runs/34029859649) SUCCESS;
+clean main/origin verified before this bundle. Historical P2E report and evidence are preserved.
+
+The 155svh native travel budget, approved initial B, 3→7 closed-frame exchange and frozen Bold MENU are retained.
+Timings below are normalized **scroll positions**, not autoplay durations or forced dwell times:
+
+| Relationship | Interval / change |
+|---|---|
+| Name depth / pointer release | .17–.36; original unequal CHO/YOUN/KYOUNG displacement preserved |
+| Portrait → head framing | .23–.40; slightly longer arrival; desktop plane lowers by 7% of stage height so the head clears MENU paper |
+| Head → bow field | .42–.575; opening and portrait exit overlap, without an empty section boundary |
+| Bow → resonance | continuous source focal/scale interpolation to .765; small continuing depth drift rather than a frozen image slot |
+| Resonator → full object | .795–.975; body anchor migrates to the final base; outgoing crop closes by .895, incoming mask opens by .955, image settles afterward |
+| Keyword cadence | .24 / .48 / .66 / .855; local mask entry .03, exit .025; bow/resonance/full type move at their own rates |
+| Last resolution | .975–1; complete silhouette, vertical guides and settled title; native scroll exits normally |
+
+The final pair follows normalized source landmarks and stays clipped to the portion of the string axis already
+revealed. It does not reset or become a new line system. The full title settles above the resonator, retaining
+large structural typography without covering the instrument body. Its presence on mobile remains in the upper
+reading band; mobile pullback is 2.1× with a final image capped at 71% of stage height and fitted above the actual index position with 16px clearance, separate from desktop framing.
+The real-purple → generated-beige material change remains an explicitly provisional source difference.
+
+## P2F asset lifecycle and replacement contract
+
+`src/haegeum/assets.ts` owns image references, intrinsic dimensions, alt, provenance/status and normalized focal
+landmarks. The full renderer calculates its aspect ratio from those dimensions. Update `full` and `fullLandmarks`
+together when the real source arrives; **no component or timeline rewrite is needed**. Visible disclosure and
+static alt/dimensions derive from the same configuration. `approved` asset status requires source review; swapping
+a file does not automatically grant it. The browser regression swaps only that module to a neutral 1:2 test
+fixture and verifies aspect, alternate text and removal of the AI label. It is not a documentary image candidate.
+
+| Slot / present state | Future source / orientation / crop room | Resolution target for this choreography |
+|---|---|---|
+| Full · user-confirmed AI · PROVISIONAL / FUTURE REPLACEMENT | Authentic same instrument, vertical 2:3 preferred (other ratios supported), no cut head/pegs/body/base; 12–15% background around protrusions; even neutral background; body and string endpoints supplied as normalized image coordinates | Final silhouette at 1920/DPR2 needs about 1440×2160 minimum; the 2.7× opening crop prefers **3600×5400**, ideally camera original ~4000×6000. Low-res current source does not block motion freeze |
+| Head/peg · actual portrait 7 crop · PROVISIONAL DETAIL | Same side as photo 7, both pegs and complete head, vertical with 15% room; preserve real artist→instrument relation | Isolated detail at least 2400px long edge, preferably 3200–4000. Larger unchanged Hero 3/7 sources remain a separate Retina request |
+| Strings/bow contact · actual playing 37 · PROVISIONAL DETAIL | Real contact, both strings and bow hair; landscape 3:2 preferred; horizontal room ≥20% around contact; no hand covering the intersection | A dedicated useful crop ≥3200px wide, ideally 4000px for wide/DPR2; full-body enlargement is not a substitute |
+| Resonator · actual playing 37 crop · PROVISIONAL DETAIL | Square or 4:5 macro, front membrane/bridge plus 3/4 wood/lacquer, no hand occlusion, 15–20% crop room | Dedicated useful detail ≥2400×2400, preferably 3200×3200; current 2.25× full-body enlargement remains visibly soft |
+
+These are practical capture targets for 1920×1080/DPR2, not invented dimensions of the instrument. Deliver masters
+separately and create runtime derivatives; never overwrite the masters. A same-image higher-resolution update
+retains normalized landmarks. A different composition requires re-measuring landmarks in configuration and repeating
+wide/mobile/intermediate/reverse/Retina QA. Dedicated future macro sources need their crop/entry review; the current
+single playing photograph intentionally preserves bow→body continuity. No arbitrary image substitution is automatic.
+Missing sources are **non-blocking for this refinement/freeze decision**, but final photographic/documentary quality
+stays pending until authentic source review. The multiview sheet remains reference-only, never runtime geometry.
+
+
+## P2F quality gate / STOP
+
+[Result](../../../P2F-RESULT.md) and [P2F evidence](../../../evidence/p2f/README.md) own final coverage.
+Subsequent user decision: **QUALITY APPROVED / FROZEN** with no special visual concerns. Functional Chromium/WebKit
+gate passed. Historical [native limitations](../../../evidence/p2f/safari-device-qa.md) remain unverified future QA,
+not a claim of native Safari/phone success or a reason to revoke the user-approved composition/motion.
+Authentic full/macro sources, portrait/Retina, physical iPhone/Android, VoiceOver and thermal checks remain non-blocking.
+P2G alone is authorized after successful P2F delivery: Full→SOUND through REVIEW READY, then **REPORT → STOP**.
+No WORKS, 3D, other pages, actual content migration or deployment.

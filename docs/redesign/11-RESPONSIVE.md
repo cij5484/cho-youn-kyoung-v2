@@ -127,7 +127,7 @@ Mobile:
 
 Do not force horizontal desktop geometry into mobile.
 
-P2E uses independent mobile crop/focal/line/type geometry at 390/320px, with keywords above the image field. Chromium/WebKit viewport tests are engine evidence, not physical-phone approval. See [P2E guide](review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md).
+P2E uses independent mobile crop/focal/line/type geometry at 390/320px, with keywords above the image field. Chromium/WebKit viewport tests are engine evidence, not physical-phone approval. P2F retains those independent poses, with a 2.1× full-image pullback and a final frame fitted to the available height above the index with 16px clearance. 1366px laptop was added to both engine suites. See the [transition guide](review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md).
 
 ---
 

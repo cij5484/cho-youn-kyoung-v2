@@ -12,7 +12,7 @@ async function seek(page: Page, value: number) {
   await expect.poll(() => page.locator('.poster-scene').evaluate(el => (el as HTMLElement).dataset.progress === (el as HTMLElement).dataset.targetProgress)).toBe(true)
 }
 const stages = [[.4,'head','LINE'],[.59,'bow','TENSION'],[.78,'resonance','RESONANCE'],[1,'full','HAEGEUM']] as const
-for (const [width, height] of [[320,568],[390,844],[768,1024],[1024,768],[1440,1000],[1920,1080]]) {
+for (const [width, height] of [[320,568],[390,844],[768,1024],[1024,768],[1366,768],[1440,1000],[1920,1080]]) {
   test(`${width}: four stages, readable keyword, independent framing and no overflow`, async ({ browser }, info) => {
     const context = await browser.newContext({baseURL:'http://127.0.0.1:4178', viewport:{width,height}, hasTouch:width<640, isMobile:width<640})
     const page = await context.newPage(), errors: string[] = [];page.on('pageerror', e=>errors.push(e.message));await ready(page)
@@ -28,6 +28,7 @@ for (const [width, height] of [[320,568],[390,844],[768,1024],[1024,768],[1440,1
       await page.screenshot({path:info.outputPath(`${width}-${stage}.png`)})
     }
     await expect(page.getByText('AI-GENERATED VISUAL STUDY',{exact:true})).toBeVisible()
+    if(width<640){const full=(await page.locator('.editorial-image').boundingBox())!,index=(await page.locator('.instrument-index').boundingBox())!;expect(full.y+full.height).toBeLessThan(index.y-8)}
     expect(await page.evaluate(()=>!!document.querySelector('canvas,video,audio'))).toBe(false)
     expect(errors).toEqual([]);await context.close()
   })
@@ -40,6 +41,44 @@ test('native travel overlaps Hero exit; same DOM and reversible settled state',a
   await seek(page,.59);const middle=await sample();await seek(page,1);await seek(page,.59);expect(await sample()).toEqual(middle)
   await seek(page,0);await expect(page.locator('.poster-stage')).toHaveAttribute('data-continuity','same-stage')
   expect(await page.locator('.portrait-initial').evaluate(el=>getComputedStyle(el).opacity)).toBe('1')
+})
+test('interrupted mid-resolution menu preserves composition, scroll lock and keyboard focus', async ({page}) => {
+  await ready(page); await seek(page,.82)
+  await expect(page.getByText('AI-GENERATED VISUAL STUDY',{exact:true})).toBeVisible()
+  await seek(page,.885)
+  const snapshot = () => page.locator('.tension-line,.playing-image,.editorial-image,.editorial-field').evaluateAll(els => els.map(el => el.getAttribute('style')))
+  const before = await snapshot(), y = await page.evaluate(() => scrollY)
+  const menu = page.getByRole('button',{name:'MENU',exact:true}); await menu.focus(); await menu.press('Enter')
+  await expect(page.locator('dialog')).toHaveAttribute('data-phase','open')
+  await page.mouse.wheel(0,1800); await page.waitForTimeout(150)
+  expect(await page.evaluate(() => scrollY)).toBe(y)
+  await page.keyboard.press('Escape'); await expect(page.locator('dialog')).not.toBeVisible(); await expect(menu).toBeFocused()
+  expect(await snapshot()).toEqual(before)
+  await seek(page,.78); await seek(page,.885); expect(await snapshot()).toEqual(before)
+  await page.setViewportSize({width:390,height:844}); await seek(page,1)
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+  await expect(page.locator('.haegeum-experience')).not.toHaveAttribute('data-motion','reduced')
+})
+test('full source replacement changes aspect, anchors, alt and disclosure without renderer changes', async ({page}) => {
+  // Neutral fixture, not an invented instrument photo. Only the asset configuration module is replaced.
+  const src = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="2400"><rect width="1200" height="2400" fill="#dfd8cc"/><path d="M600 200V2200" stroke="#1a1916" stroke-width="8"/></svg>')
+  await page.route('**/src/haegeum/assets.ts*', async route => {
+    const response = await route.fetch()
+    const body = await response.text() + '\ninstrumentAssets.full = ' + JSON.stringify({src,width:1200,height:2400,alt:'Neutral asset replacement test fixture',provenance:'photograph',status:'approved'}) + ';\ninstrumentAssets.fullLandmarks = {body:[.5,.85],stringTop:[.49,.2],stringBottom:[.5,.85]};\n'
+    await route.fulfill({response,body,contentType:'text/javascript'})
+  })
+  await ready(page)
+  for (const p of [.84,.9,1]) {
+    await seek(page,p)
+    const image = await page.locator('.editorial-image').evaluate(el => {const im=el as HTMLImageElement; return {native:im.naturalHeight/im.naturalWidth,aspectErrorPx:Math.abs(parseFloat(im.style.height)-2*parseFloat(im.style.width)),style:im.style.cssText}})
+    // CSSOM serializes dimensions to finite precision; verify subpixel error, not an exact ratio.
+    expect(image.native).toBe(2); expect(image.aspectErrorPx).toBeLessThan(.01); expect(image.style).not.toMatch(/NaN|Infinity/)
+  }
+  await expect(page.locator('.editorial-disclosure')).toHaveCount(0)
+  await page.emulateMedia({reducedMotion:'reduce'})
+  await expect(page.locator('.static-full img')).toHaveAttribute('alt','Neutral asset replacement test fixture')
+  await expect(page.locator('.static-full img')).toHaveAttribute('height','2400')
+  await expect(page.locator('.static-full .type-micro').filter({hasText:'AI-GENERATED'})).toHaveCount(0)
 })
 test('rapid full/reverse scroll crosses one closed portrait frame and stops RAF',async ({page})=>{
   await ready(page)
