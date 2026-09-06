@@ -135,10 +135,10 @@ React Router가 제공하며 커스텀 renderer를 만들지 않았습니다.
 - [기획 MASTER](docs/redesign/00-MASTER-PLAN.md), [기존 HANDOFF](CODEX-HANDOFF.md)
 
 P0B까지 기획·review 원본 21개를 보존했습니다. P0C에서는 사용자 지시대로 관련 planning 상태만 architecture APPROVE로 갱신했습니다.
-P0A–D 결과는 당시 기록으로 보존합니다. 현재 delivery 상태/CI run/배포 증거는 P0E 결과를 따릅니다.
+P0A–D 결과는 당시 기록으로 보존합니다. 현재 delivery 상태는 HANDOFF를, 과거 배포 증거는 P0E 결과를 따릅니다.
 모든 push는 Fast 검사만 하며 문서 변경 때문에 배포할 필요는 없습니다. 실제 preview 배포는 사용자 승인 범위에서
 pages.yml을 deploy=true와 승인된 full SHA로 명시적으로 실행합니다. main SHA와 실제 배포 SHA를 구분합니다.
-**P1C/P1D 승인·main push·Fast CI 완료. 현재 P2A Design System Foundation REVIEW READY / visual 승인 대기. P2A 결과 보고 후 STOP; HOME/P2B 자동 진행 없음.**
+**P2A visual 승인·7714907 main push·Fast CI 34004955387 성공. P2B Bold 시각 승인: QUALITY APPROVED FOR HERO INTEGRATION / FROZEN. P2B 보고 후 STOP; HOME/P2C 자동 진행 없음.**
 
 ## 실제 콘텐츠 추가 절차
 
@@ -169,3 +169,21 @@ HTML stylesheet link로 foundation을 직접 로드합니다. 이 별도 Vite co
 production router/SEO/catalog에는 등록하지 않습니다. 정적 두 base에서 Lab 주소는 404입니다.
 `npm run test:design-system`은 자체 Lab 서버를 시작·종료하므로 포트 4175의 수동 dev 서버를 먼저 종료합니다.
 P2A 전용 Lab은 실제 HOME이나 최종 template이 아닙니다.
+
+
+## Editorial Navigation / 개발용 Lab
+
+현재 P2B Refinement는 [navigation guide](docs/redesign/review/EDITORIAL-NAVIGATION-PROTOTYPE.md)와 [freeze 결과](P2B-FREEZE-RESULT.md)를 따릅니다. 최초 P2B·refinement·Letter Slip 비교 결과/이미지/영상은 과거 검토 기록입니다.
+
+```sh
+npm run dev:navigation
+# http://127.0.0.1:4176/
+npm run test:navigation:contract
+npm run test:navigation
+```
+
+초기 화면은 artist name + MENU입니다. 초기 세로 링크/scroll morph는 사용자 정정으로 취소했습니다.
+Canonical Bold만 실행합니다: Letter Slip X +3px / Y ±7px / 300ms / 20ms stagger, MENU-origin diagonal Ivory reveal 500ms, reverse close 400ms, MENU/CLOSE mask, selected underline 없이 index 강조. Hover만으로 열지 않습니다. Refined는 기존 Lab/evidence의 PNG·영상·보고서로만 보존하고 선택 버튼·prop·query 분기는 제거했습니다. KO/EN semantic counterpart와 reduced-motion 계약을 유지합니다.
+기존 foundation Lab은 4175입니다. Full 검증 전에 수동 4175/4176 서버를 종료하세요. 테스트는 자체 서버를 실행합니다.
+두 Lab 모두 production route/prerender/metadata에 등록되지 않으며 별도 Vite build를 거부합니다.
+Full은 38 Node + 84 route + 11 foundation + 26 canonical Bold navigation cases를 포함합니다. 사용자가 commit/main push/Fast CI 확인을 승인했으며 최종 delivery 보고와 해당 SHA의 GitHub run이 push/CI 결과를 기록합니다. 배포는 이 작업의 범위가 아닙니다. Safari 실기기·최종 HOME 조합 QA는 남아 있으며 P2C는 별도 승인 후 진행합니다.

@@ -1,6 +1,6 @@
 # Implementation Task Protocol — mandatory bounded work
 
-Revision 1.9 · 2026-09-06 · approved P1C/P1D delivery / P2A foundation and Lab validation; enlarged bundle and terminal STOP retained.
+Revision 1.13 · 2026-09-06 · P2B visually approved canonical Bold freeze and authorized delivery; enlarged bundle and terminal STOP retained.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
@@ -24,7 +24,7 @@ When tests fail, fix only the approved task's owner subsystem. If the fix expand
 
 ## Result report — user fields first, seven by default
 
-Use explicit user-requested report fields when supplied (P1D has 12; P2A has 17). Otherwise use:
+Use explicit user-requested report fields when supplied (P1D has 12; P2A has 17; original P2B has 13; final P2B refinement has 16; P2B freeze/delivery has 6). Otherwise use:
 
 1. **What was changed** — behavior and purpose.
 2. **Files changed** — actual paths and roles, including an empty list if none.
@@ -49,8 +49,8 @@ Do not install dependencies again for every small task if the tested lockfile/en
 
 | Gate | Command / owner | Required work |
 |---|---|---|
-| Fast | `npm.cmd run gate:fast` | type-check → lint → locale/metadata and content unit contracts → placement contracts → root production build/prerender/placement → `test:content:visibility` and `test:design-system:artifacts` on that fresh artifact |
-| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → 84 route/browser cases over both strict static hosts → 11 development-only Design System Lab browser cases |
+| Fast | `npm.cmd run gate:fast` | type-check → lint → locale/metadata, navigation and content unit contracts → placement contracts → root production build/prerender/placement → `test:content:visibility` and `test:design-system:artifacts` on that fresh artifact |
+| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → 84 route/browser cases over both strict static hosts → 11 development-only Design System Lab cases → 26 canonical Bold Editorial Navigation Lab cases |
 | Live deployment | `npm.cmd run test:pages` with actual `EXPECTED_DEPLOY_SHA` | 18-route JS on/off metadata, refresh/history, variants, actual HTTP 404, artifact identity/hash/MIME/cache |
 | Workflow configuration | actionlint 1.7.12 | YAML, expressions, reusable workflow input/job wiring; Linux also checks embedded shell |
 
@@ -71,7 +71,7 @@ missing/pending checks on documentation-only PRs. A branch push plus an open PR 
 concurrency cancels superseded runs on the same event ref. No repository ruleset is silently changed.
 
 Full runs through an explicit pages.yml workflow_dispatch. It repeats Fast on that exact revision,
-then checks both static bases, all 84 route/browser cases and the 11-case Lab suite. A failed type/lint/unit/build/placement/browser
+then checks both static bases, all 84 route/browser cases and both Lab suites (11 foundation + 26 navigation). A failed type/lint/unit/build/placement/browser
 step fails the job; upload/deploy depend on that success. Full without deployment retains test evidence
 but never uploads the special Pages artifact. Only successful Full with deploy=true uploads static/.
 
@@ -294,7 +294,7 @@ checkpoint in ignored `.checkpoints/p1d-before-306d757/`; restore only P1D chang
 Task scope, files, results and the user's 12 fields are recorded in [P1D-RESULT](../../../P1D-RESULT.md).
 **REPORT → STOP → USER APPROVAL** ends the whole bundle. No next bundle or Phase automatically follows.
 
-## P2A — Design System Foundation Bundle — REVIEW READY
+## P2A — Design System Foundation Bundle — APPROVED / DELIVERED
 
 The user approved P1C/P1D and explicitly authorized their baseline delivery before this one bundle.
 Clean exact commits 306d757/2b544d6 and recorded hashes matched; V2 main push and Fast CI 34002461467
@@ -305,10 +305,87 @@ and [Foundation guide](DESIGN-SYSTEM-FOUNDATION.md) own files, evidence and API.
 
 Baseline/rollback: 2b544d63a5079f15d1653ddb3ea59a8b4bb06ea0; ignored `.checkpoints/p2a-before-2b544d6/`.
 The Lab is not registered in production routes/prerender/SEO. Font assets and licenses are public foundation
-assets; the P1D album remains private. P2A changes are a local review diff, not pushed/deployed.
+assets; the P1D album remains private. After the reported STOP, the user approved P2A visually and authorized
+delivery. Exact 38-file source and recorded hashes matched; commit 7714907/main push and Fast CI 34004955387
+succeeded. No deployment. Original P2A result/evidence retain their recorded pre-approval state.
 No HOME Hero/portrait/Haegeum/Selected Works/final templates, motion choreography, content migration,
 other albums, 3D/Blender, domain work or automatic P2B. Visual review remains distinct from green tests.
 **REPORT → STOP → USER APPROVAL.**
+
+## P2B — Editorial Navigation Prototype Bundle — historical first review
+
+User-approved P2A delivery is the prerequisite above. P2B alone authorizes (A) a desktop editorial index and
+continuous compact transformation, (B) independent mobile dialog and P0D semantic language navigation in a
+neutral development Lab, and (C) responsive/accessibility/Full regression and minimal current docs.
+[Result/task card](../../../P2B-RESULT.md) owns the bounded file plan and 13-field report;
+[Navigation guide](EDITORIAL-NAVIGATION-PROTOTYPE.md) owns component/fit/locale behavior and limitations.
+
+Baseline/rollback: `771490731afd42f1be133685dbfe3d63ebf23568`, ignored `.checkpoints/p2b-before-7714907/`.
+Restore only this bundle's diff. Production root/route/prerender/content/token modules and dependencies remain
+unchanged. Fast adds four navigation unit cases and P2B artifact exclusion. Full retains 84 route and 11 P2A
+Lab cases, then runs 17 navigation cases. `test:navigation` owns localhost port 4176 and refuses stale-server
+reuse, like the foundation suite on 4175. No Lab production build or public metadata entry is permitted.
+
+P2B changes remain a local review diff. No HOME Hero/portrait/Haegeum/Selected Works, 3D/Blender, real content
+migration/EN edition, domain/deployment or P2C execution. Functional validation is distinct from visual approval.
+**REPORT → STOP → USER APPROVAL.** A proposed next bundle is not authorization.
+
+## P2B Canonical Bold Freeze & Delivery — current authorized bundle
+
+User visually approved P2B and selected **BOLD VERSION** as the canonical production direction:
+**QUALITY APPROVED FOR HERO INTEGRATION / FROZEN**. This approval explicitly authorizes commit, main push,
+Fast CI confirmation and a clean working tree; it does not authorize deployment or P2C.
+
+A: remove motion prop/presets/CSS branching and Lab selection, keeping the exact approved Bold visuals and input
+contract. Refined stays as archived Lab PNG/video/report evidence only. B: update current canonical owners,
+record the freeze and its remaining QA. C: Full validation, logical commits, main push, exact-SHA Fast CI check,
+clean-tree verification, the user's six report fields, then STOP. Preserve 500ms entry / 400ms exit, Letter Slip
+X +3px / Y ±7px / 300ms / 20ms stagger, diagonal Ivory reveal and MENU/CLOSE mask, index emphasis without selected
+underline, no hover-open and reduced motion. Do not lower these before actual Hero review warrants tuning within Bold.
+
+Inputs: user-approved P2B visual evidence, P2A foundation, P0D locale and current navigation guide. Scope:
+`src/navigation`, navigation Lab/tests, current owning docs, preserved approved P2B code/CI/evidence delivery.
+Rollback: all 203 prior evidence hashes verified, all 204 working files saved before edits in ignored
+`.checkpoints/p2b-freeze-before-7714907/`, based on P2A `771490731afd42f1be133685dbfe3d63ebf23568`.
+Restore only this freeze diff if needed; preserve prior approved P2B work and immutable result/evidence files.
+
+Full passes 38 Node + 84 route + 11 foundation + 26 navigation cases, plus actionlint. Nine Refined-only duplicates
+were retired with the explicit single-direction selection, not to hide failures. Canonical Bold retains all six
+widths, keyboard/locale/reduced motion, lifecycle reversal, baseline return and normal-speed recording; stale
+Refined query selection is also rejected. [Freeze result](../../../P2B-FREEZE-RESULT.md) and
+[evidence](../../../evidence/p2b-freeze/navigation-freeze.json) identify checks and scope. Final delivery report and
+matching GitHub Fast run own the post-push receipt. Safari real-device QA, hardware/screen-reader checks and final
+HOME composition remain open. No HOME/P2C, content migration, 3D, domain or deploy. **REPORT → STOP.**
+
+## P2B Navigation Refinement — Letter Slip Integration — historical comparison review
+
+Final user consolidation, 2026-09-06: A selected type/index without underline, deterministic Letter Slip and
+MENU/CLOSE response → B surface/INDEX/typography/footer choreography, interruption, mobile and reduced motion
+→ C documentation-only future motion directions and BOLD/CURATED/PURPOSEFUL policy, Full validation and the 16 requested report fields → STOP.
+[Historical task/result](../../../P2B-LETTER-SLIP-RESULT.md) and [guide](EDITORIAL-NAVIGATION-PROTOTYPE.md) own scope.
+Before edits, 171 previous evidence hashes were verified and all 172 working files copied into the ignored
+`.checkpoints/p2b-letter-slip-before/` snapshot. Roll back only this iteration's diff, preserving previous P2B work.
+Full retains 38 Node, 84 static routes, 11 foundation and 35 navigation cases; real browser screenshots and a
+normal-speed recordings cover both Refined and Bold variants and the requested states. The user additionally authorized this comparison within P2B; no other-page scope was opened. No hover-open, new dependency, production page/content,
+HOME/P2C, WORKS/PERFORMANCE implementation, 3D/Blender, commit/push/deploy or automatic next Phase.
+At that comparison checkpoint visual approval was pending. The subsequent user approval/freeze above supersedes its current status while preserving its evidence.
+
+## P2B Refinement — Editorial Menu Reveal — historical first refinement
+
+The user corrected the initial header to artist name + MENU and canceled vertical initial links / their scroll morph.
+A: trigger hover/focus refinement; B: 350–450ms editorial surface/hairline/masked-item reveal, interruptible reverse
+close and restrained item hover; C: mobile translation and existing locale/accessibility/responsive Full regression.
+Do not invent a new morph system. Final header spacing/scale/surface with the real Hero belongs to P2C judgment.
+
+[Refinement task/result](../../../P2B-REFINEMENT-RESULT.md) owns scope and evidence. Exact pre-refinement 161-file
+working snapshot is in ignored `.checkpoints/p2b-refinement-before/`; HEAD remains approved P2A 7714907. Restore
+only refinement edits, preserving original P2B result/evidence and unrelated working files. Full retains 38 Node,
+84 static route and 11 foundation cases; 20 revised navigation cases cover the corrected contract. Retired morph
+assertions are explicitly superseded by the user's correction, not removed to conceal failures.
+
+Requested visual evidence: MENU trigger hover, opening intermediate, fully opened, menu-item hover and mobile
+opened. Report tests and remaining visual concerns, then **STOP → USER APPROVAL**. No P2C/HOME, content/3D,
+new dependency, commit/push or deployment. This refinement is one bounded task, not the start of a next Phase.
 
 ## Chunking the rest of PHASE 1–14
 
@@ -343,5 +420,5 @@ The document contracts and bounded starter task are defined; later decisions are
 This is not authorization to execute P0A, not proof of prerender suitability, and not approval to run P0A–F continuously.
 
 The above readiness was the initial planning snapshot. P0F and P1A lifecycle/delivery completed; P1B audit was
-subsequently delivered, and P1C/P1D are approved and delivered. Current unit is P2A Design System Foundation
-above and in [HANDOFF](../../../CODEX-HANDOFF.md). **STOP after P2A; no HOME Hero, P2B or next Phase.**
+subsequently delivered, and P1C/P1D are approved and delivered. P2A was subsequently visually approved and delivered. Current unit is P2B Canonical Bold Freeze & Delivery
+above and in [HANDOFF](../../../CODEX-HANDOFF.md). **STOP after P2B; no HOME Hero, P2C or next Phase.**
