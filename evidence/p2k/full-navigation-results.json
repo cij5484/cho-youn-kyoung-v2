@@ -1,0 +1,1011 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\choyounkyoung-v2\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.navigation.config.ts"
+    ],
+    "configFile": "C:\\choyounkyoung-v2\\playwright.navigation.config.ts",
+    "rootDir": "C:/choyounkyoung-v2/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/choyounkyoung-v2/test-results/navigation",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/choyounkyoung-v2/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "navigation.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/navigation-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 2,
+    "webServer": {
+      "command": "npm run dev:navigation",
+      "url": "http://127.0.0.1:4176",
+      "reuseExistingServer": false,
+      "timeout": 15000
+    }
+  },
+  "suites": [
+    {
+      "title": "navigation.spec.ts",
+      "file": "navigation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "bold small-mobile: artist plus MENU only, stable scroll and opened menu",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3175,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:15:41.258Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-fe8d969cef63ab54486b",
+          "file": "navigation.spec.ts",
+          "line": 39,
+          "column": 3
+        },
+        {
+          "title": "bold mobile: artist plus MENU only, stable scroll and opened menu",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3209,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:15:41.257Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-2318d7fc451042ab64b1",
+          "file": "navigation.spec.ts",
+          "line": 39,
+          "column": 3
+        },
+        {
+          "title": "bold tablet: artist plus MENU only, stable scroll and opened menu",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2929,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:15:44.609Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-65c5c96e56fb8a1b2df9",
+          "file": "navigation.spec.ts",
+          "line": 39,
+          "column": 3
+        },
+        {
+          "title": "bold tablet-landscape: artist plus MENU only, stable scroll and opened menu",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2957,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:15:44.636Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-07345c977152dcae6a0e",
+          "file": "navigation.spec.ts",
+          "line": 39,
+          "column": 3
+        },
+        {
+          "title": "bold desktop: artist plus MENU only, stable scroll and opened menu",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2783,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:15:47.550Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-ee5bc2283aa3a5b38899",
+          "file": "navigation.spec.ts",
+          "line": 39,
+          "column": 3
+        },
+        {
+          "title": "bold wide: artist plus MENU only, stable scroll and opened menu",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2847,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:15:47.603Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-63aae066f8e0fd07b1ac",
+          "file": "navigation.spec.ts",
+          "line": 39,
+          "column": 3
+        },
+        {
+          "title": "trigger hover, opening intermediate, fully opened and item hover visual evidence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3489,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:15:50.342Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "reveal-timeline",
+                      "contentType": "application/json",
+                      "body": "eyJkdXJhdGlvbiI6NTAwLCJldmlkZW5jZVRpbWUiOjE4MCwiY2xpcCI6InBvbHlnb24oMTkuNTU1JSAwJSwgMTAwJSAwJSwgMTAwJSAxMDAlLCAyMy40NjYlIDEwMCUpIiwidHJhY2tzIjpbeyJkdXJhdGlvbiI6NTAwLCJ0aW1lIjoxODB9LHsiZHVyYXRpb24iOjUwMCwidGltZSI6MTgwfSx7ImR1cmF0aW9uIjo1MDAsInRpbWUiOjE4MH0seyJkdXJhdGlvbiI6NTAwLCJ0aW1lIjoxODB9LHsiZHVyYXRpb24iOjUwMCwidGltZSI6MTgwfSx7ImR1cmF0aW9uIjo1MDAsInRpbWUiOjE4MH0seyJkdXJhdGlvbiI6NTAwLCJ0aW1lIjoxODB9LHsiZHVyYXRpb24iOjUwMCwidGltZSI6MTgwfSx7ImR1cmF0aW9uIjo1MDAsInRpbWUiOjE4MH0seyJkdXJhdGlvbiI6NTAwLCJ0aW1lIjoxODB9LHsiZHVyYXRpb24iOjUwMCwidGltZSI6MTgwfSx7ImR1cmF0aW9uIjo1MDAsInRpbWUiOjE4MH0seyJkdXJhdGlvbiI6NTAwLCJ0aW1lIjoxODB9LHsiZHVyYXRpb24iOjUwMCwidGltZSI6MTgwfSx7ImR1cmF0aW9uIjo1MDAsInRpbWUiOjE4MH0seyJkdXJhdGlvbiI6NTAwLCJ0aW1lIjoxODB9XSwiY29udHJhc3QiOlt7InJhdGlvIjo1LjE0Mjg5OTc3MzEyMjE4MywibWluaW11bSI6NC41fSx7InJhdGlvIjo1LjE0Mjg5OTc3MzEyMjE4MywibWluaW11bSI6NC41fSx7InJhdGlvIjo1LjE0Mjg5OTc3MzEyMjE4MywibWluaW11bSI6NC41fSx7InJhdGlvIjoxNi45MTM3MDc3NDUxNzQ4MzMsIm1pbmltdW0iOjQuNX0seyJyYXRpbyI6MTYuOTEzNzA3NzQ1MTc0ODMzLCJtaW5pbXVtIjozfSx7InJhdGlvIjoxNi45MTM3MDc3NDUxNzQ4MzMsIm1pbmltdW0iOjQuNX0seyJyYXRpbyI6MTYuOTEzNzA3NzQ1MTc0ODMzLCJtaW5pbXVtIjozfSx7InJhdGlvIjo1LjE0Mjg5OTc3MzEyMjE4MywibWluaW11bSI6NC41fSx7InJhdGlvIjo1LjE0Mjg5OTc3MzEyMjE4MywibWluaW11bSI6M30seyJyYXRpbyI6NS4xNDI4OTk3NzMxMjIxODMsIm1pbmltdW0iOjQuNX0seyJyYXRpbyI6NS4xNDI4OTk3NzMxMjIxODMsIm1pbmltdW0iOjN9LHsicmF0aW8iOjUuMTQyODk5NzczMTIyMTgzLCJtaW5pbXVtIjo0LjV9LHsicmF0aW8iOjUuMTQyODk5NzczMTIyMTgzLCJtaW5pbXVtIjozfV19"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-4b72e0bafde69f9fe3b1",
+          "file": "navigation.spec.ts",
+          "line": 71,
+          "column": 1
+        },
+        {
+          "title": "bold: opening and closing reverse at the current time without visual resets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1535,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:15:50.461Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "interrupt-continuity",
+                      "contentType": "application/json",
+                      "body": "eyJjbG9zaW5nIjp7ImJlZm9yZSI6eyJ0aW1lIjoyMTAsImNsaXAiOiJwb2x5Z29uKDEzLjE1ODclIDAlLCAxMDAlIDAlLCAxMDAlIDEwMCUsIDE1Ljc5MDUlIDEwMCUpIn0sImFmdGVyIjp7InRpbWUiOjIxMCwiY2xpcCI6InBvbHlnb24oMTMuMTU4NyUgMCUsIDEwMCUgMCUsIDEwMCUgMTAwJSwgMTUuNzkwNSUgMTAwJSkifSwicmF0ZXMiOlstMS4yNSwtMS4yNSwtMS4yNSwtMS4yNSwtMS4yNSwtMS4yNSwtMS4yNSwtMS4yNSwtMS4yNSwtMS4yNSwtMS4yNSwtMS4yNSwtMS4yNSwtMS4yNSwtMS4yNSwtMS4yNV19LCJvcGVuaW5nIjp7ImJlZm9yZSI6eyJ0aW1lIjoxNTAsImNsaXAiOiJwb2x5Z29uKDI4LjI2MjIlIDAlLCAxMDAlIDAlLCAxMDAlIDEwMCUsIDMzLjkxNDclIDEwMCUpIn0sImFmdGVyIjp7InRpbWUiOjE1MCwiY2xpcCI6InBvbHlnb24oMjguMjYyMiUgMCUsIDEwMCUgMCUsIDEwMCUgMTAwJSwgMzMuOTE0NyUgMTAwJSkifSwicmF0ZXMiOlsxLDEsMSwxLDEsMSwxLDEsMSwxLDEsMSwxLDEsMSwxXX19"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-8ee5ecda900cb9d69761",
+          "file": "navigation.spec.ts",
+          "line": 118,
+          "column": 1
+        },
+        {
+          "title": "390: keyboard trap, visible focus, Esc reverse and restore",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2434,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:15:52.008Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-cefea402830099a63e3f",
+          "file": "navigation.spec.ts",
+          "line": 141,
+          "column": 34
+        },
+        {
+          "title": "1440: keyboard trap, visible focus, Esc reverse and restore",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2398,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:15:53.843Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-559390e808ebdf2fc6be",
+          "file": "navigation.spec.ts",
+          "line": 141,
+          "column": 34
+        },
+        {
+          "title": "root: same detail counterpart, active section, clean path, history and refresh",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3399,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:15:54.451Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-5095d5b0bdb28c96211a",
+          "file": "navigation.spec.ts",
+          "line": 167,
+          "column": 3
+        },
+        {
+          "title": "pagesPreview: same detail counterpart, active section, clean path, history and refresh",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3407,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:15:56.254Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-a45a18e0dfbe28e0fd34",
+          "file": "navigation.spec.ts",
+          "line": 167,
+          "column": 3
+        },
+        {
+          "title": "mobile performance counterpart and page activation close immediately, then focus main",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2362,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:15:57.861Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-f194afc005ace833642d",
+          "file": "navigation.spec.ts",
+          "line": 186,
+          "column": 1
+        },
+        {
+          "title": "missing/draft English is unavailable without a fabricated destination",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3539,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:15:59.672Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-6bbf1736b8ce1c5fdb40",
+          "file": "navigation.spec.ts",
+          "line": 196,
+          "column": 1
+        },
+        {
+          "title": "reduced motion uses immediate accessible states and stationary hover/focus labels",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 978,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:16:00.234Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-64097c4e047368184200",
+          "file": "navigation.spec.ts",
+          "line": 206,
+          "column": 1
+        },
+        {
+          "title": "resize preserves the same modal and focus; 200% text and short landscape reflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3538,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:16:01.222Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-e4fe0d75780892eb5c6e",
+          "file": "navigation.spec.ts",
+          "line": 219,
+          "column": 1
+        },
+        {
+          "title": "HOME counterpart with trailing slash retains artist and MENU under both bases",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4850,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:16:03.221Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-50e83958795a3daffbc0",
+          "file": "navigation.spec.ts",
+          "line": 236,
+          "column": 1
+        },
+        {
+          "title": "Esc during entry reverses, repeated Esc cannot reopen, rapid reopen is stable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2382,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:16:04.770Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-b5f650f5f17b41791a69",
+          "file": "navigation.spec.ts",
+          "line": 247,
+          "column": 1
+        },
+        {
+          "title": "live reduced-motion changes settle to the requested endpoint and release scroll",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 715,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:16:07.162Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-2ec4ff9e9cc1392cfb43",
+          "file": "navigation.spec.ts",
+          "line": 261,
+          "column": 1
+        },
+        {
+          "title": "blocked fonts and unavailable Web Animations keep the menu functional",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 818,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:16:07.888Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-ed04fc85452a7e3ae2fa",
+          "file": "navigation.spec.ts",
+          "line": 271,
+          "column": 1
+        },
+        {
+          "title": "selected HOME uses type and index emphasis with one structural rule and no extra underline",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1528,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:16:08.082Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-90fe0ce02c9537b423bd",
+          "file": "navigation.spec.ts",
+          "line": 279,
+          "column": 1
+        },
+        {
+          "title": "bold: Letter Slip alternates deterministically, preserves link geometry and returns to the exact baseline",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3198,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:16:08.719Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "letter-slip",
+                      "contentType": "application/json",
+                      "body": "eyJtb3Rpb24iOiJib2xkIiwieCI6MywiYWx0ZXJuYXRpbmdZIjpbNywtN10sImR1cmF0aW9uIjozMDAsInN0YWdnZXIiOjIwLCJyZXBlYXQiOjIsImJhc2VsaW5lUmVzdG9yZWQiOnRydWUsImFjY2Vzc2libGVOYW1lIjoiV09SS1MifQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-c2057a7800fb7499658b",
+          "file": "navigation.spec.ts",
+          "line": 296,
+          "column": 1
+        },
+        {
+          "title": "trigger hover and focus never open the menu; rapid letter hover interruption settles cleanly",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2459,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:16:09.620Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-4c7779e0a3f822f6835a",
+          "file": "navigation.spec.ts",
+          "line": 320,
+          "column": 1
+        },
+        {
+          "title": "bold: real-time browser recording preserves opening, hover return, closing and immediate interruption",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 8989,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:16:11.929Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "real-time-events",
+                      "contentType": "application/json",
+                      "body": "eyJtb3Rpb24iOiJib2xkIiwiZXZlbnRzIjpbeyJwaGFzZSI6Im9wZW5pbmciLCJhdCI6MTE1MC4xOTk5OTk5OTkyNTV9LHsicGhhc2UiOiJvcGVuIiwiYXQiOjE2NzAuMTAwMDAwMDAxNDkwMX0seyJwaGFzZSI6ImNsb3NpbmciLCJhdCI6NDE5OC44OTk5OTk5OTg1MX0seyJwaGFzZSI6ImNsb3NlZCIsImF0Ijo0NjA2LjV9LHsicGhhc2UiOiJvcGVuaW5nIiwiYXQiOjU0MjYuNjAwMDAwMDAxNDl9LHsicGhhc2UiOiJjbG9zaW5nIiwiYXQiOjU1NzYuMTk5OTk5OTk5MjU1fSx7InBoYXNlIjoib3BlbmluZyIsImF0Ijo1Njk5LjYwMDAwMDAwMTQ5fSx7InBoYXNlIjoib3BlbiIsImF0Ijo2MjIwLjE5OTk5OTk5OTI1NX0seyJwaGFzZSI6ImNsb3NpbmciLCJhdCI6Njg5Mi4zMDAwMDAwMDA3NDV9LHsicGhhc2UiOiJjbG9zZWQiLCJhdCI6NzI4Ny44OTk5OTk5OTg1MX1dLCJvcGVuZWRJbiI6NTE5LjkwMDAwMDAwMjIzNTIsImNsb3NlZEluIjo0MDcuNjAwMDAwMDAxNDkwMSwibm90ZSI6Ik5hdGl2ZSBicm93c2VyIHBsYXliYWNrIGF0IG5vcm1hbCBzcGVlZCwgaW5jbHVkaW5nIHJlYWwgcmFwaWQgcmV2ZXJzYWwuIE5vIHBhdXNlZC9yZXRpbWVkIGFuaW1hdGlvbiBpbiB0aGUgdmlkZW8uIn0="
+                    },
+                    {
+                      "name": "real-time-motion",
+                      "contentType": "video/webm",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\navigation\\navigation-bold-real-time--9b7ee--and-immediate-interruption\\attachments\\real-time-motion-835381fd48df6d6a05cfc11a606e5ddb24ac0276.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-02a600e211f287c3a16b",
+          "file": "navigation.spec.ts",
+          "line": 335,
+          "column": 1
+        },
+        {
+          "title": "Canonical Bold opens from MENU with angled surface, unskewed type and approved Letter Slip",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3647,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:16:12.092Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "bold-reveal",
+                      "contentType": "application/json",
+                      "body": "eyJkdXJhdGlvbiI6NTAwLCJzYW1wbGVkQXQiOjE4MCwidHJhY2tzIjoxNiwiY2xpcCI6InBvbHlnb24oMTkuNTU1JSAwJSwgMTAwJSAwJSwgMTAwJSAxMDAlLCAyMy40NjYlIDEwMCUpIiwidHlwZVNrZXciOjB9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-c81c31b279c9d6242f9c",
+          "file": "navigation.spec.ts",
+          "line": 372,
+          "column": 1
+        },
+        {
+          "title": "Stale Refined URL cannot select a mode; canonical Bold preserves keyboard, counterpart and live reduced motion",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1859,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T06:16:15.750Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-b9aecaeb18dc093ea0ca",
+          "file": "navigation.spec.ts",
+          "line": 399,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-07T06:15:39.876Z",
+    "duration": 41744.522999999994,
+    "expected": 26,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

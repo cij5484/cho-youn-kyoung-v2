@@ -1,0 +1,127 @@
+{
+  "date": "2026-09-07",
+  "baseline": "930441982ff6e50a1a2f8af6f22910215f6af071",
+  "branch": "codex/p2k-interaction-prototypes",
+  "command": "npm.cmd run gate:full",
+  "result": "PASS",
+  "node": "v24.15.0",
+  "npm": "11.12.1",
+  "uniqueNodeContracts": 65,
+  "repeatedSoundNodeContracts": 18,
+  "browserCases": 307,
+  "suites": {
+    "routes": {
+      "startTime": "2026-09-07T06:14:25.599Z",
+      "duration": 65270.808,
+      "expected": 84,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "foundation": {
+      "startTime": "2026-09-07T06:15:31.923Z",
+      "duration": 7005.11,
+      "expected": 11,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "navigation": {
+      "startTime": "2026-09-07T06:15:39.876Z",
+      "duration": 41744.522999999994,
+      "expected": 26,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "hero": {
+      "startTime": "2026-09-07T06:16:22.549Z",
+      "duration": 68926.381,
+      "expected": 44,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "haegeum": {
+      "startTime": "2026-09-07T06:17:32.365Z",
+      "duration": 66235.21800000001,
+      "expected": 32,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "sound": {
+      "startTime": "2026-09-07T06:18:40.481Z",
+      "duration": 236615.735,
+      "expected": 88,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "interaction": {
+      "startTime": "2026-09-07T06:22:38.048Z",
+      "duration": 58108.215,
+      "expected": 22,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "sourceHashes": {
+    "eslint.config.js": "c457062fa96f5c6c9c14d4e3b6059995c0e6de30b0d4169c868b22faf32f8311",
+    "labs/interaction/InteractionLab.tsx": "964309e38ca9fff5b0b76bde53457198d43d0dc45fda2eb13205063a5f0aac90",
+    "labs/interaction/index.html": "f8e37ed35040edc3296e89acddb2fff80563b466dc84ba3a9c4f1512eabf6019",
+    "labs/interaction/interaction.css": "25d144788540df4294b3806de32c25cf99fc894fbbd712561ae44d053328a86d",
+    "labs/interaction/main.tsx": "e0fdff9bdba668907bc71ca5f3640a64fda0881ecf13762887f9b6486e79ee9b",
+    "package.json": "f6abdc6940d7c30e018d529512310b715b0b40e212292c917948a18cfc285ff7",
+    "playwright.interaction.config.ts": "379fa2ae1fbab396972269d8b5460e9d7d47cc510e1369be166508f62db975e9",
+    "scripts/audio/percussion-features.mjs": "9402c569bae8b8e22847666cd104bb82f57ecf8218117ba55067af1b6a5c93fe",
+    "scripts/capture-p2k.mjs": "38a837a087deaf1618cb7895c706202dd8b2527df6d28ebf10bbdf48d4ec488a",
+    "scripts/diagnose-p2k-scroll-shifts.mjs": "c91fc91a3887dc433afa87cbe8071305a4fd62f4351f79c705bda27c93238f25",
+    "scripts/extract-p2k-percussion.mjs": "59b89ef98d6a95b83f0858b164fb9c79dbb2422c34cba5b5fe0dc1870a0820b2",
+    "scripts/inspect-p2k.mjs": "9789f08ac0cabb5de405a4fd4189e91c4a6787aa9e7c58bd207b33578cbd4ea1",
+    "scripts/verify-p2k-docs.mjs": "0a21063520606e0138ed4a48cf8b0ddf5176669a320e30a2109899e6b6271c3b",
+    "src/interaction-prototype/GlyphLabel.tsx": "d9d34f4acd6080f9ed7fab2b91f986a38d9a9fc967e96d104a7a2ccc605f147b",
+    "src/interaction-prototype/alignment.ts": "ed4cf3a6364b366aae03552d0b8a282c1172c4a3f9d117b4ce7a1e8e5594416a",
+    "src/interaction-prototype/continuation.ts": "274979c5aec9bfb7dd259a65b4e8b6410e993897029d335f4cb25cf6e9c413fa",
+    "src/interaction-prototype/model.ts": "eded07cff3dc31a1fa375cd99721b06c271e10efc0938f2cf19c979b90fe189f",
+    "src/interaction-prototype/percussion.json": "1b809065fa5ac3fbd827d415a1779dfda00e6a3dceee41b1b1f175e6533e6951",
+    "src/interaction-prototype/renderer.ts": "98c636bdb4a61e77a3411f24f94a6b8d0fa2ab1ef96f33320ed4f165184ed282",
+    "src/interaction-prototype/tuning.ts": "5f420eb4407fa97c93aec0447a5163e877f14789c3d3f4d15ad9c9f86ee9b566",
+    "src/sound/SoundComposition.tsx": "32f79a5028e2e07f77a7c78097777420fe0d713548c4d9bba0d3b83deb68b057",
+    "src/sound/SoundSurface.tsx": "9600ff587b5fee631d5ff990d854bfa496134998a8780245678370be02e9387b",
+    "tests/assert-design-artifacts.ts": "bef11f88860e5f174ef7497c0362bdc3008c34ff3013c3fa0095c6abdbc39440",
+    "tests/interaction-contract.test.ts": "4b4d6439dcdf59de9a21ee00b969b90a8e85229c7cea4d2520a0fca6d1208adc",
+    "tests/interaction.spec.ts": "2a42ae52db5488661ac56228b73c541f5a705fb9a0cd85f8246a49baa827c8e3",
+    "tests/percussion-features.test.mjs": "7c2463e9870d2b38d2f52225b1c13c03642313ad94a193fcca32b3692c30242d",
+    "tsconfig.app.json": "337db80360e84348b8a0f6d0816a74d8ee96ea44562ae982d6788faa09ed2fef",
+    "tsconfig.node.json": "91d2130c4f1b78a6a7cc2a946384caa75cd7377f64d42ff822e55216f15c1286",
+    "vite.interaction.config.ts": "0b37c4d36f2d965284d8c2c816920c14454597e271a1d339da79f5c6771cb1b4",
+    "package-lock.json": "c147f0f0a8b398cb926e129d4aa88130bf83c093efaa4f6093b608b6094067a1"
+  },
+  "productionSourceChangedAfterFull": false,
+  "postFullDiagnostics": [
+    "node scripts/diagnose-p2k-scroll-shifts.mjs",
+    "node scripts/verify-p2k-docs.mjs",
+    "npm.cmd run lint"
+  ],
+  "delivery": "Local review diff; no commit/push/deploy authorized or performed",
+  "limits": [
+    "Mobile is emulation; no physical phone/thermal/VoiceOver/new native Safari claim",
+    "Windows WebKit has no AudioContext: explicit static Haegeum plus disclosed precomputed Janggu candidates during actual media playback",
+    "Five existing candidates cover four approximate user-confirmed attack regions; other candidate labels/onset precision remain unverified",
+    "Unchanged A baseline has scroll-position/layout-shift entries from line placement; B has none in captured runs"
+  ],
+  "postFullDiagnosticResults": {
+    "scrollShiftDiagnosis": "Completed; unchanged SOUND baseline reproduces A entries; B zero",
+    "documentLinks": {
+      "result": "PASS",
+      "files": 15,
+      "links": 457,
+      "failures": 0
+    },
+    "lint": "PASS",
+    "diffCheck": "PASS",
+    "sourceHashCheck": "PASS; all 30 recorded files unchanged"
+  }
+}

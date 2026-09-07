@@ -244,3 +244,12 @@ the active media and graph. Production-facing `SoundExperience` still has no com
 Both builds exclude the development Lab and audio fixtures; this task does not implement public HOME.
 Current validation/measurement/limitations are in [P2J result](../../../P2J-RESULT.md) and
 [evidence](../../../evidence/p2j/README.md). **STOP; no following scene is authorized.**
+
+
+## P2K secondary layer — separate prototype owner
+
+P2I B2/LONG/Electric Violet freeze and P2J HOME_SIGNATURE response status above are retained. The separately
+authorized [P2K comparison](P2K-INTERACTION-PROTOTYPES.md) adds a secondary Janggu orbit with upward-only
+percussive accents and a glyph-state alternative. It does not rewrite the bow engine/features/audio source.
+A new, small precomputed percussion candidate file is Lab-only; musical ground truth is partial and disclosed.
+No final color/secondary motion/typography selection is implied. P2K result owns validation, not this historical section.

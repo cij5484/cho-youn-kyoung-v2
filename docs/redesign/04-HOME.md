@@ -1187,3 +1187,12 @@ The user's recent reference-review principles are adopted as design rationale: i
 Derive an independent visual identity from Haegeum, two strings/bow, tension/resonance, physical album objects, Sanjo/Jeongak materiality and Cho Youn Kyoung photography. Do not directly copy any reference site's layout, animation, type composition, source code or unique interaction. Earlier Art Direction V1 remains historical context; V2.1 is the current HOME direction, not permission to discard the retained detailed requirements.
 
 This is documentation only. No HOME/React/CSS, image manipulation, asset migration, audio/motion/3D, dependency change, deployment or P0E work is authorized by this revision. See [revision report](review/HOME-V2.1-REVISION-REPORT.md) for conflicts, asset needs and the STOP boundary.
+
+
+## P2K — same scenes, alternative motion vocabulary under review
+
+The user authorized one comparative Lab bundle; it does not advance the HOME narrative. The approved two-line
+Hero→Haegeum and Violet SOUND remain A references. B tests two abstract Bronze spatial points, image-specific
+string convergence and left-to-right SOUND handoff; secondary Janggu counterpoint and shared-glyph action text
+remain unapproved visual candidates. [Single P2K owner](review/P2K-INTERACTION-PROTOTYPES.md) contains tuning,
+source alignment/provenance, reference research and comparison behavior. No next Scene or public HOME integration.

@@ -1,5 +1,6 @@
 import { contactTuning, createContactMotion, type ContactActivity, type ContactTrail, type ContactViolet, type SoundVisual } from './contact-motion.ts'
 import { tuningPresets, type BowPresetName } from './tuning-presets.ts'
+import { trailEdge, trailNormal } from '../motion/trail-geometry.ts'
 
 export function createBowContact(root: HTMLElement, holders: HTMLElement[], mobile: () => boolean) {
   const ns = 'http://www.w3.org/2000/svg', motion = createContactMotion()
@@ -70,9 +71,8 @@ export function createBowContact(root: HTMLElement, holders: HTMLElement[], mobi
       const ribbons: string[][] = bands.map(() => [])
       for (let i = 0; i < points.length - 1; i++) {
         const p = points[i], q = points[i + 1], before = points[Math.max(0, i - 1)], after = points[Math.min(points.length - 1, i + 2)]
-        const normal = (a: typeof p, b: typeof p) => { const length = Math.max(.001, Math.hypot(b.x - a.x, b.y - a.y)); return { x: -(b.y - a.y) / length, y: (b.x - a.x) / length } }
-        const n = normal(before, q), m = normal(p, after), w = setting.width * (1 - p.age) / 2, v = setting.width * (1 - q.age) / 2
-        const pair = (a: typeof p, normal: typeof n, size: number) => `${(a.x + normal.x * size).toFixed(2)},${(a.y + normal.y * size).toFixed(2)}`
+        const n = trailNormal(before, q), m = trailNormal(p, after), w = setting.width * (1 - p.age) / 2, v = setting.width * (1 - q.age) / 2
+        const pair = (a: typeof p, normal: typeof n, size: number) => { const edge=trailEdge(a,normal,size);return `${edge.x.toFixed(2)},${edge.y.toFixed(2)}` }
         const band = Math.min(bands.length - 1, Math.floor((p.age + q.age) * .5 * bands.length))
         ribbons[band].push(`M${pair(p,n,w)}L${pair(q,m,v)}L${pair(q,m,-v)}L${pair(p,n,-w)}Z`)
       }

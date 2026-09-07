@@ -61,6 +61,12 @@ OPTIONAL and BLOCKING with their scope. The definitions and current matrix are i
 and responsive composition. Follow visual, state, interaction, real-device and performance gates; never
 claim product quality approval from a successful build or neutral fixture.
 
+## Current implementation and cleanup
+
+Read current runtime/code before interpreting historical implementation status; never restore removed UI from an old plan.
+**CLEAN AS YOU GO:** verify references, then remove code/CSS/selectors/flags/helpers fully superseded within the touched
+subsystem. Preserve active Lab comparisons and historical evidence; do not broaden this into unrelated refactoring.
+
 ## Legacy, visuals, mobile and assets
 
 - Legacy `cij5484/cho-youn-kyoung` is an operating site and reference/content source. Do not modify it or
@@ -124,3 +130,10 @@ claim product quality approval from a successful build or neutral fixture.
   Do not delete/relax tests, hide failures, or treat commit/push/deploy as interchangeable states.
 
 Current approval/next-task boundary is in HANDOFF and the latest result. Nothing in this map authorizes a next phase.
+
+
+P2K current navigation: the user authorized one local comparison bundle for spatial points, secondary Janggu
+and shared-glyph typography. [P2K owner](docs/redesign/review/P2K-INTERACTION-PROTOTYPES.md) holds tuning,
+reference research and source alignment; [result](P2K-RESULT.md) and HANDOFF own validation/status. Existing
+P2F/P2I freezes remain A references. The new B candidates need user visual selection; no final canonical/freeze,
+main delivery or next scene is implied. Preserve P2J evidence and its separate response-review status.

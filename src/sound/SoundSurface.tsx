@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type RefObject } from 'react'
+import { useEffect, useRef, useState, type RefObject, type ReactNode } from 'react'
 import { createSoundController, type PlaybackPhase, type PlaybackState } from './controller.ts'
 import { playableSource, type SoundSource } from './source.ts'
 import type { BowPresetName } from './tuning-presets.ts'
@@ -10,7 +10,7 @@ const labels = {
 } satisfies Record<string,Record<PlaybackPhase,string>>
 const clock = (seconds: number) => `00:${Math.floor(Math.max(0,seconds)).toString().padStart(2,'0')}`
 
-export function SoundSurface({ root, locale, source, visual, trail, activity, violet, preset }: { root: RefObject<HTMLDivElement | null>; locale: 'ko' | 'en'; source: SoundSource; visual: SoundVisual; trail: ContactTrail; activity: ContactActivity; violet: ContactViolet; preset: BowPresetName }) {
+export function SoundSurface({ root, locale, source, visual, trail, activity, violet, preset, renderActionLabel, analysisFallback }: { root: RefObject<HTMLDivElement | null>; locale: 'ko' | 'en'; source: SoundSource; visual: SoundVisual; trail: ContactTrail; activity: ContactActivity; violet: ContactViolet; preset: BowPresetName; renderActionLabel?: (word:string)=>ReactNode; analysisFallback?: ReactNode }) {
   const media=useRef<HTMLAudioElement>(null), controller=useRef<ReturnType<typeof createSoundController> | null>(null)
   const src=playableSource(source),status=source.status,duration=source.duration,trackId=source.trackId,sourceSha256=source.sourceSha256,features=source.features
   const [state,setState]=useState<PlaybackState>({phase:src ? 'idle':'unavailable',seconds:0,duration:source.duration,analysisAvailable:true})
@@ -25,7 +25,7 @@ export function SoundSurface({ root, locale, source, visual, trail, activity, vi
     <div className="sound-static-lines" aria-hidden="true"><span /><span /><i className="sound-static-contact" /></div>
     <div className="listen-composition">
       <button className="listen-trigger" type="button" onClick={()=>controller.current?.toggle()} disabled={!src} aria-label={action} aria-describedby="sound-caption sound-state">
-        <span className="listen-mask" aria-hidden="true" lang="en"><span>{word}</span><span className="listen-echo">{word}</span></span>
+        {renderActionLabel ? renderActionLabel(word) : <span className="listen-mask" aria-hidden="true" lang="en"><span>{word}</span><span className="listen-echo">{word}</span></span>}
         <span className="listen-mark" aria-hidden="true">{active ? 'Ⅱ' : '↗'}</span>
       </button>
       <p id="sound-state" className="sound-state" role="status" aria-live="polite" aria-atomic="true">{labels[locale][state.phase]}</p>
@@ -35,7 +35,7 @@ export function SoundSurface({ root, locale, source, visual, trail, activity, vi
       <p className="sound-thought">{locale==='ko' ? <>두 현 사이,<br />남는 울림.</> : <>Two strings.<br />A resonance remains.</>}</p>
       <p className="sound-credit">{source.title[locale]}<br />{locale==='ko' ? '조윤경 / 해금 · 18초 미리듣기' : 'Cho Youn Kyoung / Haegeum · 18-second excerpt'}</p>
     </div>
-    {!state.analysisAvailable && <p className="sound-visual-fallback">{locale==='ko' ? '정적인 선과 함께 재생합니다.' : 'Playing with a static visual.'}</p>}
+    {!state.analysisAvailable && <p className="sound-visual-fallback">{analysisFallback ?? (locale==='ko' ? '정적인 선과 함께 재생합니다.' : 'Playing with a static visual.')}</p>}
     <audio ref={media} preload="none" />
   </div>
 }

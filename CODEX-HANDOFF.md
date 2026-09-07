@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** P2A visually APPROVED and delivered to V2 main; P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN and delivered; P2C B — Bold Cropped canonical direction APPROVED; P2D APPROVED & DELIVERED with provisional portraits; P2E VISUAL DIRECTION APPROVED & DELIVERED; P2F QUALITY APPROVED / FROZEN; P2F DELIVERED; P2G result APPROVED; P2H baseline preserved; P2I SOUND QUALITY APPROVED / FROZEN retained · P2J shared feature engine / higher-sensitivity response REVIEW READY · Full PASS / STOP\
-**Revision:** 1.26 / 2026-09-07 — P2J foundation CLS fixed, reusable feature-driven bow and full validation\
+**Status:** P2A visually APPROVED and delivered to V2 main; P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN and delivered; P2C B — Bold Cropped canonical direction APPROVED; P2D APPROVED & DELIVERED with provisional portraits; P2E VISUAL DIRECTION APPROVED & DELIVERED; P2F QUALITY APPROVED / FROZEN; P2F DELIVERED; P2G result APPROVED; P2H baseline preserved; P2I SOUND QUALITY APPROVED / FROZEN retained · P2J shared feature engine / higher-sensitivity response REVIEW READY · P2K current trail / Janggu / glyph refinement REVIEW READY · requested minimum checks PASS / STOP\
+**Revision:** 1.28 / 2026-09-07 — current-runtime P2K refinement, user visual review pending\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 ---
@@ -544,6 +544,7 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 | P2H Sound refinement / device QA | **IMPLEMENTED / LOCALLY VERIFIED / REVIEW READY / FREEZE CANDIDATE / STOP**. Friction-density response, continuous damping/resume, buffered replay, 320px caption and native Safari focus/type-mask fixes. Full 38 Node +255 browser, including 58 Sound. Native Safari playback/pause/end/replay/focus partially verified; Mac locked before remaining native checks. Physical phones/AT/thermal remain future. User auditory/refined visual judgment is pending; no self-granted quality freeze. [Result](P2H-RESULT.md), [guide](docs/redesign/review/HOME-SOUND-EXPERIENCE.md), [evidence](evidence/p2h/README.md). |
 | P2I Bow Contact Choreography | **QUALITY APPROVED / FROZEN** — user-selected B2 Bold / LONG 460ms / Electric Violet #6334E5. Strings vibrate; bow flows. Comparison UI is Lab-only. At P2I closeout Full failed on the pre-existing foundation Lab CLS; P2J below resolves that owner and repairs explicit capability/harness coverage. No deployment/next scene. [Contract](docs/redesign/review/SOUND-BOW-CONTACT-COMPARISON.md), [closeout result](P2I-CLOSEOUT-RESULT.md), [historical comparison](P2I-CHOREOGRAPHY-RESULT.md). |
 | P2J CLS / scalable responsive bow | **IMPLEMENTED / VERIFIED / RESPONSE REVIEW READY / STOP**. Prior SOUND visual freeze retained; Lab CLS fixed, shared engine/features/preset and 18s hybrid proof. Full PASS: 56 unique Node +285 browser, zero skip/flaky, explicit Windows capability limits. Native-device/new-response auditory acceptance remains separate. [Result](P2J-RESULT.md), [evidence](evidence/p2j/README.md). |
+| P2K interaction prototypes | **Current refinement: IMPLEMENTED / VERIFIED LOCALLY / REVIEW READY / STOP**. Requested minimum checks PASS: type-check/lint/build, interaction contracts 13 and browser 24, locale/content/SOUND contract sanity. The original revision had Full PASS (65 unique Node +307 browser); it is historical, not a new Full claim. Three user-authorized comparisons in an isolated Lab. Existing P2F/P2I freezes retained; new spatial points, secondary Janggu and glyph cascade require user visual selection. [Owner](docs/redesign/review/P2K-INTERACTION-PROTOTYPES.md), [result](P2K-RESULT.md), [evidence](evidence/p2k/README.md). |
 | Blender Capability Spike | REQUIRED BEFORE RELEVANT 3D PRODUCTION / NOT EXECUTED; Blender adoption undecided; Motion §47 owns acceptance |
 | CD Tray Lab | MANDATORY / NOT IMPLEMENTED / BLOCKING Album Detail package Quality Approved until its gate passes |
 | Haegeum 3D master | FUTURE EXPERIMENT / HIGH PRIORITY / NOT IMPLEMENTED; NOT BLOCKING first release, not disposable optional decoration; Motion §48 |
@@ -622,3 +623,50 @@ Delivery complete: implementation `e2456dd240ed0f4e4df54b536eda7e6a6727a55e` pus
 Its final SHA/CI is reported after push; no implementation changed after delivery and no deployment occurred.
 Recommended only after review: one SOUND response acceptance/native Safari/mobile QA closeout bundle.
 **STOP → USER APPROVAL. No WORKS, following HOME scene, Album migration or next Phase.**
+
+
+## Current P2K handoff — one prototype bundle / STOP
+
+Latest user scope: **Spatial Two-Point Motif + Janggu Reactive Marker + Premium Typography Transition**.
+Existing P2F/P2I A references remain frozen. New B candidates do not become QUALITY APPROVED/FROZEN/final
+canonical without visual selection. P2J HOME_SIGNATURE response stays separate from the prior visual approval.
+[Single owner](docs/redesign/review/P2K-INTERACTION-PROTOTYPES.md), [27-field result](P2K-RESULT.md),
+[normal-speed A/B videos and verification](evidence/p2k/README.md).
+
+- Separate development Lab on 4180, no public HOME or next scene. All-A and independently selectable B modes.
+- Bronze spatial points with perspective/glyph masks, actual-photo authored spans and disclosed AI full fit,
+  then continuous horizontal SOUND sweep. Fixed-line A still uses its original continuation.
+- Smaller Janggu orbit/compact history, upward-only accents; three unapproved red-brown candidates. Current
+  mixed-source detector already covers the user's approximate 0s, 3–4s, 9s and 14–15s '탁' regions. Remaining
+  candidate identity/onset precision and musical preference stay open; no manually authored cue playback.
+- Shared DOM glyph/masked cascade, current-state interruption and reduced-motion fallback. The real native
+  media, semantic action labels, route cleanup and frozen default behavior remain the original owners.
+- New tuning has one home in src/interaction-prototype; permanent hover questions live in Motion §38,
+  reference adoption in MASTER §6, and the human glossary has 50 terms. No duplicate principle document.
+- Physical phones, native Safari new motion, assistive technology, Retina originals and sustained thermal QA
+  are not proven by Playwright/mobile emulation. Source authenticity statuses remain unchanged.
+
+This task authorizes local prototype review, not main push, PR/merge, deployment or the following Scene.
+Recommended next step: user A/B/color/typography review; then one separately approved refinement/closeout task.
+**REPORT → STOP → USER APPROVAL.**
+
+
+### Latest P2K refinement receipt — current code, not historical captures
+
+The user requested current-runtime refinement and then continuous Janggu trail quality. HOME now has a .65px head,
+1800ms Bronze trail, depth in width/opacity, and continued along-string movement at lock. Janggu uses Lacquer
+#A33D36 /620ms, calm idle versus smoothly accelerated playing orbit; Violet B2/LONG is unchanged. The renderer
+stores every Janggu rAF position, subdivides rapid spans and fills joined gradient ribbons. Shared normal/edge math
+was extracted from the approved bow without changing its calculation or tuning. Shared-glyph transitions now use
+stationary vertical masks, 480ms/32ms cascade and a delayed incoming phase.
+
+The detector requires coincident bass/body evidence plus noisy attack: 13 candidates/10 active, previously 16/14.
+All four approximate user-confirmed regions remain covered; lower candidate count is not verified instrument accuracy.
+Old rounded-segment rendering, per-sample Janggu cadence, head-depth scale, stale tuning/selectors and moving glyph
+clip animation were removed. Existing, used Lab A/B controls remain development-only; removed UI was not restored.
+
+Type-check/lint/build PASS; interaction contracts 13 PASS, Chromium/WebKit smoke 24 PASS; locale, content and existing
+SOUND contracts PASS. No new Full/physical-device/Safari quality claim, screenshot/video, commit, push or deploy.
+[Owner](docs/redesign/review/P2K-INTERACTION-PROTOTYPES.md) holds current values. Prior P2K videos/performance figures
+remain immutable historical evidence and do not depict this refinement. Preview: http://127.0.0.1:4180/ .
+**REVIEW READY / STOP. The user reviews the current browser. No next scene/page.**

@@ -1,6 +1,6 @@
 # Implementation Task Protocol — mandatory bounded work
 
-Revision 1.25 · 2026-09-07 · P2I SOUND QUALITY APPROVED / FROZEN; classified QA gaps remain / STOP; enlarged coherent bundle and terminal STOP retained.
+Revision 1.26 · 2026-09-07 · P2I SOUND QUALITY APPROVED / FROZEN; classified QA gaps remain / STOP; enlarged coherent bundle and terminal STOP retained.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
@@ -603,3 +603,38 @@ Windows WebKit capability assertions remain distinguishable from supported analy
 Rollback baseline: clean main `05ce1f21488aafb3212e4abe84acce63b8f34777`; P2J changes are isolated on
 `codex/p2j-audio-feature-engine`. Preserve prior result/evidence and unrelated user changes when reverting.
 No whole-album batch, pitch/beat AI, content migration, WORKS or next scene. Full green is not deployment approval.
+
+
+## P2K — Spatial points + Janggu + typography prototype bundle
+
+The user explicitly authorizes these three related HOME/SOUND experiments as one bounded comparison bundle.
+Six subtasks: reference/source geometry audit → spatial points/string alignment/SOUND handoff → conservative
+Janggu helix/hits → shared-glyph action cascade → sequential contracts/browser/Full and real-time evidence →
+canonical owner/glossary/result/STOP. Inputs are retained approved/provisional sources and frozen A references.
+No second approval is needed between these authorized subtasks; final visual selection is still the user's.
+
+Scope: isolated src/interaction-prototype and labs/interaction; optional internal SOUND rendering/continuation
+slots with unchanged defaults; test/config/gate registration, new evidence, and current documentation owners.
+Rollback baseline: clean main 930441982ff6e50a1a2f8af6f22910215f6af071; branch codex/p2k-interaction-prototypes.
+Remove/revert only this bundle's diff if rejected; preserve earlier evidence and unrelated work. No assets/source
+migration, new dependency, instrument 3D/Blender, WORKS, later scene, public HOME or deployment.
+
+Fast adds nine P2K Node contracts (including the subsequent user-confirmed approximate Janggu regions). Full
+adds 22 browser cases on 4180, using existing installed Chromium/WebKit. Total expected unique Node contracts:
+65; browser cases: 307. The Sound command repeats its 18 Node contracts, which are not counted twice as unique.
+The P0E table above records its historical evolution; package.json and current result own actual executed counts.
+Capture/diagnostic browsers are sequential with Full to avoid contaminating frame metrics or shared artifacts.
+
+End at **REVIEW READY** only after applicable checks/evidence. No final QUALITY APPROVED/FROZEN/canonical
+selection, commit/main push or deployment is authorized by this prototype brief. **REPORT → STOP → USER APPROVAL.**
+
+
+### P2K current refinement — latest user instruction
+
+One bundle refines the current points/trails, Janggu and glyph transition, including the subsequent continuous-trail
+request. Current runtime/code was checked before changes. Preserve its uncommitted review baseline in
+`.checkpoints/p2k-refinement-before`; the shared bow geometry extraction can additionally revert to HEAD's identical
+normal/edge math. No unrelated refactoring, restored obsolete UI, next scene or delivery. CLEAN AS YOU GO applies.
+The user explicitly requests minimum validation (type-check, lint, build, related interaction smoke and regression
+sanity), no new screenshots/videos and no commit/push/deploy. Prior Full/evidence remains historical. Report seven
+fields and STOP; the user performs visual review. No additional approval loop within this authorized refinement.

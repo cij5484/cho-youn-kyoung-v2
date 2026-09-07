@@ -665,6 +665,17 @@ Potential sources:
 
 The purpose is to learn real-world practice, not copy visuals.
 
+**Major hover quality gate — P2K user revision (canonical owner):** Does it have distinctive character rather
+than a generic template underline/scale? Does it belong to the site's motion language? Does it respond promptly
+to the action? Is reverse/pointer-leave as considered as entry? Does it preserve state when interrupted?
+Is it purposeful without excess? If the result is ordinary, research a better principle and prototype again
+inside the authorized task. Contextual preview and pointer/spatial techniques are options, not mandatory effects
+on every link. Keyboard, touch and reduced-motion information remain complete.
+
+[P2K prototype owner](review/P2K-INTERACTION-PROTOTYPES.md) records the actual source research, two projected
+points/glyph mask, secondary Janggu helix/upward-only response, and shared-glyph cascade. These are REVIEW
+candidates, not newly frozen canonical motion. P2F/P2I A references and the P2J response status remain intact.
+
 ---
 
 # 39. PROFESSIONAL OVERRIDE RULE

@@ -526,3 +526,11 @@ The three approved families and nine palette values are retained. No HOME compos
 portrait, artwork, audio reaction or 3D is implemented by this foundation. P2A subsequently received user visual approval and was delivered as 7714907.
 The separately authorized [P2B Navigation Prototype](review/EDITORIAL-NAVIGATION-PROTOTYPE.md) consumes these
 roles only in its isolated Lab. Bold is visually approved and frozen for Hero integration; Safari real-device QA and final HOME composition remain open. REPORT → STOP before HOME/P2C.
+
+
+## P2K prototype accent roles — pending visual selection
+
+Existing Bronze #9A8164 supplies HOME's two experimental points; Electric Violet #6334E5 remains the approved
+primary Bow signature. Secondary Janggu red-brown candidates are Lab-local and not new global tokens.
+[Candidate palette and hierarchy](review/P2K-INTERACTION-PROTOTYPES.md) own the comparison. No candidate is
+QUALITY APPROVED/FROZEN before user review; the existing approved font and color tokens remain unchanged.
