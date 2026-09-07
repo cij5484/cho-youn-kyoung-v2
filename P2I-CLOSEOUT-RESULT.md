@@ -89,17 +89,19 @@ active plan/Task Protocol/Revision Log/README 및 이 closeout report/evidence. 
 
 ## 9. Commit SHA
 
-검증된 구현 및 문서를 논리적으로 commit하고 V2 main에 전달하는 범위가 승인됐다.
-실제 SHA/전달 결과는 delivery 완료 시 이 절에 기록한다. 아직 이 문장만으로 push 성공을 주장하지 않는다.
+구현 commit: `b86fb4eff88579744ebe3ded31cca55d98d20a91`. 166파일을 V2 main에 fast-forward하고
+`origin/main` push 성공을 확인했다. [정확한 파일 목록과 전달 기록](evidence/p2i-closeout/delivery.json).
+이 인수 기록은 후속 documentation commit으로 보존하며 최종 main SHA는 완료 응답에 함께 보고한다.
 
 ## 10. CI result
 
-로컬 Fast 통과와 원격 exact-SHA Fast CI를 구분한다. 원격 결과는 push 후 확인하여 기록한다.
-Full FAIL 상태는 Fast 성공 여부와 무관하게 유지한다. 배포 없음.
+로컬 Fast PASS. 위 구현 SHA의 [V2 Fast CI 34081883375](https://github.com/cij5484/cho-youn-kyoung-v2/actions/runs/34081883375) **SUCCESS**.
+Full FAIL 상태는 그대로 유지하며 배포는 하지 않았다. 인수 기록 commit도 push 후 Fast 결과를 별도 확인한다.
 
 ## 11. Working tree status
 
-Delivery 종료 시 main/origin 일치와 clean 상태를 확인한다. `.checkpoints`, generated builds,
+구현 delivery 직후 main/origin 일치(0 ahead / 0 behind)와 clean 상태를 확인했다.
+인수 기록 commit/push 후에도 clean 상태를 다시 확인하여 최종 응답에 보고한다. `.checkpoints`, generated builds,
 node_modules, Playwright temporary traces는 commit 대상이 아니다. 필요한 코드·문서·선별 evidence는 포함한다.
 
 ## 12. Recommended next larger bounded task

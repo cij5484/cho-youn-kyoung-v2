@@ -182,3 +182,6 @@ principles retain their single canonical owner; glossary status now reflects the
 [Closeout result](../../../P2I-CLOSEOUT-RESULT.md) owns QUALITY APPROVED / FROZEN, classified non-blocking
 Windows CLS/WebKit gaps and delivery. Full remains red; no test relaxation, deployment or next scene.
 Prior reports and evidence are preserved rather than rewritten with later approvals.
+
+P2I implementation delivered to V2 main as `b86fb4e`; exact-SHA Fast CI 34081883375 SUCCESS and clean main/origin
+verified. [Receipt / committed files](../../../evidence/p2i-closeout/delivery.json). No deployment or next scene.
