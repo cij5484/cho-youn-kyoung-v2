@@ -1,0 +1,13 @@
+{
+  "date": "2026-09-07",
+  "source": "User listening feedback in the P2K task",
+  "quotedFeedback": "9초, 14~15초, 0초, 3~4초 정도. '탁' 하는 소리가 있어. 해금 소리랑 확실히 달라.",
+  "interpretation": "Approximate regions, not sample-accurate onset labels. Detector timing was computed before this feedback; no cue points were added to the runtime.",
+  "regions": [
+    {"label":"0초 정도", "reviewWindow":[0,0.5], "existingCandidateSeconds":[0.3007]},
+    {"label":"3~4초 정도", "reviewWindow":[3,4.1], "existingCandidateSeconds":[3.2574,4.0391]},
+    {"label":"9초 정도", "reviewWindow":[8.7,9.3], "existingCandidateSeconds":[9.0705]},
+    {"label":"14~15초", "reviewWindow":[14,15], "existingCandidateSeconds":[14.8636]}
+  ],
+  "remaining": "Five candidates overlap four user-confirmed approximate regions. Other candidates, precise onset error, false positives and recall remain unverified."
+}

@@ -36,6 +36,7 @@
     "labs/navigation",
     "labs/hero",
     "labs/haegeum",
-    "labs/sound"
+    "labs/sound",
+    "labs/interaction"
   ]
 }

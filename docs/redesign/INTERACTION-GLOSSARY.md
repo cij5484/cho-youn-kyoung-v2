@@ -1,6 +1,6 @@
 # INTERACTION GLOSSARY — 웹 인터랙션 학습 노트
 
-2026-09-07 · 41 terms · **사용자를 위한 human-readable reference. Agent instruction이 아닙니다.**
+2026-09-07 · 50 terms · **사용자를 위한 human-readable reference. Agent instruction이 아닙니다.**
 
 영어 이름을 알면 레퍼런스를 보고 원하는 효과를 더 정확하게 이야기할 수 있습니다. 일반적인 구현 방법과
 V2의 현재 구현을 구분해 읽어 주세요. **현재 Lab / 미래 후보 / 필수 spike 미실행**은 서로 다른 상태입니다.
@@ -377,3 +377,63 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 기술/API: onset envelope, integrated velocity.
 - V2: **현재 onset 반응입니다. 방향은 부드러운 turning point를 통과하고 marker 자체에는 jitter를 넣지 않습니다.**
 - 참고: 프로젝트 모델 설명; [P2J 구현 계약](review/SOUND-BOW-CONTACT-COMPARISON.md#p2j--shared-engine--feature-data--preset-contract).
+
+
+## P2K 용어 추가 — Lab prototype, 시각 승인 전
+
+다음 용어의 현재 구현과 튜닝은 [P2K 소유 문서](review/P2K-INTERACTION-PROTOTYPES.md)에 있습니다.
+앞선 항목의 일반 API 설명과 달리 이번 추가분의 레퍼런스 조사 목록은 해당 문서에 별도 표시합니다.
+
+## 42. Two Spatial Points
+
+- 두 개의 공간 점. 처음부터 해금 현을 그리지 않고, 이름 주변을 지나며 장면의 기억을 이어 주는 두 점입니다.
+- 일반 구현: 작은 3D 위치 둘을 투영하고 시간에 따른 경로를 저장합니다.
+- V2: **현재 P2K Lab 비교 B**. Bronze 두 점이며 production 정본으로 선택된 상태는 아닙니다.
+
+## 43. Depth Choreography / Perspective Motion
+
+- 깊이 안무. 점이 앞쪽으로 오면 커지고 뒤로 들어가면 작아져 평면 화면에 깊이를 만듭니다.
+- 일반 구현: X/Y/Z 경로, camera projection, depth-based scale. 반드시 큰 3D 라이브러리가 필요한 것은 아닙니다.
+- V2: **현재 Canvas 원근 투영 prototype**. WebGL이나 3D 해금 모델을 구현했다는 뜻은 아닙니다.
+
+## 44. Glyph Occlusion
+
+- 글자에 의한 가림. 뒤로 지나가는 점은 글자 획에 가려지고, 앞으로 나온 점은 글자 위를 지나갑니다.
+- 일반 구현: 앞/뒤 레이어, glyph mask, stencil. 실제 글자를 3D로 만드는 방식과 다릅니다.
+- V2: **현재 DOM 글자는 유지하고 뒤 Canvas에만 glyph mask를 적용**합니다. Native Safari/DPR 경계 품질은 추가 검토 사항입니다.
+
+## 45. Scroll Convergence / Lock-on
+
+- 스크롤 수렴과 정착. 자유롭게 움직이던 점이 점차 실제 이미지의 한 위치로 모여 듭니다.
+- 일반 구현: 자유 경로에서 authored target으로 연속 보간하고 orbit을 줄여 0으로 만듭니다.
+- V2: **현재 사진별 보이는 현 구간에 정착**합니다. AI full reference는 시각 정렬일 뿐 실제 악기의 치수 증거가 아닙니다.
+
+## 46. Helix Orbit / Rhythmic Counterpoint
+
+- 나선 궤도와 리듬의 대화. 작은 점이 두 선을 앞뒤로 감싸며 주인공의 긴 흐름에 짧은 리듬을 더합니다.
+- 일반 구현: 축 방향 이동 + 작은 원운동 + 원근 크기, 짧은 실제 경로 이력.
+- V2: **현재 장구 marker 후보**. Violet 해금보다 작고 적갈색이며 색 최종 선택은 아직입니다. Idle orbit은 재생 상태 표시가 아닙니다.
+
+## 47. Percussive Transient
+
+- 타격성 순간음. 둥글게 이어지는 음보다 갑자기 나타나는 '탁' 같은 성분을 말합니다.
+- 일반 구현: 대역별 energy/positive flux/flatness와 이전 구간 비교. 혼합 음원에서 악기 식별을 보장하지 않습니다.
+- V2: **보수적인 장구 후보 추정**. 사용자가 확인한 약 0초, 3–4초, 9초, 14–15초를 기존 후보가 포함합니다. 나머지 후보는 미확정입니다.
+
+## 48. Shared Glyph Transition
+
+- 공통 글자 유지 전환. PAUSE에서 RESUME으로 바뀔 때 함께 쓰는 글자가 사라지지 않고 새 자리로 옮겨 갑니다.
+- 일반 구현: 중복을 허용하되 한 글자 노드는 한 번만 대응시키고 실제 현재 위치부터 새 위치로 이동합니다.
+- V2: **현재 P2K Lab B**. 빠른 재전환에서도 이전 animation의 시작점으로 되돌리지 않습니다.
+
+## 49. Masked Character Cascade
+
+- 글자별 마스크 계단 전환. 떠나는 글자와 새 글자가 각자 작은 창을 통해 조금씩 다른 시각에 이동합니다.
+- 일반 구현: glyph clip-path + staggered transform; 공통 글자는 별도 유지합니다.
+- V2: **430ms 전체 구간 / 24ms stagger 후보**. Screen reader는 쪼갠 글자 대신 실제 버튼의 현재 동작 이름을 읽습니다.
+
+## 50. Baseline Drift
+
+- 기준선의 작은 어긋남. 글자를 번갈아 조금 올리고 내려 손길에 응답하는 리듬을 줍니다.
+- 일반 구현: state transition과 분리한 작은 transform, leave 시 현재 위치에서 복귀.
+- V2: **P2K action hover ±3px 후보**, 승인된 MENU ±7px보다 작습니다. Reduced motion에서는 움직이지 않습니다.

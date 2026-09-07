@@ -201,3 +201,17 @@ new-response review boundary and authorized main/Fast delivery. **STOP; no deplo
 P2J implementation delivered to main as `e2456dd`; exact-SHA Fast CI 34085930019 SUCCESS.
 [Delivery / 89 files](../../../evidence/p2j/delivery.json). Clean main/origin was verified before the documentation
 receipt. No deployment, WORKS or following HOME scene.
+
+
+## 2026-09-07 — P2K local comparison bundle
+
+- User authorizes three HOME/SOUND comparisons in one bounded prototype; existing P2F/P2I freezes retained.
+- Single P2K owner for Bronze spatial points/source adapters, Janggu candidates and glyph cascade; separate Lab,
+  central tunables and no dependency/asset/content migration. Two internal rendering slots and a continuation
+  adapter preserve the default SoundExperience API.
+- MASTER §6 strengthens reference-first adoption; Motion §38 owns the hover quality questions once. HOME,
+  Design, SOUND, active plan/HANDOFF and glossary link their relevant current state; no duplicated principles.
+- User listening reply identifies approximate 0s, 3–4s, 9s and 14–15s attacks. Existing detector candidates cover
+  those regions; other percussive candidates remain unverified. Evidence retains original pre-feedback extraction.
+- Result/evidence own actual Full/browser/performance/video outcomes. New B is for visual review, not automatic
+  QUALITY APPROVED/FROZEN/canonical selection. No delivery, deployment, WORKS or following HOME Scene.

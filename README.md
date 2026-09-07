@@ -288,7 +288,7 @@ Stop the manual 4179 server before browser tests/Full; the test runner owns that
 Videos are real-time SILENT browser recordings; use the Lab for listening with synchronized visuals.
 Windows Playwright WebKit's missing AudioContext cannot certify analyser motion or native Mac Safari behavior.
 
-Learning: [INTERACTION-GLOSSARY](docs/redesign/INTERACTION-GLOSSARY.md) explains 41 terms with current/future status.
+Learning: [INTERACTION-GLOSSARY](docs/redesign/INTERACTION-GLOSSARY.md) explains 50 terms with current/future status.
 It is a human reference, not agent instructions. Official V2 experience principles live in
 [MASTER §3.1](docs/redesign/00-MASTER-PLAN.md#v2-experience-principles).
 
@@ -319,3 +319,29 @@ Response 선택은 동일한 재생 위치/graph를 유지합니다. 기본 entr
 모든 조정/추출/향후 Album 연결의 정본은 [기존 SOUND 계약](docs/redesign/review/SOUND-BOW-CONTACT-COMPARISON.md)입니다.
 실제 Safari·휴대폰·VoiceOver·thermal 증거는 자동 WebKit/모바일 에뮬레이션과 구분합니다.
 배포 없음. **REPORT → STOP → 사용자 승인**; WORKS/다음 HOME Scene은 시작하지 않습니다.
+
+
+### P2K — Spatial / Janggu / Typography comparison Lab
+
+이번 세 실험은 사용자 시각 선택을 위한 후보입니다. P2F/P2I의 기존 승인은 유지하며 새로운 B를 자동으로
+production 정본으로 바꾸지 않습니다. [비교 계약](docs/redesign/review/P2K-INTERACTION-PROTOTYPES.md),
+[결과](P2K-RESULT.md), [정상 속도 영상·증거](evidence/p2k/README.md).
+
+```sh
+npm run dev:interaction
+npm run test:interaction:contract
+npm run test:interaction
+node scripts/extract-p2k-percussion.mjs
+node scripts/capture-p2k.mjs
+npm run gate:full
+```
+
+[모두 B](http://127.0.0.1:4180/), [모두 A](http://127.0.0.1:4180/?all=a).
+접속하려면 먼저 dev:interaction 서버가 실행 중이어야 합니다. Lab dock에서 세 항목을 독립적으로 바꿀 수
+있습니다. 영어 fixture는 /en. 타이포그래피 단독 비교는 SOUND 아래의 study에 있습니다. 실제 18초 음원
+재생은 LISTEN으로 시작합니다. 영상 파일은 화면만 기록한 무음이며, 원래 재생 속도입니다.
+
+추가 dependency 없음. Fast는 새 Node 계약을, Full은 22개 Chromium/WebKit P2K browser case를 포함합니다.
+테스트는 4180, 촬영은 4195를 사용합니다. 수동 4179/4180 서버는 Full 전에 종료하고 browser suite와 촬영을
+동시에 실행하지 마세요. 새 촬영은 evidence/p2k만 사용하며 기존 P2I/P2J 증거를 덮어쓰지 않습니다.
+Production export는 차단되어 있고 실제 Pages 배포나 public HOME 편입은 하지 않습니다. **STOP → 사용자 승인.**

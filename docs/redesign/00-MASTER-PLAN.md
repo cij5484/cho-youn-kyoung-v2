@@ -166,6 +166,13 @@ Ivory editorial language, 해금, 두 현/활, tension/resonance, album objects,
 
 **Reference research should be problem-driven, not decorative.**
 
+P2K 사용자 개정: **REFERENCE FIRST → UNDERSTAND WHY IT WORKS → IMPLEMENT PRINCIPLE → REINTERPRET AS V2**.
+주요 hover/text/micro-interaction을 기계적인 underline/opacity/scale로 끝내지 않는다. MERSI, Pell Mell,
+Trionn, Shader.se, 4WIDE, Obys, Arnaud Rocca, Joseph Santamaria 및 creative studio/Codrops 사례에서
+character, mask, contextual preview, directional/spatial response, leave/reverse continuity를 문제별로 조사한다.
+영구적인 hover 검토 질문은 [Motion §38](03-MOTION-SYSTEM.md)에 한 번만 둔다. 이 정책의 승인은
+개별 실험의 최종 선택을 뜻하지 않는다. [P2K 비교](review/P2K-INTERACTION-PROTOTYPES.md)는 사용자 시각 선택 전 후보다.
+
 V2.1에는 사용자가 최근 검토에서 전달한 원칙을 반영한다: immersive artist world, confident editorial typography, work-first identity, gallery/archive restraint, strong first viewport, elegant presentation 안의 깊은 콘텐츠. 이번 문서 작업에서 해당 사이트들을 새로 조사했다는 뜻은 아니다. Layout/animation/type composition/source code/unique interaction을 직접 복제하지 않는다. 독자성은 해금·두 현/활·tension/resonance·physical albums·Sanjo/Jeongak materiality·조윤경 photography에서 만든다.
 
 분석 기준:
