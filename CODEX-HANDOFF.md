@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** P2A visually APPROVED and delivered to V2 main; P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN and delivered; P2C B — Bold Cropped canonical direction APPROVED; P2D APPROVED & DELIVERED with provisional portraits; P2E VISUAL DIRECTION APPROVED & DELIVERED; P2F QUALITY APPROVED / FROZEN; P2F DELIVERED; P2G result APPROVED; P2H baseline preserved; P2I SOUND QUALITY APPROVED / FROZEN retained · P2J shared feature engine / higher-sensitivity response REVIEW READY · P2K current trail / Janggu / glyph refinement REVIEW READY · requested minimum checks PASS / STOP\
-**Revision:** 1.28 / 2026-09-07 — current-runtime P2K refinement, user visual review pending\
+**Status:** P2F/P2I freezes retained; P2K refinement delivered via PR #3 / e01aad8. Current HOME closing sprint implements Scenes 04–08 in the 4180 development composition; user visual judgment remains separate from implementation and delivery. Public routes remain neutral.\
+**Revision:** 1.29 / 2026-09-07 — HOME closing sprint; current approval boundary below in §26\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 ---
@@ -465,6 +465,29 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 
 # 26. CURRENT HANDOFF STATE
 
+## Current HOME closing sprint — 2026-09-07
+
+The user explicitly authorized the whole remaining HOME narrative in one unattended sprint, minimum validation and
+branch push → PR → required CI → merge to main, with a hard 21:30 KST stop. This task-specific authorization overrides
+the earlier scene-by-scene approval pauses only for this sprint; it does not authorize another page or deployment.
+
+- Current entry: `npm run dev:interaction` / http://127.0.0.1:4180/ . Hero→Haegeum→SOUND now continues through
+  Selected Works, one switchable 2.5D Album Object, dark Performance, authentic Artist portrait and Name/Sou.P Outro.
+- [HOME](docs/redesign/04-HOME.md) owns visual/content contracts; [Motion §49](docs/redesign/03-MOTION-SYSTEM.md#49-current-home-closing-motion-contract)
+  owns the new runtime boundaries. The moving Violet head is now almost invisible; B2 path, LONG460 and Violet remain.
+- Source: three authentic 2026 album packages, two official performance posters and one portrait, all traceable/provisional.
+  No generated documentary photography, full record migration, reviewed EN source, final Tray/GLB or other page was added.
+- Basic entry has no comparison chrome. Existing upstream A/B choices survive only at `?compare=1`/`?all=a`; glyph study
+  is explicit `?study=type`. No new A/B branches, screenshots or videos were made. Historical evidence is preserved.
+- Local verification: Fast PASS (type/lint/build and existing contracts), `npm run test:home` 44 PASS
+  (HOME + upstream smoke, Chromium/WebKit, 320/390 reflow, reduced motion,
+  pose/selection, source images, reverse handoff and adaptive navigation). Full was not rerun under this sprint's minimum-check instruction.
+  Final delivery outcome is recorded by this sprint's GitHub PR/checks and final report, not inferred from a successful build.
+- New scene composition is **IMPLEMENTED**, not self-declared QUALITY APPROVED. Native Safari/phones, final visual/copy
+  review, higher-resolution Hero originals and future actual stage photography remain follow-ups. No deployment.
+
+The entries below preserve phase-specific historical approval and evidence. They do not supersede this current receipt.
+
 - Planning direction and the user's nine revisions are incorporated.
 - P0A skeleton and P0B local routing spike were individually approved and completed.
 - P0C real GitHub Pages deployment/routing verification: COMPLETE; Linux Chromium 42/42 and Windows Edge 42/42 passed.
@@ -669,4 +692,5 @@ Type-check/lint/build PASS; interaction contracts 13 PASS, Chromium/WebKit smoke
 SOUND contracts PASS. No new Full/physical-device/Safari quality claim, screenshot/video, commit, push or deploy.
 [Owner](docs/redesign/review/P2K-INTERACTION-PROTOTYPES.md) holds current values. Prior P2K videos/performance figures
 remain immutable historical evidence and do not depict this refinement. Preview: http://127.0.0.1:4180/ .
-**REVIEW READY / STOP. The user reviews the current browser. No next scene/page.**
+This refinement was subsequently delivered by PR #3 (`e01aad8`). The current HOME closing authorization and state are
+recorded at the start of §26; this receipt's minimum checks remain historical to the P2K revision.

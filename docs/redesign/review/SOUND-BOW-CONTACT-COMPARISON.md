@@ -42,7 +42,10 @@ No per-frame React state, additional loop, graph, source picker or audio restart
 Elapsed time is bounded for delayed frames; no catch-up teleport after a hidden tab. Angle uses the nearest equivalent
 ellipse axis and a small smoothing time, so reversing direction does not flip a directional arrow.
 
-Desktop head is 10×4.2 CSS px, mobile 8×3.6. Horizontal range is up to ±34% of shared line width, scaled by
+The 2026-09-07 HOME sprint explicitly makes the moving head almost invisible: `marker.opacity=.08`,
+width = selected trail width (LONG 3.2px), height = half that width. The 10×4.2 desktop / 8×3.6 mobile dimensions
+now apply only to the static fallback. Trail, smooth trajectory, LONG and Electric Violet are retained.
+Horizontal range is up to ±34% of shared line width, scaled by
 activity/sustain; the actual excerpt is less than this upper bound. Vertical bounds use shared line geometry:
 `upper=min(92px, lineY×.22)`, `lower=min(30px, lineY×.05)` on desktop;
 mobile `upper=min(60px, lineY×.14)`, `lower=min(20px, lineY×.05)`.
@@ -61,7 +64,7 @@ The initial ramp grows from the center smoothly; changes preserve phase and filt
 P2J HOME_SIGNATURE keeps history duration constant, with the retained `.82` mobile scale (377.2ms).
 Only B2_REFERENCE retains the previous `.85 + .15×activity` factor. Stored history has hard caps
 96 desktop / 64 mobile samples. At typical 60Hz, LONG uses about 28/23 visible samples. A fixed 12 age-band SVG
-ribbon progressively tapers width and opacity; one ellipse marks the current contact. No blur, glow or particles.
+ribbon progressively tapers width and opacity; its tiny, low-opacity contact cap blends into the trail. No blur, glow or particles.
 History is actual chronological path, so it follows turns rather than pointing along an invented straight comet tail.
 Longer/shorter tail requests normally change these four central tokens, not component architecture.
 
@@ -116,7 +119,7 @@ Owner: [contact-motion.ts](../../../src/sound/contact-motion.ts). Approved numbe
 | Request | Configuration owner |
 |---|---|
 | Activity/sweep speed | `activity.bold.speed/range`; default `soundDirection.activity` |
-| Marker size/opacity | `desktop/mobile.width/height`, `marker.opacity/staticOpacity` |
+| Marker size/opacity | Moving cap uses `trail[preset].width` and `marker.opacity`; static fallback uses `desktop/mobile.width/height`, `marker.staticOpacity` |
 | Horizontal range | `horizontal.center/range` (center .5, range .34) |
 | Vertical range | `desktop/mobile.upper/lower/upperFraction/lowerFraction` |
 | Longer/shorter history | `trail.long.historyMs` = **460**, or `trailPersistence` = 1 multiplier |
@@ -143,7 +146,7 @@ Philosophy belongs to [MASTER §3.1](../00-MASTER-PLAN.md#v2-experience-principl
 
 The canonical scalable target is **BowChoreographyEngine + AudioFeatureData + TuningPreset**, with offline
 analysis plus lightweight live response. P2J proves this seam using the existing 18-second asset only.
-Visual composition, Violet, marker dimensions, string friction and LONG remain frozen. More sensitive response
+Visual composition, Violet, string friction and LONG retain their approval; the later explicit sprint changes only the moving head presentation described above. More sensitive response
 is implemented and tested; subjective musical approval of that new response remains the user's review.
 
 | Owner | Responsibility / boundary |

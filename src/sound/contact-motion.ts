@@ -22,7 +22,7 @@ export const contactTuning = {
     'extra-long': { historyMs: 720, opacity: .72, width: 3.2 },
   },
   horizontal: { center: .5, range: .34 },
-  marker: { opacity: 1, staticOpacity: .9 },
+  marker: { opacity: .08, staticOpacity: .9 },
   violetStrength: 1, // Alpha multiplier for marker + trail; retains approved solid hue.
   trailPersistence: 1, // Multiplies preset history; "longer tail" does not rewrite choreography.
   history: { base: .85, activityGain: .15, fadeExponent: 1.3 },

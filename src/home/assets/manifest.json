@@ -1,0 +1,122 @@
+[
+  {
+    "file": "yeongsan-front.webp",
+    "source": "legacy-public:albums/yeongsan-hoesang-2026/web/front.webp",
+    "sha256": "f1b77b87d8a32003a39980fca70226d33f3e564c35b7da8325cc9f9fe4096c08",
+    "width": 1600,
+    "height": 1420,
+    "bytes": 727024,
+    "lifecycle": "provisional",
+    "provenance": "official-artwork"
+  },
+  {
+    "file": "yeongsan-back.webp",
+    "source": "legacy-public:albums/yeongsan-hoesang-2026/web/back.webp",
+    "sha256": "4abf6e10320098a83c322bce5d4334b2c34469921536e19b0dd106793e7191c1",
+    "width": 1600,
+    "height": 1419,
+    "bytes": 546078,
+    "lifecycle": "provisional",
+    "provenance": "official-artwork"
+  },
+  {
+    "file": "yeongsan-spine.webp",
+    "source": "legacy-public:albums/yeongsan-hoesang-2026/web/spine.webp",
+    "sha256": "84d75a44a032772e2780b5b265ddf541e8738568c90c6f01833cfa91181e2b3b",
+    "width": 83,
+    "height": 1477,
+    "bytes": 41752,
+    "lifecycle": "provisional",
+    "provenance": "official-artwork"
+  },
+  {
+    "file": "pyeongjo-front.webp",
+    "source": "legacy-public:albums/pyeongjo-hoesang-2026/web/front.webp",
+    "sha256": "7ca4183411a83bdac596b8e19258ff5ff50d376f6511220740434f0094d54ad0",
+    "width": 1600,
+    "height": 1420,
+    "bytes": 537736,
+    "lifecycle": "provisional",
+    "provenance": "official-artwork"
+  },
+  {
+    "file": "pyeongjo-back.webp",
+    "source": "legacy-public:albums/pyeongjo-hoesang-2026/web/back.webp",
+    "sha256": "45aaff3c8019735f79819900ab69fb7e2002224b335413c3d316deeb39090c8d",
+    "width": 1600,
+    "height": 1419,
+    "bytes": 312198,
+    "lifecycle": "provisional",
+    "provenance": "official-artwork"
+  },
+  {
+    "file": "pyeongjo-spine.webp",
+    "source": "legacy-public:albums/pyeongjo-hoesang-2026/web/spine.webp",
+    "sha256": "d17d9ebd7e0744231e6cbfef61a460182c8c0af31c51599b084347cd224e55bb",
+    "width": 83,
+    "height": 1477,
+    "bytes": 22860,
+    "lifecycle": "provisional",
+    "provenance": "official-artwork"
+  },
+  {
+    "file": "ji-young-hee-front.webp",
+    "source": "legacy-public:albums/ji-young-hee-ryu-haegeum-sanjo-2026/web/front.webp",
+    "sha256": "c21f884f8a1a1dc12f65de7d31483d515136ccb8e08ad0ecbeb5c47087906890",
+    "width": 2048,
+    "height": 1834,
+    "bytes": 251940,
+    "lifecycle": "provisional",
+    "provenance": "official-artwork"
+  },
+  {
+    "file": "ji-young-hee-back.webp",
+    "source": "legacy-public:albums/ji-young-hee-ryu-haegeum-sanjo-2026/web/back.webp",
+    "sha256": "5b40c3e49ae845088193b121aded2282e7728992f959fccf90e89531e539dbbe",
+    "width": 2048,
+    "height": 1814,
+    "bytes": 369468,
+    "lifecycle": "provisional",
+    "provenance": "official-artwork"
+  },
+  {
+    "file": "ji-young-hee-spine.webp",
+    "source": "legacy-public:albums/ji-young-hee-ryu-haegeum-sanjo-2026/web/spine.webp",
+    "sha256": "37ae4712cea560ddb0a0654aa59a628a5b92f346fe445a7b0acf07e1f0a5abec",
+    "width": 117,
+    "height": 2048,
+    "bytes": 23158,
+    "lifecycle": "provisional",
+    "provenance": "official-artwork"
+  },
+  {
+    "file": "era-poster.webp",
+    "source": "legacy-public:performances/haegeum-2026-08-02/viewer/poster.webp",
+    "sha256": "706e15162611ff261bacddcbfeba218ae444a88fbb94c11f1533230e50e88e41",
+    "width": 1414,
+    "height": 2000,
+    "bytes": 524700,
+    "lifecycle": "provisional",
+    "provenance": "official-artwork"
+  },
+  {
+    "file": "sanjo-poster.webp",
+    "source": "legacy-public:performances/sanjo-gil-2026-08-16/viewer/poster.webp",
+    "sha256": "cecaa9a33ba9c166db42ff02813c1ac20beb350d76ed372ad1378e8d83ac3a2c",
+    "width": 1440,
+    "height": 2036,
+    "bytes": 888304,
+    "lifecycle": "provisional",
+    "provenance": "official-artwork"
+  },
+  {
+    "file": "artist-portrait.jpg",
+    "source": "legacy-public:artist/profile/portrait.jpg",
+    "sha256": "0a83b329f6ee07cb52cefe54057c6a047ad797099adf179ac0a8a0e6e3d99fdf",
+    "width": 1800,
+    "height": 2700,
+    "bytes": 2320048,
+    "lifecycle": "provisional",
+    "provenance": "authentic-portrait"
+  }
+]
