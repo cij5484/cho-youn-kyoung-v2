@@ -2,7 +2,7 @@
 ## 04 — HOME
 
 **Version:** 2.1\
-**Status:** HOME V2.1 / 2026-09-07 closing sprint — eight-scene development composition implemented on 4180; new scenes await user visual judgment, public integration remains separate\
+**Status:** HOME V2.1 / 2026-09-07 Visual Impact Sprint — image-led ribbon, physical exchange, responsive stage/portrait and typographic hierarchy implemented on 4180; visual judgment and public integration remain separate\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`  
 **Art Direction:** Contemporary Editorial / Ivory  
 **Narrative Structure:** ARTIST → INSTRUMENT → SOUND → WORK → OBJECT → STAGE → ARTIST → NAME
@@ -43,10 +43,10 @@ V2.1 canonical rhythm and approximate experience budgets:
 | 01 HERO | ARTIST | 5/5 | 100–120vh | First-five-seconds peak; Moving Editorial Poster |
 | 02 HAEGEUM | INSTRUMENT | 4.5/5 | 120–160vh | Continuous transformation from Hero |
 | 03 SOUND | SOUND / LISTEN | 3/5 | 70–90vh | Quiet pause; explicit optional listening |
-| 04 SELECTED WORKS | WORK | 4/5 | 100–130vh | Long asymmetric editorial surface, 4–5 works |
+| 04 SELECTED WORKS | WORK | 4/5 | Current desktop 190svh / 90svh travel | Five large works on a short curved ribbon; mobile native grid |
 | 05 ALBUM OBJECT | OBJECT | 5/5 | 110–140vh | Second major visual peak; collectible objects |
-| 06 PERFORMANCE | STAGE | 2.5/5 | 80–100vh | First major Ivory → Dark Stage change; restrained motion |
-| 07 ABOUT | ARTIST | 2/5 | 80–100vh | Ivory; first clear face; short introduction |
+| 06 PERFORMANCE | STAGE | 2.5/5 | Content-dependent, about 100–120vh | Dark optical entrance, intact poster and responsive light |
+| 07 ABOUT | ARTIST | 2/5 | Content-dependent, about 100–125vh | Ivory photographic plate, clear identity and typographic column |
 | 08 OUTRO | NAME | 3/5 | 80–100vh | Name/two-line resolution; Sou.P signature |
 
 **STRONG → STRONG → QUIET → ACTIVE → PEAK → QUIET → QUIET → RESOLVE**
@@ -70,6 +70,28 @@ The user should not feel that every scroll requires another interaction.
 - New assets may be created/generated/requested when they improve quality.
 - Desktop and mobile may use different compositions while preserving the same narrative.
 - All heavy 3D must pass the 3D Lab, Quality Gate, and State Continuity Gate before production integration.
+
+## Later-HOME typographic composition — current sprint direction
+
+Letters are part of the composition, not labels distributed over spare corners. Preserve meaning while consolidating
+low-priority copy. Each scene has one reading order, deliberate baselines, tracking/line-height, and a clear relationship
+between its main image and text. Do not repeat oversized English banners across all scenes.
+
+| Scene | Current hierarchy / signature |
+|---|---|
+| Works | Large authentic artwork first; a moderate Korean heading; one desktop title/year/type ledger and five numbered controls. Mobile puts captions beside their own images. |
+| Album | A short single-line serif heading gives space to the physical object; one grouped selection/metadata band. Handling instructions and face controls share a baseline. |
+| Performance | Full bright poster, separate title/date/venue column, shallow light/depth response. The giant ON STAGE overlay and detached vertical source label are removed. |
+| Artist | Intact photographic plate and three staggered Korean name glyphs; short introduction; a smaller serif inscription. No repeated REMEMBER THE NAME banner. |
+| Outro | The largest three-line English name is the closing graphic event; invitation and signature remain grouped beneath it. |
+
+Reference review was brief and secondary to current-code work. Existing [P2K reference principles](review/P2K-INTERACTION-PROTOTYPES.md)
+remain the research owner. Additional primary-site DOM/CSS inspection on 2026-09-07 considered
+[Obys](https://obys.agency/), [DIA](https://www.dia.studio/) and [Bureau Borsche](https://bureauborsche.com/).
+DIA's compact navigation changes at narrow widths; Bureau Borsche groups consistently sized index text separately from
+large project media. These support compact secondary information and image-led hierarchy. Obys' main presentation is
+canvas-based, so its extracted HTML does not establish rendered type scale or animation quality; the existing continuity
+reference remains inspiration, not newly verified visual evidence. No exact layout, code, media or branding was copied.
 
 ---
 
@@ -517,13 +539,15 @@ When needed, request:
 
 # 9. TRANSITION 03 → 04
 
-One strand of the two-line motif extends horizontally and becomes the Selected Works editorial exploration axis. The current development composition inherits the actual outgoing string coordinates, resolves into the Works axis and restores the source on reverse scroll. The other strand recedes; the pair returns as quiet Outro rules.
+The current development composition inherits the outgoing SOUND strand coordinates and continuously contracts both
+lines into two moving points. Their recent paths remain visible through free motion, work-focused front/back orbit,
+release and the later Album handoff. Reverse scroll restores the source lines; reduced motion retains the static alternative.
 
 This is an intentional signature transition.
 
 Narrative:
 
-`sound line → work navigation axis`
+`SOUND strands → two spatial points → artwork orbit → physical-object focus`
 
 Do not reset the visual language between scenes.
 
@@ -537,10 +561,10 @@ Show that the artist has a substantial body of work without turning HOME into an
 
 ## Composition
 
-Approved:
-- compact, slightly scattered cluster → native-scroll spatial reorganization → asymmetric editorial composition
+Current user-authorized Visual Impact direction (replaces the earlier scattered-cluster prototype):
+- five large image planes on a short curved film ribbon, with one work clearly exposed at a time
 - 4–5 selected works
-- varying image sizes / crops / vertical positions
+- authentic aspect ratios, spatial depth and varied proportions
 - large whitespace
 - editorial numbering
 
@@ -558,10 +582,11 @@ No summary paragraph on HOME.
 ## Interaction
 
 Desktop:
-- brief sticky composition (current 178svh scene, about 78svh pinned travel); no horizontal drag rail or wheel interception
-- actual card dimensions determine the inverted cluster transform; retain IDs, DOM order and focusable links
-- contextual image-edge reveal and directional response on hover/focus
-- artwork aspect ratios and available height cap image size so captions remain unobscured
+- brief sticky composition (190svh scene, 90svh travel); no wheel interception or drag requirement
+- native scroll moves the ribbon; five labelled buttons expose any work, and its central link remains keyboard reachable
+- near-pointer/focus gathers the pair around the artwork, with front/back depth and continuous release to free motion
+- pointer also tilts the artwork surface; recent paths use the shared trail resampler, not discrete dots
+- height-aware image sizing keeps the main image clear of the heading and the single caption ledger
 
 Mobile:
 - four-column composition with varied spans and native vertical scroll; no desktop pin on narrow screens
@@ -581,8 +606,8 @@ Navigation must remain functional without shared transition support. Match image
 
 ## Accessibility
 
-Keep keyboard navigation and focusable work links. Focus raises a clustered work above its neighbors;
-reduced motion resolves directly to the readable arrangement. No drag is required.
+Keep keyboard-accessible selection buttons and the active work link. Mobile/reduced motion exposes all work links
+in an ordinary readable grid, with captions attached to each image. No drag is required.
 
 ## Asset Requirements
 
@@ -596,7 +621,7 @@ If a selected work lacks a V2-quality image, request or create a better asset.
 
 - feels like editorial exploration, not ecommerce carousel
 - 4–5 works feel substantial but not crowded
-- native scroll immediately reorganizes the cluster
+- native scroll immediately advances the short ribbon
 - touch does not steal vertical scroll
 - detail transition is coherent
 
@@ -617,15 +642,18 @@ Reduce lateral exploration and increase object focus.
 
 The transition should prepare the visitor for 3D rather than abruptly spawning a WebGL scene.
 
-The current entry reuses actual selected artwork on a single physical presentation. It does not claim a
-cross-route shared-element transition or final geometry approval.
+The point pair leaves the ribbon toward the actual incoming object's measured location and subsides as the album
+takes focus. Selecting a work retains its content identity. This does not claim a cross-route shared-image transition
+or final geometry approval.
 
 ---
 
 # 12. SCENE 05 — ALBUM OBJECT / 3D COLLECTION
 
-**Current sprint implementation:** one lightweight 2.5D paper album, three selectable 2026 titles, actual front/back/spine
-artwork, perspective, horizontal drag/inertia, pointer tilt and explicit front/back/keyboard controls. Scene selection/pose
+**Current sprint implementation:** three retained lightweight CSS volumes with one active manipulation target. Actual
+front/back/spine artwork, connected perspective through all volume ancestors, edge depth, directional light, drag/inertia,
+pointer tilt and explicit front/back/keyboard controls. Selection produces a 920ms spatial entrance/exit; rapid changes
+continue from the browser's current interpolated transforms instead of resetting a timer or pose. Scene selection/pose
 is separate from the `PaperAlbumObject` render adapter. Replacing that adapter with a future GLB does not require rewriting
 the scene. This is presentation geometry, not a manufacturing model or a waiver of Blender/Tray/Album Detail quality gates.
 
@@ -793,9 +821,8 @@ The site must intentionally reduce motion after the 3D peak.
 Move from:
 `physical interaction → still stage atmosphere`
 
-The dark Performance scene should feel like a breath after the technical/interactive climax.
-
-Avoid another high-intensity transition.
+The dark Performance scene changes the visual language from object manipulation to stage presence. The current
+optical poster entrance and spatial light response should be distinct without adding another required interaction.
 
 ---
 
@@ -816,14 +843,11 @@ Approved:
 
 ## Motion
 
-Almost static.
-
-Allowed:
-- subtle depth/parallax
-- tiny image movement
-- restrained text reveal
-
-The stillness is intentional.
+Current Visual Impact direction:
+- a strong, scroll-driven optical aperture reveals the intact poster
+- pointer position changes the stage light, background planes and shallow poster depth
+- title/date/venue remain in a separate stable reading column; no competing giant ON STAGE lettering
+- the scene remains settled without input; no perpetual stage animation
 
 Do not add another drag rail or active 3D interaction here.
 
@@ -873,9 +897,10 @@ Prefer:
 - quiet mask reveal
 - large whitespace
 
-The current development composition carries the right-hand image position from Performance into the authentic Artist
-portrait. The header interpolates its own light/dark palette at the actual stage boundary and returns to Ivory; the menu
-dialog retains its approved palette. Portrait input moves the intact photograph shallowly, never warping the face.
+The current composition moves from a right-side poster to an offset photographic plate and Korean name column in
+Ivory. The portrait aperture and name reveal are scroll-driven; the header interpolates at the actual stage boundary
+while the menu dialog retains its approved palette. Pointer input shifts the crop, intact photo plane and surface light,
+never warping the face. This is a compositional/tonal handover, not a shared-image morph between different photographs.
 
 ---
 
@@ -904,10 +929,10 @@ No CV timeline on HOME.
 
 ## Motion
 
-Approved:
-- quiet portrait mask reveal
-- subtle parallax
-- restrained text reveal
+Current Visual Impact direction:
+- photographic mount/aperture and three-glyph name composition
+- smooth whole-plane depth, bounded crop movement and light response from the shared pointer input owner
+- different scroll offsets for the name glyphs; readable static/reduced-motion composition
 
 ## Background
 

@@ -355,3 +355,8 @@ Production export는 차단되어 있고 실제 Pages 배포나 public HOME 편�
 수동 4180 서버를 먼저 종료하세요. 이 명령은 screenshot/video/trace를 생성하지 않습니다.
 실제 자산 출처·hash·provisional 상태는 `src/home/assets/manifest.json`, 선택 데이터는 `src/home/content.ts`가 소유합니다.
 새 장면에 A/B는 추가하지 않았습니다. 최종 시각 선택, 실물 디바이스 및 공개 route 통합은 별도 작업입니다.
+
+현재 Visual Impact 구성: Works는 짧은 곡선 리본과 번호 탐색, 두 점의 작품 공전입니다. Album은 회전 자세를
+유지한 공간 교체, Performance/Artist는 포인터의 빛·사진 면 반응을 사용합니다. 모바일/reduced motion은
+별도 읽기 구성입니다. 수치/동작 소유자는 `src/home/works-motion.ts`, `album-motion.ts`, `surface-response.ts`이며
+타이포 배치는 `home.css`에서 장면별로 관리합니다. 검증/전달 상태의 정본은 CODEX-HANDOFF §26입니다.

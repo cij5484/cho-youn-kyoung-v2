@@ -1,8 +1,9 @@
 import { useEffect, useRef, type RefObject } from 'react'
 
 export const albumObjectTuning = {
-  initialTurn: -18, initialTilt: -7, dragDegreesPerPixel: .45,
-  pointerTilt: 7, response: 15, friction: 6, maxVelocity: 300,
+  initialTurn: -28, initialTilt: -12, dragDegreesPerPixel: .45,
+  pointerTilt: 11, response: 11, friction: 4.5, maxVelocity: 300,
+  exchangeDuration: 920, depthRatio: .057,
 } as const
 
 /** Pose belongs to the scene, not its CSS/GLB renderer. Vertical touch scrolling always wins. */
@@ -23,6 +24,8 @@ export function useAlbumMotion(ref: RefObject<HTMLDivElement | null>) {
       angle += (target - angle) * settle; tilt += (tiltTarget - tilt) * settle
       element.style.setProperty('--object-turn', `${angle.toFixed(3)}deg`)
       element.style.setProperty('--object-tilt', `${tilt.toFixed(3)}deg`)
+      element.style.setProperty('--object-light', `${(50 + Math.sin(angle * Math.PI / 180) * 40).toFixed(2)}%`)
+      element.style.setProperty('--object-shade', `${(.07 + Math.abs(Math.sin(angle * Math.PI / 180)) * .16).toFixed(3)}`)
       element.dataset.turn = angle.toFixed(1)
       element.dataset.moving = String(Math.abs(target - angle) > .02 || Math.abs(velocity) > .1)
       if (Math.abs(target - angle) > .02 || Math.abs(tiltTarget - tilt) > .02 || Math.abs(velocity) > .1) request()
@@ -66,6 +69,8 @@ export function useAlbumMotion(ref: RefObject<HTMLDivElement | null>) {
       event.preventDefault(); target += event.key === 'ArrowLeft' ? -35 : 35; velocity = 0; request()
     }
     function resetMotion() { velocity = 0; pointer = null; element.dataset.dragging = 'false'; tiltTarget = tune.initialTilt; if (reduced.matches) target = Math.round(target / 180) * 180; request() }
+    const size = new ResizeObserver(() => { const pose = element.querySelector<HTMLElement>('.album-object-pose'); if (pose) element.style.setProperty('--album-depth', `${(pose.offsetWidth * tune.depthRatio).toFixed(2)}px`) })
+    size.observe(element)
     const observer = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting
       if (visible) { last = 0; request() } else { if (frame) cancelAnimationFrame(frame); frame = 0; velocity = 0; pointer = null; element.dataset.dragging = 'false' }
@@ -77,7 +82,7 @@ export function useAlbumMotion(ref: RefObject<HTMLDivElement | null>) {
     element.addEventListener('keydown', key); reduced.addEventListener('change', resetMotion)
     resetMotion()
     return () => {
-      disposed = true; if (frame) cancelAnimationFrame(frame); observer.disconnect(); turn.current = () => {}
+      disposed = true; if (frame) cancelAnimationFrame(frame); observer.disconnect(); size.disconnect(); turn.current = () => {}
       element.removeEventListener('pointerdown', down); element.removeEventListener('pointermove', move)
       element.removeEventListener('pointerup', release); element.removeEventListener('pointercancel', release)
       element.removeEventListener('lostpointercapture', release); element.removeEventListener('pointerleave', leave)

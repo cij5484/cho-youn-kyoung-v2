@@ -5,8 +5,9 @@ Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
 
-**Task-specific exception, 2026-09-07 HOME closing sprint:** the user explicitly authorized the remaining HOME scenes
-as one unattended bundle, minimum type/lint/build/HOME smoke, no screenshot/video evidence, and final PR/CI/merge.
+**Task-specific exception, 2026-09-07 HOME Visual Impact Sprint:** after the closing baseline delivery, the user explicitly
+authorized the later-HOME visual/typography refinement as one unattended bundle, minimum type/lint/build/HOME smoke,
+no screenshot/video evidence, and final PR/CI/merge.
 Its absolute stop is 21:30 KST. This authorization covers only the current 4180 HOME composition and delivery;
 the general bounded-work rule below resumes after the sprint. Current state lives in [HANDOFF §26](../../../CODEX-HANDOFF.md#26-current-handoff-state).
 

@@ -15,7 +15,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 마우스가 움직이면 화면 뒤의 빛·이미지·깊이가 조금 달라지는 효과입니다.
 - 일반 구현: pointer 좌표를 영역 안의 0–1 값으로 바꾼 뒤 보간하고 CSS transform 또는 shader 입력으로 전달합니다.
 - 기술/API: Pointer Events, CSS custom properties, rAF, Canvas/WebGL.
-- V2: **미래 후보**. Hero의 기존 pointer depth는 관련된 현재 Lab 사례지만, 전면 배경 shader가 구현된 것은 아닙니다.
+- V2: **현재 개발 HOME에서 구현**. Performance의 빛/배경 면과 Artist 사진의 표면 광량·깊이가 보간된 포인터 입력에 반응합니다. WebGL shader 채택을 뜻하지 않습니다.
 - 참고: 프로젝트 설명; GPU 방식의 기반은 [MDN WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API).
 
 ## 02. Cursor-Reactive Shader
@@ -42,7 +42,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 주변이 변해도 같은 선이나 물체가 남아 ‘같은 공간에서 이어지고 있다’고 느끼게 합니다.
 - 일반 구현: 요소를 공통 부모에 두고 재생성하지 않으며 transform과 상태만 연결합니다.
 - 기술/API: 공유 DOM, refs, scene state, CSS mask/transform.
-- V2: **현재 개발 HOME**의 두 선이 Hero→Haegeum→SOUND로 이어지며, 실제 마지막 선 위치를 Works의 가로 기준선으로 넘깁니다. Outro에서는 정돈된 두 선으로 닫힙니다.
+- V2: **현재 개발 HOME**의 SOUND 선이 두 점으로 수렴한 뒤 Works의 자유 궤도/작품 공전으로 이어지고, Album 위치로 이동하며 잦아듭니다. Outro에서는 정돈된 두 선으로 닫힙니다.
 - 참고: 프로젝트 설명; [Haegeum 가이드](review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md).
 
 ## 05. Adaptive Contrast Navigation
@@ -87,7 +87,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 흩어진 사진을 그리드로 바꿀 때 각 사진이 어디로 이동하는지 보여 줍니다.
 - 일반 구현: 처음 상태를 기록하고 최종 레이아웃을 적용한 뒤, 두 상태의 차이를 transform으로 역보정해 풀어 줍니다.
 - 기술/API: GSAP Flip.getState / Flip.from; FLIP = First, Last, Invert, Play.
-- V2: 플러그인 자체는 **미채택**. 현재 HOME Works는 같은 시작/도착 geometry 원리를 CSS transform으로 구현했습니다.
+- V2: 플러그인 자체는 **미채택**. 이전 HOME Works의 cluster inversion은 리본으로 대체됐습니다. 현재 리본의 좌표 보간을 GSAP Flip 구현으로 부르지 않습니다.
 - 참고: [GSAP Flip 공식 문서](https://gsap.com/docs/v3/Plugins/Flip/).
 
 ## 10. Layout Reorganization
@@ -96,7 +96,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 작품들이 흩어져 있다가 같은 작품끼리 정돈된 목록으로 모입니다.
 - 일반 구현: 의미/ID가 같은 항목의 시작·도착 geometry를 연결합니다. 내용 순서와 포커스도 관리합니다.
 - 기술/API: CSS Grid/Flex, FLIP, transform, ResizeObserver.
-- V2: **현재 HOME Selected Works에서 구현**. 5개 작품의 압축된 cluster가 비대칭 구성으로 풀립니다. 모바일은 별도 4-column 배치입니다.
+- V2: 이전 HOME cluster 재배열은 **대체됨**. 현재는 5개 작품의 짧은 공간 리본이며 모바일은 별도 4-column 배치입니다.
 - 참고: 구현 기법 예시 [GSAP Flip](https://gsap.com/docs/v3/Plugins/Flip/); 이 용어 자체는 프로젝트 설명입니다.
 
 ## 11. Filmstrip Gallery
@@ -105,7 +105,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 개별 카드 격자 대신 사진이 한 줄의 리듬으로 이어집니다.
 - 일반 구현: 크기가 다른 미디어를 strip/ribbon에 배치하고 native scroll 또는 드래그와 명시적 탐색을 제공합니다.
 - 기술/API: CSS flex, scroll-snap, Pointer Events; 필요 시 가상화.
-- V2: MEDIA **미래 후보 / 미구현**. 모바일에서 가로 탐색이 세로 스크롤을 가로막지 않아야 합니다.
+- V2: **현재 HOME Selected Works에서 구현**. 90svh native travel의 큰 곡선 리본과 번호 탐색, 작품에 모이는 두 점의 앞/뒤 공전. 모바일은 세로 grid로 재구성합니다. MEDIA 적용은 별도 미래 후보입니다.
 - 참고: 프로젝트 설명; [MASTER §3.1](00-MASTER-PLAN.md#v2-experience-principles).
 
 ## 12. Shader Distortion
@@ -442,5 +442,6 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 
 - 장면의 동작과 물체를 그리는 방법을 나누는 구조입니다. 앨범을 바꿔도 회전 중이던 위치가 이어집니다.
 - 현재 HOME은 실제 앞면·뒷면·책등을 CSS 입체 면에 배치합니다. 선택·회전은 scene, 외형은 교체 가능한 adapter가 소유합니다.
+- 현재 세 앨범은 920ms 공간 진입/퇴장으로 교체됩니다. 회전 자세와 교체 중간 위치는 이어지고, 연속 선택은 마지막 요청으로 수렴합니다. 깊이는 시각적 근사이며 실물 치수 검증은 아닙니다.
 - GLB로 바꿀 때 장면 전체를 다시 만들지 않기 위한 경계이며, 최종 Blender/Tray 품질 검증을 통과했다는 뜻은 아닙니다.
 - 구현 계약: [Motion §49](03-MOTION-SYSTEM.md#49-current-home-closing-motion-contract).
