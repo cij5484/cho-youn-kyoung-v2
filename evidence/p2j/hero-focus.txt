@@ -1,0 +1,98 @@
+
+> cho-youn-kyoung-v2@0.0.0 test:hero
+> playwright test --config playwright.hero.config.ts --project=webkit --grep keyboard skip
+
+[WebServer] (node:34684) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 2 workers
+
+(node:23404) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:28716) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 [webkit] › tests\hero.spec.ts:90:34 › 320: keyboard skip, focus trap, Esc restore and 200% text (6.1s)
+  x  2 [webkit] › tests\hero.spec.ts:90:34 › 1440: keyboard skip, focus trap, Esc restore and 200% text (6.3s)
+
+
+  1) [webkit] › tests\hero.spec.ts:90:34 › 320: keyboard skip, focus trap, Esc restore and 200% text
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByRole('link', { name: '본문으로 이동' })
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" getByRole('link', { name: '본문으로 이동' }) with timeout 5000ms
+      - waiting for getByRole('link', { name: '본문으로 이동' })
+        14 × locator resolved to <a class="skip-link" href="#hero-main">본문으로 이동</a>
+           - unexpected value "inactive"
+
+
+      91 |   const tabKey = browserName === 'webkit' ? 'Alt+Tab' : 'Tab'
+      92 |   await page.setViewportSize({ width, height: 900 }); await ready(page)
+    > 93 |   await page.keyboard.press(tabKey); await expect(page.getByRole('link', { name: '본문으로 이동' })).toBeFocused()
+         |                                                                                                ^
+      94 |   await page.keyboard.press('Enter'); await expect(page.locator('main')).toBeFocused()
+      95 |   const trigger = page.getByRole('button', { name: 'MENU', exact: true })
+      96 |   await trigger.focus(); await page.keyboard.press('Enter')
+        at C:\choyounkyoung-v2\tests\hero.spec.ts:93:96
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\hero\hero-320-keyboard-skip-focus-trap-Esc-restore-and-200-text-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\hero\hero-320-keyboard-skip-focus-trap-Esc-restore-and-200-text-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\hero\hero-320-keyboard-skip-focus-trap-Esc-restore-and-200-text-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\hero\hero-320-keyboard-skip-focus-trap-Esc-restore-and-200-text-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [webkit] › tests\hero.spec.ts:90:34 › 1440: keyboard skip, focus trap, Esc restore and 200% text
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByRole('link', { name: '본문으로 이동' })
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" getByRole('link', { name: '본문으로 이동' }) with timeout 5000ms
+      - waiting for getByRole('link', { name: '본문으로 이동' })
+        14 × locator resolved to <a class="skip-link" href="#hero-main">본문으로 이동</a>
+           - unexpected value "inactive"
+
+
+      91 |   const tabKey = browserName === 'webkit' ? 'Alt+Tab' : 'Tab'
+      92 |   await page.setViewportSize({ width, height: 900 }); await ready(page)
+    > 93 |   await page.keyboard.press(tabKey); await expect(page.getByRole('link', { name: '본문으로 이동' })).toBeFocused()
+         |                                                                                                ^
+      94 |   await page.keyboard.press('Enter'); await expect(page.locator('main')).toBeFocused()
+      95 |   const trigger = page.getByRole('button', { name: 'MENU', exact: true })
+      96 |   await trigger.focus(); await page.keyboard.press('Enter')
+        at C:\choyounkyoung-v2\tests\hero.spec.ts:93:96
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\hero\hero-1440-keyboard-skip-focus-trap-Esc-restore-and-200-text-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\hero\hero-1440-keyboard-skip-focus-trap-Esc-restore-and-200-text-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\hero\hero-1440-keyboard-skip-focus-trap-Esc-restore-and-200-text-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\hero\hero-1440-keyboard-skip-focus-trap-Esc-restore-and-200-text-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [webkit] › tests\hero.spec.ts:90:34 › 320: keyboard skip, focus trap, Esc restore and 200% text
+    [webkit] › tests\hero.spec.ts:90:34 › 1440: keyboard skip, focus trap, Esc restore and 200% text

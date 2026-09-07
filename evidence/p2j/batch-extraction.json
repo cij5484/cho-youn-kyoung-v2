@@ -1,0 +1,30 @@
+[
+  {
+    "trackId": "home-hanbeomsu-jungjungmori-preview",
+    "input": "src/sound/assets/hanbeomsu-jungjungmori-preview.m4a",
+    "output": ".checkpoints/p2j/batch/home.features.json",
+    "sourceSha256": "00ae2adee523857da413aa7cb28521026bcfcc5fadde9db0e8f845cf5145708c",
+    "featureSha256": "695283bd45af08459c9fc7215fd0d2a3117d76ca11f127c433904d8f5e0c78e0",
+    "audioBytes": 434470,
+    "featureBytes": 6713,
+    "frames": 450,
+    "onsets": 68,
+    "duration": 17.999954648526078,
+    "elapsedMs": 1314,
+    "decoder": "Chromium 153.0.8010.12"
+  },
+  {
+    "trackId": "same-audio-batch-fixture-only",
+    "input": "src/sound/assets/hanbeomsu-jungjungmori-preview.m4a",
+    "output": ".checkpoints/p2j/batch/alias.features.json",
+    "sourceSha256": "00ae2adee523857da413aa7cb28521026bcfcc5fadde9db0e8f845cf5145708c",
+    "featureSha256": "e130a6dd86ceb9edca3a238011c9df449b112e9a3ecee8d286c7645c518292fd",
+    "audioBytes": 434470,
+    "featureBytes": 6707,
+    "frames": 450,
+    "onsets": 68,
+    "duration": 17.999954648526078,
+    "elapsedMs": 1283,
+    "decoder": "Chromium 153.0.8010.12"
+  }
+]

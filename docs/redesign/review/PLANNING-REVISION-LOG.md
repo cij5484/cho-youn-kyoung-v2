@@ -185,3 +185,15 @@ Prior reports and evidence are preserved rather than rewritten with later approv
 
 P2I implementation delivered to V2 main as `b86fb4e`; exact-SHA Fast CI 34081883375 SUCCESS and clean main/origin
 verified. [Receipt / committed files](../../../evidence/p2i-closeout/delivery.json). No deployment or next scene.
+
+## 2026-09-07 — P2J CLS closeout / shared audio features / responsive bow
+
+User approved P2I closeout; the B2 / LONG 460ms / Electric Violet SOUND quality freeze remains. One P2J bundle
+fixes the foundation Lab's font-wrap row topology and adds shared BowChoreographyEngine + AudioFeatureData +
+TuningPreset with a real 18s offline/live proof. Onset/flux/energy/phrase drive smoother high sensitivity; pitch stays
+disabled and no per-track timestamp script, beat AI, album migration or next scene is added.
+Full PASS: 56 unique Node contracts +285 browser cases; explicit Windows capability/real HTTP fault/readiness
+coverage replaces unsupported assumptions. No Font assertion relaxation or frozen Hero/Haegeum product edit.
+The existing SOUND document owns architecture/tuning, Foundation owns CLS, MASTER/Motion/HOME link those
+owners; the human glossary grows from 29 to 41 terms. [P2J result](../../../P2J-RESULT.md) owns evidence,
+new-response review boundary and authorized main/Fast delivery. **STOP; no deployment or following scene.**

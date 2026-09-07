@@ -1,0 +1,14 @@
+
+> cho-youn-kyoung-v2@0.0.0 test:haegeum
+> playwright test --config playwright.haegeum.config.ts --project=webkit --grep late deep-scroll
+
+[WebServer] (node:32584) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:29984) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [webkit] › tests\haegeum.spec.ts:121:1 › late deep-scroll imagery selects static fallback rather than popping into the motion plane (1.0s)
+
+  1 passed (3.0s)

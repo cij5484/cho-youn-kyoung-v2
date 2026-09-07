@@ -1,0 +1,19 @@
+[WebServer] (node:15896) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 2 workers
+
+(node:1868) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:19192) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 2 [chromium] › tests\sound.spec.ts:308:1 › P2I: A/B and tail comparison preserves media position, graph, focus and the original line nodes (3.6s)
+(node:9100) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\sound.spec.ts:291:1 › eight route returns release every previous context and do not accumulate Sound DOM (19.4s)
+(node:33728) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 4 [webkit] › tests\sound.spec.ts:308:1 › P2I: A/B and tail comparison preserves media position, graph, focus and the original line nodes (4.1s)
+  ok 3 [webkit] › tests\sound.spec.ts:291:1 › eight route returns release every previous context and do not accumulate Sound DOM (26.2s)
+
+  4 passed (32.5s)

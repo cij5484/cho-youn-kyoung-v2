@@ -585,3 +585,21 @@ Rollback before closeout: `.checkpoints/p2i-closeout-before` preserves all 127 r
 126 verified source hashes and original manifest. Git baseline remains `ba80144`; preserve earlier reports.
 SOUND quality freeze with classified non-blocking gaps does not turn a red Full green or authorize deployment.
 Report the user's 12 closeout fields from [result](../../../P2I-CLOSEOUT-RESULT.md). **STOP → USER APPROVAL**.
+
+## P2J — Foundation CLS + scalable, responsive bow bundle
+
+The user's P2I closeout approval preserves SOUND's B2 / LONG / Electric Violet visual freeze and authorizes one
+six-part bundle: (1) diagnose/fix the actual foundation Lab CLS owner; (2) audit timestamp coupling; (3) implement
+shared engine/feature/preset seams and one explicit local extraction prototype; (4) tune responsive, smooth bow
+acceleration without changing the frozen visual composition; (5) sequential contracts/browser/Full plus real-time
+B2 comparison evidence; (6) canonical docs/glossary, logical commit/main push/Fast CI/clean-tree receipt, report
+the user's 24 fields and **STOP**. One authorization covers this sequence; no separate subtask approval loop.
+
+Scope: foundation Lab masthead; src/audio + src/sound + Sound Lab; bounded local extraction/verification tooling;
+relevant tests and owning docs. Existing Hero/Haegeum/navigation production code, content/audio bytes, routing,
+legacy and deployment stay unchanged. Full restoration can repair demonstrated test readiness/capability/fault
+injection assumptions; no threshold relaxation, missing assertion disguised as a pass, or artificial delay to win.
+Windows WebKit capability assertions remain distinguishable from supported analyser/native Safari evidence.
+Rollback baseline: clean main `05ce1f21488aafb3212e4abe84acce63b8f34777`; P2J changes are isolated on
+`codex/p2j-audio-feature-engine`. Preserve prior result/evidence and unrelated user changes when reverting.
+No whole-album batch, pitch/beat AI, content migration, WORKS or next scene. Full green is not deployment approval.

@@ -1,6 +1,6 @@
 # INTERACTION GLOSSARY — 웹 인터랙션 학습 노트
 
-2026-09-07 · 29 terms · **사용자를 위한 human-readable reference. Agent instruction이 아닙니다.**
+2026-09-07 · 41 terms · **사용자를 위한 human-readable reference. Agent instruction이 아닙니다.**
 
 영어 이름을 알면 레퍼런스를 보고 원하는 효과를 더 정확하게 이야기할 수 있습니다. 일반적인 구현 방법과
 V2의 현재 구현을 구분해 읽어 주세요. **현재 Lab / 미래 후보 / 필수 spike 미실행**은 서로 다른 상태입니다.
@@ -195,7 +195,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 왕복 끝에서 순간 반대로 튀지 않고 감속한 뒤 다시 출발합니다.
 - 일반 구현: 위치뿐 아니라 속도를 보존합니다. 곡선의 접선과 속도 필터를 연결하고 중단/재개 시 초기화하지 않습니다.
 - 기술/API: motion state, critically damped filters, 미분/적분, curve tangents.
-- V2: **현재 P2I 계약 테스트**가 방향 전환과 energy/profile 급변, zero-time 재개를 검사합니다.
+- V2: **현재 P2J 계약 테스트**가 onset/flux 급변, 빠른 방향 전환, zero-time 재개와 60/120Hz 차이를 검사합니다. 위치만 같아도 속도가 끊기면 연속적이지 않습니다.
 - 참고: 프로젝트 설명; [운동 테스트](../../tests/sound-choreography.test.ts).
 
 ## 22. Spatial Transformation
@@ -269,3 +269,111 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 기술/API: refs/state machines, animation interruption; [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API)는 가능한 도구 중 하나입니다.
 - V2: **현재 SOUND**의 pause damping/resume와 공유 두 선, **향후 3D**의 drag→inertia→detail 계약.
 - 참고: 프로젝트 정본 [Motion §42](03-MOTION-SYSTEM.md). 프레임워크 하나를 채택했다고 자동으로 확보되는 품질은 아닙니다.
+
+## 30. Feature-Driven Choreography
+
+- 한국어: 음악 특징을 바탕으로 만드는 안무.
+- 쉽게 말하면: 특정 곡의 5초에는 위로, 8초에는 아래로라고 적는 대신 음악의 변화가 같은 엔진을 움직입니다.
+- 일반 구현: 에너지·onset·음색 변화 등을 정규화하고 위치가 아닌 속도·범위의 목표에 매핑합니다.
+- 기술/API: 공유 motion model, 시간 보간, tuning preset.
+- V2: **현재 P2J 구현. HOME_SIGNATURE는 같은 엔진의 설정이며 수동 timestamp 안무가 아닙니다.**
+- 참고: 프로젝트 모델 설명; [P2J 구현 계약](review/SOUND-BOW-CONTACT-COMPARISON.md#p2j--shared-engine--feature-data--preset-contract).
+
+## 31. Audio Feature Extraction
+
+- 한국어: 음원에서 움직임에 쓸 특징을 추출.
+- 쉽게 말하면: 음악 전체 파형에서 크기와 변화 같은 작은 요약값을 뽑는 과정입니다.
+- 일반 구현: PCM을 작은 창으로 나눠 RMS나 주파수 변화를 계산합니다. 요약값이 연주자의 실제 활 위치를 의미하지는 않습니다.
+- 기술/API: PCM, Hann window, FFT, JSON.
+- V2: **현재 18초 음원을 25Hz 특징 데이터로 변환했습니다. 장구와 해금을 분리한 것은 아닙니다.**
+- 참고: 프로젝트 모델 설명; [P2J 구현 계약](review/SOUND-BOW-CONTACT-COMPARISON.md#p2j--shared-engine--feature-data--preset-contract).
+
+## 32. Offline Feature Extraction
+
+- 한국어: 재생 전에 수행하는 특징 분석.
+- 쉽게 말하면: 손님이 웹사이트를 열기 전에 음원을 미리 분석해 둡니다.
+- 일반 구현: 로컬 작업 도구가 승인된 파일을 decode하고 작은 feature asset을 생성합니다.
+- 기술/API: OfflineAudioContext.decodeAudioData, fft.js.
+- V2: **현재 로컬 Chromium과 개발용 fft.js를 사용합니다. 클라우드 업로드나 재생 중 FFT는 추가하지 않았습니다.**
+- 참고: 프로젝트 모델 설명; [P2J 구현 계약](review/SOUND-BOW-CONTACT-COMPARISON.md#p2j--shared-engine--feature-data--preset-contract).
+
+## 33. Batch Processing
+
+- 한국어: 여러 파일을 같은 규칙으로 순차 처리.
+- 쉽게 말하면: 곡마다 코드를 쓰지 않고 목록에 적은 파일에 같은 분석을 반복합니다.
+- 일반 구현: 명시적 manifest의 track ID·input·output을 검증하고 결과를 각각 저장합니다.
+- 기술/API: CLI, manifest, SHA-256, 순차 처리.
+- V2: **작은 manifest prototype입니다. 전체 앨범 migration이나 수십 곡 성능 검증은 아직 하지 않았습니다.**
+- 참고: 프로젝트 모델 설명; [P2J 구현 계약](review/SOUND-BOW-CONTACT-COMPARISON.md#p2j--shared-engine--feature-data--preset-contract).
+
+## 34. Onset Detection
+
+- 한국어: 소리가 새롭게 시작하거나 두드러지는 순간 찾기.
+- 쉽게 말하면: 새 음이 시작되는 느낌을 활의 가속에 연결하는 단서입니다.
+- 일반 구현: 에너지/스펙트럼 변화의 국소 peak를 찾고 가까운 중복 검출을 억제합니다.
+- 기술/API: positive spectral flux, peak detection.
+- V2: **현재 onset은 가속을 높입니다. 실제 해금 활 articulation을 식별하거나 장구 소리를 완전히 배제하는 기술은 아닙니다.**
+- 참고: 프로젝트 모델 설명; [P2J 구현 계약](review/SOUND-BOW-CONTACT-COMPARISON.md#p2j--shared-engine--feature-data--preset-contract).
+
+## 35. Spectral Flux
+
+- 한국어: 주파수 구성의 변화량.
+- 쉽게 말하면: 음량이 같아도 음색이 변하면 음악이 달라졌다는 것을 알아차립니다.
+- 일반 구현: 인접 분석 창의 스펙트럼 증가분을 합산합니다. 음량 변화량과 구분합니다.
+- 기술/API: STFT, positive log-amplitude flux.
+- V2: **현재 flux는 sweep 속도·방향 전환 빈도와 범위에 영향을 줍니다. 파형을 좌표에 직접 넣지 않습니다.**
+- 참고: 프로젝트 모델 설명; [P2J 구현 계약](review/SOUND-BOW-CONTACT-COMPARISON.md#p2j--shared-engine--feature-data--preset-contract).
+
+## 36. Pitch Contour
+
+- 한국어: 시간에 따른 음높이의 부드러운 윤곽.
+- 쉽게 말하면: 음 하나마다 점이 계단처럼 튀는 대신 전체 음높이 흐름이 평균 위치에 조금 영향을 줍니다.
+- 일반 구현: 신뢰도가 높은 voiced 구간만 보간하고 낮은 신뢰도 구간은 사용하지 않습니다.
+- 기술/API: MIDI-valued contour, confidence gate, damped follower.
+- V2: **확장 계약만 준비됐습니다. 현재 혼합 음원은 pitchContour=null, influence=0으로 비활성화합니다.**
+- 참고: 프로젝트 모델 설명; [P2J 구현 계약](review/SOUND-BOW-CONTACT-COMPARISON.md#p2j--shared-engine--feature-data--preset-contract).
+
+## 37. Energy Envelope
+
+- 한국어: 음의 세기가 변화하는 윤곽.
+- 쉽게 말하면: 음악이 힘을 얻으면 활의 움직임도 더 살아나게 하는 신호입니다.
+- 일반 구현: 짧은 구간 RMS를 측정하고 압축/정규화한 뒤 부드럽게 연결합니다.
+- 기술/API: RMS, log compression, attack/release.
+- V2: **현재 offline energy와 12% live envelope를 결합해 속도·범위·trail 존재감을 조절합니다.**
+- 참고: 프로젝트 모델 설명; [P2J 구현 계약](review/SOUND-BOW-CONTACT-COMPARISON.md#p2j--shared-engine--feature-data--preset-contract).
+
+## 38. Phrase Envelope
+
+- 한국어: 조금 긴 호흡으로 보는 음악의 윤곽.
+- 쉽게 말하면: 짧은 소리 하나보다 몇 순간 이어지는 흐름을 보고 좌우 이동을 조절합니다.
+- 일반 구현: 빠른 에너지 변화를 느린 저역 통과 envelope로 정리합니다. 의미론적 악구 분할과는 다릅니다.
+- 기술/API: slow envelope, 시간 기반 smoothing.
+- V2: **현재 650ms envelope를 사용합니다. 악보를 읽어 악구 경계를 판정하는 기능은 아닙니다.**
+- 참고: 프로젝트 모델 설명; [P2J 구현 계약](review/SOUND-BOW-CONTACT-COMPARISON.md#p2j--shared-engine--feature-data--preset-contract).
+
+## 39. Attack / Release Smoothing
+
+- 한국어: 올라갈 때와 내려갈 때의 반응 속도를 나누는 완화.
+- 쉽게 말하면: 음악이 강해지면 재빠르게, 잦아들면 조금 더 부드럽게 따라갑니다.
+- 일반 구현: 상승과 하강에 다른 시간 상수를 사용하고 속도 follower와 결합합니다.
+- 기술/API: exponential smoothing, critically damped follower.
+- V2: **현재 HOME_SIGNATURE는 attack 18ms / release 180ms입니다. 이 숫자가 브라우저 전체의 실제 오디오 지연을 뜻하지는 않습니다.**
+- 참고: 프로젝트 모델 설명; [P2J 구현 계약](review/SOUND-BOW-CONTACT-COMPARISON.md#p2j--shared-engine--feature-data--preset-contract).
+
+## 40. Hybrid Audio Analysis
+
+- 한국어: 사전 분석과 실시간 반응을 함께 사용.
+- 쉽게 말하면: 미리 읽어 둔 음악 지도에 현재 재생 상황을 보탭니다.
+- 일반 구현: precomputed feature를 native media.currentTime으로 읽고 가벼운 live RMS와 playback state를 결합합니다.
+- 기술/API: feature asset, HTMLMediaElement, Web Audio.
+- V2: **현재 18초에서 구현했습니다. Web Audio가 없으면 기존의 명시적 static fallback과 실제 음원 재생을 유지합니다.**
+- 참고: 프로젝트 모델 설명; [P2J 구현 계약](review/SOUND-BOW-CONTACT-COMPARISON.md#p2j--shared-engine--feature-data--preset-contract).
+
+## 41. Acceleration Impulse
+
+- 한국어: 위치 대신 가속에 주는 짧은 자극.
+- 쉽게 말하면: 새 소리가 나면 활을 순간이동시키지 않고 현재 방향에서 빠르게 힘을 더합니다.
+- 일반 구현: event strength가 속도 목표를 올리고 연속 follower가 실제 속도를 바꿉니다.
+- 기술/API: onset envelope, integrated velocity.
+- V2: **현재 onset 반응입니다. 방향은 부드러운 turning point를 통과하고 marker 자체에는 jitter를 넣지 않습니다.**
+- 참고: 프로젝트 모델 설명; [P2J 구현 계약](review/SOUND-BOW-CONTACT-COMPARISON.md#p2j--shared-engine--feature-data--preset-contract).

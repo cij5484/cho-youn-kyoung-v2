@@ -1,0 +1,26 @@
+
+> cho-youn-kyoung-v2@0.0.0 test:design-system
+> playwright test --config playwright.design-system.config.ts
+
+[WebServer] (node:34680) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 11 tests using 2 workers
+
+(node:3704) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32196) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  2 tests\design-system.spec.ts:46:3 › mobile: actual fonts, readable reflow, palette and visual evidence (1.0s)
+  ok  1 tests\design-system.spec.ts:46:3 › desktop: actual fonts, readable reflow, palette and visual evidence (1.1s)
+  ok  3 tests\design-system.spec.ts:46:3 › small-mobile: actual fonts, readable reflow, palette and visual evidence (679ms)
+  ok  4 tests\design-system.spec.ts:46:3 › tablet: actual fonts, readable reflow, palette and visual evidence (719ms)
+  ok  6 tests\design-system.spec.ts:87:1 › keyboard focus, native disclosure and reset remain operable (481ms)
+  ok  5 tests\design-system.spec.ts:46:3 › wide: actual fonts, readable reflow, palette and visual evidence (874ms)
+  ok  7 tests\design-system.spec.ts:108:1 › reduced motion keeps all specimens and removes action transitions (528ms)
+  ok  8 tests\design-system.spec.ts:119:3 › delayed fonts at 390px: readable fallback and bounded layout shift (1.7s)
+  ok  9 tests\design-system.spec.ts:119:3 › delayed fonts at 1440px: readable fallback and bounded layout shift (1.6s)
+  ok 10 tests\design-system.spec.ts:137:1 › unavailable fonts retain readable mobile content and controls (450ms)
+  ok 11 tests\design-system.spec.ts:148:1 › 200 percent text and long KO/EN copy reflow at narrow width (502ms)
+
+  11 passed (7.0s)

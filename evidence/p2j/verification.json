@@ -1,0 +1,129 @@
+{
+  "date": "2026-09-07",
+  "baseline": "05ce1f21488aafb3212e4abe84acce63b8f34777",
+  "command": "npm.cmd run gate:full",
+  "result": "PASS",
+  "node": "v24.15.0",
+  "uniqueNodeContracts": 56,
+  "repeatedSoundNodeContracts": 18,
+  "browserCases": 285,
+  "suites": {
+    "routes": {
+      "startTime": "2026-09-07T04:57:30.598Z",
+      "duration": 61913.462999999996,
+      "expected": 84,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "foundation": {
+      "startTime": "2026-09-07T04:58:33.512Z",
+      "duration": 7076.782999999999,
+      "expected": 11,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "navigation": {
+      "startTime": "2026-09-07T04:58:41.491Z",
+      "duration": 41815.083000000006,
+      "expected": 26,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "hero": {
+      "startTime": "2026-09-07T04:59:24.213Z",
+      "duration": 69323.407,
+      "expected": 44,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "haegeum": {
+      "startTime": "2026-09-07T05:00:34.516Z",
+      "duration": 66574.17199999999,
+      "expected": 32,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "sound": {
+      "startTime": "2026-09-07T05:01:42.864Z",
+      "duration": 236554.266,
+      "expected": 88,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "checks": {
+    "typeCheck": "PASS",
+    "lint": "PASS",
+    "rootBuild": "PASS",
+    "projectBuild": "PASS",
+    "featureMotionContracts": "18/18",
+    "fontThresholdUnchanged": true,
+    "skipped": 0,
+    "flaky": 0
+  },
+  "preservedProductDirectories": [
+    "src/hero",
+    "src/haegeum",
+    "src/navigation",
+    "src/content",
+    "src/routing",
+    "src/styles",
+    "public",
+    "config",
+    ".github/workflows"
+  ],
+  "sourceHashEncoding": "UTF-8 with CRLF normalized to LF",
+  "sourceHashes": {
+    "scripts/audio/extract-features.mjs": "f6e1f3a7147da4f02bb4e1a0d05c759d2ae60fba2454c4a8a5c59a01889ac45c",
+    "scripts/audio/home-manifest.json": "0824dddcb653c50cf66aba6349f09edb16d841a7d50e9fcff21085d11b7904d0",
+    "scripts/capture-p2j-response.mjs": "8e1529510b8352197bf8f748021ad53748fe85738ca3b623a6c7600d8896defa",
+    "scripts/extract-audio-features.mjs": "becd8da4f5bd4ce08203d8682d2710c94e073698bc107a4f132d8e3eeff786fd",
+    "scripts/verify-p2j-font-cls.mjs": "4b98058c9c1e4589c3ded1ccb5577bb90413871443fcf86be70abcb3be1ef4e8",
+    "src/audio/features.ts": "294f788e6bb98751b8d4538e8030ba92e12981f945890b592781c527254ff4a6",
+    "src/sound/assets/hanbeomsu-jungjungmori.features.json": "695283bd45af08459c9fc7215fd0d2a3117d76ca11f127c433904d8f5e0c78e0",
+    "src/sound/bow-engine.ts": "c286a5e15867290572c7e7f8198e4a870bc5a1dd41414bf0bcf8a31445ba1b3c",
+    "src/sound/tuning-presets.ts": "fad77b4c0564c683e5b9a3e0afa609a5dab55486199907c4d7c0222b3de32b8c",
+    "tests/audio-features.test.mjs": "b72a2f19a7ff3f1824db7c21b877fa8837aed0b9137ba016a5a8493c018f255a",
+    "tests/feature-motion.test.ts": "4568ad0014d5cc0acca0ebf6751b3924ce60d30e5ed6d5d96c925be71d4f2531",
+    "tests/support/audio-fault-server.ts": "e248b403e43f9b253bcb52b17fada77d4190da19fb06777fa89925d786216014",
+    "labs/design-system/lab.css": "a07bfa5372e18e699e4197677fc6d249d982b9e08f4fb68cc47f66ddcb400fbf",
+    "labs/sound/SoundLab.tsx": "1f51599e2e9c420d1b1bd7da3dcad1a45c07ae6b81b143f7bea9ec592d9a2443",
+    "package-lock.json": "c147f0f0a8b398cb926e129d4aa88130bf83c093efaa4f6093b608b6094067a1",
+    "package.json": "b0239898c9d833e89e4bd48475587db4eb81cf5c2a67a90e4111e0f2775adf3e",
+    "playwright.sound.config.ts": "e381a66d33e326b311777de07077ed7b4cf8708de78c9ae95aee0029645be8f5",
+    "src/sound/SoundComposition.tsx": "b3ba97744e7e4839c7cbab095d39466f8eb6000f651a59cf136e3da48b1fbbb4",
+    "src/sound/SoundSurface.tsx": "1562ab8a3c725a22d9ca939291cfb903cafec818d33877b662eb2c1ed407b601",
+    "src/sound/bow-contact.ts": "07b2f74682c15127e39c615d658282403b6b88032a27f4dc33e4eaa13913382a",
+    "src/sound/contact-motion.ts": "e22811d55e777e1636693b4d0ab0eeda5d5a710cc4c2395d852ae4c79e1f5eff",
+    "src/sound/controller.ts": "2195bf7a9d7717aafcbf95876650ddeb49ecd49163cc8d7e882bc179b6271e46",
+    "src/sound/source.ts": "935fdf700f8a7ff780e7f3a7acab9abf40127af06e2d73adbe2dfab7df5c7d89",
+    "tests/assert-design-artifacts.ts": "7fc1bc20e237aa42dd5654c80074a26f4896525838274c1df7ea5cb629e5d754",
+    "tests/haegeum.spec.ts": "3fb35927b13c65024944ca53e5c525f02f5c2338c4073dadac69fd4a0c1410c6",
+    "tests/hero.spec.ts": "c8decd56c3c4554392ee70589ebaa2431530ea95b76f498ca62bb317b9eebaa5",
+    "tests/sound.spec.ts": "d513c865409d5c124b5d80f0908361fba52649f8c0acd43e381430505c71e105",
+    "vite.sound.config.ts": "776e9613386f66324126c5f12b89dc5702a9f4d5d5cfac762f6a489bd7e550da"
+  },
+  "limits": [
+    "Windows WebKit lacks AudioContext; static capability branch is not native Safari analysis coverage",
+    "Windows WebKit native link tabbing unavailable; application trap boundaries verified separately",
+    "New musical response awaits user auditory review; no real-device or thermal claim"
+  ],
+  "deployed": false,
+  "postFullDiagnosticValidation": {
+    "file": "scripts/verify-p2j-font-cls.mjs",
+    "reason": "Use CDP screenshot to capture fallback fonts before Playwright automatically waits for fonts.ready; no product or test-threshold change",
+    "previousHash": "fb7c51008c24114119efa972cfb5a2909d18a233b5cd80a4c0b0e6f47c74bc8b",
+    "finalHash": "4b98058c9c1e4589c3ded1ccb5577bb90413871443fcf86be70abcb3be1ef4e8",
+    "commands": [
+      "node scripts/verify-p2j-font-cls.mjs",
+      "npm.cmd run lint"
+    ],
+    "result": "PASS"
+  }
+}

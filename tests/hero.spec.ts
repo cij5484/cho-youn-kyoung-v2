@@ -89,8 +89,19 @@ for (const study of ['b']) {
 }
 for (const width of [320, 1440]) test(`${width}: keyboard skip, focus trap, Esc restore and 200% text`, async ({ page, browserName }) => {
   const tabKey = browserName === 'webkit' && process.platform === 'darwin' ? 'Alt+Tab' : 'Tab'
+  const windowsWebKit = browserName === 'webkit' && process.platform === 'win32'
+  if (windowsWebKit) {
+    // This port disables native link tabbing, even in a plain document with no application code.
+    // Assert that capability explicitly; test skip-link activation below, not a fictitious Safari setting.
+    await page.setContent('<a href="#target">Native link</a><button>Native button</button><main id="target">Target</main>')
+    await page.keyboard.press('Tab')
+    await expect(page.getByRole('button', { name: 'Native button' })).toBeFocused()
+    test.info().annotations.push({ type: 'platform-capability', description: 'Windows WebKit native link tabbing unavailable; skip activation and focus trap verified. Initial link Tab remains asserted in Chromium/Mac WebKit.' })
+  }
   await page.setViewportSize({ width, height: 900 }); await ready(page)
-  await page.keyboard.press(tabKey); await expect(page.getByRole('link', { name: '본문으로 이동' })).toBeFocused()
+  if (windowsWebKit) await page.getByRole('link', { name: '본문으로 이동' }).focus()
+  else await page.keyboard.press(tabKey)
+  await expect(page.getByRole('link', { name: '본문으로 이동' })).toBeFocused()
   await page.keyboard.press('Enter'); await expect(page.locator('main')).toBeFocused()
   const trigger = page.getByRole('button', { name: 'MENU', exact: true })
   await trigger.focus(); await page.keyboard.press('Enter')
@@ -98,7 +109,13 @@ for (const width of [320, 1440]) test(`${width}: keyboard skip, focus trap, Esc 
   const close = page.getByRole('button', { name: '메뉴 닫기' })
   await expect(close).toBeFocused(); await expect(close).toHaveCSS('outline-style', 'solid')
   for (let i = 0; i < 12; i++) {
-    await page.keyboard.press(tabKey); expect(await page.evaluate(() => !!document.activeElement?.closest('dialog'))).toBe(true)
+    if (windowsWebKit) {
+      // Exercise both application-owned trap boundaries despite this port's native link-tab policy.
+      await page.keyboard.press('Shift+Tab')
+      await expect(page.getByRole('link', { name: 'English', exact: true })).toBeFocused()
+      await page.keyboard.press('Tab'); await expect(close).toBeFocused()
+    } else await page.keyboard.press(tabKey)
+    expect(await page.evaluate(() => !!document.activeElement?.closest('dialog'))).toBe(true)
   }
   await page.keyboard.press('Escape'); await expect(page.locator('dialog')).not.toBeVisible(); await expect(trigger).toBeFocused()
   await page.evaluate(() => { document.documentElement.style.fontSize = '200%' })

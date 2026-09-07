@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** P2A visually APPROVED and delivered to V2 main; P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN and delivered; P2C B — Bold Cropped canonical direction APPROVED; P2D APPROVED & DELIVERED with provisional portraits; P2E VISUAL DIRECTION APPROVED & DELIVERED; P2F QUALITY APPROVED / FROZEN; P2F DELIVERED; P2G result APPROVED; P2H baseline preserved; P2I SOUND QUALITY APPROVED / FROZEN · B2 / LONG 460ms / Electric Violet · Full FAIL (classified non-blocking for SOUND freeze) / STOP\
-**Revision:** 1.25 / 2026-09-07 — P2I visual freeze, QA gap classification and authorized delivery\
+**Status:** P2A visually APPROVED and delivered to V2 main; P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN and delivered; P2C B — Bold Cropped canonical direction APPROVED; P2D APPROVED & DELIVERED with provisional portraits; P2E VISUAL DIRECTION APPROVED & DELIVERED; P2F QUALITY APPROVED / FROZEN; P2F DELIVERED; P2G result APPROVED; P2H baseline preserved; P2I SOUND QUALITY APPROVED / FROZEN retained · P2J shared feature engine / higher-sensitivity response REVIEW READY · Full PASS / STOP\
+**Revision:** 1.26 / 2026-09-07 — P2J foundation CLS fixed, reusable feature-driven bow and full validation\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 ---
@@ -542,7 +542,8 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 | P2F Hero → Haegeum refinement | **QUALITY APPROVED / FROZEN**, explicitly approved by the user. Same 155svh sequence, independent mobile and source replacement contract. Full 38 Node +197 browser previously passed. Native Safari motion/focus/reduced settlement remains unverified future QA; no claim of phone, VoiceOver or thermal verification. Provisional portrait/macro/full sources and Retina QA are non-blocking. Delivered `b5c6aa0` to main; exact-SHA Fast CI 34032488461 SUCCESS and clean main/origin were verified before SOUND. |
 | P2G Full → HOME Sound | Result **APPROVED**; SOUND remains **REVIEW READY**, Lab only. Retained Han Beom-su Ryu Jungjungmori 02:46–03:04 / 18s. Preserved as logical commit `dab4617`; historical [result](P2G-RESULT.md) and [evidence](evidence/p2g/README.md) unchanged. |
 | P2H Sound refinement / device QA | **IMPLEMENTED / LOCALLY VERIFIED / REVIEW READY / FREEZE CANDIDATE / STOP**. Friction-density response, continuous damping/resume, buffered replay, 320px caption and native Safari focus/type-mask fixes. Full 38 Node +255 browser, including 58 Sound. Native Safari playback/pause/end/replay/focus partially verified; Mac locked before remaining native checks. Physical phones/AT/thermal remain future. User auditory/refined visual judgment is pending; no self-granted quality freeze. [Result](P2H-RESULT.md), [guide](docs/redesign/review/HOME-SOUND-EXPERIENCE.md), [evidence](evidence/p2h/README.md). |
-| P2I Bow Contact Choreography | **QUALITY APPROVED / FROZEN** — user-selected B2 Bold / LONG 460ms / Electric Violet #6334E5. Strings vibrate; bow flows. Comparison UI is Lab-only. Full remains FAIL on a proven pre-existing foundation Lab CLS; Windows WebKit capability/harness gaps are non-blocking for SOUND freeze. No deployment/next scene. [Contract](docs/redesign/review/SOUND-BOW-CONTACT-COMPARISON.md), [closeout result](P2I-CLOSEOUT-RESULT.md), [historical comparison](P2I-CHOREOGRAPHY-RESULT.md). |
+| P2I Bow Contact Choreography | **QUALITY APPROVED / FROZEN** — user-selected B2 Bold / LONG 460ms / Electric Violet #6334E5. Strings vibrate; bow flows. Comparison UI is Lab-only. At P2I closeout Full failed on the pre-existing foundation Lab CLS; P2J below resolves that owner and repairs explicit capability/harness coverage. No deployment/next scene. [Contract](docs/redesign/review/SOUND-BOW-CONTACT-COMPARISON.md), [closeout result](P2I-CLOSEOUT-RESULT.md), [historical comparison](P2I-CHOREOGRAPHY-RESULT.md). |
+| P2J CLS / scalable responsive bow | **IMPLEMENTED / VERIFIED / RESPONSE REVIEW READY / STOP**. Prior SOUND visual freeze retained; Lab CLS fixed, shared engine/features/preset and 18s hybrid proof. Full PASS: 56 unique Node +285 browser, zero skip/flaky, explicit Windows capability limits. Native-device/new-response auditory acceptance remains separate. [Result](P2J-RESULT.md), [evidence](evidence/p2j/README.md). |
 | Blender Capability Spike | REQUIRED BEFORE RELEVANT 3D PRODUCTION / NOT EXECUTED; Blender adoption undecided; Motion §47 owns acceptance |
 | CD Tray Lab | MANDATORY / NOT IMPLEMENTED / BLOCKING Album Detail package Quality Approved until its gate passes |
 | Haegeum 3D master | FUTURE EXPERIMENT / HIGH PRIORITY / NOT IMPLEMENTED; NOT BLOCKING first release, not disposable optional decoration; Motion §48 |
@@ -568,14 +569,14 @@ P2F current evidence: [result](P2F-RESULT.md), [visual index](evidence/p2f/READM
 Historical completed bundle: **P2H — SOUND Refinement, Native Safari / Device QA & Freeze Bundle**. P2G result is approved and preserved as `dab4617`; its historical uncommitted wording describes its original report revision. P2G `dab4617` and P2H `7e1bd3745e601dcad4c37d0aa54038bf462f4be4` are delivered to main; exact-SHA [Fast CI 34056689232](https://github.com/cij5484/cho-youn-kyoung-v2/actions/runs/34056689232) SUCCESS, with clean main/origin verified before this documentation receipt. [Delivery receipt / files](evidence/p2h/delivery.json). SOUND remains **REVIEW READY / FREEZE CANDIDATE**, pending final auditory/refined visual judgment. Actual Safari playback/pause/end/replay/keyboard focus were observed; Mac locking left resume settlement, menu/reverse and native reduced motion incomplete. Automated WebKit and physical device QA are distinct. Recommended only after review: SOUND auditory/native-device closeout and freeze decision. No WORKS or following HOME scene is authorized. [P2H result](P2H-RESULT.md), [evidence](evidence/p2h/README.md).
 
 
-Current completed bundle: **P2I Closeout — QA Gap Classification, Visual Freeze & Delivery**.
+Historical completed bundle: **P2I Closeout — QA Gap Classification, Visual Freeze & Delivery**.
 The user approved **B2 Bold / LONG 460ms / Electric Violet #6334E5** as production direction.
 **SOUND QUALITY APPROVED / FROZEN**: smooth trajectory/velocity, intentional recent-path trail, vibrating strings
 separate from flowing bow, verified real-media interaction, no confirmed blocking P2I/Safari regression.
 [Closeout result](P2I-CLOSEOUT-RESULT.md), [QA classification](evidence/p2i-closeout/README.md),
 [canonical SOUND contract](docs/redesign/review/SOUND-BOW-CONTACT-COMPARISON.md).
 
-Full remains **FAIL**, not green: Windows foundation Lab font-wrap CLS is pre-existing and excluded from current
+At P2I closeout Full remained **FAIL**: Windows foundation Lab font-wrap CLS was pre-existing and excluded from
 public output. Windows WebKit AudioContext absence and media interception mismatch do not establish native
 Safari product failures; actual HTTP404/timeout/cancel checks work. Native P2I motion, full native Safari lifecycle,
 physical phones, VoiceOver/TalkBack, Retina and thermal QA remain explicit non-blocking future evidence.
@@ -590,5 +591,31 @@ Historical [original result](P2I-RESULT.md) and [choreography result](P2I-CHOREO
 Delivery complete: implementation `b86fb4eff88579744ebe3ded31cca55d98d20a91` pushed to V2 main;
 [Fast CI 34081883375](https://github.com/cij5484/cho-youn-kyoung-v2/actions/runs/34081883375) SUCCESS.
 Clean main/origin verified before the documentation receipt. [Delivery / files](evidence/p2i-closeout/delivery.json).
-The receipt is a separate documentation commit; final main/Fast status is reported after its push. No deployment. Recommended next bounded task is the foundation
-font-loading/CLS owner closeout. **STOP; no WORKS or next HOME scene is authorized.**
+The receipt is a separate documentation commit; final main/Fast status is reported after its push. No deployment. That report recommended foundation
+font-loading/CLS owner closeout; the separately authorized P2J below completes it. **STOP; no WORKS or next HOME scene is authorized.**
+
+## Current P2J handoff — one completed bundle / STOP
+
+The user approved P2I closeout and authorized only foundation CLS closeout + scalable feature-driven bow +
+higher sensitivity. SOUND's B2 Bold / LONG 460ms / Electric Violet **QUALITY APPROVED / FROZEN** is retained.
+P2J's new responsiveness is **IMPLEMENTED / VERIFIED / REVIEW READY**; it does not self-grant auditory approval.
+[24-field result](P2J-RESULT.md), [current evidence](evidence/p2j/README.md),
+[verification](evidence/p2j/verification.json), [canonical engine/data/tuning owner](docs/redesign/review/SOUND-BOW-CONTACT-COMPARISON.md).
+
+- Foundation Lab masthead grid removes the actual row-wrap cause: delayed 390px CLS .160021 → .000447,
+  three repetitions. Original .1 threshold/1200ms font stimulus/100ms observation are unchanged.
+- Shared engine + validated 25Hz/6,713-byte per-track feature data + HOME_SIGNATURE; onset/flux/energy/phrase
+  control smooth acceleration/range/turns. Pitch disabled. Same source, no timestamp script or genre fork.
+- **Full PASS: 56 unique Node contracts + 285 browser cases**; type/lint, root/project builds and all six browser
+  suites passed, zero skip/flaky. Test capability/fault/readiness fixes are explicit, not native Safari evidence.
+- Windows WebKit's missing AudioContext and native link-tabbing policy remain coverage limits; actual playback,
+  static fallback, HTTP faults and application focus-trap boundaries are verified. Supported analysis assertions
+  remain. No frozen Hero/Haegeum/navigation product files changed.
+- New response: average sweep about 1.40× B2, 32→45 vertical turns in the recorded first 10s. Callback p95 .6ms,
+  no sampled listening CLS/long tasks; idle/settled/offscreen rAF 0. Videos are silent normal-speed screen captures.
+- Native Safari new response/full lifecycle, physical phones, assistive technology, Retina and sustained thermal QA
+  remain separate future evidence. Musical preference still needs user listening; mixed features are not bow tracking.
+
+Delivery is authorized after validation: logical commit/main push/Fast CI/clean-tree receipt, without deployment.
+Recommended only after review: one SOUND response acceptance/native Safari/mobile QA closeout bundle.
+**STOP → USER APPROVAL. No WORKS, following HOME scene, Album migration or next Phase.**

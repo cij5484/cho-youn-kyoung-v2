@@ -896,6 +896,14 @@ The [existing SOUND comparison contract](review/SOUND-BOW-CONTACT-COMPARISON.md)
 The user approved this production direction; SOUND closeout status and QA exceptions are in
 [the closeout result](../../P2I-CLOSEOUT-RESULT.md). Public HOME integration and the next scene remain unauthorized.
 
+P2J retains that visual freeze and establishes **BowChoreographyEngine + AudioFeatureData + TuningPreset** as
+the scalable contract: offline features + live native playback response. Energy controls activity/range, onset
+adds smooth acceleration, spectral flux raises directional activity, and phrase envelope guides lateral travel.
+Pitch remains disabled until reliable contour evidence; beat is never the primary driver. Attack/release and
+velocity-preserving turns keep fast movement smooth. No per-track timestamp script or genre animation fork.
+Exact values, file/data ownership, batch boundary and LONG history are in the
+[existing SOUND owner](review/SOUND-BOW-CONTACT-COMPARISON.md#p2j--shared-engine--feature-data--preset-contract).
+
 ---
 
 # 46. FINAL MOTION PRINCIPLE

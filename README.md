@@ -257,7 +257,7 @@ npm run test:sound
 [Sound preview](http://127.0.0.1:4179/) · [English counterpart](http://127.0.0.1:4179/en/).
 기존 Hero/Haegeum을 지나면 같은 두 선이 수평의 SOUND 공간으로 이어집니다. LISTEN을 선택해야
 한범수류 중중모리 **02:46–03:04 / 18초** 후보가 재생됩니다. 자동 재생은 없고 PAUSE / RESUME / REPLAY를 제공합니다.
-사용자가 곡과 하이라이트 선택을 위임했습니다. 최종 구간의 청각적 검토와 SOUND 시각 승인은 남아 있습니다.
+사용자가 곡과 하이라이트 선택을 위임했습니다. P2G/P2H 당시 남아 있던 최종 구간·SOUND 시각 검토는 이후 P2I closeout에서 승인됐습니다.
 
 `src/sound`의 미리듣기는 Lab에서만 사용합니다. 434,470-byte AAC 한 건이며 원본은 수정하지 않았습니다.
 noindex / Lab build 차단 / public artifact 제외를 유지합니다. 실제 content record나 production HOME은 추가하지 않았습니다.
@@ -276,7 +276,7 @@ Start `npm.cmd run dev:sound`. [Canonical B2 / LONG 460ms / Electric Violet](htt
 [B2 · bold / Electric Violet / LONG](http://127.0.0.1:4179/?compare=b).
 The Lab panel changes activity, four trail histories and three Violets at the same playback position.
 LISTEN is explicit. B2 is the approved production direction; the public HOME remains unimplemented.
-[Closeout / QA classification](P2I-CLOSEOUT-RESULT.md) distinguishes SOUND freeze from the still-red Windows Full gate.
+[Historical closeout / QA classification](P2I-CLOSEOUT-RESULT.md) distinguishes the P2I SOUND freeze from the then-red Windows Full gate. P2J below closes the foundation owner.
 
 [Revised comparison contract](docs/redesign/review/SOUND-BOW-CONTACT-COMPARISON.md),
 [current result](P2I-CHOREOGRAPHY-RESULT.md), [videos / evidence](evidence/p2i-choreography/README.md).
@@ -284,10 +284,38 @@ LISTEN is explicit. B2 is the approved production direction; the public HOME rem
 
 Validation: `npm.cmd run test:sound:contract`, `npm.cmd run test:sound`, `npm.cmd run gate:full`.
 Stop the manual 4179 server before browser tests/Full; the test runner owns that port.
-Capture against the running Lab: `node scripts/capture-sound-choreography.mjs`; optional `SOUND_LAB_URL`.
+`capture-sound-choreography.mjs` records the historical P2I evidence path; preserve those recordings. Use P2J's capture command below for the current response.
 Videos are real-time SILENT browser recordings; use the Lab for listening with synchronized visuals.
 Windows Playwright WebKit's missing AudioContext cannot certify analyser motion or native Mac Safari behavior.
 
-Learning: [INTERACTION-GLOSSARY](docs/redesign/INTERACTION-GLOSSARY.md) explains 29 terms with current/future status.
+Learning: [INTERACTION-GLOSSARY](docs/redesign/INTERACTION-GLOSSARY.md) explains 41 terms with current/future status.
 It is a human reference, not agent instructions. Official V2 experience principles live in
 [MASTER §3.1](docs/redesign/00-MASTER-PLAN.md#v2-experience-principles).
+
+### P2J — Font CLS closeout / shared feature-driven bow response
+
+SOUND의 **B2 / LONG 460ms / Electric Violet** 구성은 QUALITY APPROVED / FROZEN입니다.
+P2J는 같은 시각 방향에서 `HOME_SIGNATURE`의 반응을 더 민감하게 만들었습니다. 새로운 속도감의 시청·청취
+승인은 별도 리뷰 사항입니다. [현재 결과](P2J-RESULT.md), [영상·측정·QA](evidence/p2j/README.md).
+
+```sh
+npm run extract:audio -- scripts/audio/home-manifest.json
+npm run test:sound:contract
+node scripts/verify-p2j-font-cls.mjs
+node scripts/capture-p2j-response.mjs
+npm run gate:full
+```
+
+추출과 browser 검증/촬영은 `npx playwright install chromium webkit`가 필요합니다. Fast는 browser 설치
+없이 새 feature/motion Node 계약도 검사합니다. 추출은 명시적 manifest만 읽고, 현재 18초에 대한 작은
+25Hz JSON을 만듭니다. 전체 album batch나 콘텐츠 migration은 실행하지 않았습니다.
+촬영 명령은 자체 서버(4193)를 열고 닫습니다. Full 및 다른 browser suite와 측정을 동시에 실행하지 마세요.
+Font 검증은 자체 4186 서버를 사용합니다. 수동 4179 Lab은 Full 실행 전에 종료합니다.
+
+`npm run dev:sound` 후 [현재 반응](http://127.0.0.1:4179/)을 열고 LISTEN을 선택하세요.
+개발 비교: [동결된 B2 response](http://127.0.0.1:4179/?compare=b&response=b2),
+[HOME_SIGNATURE](http://127.0.0.1:4179/?compare=b&response=signature).
+Response 선택은 동일한 재생 위치/graph를 유지합니다. 기본 entry와 production-facing API에는 비교 UI가 없습니다.
+모든 조정/추출/향후 Album 연결의 정본은 [기존 SOUND 계약](docs/redesign/review/SOUND-BOW-CONTACT-COMPARISON.md)입니다.
+실제 Safari·휴대폰·VoiceOver·thermal 증거는 자동 WebKit/모바일 에뮬레이션과 구분합니다.
+배포 없음. **REPORT → STOP → 사용자 승인**; WORKS/다음 HOME Scene은 시작하지 않습니다.

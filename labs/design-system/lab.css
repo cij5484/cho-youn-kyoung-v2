@@ -1,7 +1,8 @@
 @import '../../src/styles/foundation.css';
 /* Lab-only arrangement. Production uses the foundation, never this specimen composition. */
-.lab-masthead { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: var(--space-3); padding-block: var(--space-4); border-block-end: var(--hairline) solid var(--color-hairline); }
-.lab-masthead h1 { order: -1; flex-basis: 100%; }
+/* Explicit rows prevent fallback-font widths from deciding the masthead's row count. */
+.lab-masthead { display: grid; grid-template-columns: minmax(0, 1fr); align-items: baseline; gap: var(--space-3); padding-block: var(--space-4); border-block-end: var(--hairline) solid var(--color-hairline); }
+.lab-masthead h1 { grid-row: 1; }
 .lab-section { padding-block: var(--space-7); }
 .lab-section > h2, .lab-stage > h2 { margin-block-end: var(--space-6); }
 .lab-section + .lab-section { border-block-start: var(--hairline) solid var(--color-hairline); }
@@ -40,7 +41,9 @@
 .lab-footer { border-block-start: 1px solid var(--color-hairline); padding-block: var(--space-4) max(var(--space-4), env(safe-area-inset-bottom, 0px)); }
 /* The wide specimen needs room for two readable samples and intentional empty columns. */
 @media (min-width: 60rem) {
-  .lab-masthead h1 { order: 0; flex-basis: auto; }
+  .lab-masthead { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
+  .lab-masthead h1 { grid-row: auto; }
+  .lab-masthead > :last-child { text-align: end; }
   .lab-section, .lab-stage { padding-block: var(--section-space); }
   .lab-english { --column-wide: 1 / 8; }
   .lab-korean { --column-wide: 9 / 13; padding-block-end: .35rem; }

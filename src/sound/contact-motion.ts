@@ -1,10 +1,12 @@
+import type { AudioFeatureFrame } from '../audio/features.ts'
+import { tuningPresets, type BowTuningPreset } from './tuning-presets.ts'
 export type SoundVisual = 'line-only' | 'bow-contact'
 export type ContactTrail = 'short' | 'medium' | 'long' | 'extra-long'
 export type ContactActivity = 'medium' | 'bold'
 export type ContactViolet = 'editorial' | 'electric' | 'ink'
 
 // User-approved SOUND direction. Alternative profiles are authoring/Lab tools, never public UI.
-export const soundDirection = { visual: 'bow-contact', activity: 'bold', trail: 'long', violet: 'electric' } as const
+export const soundDirection = { visual: 'bow-contact', activity: 'bold', trail: 'long', violet: 'electric', preset: 'HOME_SIGNATURE' } as const
 
 // Central SOUND tuning. Durations are milliseconds; ranges use shared string geometry.
 // Keep marker movement smooth: audio gain drives envelopes, never waveform coordinates.
@@ -30,8 +32,9 @@ export const contactTuning = {
 // Exact critically damped follower: preserve position AND velocity when a target changes.
 function follower(value: number, ms: number) {
   let velocity = 0
-  return (target: number, dt: number) => {
-    const omega = 2 / ms, offset = value - target, c = velocity + omega * offset, decay = Math.exp(-omega * dt)
+  return (target: number, dt: number, response = ms) => {
+    if (dt === 0) return value
+    const omega = 2 / response, offset = value - target, c = velocity + omega * offset, decay = Math.exp(-omega * dt)
     value = target + (offset + c * dt) * decay
     velocity = (velocity - omega * c * dt) * decay
     return value
@@ -41,12 +44,15 @@ function follower(value: number, ms: number) {
 /** Mixed audio cannot recover the performer's actual bow position. This is an editorial abstraction. */
 export function createContactMotion() {
   let sweep = .16, phrase = -.16, presence = 0, activity = 0, sustain = 0, flux = 0, previousEnergy = 0
-  let energy = 0, friction = 0, rate = 0, range = 0
+  let energy = 0, friction = 0, rate = 0, range = 0, onset = 0, spectral = 0, pitch = 0
+  let features: AudioFeatureFrame | null = null
   const followRate = follower(0, 160), followRange = follower(0, 300)
+  const followPitch = follower(0, 500)
   const ease = (from: number, to: number, dt: number, ms: number) => from + (to - from) * (1 - Math.exp(-dt / ms))
   return {
     // Analyse envelopes, never assign waveform samples directly to coordinates.
-    sample(samples: Float32Array | null, dt: number) {
+    sample(samples: Float32Array | null, dt: number, frame: AudioFeatureFrame | null = null) {
+      features = samples ? frame : null
       let power = 0, difference = 0
       if (samples) for (let i = 0; i < samples.length; i++) {
         power += samples[i] ** 2
@@ -59,27 +65,41 @@ export function createContactMotion() {
       flux = ease(flux, Math.min(1, Math.abs(energy - previousEnergy) * 4), dt, 180)
       previousEnergy = energy
     },
-    advance(dt: number, playing: boolean, intensity: ContactActivity = 'bold') {
-      const elapsed = Math.max(0, Math.min(50, dt)), active = playing && energy > .015
-      activity = ease(activity, active ? energy : 0, elapsed, 90)
-      sustain = ease(sustain, active ? energy : 0, elapsed, 700)
-      const wantedRate = active ? (.45 + 1.45 * activity + .28 * flux + .2 * friction) * contactTuning.activity[intensity].speed : 0
-      const nextRate = followRate(wantedRate, elapsed)
+    advance(dt: number, playing: boolean, intensity: ContactActivity = 'bold', preset: BowTuningPreset = tuningPresets.B2_REFERENCE) {
+      const elapsed = Math.max(0, Math.min(50, dt)), featureDriven = preset.featureDriven
+      // Feature energy still requires actual active media/live samples; unavailable audio never animates.
+      const drive = featureDriven && features ? features.energy * (1-preset.liveEnergyBlend) + energy * preset.liveEnergyBlend : energy
+      const active = playing && drive > .015
+      activity = ease(activity, active ? drive : 0, elapsed, drive > activity && active ? preset.attack : preset.release)
+      sustain = ease(sustain, active ? featureDriven && features ? features.phrase : drive : 0, elapsed, preset.phraseResponse)
+      onset = ease(onset, active && featureDriven ? features?.onset ?? Math.min(1,flux) : 0, elapsed, 12)
+      spectral = ease(spectral, active && featureDriven ? features?.spectralFlux ?? flux : 0, elapsed, featureDriven ? preset.attack : 180)
+      const baseRate = featureDriven ? .35 + preset.activityGain * activity + preset.onsetSensitivity * onset + preset.spectralFluxSensitivity * spectral : .45 + 1.45 * activity + .28 * flux + .2 * friction
+      const wantedRate = active ? Math.min(preset.maxSpeed, baseRate * preset.reversalResponse) * contactTuning.activity[intensity].speed : 0
+      const nextRate = followRate(wantedRate, elapsed, preset.acceleration)
       // Smooth velocity integral + cosine turns: decelerate -> zero vertical velocity -> accelerate.
       sweep += (rate + nextRate) * .5 * elapsed / 1000
-      phrase += (rate + nextRate) * .5 * (.06 + .04 * sustain) * elapsed / 1000
+      phrase += (rate + nextRate) * .5 * (preset.horizontalActivity + .04 * sustain) * elapsed / 1000
       rate = nextRate
       // Preserve outgoing range through damping and on re-entry.
-      range = followRange(active ? (.64 + .36 * sustain) * contactTuning.activity[intensity].range : range, elapsed)
+      const wantedRange = featureDriven ? Math.min(1, .38 + .62 * Math.sqrt(activity) + .12 * spectral) : .64 + .36 * sustain
+      range = followRange(active ? wantedRange * contactTuning.activity[intensity].range : range, elapsed, preset.rangeResponse)
+      const pitchMidi = features?.pitchMidi ?? null
+      const reliablePitch = featureDriven && pitchMidi !== null && (features?.pitchConfidence ?? 0) >= .85
+      const pitchTarget = reliablePitch ? -Math.max(-1,Math.min(1, (pitchMidi! - preset.pitchMinMidi) / (preset.pitchMaxMidi-preset.pitchMinMidi) * 2 - 1)) * preset.pitchInfluence : 0
+      pitch = followPitch(pitchTarget, elapsed)
       const wantedPresence = active ? .82 + .18 * activity : 0
       presence = ease(presence, wantedPresence, elapsed, wantedPresence > presence ? contactTuning.entryMs : contactTuning.dampingMs)
       if (!active && presence < .002 && rate < .002) presence = 0
       return {
-        vertical: -Math.cos(sweep * Math.PI * 2), lateral: Math.sin(phrase * Math.PI * 2),
+        vertical: (-Math.cos(sweep * Math.PI * 2) * (1-Math.abs(pitch)) + pitch) * preset.verticalRange,
+        lateral: Math.sin(phrase * Math.PI * 2) * preset.horizontalRange,
         presence, activity, range, rate, phase: sweep, sustained: sustain, transient: flux,
+        trailEmphasis: featureDriven ? 1-preset.trailGain + preset.trailGain * activity : 1,
+        onset, spectral, pitch,
         unsettled: presence > 0,
       }
     },
-    hide() { presence = 0; energy = 0 },
+    hide() { presence = 0; energy = 0; features = null },
   }
 }

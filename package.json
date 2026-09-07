@@ -25,7 +25,7 @@
     "test:locale": "node --test tests/locale-contract.test.ts",
     "test:pages": "playwright test --config playwright.pages.config.ts",
     "check": "npm run type-check && npm run lint && npm run build",
-    "gate:fast": "npm run type-check && npm run lint && npm run test:locale && npm run test:navigation:contract && npm run test:content && npm run test:placement && npm run build && npm run test:content:visibility && npm run test:design-system:artifacts",
+    "gate:fast": "npm run type-check && npm run lint && npm run test:locale && npm run test:navigation:contract && npm run test:content && npm run test:sound:contract && npm run test:placement && npm run build && npm run test:content:visibility && npm run test:design-system:artifacts",
     "gate:full": "npm run gate:fast && npm run build:pages-preview && npm run test:spike && npm run test:design-system && npm run test:navigation && npm run test:hero && npm run test:haegeum && npm run test:sound",
     "test:content": "node --test tests/content-contract.test.ts tests/draft-content.test.ts",
     "test:content:visibility": "node --test tests/content-visibility.test.ts",
@@ -37,8 +37,9 @@
     "dev:haegeum": "vite --config vite.haegeum.config.ts",
     "test:haegeum": "playwright test --config playwright.haegeum.config.ts",
     "dev:sound": "vite --config vite.sound.config.ts",
-    "test:sound:contract": "node --test tests/sound-choreography.test.ts",
-    "test:sound": "npm run test:sound:contract && playwright test --config playwright.sound.config.ts"
+    "test:sound:contract": "node --test tests/sound-choreography.test.ts tests/feature-motion.test.ts tests/audio-features.test.mjs",
+    "test:sound": "npm run test:sound:contract && playwright test --config playwright.sound.config.ts",
+    "extract:audio": "node scripts/extract-audio-features.mjs"
   },
   "dependencies": {
     "@fontsource-variable/cormorant-garamond": "5.3.0",
@@ -60,6 +61,7 @@
     "eslint": "10.10.0",
     "eslint-plugin-react-hooks": "7.1.1",
     "eslint-plugin-react-refresh": "0.5.6",
+    "fft.js": "4.0.4",
     "globals": "17.12.0",
     "typescript": "6.0.3",
     "typescript-eslint": "8.69.0",

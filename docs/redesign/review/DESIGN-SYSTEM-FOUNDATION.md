@@ -126,3 +126,14 @@ Desktop/mobile screenshots and exact results are in [P2A result](../../../P2A-RE
 Browser emulation is not real iPhone/Android/Safari hardware QA or final visual approval.
 
 **P2A STOP was followed; its visual result and delivery were approved.** The separately authorized [P2B navigation prototype](EDITORIAL-NAVIGATION-PROTOTYPE.md) consumes this foundation. Current Full additionally runs 26 canonical Bold navigation cases; Refined comparison evidence is archived. P2B is QUALITY APPROVED FOR HERO INTEGRATION / FROZEN, with real-device and final HOME composition QA open. HOME/P2C still require separate authorization.
+
+## P2J — Font CLS owner closeout
+
+The P2A Lab's wrapping flex masthead changed from three rows in fallback fonts to two after font loading at 390px,
+moving the following specimen by about 35.19px and producing CLS .160021. This was a real Lab layout shift,
+reproduced before P2I; no evidence tied it to the SOUND renderer or the neutral production artifact.
+The masthead now uses explicit grid rows on mobile and three columns on wide screens. Its row topology no longer
+depends on combined text width/font metrics. Global typography, font size/line-height, preload, font-display and
+production styles are untouched. No fallback-metric patch chain or delayed visibility is introduced.
+The original `.1` CLS assertion, 1200ms delayed-font stimulus and 100ms observation remain unchanged.
+[P2J evidence](../../../evidence/p2j/README.md) records repeated delayed/normal/missing-font cases and Full result.

@@ -1,14 +1,17 @@
 import { contactTuning, createContactMotion, type ContactActivity, type ContactTrail, type ContactViolet, type SoundVisual } from './contact-motion.ts'
+import { tuningPresets, type BowPresetName } from './tuning-presets.ts'
 
 export function createBowContact(root: HTMLElement, holders: HTMLElement[], mobile: () => boolean) {
   const ns = 'http://www.w3.org/2000/svg', motion = createContactMotion()
   let visual: SoundVisual = 'line-only', trail: ContactTrail = 'long', activity: ContactActivity = 'bold'
+  let preset: BowPresetName = 'HOME_SIGNATURE'
   let svg: SVGSVGElement | null = null, head: SVGEllipseElement | null = null, bands: SVGPathElement[] = []
   // Fixed allocation; chronological path history, not a set of particle/echo elements.
   const capacity = contactTuning.desktop.historySamples, xs = new Float64Array(capacity), ys = new Float64Array(capacity), times = new Float64Array(capacity)
   let cursor = 0, count = 0, clock = 0, lastX = 0, lastY = 0, angle = 90
   function hide() { motion.hide(); count = 0; if (svg) svg.style.opacity = '0' }
-  function configure(next: SoundVisual, length: ContactTrail, intensity: ContactActivity, violet: ContactViolet) {
+  function configure(next: SoundVisual, length: ContactTrail, intensity: ContactActivity, violet: ContactViolet, profile: BowPresetName) {
+    preset = profile; root.dataset.bowPreset = profile
     trail = length; activity = intensity; visual = next
     root.dataset.soundVisual = visual; root.dataset.contactTrail = trail; root.dataset.contactActivity = activity; root.dataset.contactViolet = violet
     const color = contactTuning.colors[violet]
@@ -38,7 +41,7 @@ export function createBowContact(root: HTMLElement, holders: HTMLElement[], mobi
     paint(playing: boolean, dt: number) {
       if (!svg || !head || visual !== 'bow-contact') return false
       if (Number(root.style.getPropertyValue('--sound-release')) < .94) { hide(); return false }
-      const state = motion.advance(dt, playing, activity), isMobile = mobile(), tune = isMobile ? contactTuning.mobile : contactTuning.desktop
+      const state = motion.advance(dt, playing, activity, tuningPresets[preset]), isMobile = mobile(), tune = isMobile ? contactTuning.mobile : contactTuning.desktop
       const setting = contactTuning.trail[trail]
       const x0 = parseFloat(holders[0].style.left), y0 = parseFloat(holders[0].style.top), width = parseFloat(holders[0].style.width)
       const gap = parseFloat(holders[1].style.top) - y0, center = y0 + gap / 2
@@ -55,7 +58,8 @@ export function createBowContact(root: HTMLElement, holders: HTMLElement[], mobi
       }
       lastX = x; lastY = y; clock += dt
       if (state.presence) { xs[cursor] = x; ys[cursor] = y; times[cursor] = clock; cursor = (cursor + 1) % capacity; count = Math.min(count + 1, tune.historySamples) }
-      const historyMs = setting.historyMs * contactTuning.trailPersistence * tune.historyScale * (contactTuning.history.base + contactTuning.history.activityGain * state.activity)
+      // Feature-driven duration stays stable; musical response changes opacity and actual traveled distance.
+      const historyMs = setting.historyMs * contactTuning.trailPersistence * tune.historyScale * (preset === 'B2_REFERENCE' ? contactTuning.history.base + contactTuning.history.activityGain * state.activity : 1)
       const points: { x: number; y: number; age: number }[] = []
       for (let i = 0; i < count; i++) {
         const j = (cursor - 1 - i + capacity) % capacity, age = (clock - times[j]) / historyMs
@@ -72,13 +76,14 @@ export function createBowContact(root: HTMLElement, holders: HTMLElement[], mobi
         const band = Math.min(bands.length - 1, Math.floor((p.age + q.age) * .5 * bands.length))
         ribbons[band].push(`M${pair(p,n,w)}L${pair(q,m,v)}L${pair(q,m,-v)}L${pair(p,n,-w)}Z`)
       }
-      bands.forEach((path, i) => { path.setAttribute('d', ribbons[i].join('')); path.style.opacity = String(setting.opacity * (1 - (i + .5) / bands.length) ** contactTuning.history.fadeExponent) })
+      bands.forEach((path, i) => { path.setAttribute('d', ribbons[i].join('')); path.style.opacity = String(setting.opacity * state.trailEmphasis * (1 - (i + .5) / bands.length) ** contactTuning.history.fadeExponent) })
       head.style.opacity = String(contactTuning.marker.opacity)
       head.setAttribute('cx', x.toFixed(3)); head.setAttribute('cy', y.toFixed(3)); head.setAttribute('rx', String(tune.width / 2)); head.setAttribute('ry', String(tune.height / 2))
       head.setAttribute('transform', `rotate(${angle.toFixed(2)} ${x.toFixed(3)} ${y.toFixed(3)})`)
       svg.style.opacity = (state.presence * contactTuning.violetStrength).toFixed(4)
       svg.dataset.x = x.toFixed(3); svg.dataset.y = y.toFixed(3); svg.dataset.presence = state.presence.toFixed(4)
       svg.dataset.rate = state.rate.toFixed(3); svg.dataset.history = String(points.length)
+      svg.dataset.historyMs = historyMs.toFixed(2)
       svg.dataset.trailSpan = points.length ? Math.max(...points.map(p => Math.hypot(p.x-x,p.y-y))).toFixed(2) : '0'
       if (!state.unsettled) { count = 0; bands.forEach(path => path.setAttribute('d', '')) }
       return state.unsettled

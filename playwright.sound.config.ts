@@ -7,5 +7,5 @@ export default defineConfig({
   outputDir: 'test-results/sound',
   reporter: [['list'], ['json', { outputFile: 'test-results/sound-results.json' }]],
   use: { baseURL: 'http://127.0.0.1:4179', headless: true, screenshot: 'only-on-failure', trace: 'retain-on-failure' },
-  webServer: { command: 'npm run dev:sound', url: 'http://127.0.0.1:4179', reuseExistingServer: false, timeout: 15_000 },
+  webServer: { command: 'npm run dev:sound', env: { SOUND_HTTP_TESTS: '1' }, url: 'http://127.0.0.1:4179', reuseExistingServer: false, timeout: 15_000 },
 })

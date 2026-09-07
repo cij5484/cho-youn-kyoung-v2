@@ -1,0 +1,30 @@
+
+> cho-youn-kyoung-v2@0.0.0 test:sound:contract
+> node --test tests/sound-choreography.test.ts tests/feature-motion.test.ts tests/audio-features.test.mjs
+
+✔ feature contract rejects malformed and stale data; binding cannot silently use another track (24.388ms)
+✔ absolute media time interpolates bounded features, including seeks and replay; no accumulated events (21.7419ms)
+✔ pitch only interpolates adjacent reliable voiced frames; mixed recording has pitch disabled (13.2476ms)
+✔ offline extraction is deterministic and independent of track identity; silence does not invent onsets (43.584ms)
+✔ same-level timbre change produces flux and an onset distinct from energy and a beat grid (24.0458ms)
+✔ checked-in feature identity matches the approved audio bytes and remains small (1.9964ms)
+✔ onset boosts acceleration within 60ms, with no position jump at the event boundary (15.1798ms)
+✔ flux increases reversal activity at constant energy; phrase broadens deterministic lateral travel (13.7022ms)
+✔ fast attack and slower release respond to energy without applying raw values to coordinates (2.8475ms)
+✔ high sensitivity stays continuous through bursts, waveform inversion and reversals (37.7599ms)
+✔ pitch influence is opt-in and confidence-gated; reliable contour adds a smooth upward bias (9.7829ms)
+✔ pause/re-entry and seek do not teleport or replay missed events; cadence remains stable (4.0195ms)
+✔ silence and DC produce neither bow traversal nor an invented playback response (8.3185ms)
+✔ higher real signal energy increases speed/range; B1 remains an active comparison (6.8152ms)
+✔ waveform polarity does not become noisy marker coordinates (2.762ms)
+✔ turns decelerate continuously; sudden energy/profile changes do not teleport or flip velocity (151.4364ms)
+✔ pause has finite damping, settles with no further travel, re-entry preserves position at dt=0 (0.6191ms)
+✔ trajectory remains close across 60Hz and 120Hz display cadence (2.341ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 341.7393

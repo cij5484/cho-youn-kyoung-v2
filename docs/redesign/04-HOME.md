@@ -419,6 +419,12 @@ bow history. No jitter is applied to the marker. A/B1/other Violets remain devel
 [closeout](../../P2I-CLOSEOUT-RESULT.md) owns the quality/QA decision. This selects the production direction;
 public HOME integration and any next scene still require their own authorized task.
 
+P2J keeps this visual direction and improves responsiveness through the same shared bow engine plus
+HOME_SIGNATURE tuning and 25Hz offline features. Energy, onset and spectral changes drive smooth acceleration,
+range and turns; pitch stays disabled for the mixed recording. LONG remains 460ms with stable history duration.
+The [SOUND contract](review/SOUND-BOW-CONTACT-COMPARISON.md#p2j--shared-engine--feature-data--preset-contract)
+owns exact implementation and future per-track reuse; no HOME-specific timestamp script or new scene is added.
+
 ## Core Experience
 
 Approved:

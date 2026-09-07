@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type RefObject } from 'react'
 import { createSoundController, type PlaybackPhase, type PlaybackState } from './controller.ts'
 import { playableSource, type SoundSource } from './source.ts'
+import type { BowPresetName } from './tuning-presets.ts'
 import type { ContactActivity, ContactTrail, ContactViolet, SoundVisual } from './contact-motion.ts'
 
 const labels = {
@@ -9,12 +10,12 @@ const labels = {
 } satisfies Record<string,Record<PlaybackPhase,string>>
 const clock = (seconds: number) => `00:${Math.floor(Math.max(0,seconds)).toString().padStart(2,'0')}`
 
-export function SoundSurface({ root, locale, source, visual, trail, activity, violet }: { root: RefObject<HTMLDivElement | null>; locale: 'ko' | 'en'; source: SoundSource; visual: SoundVisual; trail: ContactTrail; activity: ContactActivity; violet: ContactViolet }) {
+export function SoundSurface({ root, locale, source, visual, trail, activity, violet, preset }: { root: RefObject<HTMLDivElement | null>; locale: 'ko' | 'en'; source: SoundSource; visual: SoundVisual; trail: ContactTrail; activity: ContactActivity; violet: ContactViolet; preset: BowPresetName }) {
   const media=useRef<HTMLAudioElement>(null), controller=useRef<ReturnType<typeof createSoundController> | null>(null)
-  const src=playableSource(source),status=source.status,duration=source.duration
+  const src=playableSource(source),status=source.status,duration=source.duration,trackId=source.trackId,sourceSha256=source.sourceSha256,features=source.features
   const [state,setState]=useState<PlaybackState>({phase:src ? 'idle':'unavailable',seconds:0,duration:source.duration,analysisAvailable:true})
-  useEffect(()=>{controller.current=createSoundController(root.current!,media.current!,{src,status,duration},setState);return()=>{controller.current?.destroy();controller.current=null}},[root,src,status,duration])
-  useEffect(()=>{controller.current?.setVisual(visual,trail,activity,violet)},[visual,trail,activity,violet,root,src,status,duration])
+  useEffect(()=>{controller.current=createSoundController(root.current!,media.current!,{src,status,duration,trackId,sourceSha256,features},setState);return()=>{controller.current?.destroy();controller.current=null}},[root,src,status,duration,trackId,sourceSha256,features])
+  useEffect(()=>{controller.current?.setVisual(visual,trail,activity,violet,preset)},[visual,trail,activity,violet,preset,root,src,status,duration,trackId,sourceSha256,features])
   const active=['loading','playing','buffering'].includes(state.phase)
   const word=active ? 'PAUSE' : state.phase==='ended' ? 'REPLAY' : state.phase==='paused' ? 'RESUME' : state.phase==='error' ? 'RETRY' : 'LISTEN'
   const action=locale==='ko' ? active ? '미리듣기 일시 정지' : state.phase==='ended' ? '미리듣기 다시 듣기' : state.phase==='paused' ? '미리듣기 계속 듣기' : '미리듣기 재생' : active ? 'Pause preview' : state.phase==='ended' ? 'Replay preview' : state.phase==='paused' ? 'Resume preview' : 'Play preview'

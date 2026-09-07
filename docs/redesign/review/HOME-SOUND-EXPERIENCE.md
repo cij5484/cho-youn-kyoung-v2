@@ -172,3 +172,13 @@ owns tuning and Lab-only alternatives. One native graph/rAF, ~30Hz analysis and 
 remain; the approved source and frozen Hero/Haegeum are preserved. Public HOME remains unimplemented.
 [Closeout result](../../../P2I-CLOSEOUT-RESULT.md) owns quality status and non-blocking QA gaps;
 [original choreography evidence](../../../evidence/p2i-choreography/README.md) remains historical visual evidence.
+
+## P2J — scalable response refinement
+
+SOUND visual freeze remains B2 / LONG 460ms / Electric Violet. P2J adds a shared feature-driven bow engine,
+25Hz offline data and HOME_SIGNATURE tuning for the same excerpt. Native media activation/currentTime and
+route cleanup remain authoritative. Pitch is disabled for the mixed recording; no beat-primary driver or manual
+timestamp choreography is added. The [existing SOUND contract](SOUND-BOW-CONTACT-COMPARISON.md#p2j--shared-engine--feature-data--preset-contract)
+owns extraction, mapping, preset values and future Album-track adapter boundaries; it is not duplicated here.
+[P2J result](../../../P2J-RESULT.md) owns current validation/response comparison. New responsiveness awaits visual
+review; the prior SOUND quality approval is preserved. Public HOME and the next scene remain outside this task.

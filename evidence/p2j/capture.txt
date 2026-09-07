@@ -1,0 +1,13 @@
+PM 1:54:01 [vite] (client) Re-optimizing dependencies because vite config has changed
+[
+  { id: '1440-b2', stages: [ [Object], [Object], [Object], [Object] ] },
+  {
+    id: '1440-signature',
+    stages: [ [Object], [Object], [Object], [Object] ]
+  },
+  { id: '390-b2', stages: [ [Object], [Object], [Object], [Object] ] },
+  {
+    id: '390-signature',
+    stages: [ [Object], [Object], [Object], [Object] ]
+  }
+]

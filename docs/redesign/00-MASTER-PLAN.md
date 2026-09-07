@@ -402,6 +402,7 @@ Contemporary Editorial / Ivory, Static Color, Dynamic Composition 및 **ARTIST �
 - 두 가는 선은 Hero→Haegeum→Sound→Selected Works→Outro의 구조적 motif다. Bowed-string tension/resonance를 거의 straight한 micro vibration/density/damping으로 표현한다.
 - Hero→Haegeum은 요소의 spacing/depth/crop/position이 이어지는 변형이다. 1.2–1.6 viewport를 Scene 02 예산과 겹쳐 검토하고 snap/긴 강제 pin을 사용하지 않는다.
 - SOUND는 조용한 LISTEN, 10–20초 대표 fragment, explicit playback only. Selected Works는 4–5작의 긴 asymmetric editorial surface다.
+- SOUND의 확장 정본은 **공유 BowChoreographyEngine + 곡별 AudioFeatureData + TuningPreset**이다. Offline 분석과 live playback을 결합하고, 전체 앨범을 수동 timestamp 안무로 만들지 않는다. 빠른 반응도 매끄러운 활/진동하는 현의 역할을 유지한다. P2J의 18초 proof와 향후 Album adapter 경계는 [기존 SOUND 계약](review/SOUND-BOW-CONTACT-COMPARISON.md#p2j--shared-engine--feature-data--preset-contract)에 둔다. 전체 음원 migration은 별도 작업이다.
 - Album Object는 두 번째 peak. 세 2026 앨범을 유지하되 동시 live 3개가 품질을 해치면 한 고품질 object + switching을 우선한다. Idle은 안정적/정적이다.
 - Performance는 첫 큰 Dark Stage 전환이지만 움직임은 줄인다. About은 Ivory로 돌아와 처음 명확한 front/clear 3/4 portrait와 2–3문장. Outro는 이름/두 선의 resolve, EXPLORE ALL WORKS 한 primary CTA, 기존 Sou.P secret.
 - Mobile은 더 과감한 crop과 typography 재구성, 독립 depth 판단, lighter scroll parallax, touch-safe nav, vertical-first gesture와 감소한 WebGL 비용을 사용한다.

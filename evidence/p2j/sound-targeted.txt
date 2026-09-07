@@ -1,0 +1,165 @@
+[WebServer] (node:33700) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 22 tests using 2 workers
+
+(node:3860) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:21532) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  2 [chromium] › tests\sound.spec.ts:308:1 › P2I: A/B and tail comparison preserves media position, graph, focus and the original line nodes (3.6s)
+  x   1 [chromium] › tests\sound.spec.ts:291:1 › eight route returns release every previous context and do not accumulate Sound DOM (9.3s)
+(node:13720) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  3 [chromium] › tests\sound.spec.ts:334:1 › P2I: smooth B uses a wide trajectory, long actual path and one Violet marker (9.2s)
+  ok  4 [chromium] › tests\sound.spec.ts:363:1 › P2I: B pause settles all work; natural end/replay fades back from the outgoing contact position (5.7s)
+  ok  5 [chromium] › tests\sound.spec.ts:388:30 › P2I: 320px B has an independent visible mark and no input or scroll trap (4.7s)
+  ok  6 [chromium] › tests\sound.spec.ts:388:30 › P2I: 390px B has an independent visible mark and no input or scroll trap (4.6s)
+  ok  7 [chromium] › tests\sound.spec.ts:446:1 › P2J: hybrid follows the native playhead through seek, pause, replay and offscreen cleanup (5.1s)
+  ok  8 [chromium] › tests\sound.spec.ts:469:1 › P2J: stale feature identity falls back to live analysis without changing real playback (2.4s)
+  ok  9 [chromium] › tests\sound.spec.ts:480:1 › P2J: Lab response comparison preserves the same media, graph and frozen 460ms visual choices (3.5s)
+  ok 10 [chromium] › tests\sound.spec.ts:498:30 › P2J: 320px signature stays within its space with bounded smooth steps (5.7s)
+(node:10084) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 11 [chromium] › tests\sound.spec.ts:498:30 › P2J: 390px signature stays within its space with bounded smooth steps (5.6s)
+(node:33736) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  12 [webkit] › tests\sound.spec.ts:291:1 › eight route returns release every previous context and do not accumulate Sound DOM (9.8s)
+(node:16752) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  13 [webkit] › tests\sound.spec.ts:308:1 › P2I: A/B and tail comparison preserves media position, graph, focus and the original line nodes (9.1s)
+(node:28636) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 14 [webkit] › tests\sound.spec.ts:334:1 › P2I: smooth B uses a wide trajectory, long actual path and one Violet marker (3.1s)
+  ok 16 [webkit] › tests\sound.spec.ts:388:30 › P2I: 320px B has an independent visible mark and no input or scroll trap (3.8s)
+  ok 15 [webkit] › tests\sound.spec.ts:363:1 › P2I: B pause settles all work; natural end/replay fades back from the outgoing contact position (5.1s)
+  ok 17 [webkit] › tests\sound.spec.ts:388:30 › P2I: 390px B has an independent visible mark and no input or scroll trap (3.8s)
+  ok 18 [webkit] › tests\sound.spec.ts:446:1 › P2J: hybrid follows the native playhead through seek, pause, replay and offscreen cleanup (5.4s)
+  ok 19 [webkit] › tests\sound.spec.ts:469:1 › P2J: stale feature identity falls back to live analysis without changing real playback (3.0s)
+  ok 20 [webkit] › tests\sound.spec.ts:480:1 › P2J: Lab response comparison preserves the same media, graph and frozen 460ms visual choices (3.2s)
+  ok 21 [webkit] › tests\sound.spec.ts:498:30 › P2J: 320px signature stays within its space with bounded smooth steps (2.9s)
+  ok 22 [webkit] › tests\sound.spec.ts:498:30 › P2J: 390px signature stays within its space with bounded smooth steps (3.0s)
+
+
+  1) [chromium] › tests\sound.spec.ts:291:1 › eight route returns release every previous context and do not accumulate Sound DOM
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('.sound-experience')
+    Expected: "0.00000"
+    Received: ""
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('.sound-experience') with timeout 5000ms
+      - waiting for locator('.sound-experience')
+        14 × locator resolved to <div data-audio-energy="0" data-audio-state="idle" class="sound-experience" data-sound-ready="false" data-analysis-frames="0" data-sound-static="false" data-contact-trail="long" data-contact-activity="bold" data-sound-releasing="false" data-contact-violet="electric" data-sound-visual="bow-contact" data-audio-context="not-created" data-bow-preset="HOME_SIGNATURE" data-audio-feature-time="inactive" data-audio-features="home-hanbeomsu-jungjungmori-preview">…</div>
+           - unexpected value "null"
+
+
+      299 |     await expect(page).toHaveURL(i%2===0 ? /\/en\/$/ : /:4179\/$/)
+      300 |     await expect(page.locator('main')).toBeFocused()
+    > 301 |     await expect(root(page)).toHaveAttribute('data-progress','0.00000')
+          |                              ^
+      302 |     await expect.poll(()=>page.evaluate(()=>window.soundContexts.every(c=>c.state==='closed'))).toBe(true)
+      303 |     await expect(root(page)).toHaveAttribute('data-audio-context','not-created')
+      304 |   }
+        at C:\choyounkyoung-v2\tests\sound.spec.ts:301:30
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sound\sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sound\sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sound\sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sound\sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [webkit] › tests\sound.spec.ts:291:1 › eight route returns release every previous context and do not accumulate Sound DOM
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('.sound-experience')
+    Expected: "0.00000"
+    Received: ""
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('.sound-experience') with timeout 5000ms
+      - waiting for locator('.sound-experience')
+        14 × locator resolved to <div data-audio-energy="0" data-audio-state="idle" class="sound-experience" data-sound-ready="false" data-analysis-frames="0" data-sound-static="false" data-contact-trail="long" data-contact-activity="bold" data-sound-releasing="false" data-contact-violet="electric" data-sound-visual="bow-contact" data-audio-context="not-created" data-bow-preset="HOME_SIGNATURE" data-audio-feature-time="inactive" data-audio-features="home-hanbeomsu-jungjungmori-preview">…</div>
+           - unexpected value "null"
+
+
+      299 |     await expect(page).toHaveURL(i%2===0 ? /\/en\/$/ : /:4179\/$/)
+      300 |     await expect(page.locator('main')).toBeFocused()
+    > 301 |     await expect(root(page)).toHaveAttribute('data-progress','0.00000')
+          |                              ^
+      302 |     await expect.poll(()=>page.evaluate(()=>window.soundContexts.every(c=>c.state==='closed'))).toBe(true)
+      303 |     await expect(root(page)).toHaveAttribute('data-audio-context','not-created')
+      304 |   }
+        at C:\choyounkyoung-v2\tests\sound.spec.ts:301:30
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sound\sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sound\sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sound\sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sound\sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [webkit] › tests\sound.spec.ts:308:1 › P2I: A/B and tail comparison preserves media position, graph, focus and the original line nodes
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByRole('radio', { name: 'A · Line only', exact: true })
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" getByRole('radio', { name: 'A · Line only', exact: true }) with timeout 5000ms
+      - waiting for getByRole('radio', { name: 'A · Line only', exact: true })
+        14 × locator resolved to <input checked type="radio" value="line-only" name="sound-visual"/>
+           - unexpected value "inactive"
+
+
+      323 |   await page.getByLabel('Activity',{exact:true}).selectOption('bold')
+      324 |   await page.getByRole('radio',{name:'A · Line only',exact:true}).check();await expect(page.locator('.bow-contact')).toHaveCount(0)
+    > 325 |   await expect(page.getByRole('radio',{name:'A · Line only',exact:true})).toBeFocused()
+          |                                                                           ^
+      326 |   await page.getByRole('radio',{name:'B · Bow contact',exact:true}).check()
+      327 |   expect(await audio(page).evaluate(el=>el===window.retainedMedia)).toBe(true)
+      328 |   expect(await audio(page).evaluate(el=>(el as HTMLAudioElement).currentTime)).toBeGreaterThan(at)
+        at C:\choyounkyoung-v2\tests\sound.spec.ts:325:75
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sound\sound-P2I-A-B-and-tail-com-1d6ab-and-the-original-line-nodes-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sound\sound-P2I-A-B-and-tail-com-1d6ab-and-the-original-line-nodes-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sound\sound-P2I-A-B-and-tail-com-1d6ab-and-the-original-line-nodes-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sound\sound-P2I-A-B-and-tail-com-1d6ab-and-the-original-line-nodes-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    [chromium] › tests\sound.spec.ts:291:1 › eight route returns release every previous context and do not accumulate Sound DOM
+    [webkit] › tests\sound.spec.ts:291:1 › eight route returns release every previous context and do not accumulate Sound DOM
+    [webkit] › tests\sound.spec.ts:308:1 › P2I: A/B and tail comparison preserves media position, graph, focus and the original line nodes
+  19 passed (1.0m)

@@ -1,0 +1,508 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\choyounkyoung-v2\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.design-system.config.ts"
+    ],
+    "configFile": "C:\\choyounkyoung-v2\\playwright.design-system.config.ts",
+    "rootDir": "C:/choyounkyoung-v2/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/choyounkyoung-v2/test-results/design-system",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/choyounkyoung-v2/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "design-system.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/design-system-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 2,
+    "webServer": {
+      "command": "npm run dev:design-system",
+      "url": "http://127.0.0.1:4175",
+      "reuseExistingServer": false,
+      "timeout": 15000
+    }
+  },
+  "suites": [
+    {
+      "title": "design-system.spec.ts",
+      "file": "design-system.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "desktop: actual fonts, readable reflow, palette and visual evidence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1118,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T04:21:27.032Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "design-metrics",
+                      "contentType": "application/json",
+                      "body": "eyJsb2FkaW5nIjp7ImNscyI6MC4wMDE4NjQyNDM5NDc3MjM3NjU0LCJsY3AiOjM1Niwid2lkdGgiOjE0NDAsInNjcm9sbFdpZHRoIjoxNDQwLCJmb250UmVxdWVzdHMiOjE3LCJmb250Qnl0ZXMiOjM5NDU2MCwiZm9udE9yaWdpbnMiOlsiaHR0cDovLzEyNy4wLjAuMTo0MTc1Il0sImxvYWRlZEZhbWlsaWVzIjpbIkNvcm1vcmFudCBHYXJhbW9uZCBWYXJpYWJsZSIsIk5vdG8gU2FucyBLUiBWYXJpYWJsZSIsIk5vdG8gU2VyaWYgS1IgVmFyaWFibGUiXX0sImNvbnRyYXN0IjpbeyJyb2xlIjoibXV0ZWQiLCJyYXRpbyI6NC44MDIzNzU1MzA2MzkyMTEsIm9wYWNpdHkiOiIxIn0seyJyb2xlIjoiY2FudmFzIiwicmF0aW8iOjQuODAyMzc1NTMwNjM5MjExLCJvcGFjaXR5IjoiMSJ9LHsicm9sZSI6InN1cmZhY2UiLCJyYXRpbyI6NS4xNDI4OTk3NzMxMjIxODMsIm9wYWNpdHkiOiIxIn0seyJyb2xlIjoiZGFyayIsInJhdGlvIjoxMi4wNjMzMzk2MjYyNDAwNDQsIm9wYWNpdHkiOiIxIn1dfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb9959aea8a42eda7d1c-63d13d93ddf61de24e1a",
+          "file": "design-system.spec.ts",
+          "line": 46,
+          "column": 3
+        },
+        {
+          "title": "mobile: actual fonts, readable reflow, palette and visual evidence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1001,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T04:21:27.032Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "design-metrics",
+                      "contentType": "application/json",
+                      "body": "eyJsb2FkaW5nIjp7ImNscyI6MC4wMDA2Mjc4MzY4MjAzMDc3ODksImxjcCI6MzQwLCJ3aWR0aCI6MzkwLCJzY3JvbGxXaWR0aCI6MzkwLCJmb250UmVxdWVzdHMiOjE3LCJmb250Qnl0ZXMiOjM5NDU2MCwiZm9udE9yaWdpbnMiOlsiaHR0cDovLzEyNy4wLjAuMTo0MTc1Il0sImxvYWRlZEZhbWlsaWVzIjpbIkNvcm1vcmFudCBHYXJhbW9uZCBWYXJpYWJsZSIsIk5vdG8gU2FucyBLUiBWYXJpYWJsZSIsIk5vdG8gU2VyaWYgS1IgVmFyaWFibGUiXX0sImNvbnRyYXN0IjpbeyJyb2xlIjoibXV0ZWQiLCJyYXRpbyI6NC44MDIzNzU1MzA2MzkyMTEsIm9wYWNpdHkiOiIxIn0seyJyb2xlIjoiY2FudmFzIiwicmF0aW8iOjQuODAyMzc1NTMwNjM5MjExLCJvcGFjaXR5IjoiMSJ9LHsicm9sZSI6InN1cmZhY2UiLCJyYXRpbyI6NS4xNDI4OTk3NzMxMjIxODMsIm9wYWNpdHkiOiIxIn0seyJyb2xlIjoiZGFyayIsInJhdGlvIjoxMi4wNjMzMzk2MjYyNDAwNDQsIm9wYWNpdHkiOiIxIn1dfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb9959aea8a42eda7d1c-95856419b3412d9d787c",
+          "file": "design-system.spec.ts",
+          "line": 46,
+          "column": 3
+        },
+        {
+          "title": "small-mobile: actual fonts, readable reflow, palette and visual evidence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 679,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T04:21:28.201Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "design-metrics",
+                      "contentType": "application/json",
+                      "body": "eyJsb2FkaW5nIjp7ImNscyI6MC4wMjQ2NzUwNjI5NDI1MDQ4ODQsImxjcCI6MTI0LCJ3aWR0aCI6MzIwLCJzY3JvbGxXaWR0aCI6MzIwLCJmb250UmVxdWVzdHMiOjE3LCJmb250Qnl0ZXMiOjM5NDU2MCwiZm9udE9yaWdpbnMiOlsiaHR0cDovLzEyNy4wLjAuMTo0MTc1Il0sImxvYWRlZEZhbWlsaWVzIjpbIkNvcm1vcmFudCBHYXJhbW9uZCBWYXJpYWJsZSIsIk5vdG8gU2FucyBLUiBWYXJpYWJsZSIsIk5vdG8gU2VyaWYgS1IgVmFyaWFibGUiXX0sImNvbnRyYXN0IjpbeyJyb2xlIjoibXV0ZWQiLCJyYXRpbyI6NC44MDIzNzU1MzA2MzkyMTEsIm9wYWNpdHkiOiIxIn0seyJyb2xlIjoiY2FudmFzIiwicmF0aW8iOjQuODAyMzc1NTMwNjM5MjExLCJvcGFjaXR5IjoiMSJ9LHsicm9sZSI6InN1cmZhY2UiLCJyYXRpbyI6NS4xNDI4OTk3NzMxMjIxODMsIm9wYWNpdHkiOiIxIn0seyJyb2xlIjoiZGFyayIsInJhdGlvIjoxMi4wNjMzMzk2MjYyNDAwNDQsIm9wYWNpdHkiOiIxIn1dfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb9959aea8a42eda7d1c-12d7472f1043777cbba0",
+          "file": "design-system.spec.ts",
+          "line": 46,
+          "column": 3
+        },
+        {
+          "title": "tablet: actual fonts, readable reflow, palette and visual evidence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 719,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T04:21:28.324Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "design-metrics",
+                      "contentType": "application/json",
+                      "body": "eyJsb2FkaW5nIjp7ImNscyI6MC4wMDIxMTgwNzA5MjAzMDg0MzEsImxjcCI6MTI4LCJ3aWR0aCI6NzY4LCJzY3JvbGxXaWR0aCI6NzY4LCJmb250UmVxdWVzdHMiOjE3LCJmb250Qnl0ZXMiOjM5NDU2MCwiZm9udE9yaWdpbnMiOlsiaHR0cDovLzEyNy4wLjAuMTo0MTc1Il0sImxvYWRlZEZhbWlsaWVzIjpbIkNvcm1vcmFudCBHYXJhbW9uZCBWYXJpYWJsZSIsIk5vdG8gU2FucyBLUiBWYXJpYWJsZSIsIk5vdG8gU2VyaWYgS1IgVmFyaWFibGUiXX0sImNvbnRyYXN0IjpbeyJyb2xlIjoibXV0ZWQiLCJyYXRpbyI6NC44MDIzNzU1MzA2MzkyMTEsIm9wYWNpdHkiOiIxIn0seyJyb2xlIjoiY2FudmFzIiwicmF0aW8iOjQuODAyMzc1NTMwNjM5MjExLCJvcGFjaXR5IjoiMSJ9LHsicm9sZSI6InN1cmZhY2UiLCJyYXRpbyI6NS4xNDI4OTk3NzMxMjIxODMsIm9wYWNpdHkiOiIxIn0seyJyb2xlIjoiZGFyayIsInJhdGlvIjoxMi4wNjMzMzk2MjYyNDAwNDQsIm9wYWNpdHkiOiIxIn1dfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb9959aea8a42eda7d1c-2a0855364739660bc339",
+          "file": "design-system.spec.ts",
+          "line": 46,
+          "column": 3
+        },
+        {
+          "title": "wide: actual fonts, readable reflow, palette and visual evidence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 874,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T04:21:28.892Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "design-metrics",
+                      "contentType": "application/json",
+                      "body": "eyJsb2FkaW5nIjp7ImNscyI6MC4wMDE0MDU5Mzg5NTMwMzg1OTY0LCJsY3AiOjE0MCwid2lkdGgiOjE5MjAsInNjcm9sbFdpZHRoIjoxOTIwLCJmb250UmVxdWVzdHMiOjE3LCJmb250Qnl0ZXMiOjM5NDU2MCwiZm9udE9yaWdpbnMiOlsiaHR0cDovLzEyNy4wLjAuMTo0MTc1Il0sImxvYWRlZEZhbWlsaWVzIjpbIkNvcm1vcmFudCBHYXJhbW9uZCBWYXJpYWJsZSIsIk5vdG8gU2FucyBLUiBWYXJpYWJsZSIsIk5vdG8gU2VyaWYgS1IgVmFyaWFibGUiXX0sImNvbnRyYXN0IjpbeyJyb2xlIjoibXV0ZWQiLCJyYXRpbyI6NC44MDIzNzU1MzA2MzkyMTEsIm9wYWNpdHkiOiIxIn0seyJyb2xlIjoiY2FudmFzIiwicmF0aW8iOjQuODAyMzc1NTMwNjM5MjExLCJvcGFjaXR5IjoiMSJ9LHsicm9sZSI6InN1cmZhY2UiLCJyYXRpbyI6NS4xNDI4OTk3NzMxMjIxODMsIm9wYWNpdHkiOiIxIn0seyJyb2xlIjoiZGFyayIsInJhdGlvIjoxMi4wNjMzMzk2MjYyNDAwNDQsIm9wYWNpdHkiOiIxIn1dfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb9959aea8a42eda7d1c-c5b51f77f39a55a600b6",
+          "file": "design-system.spec.ts",
+          "line": 46,
+          "column": 3
+        },
+        {
+          "title": "keyboard focus, native disclosure and reset remain operable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 481,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T04:21:29.056Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb9959aea8a42eda7d1c-5e800510e613d891cb9c",
+          "file": "design-system.spec.ts",
+          "line": 87,
+          "column": 1
+        },
+        {
+          "title": "reduced motion keeps all specimens and removes action transitions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 528,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T04:21:29.548Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb9959aea8a42eda7d1c-3b8fdb2e693c2ce73f79",
+          "file": "design-system.spec.ts",
+          "line": 108,
+          "column": 1
+        },
+        {
+          "title": "delayed fonts at 390px: readable fallback and bounded layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1685,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T04:21:29.779Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "delayed-font-metrics",
+                      "contentType": "application/json",
+                      "body": "eyJjbHMiOjAuMDAwNDQ3MjMwNzY5MjMwNzY5MjYsImxjcCI6MTI0LCJ3aWR0aCI6MzkwLCJzY3JvbGxXaWR0aCI6MzkwLCJmb250UmVxdWVzdHMiOjE3LCJmb250Qnl0ZXMiOjM5NDU2MCwiZm9udE9yaWdpbnMiOlsiaHR0cDovLzEyNy4wLjAuMTo0MTc1Il0sImxvYWRlZEZhbWlsaWVzIjpbIkNvcm1vcmFudCBHYXJhbW9uZCBWYXJpYWJsZSIsIk5vdG8gU2VyaWYgS1IgVmFyaWFibGUiLCJOb3RvIFNhbnMgS1IgVmFyaWFibGUiXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb9959aea8a42eda7d1c-9026bdbf6e5b86f88007",
+          "file": "design-system.spec.ts",
+          "line": 119,
+          "column": 3
+        },
+        {
+          "title": "delayed fonts at 1440px: readable fallback and bounded layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1649,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T04:21:30.087Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "delayed-font-metrics",
+                      "contentType": "application/json",
+                      "body": "eyJjbHMiOjAuMDAxNzk3NTU1OTE4NzUyNDExMywibGNwIjoxMTIsIndpZHRoIjoxNDQwLCJzY3JvbGxXaWR0aCI6MTQ0MCwiZm9udFJlcXVlc3RzIjoxNywiZm9udEJ5dGVzIjozOTQ1NjAsImZvbnRPcmlnaW5zIjpbImh0dHA6Ly8xMjcuMC4wLjE6NDE3NSJdLCJsb2FkZWRGYW1pbGllcyI6WyJDb3Jtb3JhbnQgR2FyYW1vbmQgVmFyaWFibGUiLCJOb3RvIFNlcmlmIEtSIFZhcmlhYmxlIiwiTm90byBTYW5zIEtSIFZhcmlhYmxlIl19"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb9959aea8a42eda7d1c-1a81db38d4277c08d08c",
+          "file": "design-system.spec.ts",
+          "line": 119,
+          "column": 3
+        },
+        {
+          "title": "unavailable fonts retain readable mobile content and controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 450,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T04:21:31.478Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb9959aea8a42eda7d1c-a3c3ff9fdf501d1de32f",
+          "file": "design-system.spec.ts",
+          "line": 137,
+          "column": 1
+        },
+        {
+          "title": "200 percent text and long KO/EN copy reflow at narrow width",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 502,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T04:21:31.748Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb9959aea8a42eda7d1c-4d62af064aec02d38e91",
+          "file": "design-system.spec.ts",
+          "line": 148,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-07T04:21:25.665Z",
+    "duration": 7006.562,
+    "expected": 11,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

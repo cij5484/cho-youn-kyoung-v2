@@ -1,6 +1,6 @@
 # Cho Youn Kyoung Website V2 — 검토 및 구현 제안
 
-검토일: 2026-09-07 · Revision 1.26 · 상태: **P2A visual 승인·main delivery 완료 / P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN & delivered / P2C B canonical APPROVED / P2D APPROVED & DELIVERED / P2E VISUAL APPROVED & DELIVERED / P2F QUALITY APPROVED / FROZEN · P2F delivered / P2G result APPROVED / P2I SOUND QUALITY APPROVED / FROZEN · Full FAIL with classified QA gaps / STOP**. HOME V2.1 및 P0 routing/locale/CI 계약은 유지한다. 현재 결과·승인 경계는 [HANDOFF](../../../CODEX-HANDOFF.md)를 따른다.
+검토일: 2026-09-07 · Revision 1.27 · 상태: **P2A visual 승인·main delivery 완료 / P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN & delivered / P2C B canonical APPROVED / P2D APPROVED & DELIVERED / P2E VISUAL APPROVED & DELIVERED / P2F QUALITY APPROVED / FROZEN · P2F delivered / P2G result APPROVED / P2I SOUND QUALITY APPROVED / FROZEN 유지 · P2J feature-driven response REVIEW READY · Full PASS / STOP**. HOME V2.1 및 P0 routing/locale/CI 계약은 유지한다. 현재 결과·승인 경계는 [HANDOFF](../../../CODEX-HANDOFF.md)를 따른다.
 
 현재 정본은 갱신된 MASTER의 PHASE 0–14다. React Router + Static Prerender는 사용자가 지정한 P0C 실제 Pages gate 통과로 확정했다. P0D neutral locale/hreflang 계약은 두 base에서 통과했고 실제 번역·제품 구현과 운영 SEO는 별도 gate다. 이 문서는 실제 구현 승인이 아니다.
 
@@ -618,9 +618,19 @@ principles + owner references → human glossary/result/STOP. Overlapping attach
 [human glossary](../INTERACTION-GLOSSARY.md). P2F is frozen. The subsequent user selection and closeout below supersede the prior A/B review boundary.
 WORKS, filmstrip, adaptive UI/entry ritual implementation and 3D remain future; no next scene is authorized.
 
-Current bounded result: **P2I Closeout / SOUND QUALITY APPROVED / FROZEN** — B2 Bold, LONG 460ms,
+Historical bounded result: **P2I Closeout / SOUND QUALITY APPROVED / FROZEN** — B2 Bold, LONG 460ms,
 Electric Violet #6334E5. [Closeout](../../../P2I-CLOSEOUT-RESULT.md) records QA classification and authorized
 main/Fast delivery. The pre-existing Windows foundation Lab CLS keeps Full red; Windows WebKit capability
 and fault-injection gaps are non-blocking for this SOUND freeze, not a deployment waiver. Native/physical
 follow-ups remain explicit. The next recommended unit is foundation font-loading/CLS closure, separately
 approved; no WORKS or next HOME scene starts automatically.
+
+Current bounded result: **P2J — Foundation CLS Closeout + Scalable Audio Choreography + High-Sensitivity Bow**.
+The actual Lab wrapping owner is fixed without font/token changes. Full PASS: 56 unique Node contracts +285 browser
+cases, zero skip/flaky. Existing B2 / LONG / Electric Violet quality freeze remains; new HOME_SIGNATURE response is
+IMPLEMENTED / VERIFIED / REVIEW READY. Shared engine/feature/preset and offline+live target belong to the
+[existing SOUND contract](SOUND-BOW-CONTACT-COMPARISON.md); [result](../../../P2J-RESULT.md) owns the 24-field report.
+One approved audio fragment proves extraction/runtime/batch wiring, not album migration or reliable pitch tracking.
+Explicit Windows capability assertions do not imply native Safari coverage. Authorised delivery is logical commit,
+main push/Fast/clean; no deployment. Recommended after user response review: one SOUND native Safari/mobile QA
+and response closeout bundle. **STOP; no next scene or Phase is authorized.**

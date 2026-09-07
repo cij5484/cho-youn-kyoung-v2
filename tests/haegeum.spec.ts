@@ -121,7 +121,10 @@ test('failed continuation image retains readable static narrative and functional
 test('late deep-scroll imagery selects static fallback rather than popping into the motion plane',async({page})=>{
   let release!:()=>void;const pending=new Promise<void>(r=>{release=r})
   await page.route('**/haegeum-playing.webp',async route=>{await pending;await route.continue()})
-  await page.goto('/',{waitUntil:'domcontentloaded'});await page.evaluate(()=>scrollTo(0,innerHeight*.9))
+  await page.goto('/',{waitUntil:'domcontentloaded'})
+  // The document event can precede React mounting. Scroll the initialized scene, not an empty body.
+  await expect(page.locator('.haegeum-experience')).toHaveAttribute('data-progress','0.00000')
+  await page.evaluate(()=>scrollTo(0,innerHeight*.9))
   await expect(page.locator('.haegeum-experience')).toHaveAttribute('data-instrument-fallback','true')
   release();await page.locator('.playing-image').evaluate(el=>(el as HTMLImageElement).decode())
   await expect(page.locator('.haegeum-experience')).toHaveAttribute('data-motion','reduced')

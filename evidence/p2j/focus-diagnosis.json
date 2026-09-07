@@ -1,0 +1,90 @@
+[
+  {
+    "name": "webkit",
+    "key": "Tab",
+    "states": [
+      {
+        "active": "<body><div id=\"root\"><div class=\"hero-shell hero-lab\" data-prototype=\"P2D_HERO_LAB_ONLY\"><a class=\"skip-link\" href=\"#hero-main\">본문으로 이동</a><header cla",
+        "focus": true
+      },
+      {
+        "active": "<button class=\"menu-toggle menu-trigger\" aria-label=\"MENU\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"navigation-menu\"><span class=\"t",
+        "focus": true
+      },
+      {
+        "active": "<body><div id=\"root\"><div class=\"hero-shell hero-lab\" data-prototype=\"P2D_HERO_LAB_ONLY\"><a class=\"skip-link\" href=\"#hero-main\">본문으로 이동</a><header cla",
+        "focus": false
+      },
+      {
+        "active": "<button class=\"menu-toggle menu-trigger\" aria-label=\"MENU\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"navigation-menu\"><span class=\"t",
+        "focus": true
+      }
+    ]
+  },
+  {
+    "name": "webkit",
+    "key": "Alt+Tab",
+    "states": [
+      {
+        "active": "<body><div id=\"root\"></div><script type=\"module\" src=\"/main.tsx\"></script>\n</body>",
+        "focus": true
+      },
+      {
+        "active": "<body><div id=\"root\"></div><script type=\"module\" src=\"/main.tsx\"></script>\n</body>",
+        "focus": false
+      },
+      {
+        "active": "<body><div id=\"root\"><div class=\"hero-shell hero-lab\" data-prototype=\"P2D_HERO_LAB_ONLY\"><a class=\"skip-link\" href=\"#hero-main\">본문으로 이동</a><header cla",
+        "focus": false
+      },
+      {
+        "active": "<button class=\"menu-toggle menu-trigger\" aria-label=\"MENU\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"navigation-menu\"><span class=\"t",
+        "focus": true
+      }
+    ]
+  },
+  {
+    "name": "chromium",
+    "key": "Tab",
+    "states": [
+      {
+        "active": "<body><div id=\"root\"><div class=\"hero-shell hero-lab\" data-prototype=\"P2D_HERO_LAB_ONLY\"><a class=\"skip-link\" href=\"#hero-main\">본문으로 이동</a><header cla",
+        "focus": true
+      },
+      {
+        "active": "<a class=\"skip-link\" href=\"#hero-main\">본문으로 이동</a>",
+        "focus": true
+      },
+      {
+        "active": "<a class=\"nav-signature\" aria-label=\"조윤경 홈\" lang=\"en\" href=\"/\" data-discover=\"true\">CHO YOUN KYOUNG</a>",
+        "focus": true
+      },
+      {
+        "active": "<button class=\"menu-toggle menu-trigger\" aria-label=\"MENU\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"navigation-menu\"><span class=\"t",
+        "focus": true
+      }
+    ]
+  },
+  {
+    "name": "chromium",
+    "key": "Alt+Tab",
+    "states": [
+      {
+        "active": "<body><div id=\"root\"><div class=\"hero-shell hero-lab\" data-prototype=\"P2D_HERO_LAB_ONLY\"><a class=\"skip-link\" href=\"#hero-main\">본문으로 이동</a><header cla",
+        "focus": true
+      },
+      {
+        "active": "<body><div id=\"root\"><div class=\"hero-shell hero-lab\" data-prototype=\"P2D_HERO_LAB_ONLY\"><a class=\"skip-link\" href=\"#hero-main\">본문으로 이동</a><header cla",
+        "focus": true
+      },
+      {
+        "active": "<body><div id=\"root\"><div class=\"hero-shell hero-lab\" data-prototype=\"P2D_HERO_LAB_ONLY\"><a class=\"skip-link\" href=\"#hero-main\">본문으로 이동</a><header cla",
+        "focus": true
+      },
+      {
+        "active": "<body><div id=\"root\"><div class=\"hero-shell hero-lab\" data-prototype=\"P2D_HERO_LAB_ONLY\"><a class=\"skip-link\" href=\"#hero-main\">본문으로 이동</a><header cla",
+        "focus": true
+      }
+    ]
+  }
+]

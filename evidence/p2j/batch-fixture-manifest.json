@@ -1,0 +1,14 @@
+{
+  "tracks": [
+    {
+      "trackId": "home-hanbeomsu-jungjungmori-preview",
+      "input": "src/sound/assets/hanbeomsu-jungjungmori-preview.m4a",
+      "output": ".checkpoints/p2j/batch/home.features.json"
+    },
+    {
+      "trackId": "same-audio-batch-fixture-only",
+      "input": "src/sound/assets/hanbeomsu-jungjungmori-preview.m4a",
+      "output": ".checkpoints/p2j/batch/alias.features.json"
+    }
+  ]
+}
