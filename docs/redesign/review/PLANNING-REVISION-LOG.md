@@ -197,3 +197,7 @@ coverage replaces unsupported assumptions. No Font assertion relaxation or froze
 The existing SOUND document owns architecture/tuning, Foundation owns CLS, MASTER/Motion/HOME link those
 owners; the human glossary grows from 29 to 41 terms. [P2J result](../../../P2J-RESULT.md) owns evidence,
 new-response review boundary and authorized main/Fast delivery. **STOP; no deployment or following scene.**
+
+P2J implementation delivered to main as `e2456dd`; exact-SHA Fast CI 34085930019 SUCCESS.
+[Delivery / 89 files](../../../evidence/p2j/delivery.json). Clean main/origin was verified before the documentation
+receipt. No deployment, WORKS or following HOME scene.

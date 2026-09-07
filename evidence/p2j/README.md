@@ -111,4 +111,7 @@ Run browser suites/captures sequentially; stop any manual 4179 server before Ful
 are regenerable and ignored. The feature asset, code, manifests, tests, docs and curated evidence are in Git.
 Native Mac Safari new-response verification, physical phones, VoiceOver/TalkBack, Retina sources and sustained
 thermal QA remain open. No claim of source separation, reliable pitch, full-album throughput or production HOME.
-Delivery/main/Fast receipt is recorded separately. **STOP; no WORKS or next HOME Scene.**
+Implementation delivered as `e2456dd240ed0f4e4df54b536eda7e6a6727a55e`; exact-SHA
+[Fast CI 34085930019](https://github.com/cij5484/cho-youn-kyoung-v2/actions/runs/34085930019) SUCCESS.
+[Delivery / committed files](delivery.json) records clean main/origin before the separate documentation receipt.
+No deployment. **STOP; no WORKS or next HOME Scene.**

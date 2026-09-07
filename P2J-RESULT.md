@@ -51,8 +51,10 @@
 21. **Tests.** Type/lint, 18 feature/motion contracts, root/project builds, routing/content/artifact exclusion,
     Font CLS, supported analyser/static capability branches, HTTP media faults, seek/pause/replay/offscreen,
     320/390px bounds and stable trail history. [Full log](evidence/p2j/full-gate.txt); no Font threshold relaxation.
-22. **Commit / CI.** Main delivery is authorized after validation. Implementation SHA, committed files and exact-SHA
-    Fast CI are recorded in the delivery receipt after push. No deployment.
+22. **Commit / CI.** Implementation `e2456dd240ed0f4e4df54b536eda7e6a6727a55e` is on V2 main;
+    [Fast CI 34085930019](https://github.com/cij5484/cho-youn-kyoung-v2/actions/runs/34085930019) **SUCCESS**.
+    [Receipt / 89 committed files](evidence/p2j/delivery.json). Main/origin equality and clean tree were verified
+    before this documentation-only receipt. Its final SHA/CI is reported after push. No deployment.
 23. **Remaining risks.** New response still needs user auditory/visual acceptance. Mixed features do not identify
     actual bow articulations or fully remove percussion. Pitch and full-album performance unproven. Native Safari
     new motion/full lifecycle, physical phones, assistive tech and thermal QA remain separate. Windows WebKit's
