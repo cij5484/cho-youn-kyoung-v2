@@ -78,7 +78,7 @@ export function createBowContact(root: HTMLElement, holders: HTMLElement[], mobi
       }
       bands.forEach((path, i) => { path.setAttribute('d', ribbons[i].join('')); path.style.opacity = String(setting.opacity * state.trailEmphasis * (1 - (i + .5) / bands.length) ** contactTuning.history.fadeExponent) })
       head.style.opacity = String(contactTuning.marker.opacity)
-      head.setAttribute('cx', x.toFixed(3)); head.setAttribute('cy', y.toFixed(3)); head.setAttribute('rx', String(tune.width / 2)); head.setAttribute('ry', String(tune.height / 2))
+      head.setAttribute('cx', x.toFixed(3)); head.setAttribute('cy', y.toFixed(3)); head.setAttribute('rx', String(setting.width / 2)); head.setAttribute('ry', String(setting.width / 4))
       head.setAttribute('transform', `rotate(${angle.toFixed(2)} ${x.toFixed(3)} ${y.toFixed(3)})`)
       svg.style.opacity = (state.presence * contactTuning.violetStrength).toFixed(4)
       svg.dataset.x = x.toFixed(3); svg.dataset.y = y.toFixed(3); svg.dataset.presence = state.presence.toFixed(4)

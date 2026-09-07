@@ -1,6 +1,6 @@
 # INTERACTION GLOSSARY — 웹 인터랙션 학습 노트
 
-2026-09-07 · 50 terms · **사용자를 위한 human-readable reference. Agent instruction이 아닙니다.**
+2026-09-07 · 51 terms · **사용자를 위한 human-readable reference. Agent instruction이 아닙니다.**
 
 영어 이름을 알면 레퍼런스를 보고 원하는 효과를 더 정확하게 이야기할 수 있습니다. 일반적인 구현 방법과
 V2의 현재 구현을 구분해 읽어 주세요. **현재 Lab / 미래 후보 / 필수 spike 미실행**은 서로 다른 상태입니다.
@@ -42,7 +42,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 주변이 변해도 같은 선이나 물체가 남아 ‘같은 공간에서 이어지고 있다’고 느끼게 합니다.
 - 일반 구현: 요소를 공통 부모에 두고 재생성하지 않으며 transform과 상태만 연결합니다.
 - 기술/API: 공유 DOM, refs, scene state, CSS mask/transform.
-- V2: **현재 Lab**의 두 선이 Hero→Haegeum→SOUND로 이어집니다. Performance stage는 **미래 후보**입니다.
+- V2: **현재 개발 HOME**의 두 선이 Hero→Haegeum→SOUND로 이어지며, 실제 마지막 선 위치를 Works의 가로 기준선으로 넘깁니다. Outro에서는 정돈된 두 선으로 닫힙니다.
 - 참고: 프로젝트 설명; [Haegeum 가이드](review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md).
 
 ## 05. Adaptive Contrast Navigation
@@ -51,7 +51,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 밝은 배경에서는 검은 메뉴, 어두운 무대에서는 흰 메뉴를 사용합니다.
 - 일반 구현: 장면별로 저자가 검토한 light/dark/imagery theme를 지정합니다. 실시간 픽셀 분석은 필요할 때만 검토합니다.
 - 기술/API: CSS variables, data attributes, scene state, IntersectionObserver.
-- V2: **미래 후보 / 이번 production 미구현**. 메뉴의 기존 Bold freeze는 유지합니다.
+- V2: **현재 개발 HOME에서 구현**. 공연 Scene이 헤더 아래를 지나는 위치에 맞춰 밝고 어두운 대비를 보간합니다. 메뉴 dialog의 기존 Bold palette는 유지합니다.
 - 참고: 프로젝트 설명; [MASTER의 ADAPTIVE UI](00-MASTER-PLAN.md#v2-experience-principles).
 
 ## 06. Hover Preview
@@ -69,7 +69,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 아래로 읽는 동작이 장면의 확대·분해·전환을 진행시킵니다.
 - 일반 구현: 문서 스크롤을 구간 progress로 바꾸고 장면 상태를 계산합니다. 읽기 순서와 정적 대안을 별도로 보존합니다.
 - 기술/API: scroll, rAF, CSS sticky, masks; GSAP ScrollTrigger 등은 가능한 도구입니다.
-- V2: **현재 Lab**의 Hero→Haegeum→SOUND. GSAP 사용 중이라는 뜻은 아닙니다.
+- V2: **현재 개발 HOME의 8장면**. Works만 짧게 고정되고 후반부는 자연스러운 문서 스크롤을 사용합니다. GSAP 사용 중이라는 뜻은 아닙니다.
 - 참고: 프로젝트 설명; [HOME](04-HOME.md), [Motion](03-MOTION-SYSTEM.md).
 
 ## 08. Short-form Scrollytelling
@@ -87,7 +87,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 흩어진 사진을 그리드로 바꿀 때 각 사진이 어디로 이동하는지 보여 줍니다.
 - 일반 구현: 처음 상태를 기록하고 최종 레이아웃을 적용한 뒤, 두 상태의 차이를 transform으로 역보정해 풀어 줍니다.
 - 기술/API: GSAP Flip.getState / Flip.from; FLIP = First, Last, Invert, Play.
-- V2: WORKS cluster 재배치의 **미래 후보**. 설치/채택/구현하지 않았습니다.
+- V2: 플러그인 자체는 **미채택**. 현재 HOME Works는 같은 시작/도착 geometry 원리를 CSS transform으로 구현했습니다.
 - 참고: [GSAP Flip 공식 문서](https://gsap.com/docs/v3/Plugins/Flip/).
 
 ## 10. Layout Reorganization
@@ -96,7 +96,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 작품들이 흩어져 있다가 같은 작품끼리 정돈된 목록으로 모입니다.
 - 일반 구현: 의미/ID가 같은 항목의 시작·도착 geometry를 연결합니다. 내용 순서와 포커스도 관리합니다.
 - 기술/API: CSS Grid/Flex, FLIP, transform, ResizeObserver.
-- V2: WORKS **미래 후보**, 이번 작업 범위 밖입니다.
+- V2: **현재 HOME Selected Works에서 구현**. 5개 작품의 압축된 cluster가 비대칭 구성으로 풀립니다. 모바일은 별도 4-column 배치입니다.
 - 참고: 구현 기법 예시 [GSAP Flip](https://gsap.com/docs/v3/Plugins/Flip/); 이 용어 자체는 프로젝트 설명입니다.
 
 ## 11. Filmstrip Gallery
@@ -168,7 +168,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 여러 점을 뿌리는 대신 한 물체가 지나온 길을 점차 가늘고 흐리게 보여 줍니다.
 - 일반 구현: 시간순 위치를 유한 history buffer에 보관하고 나이에 따라 폭·불투명도를 줄여 연결합니다.
 - 기술/API: SVG path, Canvas2D 또는 GPU ribbon; ring buffer, rAF.
-- V2: **P2I 시각 승인 / B2 LONG 460ms 정본**. 한 marker + 12개 고정 SVG age-band paths. 길이·persistence·opacity를 중앙 설정하며 다른 preset은 Lab 비교용입니다.
+- V2: **P2I 시각 승인 / B2 LONG 460ms 정본**. 12개 고정 SVG age-band paths. 후속 HOME sprint는 head를 trail 폭의 작은 cap / opacity .08로 줄여 궤적을 주인공으로 만들었습니다. 중앙 history/persistence 설정은 유지합니다.
 - 참고: 프로젝트 설명; [SOUND 비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md).
 
 ## 19. Bow Contact Choreography
@@ -430,10 +430,17 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 
 - 글자별 마스크 계단 전환. 떠나는 글자와 새 글자가 각자 작은 창을 통해 조금씩 다른 시각에 이동합니다.
 - 일반 구현: glyph clip-path + staggered transform; 공통 글자는 별도 유지합니다.
-- V2: **430ms 전체 구간 / 24ms stagger 후보**. Screen reader는 쪼갠 글자 대신 실제 버튼의 현재 동작 이름을 읽습니다.
+- V2: **480ms 전체 구간 / 32ms stagger 후보**. Screen reader는 쪼갠 글자 대신 실제 버튼의 현재 동작 이름을 읽습니다.
 
 ## 50. Baseline Drift
 
 - 기준선의 작은 어긋남. 글자를 번갈아 조금 올리고 내려 손길에 응답하는 리듬을 줍니다.
 - 일반 구현: state transition과 분리한 작은 transform, leave 시 현재 위치에서 복귀.
 - V2: **P2K action hover ±3px 후보**, 승인된 MENU ±7px보다 작습니다. Reduced motion에서는 움직이지 않습니다.
+
+## 51. Presentation Adapter / 2.5D Object
+
+- 장면의 동작과 물체를 그리는 방법을 나누는 구조입니다. 앨범을 바꿔도 회전 중이던 위치가 이어집니다.
+- 현재 HOME은 실제 앞면·뒷면·책등을 CSS 입체 면에 배치합니다. 선택·회전은 scene, 외형은 교체 가능한 adapter가 소유합니다.
+- GLB로 바꿀 때 장면 전체를 다시 만들지 않기 위한 경계이며, 최종 Blender/Tray 품질 검증을 통과했다는 뜻은 아닙니다.
+- 구현 계약: [Motion §49](03-MOTION-SYSTEM.md#49-current-home-closing-motion-contract).

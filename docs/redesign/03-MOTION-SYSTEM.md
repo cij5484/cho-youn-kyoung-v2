@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 03 — MOTION SYSTEM
 
-**Version:** 1.11\
-**Status:** Approved Motion Baseline / P2B canonical Bold frozen for Hero integration; future directions remain documentation only\
+**Version:** 1.12\
+**Status:** Approved Motion Baseline / frozen upstream directions preserved; current HOME closing interactions implemented in the development composition, new visual approval pending\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`  
 **Motion Direction:** Meaningful Motion / Physical Response
 
@@ -1022,3 +1022,14 @@ This is not a Haegeum game or a game-development branch of V2. Blender scripting
 knowledge, materials, rigging concepts, animation, optimization, GLB/FBX export knowledge, real-time input
 and profiling may transfer to separately approved future game projects. V2 does not pre-build game
 engines, rigging systems, gameplay state or FBX pipelines for that possibility.
+
+# 49. CURRENT HOME CLOSING MOTION CONTRACT
+
+2026-09-07 sprint: `src/home/motion.ts` coordinates native-scroll scene progress and the actual SOUND-line handoff;
+no wheel interception or per-frame React state. Works uses measured cluster inversion and a separate four-column
+mobile layout. `album-motion.ts` owns bounded drag velocity, inertia and pose; the replaceable paper render adapter
+owns appearance only. Vertical touch/pinch scrolling takes priority; buttons/keyboard and reduced motion remain usable.
+Offscreen/unmount cancels object animation and releases observers/listeners. Performance contrast is interpolated on the
+header only; its dialog palette remains approved. Artist shifts an intact portrait; Outro carries the name into paired rules.
+Composition/content/source limits live in [HOME](04-HOME.md); these are current development interactions, not final 3D
+quality approval or permission to implement other pages. No new animation library or WebGL dependency was added.

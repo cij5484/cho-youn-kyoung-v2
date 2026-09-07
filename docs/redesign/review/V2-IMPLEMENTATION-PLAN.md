@@ -1,6 +1,6 @@
 # Cho Youn Kyoung Website V2 — 검토 및 구현 제안
 
-검토일: 2026-09-07 · Revision 1.28 · 상태: **P2A visual 승인·main delivery 완료 / P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN & delivered / P2C B canonical APPROVED / P2D APPROVED & DELIVERED / P2E VISUAL APPROVED & DELIVERED / P2F QUALITY APPROVED / FROZEN · P2F delivered / P2G result APPROVED / P2I SOUND QUALITY APPROVED / FROZEN 유지 · P2J feature-driven response REVIEW READY · P2K current refinement REVIEW READY · requested minimum checks PASS / STOP**. HOME V2.1 및 P0 routing/locale/CI 계약은 유지한다. 현재 결과·승인 경계는 [HANDOFF](../../../CODEX-HANDOFF.md)를 따른다.
+검토일: 2026-09-07 · Revision 1.29 · 상태: **P2F/P2I freeze 유지 / P2K refinement PR #3 delivery 완료 / 개발 HOME 후반부 Scenes 04–08 구현**. 공개 route 통합과 새 장면의 사용자 시각 승인은 별도다. HOME V2.1 및 P0 routing/locale/CI 계약은 유지하며 현재 결과·승인 경계는 [HANDOFF §26](../../../CODEX-HANDOFF.md#26-current-handoff-state)를 따른다.
 
 현재 정본은 갱신된 MASTER의 PHASE 0–14다. React Router + Static Prerender는 사용자가 지정한 P0C 실제 Pages gate 통과로 확정했다. P0D neutral locale/hreflang 계약은 두 base에서 통과했고 실제 번역·제품 구현과 운영 SEO는 별도 gate다. 이 문서는 실제 구현 승인이 아니다.
 
@@ -465,7 +465,7 @@ Gate 기록 양식: 작업 ID, 기준 commit/artifact, 환경, 수행 항목, �
 ### PHASE 4 — HOME
 
 - 입력: HOME V2.1 문서, P2 desktop/mobile poster composition 및 적합한 source, P3 승인된 동작/3D, 선택 작품/대표 음원.
-- 작업 큐: 01 Moving Editorial Poster/Nav → 01→02 continuous transition → 02 해금 4단계 → 03 quiet LISTEN → 04 긴 asymmetric surface 4–5작 → 05 physical album collection(품질상 필요 시 one live object + switching) → 06 quiet Dark Stage → 07 Ivory clear front/3/4 reveal 2–3문장 → 08 name/two-line resolve/footer/Sou.P. 각 화살표는 자동 진행 승인이 아니다.
+- 작업 큐: 01 Moving Editorial Poster/Nav → 01→02 continuous transition → 02 해금 4단계 → 03 quiet LISTEN → 04 compact cluster에서 재배열되는 4–5작 → 05 physical album object + switching → 06 quiet Dark Stage → 07 Ivory clear front/3/4 reveal 2–3문장 → 08 name/two-line resolve/footer/Sou.P. 각 화살표는 자동 진행 승인이 아니다.
 - 한 장면 또는 인접 경계의 같은 owner 안에서 강결합 2–3개 subtask를 승인된 bundle로 구현할 수 있다. 해당 범위의 desktop/mobile/reduced-motion 전체 검증 후 요청 형식으로 보고하고 STOP한다. HOME 전체나 다음 장면으로 자동 진행하지 않는다.
 - 산출물: scene별 acceptance와 전환 anchor 표, desktop/mobile screenshot·motion 기록.
 - 완료 기준: 04 §24의 Hero/major-scene Visual Quality Gate, 첫 프레임과 이야기 흐름 사용자 시각 승인, scroll/input 품질, no autoplay, offscreen 비용 제어. P3 미승인 3D는 최종 HOME 승인 불가. 단순 큰 이름+portrait를 Moving Editorial Poster 완료로 처리하지 않는다.
@@ -648,4 +648,9 @@ After the report, wait for the user's comparison choices before any refinement o
 
 Latest P2K refinement follows the current runtime and the user's minimum-check instruction, including continuous
 Janggu ribbons. Historical Full/capture results above remain tied to the prior revision; current values and verification
-are in [HANDOFF](../../../CODEX-HANDOFF.md) and the existing P2K owner. No next task/delivery is authorized.
+are in [HANDOFF](../../../CODEX-HANDOFF.md) and the existing P2K owner. That refinement merged via PR #3.
+
+2026-09-07의 후속 명시 승인으로 현재 4180 HOME의 나머지 장면 전체와 최종 PR/CI/merge를 하나의 sprint로 수행한다.
+이번에만 중간 scene 승인 대기를 생략하며 21:30 KST 이후 작업은 금지한다. 시각 품질을 스스로 승인하지 않는다.
+현재 구현은 [HOME](../04-HOME.md), 동작 경계는 [Motion §49](../03-MOTION-SYSTEM.md#49-current-home-closing-motion-contract),
+최종 상태는 HANDOFF §26에만 기록한다. 다른 페이지·공개 콘텐츠·배포·다음 작업은 이 승인에 포함되지 않는다.

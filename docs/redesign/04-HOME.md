@@ -2,7 +2,7 @@
 ## 04 — HOME
 
 **Version:** 2.1\
-**Status:** HOME V2.1 Art Direction — navigation and BOLD/CURATED/PURPOSEFUL policy 2026-09-06; visual implementation/quality approval pending\
+**Status:** HOME V2.1 / 2026-09-07 closing sprint — eight-scene development composition implemented on 4180; new scenes await user visual judgment, public integration remains separate\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`  
 **Art Direction:** Contemporary Editorial / Ivory  
 **Narrative Structure:** ARTIST → INSTRUMENT → SOUND → WORK → OBJECT → STAGE → ARTIST → NAME
@@ -517,7 +517,7 @@ When needed, request:
 
 # 9. TRANSITION 03 → 04
 
-One strand of the two-line motif extends horizontally and becomes the Selected Works editorial exploration axis. The other can remain quiet/recede; preserve the pair’s identity for the Outro rather than inventing a new decorative system.
+One strand of the two-line motif extends horizontally and becomes the Selected Works editorial exploration axis. The current development composition inherits the actual outgoing string coordinates, resolves into the Works axis and restores the source on reverse scroll. The other strand recedes; the pair returns as quiet Outro rules.
 
 This is an intentional signature transition.
 
@@ -538,7 +538,7 @@ Show that the artist has a substantial body of work without turning HOME into an
 ## Composition
 
 Approved:
-- one long asymmetric editorial surface, explored horizontally on desktop; the rail is an input structure, not a row of cards
+- compact, slightly scattered cluster → native-scroll spatial reorganization → asymmetric editorial composition
 - 4–5 selected works
 - varying image sizes / crops / vertical positions
 - large whitespace
@@ -558,19 +558,19 @@ No summary paragraph on HOME.
 ## Interaction
 
 Desktop:
-- direct drag and optional wheel exploration within the surface
-- wheel support must not hijack normal vertical page travel; direction/bounds hand control back to the document
-- inertia
-- soft settle / restrained snap
-- custom cursor `DRAG`
+- brief sticky composition (current 178svh scene, about 78svh pinned travel); no horizontal drag rail or wheel interception
+- actual card dimensions determine the inverted cluster transform; retain IDs, DOM order and focusable links
+- contextual image-edge reveal and directional response on hover/focus
+- artwork aspect ratios and available height cap image size so captions remain unobscured
 
 Mobile:
-- vertical-first composition; horizontal swipe only where necessary and intentional
-- vertical page scroll must remain reliable; keep tap/link and non-drag alternatives
+- four-column composition with varied spans and native vertical scroll; no desktop pin on narrow screens
+- direct tap selects that album/stage within HOME; ordinary links continue to the appropriate route fixture
 
 ## Detail Entry
 
-Strong shared-image transition.
+Current HOME selection keeps the selected content identity when entering Album Object or Performance.
+The actual detail pages are outside this sprint. A future strong shared-image transition should connect their approved Heroes.
 
 The selected image/artwork should expand/reposition into the detail Hero where possible.
 
@@ -581,10 +581,8 @@ Navigation must remain functional without shared transition support. Match image
 
 ## Accessibility
 
-Provide non-drag alternatives:
-- previous/next
-- keyboard navigation
-- focusable work links
+Keep keyboard navigation and focusable work links. Focus raises a clustered work above its neighbors;
+reduced motion resolves directly to the readable arrangement. No drag is required.
 
 ## Asset Requirements
 
@@ -598,8 +596,8 @@ If a selected work lacks a V2-quality image, request or create a better asset.
 
 - feels like editorial exploration, not ecommerce carousel
 - 4–5 works feel substantial but not crowded
-- drag is immediate
-- mobile swipe does not steal vertical scroll
+- native scroll immediately reorganizes the cluster
+- touch does not steal vertical scroll
 - detail transition is coherent
 
 ## Do Not
@@ -619,9 +617,17 @@ Reduce lateral exploration and increase object focus.
 
 The transition should prepare the visitor for 3D rather than abruptly spawning a WebGL scene.
 
+The current entry reuses actual selected artwork on a single physical presentation. It does not claim a
+cross-route shared-element transition or final geometry approval.
+
 ---
 
 # 12. SCENE 05 — ALBUM OBJECT / 3D COLLECTION
+
+**Current sprint implementation:** one lightweight 2.5D paper album, three selectable 2026 titles, actual front/back/spine
+artwork, perspective, horizontal drag/inertia, pointer tilt and explicit front/back/keyboard controls. Scene selection/pose
+is separate from the `PaperAlbumObject` render adapter. Replacing that adapter with a future GLB does not require rewriting
+the scene. This is presentation geometry, not a manufacturing model or a waiver of Blender/Tray/Album Detail quality gates.
 
 ## Purpose
 
@@ -839,6 +845,10 @@ Can be nearly identical to default.
 
 Use the strongest performance image, not simply the newest or easiest asset.
 
+The current source selection is the official **해금, 시대를 잇다** poster, with **산조길, 둘** selectable from Works.
+Only one performance is shown at a time. It is explicitly labelled official poster art, not documentary performance
+photography. A strong authenticated stage photograph remains a useful future replacement, not invented evidence.
+
 If the chosen performance lacks a strong hero image, request another source or create a better visual treatment.
 
 ## Acceptance Criteria
@@ -862,6 +872,10 @@ Prefer:
 - controlled tonal transition
 - quiet mask reveal
 - large whitespace
+
+The current development composition carries the right-hand image position from Performance into the authentic Artist
+portrait. The header interpolates its own light/dark palette at the actual stage boundary and returns to Ivory; the menu
+dialog retains its approved palette. Portrait input moves the intact photograph shallowly, never warping the face.
 
 ---
 
@@ -969,6 +983,12 @@ The two-line motif returns in a resolved, restrained form under/near the oversiz
 Narrative:
 
 `haegeum strings → sound lines → works axis → final editorial rule`
+
+The current Outro resolves CHO / YOUN / KYOUNG as three oversized lines, paired editorial rules and one primary
+`모든 작품 보기` link. Sou.P uses an explicit two-tap/keyboard reveal; its short personal sentence is prototype copy.
+HOME text/assets remain review candidates in the development composition; this does not publish new archive records
+or turn Korean source titles into reviewed English translations. Provenance and lifecycle live in `src/home/content.ts`
+and `src/home/assets/manifest.json`; final content approval and public route integration remain separate.
 
 ## Sou.P Credit
 

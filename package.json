@@ -42,7 +42,8 @@
     "dev:sound": "vite --config vite.sound.config.ts",
     "test:sound:contract": "node --test tests/sound-choreography.test.ts tests/feature-motion.test.ts tests/audio-features.test.mjs",
     "test:sound": "npm run test:sound:contract && playwright test --config playwright.sound.config.ts",
-    "extract:audio": "node scripts/extract-audio-features.mjs"
+    "extract:audio": "node scripts/extract-audio-features.mjs",
+    "test:home": "playwright test --config playwright.home.config.ts"
   },
   "dependencies": {
     "@fontsource-variable/cormorant-garamond": "5.3.0",

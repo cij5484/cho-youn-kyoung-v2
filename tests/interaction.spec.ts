@@ -1,17 +1,20 @@
 import {test,expect,type Page} from '@playwright/test'
 async function ready(page:Page,path='/'){
   await page.goto(path);await page.locator('.spatial-canvas').first().waitFor({state:'attached'})
-  await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})))})
+  // Only this suite's imagery is readiness-critical. Later HOME lazy assets should not be forced at the Hero.
+  await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.querySelectorAll<HTMLImageElement>('.sound-experience img')].map(i=>i.decode().catch(()=>{})))})
 }
 async function seek(page:Page,p:number){
   await page.evaluate(p=>{const s=document.querySelector<HTMLElement>('.poster-scene')!;scrollTo(0,s.offsetTop+(s.offsetHeight-s.querySelector<HTMLElement>('.poster-stage')!.offsetHeight)*p)},p)
-  await expect.poll(()=>page.locator('.poster-scene').evaluate(e=>e.dataset.progress===e.dataset.targetProgress)).toBe(true)
+  await expect.poll(()=>page.locator('.poster-scene').evaluate((e,p)=>Math.abs(Number(e.dataset.targetProgress)-p)<.001&&e.dataset.progress===e.dataset.targetProgress,p)).toBe(true)
+  // The independent visual renderer consumes the settled scroll state on its next frame.
+  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))))
 }
 test('A retains frozen line/word presentation; comparison changes do not remount native audio',async({page})=>{
   await ready(page,'/?all=a');const root=page.locator('.sound-experience');await expect(root).toHaveAttribute('data-spatial-points','false')
   await expect(page.locator('.sound-surface .listen-mask')).toHaveCount(1);await expect(page.locator('.sound-surface .glyph-label')).toHaveCount(0)
   await seek(page,1);await page.locator('audio').evaluate(e=>e.dataset.identity='same-element')
-  await page.locator('.p2k-comparison summary').click();await page.getByLabel('B · Two spatial points',{exact:true}).check();await page.getByLabel('B · Haegeum + Janggu',{exact:true}).check();await page.getByLabel('B · Shared glyphs',{exact:true}).check()
+  await page.locator('.p2k-comparison summary').click();await page.getByLabel('B · 공간을 흐르는 두 점',{exact:true}).check();await page.getByLabel('B · 해금과 장구',{exact:true}).check();await page.getByLabel('B · 글자 재조립',{exact:true}).check()
   await expect(page.locator('audio')).toHaveAttribute('data-identity','same-element');await expect(page.locator('.spatial-canvas')).toHaveCount(2)
 })
 test('free trajectories have depth and bounded history, lock precisely to authored imagery, reverse cleanly',async({page})=>{
@@ -66,7 +69,7 @@ test('menu and offscreen suspend the experimental loop, resume without resource 
   await seek(page,0);await expect(root).toHaveAttribute('data-p2k-active','true');await expect(page.locator('.spatial-canvas')).toHaveCount(2)
 })
 test('shared glyph DOM identity survives PAUSE/RESUME and rapid interrupted transitions settle',async({page})=>{
-  await ready(page);await page.locator('.type-study').scrollIntoViewIfNeeded();const label=page.locator('.type-study .glyph-label')
+  await ready(page,'/?study=type');await page.locator('.type-study').scrollIntoViewIfNeeded();const label=page.locator('.type-study .glyph-label')
   await page.getByRole('button',{name:'PAUSE',exact:true}).click();await expect(label).toHaveAttribute('data-word','PAUSE');await page.waitForTimeout(480)
   await label.locator('[data-char="E"]').evaluate(e=>e.dataset.preserved='yes')
   await page.getByRole('button',{name:'RESUME',exact:true}).click();await expect(label.locator('[data-char="E"][data-preserved="yes"]')).toHaveCount(1)
