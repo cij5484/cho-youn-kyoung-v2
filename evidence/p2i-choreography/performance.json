@@ -1,0 +1,354 @@
+{
+  "environment": "Windows headless Chromium; local development, unthrottled. Mobile emulation, not physical hardware. Sequential A/B samples, not a field performance guarantee.",
+  "browser": "153.0.8010.12",
+  "results": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "variant": "a",
+      "errors": [],
+      "stages": [
+        {
+          "name": "idle",
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95": null,
+          "callbackP95": null,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "idle",
+          "contactFrames": 0,
+          "contactNodes": 0
+        },
+        {
+          "name": "playing",
+          "rafCallbacks": 270,
+          "visualUpdates": 136,
+          "frameIntervalP95": 16.700000000000728,
+          "callbackP95": 0.30000000074505806,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "playing",
+          "contactFrames": 0,
+          "contactNodes": 0
+        },
+        {
+          "name": "settled-pause",
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95": null,
+          "callbackP95": null,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "paused",
+          "contactFrames": 0,
+          "contactNodes": 0
+        },
+        {
+          "name": "offscreen",
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95": null,
+          "callbackP95": null,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "paused",
+          "contactFrames": 0,
+          "contactNodes": 0
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "variant": "b1",
+      "errors": [],
+      "stages": [
+        {
+          "name": "idle",
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95": null,
+          "callbackP95": null,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "idle",
+          "contactFrames": 0,
+          "contactNodes": 13
+        },
+        {
+          "name": "playing",
+          "rafCallbacks": 271,
+          "visualUpdates": 135,
+          "frameIntervalP95": 16.700000000000728,
+          "callbackP95": 0.5,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "playing",
+          "contactFrames": 272,
+          "contactNodes": 13
+        },
+        {
+          "name": "settled-pause",
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95": null,
+          "callbackP95": null,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "paused",
+          "contactFrames": 423,
+          "contactNodes": 13
+        },
+        {
+          "name": "offscreen",
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95": null,
+          "callbackP95": null,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "paused",
+          "contactFrames": 1271,
+          "contactNodes": 13
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "variant": "b2",
+      "errors": [],
+      "stages": [
+        {
+          "name": "idle",
+          "rafCallbacks": 48,
+          "visualUpdates": 0,
+          "frameIntervalP95": 16.700000000000045,
+          "callbackP95": 3.599999999627471,
+          "longTasks": [],
+          "layoutShift": 0.2645688974320595,
+          "phase": "idle",
+          "contactFrames": 0,
+          "contactNodes": 13
+        },
+        {
+          "name": "playing",
+          "rafCallbacks": 270,
+          "visualUpdates": 136,
+          "frameIntervalP95": 16.700000000000728,
+          "callbackP95": 0.8000000007450581,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "playing",
+          "contactFrames": 271,
+          "contactNodes": 13
+        },
+        {
+          "name": "settled-pause",
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95": null,
+          "callbackP95": null,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "paused",
+          "contactFrames": 424,
+          "contactNodes": 13
+        },
+        {
+          "name": "offscreen",
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95": null,
+          "callbackP95": null,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "paused",
+          "contactFrames": 1272,
+          "contactNodes": 13
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "variant": "a",
+      "errors": [],
+      "stages": [
+        {
+          "name": "idle",
+          "rafCallbacks": 48,
+          "visualUpdates": 0,
+          "frameIntervalP95": 16.700000000000045,
+          "callbackP95": 2.900000000372529,
+          "longTasks": [],
+          "layoutShift": 0.10049752108686194,
+          "phase": "idle",
+          "contactFrames": 0,
+          "contactNodes": 0
+        },
+        {
+          "name": "playing",
+          "rafCallbacks": 270,
+          "visualUpdates": 136,
+          "frameIntervalP95": 16.700000000000728,
+          "callbackP95": 0.2000000011175871,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "playing",
+          "contactFrames": 0,
+          "contactNodes": 0
+        },
+        {
+          "name": "settled-pause",
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95": null,
+          "callbackP95": null,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "paused",
+          "contactFrames": 0,
+          "contactNodes": 0
+        },
+        {
+          "name": "offscreen",
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95": null,
+          "callbackP95": null,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "paused",
+          "contactFrames": 0,
+          "contactNodes": 0
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "variant": "b1",
+      "errors": [],
+      "stages": [
+        {
+          "name": "idle",
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95": null,
+          "callbackP95": null,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "idle",
+          "contactFrames": 0,
+          "contactNodes": 13
+        },
+        {
+          "name": "playing",
+          "rafCallbacks": 271,
+          "visualUpdates": 136,
+          "frameIntervalP95": 16.700000000000728,
+          "callbackP95": 0.6000000014901161,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "playing",
+          "contactFrames": 269,
+          "contactNodes": 13
+        },
+        {
+          "name": "settled-pause",
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95": null,
+          "callbackP95": null,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "paused",
+          "contactFrames": 417,
+          "contactNodes": 13
+        },
+        {
+          "name": "offscreen",
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95": null,
+          "callbackP95": null,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "paused",
+          "contactFrames": 1266,
+          "contactNodes": 13
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "variant": "b2",
+      "errors": [],
+      "stages": [
+        {
+          "name": "idle",
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95": null,
+          "callbackP95": null,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "idle",
+          "contactFrames": 0,
+          "contactNodes": 13
+        },
+        {
+          "name": "playing",
+          "rafCallbacks": 270,
+          "visualUpdates": 135,
+          "frameIntervalP95": 16.700000000000728,
+          "callbackP95": 0.599999999627471,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "playing",
+          "contactFrames": 271,
+          "contactNodes": 13
+        },
+        {
+          "name": "settled-pause",
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95": null,
+          "callbackP95": null,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "paused",
+          "contactFrames": 420,
+          "contactNodes": 13
+        },
+        {
+          "name": "offscreen",
+          "rafCallbacks": 0,
+          "visualUpdates": 0,
+          "frameIntervalP95": null,
+          "callbackP95": null,
+          "longTasks": [],
+          "layoutShift": 0,
+          "phase": "paused",
+          "contactFrames": 1273,
+          "contactNodes": 13
+        }
+      ]
+    }
+  ]
+}

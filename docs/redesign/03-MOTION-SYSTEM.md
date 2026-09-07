@@ -1,7 +1,7 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 03 — MOTION SYSTEM
 
-**Version:** 1.9\
+**Version:** 1.11\
 **Status:** Approved Motion Baseline / P2B canonical Bold frozen for Hero integration; future directions remain documentation only\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`  
 **Motion Direction:** Meaningful Motion / Physical Response
@@ -36,6 +36,10 @@ It should feel alive and physical when the user scrolls, points, drags, swipes, 
 
 ---
 
+상위 경험 원칙은 [MASTER §3.1](00-MASTER-PLAN.md#v2-experience-principles)이 소유한다.
+구현 시 shared anchor와 실제 outgoing state, 짧은 scroll commitment, 입력별 반응 및 reduced/static 대안을
+함께 평가한다. 기법 다양성을 이유로 여러 장면을 한 번에 구현하지 않는다. SOUND의 구체적인 물리 역할은 §45다.
+
 # 2. PRIORITY
 
 1. Interaction quality
@@ -68,7 +72,7 @@ Stronger motion allowed:
 - 3D Album
 - Works → Detail transition
 
-HOME V2.1 Performance teaser is a quiet contrast zone after the Album Object peak, not another strong-motion zone. Sound and About are deliberate pauses. The intensity sequence is 5 / 4.5 / 3 / 4 / 5 / 2.5 / 2 / 3; these are perceptual emphases, not mandatory movement amplitudes. See 04 §2 for experience budgets.
+HOME V2.1 Performance teaser is a quiet contrast zone after the Album Object peak, not another strong-motion zone. Sound is quiet before activation; the approved P2I B2 direction uses a strong bow signature during explicit listening. About retains reading pauses and a future hover-preview candidate. The intensity sequence is 5 / 4.5 / 3 / 4 / 5 / 2.5 / 2 / 3; these are perceptual emphases, not mandatory movement amplitudes. See 04 §2 for experience budgets.
 
 ## READING ZONES
 Minimal motion:
@@ -879,6 +883,18 @@ amplitude: 85ms energy attack / 65ms release, 35ms point following / 55ms pause 
 higher density with rising energy. No synthetic phase/random oscillator. Paused points are retained at zero time;
 settlement clears the visual clock, and buffered replay retains the same graph. The line no longer translates on
 hover, avoiding a click-time reset. [Implementation/evidence](review/HOME-SOUND-EXPERIENCE.md).
+
+P2I final canonical direction: **B2 Bold / LONG 460ms / Electric Violet #6334E5**.
+**“Strings vibrate. Bow flows.” / “현은 떨고, 활은 흐른다.”**
+**STRINGS = micro vibration / tension / resonance. BOW = smooth trajectory / directional sweep.
+TRAIL = recent bow path. FAST != JITTERY.** The marker never receives raw waveform position, noisy trembling,
+random shake or a copy of the string response. The no-large-sine-wave rule above applies to the strings;
+a smooth analytical sweep is allowed for the independent bow abstraction. It is not recovered physical bow tracking.
+One marker only; no echoes/particles. Smooth velocity and spatial continuity survive reversal and mode changes;
+pause/end briefly decelerate and fade, then stop work. Reduced/static uses a stationary contact without trail.
+The [existing SOUND comparison contract](review/SOUND-BOW-CONTACT-COMPARISON.md) owns the frozen Violet/history tuning and renderer budgets. A/B1/other colors remain Lab/evidence only. The line response and frozen Hero/Haegeum stay intact.
+The user approved this production direction; SOUND closeout status and QA exceptions are in
+[the closeout result](../../P2I-CLOSEOUT-RESULT.md). Public HOME integration and the next scene remain unauthorized.
 
 ---
 

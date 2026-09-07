@@ -1,0 +1,417 @@
+{
+  "task": "P2I Closeout",
+  "baseline": "ba801448497b31c78b8fb749f73f02d23b7e0799",
+  "quality": "SOUND QUALITY APPROVED / FROZEN; no confirmed blocking regression",
+  "selection": {
+    "activity": "B2 Bold",
+    "trail": "LONG",
+    "historyMs": 460,
+    "color": "#6334E5"
+  },
+  "full": "FAIL: pre-existing P2A foundation Lab font-wrap CLS; unchanged threshold .1",
+  "fast": "PASS: 38 contracts, type-check, lint, root production build",
+  "projectBuild": "PASS",
+  "routing": {
+    "passed": 84,
+    "failed": 0
+  },
+  "soundContracts": {
+    "passed": 6,
+    "failed": 0
+  },
+  "browser": {
+    "design-system": {
+      "passed": 10,
+      "failed": 1,
+      "skipped": 0,
+      "failures": [
+        {
+          "name": "delayed fonts at 390px: readable fallback and bounded layout shift",
+          "engine": "",
+          "status": "unexpected",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m0.1\u001b[39m\nReceived:   \u001b[31m0.1600214060096154\u001b[39m"
+        }
+      ]
+    },
+    "sound": {
+      "passed": 62,
+      "failed": 16,
+      "skipped": 0,
+      "failures": [
+        {
+          "name": "no audio request or context before activation; keyboard starts actual analysed playback",
+          "engine": "webkit",
+          "status": "unexpected",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.05\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate"
+        },
+        {
+          "name": "pause damps to the exact straight pair, stops work and resumes the real media position",
+          "engine": "webkit",
+          "status": "unexpected",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sound-experience')\nExpected: \u001b[32m\"0\u001b[7m.0000\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  2000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 2000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sound-experience')\u001b[22m\n\u001b[2m    19 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-audio-state=\"paused\" data-contact-trail=\"long\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n"
+        },
+        {
+          "name": "rapid toggles and media seeks do not leave duplicate graphs or false playback",
+          "engine": "webkit",
+          "status": "unexpected",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m"
+        },
+        {
+          "name": "MENU/Esc restores focus; counterpart navigation releases media and context",
+          "engine": "webkit",
+          "status": "unexpected",
+          "error": "Error: page.evaluate: TypeError: undefined is not an object (evaluating 'window.soundContexts[0].state')"
+        },
+        {
+          "name": "media failure is announced and retry never invents playback",
+          "engine": "webkit",
+          "status": "unexpected",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sound-experience')\nExpected: \u001b[32m\"error\"\u001b[39m\nReceived: \u001b[31m\"playing\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sound-experience')\u001b[22m\n\u001b[2m    2 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"loading\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"loading\"\u001b[22m\n\u001b[2m    12 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"playing\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"playing\"\u001b[22m\n"
+        },
+        {
+          "name": "cancel while loading remains paused after delayed bytes arrive",
+          "engine": "webkit",
+          "status": "unexpected",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m0.01\u001b[39m"
+        },
+        {
+          "name": "hidden-document event pauses and suspends; visibility return never autoplays",
+          "engine": "webkit",
+          "status": "unexpected",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sound-experience')\nExpected: \u001b[32m\"\u001b[7msuspend\u001b[27med\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mnot-creat\u001b[27med\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sound-experience')\u001b[22m\n\u001b[2m    14 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-audio-state=\"paused\" data-contact-trail=\"long\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"not-created\"\u001b[22m\n"
+        },
+        {
+          "name": "a stalled source times out truthfully and leaves no background analysis",
+          "engine": "webkit",
+          "status": "unexpected",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sound-experience')\nExpected: \u001b[32m\"error\"\u001b[39m\nReceived: \u001b[31m\"playing\"\u001b[39m\nTimeout:  14000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 14000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sound-experience')\u001b[22m\n\u001b[2m    3 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"loading\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"loading\"\u001b[22m\n\u001b[2m    28 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"playing\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"playing\"\u001b[22m\n"
+        },
+        {
+          "name": "replay reuses buffered media and its single graph instead of issuing another load",
+          "engine": "webkit",
+          "status": "unexpected",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m"
+        },
+        {
+          "name": "eight route returns release every previous context and do not accumulate Sound DOM",
+          "engine": "webkit",
+          "status": "unexpected",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m1\u001b[39m\nReceived:    \u001b[31m1691.99154\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate"
+        },
+        {
+          "name": "P2I: A/B and tail comparison preserves media position, graph, focus and the original line nodes",
+          "engine": "webkit",
+          "status": "unexpected",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.3\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate"
+        },
+        {
+          "name": "P2I: smooth B uses a wide trajectory, long actual path and one Violet marker",
+          "engine": "webkit",
+          "status": "unexpected",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m400\u001b[39m\nReceived:   \u001b[31mNaN\u001b[39m"
+        },
+        {
+          "name": "P2I: B pause settles all work; natural end/replay fades back from the outgoing contact position",
+          "engine": "webkit",
+          "status": "unexpected",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.2\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate"
+        },
+        {
+          "name": "P2I: 320px B has an independent visible mark and no input or scroll trap",
+          "engine": "webkit",
+          "status": "unexpected",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.3\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate"
+        },
+        {
+          "name": "P2I: 390px B has an independent visible mark and no input or scroll trap",
+          "engine": "webkit",
+          "status": "unexpected",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.3\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate"
+        },
+        {
+          "name": "P2I: B missing analyser/failing source never substitutes an animated contact for playback",
+          "engine": "webkit",
+          "status": "unexpected",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sound-experience')\nExpected: \u001b[32m\"error\"\u001b[39m\nReceived: \u001b[31m\"playing\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sound-experience')\u001b[22m\n\u001b[2m    2 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"loading\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-contact-violet=\"electric\" data-sound-visual=\"bow-contact\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"loading\"\u001b[22m\n\u001b[2m    12 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"playing\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-contact-violet=\"electric\" data-sound-visual=\"bow-contact\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"playing\"\u001b[22m\n"
+        }
+      ]
+    },
+    "navigation": {
+      "passed": 26,
+      "failed": 0,
+      "skipped": 0,
+      "failures": []
+    },
+    "hero": {
+      "passed": 42,
+      "failed": 2,
+      "skipped": 0,
+      "failures": [
+        {
+          "name": "320: keyboard skip, focus trap, Esc restore and 200% text",
+          "engine": "webkit",
+          "status": "unexpected",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeFocused\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('link', { name: '본문으로 이동' })\nExpected: focused\nReceived: inactive\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeFocused\" getByRole('link', { name: '본문으로 이동' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: '본문으로 이동' })\u001b[22m\n\u001b[2m    14 × locator resolved to <a class=\"skip-link\" href=\"#hero-main\">본문으로 이동</a>\u001b[22m\n\u001b[2m       - unexpected value \"inactive\"\u001b[22m\n"
+        },
+        {
+          "name": "1440: keyboard skip, focus trap, Esc restore and 200% text",
+          "engine": "webkit",
+          "status": "unexpected",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeFocused\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('link', { name: '본문으로 이동' })\nExpected: focused\nReceived: inactive\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeFocused\" getByRole('link', { name: '본문으로 이동' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: '본문으로 이동' })\u001b[22m\n\u001b[2m    14 × locator resolved to <a class=\"skip-link\" href=\"#hero-main\">본문으로 이동</a>\u001b[22m\n\u001b[2m       - unexpected value \"inactive\"\u001b[22m\n"
+        }
+      ]
+    },
+    "haegeum": {
+      "passed": 31,
+      "failed": 1,
+      "skipped": 0,
+      "failures": [
+        {
+          "name": "late deep-scroll imagery selects static fallback rather than popping into the motion plane",
+          "engine": "webkit",
+          "status": "unexpected",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.haegeum-experience')\nExpected: \u001b[32m\"true\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.haegeum-experience') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.haegeum-experience')\u001b[22m\n\u001b[2m    2 × locator resolved to <section aria-labelledby=\"artist-name\" class=\"bold-hero poster-scene haegeum-experience\">…</section>\u001b[22m\n\u001b[2m      - unexpected value \"null\"\u001b[22m\n\u001b[2m    11 × locator resolved to <section data-reflow=\"false\" data-exchange=\"ready\" data-progress=\"0.00000\" data-image-error=\"false\" data-instrument-stage=\"hero\" aria-labelledby=\"artist-name\" data-target-progress=\"0.00000\" data-motion=\"pointer-and-scroll\" data-full-source-visible=\"false\" class=\"bold-hero poster-scene haegeum-experience\">…</section>\u001b[22m\n\u001b[2m       - unexpected value \"null\"\u001b[22m\n"
+        }
+      ]
+    }
+  },
+  "documentation": {
+    "documents": 19,
+    "localLinksChecked": 478,
+    "issues": []
+  },
+  "sourceHashesMethod": "LF-normalized before delivery; metadata does not claim a post-delivery raw-file manifest",
+  "sourceHashes": [
+    {
+      "file": "labs/sound/SoundLab.tsx",
+      "sha256LF": "8e3e6358bb680a7e8fd0289e553157787d7fe75ea22dd0061d2c3a941cf81db8"
+    },
+    {
+      "file": "labs/sound/index.html",
+      "sha256LF": "45d6bb69bfcb5da30642a50540162cf6bcc4f4a03049c6bb12518fbbb6bd8fe3"
+    },
+    {
+      "file": "labs/sound/sound.css",
+      "sha256LF": "425fe035daab3feb99b6862e58e31d192b67f1774601ef61a9e4866439d2cfb7"
+    },
+    {
+      "file": "src/sound/SoundComposition.tsx",
+      "sha256LF": "b5e2be2faf7e2c9f3facb3253061a01c25718b69a7f3a17afecc0ef31b5fe264"
+    },
+    {
+      "file": "src/sound/SoundExperience.tsx",
+      "sha256LF": "73620016b0f775b54f97f3f19a269d6f36cef4b2267c8c2f6f87ef8490a6de42"
+    },
+    {
+      "file": "src/sound/SoundSurface.tsx",
+      "sha256LF": "a58ffae921172bc04fed61576557e4aa5757527b4afe9988f65c25bcd17a452e"
+    },
+    {
+      "file": "src/sound/bow-contact.ts",
+      "sha256LF": "8ecb8f37ede01ec3724380ac3cef96abb5eff9dc2108416ff9a9ceff47516aa2"
+    },
+    {
+      "file": "src/sound/contact-motion.ts",
+      "sha256LF": "11d42c9d3d9104d8370cdd5016502ac48df3785784680c27d4aeff1f301dc552"
+    },
+    {
+      "file": "src/sound/controller.ts",
+      "sha256LF": "390330da6282f213b2b05671ee9cef8573d64b090b7740e027b284e54a5f25cc"
+    },
+    {
+      "file": "src/sound/sound.css",
+      "sha256LF": "d53cd665fddfaa7b2be377c3fea7af55b747c2d167525d08e0798efa17b0ed93"
+    },
+    {
+      "file": "tests/assert-design-artifacts.ts",
+      "sha256LF": "459f51e602803dbf2dea1fffe48d31e3c175eff44a7f273bb9fdba26d3d3bd03"
+    },
+    {
+      "file": "tests/sound-choreography.test.ts",
+      "sha256LF": "1e3ff4adf9c37791c98ba79f871db0fee56ca8854fb1c252e7d8ea22cff13b2f"
+    },
+    {
+      "file": "tests/sound.spec.ts",
+      "sha256LF": "452e8146d325f5f80f1e9d7b31e83bf6dce09d74acbe4c80c50a12e22185ea3c"
+    }
+  ],
+  "filesBeforeDelivery": [
+    "AGENTS.md",
+    "CODEX-HANDOFF.md",
+    "P2I-CHOREOGRAPHY-RESULT.md",
+    "P2I-CLOSEOUT-RESULT.md",
+    "P2I-RESULT.md",
+    "README.md",
+    "docs/redesign/00-MASTER-PLAN.md",
+    "docs/redesign/02-DESIGN-SYSTEM.md",
+    "docs/redesign/03-MOTION-SYSTEM.md",
+    "docs/redesign/04-HOME.md",
+    "docs/redesign/INTERACTION-GLOSSARY.md",
+    "docs/redesign/review/HOME-SOUND-EXPERIENCE.md",
+    "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md",
+    "docs/redesign/review/PLANNING-REVISION-LOG.md",
+    "docs/redesign/review/SOUND-BOW-CONTACT-COMPARISON.md",
+    "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md",
+    "evidence/p2i-choreography/1440-a-comparison-silent.webm",
+    "evidence/p2i-choreography/1440-a-ended.png",
+    "evidence/p2i-choreography/1440-a-hero.png",
+    "evidence/p2i-choreography/1440-a-paused.png",
+    "evidence/p2i-choreography/1440-a-playing.png",
+    "evidence/p2i-choreography/1440-b1-comparison-silent.webm",
+    "evidence/p2i-choreography/1440-b1-contact-detail.png",
+    "evidence/p2i-choreography/1440-b1-ended.png",
+    "evidence/p2i-choreography/1440-b1-hero.png",
+    "evidence/p2i-choreography/1440-b1-paused.png",
+    "evidence/p2i-choreography/1440-b1-playing.png",
+    "evidence/p2i-choreography/1440-b2-comparison-silent.webm",
+    "evidence/p2i-choreography/1440-b2-contact-detail.png",
+    "evidence/p2i-choreography/1440-b2-ended.png",
+    "evidence/p2i-choreography/1440-b2-hero.png",
+    "evidence/p2i-choreography/1440-b2-paused.png",
+    "evidence/p2i-choreography/1440-b2-playing.png",
+    "evidence/p2i-choreography/1440-editorial-silent.webm",
+    "evidence/p2i-choreography/1440-editorial.png",
+    "evidence/p2i-choreography/1440-extra-long-silent.webm",
+    "evidence/p2i-choreography/1440-extra-long.png",
+    "evidence/p2i-choreography/1440-ink-silent.webm",
+    "evidence/p2i-choreography/1440-ink.png",
+    "evidence/p2i-choreography/1920-b.png",
+    "evidence/p2i-choreography/320-en-b.png",
+    "evidence/p2i-choreography/390-a-comparison-silent.webm",
+    "evidence/p2i-choreography/390-a-ended.png",
+    "evidence/p2i-choreography/390-a-hero.png",
+    "evidence/p2i-choreography/390-a-paused.png",
+    "evidence/p2i-choreography/390-a-playing.png",
+    "evidence/p2i-choreography/390-b-reduced.png",
+    "evidence/p2i-choreography/390-b1-comparison-silent.webm",
+    "evidence/p2i-choreography/390-b1-contact-detail.png",
+    "evidence/p2i-choreography/390-b1-ended.png",
+    "evidence/p2i-choreography/390-b1-hero.png",
+    "evidence/p2i-choreography/390-b1-paused.png",
+    "evidence/p2i-choreography/390-b1-playing.png",
+    "evidence/p2i-choreography/390-b2-comparison-silent.webm",
+    "evidence/p2i-choreography/390-b2-contact-detail.png",
+    "evidence/p2i-choreography/390-b2-ended.png",
+    "evidence/p2i-choreography/390-b2-hero.png",
+    "evidence/p2i-choreography/390-b2-paused.png",
+    "evidence/p2i-choreography/390-b2-playing.png",
+    "evidence/p2i-choreography/768-b.png",
+    "evidence/p2i-choreography/README.md",
+    "evidence/p2i-choreography/browser-capabilities.json",
+    "evidence/p2i-choreography/capture.txt",
+    "evidence/p2i-choreography/design-system-results.json",
+    "evidence/p2i-choreography/document-links.json",
+    "evidence/p2i-choreography/final-preview.json",
+    "evidence/p2i-choreography/full-gate.txt",
+    "evidence/p2i-choreography/performance.json",
+    "evidence/p2i-choreography/routing-results.json",
+    "evidence/p2i-choreography/sound-initial-concurrent.json",
+    "evidence/p2i-choreography/sound-initial-concurrent.txt",
+    "evidence/p2i-choreography/sound-results.json",
+    "evidence/p2i-choreography/sound-tests.txt",
+    "evidence/p2i-choreography/verification.json",
+    "evidence/p2i-choreography/violet-contrast.json",
+    "evidence/p2i-closeout/1440-canonical-playing.png",
+    "evidence/p2i-closeout/1440-canonical-reduced.png",
+    "evidence/p2i-closeout/390-canonical-playing.png",
+    "evidence/p2i-closeout/390-canonical-reduced.png",
+    "evidence/p2i-closeout/README.md",
+    "evidence/p2i-closeout/adjacent-suites.json",
+    "evidence/p2i-closeout/canonical-capture.json",
+    "evidence/p2i-closeout/canonical-capture.txt",
+    "evidence/p2i-closeout/design-system-results.json",
+    "evidence/p2i-closeout/fast-final.txt",
+    "evidence/p2i-closeout/font-cls-diagnosis.json",
+    "evidence/p2i-closeout/font-diagnosis.txt",
+    "evidence/p2i-closeout/full-gate-initial-lint.txt",
+    "evidence/p2i-closeout/full-gate.txt",
+    "evidence/p2i-closeout/haegeum-results.json",
+    "evidence/p2i-closeout/haegeum-tests.txt",
+    "evidence/p2i-closeout/hero-results.json",
+    "evidence/p2i-closeout/hero-tests.txt",
+    "evidence/p2i-closeout/lint-final.txt",
+    "evidence/p2i-closeout/navigation-results.json",
+    "evidence/p2i-closeout/navigation-tests.txt",
+    "evidence/p2i-closeout/p2a-font-after.png",
+    "evidence/p2i-closeout/p2a-font-before.png",
+    "evidence/p2i-closeout/p2i-font-after.png",
+    "evidence/p2i-closeout/p2i-font-before.png",
+    "evidence/p2i-closeout/preservation.json",
+    "evidence/p2i-closeout/production-cls.json",
+    "evidence/p2i-closeout/sound-results.json",
+    "evidence/p2i-closeout/sound-test-classification.json",
+    "evidence/p2i-closeout/sound-tests.txt",
+    "evidence/p2i-closeout/verification.json",
+    "evidence/p2i-closeout/webkit-diagnosis.txt",
+    "evidence/p2i-closeout/webkit-http-diagnosis.json",
+    "evidence/p2i/1440-a-comparison-silent.webm",
+    "evidence/p2i/1440-a-hero.png",
+    "evidence/p2i/1440-a-paused.png",
+    "evidence/p2i/1440-a-playing.png",
+    "evidence/p2i/1440-b-comparison-silent.webm",
+    "evidence/p2i/1440-b-contact-detail.png",
+    "evidence/p2i/1440-b-hero.png",
+    "evidence/p2i/1440-b-medium-silent.webm",
+    "evidence/p2i/1440-b-medium.png",
+    "evidence/p2i/1440-b-paused.png",
+    "evidence/p2i/1440-b-playing.png",
+    "evidence/p2i/1920-b.png",
+    "evidence/p2i/320-en-b.png",
+    "evidence/p2i/390-a-comparison-silent.webm",
+    "evidence/p2i/390-a-hero.png",
+    "evidence/p2i/390-a-paused.png",
+    "evidence/p2i/390-a-playing.png",
+    "evidence/p2i/390-b-comparison-silent.webm",
+    "evidence/p2i/390-b-contact-detail.png",
+    "evidence/p2i/390-b-hero.png",
+    "evidence/p2i/390-b-paused.png",
+    "evidence/p2i/390-b-playing.png",
+    "evidence/p2i/390-b-reduced.png",
+    "evidence/p2i/768-b.png",
+    "evidence/p2i/README.md",
+    "evidence/p2i/browser-capabilities.json",
+    "evidence/p2i/final-comparison-tests.txt",
+    "evidence/p2i/full-gate.txt",
+    "evidence/p2i/haegeum-isolated.txt",
+    "evidence/p2i/lint-final.txt",
+    "evidence/p2i/performance.json",
+    "evidence/p2i/preserved-files.json",
+    "evidence/p2i/test-hero.txt",
+    "evidence/p2i/test-navigation.txt",
+    "evidence/p2i/test-results.json",
+    "evidence/p2i/test-sound.txt",
+    "evidence/p2i/type-check-final.txt",
+    "evidence/p2i/verification.json",
+    "labs/sound/SoundLab.tsx",
+    "labs/sound/index.html",
+    "labs/sound/sound.css",
+    "package.json",
+    "scripts/capture-sound-choreography.mjs",
+    "scripts/capture-sound-closeout.mjs",
+    "scripts/capture-sound-comparison.mjs",
+    "scripts/diagnose-p2i-font-cls.mjs",
+    "scripts/diagnose-p2i-production-cls.mjs",
+    "scripts/diagnose-p2i-webkit.mjs",
+    "src/sound/SoundComposition.tsx",
+    "src/sound/SoundExperience.tsx",
+    "src/sound/SoundSurface.tsx",
+    "src/sound/bow-contact.ts",
+    "src/sound/contact-motion.ts",
+    "src/sound/controller.ts",
+    "src/sound/sound.css",
+    "tests/assert-design-artifacts.ts",
+    "tests/sound-choreography.test.ts",
+    "tests/sound.spec.ts"
+  ],
+  "preservation": "preservation.json",
+  "nativeSafari": "P2H partial evidence reviewed; no new native Safari P2I test",
+  "remaining": "See README.md. These gaps do not waive Full or deployment requirements.",
+  "finalFast": "PASS: fast-final.txt; final type/lint/build + unchanged 38 contracts",
+  "httpFaultAssertions": "PASS: both Chromium and Windows WebKit actual valid media, HTTP404, 12s timeout, delayed-byte cancellation; unsupported analyser discloses static fallback",
+  "capture": "Canonical KO 1440/390: actual playback, no comparison UI, settled contact work, live reduced/static fallback. No browser page errors.",
+  "gitWhitespace": {
+    "sourceAndDocs": "PASS staged diff --check excluding evidence",
+    "rawEvidence": "152 terminal whitespace entries preserved; unrestricted staged check reports them",
+    "attributes": "Existing LF text normalization retained; older raw hashes are historical checkpoint evidence"
+  }
+}

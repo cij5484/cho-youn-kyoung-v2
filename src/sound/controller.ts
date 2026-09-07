@@ -1,4 +1,6 @@
 import { createLineResponse } from './line-response.ts'
+import { createBowContact } from './bow-contact.ts'
+import type { ContactActivity, ContactTrail, ContactViolet, SoundVisual } from './contact-motion.ts'
 import { playableSource, type SoundSource } from './source.ts'
 
 export type PlaybackPhase = 'idle' | 'loading' | 'playing' | 'buffering' | 'paused' | 'ended' | 'error' | 'unavailable'
@@ -9,11 +11,13 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
   const reduced = matchMedia('(prefers-reduced-motion: reduce)')
   const panel = root.querySelector<HTMLElement>('.sound-surface')!
   const lines = createLineResponse([...root.querySelectorAll<HTMLElement>('.poster-lines .tension-line')], () => innerWidth < 640)
+  const contact = createBowContact(root, [...root.querySelectorAll<HTMLElement>('.poster-lines .tension-line')], () => innerWidth < 640)
   let context: AudioContext | null = null, analyser: AnalyserNode | null = null, node: MediaElementAudioSourceNode | null = null
   const src=playableSource(source)
   let phase: PlaybackPhase = src ? 'idle' : 'unavailable', hasPlayed=false
   let desired = false, disposed = false, visible = false, intent = 0, frame = 0, previous = 0, lastDraw = 0
   let timeout = 0, analysisAvailable = typeof AudioContext !== 'undefined', frames = 0
+  let lineUnsettled = false, contactFrames = 0
   const samples = new Float32Array(1024), removers: (() => void)[] = []
   function emit() {
     if (disposed) return
@@ -28,15 +32,21 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
   function request() { if (!frame && analyser && eligible() && !visualStill()) frame=requestAnimationFrame(paint) }
   function paint(now: number) {
     frame=0
-    if (!eligible() || visualStill() || disposed) { lines.reset(); root.dataset.audioEnergy='0'; return }
-    //30Hz visual analysis is enough for subpixel friction; audio rendering remains browser-native.
-    if (lastDraw && now-lastDraw < 30) { request(); return }
-    const dt=previous ? Math.min(80,now-previous) : 33; previous=now; lastDraw=now
+    if (!eligible() || visualStill() || disposed) { lines.reset(); contact.reset(); root.dataset.audioEnergy='0'; return }
+    const dt=previous ? Math.min(50,now-previous) : 16.67; previous=now
     const playing=phase==='playing' && !media.paused && !media.seeking && context?.state==='running'
-    if (playing && analyser) analyser.getFloatTimeDomainData(samples)
-    const result=lines.paint(playing && analyser ? samples : null,dt,false)
-    root.dataset.audioEnergy=result.energy.toFixed(4); root.dataset.analysisFrames=String(++frames)
-    if (playing && analyser || result.unsettled) request()
+    // Keep the approved micro-friction at ~30Hz; interpolate smooth bow travel on every display frame.
+    if (!lastDraw || now-lastDraw >= 30) {
+      const analysisDt=lastDraw ? Math.min(80,now-lastDraw) : 33; lastDraw=now
+      if (playing && analyser) analyser.getFloatTimeDomainData(samples)
+      const signal=playing && analyser ? samples : null
+      const result=lines.paint(signal,analysisDt,false); lineUnsettled=result.unsettled
+      contact.sample(signal,analysisDt)
+      root.dataset.audioEnergy=result.energy.toFixed(4); root.dataset.analysisFrames=String(++frames)
+    }
+    const contactUnsettled=contact.paint(playing,dt)
+    if (contactUnsettled) root.dataset.contactFrames=String(++contactFrames)
+    if (playing && analyser || lineUnsettled || contactUnsettled) request()
     else { previous=0; lastDraw=0 }
   }
   function pause(next: PlaybackPhase = 'paused') {
@@ -51,7 +61,7 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
   function unavailableView() {
     if (eligible()) return
     if (desired || !media.paused) pause()
-    cancelFrame(); lines.reset(); root.dataset.audioEnergy='0'
+    cancelFrame(); lines.reset(); contact.reset(); root.dataset.audioEnergy='0'
   }
   function contextState() {
     if (!context || disposed) return
@@ -114,11 +124,12 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
   const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;unavailableView()}, {threshold:0})
   observer.observe(panel)
   const mutation=new MutationObserver(unavailableView); mutation.observe(root,{attributes:true,attributeFilter:['data-sound-ready']})
-  const preference=()=>{cancelFrame();lines.reset();root.dataset.audioEnergy='0';if(!reduced.matches)request()}
+  const preference=()=>{cancelFrame();lines.reset();contact.reset();root.dataset.audioEnergy='0';if(!reduced.matches)request()}
   reduced.addEventListener('change',preference)
   document.addEventListener('visibilitychange',unavailableView)
   root.dataset.audioState=phase; root.dataset.audioContext='not-created'; root.dataset.audioEnergy='0'; root.dataset.analysisFrames='0'
   return {
+    setVisual(visual: SoundVisual, trail: ContactTrail, activity: ContactActivity, violet: ContactViolet) { contact.configure(visual,trail,activity,violet) },
     toggle() { if(desired || !media.paused)pause();else void play() },
     destroy() {
       disposed=true; desired=false; intent++; stopClock(); cancelFrame(); observer.disconnect(); mutation.disconnect()
@@ -126,7 +137,7 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
       removers.forEach(fn=>fn()); media.pause(); media.removeAttribute('src'); media.load()
       node?.disconnect(); analyser?.disconnect()
       if(context){context.removeEventListener('statechange',contextState);void context.close().catch(()=>{})}
-      lines.destroy()
+      lines.destroy(); contact.destroy()
     },
   }
 }

@@ -1,0 +1,25 @@
+
+> cho-youn-kyoung-v2@0.0.0 gate:full
+> npm run gate:fast && npm run build:pages-preview && npm run test:spike && npm run test:design-system && npm run test:navigation && npm run test:hero && npm run test:haegeum && npm run test:sound
+
+
+> cho-youn-kyoung-v2@0.0.0 gate:fast
+> npm run type-check && npm run lint && npm run test:locale && npm run test:navigation:contract && npm run test:content && npm run test:placement && npm run build && npm run test:content:visibility && npm run test:design-system:artifacts
+
+
+> cho-youn-kyoung-v2@0.0.0 type-check
+> node scripts/router.mjs root typegen && tsc -b
+
+
+> cho-youn-kyoung-v2@0.0.0 lint
+> eslint . --max-warnings 0
+
+
+C:\choyounkyoung-v2\scripts\diagnose-p2i-font-cls.mjs
+  1:29  error  'PerformanceObserver' is already defined as a built-in global variable  no-redeclare
+
+C:\choyounkyoung-v2\scripts\diagnose-p2i-production-cls.mjs
+  1:29  error  'PerformanceObserver' is already defined as a built-in global variable  no-redeclare
+
+✖ 2 problems (2 errors, 0 warnings)
+

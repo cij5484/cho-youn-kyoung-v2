@@ -1,6 +1,6 @@
 # Cho Youn Kyoung Website V2 — 검토 및 구현 제안
 
-검토일: 2026-09-07 · Revision 1.25 · 상태: **P2A visual 승인·main delivery 완료 / P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN & delivered / P2C B canonical APPROVED / P2D APPROVED & DELIVERED / P2E VISUAL APPROVED & DELIVERED / P2F QUALITY APPROVED / FROZEN · P2F delivered / P2G result APPROVED / P2H SOUND REVIEW READY · FREEZE CANDIDATE / STOP**. HOME V2.1 및 P0 routing/locale/CI 계약은 유지한다. 현재 결과·승인 경계는 [HANDOFF](../../../CODEX-HANDOFF.md)를 따른다.
+검토일: 2026-09-07 · Revision 1.26 · 상태: **P2A visual 승인·main delivery 완료 / P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN & delivered / P2C B canonical APPROVED / P2D APPROVED & DELIVERED / P2E VISUAL APPROVED & DELIVERED / P2F QUALITY APPROVED / FROZEN · P2F delivered / P2G result APPROVED / P2I SOUND QUALITY APPROVED / FROZEN · Full FAIL with classified QA gaps / STOP**. HOME V2.1 및 P0 routing/locale/CI 계약은 유지한다. 현재 결과·승인 경계는 [HANDOFF](../../../CODEX-HANDOFF.md)를 따른다.
 
 현재 정본은 갱신된 MASTER의 PHASE 0–14다. React Router + Static Prerender는 사용자가 지정한 P0C 실제 Pages gate 통과로 확정했다. P0D neutral locale/hreflang 계약은 두 base에서 통과했고 실제 번역·제품 구현과 운영 SEO는 별도 gate다. 이 문서는 실제 구현 승인이 아니다.
 
@@ -607,3 +607,20 @@ partially verified; other native/physical QA and user auditory/refined visual ju
 [Current result](../../../P2H-RESULT.md), [guide](HOME-SOUND-EXPERIENCE.md), [evidence](../../../evidence/p2h/README.md).
 Delivery is authorized; exact commit/main/Fast outcome is in the completion report. No deployment or next scene.
 Recommended only after approval: SOUND auditory/native-device closeout and freeze decision.
+
+
+Historical P2I comparison bundle superseded the preceding closeout recommendation and bronze marker direction:
+**SOUND Bow Contact Choreography + V2 Experience Principles**. Preserve original results → smooth continuous bow
+motion → one Violet/LONG marker with A/B1/B2 → focused/Full tests, responsive/performance/video → MASTER canonical
+principles + owner references → human glossary/result/STOP. Overlapping attachment requirements are consolidated.
+[Existing contract, revised in place](SOUND-BOW-CONTACT-COMPARISON.md), [result](../../../P2I-CHOREOGRAPHY-RESULT.md),
+[evidence](../../../evidence/p2i-choreography/README.md), [MASTER principles](../00-MASTER-PLAN.md#v2-experience-principles),
+[human glossary](../INTERACTION-GLOSSARY.md). P2F is frozen. The subsequent user selection and closeout below supersede the prior A/B review boundary.
+WORKS, filmstrip, adaptive UI/entry ritual implementation and 3D remain future; no next scene is authorized.
+
+Current bounded result: **P2I Closeout / SOUND QUALITY APPROVED / FROZEN** — B2 Bold, LONG 460ms,
+Electric Violet #6334E5. [Closeout](../../../P2I-CLOSEOUT-RESULT.md) records QA classification and authorized
+main/Fast delivery. The pre-existing Windows foundation Lab CLS keeps Full red; Windows WebKit capability
+and fault-injection gaps are non-blocking for this SOUND freeze, not a deployment waiver. Native/physical
+follow-ups remain explicit. The next recommended unit is foundation font-loading/CLS closure, separately
+approved; no WORKS or next HOME scene starts automatically.

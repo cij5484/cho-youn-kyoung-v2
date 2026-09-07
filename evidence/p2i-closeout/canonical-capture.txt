@@ -1,0 +1,40 @@
+[
+  {
+    viewport: { width: 1440, height: 1000 },
+    state: {
+      soundReady: 'true',
+      soundStatic: 'false',
+      audioState: 'playing',
+      audioContext: 'running',
+      audioEnergy: '0.7922',
+      analysisFrames: '138',
+      soundVisual: 'bow-contact',
+      contactTrail: 'long',
+      contactActivity: 'bold',
+      contactViolet: 'electric',
+      soundReleasing: 'true',
+      contactFrames: '273'
+    },
+    errors: [],
+    settledContactFrames: '318'
+  },
+  {
+    viewport: { width: 390, height: 844 },
+    state: {
+      soundReady: 'true',
+      soundStatic: 'false',
+      audioState: 'playing',
+      audioContext: 'running',
+      audioEnergy: '0.6982',
+      analysisFrames: '137',
+      soundVisual: 'bow-contact',
+      contactTrail: 'long',
+      contactActivity: 'bold',
+      contactViolet: 'electric',
+      soundReleasing: 'true',
+      contactFrames: '272'
+    },
+    errors: [],
+    settledContactFrames: '318'
+  }
+]

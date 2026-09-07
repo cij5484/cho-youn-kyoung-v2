@@ -1,0 +1,2997 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\choyounkyoung-v2\\node_modules\\@playwright\\test\\cli.js",
+      "test"
+    ],
+    "configFile": "C:\\choyounkyoung-v2\\playwright.config.ts",
+    "rootDir": "C:/choyounkyoung-v2/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/choyounkyoung-v2/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "root",
+        "name": "root",
+        "testDir": "C:/choyounkyoung-v2/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "routing-spike.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/choyounkyoung-v2/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "pagesPreview",
+        "name": "pagesPreview",
+        "testDir": "C:/choyounkyoung-v2/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "routing-spike.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "routing-spike.spec.ts",
+      "file": "routing-spike.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "hydrated /: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2273,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:19.235Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-dc1eee48a8fd59a49ee4",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /works: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2267,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:19.261Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-3d760fd2959aa096a3a4",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /albums: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2209,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:21.523Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-4bdd5ae08983ee923379",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /performances: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2187,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:21.544Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-defccdab312d0ad445b6",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /album/test-album: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2104,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:23.745Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-a44871e32551bb2a9959",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /performance/test-performance: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2122,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:23.745Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-51adcea6950d3a09dca4",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /media: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2255,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:25.862Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-4aa58f3c04177401018c",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /about: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2266,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:25.880Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-3fedbf5bf832c58adb2e",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /contact: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2177,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:28.135Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-58dd655a6655696b4412",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /en: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2246,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:28.162Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-3934dd7d9c5b4a00886e",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /en/works: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2436,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:30.326Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-1ac12cb863cbe8b88cb2",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /en/albums: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2457,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:30.423Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-f939481346472501c2ca",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /en/performances: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2192,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:32.782Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-a8586084070510e424f5",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /en/album/test-album: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2186,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:32.897Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-066a56b73d6df5cfb2db",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /en/performance/test-performance: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1979,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:34.987Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-8861d71836eefe562d41",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /en/media: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2056,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:35.096Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-1196363e5d39d914538e",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /en/about: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2069,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:36.981Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-77da24c8cdf84301e71b",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /en/contact: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2048,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:37.164Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-894a3ba2e8536cac7560",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated links, both locales, assets, history and reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5055,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:39.064Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-e806b1c141b2e8b0fb65",
+          "file": "routing-spike.spec.ts",
+          "line": 87,
+          "column": 1
+        },
+        {
+          "title": "strict host returns HTTP 404 for unknown routes, slugs and assets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 63,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:39.225Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-32421039f2d749055739",
+          "file": "routing-spike.spec.ts",
+          "line": 114,
+          "column": 1
+        },
+        {
+          "title": "client unknown routes and slugs show 404, distinct from HTTP status",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1938,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:39.301Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-95f61f1dfe6f256b9f16",
+          "file": "routing-spike.spec.ts",
+          "line": 127,
+          "column": 1
+        },
+        {
+          "title": "slash redirect preserves query; canonical excludes query/hash",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 598,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:41.252Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-2b1f6bacf45c4dadb2f4",
+          "file": "routing-spike.spec.ts",
+          "line": 141,
+          "column": 1
+        },
+        {
+          "title": "registered draft stays out of both artifacts and direct or client route metadata",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2569,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:41.864Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "draft-exclusion",
+                      "contentType": "application/json",
+                      "body": "eyJ0YXJnZXQiOiJyb290Iiwic2Nhbm5lZEZpbGVzIjp7ImNsaWVudCI6Mjg2LCJzdGF0aWMiOjI4NX0sInJvdXRlcyI6MTgsInByaXZhdGVEcmFmdHNFeGNsdWRlZCI6MX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-f8ec68d7b13b111427a1",
+          "file": "routing-spike.spec.ts",
+          "line": 153,
+          "column": 1
+        },
+        {
+          "title": "production font delivery preserves the base and never exposes the Design System Lab",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root",
+              "projectName": "root",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1835,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:44.133Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "design-artifacts",
+                      "contentType": "application/json",
+                      "body": "eyJ0YXJnZXQiOiJyb290Iiwicm91dGVzIjoxOCwibGFiRXhjbHVkZWQiOnRydWUsImxvY2FsRm9udFVybHMiOjI1MywiZm9udEZpbGVzIjoyNTMsImZvbnRCeXRlcyI6OTg5NjY0NCwiamF2YXNjcmlwdEJ5dGVzIjozMjQ1OTF9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-fba071612c3a7ad04c55",
+          "file": "routing-spike.spec.ts",
+          "line": 179,
+          "column": 1
+        },
+        {
+          "title": "hydrated /: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2358,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:16:59.505Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-22933939037e0e74eaec",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /works: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2467,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:00.304Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-dd4773a26c529e44bc0e",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /albums: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2344,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:01.880Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-a49687edf76aa9600a9c",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /performances: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2290,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:02.786Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-76d4f4422552aa039025",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /album/test-album: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2233,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:04.241Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-ce42341e7991f039cbd2",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /performance/test-performance: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2209,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:05.092Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-58876c337dfccbf03e5b",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /media: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2104,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:06.489Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-d69e701955a5d1579558",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /about: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2234,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:07.314Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-60e1a85c17963266acdf",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /contact: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2142,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:08.606Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-c53fe4761d8920482948",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /en: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2236,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:09.562Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-482f427519dc7a42c397",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /en/works: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2061,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:10.762Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-12f1731ce4751d7f6483",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /en/albums: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2238,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:11.811Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-50537cf3a4c4833502dc",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /en/performances: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2149,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:12.837Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-e6f759193620ebe717f5",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /en/album/test-album: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2132,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:14.060Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-9d76bd80981da5a65732",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /en/performance/test-performance: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2206,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:15.000Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-8fd3548e9f974880eb28",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /en/media: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2281,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:16.206Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-0bfcb255f2b4cee81dff",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /en/about: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2237,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:17.221Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-2a360166e4c0caa707a0",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated /en/contact: direct, hard refresh, semantic counterpart and history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2236,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:18.500Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-971ec74fa08c2e5262aa",
+          "file": "routing-spike.spec.ts",
+          "line": 59,
+          "column": 3
+        },
+        {
+          "title": "hydrated links, both locales, assets, history and reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5613,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:19.471Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-23daeae612ce5e6e6d0c",
+          "file": "routing-spike.spec.ts",
+          "line": 87,
+          "column": 1
+        },
+        {
+          "title": "strict host returns HTTP 404 for unknown routes, slugs and assets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 74,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:20.750Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-c96436af1dda8d161c6c",
+          "file": "routing-spike.spec.ts",
+          "line": 114,
+          "column": 1
+        },
+        {
+          "title": "client unknown routes and slugs show 404, distinct from HTTP status",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2089,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:20.838Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-f0a2696e467d00fff104",
+          "file": "routing-spike.spec.ts",
+          "line": 127,
+          "column": 1
+        },
+        {
+          "title": "slash redirect preserves query; canonical excludes query/hash",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 600,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:22.940Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-2516e517f84f541a3a4b",
+          "file": "routing-spike.spec.ts",
+          "line": 141,
+          "column": 1
+        },
+        {
+          "title": "registered draft stays out of both artifacts and direct or client route metadata",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2712,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:23.553Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "draft-exclusion",
+                      "contentType": "application/json",
+                      "body": "eyJ0YXJnZXQiOiJwYWdlc1ByZXZpZXciLCJzY2FubmVkRmlsZXMiOnsiY2xpZW50IjoyODYsInN0YXRpYyI6Mjg1fSwicm91dGVzIjoxOCwicHJpdmF0ZURyYWZ0c0V4Y2x1ZGVkIjoxfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-55b6f55ad873aa9a6d93",
+          "file": "routing-spike.spec.ts",
+          "line": 153,
+          "column": 1
+        },
+        {
+          "title": "production font delivery preserves the base and never exposes the Design System Lab",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pagesPreview",
+              "projectName": "pagesPreview",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1825,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:17:25.098Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "design-artifacts",
+                      "contentType": "application/json",
+                      "body": "eyJ0YXJnZXQiOiJwYWdlc1ByZXZpZXciLCJyb3V0ZXMiOjE4LCJsYWJFeGNsdWRlZCI6dHJ1ZSwibG9jYWxGb250VXJscyI6MjUzLCJmb250RmlsZXMiOjI1MywiZm9udEJ5dGVzIjo5ODk2NjQ0LCJqYXZhc2NyaXB0Qnl0ZXMiOjMyNjI3N30="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8d09ecb515df58f294e-f10aa8a027e65309460e",
+          "file": "routing-spike.spec.ts",
+          "line": 179,
+          "column": 1
+        }
+      ],
+      "suites": [
+        {
+          "title": "Static HTML without JavaScript",
+          "file": "routing-spike.spec.ts",
+          "line": 27,
+          "column": 6,
+          "specs": [
+            {
+              "title": "direct /: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "root",
+                  "projectName": "root",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1605,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:08.339Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-1e8d4658c51a2710d4ad",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /works: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "root",
+                  "projectName": "root",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1683,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:08.310Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-e999385e6cb26351dac9",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /albums: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "root",
+                  "projectName": "root",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1084,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:10.467Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-e60aa9d8f9c3f6d5489e",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /performances: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "root",
+                  "projectName": "root",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1052,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:10.505Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-b3582d4529696a329e2c",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /album/test-album: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "root",
+                  "projectName": "root",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1106,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:11.563Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-3b648bfc3d55e173f667",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /performance/test-performance: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "root",
+                  "projectName": "root",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1089,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:11.572Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-c987e39697456de18c35",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /media: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "root",
+                  "projectName": "root",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 837,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:12.676Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-d54ac56e1f21f4e404e5",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /about: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "root",
+                  "projectName": "root",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 808,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:12.684Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-4106400f652515dce06e",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /contact: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "root",
+                  "projectName": "root",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1080,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:13.506Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-b7352ae035795ecd044d",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /en: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "root",
+                  "projectName": "root",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1086,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:13.529Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-375ab09c2626ffbb12c7",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /en/works: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "root",
+                  "projectName": "root",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1083,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:14.601Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-5a5fc5c88ae6465dac3d",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /en/albums: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "root",
+                  "projectName": "root",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1071,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:14.630Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-f308097afa3097df5196",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /en/performances: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "root",
+                  "projectName": "root",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1128,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:15.698Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-a3f85b1f3a755edc133e",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /en/album/test-album: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "root",
+                  "projectName": "root",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1187,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:15.717Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-a678c5cb72bde21106a0",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /en/performance/test-performance: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "root",
+                  "projectName": "root",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1121,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:16.843Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-0d2e03752ee4268f2d48",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /en/media: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "root",
+                  "projectName": "root",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1059,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:16.918Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-e632b61e0de495874136",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /en/about: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "root",
+                  "projectName": "root",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1238,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:17.978Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-163ff125978282412aeb",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /en/contact: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "root",
+                  "projectName": "root",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1248,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:17.993Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-be1afc3778600cb636ea",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "pagesPreview",
+                  "projectName": "pagesPreview",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1592,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:45.237Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-c409d2fedff2079da44c",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /works: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "pagesPreview",
+                  "projectName": "pagesPreview",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1770,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:47.462Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-dc33bf0ef8c0565e7ca6",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /albums: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "pagesPreview",
+                  "projectName": "pagesPreview",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1243,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:47.323Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-5306ce7e71b20f7979b4",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /performances: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "pagesPreview",
+                  "projectName": "pagesPreview",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1599,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:48.583Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-aa2f737ad20d441e62f7",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /album/test-album: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "pagesPreview",
+                  "projectName": "pagesPreview",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1449,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:49.754Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-510830804db55ed8803b",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /performance/test-performance: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "pagesPreview",
+                  "projectName": "pagesPreview",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1366,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:50.205Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-f63a6c0a8aedf36be50d",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /media: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "pagesPreview",
+                  "projectName": "pagesPreview",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1356,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:51.222Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-754084fea9f17a83e295",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /about: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "pagesPreview",
+                  "projectName": "pagesPreview",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1378,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:51.589Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-0715fa663e8ba95cd959",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /contact: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "pagesPreview",
+                  "projectName": "pagesPreview",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1375,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:52.595Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-38e5938641499a382292",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /en: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "pagesPreview",
+                  "projectName": "pagesPreview",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1449,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:52.986Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-53d2447a43688e82019d",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /en/works: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "pagesPreview",
+                  "projectName": "pagesPreview",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1343,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:53.989Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-9f14a6ef70353f5acd67",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /en/albums: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "pagesPreview",
+                  "projectName": "pagesPreview",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1496,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:54.455Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-b6bfd117c419847ff97d",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /en/performances: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "pagesPreview",
+                  "projectName": "pagesPreview",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1330,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:55.348Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-e2eb7878ebf6f25da8b4",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /en/album/test-album: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "pagesPreview",
+                  "projectName": "pagesPreview",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1395,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:55.972Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-7de8c638780e6c99bc65",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /en/performance/test-performance: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "pagesPreview",
+                  "projectName": "pagesPreview",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1397,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:56.696Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-50a53f1be5a77a3503ee",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /en/media: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "pagesPreview",
+                  "projectName": "pagesPreview",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1514,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:57.383Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-481228270806e31fc941",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /en/about: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "pagesPreview",
+                  "projectName": "pagesPreview",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1376,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:58.112Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-8a63c344a525f845a2d4",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "direct /en/contact: HTML, metadata, links and assets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "pagesPreview",
+                  "projectName": "pagesPreview",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1367,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-07T03:16:58.920Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b8d09ecb515df58f294e-280e9f2e55f53b0c51f2",
+              "file": "routing-spike.spec.ts",
+              "line": 30,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-07T03:16:05.912Z",
+    "duration": 82074.92199999999,
+    "expected": 84,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

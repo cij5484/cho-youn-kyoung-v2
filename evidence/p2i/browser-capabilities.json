@@ -1,0 +1,26 @@
+[
+  {
+    "engine": "chromium",
+    "version": "153.0.8010.12",
+    "platform": "win32",
+    "node": "v24.15.0",
+    "capability": {
+      "audioContext": "function",
+      "media": "function",
+      "svg": "function",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36"
+    }
+  },
+  {
+    "engine": "webkit",
+    "version": "26.6",
+    "platform": "win32",
+    "node": "v24.15.0",
+    "capability": {
+      "audioContext": "undefined",
+      "media": "function",
+      "svg": "function",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6 Safari/605.1.15"
+    }
+  }
+]

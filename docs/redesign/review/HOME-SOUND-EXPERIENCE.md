@@ -1,6 +1,6 @@
 # HOME Sound — Full Haegeum → LISTEN
 
-2026-09-07 · P2H · **REVIEW READY / FREEZE CANDIDATE / STOP**. P2G result is user approved; SOUND quality approval remains pending.
+2026-09-07 · P2H baseline preserved; **P2I B2 / LONG 460ms / Electric Violet visually APPROVED**. Final quality and QA classification: [closeout](../../../P2I-CLOSEOUT-RESULT.md).
 Owners: [HOME §§7–8](../04-HOME.md), [Motion §45](../03-MOTION-SYSTEM.md), [Responsive §7](../11-RESPONSIVE.md),
 [Accessibility §§9–11](../13-ACCESSIBILITY.md), [Performance §8](../12-PERFORMANCE.md),
 [Task Protocol](IMPLEMENTATION-TASK-PROTOCOL.md).
@@ -161,3 +161,14 @@ P2G `dab4617` and P2H `7e1bd37` are delivered to main; exact-SHA Fast CI 3405668
 Clean main/origin was verified before this documentation receipt. [Delivery / files](../../../evidence/p2h/delivery.json).
 No deployment. P2F remains **QUALITY APPROVED / FROZEN**. **REPORT → STOP → USER APPROVAL**.
 No WORKS or next scene is authorized.
+
+
+## P2I — canonical choreography / closeout
+
+B2 Bold / LONG 460ms / Electric Violet #6334E5 is the user-selected production direction.
+**Strings vibrate. Bow flows. / 현은 떨고, 활은 흐른다.** The single smooth contact and tapered recent path are
+separate from the strings' micro vibration. The [existing SOUND contract](SOUND-BOW-CONTACT-COMPARISON.md)
+owns tuning and Lab-only alternatives. One native graph/rAF, ~30Hz analysis and display-frame bow interpolation
+remain; the approved source and frozen Hero/Haegeum are preserved. Public HOME remains unimplemented.
+[Closeout result](../../../P2I-CLOSEOUT-RESULT.md) owns quality status and non-blocking QA gaps;
+[original choreography evidence](../../../evidence/p2i-choreography/README.md) remains historical visual evidence.

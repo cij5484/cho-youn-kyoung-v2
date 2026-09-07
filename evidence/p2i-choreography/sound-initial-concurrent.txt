@@ -1,0 +1,716 @@
+
+> cho-youn-kyoung-v2@0.0.0 test:sound
+> npm run test:sound:contract && playwright test --config playwright.sound.config.ts
+
+
+> cho-youn-kyoung-v2@0.0.0 test:sound:contract
+> node --test tests/sound-choreography.test.ts
+
+✔ silence and DC produce neither bow traversal nor an invented playback response (6.0033ms)
+✔ higher real signal energy increases speed/range; B1 remains an active comparison (5.0623ms)
+✔ waveform polarity does not become noisy marker coordinates (2.2571ms)
+✔ turns decelerate continuously; sudden energy/profile changes do not teleport or flip velocity (151.0035ms)
+✔ pause has finite damping, settles with no further travel, re-entry preserves position at dt=0 (0.6527ms)
+✔ trajectory remains close across 60Hz and 120Hz display cadence (2.0867ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 301.0374
+[WebServer] (node:9412) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 74 tests using 2 workers
+
+(node:22344) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:18544) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\sound.spec.ts:23:3 › 320: preserved first stages, bounded line release and independent SOUND composition (8.2s)
+  ok  2 [chromium] › tests\sound.spec.ts:23:3 › 390: preserved first stages, bounded line release and independent SOUND composition (8.3s)
+  ok  3 [chromium] › tests\sound.spec.ts:23:3 › 768: preserved first stages, bounded line release and independent SOUND composition (7.8s)
+  ok  4 [chromium] › tests\sound.spec.ts:23:3 › 1366: preserved first stages, bounded line release and independent SOUND composition (7.8s)
+  ok  5 [chromium] › tests\sound.spec.ts:23:3 › 1440: preserved first stages, bounded line release and independent SOUND composition (7.8s)
+  ok  6 [chromium] › tests\sound.spec.ts:23:3 › 1920: preserved first stages, bounded line release and independent SOUND composition (7.9s)
+  ok  7 [chromium] › tests\sound.spec.ts:40:1 › no audio request or context before activation; keyboard starts actual analysed playback (3.9s)
+  ok  8 [chromium] › tests\sound.spec.ts:55:1 › pause damps to the exact straight pair, stops work and resumes the real media position (4.0s)
+  ok 10 [chromium] › tests\sound.spec.ts:77:1 › reverse/offscreen pauses, becomes idle work and never resumes without another gesture (5.1s)
+  ok 11 [chromium] › tests\sound.spec.ts:86:1 › rapid toggles and media seeks do not leave duplicate graphs or false playback (3.0s)
+  x  12 [chromium] › tests\sound.spec.ts:97:1 › MENU/Esc restores focus; counterpart navigation releases media and context (6.5s)
+(node:34340) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 13 [chromium] › tests\sound.spec.ts:110:1 › reduced motion keeps ordered narrative and real listening with static lines (2.3s)
+  x   9 [chromium] › tests\sound.spec.ts:68:1 › the complete real excerpt ends naturally and REPLAY starts from the beginning (20.8s)
+(node:34112) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 14 [chromium] › tests\sound.spec.ts:119:1 › live reduced preference preserves truthful playback through static-layout reflow (3.4s)
+  ok 15 [chromium] › tests\sound.spec.ts:129:1 › 320px enlarged text has readable controls and no horizontal trap (2.1s)
+  ok 16 [chromium] › tests\sound.spec.ts:137:1 › unavailable source is disabled and truthful, with no fake clock (2.7s)
+  ok 17 [chromium] › tests\sound.spec.ts:143:1 › media failure is announced and retry never invents playback (2.8s)
+  ok 18 [chromium] › tests\sound.spec.ts:150:1 › cancel while loading remains paused after delayed bytes arrive (3.7s)
+  ok 19 [chromium] › tests\sound.spec.ts:159:1 › missing Web Audio capability keeps real playback with an explicit static visual (2.9s)
+  ok 21 [chromium] › tests\sound.spec.ts:173:1 › a technically present but unapproved source cannot activate media (2.7s)
+  ok 20 [chromium] › tests\sound.spec.ts:165:1 › direct anchor and rapid reverse preserve the single line pair without starting audio (4.6s)
+  ok 23 [chromium] › tests\sound.spec.ts:188:1 › failed instrument imagery preserves static narrative followed by usable SOUND (1.9s)
+  ok 22 [chromium] › tests\sound.spec.ts:179:1 › hidden-document event pauses and suspends; visibility return never autoplays (3.4s)
+  ok 25 [chromium] › tests\sound.spec.ts:206:1 › resizing active playback to mobile settles every old desktop sample on pause (5.1s)
+  ok 26 [chromium] › tests\sound.spec.ts:215:1 › replay reuses buffered media and its single graph instead of issuing another load (3.1s)
+  ok 27 [chromium] › tests\sound.spec.ts:227:1 › line friction rejects DC drift, retains current points and damps after interruption (1.5s)
+  ok 24 [chromium] › tests\sound.spec.ts:195:1 › a stalled source times out truthfully and leaves no background analysis (15.4s)
+  ok 28 [chromium] › tests\sound.spec.ts:252:1 › 320px KO and EN captions and all listening states have distinct readable space (5.2s)
+  ok 30 [chromium] › tests\sound.spec.ts:282:1 › P2I: A/B and tail comparison preserves media position, graph, focus and the original line nodes (4.0s)
+  ok 31 [chromium] › tests\sound.spec.ts:308:1 › P2I: smooth B uses a wide trajectory, long actual path and one Violet marker (10.0s)
+  ok 29 [chromium] › tests\sound.spec.ts:268:1 › eight route returns release every previous context and do not accumulate Sound DOM (21.0s)
+  ok 32 [chromium] › tests\sound.spec.ts:336:1 › P2I: B pause settles all work; natural end/replay fades back from the outgoing contact position (6.7s)
+  ok 33 [chromium] › tests\sound.spec.ts:351:1 › P2I: B reduced motion is a static contact with real audio and zero analysis (2.4s)
+  ok 34 [chromium] › tests\sound.spec.ts:361:30 › P2I: 320px B has an independent visible mark and no input or scroll trap (5.5s)
+  ok 35 [chromium] › tests\sound.spec.ts:361:30 › P2I: 390px B has an independent visible mark and no input or scroll trap (5.4s)
+  ok 36 [chromium] › tests\sound.spec.ts:379:1 › P2I: B missing analyser/failing source never substitutes an animated contact for playback (5.3s)
+  ok 37 [chromium] › tests\sound.spec.ts:388:1 › P2I: B teardown removes old contact SVGs and hidden/reduced changes stop work (3.6s)
+(node:33660) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1680) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 38 [webkit] › tests\sound.spec.ts:23:3 › 320: preserved first stages, bounded line release and independent SOUND composition (10.0s)
+  ok 39 [webkit] › tests\sound.spec.ts:23:3 › 390: preserved first stages, bounded line release and independent SOUND composition (10.0s)
+  ok 41 [webkit] › tests\sound.spec.ts:23:3 › 1366: preserved first stages, bounded line release and independent SOUND composition (8.2s)
+  ok 40 [webkit] › tests\sound.spec.ts:23:3 › 768: preserved first stages, bounded line release and independent SOUND composition (9.1s)
+  ok 42 [webkit] › tests\sound.spec.ts:23:3 › 1440: preserved first stages, bounded line release and independent SOUND composition (7.9s)
+  ok 43 [webkit] › tests\sound.spec.ts:23:3 › 1920: preserved first stages, bounded line release and independent SOUND composition (8.4s)
+  x  45 [webkit] › tests\sound.spec.ts:55:1 › pause damps to the exact straight pair, stops work and resumes the real media position (5.7s)
+(node:14796) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  44 [webkit] › tests\sound.spec.ts:40:1 › no audio request or context before activation; keyboard starts actual analysed playback (8.9s)
+(node:10988) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 47 [webkit] › tests\sound.spec.ts:77:1 › reverse/offscreen pauses, becomes idle work and never resumes without another gesture (5.9s)
+  x  48 [webkit] › tests\sound.spec.ts:86:1 › rapid toggles and media seeks do not leave duplicate graphs or false playback (4.3s)
+(node:29460) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  49 [webkit] › tests\sound.spec.ts:97:1 › MENU/Esc restores focus; counterpart navigation releases media and context (6.5s)
+(node:30988) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 46 [webkit] › tests\sound.spec.ts:68:1 › the complete real excerpt ends naturally and REPLAY starts from the beginning (21.5s)
+  ok 50 [webkit] › tests\sound.spec.ts:110:1 › reduced motion keeps ordered narrative and real listening with static lines (2.3s)
+  ok 52 [webkit] › tests\sound.spec.ts:129:1 › 320px enlarged text has readable controls and no horizontal trap (1.8s)
+  ok 51 [webkit] › tests\sound.spec.ts:119:1 › live reduced preference preserves truthful playback through static-layout reflow (3.7s)
+  ok 53 [webkit] › tests\sound.spec.ts:137:1 › unavailable source is disabled and truthful, with no fake clock (2.5s)
+  ok 55 [webkit] › tests\sound.spec.ts:150:1 › cancel while loading remains paused after delayed bytes arrive (3.7s)
+  x  54 [webkit] › tests\sound.spec.ts:143:1 › media failure is announced and retry never invents playback (7.8s)
+  ok 56 [webkit] › tests\sound.spec.ts:159:1 › missing Web Audio capability keeps real playback with an explicit static visual (2.9s)
+(node:11980) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 57 [webkit] › tests\sound.spec.ts:173:1 › a technically present but unapproved source cannot activate media (2.5s)
+  ok 58 [webkit] › tests\sound.spec.ts:165:1 › direct anchor and rapid reverse preserve the single line pair without starting audio (4.6s)
+  ok 60 [webkit] › tests\sound.spec.ts:188:1 › failed instrument imagery preserves static narrative followed by usable SOUND (2.1s)
+  x  59 [webkit] › tests\sound.spec.ts:179:1 › hidden-document event pauses and suspends; visibility return never autoplays (8.0s)
+(node:32404) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 62 [webkit] › tests\sound.spec.ts:206:1 › resizing active playback to mobile settles every old desktop sample on pause (4.0s)
+  x  63 [webkit] › tests\sound.spec.ts:215:1 › replay reuses buffered media and its single graph instead of issuing another load (3.4s)
+(node:31992) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 64 [webkit] › tests\sound.spec.ts:227:1 › line friction rejects DC drift, retains current points and damps after interruption (1.4s)
+  x  61 [webkit] › tests\sound.spec.ts:195:1 › a stalled source times out truthfully and leaves no background analysis (16.6s)
+(node:12196) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 65 [webkit] › tests\sound.spec.ts:252:1 › 320px KO and EN captions and all listening states have distinct readable space (6.0s)
+  x  67 [webkit] › tests\sound.spec.ts:282:1 › P2I: A/B and tail comparison preserves media position, graph, focus and the original line nodes (7.3s)
+(node:28416) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  68 [webkit] › tests\sound.spec.ts:308:1 › P2I: smooth B uses a wide trajectory, long actual path and one Violet marker (9.6s)
+(node:3752) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  66 [webkit] › tests\sound.spec.ts:268:1 › eight route returns release every previous context and do not accumulate Sound DOM (26.3s)
+(node:34584) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  69 [webkit] › tests\sound.spec.ts:336:1 › P2I: B pause settles all work; natural end/replay fades back from the outgoing contact position (8.4s)
+(node:33768) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 70 [webkit] › tests\sound.spec.ts:351:1 › P2I: B reduced motion is a static contact with real audio and zero analysis (2.6s)
+  x  72 [webkit] › tests\sound.spec.ts:361:30 › P2I: 390px B has an independent visible mark and no input or scroll trap (6.9s)
+  x  71 [webkit] › tests\sound.spec.ts:361:30 › P2I: 320px B has an independent visible mark and no input or scroll trap (6.9s)
+(node:34256) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34792) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 74 [webkit] › tests\sound.spec.ts:388:1 › P2I: B teardown removes old contact SVGs and hidden/reduced changes stop work (4.3s)
+  x  73 [webkit] › tests\sound.spec.ts:379:1 › P2I: B missing analyser/failing source never substitutes an animated contact for playback (10.5s)
+
+
+  1) [chromium] › tests\sound.spec.ts:68:1 › the complete real excerpt ends naturally and REPLAY starts from the beginning 
+
+    Error: browserContext.close: ENOENT: no such file or directory, open 'C:\choyounkyoung-v2\test-results\sound\.playwright-artifacts-0\traces\b1dd227664c7ce34191e-94cb3077786e6c796281-recording8.trace'
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sound\sound-the-complete-real-ex-ab11c-Y-starts-from-the-beginning-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sound\sound-the-complete-real-ex-ab11c-Y-starts-from-the-beginning-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sound\sound-the-complete-real-ex-ab11c-Y-starts-from-the-beginning-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sound\sound-the-complete-real-ex-ab11c-Y-starts-from-the-beginning-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests\sound.spec.ts:97:1 › MENU/Esc restores focus; counterpart navigation releases media and context 
+
+    Error: browserContext.close: ENOENT: no such file or directory, open 'C:\choyounkyoung-v2\test-results\sound\.playwright-artifacts-1\traces\b1dd227664c7ce34191e-68d15acbc7d4e3d84ce8-recording12.trace'
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sound\sound-MENU-Esc-restores-fo-9dc3a--releases-media-and-context-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sound\sound-MENU-Esc-restores-fo-9dc3a--releases-media-and-context-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sound\sound-MENU-Esc-restores-fo-9dc3a--releases-media-and-context-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sound\sound-MENU-Esc-restores-fo-9dc3a--releases-media-and-context-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [webkit] › tests\sound.spec.ts:40:1 › no audio request or context before activation; keyboard starts actual analysed playback 
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0.05
+    Received:   0
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      47 |   await trigger(page).press('Enter');await expect(root(page)).toHaveAttribute('data-audio-state','playing')
+      48 |   await expect.poll(()=>audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeGreaterThan(.5)
+    > 49 |   await expect.poll(async()=>Number(await root(page).getAttribute('data-audio-energy'))).toBeGreaterThan(.05)
+         |                                                                                          ^
+      50 |   expect(payloads.length).toBeGreaterThan(0);expect(await page.locator('.sound-thread path').first().getAttribute('d')).not.toBe('M0 3H1000')
+      51 |   const ys=await page.locator('.sound-thread path').first().evaluate(el=>[...el.getAttribute('d')!.matchAll(/L[\d.]+ ([\d.]+)/g)].map(m=>Number(m[1])))
+      52 |   expect(Math.max(...ys)).toBeLessThanOrEqual(3.63);expect(Math.min(...ys)).toBeGreaterThanOrEqual(2.37)
+        at C:\choyounkyoung-v2\tests\sound.spec.ts:49:90
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sound\sound-no-audio-request-or--4ca51-ts-actual-analysed-playback-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sound\sound-no-audio-request-or--4ca51-ts-actual-analysed-playback-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sound\sound-no-audio-request-or--4ca51-ts-actual-analysed-playback-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sound\sound-no-audio-request-or--4ca51-ts-actual-analysed-playback-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [webkit] › tests\sound.spec.ts:55:1 › pause damps to the exact straight pair, stops work and resumes the real media position 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('.sound-experience')
+    Expected: "0.0000"
+    Received: "0"
+    Timeout:  2000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('.sound-experience') with timeout 2000ms
+      - waiting for locator('.sound-experience')
+        19 × locator resolved to <div data-audio-energy="0" data-sound-ready="true" class="sound-experience" data-analysis-frames="0" data-sound-static="false" data-audio-state="paused" data-contact-trail="long" data-sound-releasing="true" data-contact-activity="bold" data-sound-visual="line-only" data-contact-violet="electric" data-audio-context="not-created">…</div>
+           - unexpected value "0"
+
+
+      57 |   await expect(root(page)).toHaveAttribute('data-audio-state','paused')
+      58 |   const at=await audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)
+    > 59 |   await expect(root(page)).toHaveAttribute('data-audio-energy','0.0000',{timeout:2000})
+         |                            ^
+      60 |   await expect(page.locator('.sound-thread path').first()).toHaveAttribute('d','M0 3H1000')
+      61 |   const count=await root(page).getAttribute('data-analysis-frames');await page.waitForTimeout(400)
+      62 |   expect(await root(page).getAttribute('data-analysis-frames')).toBe(count)
+        at C:\choyounkyoung-v2\tests\sound.spec.ts:59:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sound\sound-pause-damps-to-the-e-cf49b-mes-the-real-media-position-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sound\sound-pause-damps-to-the-e-cf49b-mes-the-real-media-position-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sound\sound-pause-damps-to-the-e-cf49b-mes-the-real-media-position-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sound\sound-pause-damps-to-the-e-cf49b-mes-the-real-media-position-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [webkit] › tests\sound.spec.ts:86:1 › rapid toggles and media seeks do not leave duplicate graphs or false playback 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1
+    Received: 0
+
+      91 |   await expect(root(page)).toHaveAttribute('data-audio-state','paused')
+      92 |   for(let i=0;i<4;i++){await trigger(page).click();await trigger(page).click()}
+    > 93 |   await expect(root(page)).toHaveAttribute('data-audio-state','paused');expect(await page.evaluate(()=>window.soundContexts.length)).toBe(1)
+         |                                                                                                                                      ^
+      94 |   await listen(page);await expect.poll(()=>audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeGreaterThan(2.1)
+      95 | })
+      96 |
+        at C:\choyounkyoung-v2\tests\sound.spec.ts:93:134
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sound\sound-rapid-toggles-and-me-56160-te-graphs-or-false-playback-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sound\sound-rapid-toggles-and-me-56160-te-graphs-or-false-playback-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sound\sound-rapid-toggles-and-me-56160-te-graphs-or-false-playback-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sound\sound-rapid-toggles-and-me-56160-te-graphs-or-false-playback-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [webkit] › tests\sound.spec.ts:97:1 › MENU/Esc restores focus; counterpart navigation releases media and context 
+
+    Error: page.evaluate: TypeError: undefined is not an object (evaluating 'window.soundContexts[0].state')
+
+      103 |   await menu.click();await expect(page.locator('dialog')).toHaveAttribute('data-phase','open');await page.getByRole('link',{name:'English',exact:true}).click()
+      104 |   await expect(page).toHaveURL(/\/en\/?$/);await expect(page.locator('html')).toHaveAttribute('lang','en')
+    > 105 |   await expect.poll(()=>page.evaluate(()=>window.soundContexts[0].state)).toBe('closed')
+          |                              ^
+      106 |   expect(await page.evaluate(()=>({paused:window.retainedMedia.paused,src:window.retainedMedia.getAttribute('src')}))).toEqual({paused:true,src:null})
+      107 |   await seek(page);await expect(trigger(page)).toHaveAccessibleName('Play preview');await expect(root(page)).toHaveAttribute('data-audio-state','idle')
+      108 | })
+        at C:\choyounkyoung-v2\tests\sound.spec.ts:105:30
+        at C:\choyounkyoung-v2\tests\sound.spec.ts:105:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sound\sound-MENU-Esc-restores-fo-9dc3a--releases-media-and-context-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sound\sound-MENU-Esc-restores-fo-9dc3a--releases-media-and-context-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sound\sound-MENU-Esc-restores-fo-9dc3a--releases-media-and-context-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sound\sound-MENU-Esc-restores-fo-9dc3a--releases-media-and-context-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [webkit] › tests\sound.spec.ts:143:1 › media failure is announced and retry never invents playback 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('.sound-experience')
+    Expected: "error"
+    Received: "playing"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('.sound-experience') with timeout 5000ms
+      - waiting for locator('.sound-experience')
+        2 × locator resolved to <div data-audio-energy="0" data-sound-ready="true" class="sound-experience" data-analysis-frames="0" data-sound-static="false" data-contact-trail="long" data-audio-state="loading" data-sound-releasing="true" data-contact-activity="bold" data-sound-visual="line-only" data-contact-violet="electric" data-audio-context="not-created">…</div>
+          - unexpected value "loading"
+        11 × locator resolved to <div data-audio-energy="0" data-sound-ready="true" class="sound-experience" data-analysis-frames="0" data-sound-static="false" data-contact-trail="long" data-audio-state="playing" data-sound-releasing="true" data-contact-activity="bold" data-sound-visual="line-only" data-contact-violet="electric" data-audio-context="not-created">…</div>
+           - unexpected value "playing"
+
+
+      143 | test('media failure is announced and retry never invents playback',async({page})=>{
+      144 |   await page.route('**/*.m4a',route=>route.abort());await ready(page);await seek(page);await trigger(page).click()
+    > 145 |   await expect(root(page)).toHaveAttribute('data-audio-state','error');await expect(page.getByRole('status')).toContainText('재생할 수 없습니다')
+          |                            ^
+      146 |   expect(await audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBe(0)
+      147 |   await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','error')
+      148 | })
+        at C:\choyounkyoung-v2\tests\sound.spec.ts:145:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sound\sound-media-failure-is-ann-0ea48-etry-never-invents-playback-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sound\sound-media-failure-is-ann-0ea48-etry-never-invents-playback-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sound\sound-media-failure-is-ann-0ea48-etry-never-invents-playback-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sound\sound-media-failure-is-ann-0ea48-etry-never-invents-playback-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [webkit] › tests\sound.spec.ts:179:1 › hidden-document event pauses and suspends; visibility return never autoplays 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('.sound-experience')
+    Expected: "suspended"
+    Received: "not-created"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('.sound-experience') with timeout 5000ms
+      - waiting for locator('.sound-experience')
+        14 × locator resolved to <div data-audio-energy="0" data-sound-ready="true" class="sound-experience" data-analysis-frames="0" data-sound-static="false" data-audio-state="paused" data-contact-trail="long" data-sound-releasing="true" data-contact-activity="bold" data-sound-visual="line-only" data-contact-violet="electric" data-audio-context="not-created">…</div>
+           - unexpected value "not-created"
+
+
+      180 |   await ready(page);await seek(page);await listen(page)
+      181 |   await page.evaluate(()=>{Object.defineProperty(document,'hidden',{value:true,configurable:true});document.dispatchEvent(new Event('visibilitychange'))})
+    > 182 |   await expect(root(page)).toHaveAttribute('data-audio-state','paused');await expect(root(page)).toHaveAttribute('data-audio-context','suspended')
+          |                                                                                                  ^
+      183 |   const count=await root(page).getAttribute('data-analysis-frames');await page.waitForTimeout(250);expect(await root(page).getAttribute('data-analysis-frames')).toBe(count)
+      184 |   await page.evaluate(()=>{Object.defineProperty(document,'hidden',{value:false,configurable:true});document.dispatchEvent(new Event('visibilitychange'))})
+      185 |   await expect(root(page)).toHaveAttribute('data-audio-state','paused')
+        at C:\choyounkyoung-v2\tests\sound.spec.ts:182:98
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sound\sound-hidden-document-even-d5a5e-lity-return-never-autoplays-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sound\sound-hidden-document-even-d5a5e-lity-return-never-autoplays-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sound\sound-hidden-document-even-d5a5e-lity-return-never-autoplays-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sound\sound-hidden-document-even-d5a5e-lity-return-never-autoplays-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9) [webkit] › tests\sound.spec.ts:195:1 › a stalled source times out truthfully and leaves no background analysis 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('.sound-experience')
+    Expected: "error"
+    Received: "playing"
+    Timeout:  14000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('.sound-experience') with timeout 14000ms
+      - waiting for locator('.sound-experience')
+        2 × locator resolved to <div data-audio-energy="0" data-sound-ready="true" class="sound-experience" data-analysis-frames="0" data-sound-static="false" data-contact-trail="long" data-audio-state="loading" data-sound-releasing="true" data-contact-activity="bold" data-sound-visual="line-only" data-contact-violet="electric" data-audio-context="not-created">…</div>
+          - unexpected value "loading"
+        29 × locator resolved to <div data-audio-energy="0" data-sound-ready="true" class="sound-experience" data-analysis-frames="0" data-sound-static="false" data-contact-trail="long" data-audio-state="playing" data-sound-releasing="true" data-contact-activity="bold" data-sound-visual="line-only" data-contact-violet="electric" data-audio-context="not-created">…</div>
+           - unexpected value "playing"
+
+
+      198 |   try {
+      199 |     await ready(page);await seek(page);await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','loading')
+    > 200 |     await expect(root(page)).toHaveAttribute('data-audio-state','error',{timeout:14000})
+          |                              ^
+      201 |     expect(await audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBe(0)
+      202 |     await expect(root(page)).toHaveAttribute('data-audio-context','suspended')
+      203 |   } finally { release() }
+        at C:\choyounkyoung-v2\tests\sound.spec.ts:200:30
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sound\sound-a-stalled-source-tim-1e0b1-aves-no-background-analysis-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sound\sound-a-stalled-source-tim-1e0b1-aves-no-background-analysis-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sound\sound-a-stalled-source-tim-1e0b1-aves-no-background-analysis-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sound\sound-a-stalled-source-tim-1e0b1-aves-no-background-analysis-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  10) [webkit] › tests\sound.spec.ts:215:1 › replay reuses buffered media and its single graph instead of issuing another load 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1
+    Received: 0
+
+      221 |   const loads=await audio(page).getAttribute('data-loads')
+      222 |   await listen(page);expect(await audio(page).getAttribute('data-loads')).toBe(loads)
+    > 223 |   expect(await page.evaluate(()=>window.soundContexts.length)).toBe(1)
+          |                                                                ^
+      224 |   expect(await audio(page).evaluate(el=>(el as HTMLAudioElement).currentTime)).toBeLessThan(1)
+      225 | })
+      226 |
+        at C:\choyounkyoung-v2\tests\sound.spec.ts:223:64
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sound\sound-replay-reuses-buffer-b9cd1-ead-of-issuing-another-load-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sound\sound-replay-reuses-buffer-b9cd1-ead-of-issuing-another-load-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sound\sound-replay-reuses-buffer-b9cd1-ead-of-issuing-another-load-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sound\sound-replay-reuses-buffer-b9cd1-ead-of-issuing-another-load-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  11) [webkit] › tests\sound.spec.ts:268:1 › eight route returns release every previous context and do not accumulate Sound DOM 
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 1
+    Received:    1691.99154
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      15 |     const el=e as HTMLElement, travel=el.offsetHeight-el.querySelector<HTMLElement>('.poster-stage')!.offsetHeight
+      16 |     return Math.abs(Number(el.dataset.targetProgress)-p)*travel - travel*.000005
+    > 17 |   },p)).toBeLessThanOrEqual(1)
+         |         ^
+      18 |   await expect.poll(()=>page.locator('.poster-scene').evaluate(e=>(e as HTMLElement).dataset.progress===(e as HTMLElement).dataset.targetProgress)).toBe(true)
+      19 | }
+      20 | async function listen(page: Page) { await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','playing');await expect.poll(()=>audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeGreaterThan(.1) }
+        at seek (C:\choyounkyoung-v2\tests\sound.spec.ts:17:9)
+        at C:\choyounkyoung-v2\tests\sound.spec.ts:272:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sound\sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sound\sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sound\sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sound\sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  12) [webkit] › tests\sound.spec.ts:282:1 › P2I: A/B and tail comparison preserves media position, graph, focus and the original line nodes 
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0.3
+    Received:   0
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      289 |   await page.getByRole('radio',{name:'B · Bow contact',exact:true}).check()
+      290 |   await expect(root(page)).toHaveAttribute('data-sound-visual','bow-contact')
+    > 291 |   await expect.poll(()=>page.locator('.bow-contact').evaluate(el=>Number((el as SVGElement).style.opacity))).toBeGreaterThan(.3)
+          |                                                                                                              ^
+      292 |   await page.getByLabel('Tail',{exact:true}).selectOption('medium')
+      293 |   await expect(root(page)).toHaveAttribute('data-contact-trail','medium')
+      294 |   for(const tail of ['short','long','extra-long']){await page.getByLabel('Tail',{exact:true}).selectOption(tail);await expect(root(page)).toHaveAttribute('data-contact-trail',tail)}
+        at C:\choyounkyoung-v2\tests\sound.spec.ts:291:110
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sound\sound-P2I-A-B-and-tail-com-1d6ab-and-the-original-line-nodes-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sound\sound-P2I-A-B-and-tail-com-1d6ab-and-the-original-line-nodes-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sound\sound-P2I-A-B-and-tail-com-1d6ab-and-the-original-line-nodes-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sound\sound-P2I-A-B-and-tail-com-1d6ab-and-the-original-line-nodes-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  13) [webkit] › tests\sound.spec.ts:308:1 › P2I: smooth B uses a wide trajectory, long actual path and one Violet marker 
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 400
+    Received:   NaN
+
+      320 |     return {values,y:els.map(e=>parseFloat(e.style.top)),analysis:Number(document.querySelector<HTMLElement>('.sound-experience')!.dataset.analysisFrames)}
+      321 |   })
+    > 322 |   expect(Math.max(...points.values.map(p=>p.x))-Math.min(...points.values.map(p=>p.x))).toBeGreaterThan(400)
+          |                                                                                         ^
+      323 |   expect(Math.min(...points.values.map(p=>p.y))).toBeLessThan(points.y[0]-40)
+      324 |   expect(Math.max(...points.values.map(p=>p.y))).toBeGreaterThan(points.y[1])
+      325 |   expect(Math.max(...points.values.map(p=>p.tail))).toBeGreaterThan(65)
+        at C:\choyounkyoung-v2\tests\sound.spec.ts:322:89
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sound\sound-P2I-smooth-B-uses-a--cc70f--path-and-one-Violet-marker-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sound\sound-P2I-smooth-B-uses-a--cc70f--path-and-one-Violet-marker-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sound\sound-P2I-smooth-B-uses-a--cc70f--path-and-one-Violet-marker-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sound\sound-P2I-smooth-B-uses-a--cc70f--path-and-one-Violet-marker-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  14) [webkit] › tests\sound.spec.ts:336:1 › P2I: B pause settles all work; natural end/replay fades back from the outgoing contact position 
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0.2
+    Received:   0
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      341 |   await page.waitForTimeout(400);expect(await root(page).getAttribute('data-analysis-frames')).toBe(frames)
+      342 |   expect(await page.locator('.bow-contact').getAttribute('data-y')).toBe(pausedY)
+    > 343 |   await listen(page);await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.2)
+          |                                                                                                                               ^
+      344 |   await audio(page).evaluate(e=>{const a=e as HTMLAudioElement;a.currentTime=a.duration-.15})
+      345 |   await expect(root(page)).toHaveAttribute('data-audio-state','ended');await expect(page.locator('.bow-contact')).toHaveCSS('opacity','0')
+      346 |   await listen(page)
+        at C:\choyounkyoung-v2\tests\sound.spec.ts:343:127
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sound\sound-P2I-B-pause-settles--0050f-e-outgoing-contact-position-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sound\sound-P2I-B-pause-settles--0050f-e-outgoing-contact-position-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sound\sound-P2I-B-pause-settles--0050f-e-outgoing-contact-position-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sound\sound-P2I-B-pause-settles--0050f-e-outgoing-contact-position-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  15) [webkit] › tests\sound.spec.ts:361:30 › P2I: 320px B has an independent visible mark and no input or scroll trap 
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0.3
+    Received:   0
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      361 | for(const width of [320,390])test(`P2I: ${width}px B has an independent visible mark and no input or scroll trap`,async({page})=>{
+      362 |   await page.setViewportSize({width,height:width===320?568:844});await ready(page,'/en/?compare=b');await seek(page);await listen(page)
+    > 363 |   await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.3)
+          |                                                                                                            ^
+      364 |   const mark=(await page.locator('.contact-head').boundingBox())!
+      365 |   expect(mark.width).toBeGreaterThanOrEqual(3.5);expect(mark.height).toBeGreaterThanOrEqual(3.5);expect(mark.x).toBeGreaterThan(45);expect(mark.y).toBeGreaterThan(145)
+      366 |   await expect(page.locator('.contact-head')).toHaveAttribute('rx','4');await expect(page.locator('.contact-head')).toHaveAttribute('ry','1.8')
+        at C:\choyounkyoung-v2\tests\sound.spec.ts:363:108
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sound\sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sound\sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sound\sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sound\sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  16) [webkit] › tests\sound.spec.ts:361:30 › P2I: 390px B has an independent visible mark and no input or scroll trap 
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0.3
+    Received:   0
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      361 | for(const width of [320,390])test(`P2I: ${width}px B has an independent visible mark and no input or scroll trap`,async({page})=>{
+      362 |   await page.setViewportSize({width,height:width===320?568:844});await ready(page,'/en/?compare=b');await seek(page);await listen(page)
+    > 363 |   await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.3)
+          |                                                                                                            ^
+      364 |   const mark=(await page.locator('.contact-head').boundingBox())!
+      365 |   expect(mark.width).toBeGreaterThanOrEqual(3.5);expect(mark.height).toBeGreaterThanOrEqual(3.5);expect(mark.x).toBeGreaterThan(45);expect(mark.y).toBeGreaterThan(145)
+      366 |   await expect(page.locator('.contact-head')).toHaveAttribute('rx','4');await expect(page.locator('.contact-head')).toHaveAttribute('ry','1.8')
+        at C:\choyounkyoung-v2\tests\sound.spec.ts:363:108
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sound\sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sound\sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sound\sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sound\sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  17) [webkit] › tests\sound.spec.ts:379:1 › P2I: B missing analyser/failing source never substitutes an animated contact for playback 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('.sound-experience')
+    Expected: "error"
+    Received: "playing"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('.sound-experience') with timeout 5000ms
+      - waiting for locator('.sound-experience')
+        - locator resolved to <div data-audio-energy="0" data-sound-ready="true" class="sound-experience" data-analysis-frames="0" data-sound-static="false" data-contact-trail="long" data-audio-state="loading" data-sound-releasing="true" data-contact-activity="bold" data-contact-violet="electric" data-sound-visual="bow-contact" data-audio-context="not-created">…</div>
+        - unexpected value "loading"
+        13 × locator resolved to <div data-audio-energy="0" data-sound-ready="true" class="sound-experience" data-analysis-frames="0" data-sound-static="false" data-contact-trail="long" data-audio-state="playing" data-sound-releasing="true" data-contact-activity="bold" data-contact-violet="electric" data-sound-visual="bow-contact" data-audio-context="not-created">…</div>
+           - unexpected value "playing"
+
+
+      383 |   await expect(root(page)).toHaveAttribute('data-analysis-frames','0')
+      384 |   await page.route('**/*.m4a',route=>route.abort());await ready(page,'/?compare=b');await seek(page);await trigger(page).click()
+    > 385 |   await expect(root(page)).toHaveAttribute('data-audio-state','error');await expect(page.locator('.bow-contact')).toHaveCSS('opacity','0')
+          |                            ^
+      386 | })
+      387 |
+      388 | test('P2I: B teardown removes old contact SVGs and hidden/reduced changes stop work',async({page})=>{
+        at C:\choyounkyoung-v2\tests\sound.spec.ts:385:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sound\sound-P2I-B-missing-analys-ec8dc-imated-contact-for-playback-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sound\sound-P2I-B-missing-analys-ec8dc-imated-contact-for-playback-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\sound\sound-P2I-B-missing-analys-ec8dc-imated-contact-for-playback-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\sound\sound-P2I-B-missing-analys-ec8dc-imated-contact-for-playback-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  17 failed
+    [chromium] › tests\sound.spec.ts:68:1 › the complete real excerpt ends naturally and REPLAY starts from the beginning 
+    [chromium] › tests\sound.spec.ts:97:1 › MENU/Esc restores focus; counterpart navigation releases media and context 
+    [webkit] › tests\sound.spec.ts:40:1 › no audio request or context before activation; keyboard starts actual analysed playback 
+    [webkit] › tests\sound.spec.ts:55:1 › pause damps to the exact straight pair, stops work and resumes the real media position 
+    [webkit] › tests\sound.spec.ts:86:1 › rapid toggles and media seeks do not leave duplicate graphs or false playback 
+    [webkit] › tests\sound.spec.ts:97:1 › MENU/Esc restores focus; counterpart navigation releases media and context 
+    [webkit] › tests\sound.spec.ts:143:1 › media failure is announced and retry never invents playback 
+    [webkit] › tests\sound.spec.ts:179:1 › hidden-document event pauses and suspends; visibility return never autoplays 
+    [webkit] › tests\sound.spec.ts:195:1 › a stalled source times out truthfully and leaves no background analysis 
+    [webkit] › tests\sound.spec.ts:215:1 › replay reuses buffered media and its single graph instead of issuing another load 
+    [webkit] › tests\sound.spec.ts:268:1 › eight route returns release every previous context and do not accumulate Sound DOM 
+    [webkit] › tests\sound.spec.ts:282:1 › P2I: A/B and tail comparison preserves media position, graph, focus and the original line nodes 
+    [webkit] › tests\sound.spec.ts:308:1 › P2I: smooth B uses a wide trajectory, long actual path and one Violet marker 
+    [webkit] › tests\sound.spec.ts:336:1 › P2I: B pause settles all work; natural end/replay fades back from the outgoing contact position 
+    [webkit] › tests\sound.spec.ts:361:30 › P2I: 320px B has an independent visible mark and no input or scroll trap 
+    [webkit] › tests\sound.spec.ts:361:30 › P2I: 390px B has an independent visible mark and no input or scroll trap 
+    [webkit] › tests\sound.spec.ts:379:1 › P2I: B missing analyser/failing source never substitutes an animated contact for playback 
+  57 passed (4.2m)

@@ -29,7 +29,7 @@
 .continues-to-sound .instrument-index { translate: 0 calc(var(--sound-type-exit, 0) * 160px); }
 [data-sound-releasing="true"] .keyword-back span:nth-child(4) { clip-path: inset(0 0 calc(var(--sound-type-exit, 0) * 100%) 0) !important; }
 .sound-thread { position: absolute; left: 0; top: -2.5px; inline-size: 100%; block-size: 6px; overflow: visible; display: none; }
-.sound-thread path { fill: none; stroke: var(--color-accent); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.sound-thread path { fill: none; stroke: var(--color-charcoal); stroke-opacity: .72; stroke-width: 1; vector-effect: non-scaling-stroke; }
 [data-sound-ready="true"] .poster-lines .tension-line { background: transparent; }
 [data-sound-ready="true"] .sound-thread { display: block; }
 .sound-static-lines { display: none; }
@@ -62,7 +62,7 @@
 [data-sound-static="true"] .sound-surface { position: relative; }
 [data-sound-static="true"] .sound-anchor { top: 0; }
 [data-sound-static="true"] .sound-static-lines { display: block; position: absolute; left: 6.5%; right: 6.5%; top: 42.5%; }
-.sound-static-lines span { display: block; height: 1px; background: var(--color-accent); }
+.sound-static-lines span { display: block; height: 1px; background: var(--color-charcoal); opacity: .72; }
 .sound-static-lines span + span { margin-block-start: 18px; }
 @media (max-width:639px) {
   [data-sound-static="true"] .sound-static-lines { top: 37%; left: 7.5%; right: 7.5%; }
@@ -77,3 +77,9 @@
   .listen-mask > span, .listen-mark { transform: none !important; }
   .listen-echo { visibility: hidden; }
 }
+.bow-contact { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.contact-head, .contact-tail { fill: currentColor; }
+[data-sound-ready="false"] .bow-contact, [data-sound-static="true"] .bow-contact { display: none; }
+.sound-static-contact { display: none; position: absolute; left: var(--contact-anchor); top: calc((19px - var(--contact-height-desktop)) / 2); width: var(--contact-width-desktop); height: var(--contact-height-desktop); border-radius: var(--contact-radius-desktop); background: var(--contact-color); opacity: var(--contact-presence-desktop); }
+[data-sound-visual="bow-contact"] .sound-static-contact { display: block; }
+@media (max-width:639px) { .sound-static-contact { top: calc((13px - var(--contact-height-mobile)) / 2); width: var(--contact-width-mobile); height: var(--contact-height-mobile); border-radius: var(--contact-radius-mobile); opacity: var(--contact-presence-mobile); } }

@@ -1,0 +1,1347 @@
+{
+  "task": "P2I SOUND Bow Contact Choreography + V2 Experience Principles",
+  "date": "2026-09-07",
+  "baseline": "ba801448497b31c78b8fb749f73f02d23b7e0799",
+  "branch": "codex/p2i-sound-bow-contact",
+  "delivery": "LOCAL / UNCOMMITTED / NOT PUSHED / NOT DEPLOYED",
+  "status": "IMPLEMENTED / CHROMIUM VERIFIED / REVIEW READY WITH QA GAPS / FULL FAIL / STOP",
+  "validation": {
+    "typeCheck": "PASS",
+    "lint": "PASS",
+    "fast": "PASS: 38 existing Node contracts + root build",
+    "motionContracts": {
+      "passed": 6,
+      "failed": 0
+    },
+    "rootBuild": "PASS",
+    "projectBuild": "PASS",
+    "routing": {
+      "passed": 84,
+      "failed": 0
+    },
+    "designSystem": {
+      "passed": 10,
+      "failed": 1,
+      "issue": "existing 390px delayed-font CLS .160021406 exceeds .1"
+    },
+    "sound": {
+      "chromium": {
+        "passed": 37,
+        "failed": 0
+      },
+      "webkit": {
+        "passed": 21,
+        "failed": 16
+      }
+    },
+    "full": "FAIL at Design System; downstream navigation/Hero/Haegeum not rerun by this Full. Sound run separately, sequentially.",
+    "initialConcurrent": "57 pass /17 fail; includes two trace ENOENT collisions. Full initial artifacts preserved; not final Sound outcome.",
+    "skipped": 0,
+    "retries": 0,
+    "documentation": {
+      "documents": 15,
+      "localLinks": 403,
+      "issues": []
+    },
+    "nativeSafari": "NOT TESTED for new choreography",
+    "physicalMobileATthermal": "NOT TESTED"
+  },
+  "preservation": {
+    "frozen": [
+      {
+        "file": "evidence/p2h/README.md",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/audio-review.json",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/capture-states.json",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/damping.json",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/delivery.json",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/desktop-completed.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/desktop-damping.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/desktop-full.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/desktop-hover.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/desktop-idle.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/desktop-initial.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/desktop-paused.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/desktop-playing.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/desktop-real-time.webm",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/desktop-release-early.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/desktop-release-late.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/desktop-release-mid.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/full-gate.txt",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/initial-comparison.json",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/lab-build-guard.txt",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/lab-visibility.json",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/laptop-idle.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/mobile-320-full.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/mobile-320-idle.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/mobile-320-playing.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/mobile-320-release.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/mobile-390-full.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/mobile-390-idle.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/mobile-390-playing.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/mobile-390-release.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/mobile-en-idle.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/mobile-real-time.webm",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/performance.json",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/reduced-desktop-playing.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/reduced-desktop.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/reduced-mobile-playing.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/reduced-mobile.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/safari-baseline-paused.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/safari-baseline-playing.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/safari-baseline-playing.txt",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/safari-completed.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/safari-device-qa.md",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/safari-initial.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/safari-keyboard-focus.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/safari-keyboard-focus.txt",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/safari-paused.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/safari-paused.txt",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/safari-playing.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/safari-playing.txt",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/safari-release.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/safari-replay.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/sound-test-results.json",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/tablet-idle.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/text-200.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/verification.json",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/video-timeline.json",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/video-verification.json",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/webkit-idle.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/webkit-playing.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/webkit-release.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2h/wide-idle.png",
+        "unchanged": true
+      },
+      {
+        "file": "labs/design-system/index.html",
+        "unchanged": true
+      },
+      {
+        "file": "labs/design-system/lab.css",
+        "unchanged": true
+      },
+      {
+        "file": "package-lock.json",
+        "unchanged": true
+      },
+      {
+        "file": "public/assets/.gitkeep",
+        "unchanged": true
+      },
+      {
+        "file": "public/licenses/cormorant-garamond-OFL.txt",
+        "unchanged": true
+      },
+      {
+        "file": "public/licenses/noto-sans-kr-OFL.txt",
+        "unchanged": true
+      },
+      {
+        "file": "public/licenses/noto-serif-kr-OFL.txt",
+        "unchanged": true
+      },
+      {
+        "file": "public/spike/path-check.svg",
+        "unchanged": true
+      },
+      {
+        "file": "src/haegeum/HaegeumExperience.tsx",
+        "unchanged": true
+      },
+      {
+        "file": "src/haegeum/assets.ts",
+        "unchanged": true
+      },
+      {
+        "file": "src/haegeum/assets/haegeum-editorial-ai.webp",
+        "unchanged": true
+      },
+      {
+        "file": "src/haegeum/assets/haegeum-playing.webp",
+        "unchanged": true
+      },
+      {
+        "file": "src/haegeum/choreography.ts",
+        "unchanged": true
+      },
+      {
+        "file": "src/haegeum/haegeum.css",
+        "unchanged": true
+      },
+      {
+        "file": "src/hero/BoldHero.tsx",
+        "unchanged": true
+      },
+      {
+        "file": "src/hero/assets/portrait-initial-640.webp",
+        "unchanged": true
+      },
+      {
+        "file": "src/hero/assets/portrait-initial.webp",
+        "unchanged": true
+      },
+      {
+        "file": "src/hero/assets/portrait-instrument-640.webp",
+        "unchanged": true
+      },
+      {
+        "file": "src/hero/assets/portrait-instrument.webp",
+        "unchanged": true
+      },
+      {
+        "file": "src/hero/hero.css",
+        "unchanged": true
+      },
+      {
+        "file": "src/hero/motion.ts",
+        "unchanged": true
+      },
+      {
+        "file": "src/hero/useHeroMotion.ts",
+        "unchanged": true
+      },
+      {
+        "file": "src/navigation/EditorialNavigation.tsx",
+        "unchanged": true
+      },
+      {
+        "file": "src/navigation/menu-reveal.ts",
+        "unchanged": true
+      },
+      {
+        "file": "src/navigation/model.ts",
+        "unchanged": true
+      },
+      {
+        "file": "src/navigation/navigation.css",
+        "unchanged": true
+      },
+      {
+        "file": "src/sound/assets/hanbeomsu-jungjungmori-preview.m4a",
+        "unchanged": true
+      },
+      {
+        "file": "src/sound/continuation.ts",
+        "unchanged": true
+      },
+      {
+        "file": "src/sound/line-response.ts",
+        "unchanged": true
+      },
+      {
+        "file": "src/sound/source.ts",
+        "unchanged": true
+      },
+      {
+        "file": "src/styles/.gitkeep",
+        "unchanged": true
+      },
+      {
+        "file": "src/styles/base.css",
+        "unchanged": true
+      },
+      {
+        "file": "src/styles/foundation.css",
+        "unchanged": true
+      },
+      {
+        "file": "src/styles/layout.css",
+        "unchanged": true
+      },
+      {
+        "file": "src/styles/spike.css",
+        "unchanged": true
+      },
+      {
+        "file": "src/styles/tokens.css",
+        "unchanged": true
+      },
+      {
+        "file": "src/styles/typography.css",
+        "unchanged": true
+      },
+      {
+        "file": "tests/design-system.spec.ts",
+        "unchanged": true
+      }
+    ],
+    "priorP2I": [
+      {
+        "file": "P2I-RESULT.md",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/1440-a-comparison-silent.webm",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/1440-a-hero.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/1440-a-paused.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/1440-a-playing.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/1440-b-comparison-silent.webm",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/1440-b-contact-detail.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/1440-b-hero.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/1440-b-medium-silent.webm",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/1440-b-medium.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/1440-b-paused.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/1440-b-playing.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/1920-b.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/320-en-b.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/390-a-comparison-silent.webm",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/390-a-hero.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/390-a-paused.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/390-a-playing.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/390-b-comparison-silent.webm",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/390-b-contact-detail.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/390-b-hero.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/390-b-paused.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/390-b-playing.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/390-b-reduced.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/768-b.png",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/README.md",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/browser-capabilities.json",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/final-comparison-tests.txt",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/full-gate.txt",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/haegeum-isolated.txt",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/lint-final.txt",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/performance.json",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/preserved-files.json",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/test-hero.txt",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/test-navigation.txt",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/test-results.json",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/test-sound.txt",
+        "unchanged": true
+      },
+      {
+        "file": "evidence/p2i/type-check-final.txt",
+        "unchanged": true
+      },
+      {
+        "file": "scripts/capture-sound-comparison.mjs",
+        "unchanged": true
+      }
+    ],
+    "hero": [
+      {
+        "width": 1440,
+        "identical": true
+      },
+      {
+        "width": 390,
+        "identical": true
+      }
+    ]
+  },
+  "soundFailures": [
+    {
+      "name": "no audio request or context before activation; keyboard starts actual analysed playback",
+      "engine": "webkit",
+      "status": "unexpected",
+      "error": "Error: expect(received).toBeGreaterThan(expected)\n\nExpected: > 0.05\nReceived:   0\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  47 |   await trigger(page).press('Enter');await expect(root(page)).toHaveAttribute('data-audio-state','playing')\n  48 |   await expect.poll(()=>audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeGreaterThan(.5)\n> 49 |   await expect.poll(async()=>Number(await root(page).getAttribute('data-audio-energy'))).toBeGreaterThan(.05)\n     |                                                                                          ^\n  50 |   expect(payloads.length).toBeGreaterThan(0);expect(await page.locator('.sound-thread path').first().getAttribute('d')).not.toBe('M0 3H1000')\n  51 |   const ys=await page.locator('.sound-thread path').first().evaluate(el=>[...el.getAttribute('d')!.matchAll(/L[\\d.]+ ([\\d.]+)/g)].map(m=>Number(m[1])))\n  52 |   expect(Math.max(...ys)).toBeLessThanOrEqual(3.63);expect(Math.min(...ys)).toBeGreaterThanOrEqual(2.37)\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:49:90"
+    },
+    {
+      "name": "pause damps to the exact straight pair, stops work and resumes the real media position",
+      "engine": "webkit",
+      "status": "unexpected",
+      "error": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('.sound-experience')\nExpected: \"0.0000\"\nReceived: \"0\"\nTimeout:  2000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 2000ms\n  - waiting for locator('.sound-experience')\n    19 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-audio-state=\"paused\" data-contact-trail=\"long\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\n       - unexpected value \"0\"\n\n\n  57 |   await expect(root(page)).toHaveAttribute('data-audio-state','paused')\n  58 |   const at=await audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)\n> 59 |   await expect(root(page)).toHaveAttribute('data-audio-energy','0.0000',{timeout:2000})\n     |                            ^\n  60 |   await expect(page.locator('.sound-thread path').first()).toHaveAttribute('d','M0 3H1000')\n  61 |   const count=await root(page).getAttribute('data-analysis-frames');await page.waitForTimeout(400)\n  62 |   expect(await root(page).getAttribute('data-analysis-frames')).toBe(count)\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:59:28"
+    },
+    {
+      "name": "rapid toggles and media seeks do not leave duplicate graphs or false playback",
+      "engine": "webkit",
+      "status": "unexpected",
+      "error": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 1\nReceived: 0\n\n  91 |   await expect(root(page)).toHaveAttribute('data-audio-state','paused')\n  92 |   for(let i=0;i<4;i++){await trigger(page).click();await trigger(page).click()}\n> 93 |   await expect(root(page)).toHaveAttribute('data-audio-state','paused');expect(await page.evaluate(()=>window.soundContexts.length)).toBe(1)\n     |                                                                                                                                      ^\n  94 |   await listen(page);await expect.poll(()=>audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeGreaterThan(2.1)\n  95 | })\n  96 |\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:93:134"
+    },
+    {
+      "name": "MENU/Esc restores focus; counterpart navigation releases media and context",
+      "engine": "webkit",
+      "status": "unexpected",
+      "error": "Error: page.evaluate: TypeError: undefined is not an object (evaluating 'window.soundContexts[0].state')\n\n  103 |   await menu.click();await expect(page.locator('dialog')).toHaveAttribute('data-phase','open');await page.getByRole('link',{name:'English',exact:true}).click()\n  104 |   await expect(page).toHaveURL(/\\/en\\/?$/);await expect(page.locator('html')).toHaveAttribute('lang','en')\n> 105 |   await expect.poll(()=>page.evaluate(()=>window.soundContexts[0].state)).toBe('closed')\n      |                              ^\n  106 |   expect(await page.evaluate(()=>({paused:window.retainedMedia.paused,src:window.retainedMedia.getAttribute('src')}))).toEqual({paused:true,src:null})\n  107 |   await seek(page);await expect(trigger(page)).toHaveAccessibleName('Play preview');await expect(root(page)).toHaveAttribute('data-audio-state','idle')\n  108 | })\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:105:30\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:105:3"
+    },
+    {
+      "name": "media failure is announced and retry never invents playback",
+      "engine": "webkit",
+      "status": "unexpected",
+      "error": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('.sound-experience')\nExpected: \"error\"\nReceived: \"playing\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 5000ms\n  - waiting for locator('.sound-experience')\n    3 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"loading\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\n      - unexpected value \"loading\"\n    11 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"playing\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\n       - unexpected value \"playing\"\n\n\n  143 | test('media failure is announced and retry never invents playback',async({page})=>{\n  144 |   await page.route('**/*.m4a',route=>route.abort());await ready(page);await seek(page);await trigger(page).click()\n> 145 |   await expect(root(page)).toHaveAttribute('data-audio-state','error');await expect(page.getByRole('status')).toContainText('재생할 수 없습니다')\n      |                            ^\n  146 |   expect(await audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBe(0)\n  147 |   await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','error')\n  148 | })\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:145:28"
+    },
+    {
+      "name": "cancel while loading remains paused after delayed bytes arrive",
+      "engine": "webkit",
+      "status": "unexpected",
+      "error": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 0\nReceived: 0.0322083\n\n  153 |   await ready(page);await seek(page);await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','loading')\n  154 |   await trigger(page).click();release();await expect(root(page)).toHaveAttribute('data-audio-state','paused');await page.waitForTimeout(500)\n> 155 |   expect(await audio(page).evaluate(e=>(e as HTMLAudioElement).paused)).toBe(true);expect(await audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBe(0)\n      |                                                                                                                                                               ^\n  156 |   await listen(page)\n  157 | })\n  158 |\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:155:159"
+    },
+    {
+      "name": "hidden-document event pauses and suspends; visibility return never autoplays",
+      "engine": "webkit",
+      "status": "unexpected",
+      "error": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('.sound-experience')\nExpected: \"suspended\"\nReceived: \"not-created\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 5000ms\n  - waiting for locator('.sound-experience')\n    14 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-audio-state=\"paused\" data-contact-trail=\"long\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\n       - unexpected value \"not-created\"\n\n\n  180 |   await ready(page);await seek(page);await listen(page)\n  181 |   await page.evaluate(()=>{Object.defineProperty(document,'hidden',{value:true,configurable:true});document.dispatchEvent(new Event('visibilitychange'))})\n> 182 |   await expect(root(page)).toHaveAttribute('data-audio-state','paused');await expect(root(page)).toHaveAttribute('data-audio-context','suspended')\n      |                                                                                                  ^\n  183 |   const count=await root(page).getAttribute('data-analysis-frames');await page.waitForTimeout(250);expect(await root(page).getAttribute('data-analysis-frames')).toBe(count)\n  184 |   await page.evaluate(()=>{Object.defineProperty(document,'hidden',{value:false,configurable:true});document.dispatchEvent(new Event('visibilitychange'))})\n  185 |   await expect(root(page)).toHaveAttribute('data-audio-state','paused')\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:182:98"
+    },
+    {
+      "name": "a stalled source times out truthfully and leaves no background analysis",
+      "engine": "webkit",
+      "status": "unexpected",
+      "error": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('.sound-experience')\nExpected: \"error\"\nReceived: \"playing\"\nTimeout:  14000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 14000ms\n  - waiting for locator('.sound-experience')\n    3 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"loading\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\n      - unexpected value \"loading\"\n    28 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"playing\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\n       - unexpected value \"playing\"\n\n\n  198 |   try {\n  199 |     await ready(page);await seek(page);await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','loading')\n> 200 |     await expect(root(page)).toHaveAttribute('data-audio-state','error',{timeout:14000})\n      |                              ^\n  201 |     expect(await audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBe(0)\n  202 |     await expect(root(page)).toHaveAttribute('data-audio-context','suspended')\n  203 |   } finally { release() }\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:200:30"
+    },
+    {
+      "name": "replay reuses buffered media and its single graph instead of issuing another load",
+      "engine": "webkit",
+      "status": "unexpected",
+      "error": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 1\nReceived: 0\n\n  221 |   const loads=await audio(page).getAttribute('data-loads')\n  222 |   await listen(page);expect(await audio(page).getAttribute('data-loads')).toBe(loads)\n> 223 |   expect(await page.evaluate(()=>window.soundContexts.length)).toBe(1)\n      |                                                                ^\n  224 |   expect(await audio(page).evaluate(el=>(el as HTMLAudioElement).currentTime)).toBeLessThan(1)\n  225 | })\n  226 |\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:223:64"
+    },
+    {
+      "name": "eight route returns release every previous context and do not accumulate Sound DOM",
+      "engine": "webkit",
+      "status": "unexpected",
+      "error": "Error: expect(received).toBeLessThanOrEqual(expected)\n\nExpected: <= 1\nReceived:    1691.99154\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  15 |     const el=e as HTMLElement, travel=el.offsetHeight-el.querySelector<HTMLElement>('.poster-stage')!.offsetHeight\n  16 |     return Math.abs(Number(el.dataset.targetProgress)-p)*travel - travel*.000005\n> 17 |   },p)).toBeLessThanOrEqual(1)\n     |         ^\n  18 |   await expect.poll(()=>page.locator('.poster-scene').evaluate(e=>(e as HTMLElement).dataset.progress===(e as HTMLElement).dataset.targetProgress)).toBe(true)\n  19 | }\n  20 | async function listen(page: Page) { await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','playing');await expect.poll(()=>audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeGreaterThan(.1) }\n    at seek (C:\\choyounkyoung-v2\\tests\\sound.spec.ts:17:9)\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:272:5"
+    },
+    {
+      "name": "P2I: A/B and tail comparison preserves media position, graph, focus and the original line nodes",
+      "engine": "webkit",
+      "status": "unexpected",
+      "error": "Error: expect(received).toBeGreaterThan(expected)\n\nExpected: > 0.3\nReceived:   0\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  289 |   await page.getByRole('radio',{name:'B · Bow contact',exact:true}).check()\n  290 |   await expect(root(page)).toHaveAttribute('data-sound-visual','bow-contact')\n> 291 |   await expect.poll(()=>page.locator('.bow-contact').evaluate(el=>Number((el as SVGElement).style.opacity))).toBeGreaterThan(.3)\n      |                                                                                                              ^\n  292 |   await page.getByLabel('Tail',{exact:true}).selectOption('medium')\n  293 |   await expect(root(page)).toHaveAttribute('data-contact-trail','medium')\n  294 |   for(const tail of ['short','long','extra-long']){await page.getByLabel('Tail',{exact:true}).selectOption(tail);await expect(root(page)).toHaveAttribute('data-contact-trail',tail)}\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:291:110"
+    },
+    {
+      "name": "P2I: smooth B uses a wide trajectory, long actual path and one Violet marker",
+      "engine": "webkit",
+      "status": "unexpected",
+      "error": "Error: expect(received).toBeGreaterThan(expected)\n\nExpected: > 400\nReceived:   NaN\n\n  320 |     return {values,y:els.map(e=>parseFloat(e.style.top)),analysis:Number(document.querySelector<HTMLElement>('.sound-experience')!.dataset.analysisFrames)}\n  321 |   })\n> 322 |   expect(Math.max(...points.values.map(p=>p.x))-Math.min(...points.values.map(p=>p.x))).toBeGreaterThan(400)\n      |                                                                                         ^\n  323 |   expect(Math.min(...points.values.map(p=>p.y))).toBeLessThan(points.y[0]-40)\n  324 |   expect(Math.max(...points.values.map(p=>p.y))).toBeGreaterThan(points.y[1])\n  325 |   expect(Math.max(...points.values.map(p=>p.tail))).toBeGreaterThan(65)\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:322:89"
+    },
+    {
+      "name": "P2I: B pause settles all work; natural end/replay fades back from the outgoing contact position",
+      "engine": "webkit",
+      "status": "unexpected",
+      "error": "Error: expect(received).toBeGreaterThan(expected)\n\nExpected: > 0.2\nReceived:   0\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  341 |   await page.waitForTimeout(400);expect(await root(page).getAttribute('data-analysis-frames')).toBe(frames)\n  342 |   expect(await page.locator('.bow-contact').getAttribute('data-y')).toBe(pausedY)\n> 343 |   await listen(page);await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.2)\n      |                                                                                                                               ^\n  344 |   await audio(page).evaluate(e=>{const a=e as HTMLAudioElement;a.currentTime=a.duration-.15})\n  345 |   await expect(root(page)).toHaveAttribute('data-audio-state','ended');await expect(page.locator('.bow-contact')).toHaveCSS('opacity','0')\n  346 |   await listen(page)\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:343:127"
+    },
+    {
+      "name": "P2I: 320px B has an independent visible mark and no input or scroll trap",
+      "engine": "webkit",
+      "status": "unexpected",
+      "error": "Error: expect(received).toBeGreaterThan(expected)\n\nExpected: > 0.3\nReceived:   0\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  361 | for(const width of [320,390])test(`P2I: ${width}px B has an independent visible mark and no input or scroll trap`,async({page})=>{\n  362 |   await page.setViewportSize({width,height:width===320?568:844});await ready(page,'/en/?compare=b');await seek(page);await listen(page)\n> 363 |   await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.3)\n      |                                                                                                            ^\n  364 |   const mark=(await page.locator('.contact-head').boundingBox())!\n  365 |   expect(mark.width).toBeGreaterThanOrEqual(3.5);expect(mark.height).toBeGreaterThanOrEqual(3.5);expect(mark.x).toBeGreaterThan(45);expect(mark.y).toBeGreaterThan(145)\n  366 |   await expect(page.locator('.contact-head')).toHaveAttribute('rx','4');await expect(page.locator('.contact-head')).toHaveAttribute('ry','1.8')\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:363:108"
+    },
+    {
+      "name": "P2I: 390px B has an independent visible mark and no input or scroll trap",
+      "engine": "webkit",
+      "status": "unexpected",
+      "error": "Error: expect(received).toBeGreaterThan(expected)\n\nExpected: > 0.3\nReceived:   0\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  361 | for(const width of [320,390])test(`P2I: ${width}px B has an independent visible mark and no input or scroll trap`,async({page})=>{\n  362 |   await page.setViewportSize({width,height:width===320?568:844});await ready(page,'/en/?compare=b');await seek(page);await listen(page)\n> 363 |   await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.3)\n      |                                                                                                            ^\n  364 |   const mark=(await page.locator('.contact-head').boundingBox())!\n  365 |   expect(mark.width).toBeGreaterThanOrEqual(3.5);expect(mark.height).toBeGreaterThanOrEqual(3.5);expect(mark.x).toBeGreaterThan(45);expect(mark.y).toBeGreaterThan(145)\n  366 |   await expect(page.locator('.contact-head')).toHaveAttribute('rx','4');await expect(page.locator('.contact-head')).toHaveAttribute('ry','1.8')\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:363:108"
+    },
+    {
+      "name": "P2I: B missing analyser/failing source never substitutes an animated contact for playback",
+      "engine": "webkit",
+      "status": "unexpected",
+      "error": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('.sound-experience')\nExpected: \"error\"\nReceived: \"playing\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 5000ms\n  - waiting for locator('.sound-experience')\n    - locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"loading\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-contact-violet=\"electric\" data-sound-visual=\"bow-contact\" data-audio-context=\"not-created\">…</div>\n    - unexpected value \"loading\"\n    13 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"playing\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-contact-violet=\"electric\" data-sound-visual=\"bow-contact\" data-audio-context=\"not-created\">…</div>\n       - unexpected value \"playing\"\n\n\n  383 |   await expect(root(page)).toHaveAttribute('data-analysis-frames','0')\n  384 |   await page.route('**/*.m4a',route=>route.abort());await ready(page,'/?compare=b');await seek(page);await trigger(page).click()\n> 385 |   await expect(root(page)).toHaveAttribute('data-audio-state','error');await expect(page.locator('.bow-contact')).toHaveCSS('opacity','0')\n      |                            ^\n  386 | })\n  387 |\n  388 | test('P2I: B teardown removes old contact SVGs and hidden/reduced changes stop work',async({page})=>{\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:385:28"
+    }
+  ],
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 14603,
+      "sha256": "d539febf875ef83fcb382d8a856ca40e4f02e12081b5e3af0b9f99150e44e402"
+    },
+    {
+      "path": "CODEX-HANDOFF.md",
+      "bytes": 42037,
+      "sha256": "03090ec321cec8fe86af7b3fa2e13c1fe6ad60f0dfd68bda8af1a85180de58b3"
+    },
+    {
+      "path": "P2I-CHOREOGRAPHY-RESULT.md",
+      "bytes": 11751,
+      "sha256": "3f8c18b896b17ded8eaf41d31ace1bf68748aa4d0eb31734a7cb7393e5deea01"
+    },
+    {
+      "path": "P2I-RESULT.md",
+      "bytes": 11599,
+      "sha256": "186c5424b15dcc1487a6e185fb80fcb0fa9c2dc5b25d1b9cd23ce9aa4765c06a"
+    },
+    {
+      "path": "README.md",
+      "bytes": 21637,
+      "sha256": "2d90379b9f4c2c9cc1b8ca03bf0dcbb890f23fc56ba2cc952d5462b8cb801c10"
+    },
+    {
+      "path": "docs/redesign/00-MASTER-PLAN.md",
+      "bytes": 43065,
+      "sha256": "5459fdcbc455705274274b24bde93b59a4b49a65d8f4ce74cf31e3fdffd68046"
+    },
+    {
+      "path": "docs/redesign/02-DESIGN-SYSTEM.md",
+      "bytes": 16256,
+      "sha256": "578b232341c2540071c50828b7097f9c81354cf826e369440c5892f0668c0b6b"
+    },
+    {
+      "path": "docs/redesign/03-MOTION-SYSTEM.md",
+      "bytes": 37280,
+      "sha256": "266ae11d663a1060e538b981e8daa03b9a31726e1d8c674f563f233ac9d3db7e"
+    },
+    {
+      "path": "docs/redesign/04-HOME.md",
+      "bytes": 43368,
+      "sha256": "ef98355c7dc878624eda36a78ed875fa1d5d5b88a4dc1722a2a97cff480b73f9"
+    },
+    {
+      "path": "docs/redesign/INTERACTION-GLOSSARY.md",
+      "bytes": 20287,
+      "sha256": "6f6cb9ef0c289abe537062321b1ea15df51493ab79773f06c19867688934496f"
+    },
+    {
+      "path": "docs/redesign/review/HOME-SOUND-EXPERIENCE.md",
+      "bytes": 14269,
+      "sha256": "1e519118d4aedfcc9e698c605aee5379111aeb072598886642bf2a15a7a3179e"
+    },
+    {
+      "path": "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md",
+      "bytes": 57651,
+      "sha256": "b5055e3398f4df5375da46d75422e6dbf5affb54baade939c3aab57c9e97b9ae"
+    },
+    {
+      "path": "docs/redesign/review/PLANNING-REVISION-LOG.md",
+      "bytes": 17157,
+      "sha256": "b3f7d8c52b19de52bb4e2c5286c88dfcae48009c5c7c231acbb6ead9a721fd30"
+    },
+    {
+      "path": "docs/redesign/review/SOUND-BOW-CONTACT-COMPARISON.md",
+      "bytes": 7655,
+      "sha256": "54c1df527f5221edda5e1cdd1590dca42593e59364a693f3bae245c4b1c0a74e"
+    },
+    {
+      "path": "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md",
+      "bytes": 82262,
+      "sha256": "6220cd941e4272dff9464edcceaa82aff0f1aacbfdcb473deefa28639cf7ed4b"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-a-comparison-silent.webm",
+      "bytes": 2259973,
+      "sha256": "ab23b0dc1c0dc0d4a80a6df22eb36d2de9083eaa5c8f243f8728b366107fe7e5"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-a-ended.png",
+      "bytes": 38471,
+      "sha256": "4d7949e5ff2064813fa99b672ba6ddb74047c0acf6b98ea2ad24e5101c5c1a4b"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-a-hero.png",
+      "bytes": 1008181,
+      "sha256": "001db86edcf5a42d1026544412edf4b3888805b74105dccff0b00e4b4cae03ec"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-a-paused.png",
+      "bytes": 42624,
+      "sha256": "ac7cea5fd9690a397968e55ad3c9add838abb05fcfc66dbc919c01de666fc685"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-a-playing.png",
+      "bytes": 44651,
+      "sha256": "ac1f90fdcb8d4359d6f60d0aa2ac91d2baa8da6263ca1d9cc231f4714b147bb3"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b1-comparison-silent.webm",
+      "bytes": 2382799,
+      "sha256": "d0087b5748247da0b19c8b4e2baed08ac96b036c7ed6a9292ebc0a21cf5ff773"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b1-contact-detail.png",
+      "bytes": 3296,
+      "sha256": "befa17a55f1fd683b8eda6670e5120d3fb5420e42fb0f7b2f433b54a084dc603"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b1-ended.png",
+      "bytes": 38863,
+      "sha256": "9a709be874549d8c5747c1d43c8aa721816fa7ab5d1b5594f71b49707113e014"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b1-hero.png",
+      "bytes": 1008181,
+      "sha256": "001db86edcf5a42d1026544412edf4b3888805b74105dccff0b00e4b4cae03ec"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b1-paused.png",
+      "bytes": 43018,
+      "sha256": "cee8ddb4017aaabec8f528cac92fc3a5a6fd2814148de1e2897581c1b6fac543"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b1-playing.png",
+      "bytes": 46040,
+      "sha256": "75771a13a47134ca9292a2ee42b118ab76d533c45a64421eddd314417d2b0586"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b2-comparison-silent.webm",
+      "bytes": 2391779,
+      "sha256": "f5b000a99bf0ddd2afca46bd7d627d4bded2c40d7036a9062d541db9f80c170a"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b2-contact-detail.png",
+      "bytes": 4214,
+      "sha256": "c4f82e0e0e26f5183c58cbb20e209c4072de674dd78c47c14fd0ded608b03e56"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b2-ended.png",
+      "bytes": 38743,
+      "sha256": "a705b9201e5a00fe8a33042a3d06cf197b90d12b4d4316e58b1a429def3150c3"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b2-hero.png",
+      "bytes": 1008181,
+      "sha256": "001db86edcf5a42d1026544412edf4b3888805b74105dccff0b00e4b4cae03ec"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b2-paused.png",
+      "bytes": 42896,
+      "sha256": "8a4ea10276368ca0f515d80a94c8addf48df4c9eba177dc71f3c3f3de80ef0c9"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b2-playing.png",
+      "bytes": 46389,
+      "sha256": "a87068f12a155bc45db1792dd2b0c9231ec14242ef1b11c701f0402ce4526441"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-editorial-silent.webm",
+      "bytes": 751964,
+      "sha256": "7108a701fde263cb6904ca2633996c8fa2bf6775984f39a032f3c85ae751208f"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-editorial.png",
+      "bytes": 45705,
+      "sha256": "6c175d9dff5c7781a9a68fc6a382ca4debb49d2d90b5533f2f269b102f286976"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-extra-long-silent.webm",
+      "bytes": 715408,
+      "sha256": "bde2f366766b5d825aca8bc798879f4cd6c0328f4784fc6c41747c16364c040a"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-extra-long.png",
+      "bytes": 46949,
+      "sha256": "c6d060639ff28278d44a3e4a93e8ab040bdb43ec66f353df1e4cad7951d24c90"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-ink-silent.webm",
+      "bytes": 678798,
+      "sha256": "34e0b725c4bbcb4436b00701a83d066d40f302109eab139dca7ba07c6b36b3a1"
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-ink.png",
+      "bytes": 45989,
+      "sha256": "f12dd3e96e026c5cc171df0695782df955766d485569c70f0a3776f6599ec38c"
+    },
+    {
+      "path": "evidence/p2i-choreography/1920-b.png",
+      "bytes": 55148,
+      "sha256": "ace0a3dbee643e9eb58ca1b6d5831bcca055fa8cd6d14a7f66a74f1a7c55ba72"
+    },
+    {
+      "path": "evidence/p2i-choreography/320-en-b.png",
+      "bytes": 26817,
+      "sha256": "03d668bbe581ff3a52d7b063bb939f9ed72503fd5479ecf14d3fdbd98fa9f7d8"
+    },
+    {
+      "path": "evidence/p2i-choreography/390-a-comparison-silent.webm",
+      "bytes": 919808,
+      "sha256": "a1150d9b10806e6b3a93f4b6d9643c962594ca2b8e5105f7bdaac89b029e61e0"
+    },
+    {
+      "path": "evidence/p2i-choreography/390-a-ended.png",
+      "bytes": 22511,
+      "sha256": "bef376c34393ee72d732c92128de83dfb95ceac101d059c8093ebcf19f28a9b2"
+    },
+    {
+      "path": "evidence/p2i-choreography/390-a-hero.png",
+      "bytes": 311795,
+      "sha256": "5bd7f32f5c94ae6faea3fa970aaccc3842877892fbec0758429bed093476ab58"
+    },
+    {
+      "path": "evidence/p2i-choreography/390-a-paused.png",
+      "bytes": 23500,
+      "sha256": "373beb1708273267ca79f4f043db59fcca4027d0c4c80b52e1a538aa135eb9c1"
+    },
+    {
+      "path": "evidence/p2i-choreography/390-a-playing.png",
+      "bytes": 24368,
+      "sha256": "3229e4e5d63bd3379c9c8ec1ca473d6c0c0c0a699d2eba291eec287849ca8420"
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b-reduced.png",
+      "bytes": 21379,
+      "sha256": "49cafebf8a4cf77166c75e75894caee00479a3f2da3130e7b8ed413f90030937"
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b1-comparison-silent.webm",
+      "bytes": 1023363,
+      "sha256": "2cdb67260d2d7239c91e1e7b305ad2875a119f20a193b5692bf4b7e61ad39901"
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b1-contact-detail.png",
+      "bytes": 5639,
+      "sha256": "0f99278709877630977fc7916eab04cbb75e3a52a39ee1fe3b052067e114bdaf"
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b1-ended.png",
+      "bytes": 22883,
+      "sha256": "13d5a6140bbebd268160441b2f5fc7c88c9f7e0cd3cf46bf93a56be2cae365b3"
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b1-hero.png",
+      "bytes": 311795,
+      "sha256": "5bd7f32f5c94ae6faea3fa970aaccc3842877892fbec0758429bed093476ab58"
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b1-paused.png",
+      "bytes": 23872,
+      "sha256": "f3a6ef5784161a686d407c4ee59e4e99a0092d4e5cddc458f6cfd126cea801f0"
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b1-playing.png",
+      "bytes": 25027,
+      "sha256": "8331cab96605a28d50a1dfd42ee26698a6232e5c086da0d0339d5e1a91c7e7bf"
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b2-comparison-silent.webm",
+      "bytes": 1057284,
+      "sha256": "6a3536f7488c00f645a8221f72c276d7bd2c671b409c214f0923c33b596fdf63"
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b2-contact-detail.png",
+      "bytes": 6263,
+      "sha256": "b13dac5c05df0fb9603eb8353d23440bd02e3ddf666257bd2aa9acdff60119ee"
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b2-ended.png",
+      "bytes": 22762,
+      "sha256": "a43bada3ac1286c2437ab266b9981f9fc86a7505f00ecfdf5f913a7ab4b0532d"
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b2-hero.png",
+      "bytes": 311795,
+      "sha256": "5bd7f32f5c94ae6faea3fa970aaccc3842877892fbec0758429bed093476ab58"
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b2-paused.png",
+      "bytes": 23750,
+      "sha256": "e5156559628051f38d46ec8d07a85d45613fb14e69e592d16bd5bfa28db360bb"
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b2-playing.png",
+      "bytes": 25171,
+      "sha256": "943e38bd7f026a68faf46ebffca4b0879eeaf86b62321b718def7b4abe324179"
+    },
+    {
+      "path": "evidence/p2i-choreography/768-b.png",
+      "bytes": 33539,
+      "sha256": "ffd4c9b5eae01e4db41f2560214ce108ca8a1ff80ab2599c44f41ff89a368bc3"
+    },
+    {
+      "path": "evidence/p2i-choreography/README.md",
+      "bytes": 3419,
+      "sha256": "1024221427ef7a98019b5d2e259ea5f7d04ebb618c3a851513741bf1e79759da"
+    },
+    {
+      "path": "evidence/p2i-choreography/browser-capabilities.json",
+      "bytes": 704,
+      "sha256": "7e3c16bf263e48e2c710d2ad6b0f370d0e6cc3b2f5287510bf48a5aafae7c37f"
+    },
+    {
+      "path": "evidence/p2i-choreography/capture.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/p2i-choreography/design-system-results.json",
+      "bytes": 21871,
+      "sha256": "fe02622f6333a043a9de2aa8a7563de9ef19565978237409dfdc439c2968c34a"
+    },
+    {
+      "path": "evidence/p2i-choreography/document-links.json",
+      "bytes": 883,
+      "sha256": "ffec4e6f07dcafabb433e6adcdeea9f2fb80bf8b33641b59ec16357ee39012d1"
+    },
+    {
+      "path": "evidence/p2i-choreography/final-preview.json",
+      "bytes": 436,
+      "sha256": "978ce73df03c3539ad162f82e68d039fba59568dd10d7547e2a69899c9ea0c41"
+    },
+    {
+      "path": "evidence/p2i-choreography/full-gate.txt",
+      "bytes": 171011,
+      "sha256": "efc85be394fc036b414069b098958bb2625493149431036493bc89011650a933"
+    },
+    {
+      "path": "evidence/p2i-choreography/performance.json",
+      "bytes": 9127,
+      "sha256": "ca882a911cde6a563f85da37fde140e68609ed0386a258b0492ec44d4fb875a7"
+    },
+    {
+      "path": "evidence/p2i-choreography/routing-results.json",
+      "bytes": 98842,
+      "sha256": "2f57af2faf57755780ff2dbfa0dfd42835de2ad92a67951353d0321b74c216d6"
+    },
+    {
+      "path": "evidence/p2i-choreography/sound-initial-concurrent.json",
+      "bytes": 162693,
+      "sha256": "9f896890bd810a18ac887f7f8e26f79d2269f9a26e4399e3a3cec670e87bcf84"
+    },
+    {
+      "path": "evidence/p2i-choreography/sound-initial-concurrent.txt",
+      "bytes": 63994,
+      "sha256": "788f1ba287440112a2f291df4848124f5c725a495e3dbb043b907d4901802c6b"
+    },
+    {
+      "path": "evidence/p2i-choreography/sound-results.json",
+      "bytes": 163212,
+      "sha256": "db5b0d55029b4e30a01bc169d26b4dceebb0850087acb0d1c0ac6c52fbe765af"
+    },
+    {
+      "path": "evidence/p2i-choreography/sound-tests.txt",
+      "bytes": 62489,
+      "sha256": "1d27b642c93ded5a645b9d015721d3c99b0834cf3206467bb68b1ea4bd2fca10"
+    },
+    {
+      "path": "evidence/p2i-choreography/violet-contrast.json",
+      "bytes": 565,
+      "sha256": "93b9ef13eea4979c2eb0589ec95b3ca61e600837495f888168d51e4787868d78"
+    },
+    {
+      "path": "evidence/p2i/1440-a-comparison-silent.webm",
+      "bytes": 1269062,
+      "sha256": "59e7d7e4e21fad1e4e2225ee569f9c0e9965b8248d0be7464edcf23d2a3527dd"
+    },
+    {
+      "path": "evidence/p2i/1440-a-hero.png",
+      "bytes": 1008181,
+      "sha256": "001db86edcf5a42d1026544412edf4b3888805b74105dccff0b00e4b4cae03ec"
+    },
+    {
+      "path": "evidence/p2i/1440-a-paused.png",
+      "bytes": 42624,
+      "sha256": "ac7cea5fd9690a397968e55ad3c9add838abb05fcfc66dbc919c01de666fc685"
+    },
+    {
+      "path": "evidence/p2i/1440-a-playing.png",
+      "bytes": 44450,
+      "sha256": "d0008772ecd191903b8fefd4fc301099329d51d551837376982d82888558bf4a"
+    },
+    {
+      "path": "evidence/p2i/1440-b-comparison-silent.webm",
+      "bytes": 1294112,
+      "sha256": "081c2754325576eb31eb2ac3aae8f92c4a300c151fb62552907b393d331e9b61"
+    },
+    {
+      "path": "evidence/p2i/1440-b-contact-detail.png",
+      "bytes": 1005,
+      "sha256": "cfdfd5d26ff093416844cb9d6e5839c8324bfc8df02b05741dec76386a724fd5"
+    },
+    {
+      "path": "evidence/p2i/1440-b-hero.png",
+      "bytes": 1008181,
+      "sha256": "001db86edcf5a42d1026544412edf4b3888805b74105dccff0b00e4b4cae03ec"
+    },
+    {
+      "path": "evidence/p2i/1440-b-medium-silent.webm",
+      "bytes": 611603,
+      "sha256": "4656171d12f85debaf0386c323fc05ba3bc67194a3c2165328ae3dc9a50d5da1"
+    },
+    {
+      "path": "evidence/p2i/1440-b-medium.png",
+      "bytes": 44747,
+      "sha256": "3eb038812848fee1966226bc8d614cff90db1eb6e355bdd050660edd198d5fc3"
+    },
+    {
+      "path": "evidence/p2i/1440-b-paused.png",
+      "bytes": 43230,
+      "sha256": "eb5e0699f7a506c0c05798bca2d0ab76730db26b261c5730cf1c7d9fede0335e"
+    },
+    {
+      "path": "evidence/p2i/1440-b-playing.png",
+      "bytes": 45397,
+      "sha256": "b3cacc75680e57051c41d4435e3b99b44166ef3b31df5bd03a67275ebd4ba1ff"
+    },
+    {
+      "path": "evidence/p2i/1920-b.png",
+      "bytes": 53760,
+      "sha256": "fd3cdb58eac7b34c309a3ae0531f6d0543956085b52be70d66fc62c446c7e777"
+    },
+    {
+      "path": "evidence/p2i/320-en-b.png",
+      "bytes": 26658,
+      "sha256": "ba4da723d478de257b1a1eb1bb301a580f845a9893cbff00df99d689bc4971c9"
+    },
+    {
+      "path": "evidence/p2i/390-a-comparison-silent.webm",
+      "bytes": 706357,
+      "sha256": "03f6bf6f0a48d2a6e26061a117f58efde97cf7db8c191f427da67fd17d5657d8"
+    },
+    {
+      "path": "evidence/p2i/390-a-hero.png",
+      "bytes": 311795,
+      "sha256": "5bd7f32f5c94ae6faea3fa970aaccc3842877892fbec0758429bed093476ab58"
+    },
+    {
+      "path": "evidence/p2i/390-a-paused.png",
+      "bytes": 23500,
+      "sha256": "373beb1708273267ca79f4f043db59fcca4027d0c4c80b52e1a538aa135eb9c1"
+    },
+    {
+      "path": "evidence/p2i/390-a-playing.png",
+      "bytes": 24371,
+      "sha256": "dab8e2536c1d8a63d69e22e93c2474510dc220a0321e35a4cb0e5a807023e27b"
+    },
+    {
+      "path": "evidence/p2i/390-b-comparison-silent.webm",
+      "bytes": 703694,
+      "sha256": "51391b3e0f006115d86a051336ddfac3d75c656ee53ce6fc2deb3b013dc2ac17"
+    },
+    {
+      "path": "evidence/p2i/390-b-contact-detail.png",
+      "bytes": 1003,
+      "sha256": "a1d26f4f51592803819a0c206cef3e99f0f6b0340d1d7043572ba5dc3e9acd61"
+    },
+    {
+      "path": "evidence/p2i/390-b-hero.png",
+      "bytes": 311795,
+      "sha256": "5bd7f32f5c94ae6faea3fa970aaccc3842877892fbec0758429bed093476ab58"
+    },
+    {
+      "path": "evidence/p2i/390-b-paused.png",
+      "bytes": 24059,
+      "sha256": "037bd1181677f4deadf7d0f08c2569acdd10ece2df1bb8554c945b4eb6ed56e0"
+    },
+    {
+      "path": "evidence/p2i/390-b-playing.png",
+      "bytes": 25048,
+      "sha256": "8f57664ec4f69c7fc53be0b5155206225573241970e7623dc3245b66771435ea"
+    },
+    {
+      "path": "evidence/p2i/390-b-reduced.png",
+      "bytes": 21661,
+      "sha256": "f6a9f998fb10d6a3b28efb3fbabc3a09a7414ed023129833d93eb3ce9192785e"
+    },
+    {
+      "path": "evidence/p2i/768-b.png",
+      "bytes": 32629,
+      "sha256": "d05e3c7bdf49a46ff7339884f2a44388336331ed5e6151843e1f6aa939eb79e7"
+    },
+    {
+      "path": "evidence/p2i/README.md",
+      "bytes": 4836,
+      "sha256": "3589e45dc94e0ae19a38d2d796e845d83ec632b1d34db133c7596a4950680a32"
+    },
+    {
+      "path": "evidence/p2i/browser-capabilities.json",
+      "bytes": 733,
+      "sha256": "eda8489abfb9924159b80f527171f079d9cf148deea7aa8a440442d29e3ef17a"
+    },
+    {
+      "path": "evidence/p2i/final-comparison-tests.txt",
+      "bytes": 2020,
+      "sha256": "e1fa640de6591491d5b632a7ce7dd2dfa6806380059de9ec82c18716d2d8ca90"
+    },
+    {
+      "path": "evidence/p2i/full-gate.txt",
+      "bytes": 171020,
+      "sha256": "2c12705472cdf9543d8186275bd1f103cbf8b1b9d67e04adc2a7b28cc3862d13"
+    },
+    {
+      "path": "evidence/p2i/haegeum-isolated.txt",
+      "bytes": 8687,
+      "sha256": "e03346b43a63959b02dae15a94b1075a79e6daf709c42e7e2cc2b40cb84f23ee"
+    },
+    {
+      "path": "evidence/p2i/lint-final.txt",
+      "bytes": 66,
+      "sha256": "87c40150e43aecc5818bbe6c1e9d926db75229d5a2426a612d522be77ad84fc5"
+    },
+    {
+      "path": "evidence/p2i/performance.json",
+      "bytes": 5213,
+      "sha256": "01f5f70f410b4c0d1145da0837277954a58489d8e483b9ffeadca6f4a23ca131"
+    },
+    {
+      "path": "evidence/p2i/preserved-files.json",
+      "bytes": 20868,
+      "sha256": "f66aa1cde4cbb8ed55ca815f25a1a8bbae27fb493a8596e0e412f6926403b2f9"
+    },
+    {
+      "path": "evidence/p2i/test-hero.txt",
+      "bytes": 13605,
+      "sha256": "6af6fd2d04e1e3ad7c0097ade31dc6e41897bd0ea9d66c868673f9a6d90cce6c"
+    },
+    {
+      "path": "evidence/p2i/test-navigation.txt",
+      "bytes": 7590,
+      "sha256": "b053ef0152c7d6e08f388003c0dc393b0d36169129f07e5ff0a7a4350db44684"
+    },
+    {
+      "path": "evidence/p2i/test-results.json",
+      "bytes": 67395,
+      "sha256": "5c8ca9e97928c093a3085b8e2a6585916f953ca3bd3fa87c5bcda6b684f2fada"
+    },
+    {
+      "path": "evidence/p2i/test-sound.txt",
+      "bytes": 58634,
+      "sha256": "824d006ccb20ee4f966903fc12a7c0d289a52a24d5fd72814945d7436665c0f6"
+    },
+    {
+      "path": "evidence/p2i/type-check-final.txt",
+      "bytes": 93,
+      "sha256": "87b2a47bf7db3efd97d3419826455b80b60b4918eda796230a5aa6b3347bf833"
+    },
+    {
+      "path": "evidence/p2i/verification.json",
+      "bytes": 12064,
+      "sha256": "1214eeb9bbd6d727b2fd164a8ff37458aa0ec75bd08bb6f38a8df93546cb824f"
+    },
+    {
+      "path": "labs/sound/SoundLab.tsx",
+      "bytes": 4673,
+      "sha256": "261e6964d6dc28d2b3630b7e5e1e85efb3ede9fe2385613430ca6b441fb4c0a6"
+    },
+    {
+      "path": "labs/sound/index.html",
+      "bytes": 396,
+      "sha256": "45d6bb69bfcb5da30642a50540162cf6bcc4f4a03049c6bb12518fbbb6bd8fe3"
+    },
+    {
+      "path": "labs/sound/sound.css",
+      "bytes": 1615,
+      "sha256": "425fe035daab3feb99b6862e58e31d192b67f1774601ef61a9e4866439d2cfb7"
+    },
+    {
+      "path": "package.json",
+      "bytes": 3404,
+      "sha256": "09cb765adc56753476d436e5126eb447ce2be389dac523a64637f621014db7fd"
+    },
+    {
+      "path": "scripts/capture-sound-choreography.mjs",
+      "bytes": 7980,
+      "sha256": "17b57617068df313db35deafd5f2d166dcaa278cfea74f073b721272c073be9e"
+    },
+    {
+      "path": "scripts/capture-sound-comparison.mjs",
+      "bytes": 7173,
+      "sha256": "9e7dd141d0508a6813ad287f314869667058078ad65db042a9f6eae53c86b59d"
+    },
+    {
+      "path": "src/sound/SoundExperience.tsx",
+      "bytes": 1303,
+      "sha256": "1f205919d4f81610a7c0d63bbb5e8f6dbd9be4b3bdf2a7613210ac8989f40e15"
+    },
+    {
+      "path": "src/sound/SoundSurface.tsx",
+      "bytes": 4341,
+      "sha256": "a58ffae921172bc04fed61576557e4aa5757527b4afe9988f65c25bcd17a452e"
+    },
+    {
+      "path": "src/sound/bow-contact.ts",
+      "bytes": 6636,
+      "sha256": "d0cba174e86b19879a6dba5a1fdde446bb7e3b3609e3c5d1a7bef6bcdf4efe84"
+    },
+    {
+      "path": "src/sound/contact-motion.ts",
+      "bytes": 4176,
+      "sha256": "4a7e905935534b9756ffbf7ae174a6a3960972918168ffb0aec088163076c685"
+    },
+    {
+      "path": "src/sound/controller.ts",
+      "bytes": 9191,
+      "sha256": "390330da6282f213b2b05671ee9cef8573d64b090b7740e027b284e54a5f25cc"
+    },
+    {
+      "path": "src/sound/sound.css",
+      "bytes": 7935,
+      "sha256": "d53cd665fddfaa7b2be377c3fea7af55b747c2d167525d08e0798efa17b0ed93"
+    },
+    {
+      "path": "tests/assert-design-artifacts.ts",
+      "bytes": 3750,
+      "sha256": "459f51e602803dbf2dea1fffe48d31e3c175eff44a7f273bb9fdba26d3d3bd03"
+    },
+    {
+      "path": "tests/sound-choreography.test.ts",
+      "bytes": 3281,
+      "sha256": "7a2a7c2bbf88f58daea42b2499cc7d01397a7ef6f83f2506188b1b21b7a187a2"
+    },
+    {
+      "path": "tests/sound.spec.ts",
+      "bytes": 34261,
+      "sha256": "01461d453d4edb030e470b5d2fb0fddda36c6a1546e122df9f1b241e3e7694dd"
+    }
+  ]
+}

@@ -4,7 +4,8 @@ declare global { interface Window { soundContexts: AudioContext[]; retainedMedia
 const root = (page: Page) => page.locator('.sound-experience')
 const audio = (page: Page) => page.locator('audio')
 const trigger = (page: Page) => page.locator('.listen-trigger')
-async function ready(page: Page, path='/') {
+// Preserve the original line-only regression baseline explicitly; canonical B2 is checked separately.
+async function ready(page: Page, path='/?compare=a') {
   await page.goto(path); await page.locator('.sound-surface').waitFor(); await page.waitForLoadState('networkidle')
   await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(im=>im.decode().catch(()=>{})))})
 }
@@ -278,3 +279,138 @@ test('eight route returns release every previous context and do not accumulate S
   }
   expect(await page.evaluate(()=>window.soundContexts.length)).toBe(8)
 })
+
+test('P2I: A/B and tail comparison preserves media position, graph, focus and the original line nodes',async({page})=>{
+  await page.addInitScript(()=>{window.soundContexts=[];const Native=window.AudioContext;window.AudioContext=class extends Native{constructor(options?:AudioContextOptions){super(options);window.soundContexts.push(this)}}})
+  await ready(page);await seek(page);await listen(page)
+  await audio(page).evaluate(el=>{window.retainedMedia=el as HTMLAudioElement})
+  await page.locator('.line-one').evaluate(el=>{el.dataset.preserved='yes'})
+  const at=await audio(page).evaluate(el=>(el as HTMLAudioElement).currentTime)
+  await page.locator('.sound-comparison summary').click()
+  await page.getByRole('radio',{name:'B · Bow contact',exact:true}).check()
+  await expect(root(page)).toHaveAttribute('data-sound-visual','bow-contact')
+  await expect.poll(()=>page.locator('.bow-contact').evaluate(el=>Number((el as SVGElement).style.opacity))).toBeGreaterThan(.3)
+  await page.getByLabel('Tail',{exact:true}).selectOption('medium')
+  await expect(root(page)).toHaveAttribute('data-contact-trail','medium')
+  for(const tail of ['short','long','extra-long']){await page.getByLabel('Tail',{exact:true}).selectOption(tail);await expect(root(page)).toHaveAttribute('data-contact-trail',tail)}
+  for(const violet of ['editorial','ink','electric']){await page.getByLabel('Violet',{exact:true}).selectOption(violet);await expect(root(page)).toHaveAttribute('data-contact-violet',violet)}
+  await page.getByLabel('Activity',{exact:true}).selectOption('medium');await expect(root(page)).toHaveAttribute('data-contact-activity','medium')
+  await page.getByLabel('Activity',{exact:true}).selectOption('bold')
+  await page.getByRole('radio',{name:'A · Line only',exact:true}).check();await expect(page.locator('.bow-contact')).toHaveCount(0)
+  await expect(page.getByRole('radio',{name:'A · Line only',exact:true})).toBeFocused()
+  await page.getByRole('radio',{name:'B · Bow contact',exact:true}).check()
+  expect(await audio(page).evaluate(el=>el===window.retainedMedia)).toBe(true)
+  expect(await audio(page).evaluate(el=>(el as HTMLAudioElement).currentTime)).toBeGreaterThan(at)
+  expect(await page.evaluate(()=>window.soundContexts.length)).toBe(1)
+  await expect(page.locator('.line-one')).toHaveAttribute('data-preserved','yes')
+  await expect(page.locator('.sound-thread')).toHaveCount(2);await expect(page.locator('.bow-contact')).toHaveCount(1)
+})
+
+test('P2I: smooth B uses a wide trajectory, long actual path and one Violet marker',async({page})=>{
+  await page.setViewportSize({width:1440,height:1000});await ready(page,'/?compare=b');await seek(page)
+  await expect(page.locator('.bow-contact')).toHaveCSS('opacity','0');await expect(root(page)).toHaveAttribute('data-analysis-frames','0')
+  await expect(root(page)).toHaveAttribute('data-contact-trail','long');await listen(page)
+  const points=await page.evaluate(async()=>{
+    const values:{x:number;y:number;tail:number;t:number}[]=[]
+    await new Promise<void>(resolve=>{const start=performance.now();const tick=(t:number)=>{
+      const svg=document.querySelector<SVGSVGElement>('.bow-contact')!
+      values.push({x:Number(svg.dataset.x),y:Number(svg.dataset.y),tail:Number(svg.dataset.trailSpan),t})
+      if(t-start<6500)requestAnimationFrame(tick);else resolve()
+    };requestAnimationFrame(tick)})
+    const els=[...document.querySelectorAll<HTMLElement>('.poster-lines .tension-line')]
+    return {values,y:els.map(e=>parseFloat(e.style.top)),analysis:Number(document.querySelector<HTMLElement>('.sound-experience')!.dataset.analysisFrames)}
+  })
+  expect(Math.max(...points.values.map(p=>p.x))-Math.min(...points.values.map(p=>p.x))).toBeGreaterThan(400)
+  expect(Math.min(...points.values.map(p=>p.y))).toBeLessThan(points.y[0]-40)
+  expect(Math.max(...points.values.map(p=>p.y))).toBeGreaterThan(points.y[1])
+  expect(Math.max(...points.values.map(p=>p.tail))).toBeGreaterThan(65)
+  const moves=points.values.slice(1).map((p,i)=>({d:Math.hypot(p.x-points.values[i].x,p.y-points.values[i].y),dt:p.t-points.values[i].t}))
+  for(const m of moves.filter(p=>p.dt<23))expect(m.d).toBeLessThan(25)
+  expect(moves.filter(p=>p.d>.05).length).toBeGreaterThan(points.analysis*1.4)
+  await expect(page.locator('.contact-head')).toHaveCount(1);await expect(page.locator('.contact-echo')).toHaveCount(0)
+  expect(await page.locator('.bow-contact').evaluate(e=>e.children.length)).toBe(13)
+  await expect(page.locator('.bow-contact')).toHaveAttribute('aria-hidden','true');await expect(page.locator('.bow-contact')).toHaveCSS('pointer-events','none')
+  expect(await page.locator('.contact-head').evaluate(el=>getComputedStyle(el).fill)).toBe('rgb(99, 52, 229)')
+  expect(await page.locator('.sound-thread path').first().evaluate(el=>getComputedStyle(el).stroke)).toBe('rgb(43, 42, 39)')
+})
+
+test('P2I: B pause settles all work; natural end/replay fades back from the outgoing contact position',async({page})=>{
+  await ready(page,'/?compare=b');await seek(page);await listen(page);await page.waitForTimeout(600)
+  await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','paused')
+  await expect(page.locator('.bow-contact')).toHaveCSS('opacity','0')
+  const pausedY=await page.locator('.bow-contact').getAttribute('data-y'),frames=await root(page).getAttribute('data-analysis-frames')
+  await page.waitForTimeout(400);expect(await root(page).getAttribute('data-analysis-frames')).toBe(frames)
+  expect(await page.locator('.bow-contact').getAttribute('data-y')).toBe(pausedY)
+  await listen(page);await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.2)
+  await audio(page).evaluate(e=>{const a=e as HTMLAudioElement;a.currentTime=a.duration-.15})
+  await expect(root(page)).toHaveAttribute('data-audio-state','ended');await expect(page.locator('.bow-contact')).toHaveCSS('opacity','0')
+  await listen(page)
+  expect(await audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeLessThan(1)
+  await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.4)
+})
+
+test('P2I: B reduced motion is a static contact with real audio and zero analysis',async({page})=>{
+  await page.emulateMedia({reducedMotion:'reduce'});await ready(page,'/?compare=b')
+  await trigger(page).scrollIntoViewIfNeeded();await listen(page)
+  await expect(page.locator('.sound-static-contact')).toBeVisible();await expect(page.locator('.bow-contact')).toBeHidden()
+  const before=await page.locator('.sound-static-contact').boundingBox()
+  await page.waitForTimeout(450);expect(await page.locator('.sound-static-contact').boundingBox()).toEqual(before)
+  await expect(root(page)).toHaveAttribute('data-analysis-frames','0')
+  await trigger(page).focus();await trigger(page).press('Space');await expect(root(page)).toHaveAttribute('data-audio-state','paused')
+})
+
+for(const width of [320,390])test(`P2I: ${width}px B has an independent visible mark and no input or scroll trap`,async({page})=>{
+  await page.setViewportSize({width,height:width===320?568:844});await ready(page,'/en/?compare=b');await seek(page);await listen(page)
+  await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.3)
+  const mark=(await page.locator('.contact-head').boundingBox())!
+  expect(mark.width).toBeGreaterThanOrEqual(3.5);expect(mark.height).toBeGreaterThanOrEqual(3.5);expect(mark.x).toBeGreaterThan(45);expect(mark.y).toBeGreaterThan(145)
+  await expect(page.locator('.contact-head')).toHaveAttribute('rx','4');await expect(page.locator('.contact-head')).toHaveAttribute('ry','1.8')
+  const dock=(await page.locator('.sound-comparison').boundingBox())!
+  for(const element of [page.locator('.sound-caption'),trigger(page)]){
+    const box=(await element.boundingBox())!
+    const overlaps=dock.x<box.x+box.width && dock.x+dock.width>box.x && dock.y<box.y+box.height && dock.y+dock.height>box.y
+    expect(overlaps).toBe(false)
+  }
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true)
+  await seek(page,.3);await expect(root(page)).toHaveAttribute('data-audio-state','paused');await expect(page.locator('.bow-contact')).toHaveCSS('opacity','0')
+  const frames=await root(page).getAttribute('data-analysis-frames');await page.waitForTimeout(350);expect(await root(page).getAttribute('data-analysis-frames')).toBe(frames)
+  await seek(page);await expect(root(page)).toHaveAttribute('data-audio-state','paused')
+})
+
+test('P2I: B missing analyser/failing source never substitutes an animated contact for playback',async({page})=>{
+  await page.addInitScript(()=>{Object.defineProperty(window,'AudioContext',{value:undefined,configurable:true})})
+  await ready(page,'/?compare=b');await seek(page);await listen(page)
+  await expect(page.locator('.sound-visual-fallback')).toBeVisible();await expect(page.locator('.bow-contact')).toHaveCSS('opacity','0')
+  await expect(root(page)).toHaveAttribute('data-analysis-frames','0')
+  await page.route('**/*.m4a',route=>route.abort());await ready(page,'/?compare=b');await seek(page);await trigger(page).click()
+  await expect(root(page)).toHaveAttribute('data-audio-state','error');await expect(page.locator('.bow-contact')).toHaveCSS('opacity','0')
+})
+
+test('P2I: B teardown removes old contact SVGs and hidden/reduced changes stop work',async({page})=>{
+  await ready(page,'/?compare=b');await seek(page);await listen(page)
+  const old=await page.locator('.bow-contact').elementHandle()
+  await page.evaluate(()=>{Object.defineProperty(document,'hidden',{value:true,configurable:true});document.dispatchEvent(new Event('visibilitychange'))})
+  await expect(root(page)).toHaveAttribute('data-audio-state','paused');await expect(page.locator('.bow-contact')).toHaveCSS('opacity','0')
+  await page.evaluate(()=>{Object.defineProperty(document,'hidden',{value:false,configurable:true});document.dispatchEvent(new Event('visibilitychange'))})
+  await listen(page);await page.emulateMedia({reducedMotion:'reduce'});await trigger(page).scrollIntoViewIfNeeded()
+  await expect(page.locator('.sound-static-contact')).toBeVisible();await expect(page.locator('.bow-contact')).toBeHidden()
+  await page.getByRole('button',{name:'MENU',exact:true}).click();await expect(page.locator('dialog')).toHaveAttribute('data-phase','open')
+  await page.getByRole('link',{name:'English',exact:true}).click()
+  await expect.poll(()=>old!.evaluate(el=>el.isConnected)).toBe(false)
+  await expect(page.locator('.bow-contact')).toHaveCount(1);await expect(page.locator('audio')).toHaveCount(1)
+})
+
+for (const path of ['/', '/en?activity=medium&tail=short&violet=ink']) {
+  test(`canonical SOUND ${path}: frozen B2 without comparison controls`, async ({ page }) => {
+    await ready(page, path); await seek(page)
+    await expect(root(page)).toHaveAttribute('data-sound-visual', 'bow-contact')
+    await expect(root(page)).toHaveAttribute('data-contact-activity', 'bold')
+    await expect(root(page)).toHaveAttribute('data-contact-trail', 'long')
+    await expect(root(page)).toHaveAttribute('data-contact-violet', 'electric')
+    await expect(page.locator('.sound-comparison')).toHaveCount(0)
+    await expect(page.locator('.bow-contact')).toHaveCount(1)
+    expect(await page.locator('.bow-contact').evaluate(el => getComputedStyle(el).color)).toBe('rgb(99, 52, 229)')
+    await listen(page); await trigger(page).click()
+    await expect(root(page)).toHaveAttribute('data-audio-state', 'paused')
+  })
+}

@@ -1,0 +1,93 @@
+
+> cho-youn-kyoung-v2@0.0.0 test:navigation
+> playwright test --config playwright.navigation.config.ts
+
+[WebServer] (node:10420) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 26 tests using 2 workers
+
+(node:8380) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:30240) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 tests\navigation.spec.ts:39:3 › bold mobile: artist plus MENU only, stable scroll and opened menu (3.1s)
+  ok  2 tests\navigation.spec.ts:39:3 › bold small-mobile: artist plus MENU only, stable scroll and opened menu (3.1s)
+  ok  3 tests\navigation.spec.ts:39:3 › bold tablet: artist plus MENU only, stable scroll and opened menu (3.0s)
+  ok  4 tests\navigation.spec.ts:39:3 › bold tablet-landscape: artist plus MENU only, stable scroll and opened menu (3.0s)
+  ok  5 tests\navigation.spec.ts:39:3 › bold desktop: artist plus MENU only, stable scroll and opened menu (2.9s)
+  ok  6 tests\navigation.spec.ts:39:3 › bold wide: artist plus MENU only, stable scroll and opened menu (2.9s)
+  ok  8 tests\navigation.spec.ts:118:1 › bold: opening and closing reverse at the current time without visual resets (1.5s)
+  ok  9 tests\navigation.spec.ts:141:34 › 390: keyboard trap, visible focus, Esc reverse and restore (2.3s)
+  ok  7 tests\navigation.spec.ts:71:1 › trigger hover, opening intermediate, fully opened and item hover visual evidence (4.1s)
+  ok 10 tests\navigation.spec.ts:141:34 › 1440: keyboard trap, visible focus, Esc reverse and restore (2.4s)
+  ok 11 tests\navigation.spec.ts:167:3 › root: same detail counterpart, active section, clean path, history and refresh (3.5s)
+  ok 12 tests\navigation.spec.ts:167:3 › pagesPreview: same detail counterpart, active section, clean path, history and refresh (3.4s)
+  ok 13 tests\navigation.spec.ts:186:1 › mobile performance counterpart and page activation close immediately, then focus main (2.4s)
+  ok 15 tests\navigation.spec.ts:206:1 › reduced motion uses immediate accessible states and stationary hover/focus labels (1.1s)
+  ok 14 tests\navigation.spec.ts:196:1 › missing/draft English is unavailable without a fabricated destination (3.6s)
+  ok 16 tests\navigation.spec.ts:219:1 › resize preserves the same modal and focus; 200% text and short landscape reflow (3.5s)
+  ok 18 tests\navigation.spec.ts:247:1 › Esc during entry reverses, repeated Esc cannot reopen, rapid reopen is stable (2.2s)
+  ok 19 tests\navigation.spec.ts:261:1 › live reduced-motion changes settle to the requested endpoint and release scroll (680ms)
+  ok 17 tests\navigation.spec.ts:236:1 › HOME counterpart with trailing slash retains artist and MENU under both bases (4.7s)
+  ok 20 tests\navigation.spec.ts:271:1 › blocked fonts and unavailable Web Animations keep the menu functional (795ms)
+  ok 21 tests\navigation.spec.ts:279:1 › selected HOME uses type and index emphasis with one structural rule and no extra underline (1.6s)
+  ok 22 tests\navigation.spec.ts:296:1 › bold: Letter Slip alternates deterministically, preserves link geometry and returns to the exact baseline (3.2s)
+  ok 23 tests\navigation.spec.ts:320:1 › trigger hover and focus never open the menu; rapid letter hover interruption settles cleanly (2.5s)
+  ok 25 tests\navigation.spec.ts:372:1 › Canonical Bold opens from MENU with angled surface, unskewed type and approved Letter Slip (3.8s)
+  ok 26 tests\navigation.spec.ts:399:1 › Stale Refined URL cannot select a mode; canonical Bold preserves keyboard, counterpart and live reduced motion (1.9s)
+  x  24 tests\navigation.spec.ts:335:1 › bold: real-time browser recording preserves opening, hover return, closing and immediate interruption (30.0s)
+
+
+  1) tests\navigation.spec.ts:335:1 › bold: real-time browser recording preserves opening, hover return, closing and immediate interruption 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test ended.
+    Call log:
+      - waiting for locator('dialog .menu-toggle')
+        - locator resolved to <button class="menu-toggle" aria-label="메뉴 다시 열기">…</button>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is not stable
+      - retrying click action
+        - waiting for element to be visible, enabled and stable
+        - element is not visible
+      - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is not visible
+        - retrying click action
+          - waiting 100ms
+        47 × waiting for element to be visible, enabled and stable
+           - element is not visible
+         - retrying click action
+           - waiting 500ms
+
+
+      356 |   await page.getByRole('button', { name: 'MENU', exact: true }).click(); await page.waitForTimeout(130)
+      357 |   await page.keyboard.press('Escape'); await page.waitForTimeout(60)
+    > 358 |   await page.locator('dialog .menu-toggle').click(); await expect(page.locator('dialog')).toHaveAttribute('data-phase', 'open')
+          |                                             ^
+      359 |   await page.waitForTimeout(350); await page.keyboard.press('Escape'); await expect(page.locator('dialog')).not.toBeVisible()
+      360 |   await page.waitForTimeout(350)
+      361 |   const events: { phase: string; at: number }[] = JSON.parse((await page.locator('dialog').getAttribute('data-observed-timing'))!)
+        at C:\choyounkyoung-v2\tests\navigation.spec.ts:358:45
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\navigation\navigation-bold-real-time--9b7ee--and-immediate-interruption\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\navigation\navigation-bold-real-time--9b7ee--and-immediate-interruption\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\navigation\navigation-bold-real-time--9b7ee--and-immediate-interruption\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\navigation\navigation-bold-real-time--9b7ee--and-immediate-interruption\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    tests\navigation.spec.ts:335:1 › bold: real-time browser recording preserves opening, hover return, closing and immediate interruption 
+  25 passed (1.1m)

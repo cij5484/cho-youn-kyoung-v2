@@ -1,0 +1,24 @@
+
+> cho-youn-kyoung-v2@0.0.0 test:sound
+> playwright test --config playwright.sound.config.ts --project chromium --grep P2I
+
+[WebServer] (node:9176) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 9 tests using 2 workers
+
+(node:5820) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:31308) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\sound.spec.ts:282:1 › P2I: A/B and tail comparison preserves media position, graph, focus and the original line nodes (3.1s)
+  ok 3 [chromium] › tests\sound.spec.ts:327:1 › P2I: contact motion rejects silence/DC and preserves its actual position across pause and replay entry (1.2s)
+  ok 2 [chromium] › tests\sound.spec.ts:304:1 › P2I: B is bounded near one contact region, crosses the pair and retains a short trail (9.4s)
+  ok 4 [chromium] › tests\sound.spec.ts:353:1 › P2I: B pause settles all work; natural end/replay fades back from the outgoing contact position (5.7s)
+  ok 5 [chromium] › tests\sound.spec.ts:368:1 › P2I: B reduced motion is a static contact with real audio and zero analysis (2.0s)
+  ok 6 [chromium] › tests\sound.spec.ts:378:30 › P2I: 320px B has an independent visible mark and no input or scroll trap (4.9s)
+  ok 7 [chromium] › tests\sound.spec.ts:378:30 › P2I: 390px B has an independent visible mark and no input or scroll trap (5.0s)
+  ok 9 [chromium] › tests\sound.spec.ts:404:1 › P2I: B teardown removes old contact SVGs and hidden/reduced changes stop work (2.9s)
+  ok 8 [chromium] › tests\sound.spec.ts:395:1 › P2I: B missing analyser/failing source never substitutes an animated contact for playback (4.7s)
+
+  9 passed (22.2s)

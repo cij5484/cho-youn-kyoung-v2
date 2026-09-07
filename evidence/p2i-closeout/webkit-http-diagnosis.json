@@ -1,0 +1,512 @@
+{
+  "purpose": "Compare actual same-origin server faults with Playwright route interception; real retained excerpt, no mocked media or AudioContext.",
+  "results": [
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "mode": "valid",
+      "target": "/__p2i_probe/valid.m4a?engine=chromium&run=1788753638066",
+      "interceptCalls": 0,
+      "serverRequests": [
+        {
+          "url": "/__p2i_probe/valid.m4a?engine=chromium&run=1788753638066",
+          "time": 1788753640224,
+          "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36"
+        }
+      ],
+      "state": {
+        "phase": "playing",
+        "position": 1.390143,
+        "paused": false,
+        "error": 0,
+        "readyState": 4,
+        "audioContext": "function",
+        "context": "running",
+        "analysis": "43",
+        "fallback": false
+      },
+      "events": [
+        {
+          "event": "waiting",
+          "time": 2155.2000000011176,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "loadstart",
+          "time": 2156.2000000011176,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "loadedmetadata",
+          "time": 2161.60000000149,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "playing",
+          "time": 2162.60000000149,
+          "position": 0,
+          "error": 0
+        }
+      ]
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "mode": "intercept",
+      "target": "/__p2i_probe/intercept.m4a?engine=chromium&run=1788753641744",
+      "interceptCalls": 1,
+      "serverRequests": [],
+      "state": {
+        "phase": "error",
+        "position": 0,
+        "paused": true,
+        "error": 4,
+        "readyState": 0,
+        "audioContext": "function",
+        "context": "suspended",
+        "analysis": "2",
+        "fallback": false
+      },
+      "events": [
+        {
+          "event": "waiting",
+          "time": 1767.9000000003725,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "loadstart",
+          "time": 1769.5,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "error",
+          "time": 1775.5,
+          "position": 0,
+          "error": 4
+        },
+        {
+          "event": "pause",
+          "time": 1775.699999999255,
+          "position": 0,
+          "error": 4
+        }
+      ]
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "mode": "missing",
+      "target": "/__p2i_probe/missing.m4a?engine=chromium&run=1788753645029",
+      "interceptCalls": 0,
+      "serverRequests": [
+        {
+          "url": "/__p2i_probe/missing.m4a?engine=chromium&run=1788753645029",
+          "time": 1788753646783,
+          "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36"
+        }
+      ],
+      "state": {
+        "phase": "error",
+        "position": 0,
+        "paused": true,
+        "error": 4,
+        "readyState": 0,
+        "audioContext": "function",
+        "context": "suspended",
+        "analysis": "2",
+        "fallback": false
+      },
+      "events": [
+        {
+          "event": "waiting",
+          "time": 1752.4000000003725,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "loadstart",
+          "time": 1753.2999999988824,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "error",
+          "time": 1758.7999999988824,
+          "position": 0,
+          "error": 4
+        },
+        {
+          "event": "pause",
+          "time": 1759,
+          "position": 0,
+          "error": 4
+        }
+      ]
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "mode": "stall",
+      "target": "/__p2i_probe/stall.m4a?engine=chromium&run=1788753648298",
+      "interceptCalls": 0,
+      "serverRequests": [
+        {
+          "url": "/__p2i_probe/stall.m4a?engine=chromium&run=1788753648298",
+          "time": 1788753650067,
+          "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36"
+        }
+      ],
+      "state": {
+        "phase": "error",
+        "position": 0,
+        "paused": true,
+        "error": 0,
+        "readyState": 0,
+        "audioContext": "function",
+        "context": "suspended",
+        "analysis": "2",
+        "fallback": false
+      },
+      "events": [
+        {
+          "event": "waiting",
+          "time": 1766,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "loadstart",
+          "time": 1766.7999999988824,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "pause",
+          "time": 13774.099999999627,
+          "position": 0,
+          "error": 0
+        }
+      ]
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "mode": "cancel",
+      "target": "/__p2i_probe/cancel.m4a?engine=chromium&run=1788753663382",
+      "interceptCalls": 0,
+      "serverRequests": [
+        {
+          "url": "/__p2i_probe/cancel.m4a?engine=chromium&run=1788753663382",
+          "time": 1788753665150,
+          "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36"
+        }
+      ],
+      "state": {
+        "phase": "paused",
+        "position": 0,
+        "paused": true,
+        "error": 0,
+        "readyState": 4,
+        "audioContext": "function",
+        "context": "suspended",
+        "analysis": "2",
+        "fallback": false
+      },
+      "events": [
+        {
+          "event": "waiting",
+          "time": 1765.0999999996275,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "loadstart",
+          "time": 1766,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "pause",
+          "time": 1817.9000000003725,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "loadedmetadata",
+          "time": 3577.300000000745,
+          "position": 0,
+          "error": 0
+        }
+      ]
+    },
+    {
+      "engine": "webkit",
+      "version": "26.6",
+      "mode": "valid",
+      "target": "/__p2i_probe/valid.m4a?engine=webkit&run=1788753667892",
+      "interceptCalls": 0,
+      "serverRequests": [
+        {
+          "url": "/__p2i_probe/valid.m4a?engine=webkit&run=1788753667892",
+          "time": 1788753669980,
+          "agent": "NSPlayer/12.00.26100.9168 WMFSDK/12.00.26100.9168"
+        }
+      ],
+      "state": {
+        "phase": "playing",
+        "position": 1.2508106,
+        "paused": false,
+        "error": 0,
+        "readyState": 4,
+        "audioContext": "undefined",
+        "context": "not-created",
+        "analysis": "0",
+        "fallback": true
+      },
+      "events": [
+        {
+          "event": "waiting",
+          "time": 2004,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "loadstart",
+          "time": 2011,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "loadedmetadata",
+          "time": 2131,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "playing",
+          "time": 2132,
+          "position": 0,
+          "error": 0
+        }
+      ]
+    },
+    {
+      "engine": "webkit",
+      "version": "26.6",
+      "mode": "intercept",
+      "target": "/__p2i_probe/intercept.m4a?engine=webkit&run=1788753671496",
+      "interceptCalls": 0,
+      "serverRequests": [
+        {
+          "url": "/__p2i_probe/intercept.m4a?engine=webkit&run=1788753671496",
+          "time": 1788753673587,
+          "agent": "NSPlayer/12.00.26100.9168 WMFSDK/12.00.26100.9168"
+        }
+      ],
+      "state": {
+        "phase": "playing",
+        "position": 1.2551647,
+        "paused": false,
+        "error": 0,
+        "readyState": 4,
+        "audioContext": "undefined",
+        "context": "not-created",
+        "analysis": "0",
+        "fallback": true
+      },
+      "events": [
+        {
+          "event": "waiting",
+          "time": 2005,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "loadstart",
+          "time": 2026,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "loadedmetadata",
+          "time": 2134,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "playing",
+          "time": 2135,
+          "position": 0,
+          "error": 0
+        }
+      ]
+    },
+    {
+      "engine": "webkit",
+      "version": "26.6",
+      "mode": "missing",
+      "target": "/__p2i_probe/missing.m4a?engine=webkit&run=1788753675114",
+      "interceptCalls": 0,
+      "serverRequests": [
+        {
+          "url": "/__p2i_probe/missing.m4a?engine=webkit&run=1788753675114",
+          "time": 1788753677160,
+          "agent": "NSPlayer/12.00.26100.9168 WMFSDK/12.00.26100.9168"
+        },
+        {
+          "url": "/__p2i_probe/missing.m4a?engine=webkit&run=1788753675114",
+          "time": 1788753677165,
+          "agent": "NSPlayer/12.00.26100.9168 WMFSDK/12.00.26100.9168"
+        },
+        {
+          "url": "/__p2i_probe/missing.m4a?engine=webkit&run=1788753675114",
+          "time": 1788753677168,
+          "agent": "NSPlayer/12.00.26100.9168 WMFSDK/12.00.26100.9168"
+        },
+        {
+          "url": "/__p2i_probe/missing.m4a?engine=webkit&run=1788753675114",
+          "time": 1788753677183,
+          "agent": "NSPlayer/12.00.26100.9168 WMFSDK/12.00.26100.9168"
+        }
+      ],
+      "state": {
+        "phase": "error",
+        "position": 0,
+        "paused": true,
+        "error": 4,
+        "readyState": 0,
+        "audioContext": "undefined",
+        "context": "not-created",
+        "analysis": "0",
+        "fallback": true
+      },
+      "events": [
+        {
+          "event": "waiting",
+          "time": 1968,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "loadstart",
+          "time": 1975,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "error",
+          "time": 2066,
+          "position": 0,
+          "error": 4
+        },
+        {
+          "event": "pause",
+          "time": 2080,
+          "position": 0,
+          "error": 4
+        }
+      ]
+    },
+    {
+      "engine": "webkit",
+      "version": "26.6",
+      "mode": "stall",
+      "target": "/__p2i_probe/stall.m4a?engine=webkit&run=1788753678742",
+      "interceptCalls": 0,
+      "serverRequests": [
+        {
+          "url": "/__p2i_probe/stall.m4a?engine=webkit&run=1788753678742",
+          "time": 1788753680901,
+          "agent": "NSPlayer/12.00.26100.9168 WMFSDK/12.00.26100.9168"
+        }
+      ],
+      "state": {
+        "phase": "error",
+        "position": 0,
+        "paused": true,
+        "error": 0,
+        "readyState": 0,
+        "audioContext": "undefined",
+        "context": "not-created",
+        "analysis": "0",
+        "fallback": true
+      },
+      "events": [
+        {
+          "event": "waiting",
+          "time": 2077,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "loadstart",
+          "time": 2096,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "pause",
+          "time": 14098,
+          "position": 0,
+          "error": 0
+        }
+      ]
+    },
+    {
+      "engine": "webkit",
+      "version": "26.6",
+      "mode": "cancel",
+      "target": "/__p2i_probe/cancel.m4a?engine=webkit&run=1788753694241",
+      "interceptCalls": 0,
+      "serverRequests": [
+        {
+          "url": "/__p2i_probe/cancel.m4a?engine=webkit&run=1788753694241",
+          "time": 1788753696444,
+          "agent": "NSPlayer/12.00.26100.9168 WMFSDK/12.00.26100.9168"
+        }
+      ],
+      "state": {
+        "phase": "paused",
+        "position": 0,
+        "paused": true,
+        "error": 0,
+        "readyState": 4,
+        "audioContext": "undefined",
+        "context": "not-created",
+        "analysis": "0",
+        "fallback": true
+      },
+      "events": [
+        {
+          "event": "waiting",
+          "time": 2115,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "loadstart",
+          "time": 2122,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "pause",
+          "time": 2292,
+          "position": 0,
+          "error": 0
+        },
+        {
+          "event": "loadedmetadata",
+          "time": 4058,
+          "position": 0,
+          "error": 0
+        }
+      ]
+    }
+  ]
+}

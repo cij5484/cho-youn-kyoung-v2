@@ -162,3 +162,23 @@ P0A skeleton의 기획상 blocker는 아니며 후속 gate가 통과되었다는
 스크린샷/실행 preview: 해당 없음. 웹사이트 구현을 시작하지 않았다.
 권장 다음 작업: **P0A — project skeleton / base configuration**.
 현재 **STOP / 사용자 P0A 명시적 승인 대기**. 다음 task를 자동 실행하지 않는다.
+
+## 2026-09-07 — P2I integrated choreography / experience-principles revision
+
+Latest integrated user instruction takes precedence over overlapping earlier attachments. MASTER §3.1 is the single
+owner of eight experience principles; §6 owns active reference adoption boundaries. Motion §45 distinguishes
+micro-vibrating strings from smooth bow travel. HOME permits the stronger explicit-listening candidate; Design
+limits Violet to SOUND. The existing comparison contract is revised in place, retaining earlier result/evidence.
+INTERACTION-GLOSSARY is a 29-term human learning reference, not new agent instructions. WORKS/filmstrip/adaptive
+navigation/entry ritual/Blender/3D are not implemented. [Current result](../../../P2I-CHOREOGRAPHY-RESULT.md) owns checks,
+known gaps and STOP; approved philosophy does not imply a selected production SOUND or quality freeze.
+
+## 2026-09-07 — P2I selected direction / QA closeout
+
+The user selected B2 Bold + LONG 460ms + Electric Violet #6334E5. HOME/Motion/SOUND now record the production
+direction and “Strings vibrate. Bow flows.”; alternatives stay Lab/evidence only. MASTER §2 records artist
+recognition, brand, performance promotion and professional credibility as the purpose of impact. The eight
+principles retain their single canonical owner; glossary status now reflects the implemented/approved direction.
+[Closeout result](../../../P2I-CLOSEOUT-RESULT.md) owns QUALITY APPROVED / FROZEN, classified non-blocking
+Windows CLS/WebKit gaps and delivery. Full remains red; no test relaxation, deployment or next scene.
+Prior reports and evidence are preserved rather than rewritten with later approvals.

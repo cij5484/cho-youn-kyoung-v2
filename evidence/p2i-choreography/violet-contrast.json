@@ -1,0 +1,23 @@
+{
+  "method": "WCAG relative sRGB luminance; solid swatch. Fading decorative trail has varying lower contrast and carries no essential state.",
+  "result": [
+    {
+      "name": "editorial",
+      "hex": "#6038C8",
+      "background": "#F4F0E8",
+      "solidContrast": 6.3774747182059235
+    },
+    {
+      "name": "electric",
+      "hex": "#6334E5",
+      "background": "#F4F0E8",
+      "solidContrast": 5.859494386619712
+    },
+    {
+      "name": "ink",
+      "hex": "#492580",
+      "background": "#F4F0E8",
+      "solidContrast": 9.935288840660217
+    }
+  ]
+}

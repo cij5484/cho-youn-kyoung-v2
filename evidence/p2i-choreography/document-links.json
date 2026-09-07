@@ -1,0 +1,23 @@
+{
+  "documents": [
+    "AGENTS.md",
+    "CODEX-HANDOFF.md",
+    "README.md",
+    "P2I-CHOREOGRAPHY-RESULT.md",
+    "docs/redesign/00-MASTER-PLAN.md",
+    "docs/redesign/02-DESIGN-SYSTEM.md",
+    "docs/redesign/03-MOTION-SYSTEM.md",
+    "docs/redesign/04-HOME.md",
+    "docs/redesign/INTERACTION-GLOSSARY.md",
+    "docs/redesign/review/HOME-SOUND-EXPERIENCE.md",
+    "docs/redesign/review/SOUND-BOW-CONTACT-COMPARISON.md",
+    "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md",
+    "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md",
+    "docs/redesign/review/PLANNING-REVISION-LOG.md",
+    "evidence/p2i-choreography/README.md"
+  ],
+  "localLinks": 403,
+  "issues": [],
+  "explicitPrinciplesAnchor": "PASS; exactly one",
+  "scope": "Local target existence; new MASTER explicit anchor. Remote reference sources separately read; historical headings not exhaustively revalidated."
+}

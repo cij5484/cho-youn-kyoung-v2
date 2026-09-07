@@ -1,7 +1,7 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 00 — REDESIGN MASTER PLAN
 
-**Version:** 1.18\
+**Version:** 1.20\
 **Status:** Approved Planning Baseline — P1C/P1D approved and delivered; P2A visually approved and delivered; P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN; enlarged bounded-task policy retained; HOME/product visual approval pending\
 **Legacy Repository:** `cij5484/cho-youn-kyoung`  
 **Target Repository:** `cij5484/cho-youn-kyoung-v2`  
@@ -26,6 +26,11 @@ V2가 최종 QA를 통과한 이후에만 기존 `choyounkyoung.com`을 새 프�
 ---
 
 # 2. CORE OBJECTIVE
+
+V2는 국내외에서 **Cho Youn Kyoung이라는 해금 연주자의 인지도와 기억 가능성**을 높이는 digital
+flagship이다. Artist brand, 공연 홍보, 전문적 신뢰도를 함께 강화한다. 시각적 impact와 interaction은
+기술 과시가 아니라 방문자가 **Cho Youn Kyoung**이라는 이름과 음악적 정체성을 기억하는 데 기여해야
+한다. §3.1 CONTINUOUS IMPACT는 이 상위 목적을 장면마다 구현하는 원칙이다.
 
 2026-09-06 사용자 추가 기준: **BOLD, CURATED, PURPOSEFUL.** 처음 방문자가 “우와, 홈페이지 정말 잘
 만들었다”라고 느끼는 수준을 최우선 시각 목표로 둔다. 효과 수를 최소화하는 방향으로 restraint를
@@ -65,6 +70,47 @@ V2가 최종 QA를 통과한 이후에만 기존 `choyounkyoung.com`을 새 프�
 
 ---
 
+<a id="v2-experience-principles"></a>
+
+## 3.1 V2 EXPERIENCE PRINCIPLES — canonical / 2026-09-07
+
+최신 통합 사용자 지시의 상위 quality principles다. 기존 Contemporary Editorial / Ivory,
+Static Color, Dynamic Composition, BOLD / CURATED / PURPOSEFUL과 정보·접근성 계약을 유지한다.
+각 원칙의 전체 정의는 이곳에만 둔다. 개별 명세는 소유 구현 규칙과 이 절의 참조를 기록한다.
+**원칙 APPROVED ≠ 예시 IMPLEMENTED ≠ 장면 QUALITY APPROVED.** 아래 미래 예시는 실행 승인이 아니다.
+
+1. **CONTINUOUS IMPACT** — 모든 주요 장면은 조윤경의 존재감을 각인시키는 시각적 기억을 남긴다.
+   같은 종류의 강함을 반복하지 않으며 정적 구성·사진·타이포그래피의 여운도 impact에 포함한다.
+2. **TECHNIQUE DIVERSITY** — 서로 다른 signature technique을 큐레이션한다. Hero의 typography/crop/pointer
+   depth와 Haegeum의 scroll transformation/mask는 기존 승인 범위를 보존한다. SOUND의 audio strings + bow는
+   B2 / LONG 460ms / Electric Violet으로 시각 승인됐다. WORKS scattered cluster → spatial reorganization, Album realtime 3D, Performance
+   cinematic persistent stage, Media filmstrip/ribbon, About typography/photography + hover-preview archive는
+   별도 승인 후 검토할 후보다. 같은 효과를 모든 장면에 복제하지 않는다.
+3. **SEAMLESS CONTINUITY** — 가능한 전환에서 shared object, persistent visual anchor, layout morph,
+   mask handoff, 공간과 상태의 연속성을 사용한다. 앞 장면의 실제 상태에서 다음 상태를 시작한다.
+   route-level 오디오 종료 및 접근성/포커스 계약은 유지한다.
+4. **INPUT-RESPONSIVE SURFACES** — pointer / scroll / touch가 배경·재질·깊이·이미지·타이포그래피에
+   직접 영향을 주는 표면을 적극 검토한다. pointer background, displacement, shader, parallax 등의 선택은
+   장면 의미에 따른다. 터치·키보드·reduced motion에도 정보와 의도된 대안을 제공한다.
+5. **SHORT-FORM SCROLLYTELLING** — HIGH IMPACT + LIMITED SCROLL COMMITMENT. 짧고 기억에 남는
+   cinematic scroll을 우선한다. 충분한 서사적 이유 없이 긴 pin/scroll 구간을 늘리지 않는다.
+6. **ADAPTIVE UI** — 전역 navigation/utilities는 장면 대비에 맞춘 authored theme를 우선한다.
+   Ivory에는 dark UI, dark stage에는 light UI, 이미지에는 검토된 contrast theme를 지정한다.
+   불필요한 실시간 픽셀 밝기 분석을 기본 구조로 만들지 않는다. production UI는 이번에 구현하지 않는다.
+7. **ENTRY RITUAL** — 실제로 필요한 preload 대기를 의미 있는 진입 경험으로 다룬다. 첫 방문은 충분한
+   ritual, 반복 방문은 짧은 ritual을 검토하되 인위적인 최소 대기·가짜 progress·로딩용 지연은 금지한다.
+   콘텐츠가 준비되면 바로 진입한다. Session-aware 동작은 후보이며 구현·라이브러리 채택은 미승인이다.
+   학습/기획용 카피 후보: 말총 다듬는 중…, 해금 조율 중…, 활대 정리 중…, 두 줄의 장력 맞추는 중…,
+   공명통 깨우는 중…, 반가부좌 앉는 중…, 첫 음 기다리는 중….
+8. **REFERENCE ADOPTION POLICY** — 검증된 interaction principle을 이전보다 적극적으로 조사·prototype한
+   뒤 V2의 해금·두 현·활·Ivory·사진·Sanjo/Jeongak·앨범으로 재해석한다. 구체적 도입·복제 경계는 §6이 소유한다.
+
+용어를 배우기 위한 [INTERACTION-GLOSSARY](INTERACTION-GLOSSARY.md)는 human-readable reference이며
+agent instruction 또는 미구현 기법의 실행 승인이 아니다. 이번 원칙은 사용자가 전달한 reference review를
+정리한 것이며, 여기에 적힌 해외 사이트를 이번에 새로 전수 감사했다는 뜻이 아니다.
+
+---
+
 # 4. PRIMARY VISUAL LANGUAGE
 
 ## LINE
@@ -98,9 +144,9 @@ Precise
 
 # 6. REFERENCE POLICY
 
-2026-09-06 Reference Adoption Policy: 고품질 사이트의 navigation, typography hover, image reveal, scroll
+2026-09-07 적극적인 Reference Adoption Policy (§3.1의 소유 규칙): 고품질 사이트의 navigation, typography hover, image reveal, scroll
 choreography, layout transformation, shared transition, cursor, spatial composition, gallery의 검증된 원리와
-structural idea를 적극 연구·도입한다. 초기 V2부터 좋은 reference의 강점을 학습하고 구현할 수 있다.
+structural idea를 적극 연구·도입한다. 특히 shader, pointer-reactive surfaces, hover, spatial layout, page transition, 3D 원리를 초기 prototype에서 과감하게 실험하고 V2 언어로 다듬는다. 단 각 prototype은 별도로 승인된 작업 범위 안에서 수행한다.
 Exact layout / visual composition / timing values, original assets, branding, source code는 복제하지 않는다.
 Ivory editorial language, 해금, 두 현/활, tension/resonance, album objects, photography, typography로 재해석한다.
 필요하면 REFINED vs BOLD를 비교하며, 처음부터 안전하게 축소하기보다 과감한 prototype에서 불필요한

@@ -1,0 +1,606 @@
+{
+  "baseline": "ba801448497b31c78b8fb749f73f02d23b7e0799",
+  "files": [
+    {
+      "file": "evidence/p2h/README.md",
+      "unchanged": true,
+      "sha256": "a48b6ec51d1268ba32458ce8abd406aeb66c770dd96d924a31e65d27a3c03e3c",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/audio-review.json",
+      "unchanged": true,
+      "sha256": "2ddc6a7d7e99ab3458f42b48673db5808a82821b4564ed437600c33ad439abaf",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/capture-states.json",
+      "unchanged": true,
+      "sha256": "7faae93186ffe13f7ebfc95dc9c8d76cea869352f71a26e2afb5ebfc29b74f95",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/damping.json",
+      "unchanged": true,
+      "sha256": "83c26dd57d50ce5a422ea3c96d46f0dcc11673bc4d1c8785f0585a7615accdb7",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/delivery.json",
+      "unchanged": true,
+      "sha256": "5e8d3c9268f1fb4a4613d294ceb0ce380cedbb6a814e85e7cf379f3ff123ccd7",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/desktop-completed.png",
+      "unchanged": true,
+      "sha256": "9b3a2f5f737ee4cd55cb7d3d63444c6f68c2d24c16048786f4442c77b32908ce",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/desktop-damping.png",
+      "unchanged": true,
+      "sha256": "60d6e0e397eb3b71b69a06fda698d386aac5f6b9381e4a0afa9cd0b03fbcb838",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/desktop-full.png",
+      "unchanged": true,
+      "sha256": "5b697eae028104e1b28569738d20f51fa61640604f7b60b34317917cc66b464a",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/desktop-hover.png",
+      "unchanged": true,
+      "sha256": "acc5d26f7ab85c0a88ec04cdb09a980001f28309a9272361c4263b9817f8e25f",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/desktop-idle.png",
+      "unchanged": true,
+      "sha256": "1173d7523fa36b38bebc69a71b0ded385b0841f486bec3fb46d63f3810985ec1",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/desktop-initial.png",
+      "unchanged": true,
+      "sha256": "650ff5b6c717a1600605a844a006897400b005efe369bd0540ec04131f3fd1a3",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/desktop-paused.png",
+      "unchanged": true,
+      "sha256": "67576b1374d49f464e3e3959cf75e068068989b805a563f98c87715a044833df",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/desktop-playing.png",
+      "unchanged": true,
+      "sha256": "a13a0a86e9f274d0cebc48e417f0aea02974c56e27057c3e880765bada74fd4a",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/desktop-real-time.webm",
+      "unchanged": true,
+      "sha256": "dc3d6ae42ecc70d19a6ca6b9fd73bdfc898b84989530eee372d20e8fc0bd4a34",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/desktop-release-early.png",
+      "unchanged": true,
+      "sha256": "464b9b58be43b324bbb4fec9e3eaa7a2a978150a5d302a1ee9c0f4aad53d6e36",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/desktop-release-late.png",
+      "unchanged": true,
+      "sha256": "7da0c1404828a77e33dafc49b1b4228ec24e25b3cbdface43039d12800d3d4c4",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/desktop-release-mid.png",
+      "unchanged": true,
+      "sha256": "c2d01f37d43bab72a9dd536809f1ffce16358e792ba3e72ebb5536ce08fc990e",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/full-gate.txt",
+      "unchanged": true,
+      "sha256": "46c00d99576f136e175db2a6b98059faca3479ee7b468125f0e1012da1fb4000",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/initial-comparison.json",
+      "unchanged": true,
+      "sha256": "679eab39a8e57aab1b1e1dbe91c98369d251a966673fb5232d908844ecf73b1d",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/lab-build-guard.txt",
+      "unchanged": true,
+      "sha256": "3617d1a5482cab75c5f9f25869ca5dd4549d02669ffe544f2e7bd0afcbf2153b",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/lab-visibility.json",
+      "unchanged": true,
+      "sha256": "01dae11c0e6e2b8afd42397b6f1f95341d043c3dc89e429ffd0ad7a3b0c9da1e",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/laptop-idle.png",
+      "unchanged": true,
+      "sha256": "78990c83e00c08f65b81ecdb5a00b3ae28e1efe1439af93bca243c2aacf96958",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/mobile-320-full.png",
+      "unchanged": true,
+      "sha256": "70b19fd2925661c41b3a4f44b085c061a0b6e1acb73bcf8ccb4d9a452a99610d",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/mobile-320-idle.png",
+      "unchanged": true,
+      "sha256": "1e14e05d196aff338211d9ec37ef65b76b80254e74f13b9d3720812ed7e332b1",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/mobile-320-playing.png",
+      "unchanged": true,
+      "sha256": "d68c239da742dbdf8a9ebb72d70ef5cb5fba702da8aac8b1926957c6df0272e6",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/mobile-320-release.png",
+      "unchanged": true,
+      "sha256": "6d6b9413baa3ee83640b6fe7079ebc629591b97c2bddbc5553bd2a683f7a21ab",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/mobile-390-full.png",
+      "unchanged": true,
+      "sha256": "2a1d1a492be6d47361fe3004b999c3afb1e46063f595041f964ae4abdf582b82",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/mobile-390-idle.png",
+      "unchanged": true,
+      "sha256": "83c76ebd224e27020f74e1532688cd3c5919a29682984084f97c3da878f226af",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/mobile-390-playing.png",
+      "unchanged": true,
+      "sha256": "c7429843bb921ffab674afa9ffbb815d3b7af32142dc4421682c994746dea3c7",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/mobile-390-release.png",
+      "unchanged": true,
+      "sha256": "dcb118538a2c4d65e3e7dcb4ba9bd8a7baf9317b5a01cd04d885cc9762065270",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/mobile-en-idle.png",
+      "unchanged": true,
+      "sha256": "0e3f0257a5132ae5885eb098018cc7faa7e69a513cc88f5993021a2ca9cec5d9",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/mobile-real-time.webm",
+      "unchanged": true,
+      "sha256": "6426ef2b0385c13395281a31eca95683b9dbccb843fa071fbfea789d3572051d",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/performance.json",
+      "unchanged": true,
+      "sha256": "21420bd3e4d7a73a8e572612c2dec45b294aee48c2ef586ab4560e8a73320452",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/reduced-desktop-playing.png",
+      "unchanged": true,
+      "sha256": "295181b6331f80967420f40c7cb00d77c764b358e6b7b081808e6462a65b363d",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/reduced-desktop.png",
+      "unchanged": true,
+      "sha256": "df2b10cfadea8b31205f3dfd657fa582cc930166fcb05b026c78c5a2bf794544",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/reduced-mobile-playing.png",
+      "unchanged": true,
+      "sha256": "fb316700616d02ec96b359af7e23c4a09ba43dfebc82be080a66ac8e39ce746f",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/reduced-mobile.png",
+      "unchanged": true,
+      "sha256": "045cdeac0968c479a21b82c2001bee84fde526ca31c0b0d829df7d56c41e4ed1",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/safari-baseline-paused.png",
+      "unchanged": true,
+      "sha256": "52c98d314e3ace12936d8a0de6c4ae8587825b0c09557f3c3f20dfde215267d3",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/safari-baseline-playing.png",
+      "unchanged": true,
+      "sha256": "75487699fcf878d399bb08cffd7f6a23ab94bbc70511ae3068f840021830ba1c",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/safari-baseline-playing.txt",
+      "unchanged": true,
+      "sha256": "4273d8312c5f82a5a7ded4a6bca2154aff956fcb641dafa479d5e7ad26503dab",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/safari-completed.png",
+      "unchanged": true,
+      "sha256": "190ef265975dfe9fdffe280a980d7d0243cb0d9bdaf58c0745b964e9539198c0",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/safari-device-qa.md",
+      "unchanged": true,
+      "sha256": "1d965c01d1a734c9a6234eff9f2336f52ba11b2131afcc921e5f830954e19273",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/safari-initial.png",
+      "unchanged": true,
+      "sha256": "b31e853754947a1d61cd61886ae15b4e40eac2787039af4781b179265770ca94",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/safari-keyboard-focus.png",
+      "unchanged": true,
+      "sha256": "7abc2b868a69a186a17cbfd9564ad4f952ed9288d38e1a001638761b716d772a",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/safari-keyboard-focus.txt",
+      "unchanged": true,
+      "sha256": "fc85f76d35ce5601701770bcb65bdd361b34ecd40dae0d53d84913daec6de454",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/safari-paused.png",
+      "unchanged": true,
+      "sha256": "51cb52e92da084e2a0e7d6816eda66c86488cc1b79e5e68b4e23579fcbfb2fd4",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/safari-paused.txt",
+      "unchanged": true,
+      "sha256": "4edfd1f8266374a6f21ffc6c7cfa3f41a185cf7e211b7bdd2a90637c9c663cb6",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/safari-playing.png",
+      "unchanged": true,
+      "sha256": "c79e7e2aa72be010bf25efc29f13ae79f273af31631eef767ed8b35c29cfd13a",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/safari-playing.txt",
+      "unchanged": true,
+      "sha256": "b923cfc1e42f437f4d60f6f8a81177704fc3fe1a015853c2fae6c024d8e2b77c",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/safari-release.png",
+      "unchanged": true,
+      "sha256": "72ec356719ae5a4314fa3eaec855ee20621b70f5558196d8a84bace731dcb42c",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/safari-replay.png",
+      "unchanged": true,
+      "sha256": "d479132978dc878ba1c4293d2841c5a921915f5b3fda845c12883d50fc5b1026",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/sound-test-results.json",
+      "unchanged": true,
+      "sha256": "323109e2cc2c61f0c08652339823e72e6f6eb653e6bb6ca9cc2b30cbcdf5e90f",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/tablet-idle.png",
+      "unchanged": true,
+      "sha256": "efaefd48af348e0935283a144a90394777183d844750a6abbb2f941d0ca4f799",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/text-200.png",
+      "unchanged": true,
+      "sha256": "aa8ffffeb136652e0345422889008b3ebbeb102817f00dcbf39aaa113e023f89",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/verification.json",
+      "unchanged": true,
+      "sha256": "7f6c01da98cc139b6ea72b46f7b34b5507d4de274f4ad68309ed801f2838b31f",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/video-timeline.json",
+      "unchanged": true,
+      "sha256": "5356d49ff58e22732ec07fea4914fda7d23391b449525126ae1aa1c68d9a5fbf",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/video-verification.json",
+      "unchanged": true,
+      "sha256": "ca2e78772de377e56918ddb9984334b4f39969a4cd8fac919e11e791cabbe39c",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/webkit-idle.png",
+      "unchanged": true,
+      "sha256": "6132c860de696dcb7e8b5094bff7e60c7647c11efcb114394cbefe4460e27e4a",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/webkit-playing.png",
+      "unchanged": true,
+      "sha256": "5d253a7054db6c737e3bff8287cf7d213aec9c9031d65e16bd9ec6a273963aff",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/webkit-release.png",
+      "unchanged": true,
+      "sha256": "0ae6ee86f39ab43a15ade285a6d3baa0917e21772ef62d8142eed7b692be93c9",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "evidence/p2h/wide-idle.png",
+      "unchanged": true,
+      "sha256": "91055c702c672cdc054efc59d8608882f3fee4136c3cde17ef2fb53dcbb15378",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "labs/design-system/index.html",
+      "unchanged": true,
+      "sha256": "a2dd5d23694c0dc62f275a46f468756eda902355264bb7ad09f1b344a94538a7",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "labs/design-system/lab.css",
+      "unchanged": true,
+      "sha256": "25ad3c166b2ce0c1039572d2ec07cb137df8d6f3c19b833c03f54e8466a1e7de",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "package-lock.json",
+      "unchanged": true,
+      "sha256": "c1cd8995df2483039fd7ecf1ba85eb610024c908a2ff266c845306bdef230423",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "package.json",
+      "unchanged": true,
+      "sha256": "1ceddf787997bbe4f507761d429842f1b649a856354df527533358b034c0635d",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "public/assets/.gitkeep",
+      "unchanged": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "public/licenses/cormorant-garamond-OFL.txt",
+      "unchanged": true,
+      "sha256": "732f37009943e7f4378cf37113c9bcc4716af002a8583511aa91ed5d37683e73",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "public/licenses/noto-sans-kr-OFL.txt",
+      "unchanged": true,
+      "sha256": "18aabf190848725e2576eefb5c29ba06aac1029d02132252a7f312eac2e50cf3",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "public/licenses/noto-serif-kr-OFL.txt",
+      "unchanged": true,
+      "sha256": "18aabf190848725e2576eefb5c29ba06aac1029d02132252a7f312eac2e50cf3",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "public/spike/path-check.svg",
+      "unchanged": true,
+      "sha256": "c3355379bcf7c089546d19d2a5160ddf5c3472040c4d6d447b2cc5e8852d23fb",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/haegeum/HaegeumExperience.tsx",
+      "unchanged": true,
+      "sha256": "9b51ef3024735905375b2718ba9cb17983c33de176137b4fe705c6d9c9343de6",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/haegeum/assets.ts",
+      "unchanged": true,
+      "sha256": "ef6b7adc3aedd9164590997b7de7d55e9ee892eae65b2643d60146e0ad32008c",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/haegeum/assets/haegeum-editorial-ai.webp",
+      "unchanged": true,
+      "sha256": "25ad8811d78640ad6a4aaa446eb3b71996db0909bbf7316a602c3d8a07ba32e3",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/haegeum/assets/haegeum-playing.webp",
+      "unchanged": true,
+      "sha256": "23bab7e4a15e1374321e019759dc20af337cccac856bdacc7f97876314b61ecd",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/haegeum/choreography.ts",
+      "unchanged": true,
+      "sha256": "e98e42a76137d560c1b8a3c651d6cb3d1b75e7a086458265c9eced3e114e4448",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/haegeum/haegeum.css",
+      "unchanged": true,
+      "sha256": "6369c8d640b35adf3a4f9d7a6b1d03eec6a4affec1c46179131147ab54d62609",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/hero/BoldHero.tsx",
+      "unchanged": true,
+      "sha256": "a99fc0f6c9b40005ead04a2c02e9eec0c1f7a71bb4d926f6592ec323a6fdb330",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/hero/assets/portrait-initial-640.webp",
+      "unchanged": true,
+      "sha256": "93c8052566f9278879aafa021e01488f8c9dc10b7e33b378d37b77a1e7104b81",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/hero/assets/portrait-initial.webp",
+      "unchanged": true,
+      "sha256": "2355d43ed6fa4f30b4f2ee7b2f872e7905d0182f72ab702e84f11ed71b144c94",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/hero/assets/portrait-instrument-640.webp",
+      "unchanged": true,
+      "sha256": "887632ef12760cfc0edbb1aa3d73fe295e86acc8a5a5e078091d7fc303507b0b",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/hero/assets/portrait-instrument.webp",
+      "unchanged": true,
+      "sha256": "c856ca80cdd9274e1494d3d834fb0de562ce2cdebac651391b904f6386b5552b",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/hero/hero.css",
+      "unchanged": true,
+      "sha256": "824616ff626045e638a57714f1a3c77796e32e90aaf13ac38e41c60d1673f860",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/hero/motion.ts",
+      "unchanged": true,
+      "sha256": "bcf416409b21104a930affa3da5a65eeaa93d9b2ff59bd3ebc49f5d324d92983",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/hero/useHeroMotion.ts",
+      "unchanged": true,
+      "sha256": "b61c6c590c02060937097965644d8a4bc80f4334b5c16c55aa4ad8d9f9da0a08",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/navigation/EditorialNavigation.tsx",
+      "unchanged": true,
+      "sha256": "8c163330e4aed8403c2a60bd7b1703f82ce2bcf1c44dbccab3b7f0a6143639ca",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/navigation/menu-reveal.ts",
+      "unchanged": true,
+      "sha256": "168ac08902370628ae76611e0a3b1d7cd0c0778da994b84d19663a3d63e3c22e",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/navigation/model.ts",
+      "unchanged": true,
+      "sha256": "0b1917cb97d8b1c2b208366d08ac8f95b5a391322399efb9e4a17ac10d2ee70c",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/navigation/navigation.css",
+      "unchanged": true,
+      "sha256": "c495a7a097fdffea39cfeffb94f6d9da49351cbbee60ba1358e00b37f03fd271",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/sound/assets/hanbeomsu-jungjungmori-preview.m4a",
+      "unchanged": true,
+      "sha256": "00ae2adee523857da413aa7cb28521026bcfcc5fadde9db0e8f845cf5145708c",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/sound/continuation.ts",
+      "unchanged": true,
+      "sha256": "9ae762f926a2df77e14ef1f9489b02715f56a41f0457f184df7eb41590956546",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/sound/line-response.ts",
+      "unchanged": true,
+      "sha256": "6fd495d680b6c52d669d10d32046d1e6a62a168d482deb73d35caf1ae3697222",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/sound/source.ts",
+      "unchanged": true,
+      "sha256": "a21ab66607d4bb6c6cb1e9274ab46192590b462909235dfbf67c5106caac0524",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/styles/.gitkeep",
+      "unchanged": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/styles/base.css",
+      "unchanged": true,
+      "sha256": "10e26dd6d5b18465fb558df834e6b389fd68a56c852c5423ac46bb65ad0ddfc2",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/styles/foundation.css",
+      "unchanged": true,
+      "sha256": "2323df1d278cdbbefbb3d11b233b2b0fd35be4dceb872c25892bc5c8b6d601e1",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/styles/layout.css",
+      "unchanged": true,
+      "sha256": "bfedcf6e14ae15684bd6343643a0109fc1bdf1dd501326baecf4aa87bba93bda",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/styles/spike.css",
+      "unchanged": true,
+      "sha256": "35d990f46e8ad49778ca02c9a8bba4e7604ebe588c89cd3276e82580dc8184bf",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/styles/tokens.css",
+      "unchanged": true,
+      "sha256": "4390c96c85f3dac05f5a94a0e03fb06ba46b41fa3c1c9a0cd434603600983645",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "src/styles/typography.css",
+      "unchanged": true,
+      "sha256": "9cb76ea423c7501ddd383835773e4d95be558827a1d2fc9cd1784da3339a2020",
+      "gitLFNormalized": false
+    },
+    {
+      "file": "tests/design-system.spec.ts",
+      "unchanged": true,
+      "sha256": "2ba7eadfe0bf1e36b10ce57222813c730da862d41dda798c11060fe746970bf4",
+      "gitLFNormalized": false
+    }
+  ],
+  "allPreserved": true
+}

@@ -1,0 +1,18 @@
+{
+  "url": "http://127.0.0.1:4179/en/?compare=b",
+  "errors": [],
+  "result": {
+    "width": 320,
+    "scrollWidth": 305,
+    "panel": {
+      "width": 286,
+      "scrollWidth": 286,
+      "height": 372,
+      "scrollHeight": 372
+    },
+    "phase": "playing",
+    "headCount": 1,
+    "sourceCount": 1
+  },
+  "note": "Live Vite DOM, active playback, one marker/audio and 320px controls verified; exact response headers not captured."
+}

@@ -1,0 +1,57 @@
+{
+  "scope": "Current neutral production artifacts; does not claim future HOME font behavior",
+  "results": [
+    {
+      "path": "/",
+      "status": 200,
+      "shifts": [],
+      "cls": 0,
+      "hasLabMasthead": false,
+      "hasComparison": false
+    },
+    {
+      "path": "/works",
+      "status": 200,
+      "shifts": [
+        {
+          "value": 0.000115390625,
+          "sources": [
+            {
+              "previous": {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 35,
+                "top": 0,
+                "right": 390,
+                "bottom": 35,
+                "left": 0
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 34,
+                "top": 0,
+                "right": 390,
+                "bottom": 34,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ],
+      "cls": 0.000115390625,
+      "hasLabMasthead": false,
+      "hasComparison": false
+    },
+    {
+      "path": "/en/works",
+      "status": 200,
+      "shifts": [],
+      "cls": 0,
+      "hasLabMasthead": false,
+      "hasComparison": false
+    }
+  ]
+}

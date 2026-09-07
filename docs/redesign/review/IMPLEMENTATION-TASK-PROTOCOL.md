@@ -1,6 +1,6 @@
 # Implementation Task Protocol — mandatory bounded work
 
-Revision 1.23 · 2026-09-07 · P2G result APPROVED; P2H SOUND REVIEW READY / FREEZE CANDIDATE / STOP; enlarged coherent bundle and terminal STOP retained.
+Revision 1.25 · 2026-09-07 · P2I SOUND QUALITY APPROVED / FROZEN; classified QA gaps remain / STOP; enlarged coherent bundle and terminal STOP retained.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
@@ -52,7 +52,7 @@ Do not install dependencies again for every small task if the tested lockfile/en
 | Gate | Command / owner | Required work |
 |---|---|---|
 | Fast | `npm.cmd run gate:fast` | type-check → lint → locale/metadata, navigation and content unit contracts → placement contracts → root production build/prerender/placement → `test:content:visibility` and `test:design-system:artifacts` on that fresh artifact |
-| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → 84 route/browser cases over both strict static hosts → 11 development-only Design System Lab cases → 26 canonical Bold Editorial Navigation Lab cases → 44 single-B Hero cases (22 Chromium / 22 WebKit) → 32 Haegeum cases (16 each engine) → 58 Sound cases (29 each engine) |
+| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → 84 route/browser cases over both strict static hosts → 11 development-only Design System Lab cases → 26 canonical Bold Editorial Navigation Lab cases → 44 single-B Hero cases (22 Chromium / 22 WebKit) → 32 Haegeum cases (16 each engine) → 74 Sound cases (37 each engine), preceded by 6 SOUND motion contracts |
 | Live deployment | `npm.cmd run test:pages` with actual `EXPECTED_DEPLOY_SHA` | 18-route JS on/off metadata, refresh/history, variants, actual HTTP 404, artifact identity/hash/MIME/cache |
 | Workflow configuration | actionlint 1.7.12 | YAML, expressions, reusable workflow input/job wiring; Linux also checks embedded shell |
 
@@ -73,7 +73,7 @@ missing/pending checks on documentation-only PRs. A branch push plus an open PR 
 concurrency cancels superseded runs on the same event ref. No repository ruleset is silently changed.
 
 Full runs through an explicit pages.yml workflow_dispatch. It repeats Fast on that exact revision,
-then checks both static bases, all 84 route/browser cases and five Lab suites (11 foundation + 26 navigation + 44 Hero + 32 Haegeum + 58 Sound). A failed type/lint/unit/build/placement/browser
+then checks both static bases, all 84 route/browser cases and five Lab suites (11 foundation + 26 navigation + 44 Hero + 32 Haegeum + 74 Sound). A failed type/lint/unit/build/placement/browser
 step fails the job; upload/deploy depend on that success. Full without deployment retains test evidence
 but never uploads the special Pages artifact. Only successful Full with deploy=true uploads static/.
 
@@ -552,3 +552,36 @@ This is not authorization to execute P0A, not proof of prerender suitability, an
 
 The above readiness was the initial planning snapshot. P0F and P1A lifecycle/delivery completed; P1B audit was
 subsequently delivered, and P1C/P1D are approved and delivered. P2A was subsequently visually approved and delivered. P2D result is now approved with provisional portraits. P2D is delivered and P2E subsequently visually approved. P2E delivery/main/Fast/clean-tree gate is complete. P2F is now user QUALITY APPROVED / FROZEN; remaining device/assets QA does not revoke that approval. P2G result is user approved; P2H refinement is complete through REVIEW READY / FREEZE CANDIDATE / STOP. Final auditory/refined visual selection and any next bounded task require user approval.
+
+
+## Historical P2I — choreography comparison bundle (completed before visual selection)
+
+Latest integrated instruction supersedes overlapping earlier requests; one bounded six-part sequence:
+A preserve prior output → B smooth bow motion/continuous turns → C Violet/LONG A/B1/B2 comparison →
+D desktop/mobile/reduced/lifecycle/performance/video validation → E canonical principles in MASTER and owner references →
+F human glossary, evidence and the user's 20-field report → STOP. No repeated implementation/documentation of overlap.
+Scope: src/sound, labs/sound, SOUND tests/capture command, canonical docs and evidence. Dependencies, frozen
+Hero/Haegeum/navigation, source audio, global tokens, production routes and workflows are preserved.
+Rollback: .checkpoints/p2i-choreography-before contains 63 baseline files including all 59 verified original P2I hashes;
+HEAD ba80144 remains the Git baseline. Preserve earlier reports/evidence and unrelated user changes when reverting.
+Full is attempted; failed out-of-scope owner gates are reported, not weakened. Test suites sharing test-results must
+run sequentially: concurrent root/Lab runs can delete another runner's trace files. Resource measurements run separately.
+No delivery, WORKS, filmstrip, adaptive navigation/entry ritual implementation, Blender, 3D or next scene authorization.
+[Contract](SOUND-BOW-CONTACT-COMPARISON.md), [current result](../../../P2I-CHOREOGRAPHY-RESULT.md).
+
+## P2I Closeout — QA Gap Classification, Visual Freeze & Delivery
+
+The user's latest approval selects B2 Bold / LONG 460ms / Electric Violet #6334E5. One six-part authorized bundle:
+1. Preserve reviewed evidence and inspect approved scope.
+2. Reproduce/classify foundation Font CLS against P2A and current production output.
+3. Separate Windows WebKit capabilities/fault injection from native Safari, using actual server media faults.
+4. Freeze the selected direction, central tuning, Lab-only alternatives and owning documentation.
+5. Sequential Fast/Full/SOUND/routing/content and relevant browser validation; keep failures visible.
+6. With no confirmed blocker, logical commit/main push/Fast CI/clean tree; report then STOP.
+
+Scope: existing SOUND and Lab integration/tuning, QA scripts/tests, canonical documentation and evidence.
+No frozen scene, workflow/dependency, audio source, public route, deployment, legacy or next scene change.
+Rollback before closeout: `.checkpoints/p2i-closeout-before` preserves all 127 reviewed files, including the
+126 verified source hashes and original manifest. Git baseline remains `ba80144`; preserve earlier reports.
+SOUND quality freeze with classified non-blocking gaps does not turn a red Full green or authorize deployment.
+Report the user's 12 closeout fields from [result](../../../P2I-CLOSEOUT-RESULT.md). **STOP → USER APPROVAL**.

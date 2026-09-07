@@ -2,3 +2,19 @@
 @import '../../src/sound/sound.css';
 .sound-review { padding-block: var(--space-6); border-top: 1px solid var(--line-color); background: var(--color-surface); position: relative; font-size: var(--micro); color: var(--text-secondary); }
 .sound-review p + p { margin-block-start: var(--space-2); }
+.sound-comparison { position: fixed; z-index: 20; left: 16px; bottom: 12px; max-width: calc(100vw - 32px); font: 12px/1.6 var(--font-ui); color: var(--text-primary); background: var(--color-canvas); border: 1px solid var(--line-color); }
+.sound-comparison summary { cursor: pointer; padding: 10px 14px; min-height: 44px; }
+.sound-comparison fieldset { border: 0; padding: 8px 14px; }
+.sound-comparison legend { color: var(--text-secondary); }
+.sound-comparison label { display: flex; gap: 10px; align-items: center; min-height: 44px; }
+.sound-comparison input { accent-color: var(--color-ink); }
+.sound-comparison .trail-choice, .sound-comparison p { margin: 0 14px 12px; }
+.sound-comparison .trail-choice { display: flex; gap: 10px; align-items: center; }
+.sound-comparison select { font: inherit; background: var(--color-surface); color: inherit; padding: 6px; max-width: 220px; }
+.sound-comparison[open] { max-height: calc(100svh - 100px); overflow-y: auto; }
+.sound-comparison .trail-choice label { min-width: 45px; }
+.sound-comparison :focus-visible { outline: 2px solid var(--focus-color); outline-offset: 3px; }
+@media (max-width:359px) {
+  /* Keep the review dock outside the longer EN credit at the narrowest viewport. */
+  .sound-comparison { inset: 66px 16px auto auto; }
+}

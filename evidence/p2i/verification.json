@@ -1,0 +1,383 @@
+{
+  "task": "P2I",
+  "date": "2026-09-07",
+  "baseline": "ba801448497b31c78b8fb749f73f02d23b7e0799",
+  "branch": "codex/p2i-sound-bow-contact",
+  "delivery": "UNCOMMITTED / NOT PUSHED / NOT DEPLOYED",
+  "status": "CHROMIUM COMPARISON VERIFIED / REVIEW READY WITH QA GAPS / FULL FAIL / STOP",
+  "validation": {
+    "typeCheck": "PASS",
+    "lint": "PASS",
+    "fast": "PASS (38 Node contracts)",
+    "rootAndProjectBuild": "PASS",
+    "routing": {
+      "passed": 84,
+      "failed": 0
+    },
+    "designSystem": {
+      "passed": 10,
+      "failed": 1
+    },
+    "navigation": {
+      "passed": 25,
+      "failed": 1
+    },
+    "hero": {
+      "passed": 42,
+      "failed": 2
+    },
+    "haegeum": {
+      "passed": 31,
+      "failed": 1,
+      "initialRunnerExit": -1073740791
+    },
+    "soundChromium": {
+      "passed": 38,
+      "failed": 0
+    },
+    "soundWindowsWebKit": {
+      "passed": 23,
+      "failed": 15
+    },
+    "postDockChangeP2IChromium": {
+      "passed": 9,
+      "failed": 0
+    },
+    "full": "FAILED at Design System; remaining suites run individually, not a successful Full",
+    "browserCollection": {
+      "passed": 253,
+      "failed": 20,
+      "skipped": 0,
+      "retries": 0
+    },
+    "documentationFileLinks": {
+      "checked": 313,
+      "missing": 0
+    },
+    "diffCheck": "PASS"
+  },
+  "artifacts": [
+    {
+      "target": "root",
+      "javascriptBytes": 324591,
+      "cssBytes": 170068
+    },
+    {
+      "target": "pages-preview",
+      "javascriptBytes": 326277,
+      "cssBytes": 174875
+    }
+  ],
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 14336,
+      "sha256": "f8bc01d567627eea765006c50c103c30e97fb02a290bbf5b12304c9a2f3cbb1c"
+    },
+    {
+      "path": "CODEX-HANDOFF.md",
+      "bytes": 41618,
+      "sha256": "f4dde4e22ce178a3fea039daa031328e429a6037e4202f83df664c62a7d58205"
+    },
+    {
+      "path": "P2I-RESULT.md",
+      "bytes": 11599,
+      "sha256": "186c5424b15dcc1487a6e185fb80fcb0fa9c2dc5b25d1b9cd23ce9aa4765c06a"
+    },
+    {
+      "path": "README.md",
+      "bytes": 21160,
+      "sha256": "ba7f596cbadc29668189e79fd9cbfcb8d7e5175bbaca91e03ad0f4e12c9e985f"
+    },
+    {
+      "path": "docs/redesign/03-MOTION-SYSTEM.md",
+      "bytes": 36310,
+      "sha256": "08fe504661b545073d59669dfcc92429b7628b5868370203a20623d65d109c93"
+    },
+    {
+      "path": "docs/redesign/04-HOME.md",
+      "bytes": 43018,
+      "sha256": "974b57a479662ad6bc252186a0ac1459f975b5b3da755fd0289a43b372d77a0a"
+    },
+    {
+      "path": "docs/redesign/review/HOME-SOUND-EXPERIENCE.md",
+      "bytes": 14431,
+      "sha256": "8a46fdc6704eb10dd6663ac95b6ce82cc89b2939d1d893f03d5afb16378946bb"
+    },
+    {
+      "path": "docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md",
+      "bytes": 56878,
+      "sha256": "01d4aba733f0a7281d35b3845db0c5cbb12cdc9d589e4c38f98f614a5ba877c0"
+    },
+    {
+      "path": "docs/redesign/review/SOUND-BOW-CONTACT-COMPARISON.md",
+      "bytes": 7197,
+      "sha256": "b9634a3ede98bf4eb042218037d28715c82f3ef221545a2350d2857282841a50"
+    },
+    {
+      "path": "docs/redesign/review/V2-IMPLEMENTATION-PLAN.md",
+      "bytes": 81857,
+      "sha256": "7a06910aec5659fee66af9016bff4e2133313a7bdc1901ed22fc6cc8ad05a50e"
+    },
+    {
+      "path": "evidence/p2i/1440-a-comparison-silent.webm",
+      "bytes": 1269062,
+      "sha256": "59e7d7e4e21fad1e4e2225ee569f9c0e9965b8248d0be7464edcf23d2a3527dd"
+    },
+    {
+      "path": "evidence/p2i/1440-a-hero.png",
+      "bytes": 1008181,
+      "sha256": "001db86edcf5a42d1026544412edf4b3888805b74105dccff0b00e4b4cae03ec"
+    },
+    {
+      "path": "evidence/p2i/1440-a-paused.png",
+      "bytes": 42624,
+      "sha256": "ac7cea5fd9690a397968e55ad3c9add838abb05fcfc66dbc919c01de666fc685"
+    },
+    {
+      "path": "evidence/p2i/1440-a-playing.png",
+      "bytes": 44450,
+      "sha256": "d0008772ecd191903b8fefd4fc301099329d51d551837376982d82888558bf4a"
+    },
+    {
+      "path": "evidence/p2i/1440-b-comparison-silent.webm",
+      "bytes": 1294112,
+      "sha256": "081c2754325576eb31eb2ac3aae8f92c4a300c151fb62552907b393d331e9b61"
+    },
+    {
+      "path": "evidence/p2i/1440-b-contact-detail.png",
+      "bytes": 1005,
+      "sha256": "cfdfd5d26ff093416844cb9d6e5839c8324bfc8df02b05741dec76386a724fd5"
+    },
+    {
+      "path": "evidence/p2i/1440-b-hero.png",
+      "bytes": 1008181,
+      "sha256": "001db86edcf5a42d1026544412edf4b3888805b74105dccff0b00e4b4cae03ec"
+    },
+    {
+      "path": "evidence/p2i/1440-b-medium-silent.webm",
+      "bytes": 611603,
+      "sha256": "4656171d12f85debaf0386c323fc05ba3bc67194a3c2165328ae3dc9a50d5da1"
+    },
+    {
+      "path": "evidence/p2i/1440-b-medium.png",
+      "bytes": 44747,
+      "sha256": "3eb038812848fee1966226bc8d614cff90db1eb6e355bdd050660edd198d5fc3"
+    },
+    {
+      "path": "evidence/p2i/1440-b-paused.png",
+      "bytes": 43230,
+      "sha256": "eb5e0699f7a506c0c05798bca2d0ab76730db26b261c5730cf1c7d9fede0335e"
+    },
+    {
+      "path": "evidence/p2i/1440-b-playing.png",
+      "bytes": 45397,
+      "sha256": "b3cacc75680e57051c41d4435e3b99b44166ef3b31df5bd03a67275ebd4ba1ff"
+    },
+    {
+      "path": "evidence/p2i/1920-b.png",
+      "bytes": 53760,
+      "sha256": "fd3cdb58eac7b34c309a3ae0531f6d0543956085b52be70d66fc62c446c7e777"
+    },
+    {
+      "path": "evidence/p2i/320-en-b.png",
+      "bytes": 26658,
+      "sha256": "ba4da723d478de257b1a1eb1bb301a580f845a9893cbff00df99d689bc4971c9"
+    },
+    {
+      "path": "evidence/p2i/390-a-comparison-silent.webm",
+      "bytes": 706357,
+      "sha256": "03f6bf6f0a48d2a6e26061a117f58efde97cf7db8c191f427da67fd17d5657d8"
+    },
+    {
+      "path": "evidence/p2i/390-a-hero.png",
+      "bytes": 311795,
+      "sha256": "5bd7f32f5c94ae6faea3fa970aaccc3842877892fbec0758429bed093476ab58"
+    },
+    {
+      "path": "evidence/p2i/390-a-paused.png",
+      "bytes": 23500,
+      "sha256": "373beb1708273267ca79f4f043db59fcca4027d0c4c80b52e1a538aa135eb9c1"
+    },
+    {
+      "path": "evidence/p2i/390-a-playing.png",
+      "bytes": 24371,
+      "sha256": "dab8e2536c1d8a63d69e22e93c2474510dc220a0321e35a4cb0e5a807023e27b"
+    },
+    {
+      "path": "evidence/p2i/390-b-comparison-silent.webm",
+      "bytes": 703694,
+      "sha256": "51391b3e0f006115d86a051336ddfac3d75c656ee53ce6fc2deb3b013dc2ac17"
+    },
+    {
+      "path": "evidence/p2i/390-b-contact-detail.png",
+      "bytes": 1003,
+      "sha256": "a1d26f4f51592803819a0c206cef3e99f0f6b0340d1d7043572ba5dc3e9acd61"
+    },
+    {
+      "path": "evidence/p2i/390-b-hero.png",
+      "bytes": 311795,
+      "sha256": "5bd7f32f5c94ae6faea3fa970aaccc3842877892fbec0758429bed093476ab58"
+    },
+    {
+      "path": "evidence/p2i/390-b-paused.png",
+      "bytes": 24059,
+      "sha256": "037bd1181677f4deadf7d0f08c2569acdd10ece2df1bb8554c945b4eb6ed56e0"
+    },
+    {
+      "path": "evidence/p2i/390-b-playing.png",
+      "bytes": 25048,
+      "sha256": "8f57664ec4f69c7fc53be0b5155206225573241970e7623dc3245b66771435ea"
+    },
+    {
+      "path": "evidence/p2i/390-b-reduced.png",
+      "bytes": 21661,
+      "sha256": "f6a9f998fb10d6a3b28efb3fbabc3a09a7414ed023129833d93eb3ce9192785e"
+    },
+    {
+      "path": "evidence/p2i/768-b.png",
+      "bytes": 32629,
+      "sha256": "d05e3c7bdf49a46ff7339884f2a44388336331ed5e6151843e1f6aa939eb79e7"
+    },
+    {
+      "path": "evidence/p2i/README.md",
+      "bytes": 4836,
+      "sha256": "3589e45dc94e0ae19a38d2d796e845d83ec632b1d34db133c7596a4950680a32"
+    },
+    {
+      "path": "evidence/p2i/browser-capabilities.json",
+      "bytes": 733,
+      "sha256": "eda8489abfb9924159b80f527171f079d9cf148deea7aa8a440442d29e3ef17a"
+    },
+    {
+      "path": "evidence/p2i/final-comparison-tests.txt",
+      "bytes": 2020,
+      "sha256": "e1fa640de6591491d5b632a7ce7dd2dfa6806380059de9ec82c18716d2d8ca90"
+    },
+    {
+      "path": "evidence/p2i/full-gate.txt",
+      "bytes": 171020,
+      "sha256": "2c12705472cdf9543d8186275bd1f103cbf8b1b9d67e04adc2a7b28cc3862d13"
+    },
+    {
+      "path": "evidence/p2i/haegeum-isolated.txt",
+      "bytes": 8687,
+      "sha256": "e03346b43a63959b02dae15a94b1075a79e6daf709c42e7e2cc2b40cb84f23ee"
+    },
+    {
+      "path": "evidence/p2i/lint-final.txt",
+      "bytes": 66,
+      "sha256": "87c40150e43aecc5818bbe6c1e9d926db75229d5a2426a612d522be77ad84fc5"
+    },
+    {
+      "path": "evidence/p2i/performance.json",
+      "bytes": 5213,
+      "sha256": "01f5f70f410b4c0d1145da0837277954a58489d8e483b9ffeadca6f4a23ca131"
+    },
+    {
+      "path": "evidence/p2i/preserved-files.json",
+      "bytes": 20868,
+      "sha256": "f66aa1cde4cbb8ed55ca815f25a1a8bbae27fb493a8596e0e412f6926403b2f9"
+    },
+    {
+      "path": "evidence/p2i/test-hero.txt",
+      "bytes": 13605,
+      "sha256": "6af6fd2d04e1e3ad7c0097ade31dc6e41897bd0ea9d66c868673f9a6d90cce6c"
+    },
+    {
+      "path": "evidence/p2i/test-navigation.txt",
+      "bytes": 7590,
+      "sha256": "b053ef0152c7d6e08f388003c0dc393b0d36169129f07e5ff0a7a4350db44684"
+    },
+    {
+      "path": "evidence/p2i/test-results.json",
+      "bytes": 67395,
+      "sha256": "5c8ca9e97928c093a3085b8e2a6585916f953ca3bd3fa87c5bcda6b684f2fada"
+    },
+    {
+      "path": "evidence/p2i/test-sound.txt",
+      "bytes": 58634,
+      "sha256": "824d006ccb20ee4f966903fc12a7c0d289a52a24d5fd72814945d7436665c0f6"
+    },
+    {
+      "path": "evidence/p2i/type-check-final.txt",
+      "bytes": 93,
+      "sha256": "87b2a47bf7db3efd97d3419826455b80b60b4918eda796230a5aa6b3347bf833"
+    },
+    {
+      "path": "labs/sound/SoundLab.tsx",
+      "bytes": 3281,
+      "sha256": "8a7efc779bd5a388a5cbc341d12b4ba314a1c3b408ac7c20a8a9376897a7a88e"
+    },
+    {
+      "path": "labs/sound/index.html",
+      "bytes": 396,
+      "sha256": "45d6bb69bfcb5da30642a50540162cf6bcc4f4a03049c6bb12518fbbb6bd8fe3"
+    },
+    {
+      "path": "labs/sound/sound.css",
+      "bytes": 1476,
+      "sha256": "3246f3a2c5ceb6e0224990a35ca4522a9b3e6932deecd8b3ceca22a03a64cf02"
+    },
+    {
+      "path": "scripts/capture-sound-comparison.mjs",
+      "bytes": 7173,
+      "sha256": "9e7dd141d0508a6813ad287f314869667058078ad65db042a9f6eae53c86b59d"
+    },
+    {
+      "path": "src/sound/SoundExperience.tsx",
+      "bytes": 1144,
+      "sha256": "a51fdf0b963104c965ede59a380664e581a78d33214b839fd3bb8a18ef275508"
+    },
+    {
+      "path": "src/sound/SoundSurface.tsx",
+      "bytes": 4209,
+      "sha256": "834a2ed5fd407d7c4ca196fad0c76e18042502b0fd14d66cc68bb48584f5922c"
+    },
+    {
+      "path": "src/sound/bow-contact.ts",
+      "bytes": 5990,
+      "sha256": "6d59a1a227f4ca9de978ba2dffd5b249eae094a669d9c64beec3026ad3ecd3ca"
+    },
+    {
+      "path": "src/sound/contact-motion.ts",
+      "bytes": 2819,
+      "sha256": "c19cae72ad7def862ce4de0060cf028a3fbb9ac3395f67d539c8b1ac4aa54669"
+    },
+    {
+      "path": "src/sound/controller.ts",
+      "bytes": 8829,
+      "sha256": "6e43da4cc561230d4fcc6d2e60bbfaea1517aa91d2841a92ffb2d560a020aa1e"
+    },
+    {
+      "path": "src/sound/sound.css",
+      "bytes": 8030,
+      "sha256": "b7821f9bf1d66ca1c27de0419bd83d4bff3e0b3457d377210a6333f81e437327"
+    },
+    {
+      "path": "tests/assert-design-artifacts.ts",
+      "bytes": 3750,
+      "sha256": "459f51e602803dbf2dea1fffe48d31e3c175eff44a7f273bb9fdba26d3d3bd03"
+    },
+    {
+      "path": "tests/sound.spec.ts",
+      "bytes": 34575,
+      "sha256": "2c0bde8b73796f0a8f2dd389c0120350a3dcd4d223a004f6fd20bf17bda9d9c9"
+    }
+  ],
+  "manifestSelfExcluded": true,
+  "preview": {
+    "url": "http://127.0.0.1:4179/?compare=b",
+    "httpStatus": 200,
+    "serverRunning": true
+  },
+  "preservation": {
+    "sourceAssetHistoryFiles": 100,
+    "allPreserved": true,
+    "heroScreenshotsAEqualsB": {
+      "1440": true,
+      "390": true
+    },
+    "publicJavascriptCssIncreaseBytes": 0
+  }
+}

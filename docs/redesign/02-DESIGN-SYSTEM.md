@@ -1,7 +1,7 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 02 — DESIGN SYSTEM
 
-**Version:** 1.8\
+**Version:** 1.10\
 **Status:** Approved Design Baseline / P2A visual result approved and delivered; P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN\
 **Parent:** `00-MASTER-PLAN.md`  
 **Art Direction:** Contemporary Editorial / Ivory
@@ -26,6 +26,13 @@
 Ivory world와 정보 접근성은 유지한다. Reference adoption은 MASTER §6, motion signature는 Motion §3을 따른다.
 
 ---
+
+경험 원칙의 정본은 [MASTER §3.1](00-MASTER-PLAN.md#v2-experience-principles)이다.
+SOUND의 **Electric Violet #6334E5를 Bow Energy Signature Accent 정본**으로 승인했다.
+Charcoal 현 + 같은 Violet의 단일 marker/점차 사라지는 trail; global Bronze token은 유지한다.
+다른 Violet은 Lab/evidence에만 보존한다. Ivory 대비 계산·tuning은 [SOUND 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소유한다.
+ADAPTIVE UI의 장면 대비는 위 MASTER의 authored theme 정책을 따른다. 기존 Ivory world를 임의의 색 테마로
+교체한다는 의미가 아니며, 여기서 production navigation을 추가하지 않는다.
 
 # 2. VISUAL CHARACTER
 

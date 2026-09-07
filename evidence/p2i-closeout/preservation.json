@@ -1,0 +1,597 @@
+{
+  "method": "LF-normalized tracked text/bytes comparison with HEAD; exact prior evidence bytes vs preserved checkpoint",
+  "frozen": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "unchanged": true
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "unchanged": true
+    },
+    {
+      "path": ".github/workflows/quality-gates.yml",
+      "unchanged": true
+    },
+    {
+      "path": "config/build.ts",
+      "unchanged": true
+    },
+    {
+      "path": "labs/design-system/index.html",
+      "unchanged": true
+    },
+    {
+      "path": "labs/design-system/lab.css",
+      "unchanged": true
+    },
+    {
+      "path": "package-lock.json",
+      "unchanged": true
+    },
+    {
+      "path": "src/content/.gitkeep",
+      "unchanged": true
+    },
+    {
+      "path": "src/content/assets.ts",
+      "unchanged": true
+    },
+    {
+      "path": "src/content/catalog.ts",
+      "unchanged": true
+    },
+    {
+      "path": "src/content/fixtures.ts",
+      "unchanged": true
+    },
+    {
+      "path": "src/content/models.ts",
+      "unchanged": true
+    },
+    {
+      "path": "src/content/records/ji-young-hee-sanjo.server.ts",
+      "unchanged": true
+    },
+    {
+      "path": "src/content/registry.server.ts",
+      "unchanged": true
+    },
+    {
+      "path": "src/content/shared.ts",
+      "unchanged": true
+    },
+    {
+      "path": "src/content/validation.ts",
+      "unchanged": true
+    },
+    {
+      "path": "src/haegeum/HaegeumExperience.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "src/haegeum/assets.ts",
+      "unchanged": true
+    },
+    {
+      "path": "src/haegeum/assets/haegeum-editorial-ai.webp",
+      "unchanged": true
+    },
+    {
+      "path": "src/haegeum/assets/haegeum-playing.webp",
+      "unchanged": true
+    },
+    {
+      "path": "src/haegeum/choreography.ts",
+      "unchanged": true
+    },
+    {
+      "path": "src/haegeum/haegeum.css",
+      "unchanged": true
+    },
+    {
+      "path": "src/hero/BoldHero.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "src/hero/assets/portrait-initial-640.webp",
+      "unchanged": true
+    },
+    {
+      "path": "src/hero/assets/portrait-initial.webp",
+      "unchanged": true
+    },
+    {
+      "path": "src/hero/assets/portrait-instrument-640.webp",
+      "unchanged": true
+    },
+    {
+      "path": "src/hero/assets/portrait-instrument.webp",
+      "unchanged": true
+    },
+    {
+      "path": "src/hero/hero.css",
+      "unchanged": true
+    },
+    {
+      "path": "src/hero/motion.ts",
+      "unchanged": true
+    },
+    {
+      "path": "src/hero/useHeroMotion.ts",
+      "unchanged": true
+    },
+    {
+      "path": "src/navigation/EditorialNavigation.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "src/navigation/menu-reveal.ts",
+      "unchanged": true
+    },
+    {
+      "path": "src/navigation/model.ts",
+      "unchanged": true
+    },
+    {
+      "path": "src/navigation/navigation.css",
+      "unchanged": true
+    },
+    {
+      "path": "src/routing/locale-contract.ts",
+      "unchanged": true
+    },
+    {
+      "path": "src/sound/assets/hanbeomsu-jungjungmori-preview.m4a",
+      "unchanged": true
+    },
+    {
+      "path": "src/sound/continuation.ts",
+      "unchanged": true
+    },
+    {
+      "path": "src/sound/line-response.ts",
+      "unchanged": true
+    },
+    {
+      "path": "src/sound/source.ts",
+      "unchanged": true
+    },
+    {
+      "path": "src/styles/.gitkeep",
+      "unchanged": true
+    },
+    {
+      "path": "src/styles/base.css",
+      "unchanged": true
+    },
+    {
+      "path": "src/styles/foundation.css",
+      "unchanged": true
+    },
+    {
+      "path": "src/styles/layout.css",
+      "unchanged": true
+    },
+    {
+      "path": "src/styles/spike.css",
+      "unchanged": true
+    },
+    {
+      "path": "src/styles/tokens.css",
+      "unchanged": true
+    },
+    {
+      "path": "src/styles/typography.css",
+      "unchanged": true
+    },
+    {
+      "path": "tests/design-system.spec.ts",
+      "unchanged": true
+    }
+  ],
+  "historical": [
+    {
+      "path": "evidence/p2i/1440-a-comparison-silent.webm",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/1440-a-hero.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/1440-a-paused.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/1440-a-playing.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/1440-b-comparison-silent.webm",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/1440-b-contact-detail.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/1440-b-hero.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/1440-b-medium-silent.webm",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/1440-b-medium.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/1440-b-paused.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/1440-b-playing.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/1920-b.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/320-en-b.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/390-a-comparison-silent.webm",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/390-a-hero.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/390-a-paused.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/390-a-playing.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/390-b-comparison-silent.webm",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/390-b-contact-detail.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/390-b-hero.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/390-b-paused.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/390-b-playing.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/390-b-reduced.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/768-b.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/browser-capabilities.json",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/final-comparison-tests.txt",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/full-gate.txt",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/haegeum-isolated.txt",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/lint-final.txt",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/performance.json",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/preserved-files.json",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/README.md",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/test-hero.txt",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/test-navigation.txt",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/test-results.json",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/test-sound.txt",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/type-check-final.txt",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i/verification.json",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-a-comparison-silent.webm",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-a-ended.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-a-hero.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-a-paused.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-a-playing.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b1-comparison-silent.webm",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b1-contact-detail.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b1-ended.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b1-hero.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b1-paused.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b1-playing.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b2-comparison-silent.webm",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b2-contact-detail.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b2-ended.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b2-hero.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b2-paused.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-b2-playing.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-editorial-silent.webm",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-editorial.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-extra-long-silent.webm",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-extra-long.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-ink-silent.webm",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1440-ink.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/1920-b.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/320-en-b.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/390-a-comparison-silent.webm",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/390-a-ended.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/390-a-hero.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/390-a-paused.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/390-a-playing.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b-reduced.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b1-comparison-silent.webm",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b1-contact-detail.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b1-ended.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b1-hero.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b1-paused.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b1-playing.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b2-comparison-silent.webm",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b2-contact-detail.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b2-ended.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b2-hero.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b2-paused.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/390-b2-playing.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/768-b.png",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/browser-capabilities.json",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/capture.txt",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/design-system-results.json",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/document-links.json",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/final-preview.json",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/full-gate.txt",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/performance.json",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/README.md",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/routing-results.json",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/sound-initial-concurrent.json",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/sound-initial-concurrent.txt",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/sound-results.json",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/sound-tests.txt",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/verification.json",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/p2i-choreography/violet-contrast.json",
+      "unchanged": true
+    }
+  ],
+  "foundationTests": [
+    {
+      "path": "tests/design-system.spec.ts",
+      "sameSinceP2A": true
+    },
+    {
+      "path": "vite.lab.config.ts",
+      "sameSinceP2A": true
+    },
+    {
+      "path": "playwright.design-system.config.ts",
+      "sameSinceP2A": true
+    }
+  ]
+}

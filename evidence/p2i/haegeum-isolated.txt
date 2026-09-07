@@ -1,0 +1,93 @@
+
+> cho-youn-kyoung-v2@0.0.0 test:haegeum
+> playwright test --config playwright.haegeum.config.ts
+
+[WebServer] (node:27552) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 32 tests using 2 workers
+
+(node:3216) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:30032) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\haegeum.spec.ts:16:3 › 320: four stages, readable keyword, independent framing and no overflow (5.7s)
+  ok  2 [chromium] › tests\haegeum.spec.ts:16:3 › 390: four stages, readable keyword, independent framing and no overflow (5.9s)
+  ok  3 [chromium] › tests\haegeum.spec.ts:16:3 › 768: four stages, readable keyword, independent framing and no overflow (5.0s)
+  ok  4 [chromium] › tests\haegeum.spec.ts:16:3 › 1024: four stages, readable keyword, independent framing and no overflow (5.1s)
+  ok  5 [chromium] › tests\haegeum.spec.ts:16:3 › 1366: four stages, readable keyword, independent framing and no overflow (5.2s)
+  ok  6 [chromium] › tests\haegeum.spec.ts:16:3 › 1440: four stages, readable keyword, independent framing and no overflow (5.4s)
+  ok  8 [chromium] › tests\haegeum.spec.ts:36:1 › native travel overlaps Hero exit; same DOM and reversible settled state (4.2s)
+  ok  7 [chromium] › tests\haegeum.spec.ts:16:3 › 1920: four stages, readable keyword, independent framing and no overflow (5.5s)
+  ok 10 [chromium] › tests\haegeum.spec.ts:62:1 › full source replacement changes aspect, anchors, alt and disclosure without renderer changes (3.1s)
+  ok  9 [chromium] › tests\haegeum.spec.ts:45:1 › interrupted mid-resolution menu preserves composition, scroll lock and keyboard focus (6.7s)
+  ok 11 [chromium] › tests\haegeum.spec.ts:83:1 › rapid full/reverse scroll crosses one closed portrait frame and stops RAF (3.3s)
+  ok 12 [chromium] › tests\haegeum.spec.ts:94:1 › reduced motion preserves static four-stage order and updates live (1.7s)
+  ok 14 [chromium] › tests\haegeum.spec.ts:114:1 › failed continuation image retains readable static narrative and functional navigation (1.6s)
+  ok 15 [chromium] › tests\haegeum.spec.ts:121:1 › late deep-scroll imagery selects static fallback rather than popping into the motion plane (692ms)
+  ok 16 [chromium] › tests\haegeum.spec.ts:129:1 › 200% text and 320px preserve document reading order and navigation targets (757ms)
+  ok 13 [chromium] › tests\haegeum.spec.ts:104:1 › keyboard skip, menu Esc restore, scroll release and semantic KO/EN counterpart (4.4s)
+(node:444) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:16784) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 17 [webkit] › tests\haegeum.spec.ts:16:3 › 320: four stages, readable keyword, independent framing and no overflow (5.2s)
+  ok 18 [webkit] › tests\haegeum.spec.ts:16:3 › 390: four stages, readable keyword, independent framing and no overflow (5.3s)
+  ok 19 [webkit] › tests\haegeum.spec.ts:16:3 › 768: four stages, readable keyword, independent framing and no overflow (5.6s)
+  ok 20 [webkit] › tests\haegeum.spec.ts:16:3 › 1024: four stages, readable keyword, independent framing and no overflow (6.0s)
+  ok 21 [webkit] › tests\haegeum.spec.ts:16:3 › 1366: four stages, readable keyword, independent framing and no overflow (5.7s)
+  ok 22 [webkit] › tests\haegeum.spec.ts:16:3 › 1440: four stages, readable keyword, independent framing and no overflow (5.7s)
+  ok 24 [webkit] › tests\haegeum.spec.ts:36:1 › native travel overlaps Hero exit; same DOM and reversible settled state (4.6s)
+  ok 23 [webkit] › tests\haegeum.spec.ts:16:3 › 1920: four stages, readable keyword, independent framing and no overflow (6.0s)
+  ok 26 [webkit] › tests\haegeum.spec.ts:62:1 › full source replacement changes aspect, anchors, alt and disclosure without renderer changes (3.3s)
+  ok 25 [webkit] › tests\haegeum.spec.ts:45:1 › interrupted mid-resolution menu preserves composition, scroll lock and keyboard focus (7.0s)
+  ok 27 [webkit] › tests\haegeum.spec.ts:83:1 › rapid full/reverse scroll crosses one closed portrait frame and stops RAF (3.5s)
+  ok 28 [webkit] › tests\haegeum.spec.ts:94:1 › reduced motion preserves static four-stage order and updates live (1.9s)
+  ok 30 [webkit] › tests\haegeum.spec.ts:114:1 › failed continuation image retains readable static narrative and functional navigation (1.8s)
+  ok 29 [webkit] › tests\haegeum.spec.ts:104:1 › keyboard skip, menu Esc restore, scroll release and semantic KO/EN counterpart (4.8s)
+  ok 32 [webkit] › tests\haegeum.spec.ts:129:1 › 200% text and 320px preserve document reading order and navigation targets (808ms)
+  x  31 [webkit] › tests\haegeum.spec.ts:121:1 › late deep-scroll imagery selects static fallback rather than popping into the motion plane (5.7s)
+
+
+  1) [webkit] › tests\haegeum.spec.ts:121:1 › late deep-scroll imagery selects static fallback rather than popping into the motion plane 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('.haegeum-experience')
+    Expected: "true"
+    Received: ""
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('.haegeum-experience') with timeout 5000ms
+      - waiting for locator('.haegeum-experience')
+        13 × locator resolved to <section data-reflow="false" data-exchange="ready" data-progress="0.00000" data-image-error="false" data-instrument-stage="hero" aria-labelledby="artist-name" data-target-progress="0.00000" data-motion="pointer-and-scroll" data-full-source-visible="false" class="bold-hero poster-scene haegeum-experience">…</section>
+           - unexpected value "null"
+
+
+      123 |   await page.route('**/haegeum-playing.webp',async route=>{await pending;await route.continue()})
+      124 |   await page.goto('/',{waitUntil:'domcontentloaded'});await page.evaluate(()=>scrollTo(0,innerHeight*.9))
+    > 125 |   await expect(page.locator('.haegeum-experience')).toHaveAttribute('data-instrument-fallback','true')
+          |                                                     ^
+      126 |   release();await page.locator('.playing-image').evaluate(el=>(el as HTMLImageElement).decode())
+      127 |   await expect(page.locator('.haegeum-experience')).toHaveAttribute('data-motion','reduced')
+      128 | })
+        at C:\choyounkyoung-v2\tests\haegeum.spec.ts:125:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\haegeum\haegeum-late-deep-scroll-i-5a12a-pping-into-the-motion-plane-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\haegeum\haegeum-late-deep-scroll-i-5a12a-pping-into-the-motion-plane-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\haegeum\haegeum-late-deep-scroll-i-5a12a-pping-into-the-motion-plane-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\haegeum\haegeum-late-deep-scroll-i-5a12a-pping-into-the-motion-plane-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [webkit] › tests\haegeum.spec.ts:121:1 › late deep-scroll imagery selects static fallback rather than popping into the motion plane 
+  31 passed (1.2m)

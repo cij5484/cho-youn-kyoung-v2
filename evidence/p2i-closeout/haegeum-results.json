@@ -1,0 +1,1236 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\choyounkyoung-v2\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.haegeum.config.ts"
+    ],
+    "configFile": "C:\\choyounkyoung-v2\\playwright.haegeum.config.ts",
+    "rootDir": "C:/choyounkyoung-v2/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/choyounkyoung-v2/test-results/haegeum",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/choyounkyoung-v2/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "haegeum.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/choyounkyoung-v2/test-results/haegeum",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "C:/choyounkyoung-v2/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "haegeum.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/haegeum-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 2,
+    "webServer": {
+      "command": "npm run dev:haegeum",
+      "url": "http://127.0.0.1:4178",
+      "reuseExistingServer": false,
+      "timeout": 15000
+    }
+  },
+  "suites": [
+    {
+      "title": "haegeum.spec.ts",
+      "file": "haegeum.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "320: four stages, readable keyword, independent framing and no overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4722,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:11.276Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-da9054d743ea51454280",
+          "file": "haegeum.spec.ts",
+          "line": 16,
+          "column": 3
+        },
+        {
+          "title": "390: four stages, readable keyword, independent framing and no overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4916,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:11.260Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-e7532a7c33ce9ee61e98",
+          "file": "haegeum.spec.ts",
+          "line": 16,
+          "column": 3
+        },
+        {
+          "title": "768: four stages, readable keyword, independent framing and no overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4860,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:16.178Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-d5652e9ae23589e3ac0d",
+          "file": "haegeum.spec.ts",
+          "line": 16,
+          "column": 3
+        },
+        {
+          "title": "1024: four stages, readable keyword, independent framing and no overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4977,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:16.340Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-251b1eaf9c67c9f17c72",
+          "file": "haegeum.spec.ts",
+          "line": 16,
+          "column": 3
+        },
+        {
+          "title": "1366: four stages, readable keyword, independent framing and no overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5000,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:21.049Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-bddcaedd0bc91a0a6fc7",
+          "file": "haegeum.spec.ts",
+          "line": 16,
+          "column": 3
+        },
+        {
+          "title": "1440: four stages, readable keyword, independent framing and no overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5225,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:21.340Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-5da306893950de028a6e",
+          "file": "haegeum.spec.ts",
+          "line": 16,
+          "column": 3
+        },
+        {
+          "title": "1920: four stages, readable keyword, independent framing and no overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5310,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:26.062Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-2be86e0dcbbcf4360aa2",
+          "file": "haegeum.spec.ts",
+          "line": 16,
+          "column": 3
+        },
+        {
+          "title": "native travel overlaps Hero exit; same DOM and reversible settled state",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4086,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:26.580Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-042727731481ec3dab65",
+          "file": "haegeum.spec.ts",
+          "line": 36,
+          "column": 1
+        },
+        {
+          "title": "interrupted mid-resolution menu preserves composition, scroll lock and keyboard focus",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6629,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:30.675Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-47ff5104e289cce4f4f3",
+          "file": "haegeum.spec.ts",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "full source replacement changes aspect, anchors, alt and disclosure without renderer changes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3304,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:31.386Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-c95da2944e484d4c8ce7",
+          "file": "haegeum.spec.ts",
+          "line": 62,
+          "column": 1
+        },
+        {
+          "title": "rapid full/reverse scroll crosses one closed portrait frame and stops RAF",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3291,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:34.700Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-a6f0d23768f573ffd6a5",
+          "file": "haegeum.spec.ts",
+          "line": 83,
+          "column": 1
+        },
+        {
+          "title": "reduced motion preserves static four-stage order and updates live",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1632,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:37.314Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-cab4c477ddb46b7188db",
+          "file": "haegeum.spec.ts",
+          "line": 94,
+          "column": 1
+        },
+        {
+          "title": "keyboard skip, menu Esc restore, scroll release and semantic KO/EN counterpart",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4284,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:38.006Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-3625ce1f4acbe6d53610",
+          "file": "haegeum.spec.ts",
+          "line": 104,
+          "column": 1
+        },
+        {
+          "title": "failed continuation image retains readable static narrative and functional navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1434,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:38.960Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-fb4714adbe0126c69a47",
+          "file": "haegeum.spec.ts",
+          "line": 114,
+          "column": 1
+        },
+        {
+          "title": "late deep-scroll imagery selects static fallback rather than popping into the motion plane",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 634,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:40.405Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-bb26d5350e040407bd35",
+          "file": "haegeum.spec.ts",
+          "line": 121,
+          "column": 1
+        },
+        {
+          "title": "200% text and 320px preserve document reading order and navigation targets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 636,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:41.050Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-c70f47221087500d274a",
+          "file": "haegeum.spec.ts",
+          "line": 129,
+          "column": 1
+        },
+        {
+          "title": "320: four stages, readable keyword, independent framing and no overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4816,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:42.335Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-bbc1c96c033419d809a4",
+          "file": "haegeum.spec.ts",
+          "line": 16,
+          "column": 3
+        },
+        {
+          "title": "390: four stages, readable keyword, independent framing and no overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4892,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:42.946Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-6065c7b355d12dd3b1de",
+          "file": "haegeum.spec.ts",
+          "line": 16,
+          "column": 3
+        },
+        {
+          "title": "768: four stages, readable keyword, independent framing and no overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4903,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:47.275Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-e1d7f7f0416d69371bba",
+          "file": "haegeum.spec.ts",
+          "line": 16,
+          "column": 3
+        },
+        {
+          "title": "1024: four stages, readable keyword, independent framing and no overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4979,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:47.948Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-b2313987f64652bad488",
+          "file": "haegeum.spec.ts",
+          "line": 16,
+          "column": 3
+        },
+        {
+          "title": "1366: four stages, readable keyword, independent framing and no overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5226,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:52.189Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-e4871c059095d69142f9",
+          "file": "haegeum.spec.ts",
+          "line": 16,
+          "column": 3
+        },
+        {
+          "title": "1440: four stages, readable keyword, independent framing and no overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5593,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:52.940Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-79fab4367041943fe045",
+          "file": "haegeum.spec.ts",
+          "line": 16,
+          "column": 3
+        },
+        {
+          "title": "1920: four stages, readable keyword, independent framing and no overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5935,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:57.425Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-a22180c50b3e5c308bc7",
+          "file": "haegeum.spec.ts",
+          "line": 16,
+          "column": 3
+        },
+        {
+          "title": "native travel overlaps Hero exit; same DOM and reversible settled state",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4567,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:58:58.543Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-b0f15df80f79fc82fb59",
+          "file": "haegeum.spec.ts",
+          "line": 36,
+          "column": 1
+        },
+        {
+          "title": "interrupted mid-resolution menu preserves composition, scroll lock and keyboard focus",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6834,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:59:03.121Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-b0b16115656b7a9264b1",
+          "file": "haegeum.spec.ts",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "full source replacement changes aspect, anchors, alt and disclosure without renderer changes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3435,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:59:03.369Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-20af289a0c971f9048f6",
+          "file": "haegeum.spec.ts",
+          "line": 62,
+          "column": 1
+        },
+        {
+          "title": "rapid full/reverse scroll crosses one closed portrait frame and stops RAF",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3551,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:59:06.815Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-ab89f0e3f7b400ebba9f",
+          "file": "haegeum.spec.ts",
+          "line": 83,
+          "column": 1
+        },
+        {
+          "title": "reduced motion preserves static four-stage order and updates live",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1903,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:59:09.966Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-28acb221a5826e6b826c",
+          "file": "haegeum.spec.ts",
+          "line": 94,
+          "column": 1
+        },
+        {
+          "title": "keyboard skip, menu Esc restore, scroll release and semantic KO/EN counterpart",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4847,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:59:10.377Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-3f80eeafaf86a25bff95",
+          "file": "haegeum.spec.ts",
+          "line": 104,
+          "column": 1
+        },
+        {
+          "title": "failed continuation image retains readable static narrative and functional navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1795,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:59:11.876Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-f212755e878f8eaa8909",
+          "file": "haegeum.spec.ts",
+          "line": 114,
+          "column": 1
+        },
+        {
+          "title": "late deep-scroll imagery selects static fallback rather than popping into the motion plane",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5681,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.haegeum-experience')\nExpected: \u001b[32m\"true\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.haegeum-experience') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.haegeum-experience')\u001b[22m\n\u001b[2m    2 × locator resolved to <section aria-labelledby=\"artist-name\" class=\"bold-hero poster-scene haegeum-experience\">…</section>\u001b[22m\n\u001b[2m      - unexpected value \"null\"\u001b[22m\n\u001b[2m    11 × locator resolved to <section data-reflow=\"false\" data-exchange=\"ready\" data-progress=\"0.00000\" data-image-error=\"false\" data-instrument-stage=\"hero\" aria-labelledby=\"artist-name\" data-target-progress=\"0.00000\" data-motion=\"pointer-and-scroll\" data-full-source-visible=\"false\" class=\"bold-hero poster-scene haegeum-experience\">…</section>\u001b[22m\n\u001b[2m       - unexpected value \"null\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.haegeum-experience')\nExpected: \u001b[32m\"true\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.haegeum-experience') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.haegeum-experience')\u001b[22m\n\u001b[2m    2 × locator resolved to <section aria-labelledby=\"artist-name\" class=\"bold-hero poster-scene haegeum-experience\">…</section>\u001b[22m\n\u001b[2m      - unexpected value \"null\"\u001b[22m\n\u001b[2m    11 × locator resolved to <section data-reflow=\"false\" data-exchange=\"ready\" data-progress=\"0.00000\" data-image-error=\"false\" data-instrument-stage=\"hero\" aria-labelledby=\"artist-name\" data-target-progress=\"0.00000\" data-motion=\"pointer-and-scroll\" data-full-source-visible=\"false\" class=\"bold-hero poster-scene haegeum-experience\">…</section>\u001b[22m\n\u001b[2m       - unexpected value \"null\"\u001b[22m\n\n    at C:\\choyounkyoung-v2\\tests\\haegeum.spec.ts:125:53",
+                    "location": {
+                      "file": "C:\\choyounkyoung-v2\\tests\\haegeum.spec.ts",
+                      "column": 53,
+                      "line": 125
+                    },
+                    "snippet": "  123 |   await page.route('**/haegeum-playing.webp',async route=>{await pending;await route.continue()})\n  124 |   await page.goto('/',{waitUntil:'domcontentloaded'});await page.evaluate(()=>scrollTo(0,innerHeight*.9))\n> 125 |   await expect(page.locator('.haegeum-experience')).toHaveAttribute('data-instrument-fallback','true')\n      |                                                     ^\n  126 |   release();await page.locator('.playing-image').evaluate(el=>(el as HTMLImageElement).decode())\n  127 |   await expect(page.locator('.haegeum-experience')).toHaveAttribute('data-motion','reduced')\n  128 | })"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\choyounkyoung-v2\\tests\\haegeum.spec.ts",
+                        "column": 53,
+                        "line": 125
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.haegeum-experience')\nExpected: \u001b[32m\"true\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.haegeum-experience') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.haegeum-experience')\u001b[22m\n\u001b[2m    2 × locator resolved to <section aria-labelledby=\"artist-name\" class=\"bold-hero poster-scene haegeum-experience\">…</section>\u001b[22m\n\u001b[2m      - unexpected value \"null\"\u001b[22m\n\u001b[2m    11 × locator resolved to <section data-reflow=\"false\" data-exchange=\"ready\" data-progress=\"0.00000\" data-image-error=\"false\" data-instrument-stage=\"hero\" aria-labelledby=\"artist-name\" data-target-progress=\"0.00000\" data-motion=\"pointer-and-scroll\" data-full-source-visible=\"false\" class=\"bold-hero poster-scene haegeum-experience\">…</section>\u001b[22m\n\u001b[2m       - unexpected value \"null\"\u001b[22m\n\n\n  123 |   await page.route('**/haegeum-playing.webp',async route=>{await pending;await route.continue()})\n  124 |   await page.goto('/',{waitUntil:'domcontentloaded'});await page.evaluate(()=>scrollTo(0,innerHeight*.9))\n> 125 |   await expect(page.locator('.haegeum-experience')).toHaveAttribute('data-instrument-fallback','true')\n      |                                                     ^\n  126 |   release();await page.locator('.playing-image').evaluate(el=>(el as HTMLImageElement).decode())\n  127 |   await expect(page.locator('.haegeum-experience')).toHaveAttribute('data-motion','reduced')\n  128 | })\n    at C:\\choyounkyoung-v2\\tests\\haegeum.spec.ts:125:53"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:59:13.680Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\haegeum\\haegeum-late-deep-scroll-i-5a12a-pping-into-the-motion-plane-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\haegeum\\haegeum-late-deep-scroll-i-5a12a-pping-into-the-motion-plane-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\haegeum\\haegeum-late-deep-scroll-i-5a12a-pping-into-the-motion-plane-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\choyounkyoung-v2\\tests\\haegeum.spec.ts",
+                    "column": 53,
+                    "line": 125
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-3221a9d3b6725eee76a7",
+          "file": "haegeum.spec.ts",
+          "line": 121,
+          "column": 1
+        },
+        {
+          "title": "200% text and 320px preserve document reading order and navigation targets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 824,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:59:15.234Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "321fb773776da7f4dc84-340d3320c82c702e73db",
+          "file": "haegeum.spec.ts",
+          "line": 129,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-07T03:58:09.894Z",
+    "duration": 69996.648,
+    "expected": 31,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

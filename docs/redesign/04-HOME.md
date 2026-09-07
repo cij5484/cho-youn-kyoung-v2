@@ -401,7 +401,7 @@ Turn the instrument into sound.
 
 ## Narrative Role
 
-This is the first explicit listening moment on HOME and an intentional quiet pause after two strong scenes. Its 3/5 emphasis comes from presence, not continuous animation.
+This is the first explicit listening moment on HOME. The 3/5 quiet composition remains the pre-activation baseline. The user-approved P2I B2 direction makes explicit listening a stronger smooth bow signature. The scene stays short and optional. Experience principles are owned by [MASTER §3.1](00-MASTER-PLAN.md#v2-experience-principles).
 
 P2G implements this single scene only in a development Lab: asymmetrical large LISTEN, Ivory negative space,
 a short caption and real optional audio. The user selected Han Beom-su Ryu Jungjungmori and delegated the
@@ -409,7 +409,15 @@ dramatic excerpt choice; 02:46–03:04 (18 seconds) is the signal-informed candi
 and SOUND visual quality remain REVIEW READY. P2G result is approved; P2H retains the audio and continuous release,
 refines local friction/damping, buffers replay, aligns the desktop type and stacks 320px captions. Native Safari
 verified playback/pause/end/replay/focus with the entry mask removed at readiness; other native checks remain partial.
-SOUND is a freeze candidate awaiting final auditory/visual judgment. No album record or public route is added.
+That P2H freeze-candidate judgment is historical; P2I visual selection is now approved. No album record or public route is added.
+
+P2I canonical production direction is **B2 Bold / LONG 460ms / Electric Violet #6334E5**.
+**“Strings vibrate. Bow flows.” / “현은 떨고, 활은 흐른다.”** The two Charcoal strings retain micro vibration,
+tension and resonance; the marker sweeps smoothly with velocity continuity. Its tapered/fading trail is recent
+bow history. No jitter is applied to the marker. A/B1/other Violets remain development comparisons only.
+[SOUND contract](review/SOUND-BOW-CONTACT-COMPARISON.md) owns exact tuning and Lab/integration boundaries;
+[closeout](../../P2I-CLOSEOUT-RESULT.md) owns the quality/QA decision. This selects the production direction;
+public HOME integration and any next scene still require their own authorized task.
 
 ## Core Experience
 

@@ -1,0 +1,14 @@
+[
+  {
+    "suite": "navigation",
+    "exit": 0
+  },
+  {
+    "suite": "hero",
+    "exit": 1
+  },
+  {
+    "suite": "haegeum",
+    "exit": 1
+  }
+]

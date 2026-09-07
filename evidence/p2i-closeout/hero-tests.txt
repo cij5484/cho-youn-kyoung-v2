@@ -1,0 +1,149 @@
+
+> cho-youn-kyoung-v2@0.0.0 test:hero
+> playwright test --config playwright.hero.config.ts
+
+[WebServer] (node:32128) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 44 tests using 2 workers
+
+(node:33620) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:33660) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  2 [chromium] › tests\hero.spec.ts:23:5 › b 320: independent composition, loaded portrait, touch-safe navigation and no page overflow (3.9s)
+  ok  1 [chromium] › tests\hero.spec.ts:23:5 › b 390: independent composition, loaded portrait, touch-safe navigation and no page overflow (4.0s)
+  ok  3 [chromium] › tests\hero.spec.ts:23:5 › b 768: independent composition, loaded portrait, touch-safe navigation and no page overflow (3.8s)
+  ok  4 [chromium] › tests\hero.spec.ts:23:5 › b 1024: independent composition, loaded portrait, touch-safe navigation and no page overflow (3.8s)
+  ok  5 [chromium] › tests\hero.spec.ts:23:5 › b 1440: independent composition, loaded portrait, touch-safe navigation and no page overflow (3.9s)
+  ok  6 [chromium] › tests\hero.spec.ts:23:5 › b 1920: independent composition, loaded portrait, touch-safe navigation and no page overflow (4.0s)
+  ok  8 [chromium] › tests\hero.spec.ts:75:3 › b: reduced motion is a complete static poster with no sticky delay or pointer dependency (1.0s)
+  ok  9 [chromium] › tests\hero.spec.ts:90:34 › 320: keyboard skip, focus trap, Esc restore and 200% text (2.4s)
+  ok  7 [chromium] › tests\hero.spec.ts:53:3 › b: separate depth, reversible photographic aperture and fixed navigation (4.9s)
+  ok 10 [chromium] › tests\hero.spec.ts:90:34 › 1440: keyboard skip, focus trap, Esc restore and 200% text (2.7s)
+  ok 11 [chromium] › tests\hero.spec.ts:109:1 › KO/EN preserve semantic destination counterpart and focus, without new content routes (2.6s)
+  ok 12 [chromium] › tests\hero.spec.ts:124:1 › failed secondary image keeps the initial authentic portrait visible through scroll (1.5s)
+  ok 14 [chromium] › tests\hero.spec.ts:140:1 › runtime derivatives match recorded provenance and no master is bundled in Hero Lab (19ms)
+  ok 15 [chromium] › tests\hero.spec.ts:151:71 › 320: actual name glyphs remain separated from each other and navigation during scroll (2.3s)
+  ok 16 [chromium] › tests\hero.spec.ts:151:71 › 390: actual name glyphs remain separated from each other and navigation during scroll (2.3s)
+  ok 13 [chromium] › tests\hero.spec.ts:131:1 › font failure preserves readable identity and menu operation (6.4s)
+  ok 17 [chromium] › tests\hero.spec.ts:151:71 › 1920: actual name glyphs remain separated from each other and navigation during scroll (2.5s)
+  ok 18 [chromium] › tests\hero.spec.ts:176:1 › selection is frozen: former comparison URLs render only B with no chooser (1.1s)
+  ok 19 [chromium] › tests\hero.spec.ts:184:1 › large scroll jumps and reversals exchange the portrait only through a closed rendered frame, then stop RAF (3.4s)
+  ok 20 [chromium] › tests\hero.spec.ts:211:1 › late secondary download waits for a return to the initial frame before arming the exchange (3.4s)
+  ok 21 [chromium] › tests\hero.spec.ts:232:1 › failed primary photo leaves readable Ink identity and functional navigation (1.4s)
+(node:29228) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 22 [chromium] › tests\hero.spec.ts:242:1 › viewport changes preserve progress from the actual stage and reverse to the original poster (2.8s)
+(node:29996) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 23 [webkit] › tests\hero.spec.ts:23:5 › b 320: independent composition, loaded portrait, touch-safe navigation and no page overflow (4.0s)
+  ok 24 [webkit] › tests\hero.spec.ts:23:5 › b 390: independent composition, loaded portrait, touch-safe navigation and no page overflow (4.0s)
+  ok 25 [webkit] › tests\hero.spec.ts:23:5 › b 768: independent composition, loaded portrait, touch-safe navigation and no page overflow (4.1s)
+  ok 26 [webkit] › tests\hero.spec.ts:23:5 › b 1024: independent composition, loaded portrait, touch-safe navigation and no page overflow (4.3s)
+  ok 27 [webkit] › tests\hero.spec.ts:23:5 › b 1440: independent composition, loaded portrait, touch-safe navigation and no page overflow (4.4s)
+  ok 28 [webkit] › tests\hero.spec.ts:23:5 › b 1920: independent composition, loaded portrait, touch-safe navigation and no page overflow (4.5s)
+  ok 30 [webkit] › tests\hero.spec.ts:75:3 › b: reduced motion is a complete static poster with no sticky delay or pointer dependency (1.2s)
+  ok 29 [webkit] › tests\hero.spec.ts:53:3 › b: separate depth, reversible photographic aperture and fixed navigation (5.1s)
+  x  31 [webkit] › tests\hero.spec.ts:90:34 › 320: keyboard skip, focus trap, Esc restore and 200% text (5.7s)
+(node:27920) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  32 [webkit] › tests\hero.spec.ts:90:34 › 1440: keyboard skip, focus trap, Esc restore and 200% text (5.9s)
+(node:7036) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 33 [webkit] › tests\hero.spec.ts:109:1 › KO/EN preserve semantic destination counterpart and focus, without new content routes (3.4s)
+  ok 34 [webkit] › tests\hero.spec.ts:124:1 › failed secondary image keeps the initial authentic portrait visible through scroll (1.8s)
+  ok 36 [webkit] › tests\hero.spec.ts:140:1 › runtime derivatives match recorded provenance and no master is bundled in Hero Lab (9ms)
+  ok 35 [webkit] › tests\hero.spec.ts:131:1 › font failure preserves readable identity and menu operation (2.0s)
+  ok 37 [webkit] › tests\hero.spec.ts:151:71 › 320: actual name glyphs remain separated from each other and navigation during scroll (2.5s)
+  ok 38 [webkit] › tests\hero.spec.ts:151:71 › 390: actual name glyphs remain separated from each other and navigation during scroll (2.5s)
+  ok 40 [webkit] › tests\hero.spec.ts:176:1 › selection is frozen: former comparison URLs render only B with no chooser (1.4s)
+  ok 39 [webkit] › tests\hero.spec.ts:151:71 › 1920: actual name glyphs remain separated from each other and navigation during scroll (2.8s)
+  ok 41 [webkit] › tests\hero.spec.ts:184:1 › large scroll jumps and reversals exchange the portrait only through a closed rendered frame, then stop RAF (3.7s)
+  ok 42 [webkit] › tests\hero.spec.ts:211:1 › late secondary download waits for a return to the initial frame before arming the exchange (3.8s)
+  ok 43 [webkit] › tests\hero.spec.ts:232:1 › failed primary photo leaves readable Ink identity and functional navigation (1.8s)
+  ok 44 [webkit] › tests\hero.spec.ts:242:1 › viewport changes preserve progress from the actual stage and reverse to the original poster (3.0s)
+
+
+  1) [webkit] › tests\hero.spec.ts:90:34 › 320: keyboard skip, focus trap, Esc restore and 200% text 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByRole('link', { name: '본문으로 이동' })
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" getByRole('link', { name: '본문으로 이동' }) with timeout 5000ms
+      - waiting for getByRole('link', { name: '본문으로 이동' })
+        14 × locator resolved to <a class="skip-link" href="#hero-main">본문으로 이동</a>
+           - unexpected value "inactive"
+
+
+      91 |   const tabKey = browserName === 'webkit' && process.platform === 'darwin' ? 'Alt+Tab' : 'Tab'
+      92 |   await page.setViewportSize({ width, height: 900 }); await ready(page)
+    > 93 |   await page.keyboard.press(tabKey); await expect(page.getByRole('link', { name: '본문으로 이동' })).toBeFocused()
+         |                                                                                                ^
+      94 |   await page.keyboard.press('Enter'); await expect(page.locator('main')).toBeFocused()
+      95 |   const trigger = page.getByRole('button', { name: 'MENU', exact: true })
+      96 |   await trigger.focus(); await page.keyboard.press('Enter')
+        at C:\choyounkyoung-v2\tests\hero.spec.ts:93:96
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\hero\hero-320-keyboard-skip-focus-trap-Esc-restore-and-200-text-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\hero\hero-320-keyboard-skip-focus-trap-Esc-restore-and-200-text-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\hero\hero-320-keyboard-skip-focus-trap-Esc-restore-and-200-text-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\hero\hero-320-keyboard-skip-focus-trap-Esc-restore-and-200-text-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [webkit] › tests\hero.spec.ts:90:34 › 1440: keyboard skip, focus trap, Esc restore and 200% text 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByRole('link', { name: '본문으로 이동' })
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" getByRole('link', { name: '본문으로 이동' }) with timeout 5000ms
+      - waiting for getByRole('link', { name: '본문으로 이동' })
+        14 × locator resolved to <a class="skip-link" href="#hero-main">본문으로 이동</a>
+           - unexpected value "inactive"
+
+
+      91 |   const tabKey = browserName === 'webkit' && process.platform === 'darwin' ? 'Alt+Tab' : 'Tab'
+      92 |   await page.setViewportSize({ width, height: 900 }); await ready(page)
+    > 93 |   await page.keyboard.press(tabKey); await expect(page.getByRole('link', { name: '본문으로 이동' })).toBeFocused()
+         |                                                                                                ^
+      94 |   await page.keyboard.press('Enter'); await expect(page.locator('main')).toBeFocused()
+      95 |   const trigger = page.getByRole('button', { name: 'MENU', exact: true })
+      96 |   await trigger.focus(); await page.keyboard.press('Enter')
+        at C:\choyounkyoung-v2\tests\hero.spec.ts:93:96
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\hero\hero-1440-keyboard-skip-focus-trap-Esc-restore-and-200-text-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\hero\hero-1440-keyboard-skip-focus-trap-Esc-restore-and-200-text-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\hero\hero-1440-keyboard-skip-focus-trap-Esc-restore-and-200-text-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\hero\hero-1440-keyboard-skip-focus-trap-Esc-restore-and-200-text-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [webkit] › tests\hero.spec.ts:90:34 › 320: keyboard skip, focus trap, Esc restore and 200% text 
+    [webkit] › tests\hero.spec.ts:90:34 › 1440: keyboard skip, focus trap, Esc restore and 200% text 
+  42 passed (1.2m)

@@ -1,0 +1,84 @@
+PM 12:39:15 [vite] (client) Re-optimizing dependencies because vite config has changed
+PM 12:39:22 [vite] (client) Re-optimizing dependencies because vite config has changed
+[
+  {
+    name: 'p2a',
+    width: 390,
+    delay: 1200,
+    repetition: 1,
+    cls: 0.1600214060096154,
+    displayHeight: [ 104.875, 104.875 ]
+  },
+  {
+    name: 'p2a',
+    width: 390,
+    delay: 1200,
+    repetition: 2,
+    cls: 0.1600214060096154,
+    displayHeight: [ 104.875, 104.875 ]
+  },
+  {
+    name: 'p2a',
+    width: 390,
+    delay: 1200,
+    repetition: 3,
+    cls: 0.1600214060096154,
+    displayHeight: [ 104.875, 104.875 ]
+  },
+  {
+    name: 'p2a',
+    width: 1440,
+    delay: 1200,
+    repetition: 1,
+    cls: 0.0017974068573374806,
+    displayHeight: [ 264.46875, 264.46875 ]
+  },
+  {
+    name: 'p2a',
+    width: 390,
+    delay: 0,
+    repetition: 1,
+    cls: 0.1600214060096154,
+    displayHeight: [ 104.875, 104.875 ]
+  },
+  {
+    name: 'p2i',
+    width: 390,
+    delay: 1200,
+    repetition: 1,
+    cls: 0.1600214060096154,
+    displayHeight: [ 104.875, 104.875 ]
+  },
+  {
+    name: 'p2i',
+    width: 390,
+    delay: 1200,
+    repetition: 2,
+    cls: 0.1600214060096154,
+    displayHeight: [ 104.875, 104.875 ]
+  },
+  {
+    name: 'p2i',
+    width: 390,
+    delay: 1200,
+    repetition: 3,
+    cls: 0.1600214060096154,
+    displayHeight: [ 104.875, 104.875 ]
+  },
+  {
+    name: 'p2i',
+    width: 1440,
+    delay: 1200,
+    repetition: 1,
+    cls: 0.0017974068573374806,
+    displayHeight: [ 264.46875, 264.46875 ]
+  },
+  {
+    name: 'p2i',
+    width: 390,
+    delay: 0,
+    repetition: 1,
+    cls: 0.1600214060096154,
+    displayHeight: [ 104.875, 104.875 ]
+  }
+]

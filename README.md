@@ -267,3 +267,27 @@ buffered replay, 320px caption, Safari focus/type-mask 보완. Full 38 Node +255
 실제 Safari 재생·pause·end·replay·focus는 확인했으나 Mac 잠금으로 나머지 native QA는 미완료입니다.
 [현재 결과](P2H-RESULT.md), [현재 증거](evidence/p2h/README.md). Commit/main push/Fast CI는 이번에 승인된 delivery이며
 정확한 결과는 완료 보고를 따릅니다. 배포 없음. **REVIEW READY / FREEZE CANDIDATE → STOP → 사용자 승인**.
+
+
+### P2I — SOUND Bow Contact Choreography (development only)
+
+Start `npm.cmd run dev:sound`. [Canonical B2 / LONG 460ms / Electric Violet](http://127.0.0.1:4179/) has no comparison UI. Development comparisons: [A · line only](http://127.0.0.1:4179/?compare=a),
+[B1 · medium](http://127.0.0.1:4179/?compare=b&activity=medium), or
+[B2 · bold / Electric Violet / LONG](http://127.0.0.1:4179/?compare=b).
+The Lab panel changes activity, four trail histories and three Violets at the same playback position.
+LISTEN is explicit. B2 is the approved production direction; the public HOME remains unimplemented.
+[Closeout / QA classification](P2I-CLOSEOUT-RESULT.md) distinguishes SOUND freeze from the still-red Windows Full gate.
+
+[Revised comparison contract](docs/redesign/review/SOUND-BOW-CONTACT-COMPARISON.md),
+[current result](P2I-CHOREOGRAPHY-RESULT.md), [videos / evidence](evidence/p2i-choreography/README.md).
+[Original P2I result](P2I-RESULT.md) and [bronze evidence](evidence/p2i/README.md) remain historical.
+
+Validation: `npm.cmd run test:sound:contract`, `npm.cmd run test:sound`, `npm.cmd run gate:full`.
+Stop the manual 4179 server before browser tests/Full; the test runner owns that port.
+Capture against the running Lab: `node scripts/capture-sound-choreography.mjs`; optional `SOUND_LAB_URL`.
+Videos are real-time SILENT browser recordings; use the Lab for listening with synchronized visuals.
+Windows Playwright WebKit's missing AudioContext cannot certify analyser motion or native Mac Safari behavior.
+
+Learning: [INTERACTION-GLOSSARY](docs/redesign/INTERACTION-GLOSSARY.md) explains 29 terms with current/future status.
+It is a human reference, not agent instructions. Official V2 experience principles live in
+[MASTER §3.1](docs/redesign/00-MASTER-PLAN.md#v2-experience-principles).

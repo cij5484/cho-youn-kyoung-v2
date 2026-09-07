@@ -1,0 +1,3400 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\choyounkyoung-v2\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.sound.config.ts"
+    ],
+    "configFile": "C:\\choyounkyoung-v2\\playwright.sound.config.ts",
+    "rootDir": "C:/choyounkyoung-v2/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/choyounkyoung-v2/test-results/sound",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/choyounkyoung-v2/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "sound.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/choyounkyoung-v2/test-results/sound",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "C:/choyounkyoung-v2/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "sound.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/sound-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 2,
+    "webServer": {
+      "command": "npm run dev:sound",
+      "url": "http://127.0.0.1:4179",
+      "reuseExistingServer": false,
+      "timeout": 15000
+    }
+  },
+  "suites": [
+    {
+      "title": "sound.spec.ts",
+      "file": "sound.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "320: preserved first stages, bounded line release and independent SOUND composition",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8170,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:51:22.803Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-a3e5ee3206475d8f3993",
+          "file": "sound.spec.ts",
+          "line": 24,
+          "column": 3
+        },
+        {
+          "title": "390: preserved first stages, bounded line release and independent SOUND composition",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 8258,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:51:22.788Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-dba86c3f4bb7f3d91015",
+          "file": "sound.spec.ts",
+          "line": 24,
+          "column": 3
+        },
+        {
+          "title": "768: preserved first stages, bounded line release and independent SOUND composition",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7423,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:51:31.163Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-9a44b5edff6dc7c0dabf",
+          "file": "sound.spec.ts",
+          "line": 24,
+          "column": 3
+        },
+        {
+          "title": "1366: preserved first stages, bounded line release and independent SOUND composition",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7425,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:51:31.232Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-5ad8d58deb8a5d00d55d",
+          "file": "sound.spec.ts",
+          "line": 24,
+          "column": 3
+        },
+        {
+          "title": "1440: preserved first stages, bounded line release and independent SOUND composition",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7351,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:51:38.599Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-8bf2b694d5266ff12cb0",
+          "file": "sound.spec.ts",
+          "line": 24,
+          "column": 3
+        },
+        {
+          "title": "1920: preserved first stages, bounded line release and independent SOUND composition",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7412,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:51:38.669Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-3997986be4ffe66da418",
+          "file": "sound.spec.ts",
+          "line": 24,
+          "column": 3
+        },
+        {
+          "title": "no audio request or context before activation; keyboard starts actual analysed playback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3777,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:51:45.962Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-86c4af33b8f179224b80",
+          "file": "sound.spec.ts",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "pause damps to the exact straight pair, stops work and resumes the real media position",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3940,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:51:46.095Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-cac6fcfa72904300c935",
+          "file": "sound.spec.ts",
+          "line": 56,
+          "column": 1
+        },
+        {
+          "title": "the complete real excerpt ends naturally and REPLAY starts from the beginning",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 40000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20611,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:51:49.751Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-94cb3077786e6c796281",
+          "file": "sound.spec.ts",
+          "line": 69,
+          "column": 1
+        },
+        {
+          "title": "reverse/offscreen pauses, becomes idle work and never resumes without another gesture",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4994,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:51:50.047Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-ab2ba4ad436067a57596",
+          "file": "sound.spec.ts",
+          "line": 78,
+          "column": 1
+        },
+        {
+          "title": "rapid toggles and media seeks do not leave duplicate graphs or false playback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2625,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:51:55.051Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-807d6e2d89ad62ea1886",
+          "file": "sound.spec.ts",
+          "line": 87,
+          "column": 1
+        },
+        {
+          "title": "MENU/Esc restores focus; counterpart navigation releases media and context",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5826,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:51:57.684Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-68d15acbc7d4e3d84ce8",
+          "file": "sound.spec.ts",
+          "line": 98,
+          "column": 1
+        },
+        {
+          "title": "reduced motion keeps ordered narrative and real listening with static lines",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1686,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:03.519Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-670c4c8e159611fb6092",
+          "file": "sound.spec.ts",
+          "line": 111,
+          "column": 1
+        },
+        {
+          "title": "live reduced preference preserves truthful playback through static-layout reflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2863,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:05.215Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-1db349b6dfe8024fe4e1",
+          "file": "sound.spec.ts",
+          "line": 120,
+          "column": 1
+        },
+        {
+          "title": "320px enlarged text has readable controls and no horizontal trap",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1242,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:08.086Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-3399c85918dc58d28383",
+          "file": "sound.spec.ts",
+          "line": 130,
+          "column": 1
+        },
+        {
+          "title": "unavailable source is disabled and truthful, with no fake clock",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2079,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:09.336Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-8e8beffe0c255e95be06",
+          "file": "sound.spec.ts",
+          "line": 138,
+          "column": 1
+        },
+        {
+          "title": "media failure is announced and retry never invents playback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2308,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:10.370Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-57240d7038b17c5137e0",
+          "file": "sound.spec.ts",
+          "line": 144,
+          "column": 1
+        },
+        {
+          "title": "cancel while loading remains paused after delayed bytes arrive",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2987,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:11.424Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-74c17e782e1f6223cd6a",
+          "file": "sound.spec.ts",
+          "line": 151,
+          "column": 1
+        },
+        {
+          "title": "missing Web Audio capability keeps real playback with an explicit static visual",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2560,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:12.688Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-2b0ea15187a79212d30d",
+          "file": "sound.spec.ts",
+          "line": 160,
+          "column": 1
+        },
+        {
+          "title": "direct anchor and rapid reverse preserve the single line pair without starting audio",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4309,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:14.419Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-3a7aff57010b20ef1051",
+          "file": "sound.spec.ts",
+          "line": 166,
+          "column": 1
+        },
+        {
+          "title": "a technically present but unapproved source cannot activate media",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2102,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:15.260Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-379ca494e1c39b0884c7",
+          "file": "sound.spec.ts",
+          "line": 174,
+          "column": 1
+        },
+        {
+          "title": "hidden-document event pauses and suspends; visibility return never autoplays",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2554,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:17.372Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-a931c08e90c59e9efe0f",
+          "file": "sound.spec.ts",
+          "line": 180,
+          "column": 1
+        },
+        {
+          "title": "failed instrument imagery preserves static narrative followed by usable SOUND",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1437,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:18.738Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-5aba7b53756ff5942841",
+          "file": "sound.spec.ts",
+          "line": 189,
+          "column": 1
+        },
+        {
+          "title": "a stalled source times out truthfully and leaves no background analysis",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14306,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:19.937Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-c569d11e433987437c10",
+          "file": "sound.spec.ts",
+          "line": 196,
+          "column": 1
+        },
+        {
+          "title": "resizing active playback to mobile settles every old desktop sample on pause",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4164,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:20.187Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-1cf50db67e62be2661a1",
+          "file": "sound.spec.ts",
+          "line": 207,
+          "column": 1
+        },
+        {
+          "title": "replay reuses buffered media and its single graph instead of issuing another load",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2676,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:24.362Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-10e7829c972593be082e",
+          "file": "sound.spec.ts",
+          "line": 216,
+          "column": 1
+        },
+        {
+          "title": "line friction rejects DC drift, retains current points and damps after interruption",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1144,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:27.054Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-70a14b73058194572a6a",
+          "file": "sound.spec.ts",
+          "line": 228,
+          "column": 1
+        },
+        {
+          "title": "320px KO and EN captions and all listening states have distinct readable space",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4448,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:28.208Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-d78a94943ab3768c7466",
+          "file": "sound.spec.ts",
+          "line": 253,
+          "column": 1
+        },
+        {
+          "title": "eight route returns release every previous context and do not accumulate Sound DOM",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 18858,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:32.664Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-94347da43fadde14ad11",
+          "file": "sound.spec.ts",
+          "line": 269,
+          "column": 1
+        },
+        {
+          "title": "P2I: A/B and tail comparison preserves media position, graph, focus and the original line nodes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3016,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:34.258Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-47ae091dfa9bcc585149",
+          "file": "sound.spec.ts",
+          "line": 283,
+          "column": 1
+        },
+        {
+          "title": "P2I: smooth B uses a wide trajectory, long actual path and one Violet marker",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9080,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:37.289Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-081653769ae04c0074b3",
+          "file": "sound.spec.ts",
+          "line": 309,
+          "column": 1
+        },
+        {
+          "title": "P2I: B pause settles all work; natural end/replay fades back from the outgoing contact position",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5581,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:46.381Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-d5114e13b9bf67512617",
+          "file": "sound.spec.ts",
+          "line": 337,
+          "column": 1
+        },
+        {
+          "title": "P2I: B reduced motion is a static contact with real audio and zero analysis",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1915,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:51.534Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-f8e59580abf6b8da8a92",
+          "file": "sound.spec.ts",
+          "line": 352,
+          "column": 1
+        },
+        {
+          "title": "P2I: 320px B has an independent visible mark and no input or scroll trap",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4599,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:51.976Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-9a6748ea1b1b182a34c1",
+          "file": "sound.spec.ts",
+          "line": 362,
+          "column": 30
+        },
+        {
+          "title": "P2I: 390px B has an independent visible mark and no input or scroll trap",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4651,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:53.463Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-2c1084259b942be20073",
+          "file": "sound.spec.ts",
+          "line": 362,
+          "column": 30
+        },
+        {
+          "title": "P2I: B missing analyser/failing source never substitutes an animated contact for playback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4503,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:56.588Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-2fea98bab69621dfb4b0",
+          "file": "sound.spec.ts",
+          "line": 380,
+          "column": 1
+        },
+        {
+          "title": "P2I: B teardown removes old contact SVGs and hidden/reduced changes stop work",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2872,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:52:58.126Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-d5328650b6ed16672fb2",
+          "file": "sound.spec.ts",
+          "line": 389,
+          "column": 1
+        },
+        {
+          "title": "canonical SOUND /: frozen B2 without comparison controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2433,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:53:01.011Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-7473b7bca088a4415f02",
+          "file": "sound.spec.ts",
+          "line": 404,
+          "column": 3
+        },
+        {
+          "title": "canonical SOUND /en?activity=medium&tail=short&violet=ink: frozen B2 without comparison controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2446,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:53:01.100Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-0dd74188c5f61b68f5e0",
+          "file": "sound.spec.ts",
+          "line": 404,
+          "column": 3
+        },
+        {
+          "title": "320: preserved first stages, bounded line release and independent SOUND composition",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 8576,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:53:04.681Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-99e0c021fd74f6603ba5",
+          "file": "sound.spec.ts",
+          "line": 24,
+          "column": 3
+        },
+        {
+          "title": "390: preserved first stages, bounded line release and independent SOUND composition",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8770,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:53:04.698Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-1e3fd57a3bef7d9b5571",
+          "file": "sound.spec.ts",
+          "line": 24,
+          "column": 3
+        },
+        {
+          "title": "768: preserved first stages, bounded line release and independent SOUND composition",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 8164,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:53:13.406Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-80ffd9b911e7e02e44c3",
+          "file": "sound.spec.ts",
+          "line": 24,
+          "column": 3
+        },
+        {
+          "title": "1366: preserved first stages, bounded line release and independent SOUND composition",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8309,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:53:13.602Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-c15529cce7b44d32d231",
+          "file": "sound.spec.ts",
+          "line": 24,
+          "column": 3
+        },
+        {
+          "title": "1440: preserved first stages, bounded line release and independent SOUND composition",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 8316,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:53:21.582Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-b55b68a7dd17e19cef2c",
+          "file": "sound.spec.ts",
+          "line": 24,
+          "column": 3
+        },
+        {
+          "title": "1920: preserved first stages, bounded line release and independent SOUND composition",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8475,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:53:21.924Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-f8683b48330dfa27b05f",
+          "file": "sound.spec.ts",
+          "line": 24,
+          "column": 3
+        },
+        {
+          "title": "no audio request or context before activation; keyboard starts actual analysed playback",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 9179,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.05\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.05\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:50:90",
+                    "location": {
+                      "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                      "column": 90,
+                      "line": 50
+                    },
+                    "snippet": "  48 |   await trigger(page).press('Enter');await expect(root(page)).toHaveAttribute('data-audio-state','playing')\n  49 |   await expect.poll(()=>audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeGreaterThan(.5)\n> 50 |   await expect.poll(async()=>Number(await root(page).getAttribute('data-audio-energy'))).toBeGreaterThan(.05)\n     |                                                                                          ^\n  51 |   expect(payloads.length).toBeGreaterThan(0);expect(await page.locator('.sound-thread path').first().getAttribute('d')).not.toBe('M0 3H1000')\n  52 |   const ys=await page.locator('.sound-thread path').first().evaluate(el=>[...el.getAttribute('d')!.matchAll(/L[\\d.]+ ([\\d.]+)/g)].map(m=>Number(m[1])))\n  53 |   expect(Math.max(...ys)).toBeLessThanOrEqual(3.63);expect(Math.min(...ys)).toBeGreaterThanOrEqual(2.37)"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                        "column": 90,
+                        "line": 50
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.05\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  48 |   await trigger(page).press('Enter');await expect(root(page)).toHaveAttribute('data-audio-state','playing')\n  49 |   await expect.poll(()=>audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeGreaterThan(.5)\n> 50 |   await expect.poll(async()=>Number(await root(page).getAttribute('data-audio-energy'))).toBeGreaterThan(.05)\n     |                                                                                          ^\n  51 |   expect(payloads.length).toBeGreaterThan(0);expect(await page.locator('.sound-thread path').first().getAttribute('d')).not.toBe('M0 3H1000')\n  52 |   const ys=await page.locator('.sound-thread path').first().evaluate(el=>[...el.getAttribute('d')!.matchAll(/L[\\d.]+ ([\\d.]+)/g)].map(m=>Number(m[1])))\n  53 |   expect(Math.max(...ys)).toBeLessThanOrEqual(3.63);expect(Math.min(...ys)).toBeGreaterThanOrEqual(2.37)\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:50:90"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:53:29.908Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-no-audio-request-or--4ca51-ts-actual-analysed-playback-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-no-audio-request-or--4ca51-ts-actual-analysed-playback-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-no-audio-request-or--4ca51-ts-actual-analysed-playback-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                    "column": 90,
+                    "line": 50
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-39d3a01eb2fed07f7a6d",
+          "file": "sound.spec.ts",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "pause damps to the exact straight pair, stops work and resumes the real media position",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5785,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sound-experience')\nExpected: \u001b[32m\"0\u001b[7m.0000\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  2000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 2000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sound-experience')\u001b[22m\n\u001b[2m    19 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-audio-state=\"paused\" data-contact-trail=\"long\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sound-experience')\nExpected: \u001b[32m\"0\u001b[7m.0000\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  2000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 2000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sound-experience')\u001b[22m\n\u001b[2m    19 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-audio-state=\"paused\" data-contact-trail=\"long\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:60:28",
+                    "location": {
+                      "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                      "column": 28,
+                      "line": 60
+                    },
+                    "snippet": "  58 |   await expect(root(page)).toHaveAttribute('data-audio-state','paused')\n  59 |   const at=await audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)\n> 60 |   await expect(root(page)).toHaveAttribute('data-audio-energy','0.0000',{timeout:2000})\n     |                            ^\n  61 |   await expect(page.locator('.sound-thread path').first()).toHaveAttribute('d','M0 3H1000')\n  62 |   const count=await root(page).getAttribute('data-analysis-frames');await page.waitForTimeout(400)\n  63 |   expect(await root(page).getAttribute('data-analysis-frames')).toBe(count)"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                        "column": 28,
+                        "line": 60
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sound-experience')\nExpected: \u001b[32m\"0\u001b[7m.0000\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  2000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 2000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sound-experience')\u001b[22m\n\u001b[2m    19 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-audio-state=\"paused\" data-contact-trail=\"long\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n  58 |   await expect(root(page)).toHaveAttribute('data-audio-state','paused')\n  59 |   const at=await audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)\n> 60 |   await expect(root(page)).toHaveAttribute('data-audio-energy','0.0000',{timeout:2000})\n     |                            ^\n  61 |   await expect(page.locator('.sound-thread path').first()).toHaveAttribute('d','M0 3H1000')\n  62 |   const count=await root(page).getAttribute('data-analysis-frames');await page.waitForTimeout(400)\n  63 |   expect(await root(page).getAttribute('data-analysis-frames')).toBe(count)\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:60:28"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:53:30.409Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-pause-damps-to-the-e-cf49b-mes-the-real-media-position-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-pause-damps-to-the-e-cf49b-mes-the-real-media-position-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-pause-damps-to-the-e-cf49b-mes-the-real-media-position-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                    "column": 28,
+                    "line": 60
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-99020cea331e2692d868",
+          "file": "sound.spec.ts",
+          "line": 56,
+          "column": 1
+        },
+        {
+          "title": "the complete real excerpt ends naturally and REPLAY starts from the beginning",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 40000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 21699,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:53:36.773Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-4af033f6e692e67174df",
+          "file": "sound.spec.ts",
+          "line": 69,
+          "column": 1
+        },
+        {
+          "title": "reverse/offscreen pauses, becomes idle work and never resumes without another gesture",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5748,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:53:39.732Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-f012920229a924870702",
+          "file": "sound.spec.ts",
+          "line": 78,
+          "column": 1
+        },
+        {
+          "title": "rapid toggles and media seeks do not leave duplicate graphs or false playback",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 4311,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:94:134",
+                    "location": {
+                      "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                      "column": 134,
+                      "line": 94
+                    },
+                    "snippet": "  92 |   await expect(root(page)).toHaveAttribute('data-audio-state','paused')\n  93 |   for(let i=0;i<4;i++){await trigger(page).click();await trigger(page).click()}\n> 94 |   await expect(root(page)).toHaveAttribute('data-audio-state','paused');expect(await page.evaluate(()=>window.soundContexts.length)).toBe(1)\n     |                                                                                                                                      ^\n  95 |   await listen(page);await expect.poll(()=>audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeGreaterThan(2.1)\n  96 | })\n  97 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                        "column": 134,
+                        "line": 94
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\n  92 |   await expect(root(page)).toHaveAttribute('data-audio-state','paused')\n  93 |   for(let i=0;i<4;i++){await trigger(page).click();await trigger(page).click()}\n> 94 |   await expect(root(page)).toHaveAttribute('data-audio-state','paused');expect(await page.evaluate(()=>window.soundContexts.length)).toBe(1)\n     |                                                                                                                                      ^\n  95 |   await listen(page);await expect.poll(()=>audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeGreaterThan(2.1)\n  96 | })\n  97 |\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:94:134"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:53:45.601Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-rapid-toggles-and-me-56160-te-graphs-or-false-playback-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-rapid-toggles-and-me-56160-te-graphs-or-false-playback-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-rapid-toggles-and-me-56160-te-graphs-or-false-playback-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                    "column": 134,
+                    "line": 94
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-0f86def066f7328ac4e2",
+          "file": "sound.spec.ts",
+          "line": 87,
+          "column": 1
+        },
+        {
+          "title": "MENU/Esc restores focus; counterpart navigation releases media and context",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 6488,
+                  "error": {
+                    "message": "Error: page.evaluate: TypeError: undefined is not an object (evaluating 'window.soundContexts[0].state')",
+                    "stack": "Error: page.evaluate: TypeError: undefined is not an object (evaluating 'window.soundContexts[0].state')\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:106:30\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:106:3",
+                    "location": {
+                      "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                      "column": 30,
+                      "line": 106
+                    },
+                    "snippet": "  104 |   await menu.click();await expect(page.locator('dialog')).toHaveAttribute('data-phase','open');await page.getByRole('link',{name:'English',exact:true}).click()\n  105 |   await expect(page).toHaveURL(/\\/en\\/?$/);await expect(page.locator('html')).toHaveAttribute('lang','en')\n> 106 |   await expect.poll(()=>page.evaluate(()=>window.soundContexts[0].state)).toBe('closed')\n      |                              ^\n  107 |   expect(await page.evaluate(()=>({paused:window.retainedMedia.paused,src:window.retainedMedia.getAttribute('src')}))).toEqual({paused:true,src:null})\n  108 |   await seek(page);await expect(trigger(page)).toHaveAccessibleName('Play preview');await expect(root(page)).toHaveAttribute('data-audio-state','idle')\n  109 | })"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                        "column": 30,
+                        "line": 106
+                      },
+                      "message": "Error: page.evaluate: TypeError: undefined is not an object (evaluating 'window.soundContexts[0].state')\n\n  104 |   await menu.click();await expect(page.locator('dialog')).toHaveAttribute('data-phase','open');await page.getByRole('link',{name:'English',exact:true}).click()\n  105 |   await expect(page).toHaveURL(/\\/en\\/?$/);await expect(page.locator('html')).toHaveAttribute('lang','en')\n> 106 |   await expect.poll(()=>page.evaluate(()=>window.soundContexts[0].state)).toBe('closed')\n      |                              ^\n  107 |   expect(await page.evaluate(()=>({paused:window.retainedMedia.paused,src:window.retainedMedia.getAttribute('src')}))).toEqual({paused:true,src:null})\n  108 |   await seek(page);await expect(trigger(page)).toHaveAccessibleName('Play preview');await expect(root(page)).toHaveAttribute('data-audio-state','idle')\n  109 | })\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:106:30\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:106:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:53:50.463Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-MENU-Esc-restores-fo-9dc3a--releases-media-and-context-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-MENU-Esc-restores-fo-9dc3a--releases-media-and-context-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-MENU-Esc-restores-fo-9dc3a--releases-media-and-context-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                    "column": 30,
+                    "line": 106
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-41455f28fdf643d87e65",
+          "file": "sound.spec.ts",
+          "line": 98,
+          "column": 1
+        },
+        {
+          "title": "reduced motion keeps ordered narrative and real listening with static lines",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2391,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:53:57.679Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-81236a4b4357ad5b390d",
+          "file": "sound.spec.ts",
+          "line": 111,
+          "column": 1
+        },
+        {
+          "title": "live reduced preference preserves truthful playback through static-layout reflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3767,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:53:58.589Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-9e46e2cfc5538be2d107",
+          "file": "sound.spec.ts",
+          "line": 120,
+          "column": 1
+        },
+        {
+          "title": "320px enlarged text has readable controls and no horizontal trap",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1708,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:54:00.180Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-913cbbc3f273c9c72191",
+          "file": "sound.spec.ts",
+          "line": 130,
+          "column": 1
+        },
+        {
+          "title": "unavailable source is disabled and truthful, with no fake clock",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2434,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:54:01.897Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-1db025850acd00a70edb",
+          "file": "sound.spec.ts",
+          "line": 138,
+          "column": 1
+        },
+        {
+          "title": "media failure is announced and retry never invents playback",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 7700,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sound-experience')\nExpected: \u001b[32m\"error\"\u001b[39m\nReceived: \u001b[31m\"playing\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sound-experience')\u001b[22m\n\u001b[2m    2 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"loading\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"loading\"\u001b[22m\n\u001b[2m    12 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"playing\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"playing\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sound-experience')\nExpected: \u001b[32m\"error\"\u001b[39m\nReceived: \u001b[31m\"playing\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sound-experience')\u001b[22m\n\u001b[2m    2 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"loading\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"loading\"\u001b[22m\n\u001b[2m    12 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"playing\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"playing\"\u001b[22m\n\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:146:28",
+                    "location": {
+                      "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                      "column": 28,
+                      "line": 146
+                    },
+                    "snippet": "  144 | test('media failure is announced and retry never invents playback',async({page})=>{\n  145 |   await page.route('**/*.m4a',route=>route.abort());await ready(page);await seek(page);await trigger(page).click()\n> 146 |   await expect(root(page)).toHaveAttribute('data-audio-state','error');await expect(page.getByRole('status')).toContainText('재생할 수 없습니다')\n      |                            ^\n  147 |   expect(await audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBe(0)\n  148 |   await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','error')\n  149 | })"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                        "column": 28,
+                        "line": 146
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sound-experience')\nExpected: \u001b[32m\"error\"\u001b[39m\nReceived: \u001b[31m\"playing\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sound-experience')\u001b[22m\n\u001b[2m    2 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"loading\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"loading\"\u001b[22m\n\u001b[2m    12 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"playing\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"playing\"\u001b[22m\n\n\n  144 | test('media failure is announced and retry never invents playback',async({page})=>{\n  145 |   await page.route('**/*.m4a',route=>route.abort());await ready(page);await seek(page);await trigger(page).click()\n> 146 |   await expect(root(page)).toHaveAttribute('data-audio-state','error');await expect(page.getByRole('status')).toContainText('재생할 수 없습니다')\n      |                            ^\n  147 |   expect(await audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBe(0)\n  148 |   await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','error')\n  149 | })\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:146:28"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:54:02.366Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-media-failure-is-ann-0ea48-etry-never-invents-playback-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-media-failure-is-ann-0ea48-etry-never-invents-playback-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-media-failure-is-ann-0ea48-etry-never-invents-playback-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                    "column": 28,
+                    "line": 146
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-9e5b2993fa3efd826d9c",
+          "file": "sound.spec.ts",
+          "line": 144,
+          "column": 1
+        },
+        {
+          "title": "cancel while loading remains paused after delayed bytes arrive",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 3360,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m0.01\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m0.01\u001b[39m\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:156:159",
+                    "location": {
+                      "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                      "column": 159,
+                      "line": 156
+                    },
+                    "snippet": "  154 |   await ready(page);await seek(page);await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','loading')\n  155 |   await trigger(page).click();release();await expect(root(page)).toHaveAttribute('data-audio-state','paused');await page.waitForTimeout(500)\n> 156 |   expect(await audio(page).evaluate(e=>(e as HTMLAudioElement).paused)).toBe(true);expect(await audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBe(0)\n      |                                                                                                                                                               ^\n  157 |   await listen(page)\n  158 | })\n  159 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                        "column": 159,
+                        "line": 156
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m0.01\u001b[39m\n\n  154 |   await ready(page);await seek(page);await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','loading')\n  155 |   await trigger(page).click();release();await expect(root(page)).toHaveAttribute('data-audio-state','paused');await page.waitForTimeout(500)\n> 156 |   expect(await audio(page).evaluate(e=>(e as HTMLAudioElement).paused)).toBe(true);expect(await audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBe(0)\n      |                                                                                                                                                               ^\n  157 |   await listen(page)\n  158 | })\n  159 |\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:156:159"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:54:04.340Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-cancel-while-loading-e2d93--after-delayed-bytes-arrive-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-cancel-while-loading-e2d93--after-delayed-bytes-arrive-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-cancel-while-loading-e2d93--after-delayed-bytes-arrive-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                    "column": 159,
+                    "line": 156
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-7a5e1516f700198cc3ef",
+          "file": "sound.spec.ts",
+          "line": 151,
+          "column": 1
+        },
+        {
+          "title": "missing Web Audio capability keeps real playback with an explicit static visual",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2836,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:54:08.259Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-4f20fe9a7113a2fdc420",
+          "file": "sound.spec.ts",
+          "line": 160,
+          "column": 1
+        },
+        {
+          "title": "direct anchor and rapid reverse preserve the single line pair without starting audio",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4552,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:54:10.663Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-675d562c106d142e9a3c",
+          "file": "sound.spec.ts",
+          "line": 166,
+          "column": 1
+        },
+        {
+          "title": "a technically present but unapproved source cannot activate media",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2427,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:54:11.199Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-d94938f84bf76eb301c8",
+          "file": "sound.spec.ts",
+          "line": 174,
+          "column": 1
+        },
+        {
+          "title": "hidden-document event pauses and suspends; visibility return never autoplays",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 7915,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sound-experience')\nExpected: \u001b[32m\"\u001b[7msuspend\u001b[27med\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mnot-creat\u001b[27med\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sound-experience')\u001b[22m\n\u001b[2m    14 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-audio-state=\"paused\" data-contact-trail=\"long\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"not-created\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sound-experience')\nExpected: \u001b[32m\"\u001b[7msuspend\u001b[27med\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mnot-creat\u001b[27med\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sound-experience')\u001b[22m\n\u001b[2m    14 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-audio-state=\"paused\" data-contact-trail=\"long\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"not-created\"\u001b[22m\n\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:183:98",
+                    "location": {
+                      "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                      "column": 98,
+                      "line": 183
+                    },
+                    "snippet": "  181 |   await ready(page);await seek(page);await listen(page)\n  182 |   await page.evaluate(()=>{Object.defineProperty(document,'hidden',{value:true,configurable:true});document.dispatchEvent(new Event('visibilitychange'))})\n> 183 |   await expect(root(page)).toHaveAttribute('data-audio-state','paused');await expect(root(page)).toHaveAttribute('data-audio-context','suspended')\n      |                                                                                                  ^\n  184 |   const count=await root(page).getAttribute('data-analysis-frames');await page.waitForTimeout(250);expect(await root(page).getAttribute('data-analysis-frames')).toBe(count)\n  185 |   await page.evaluate(()=>{Object.defineProperty(document,'hidden',{value:false,configurable:true});document.dispatchEvent(new Event('visibilitychange'))})\n  186 |   await expect(root(page)).toHaveAttribute('data-audio-state','paused')"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                        "column": 98,
+                        "line": 183
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sound-experience')\nExpected: \u001b[32m\"\u001b[7msuspend\u001b[27med\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mnot-creat\u001b[27med\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sound-experience')\u001b[22m\n\u001b[2m    14 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-audio-state=\"paused\" data-contact-trail=\"long\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"not-created\"\u001b[22m\n\n\n  181 |   await ready(page);await seek(page);await listen(page)\n  182 |   await page.evaluate(()=>{Object.defineProperty(document,'hidden',{value:true,configurable:true});document.dispatchEvent(new Event('visibilitychange'))})\n> 183 |   await expect(root(page)).toHaveAttribute('data-audio-state','paused');await expect(root(page)).toHaveAttribute('data-audio-context','suspended')\n      |                                                                                                  ^\n  184 |   const count=await root(page).getAttribute('data-analysis-frames');await page.waitForTimeout(250);expect(await root(page).getAttribute('data-analysis-frames')).toBe(count)\n  185 |   await page.evaluate(()=>{Object.defineProperty(document,'hidden',{value:false,configurable:true});document.dispatchEvent(new Event('visibilitychange'))})\n  186 |   await expect(root(page)).toHaveAttribute('data-audio-state','paused')\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:183:98"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:54:13.636Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-hidden-document-even-d5a5e-lity-return-never-autoplays-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-hidden-document-even-d5a5e-lity-return-never-autoplays-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-hidden-document-even-d5a5e-lity-return-never-autoplays-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                    "column": 98,
+                    "line": 183
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-f6d860176865f353beec",
+          "file": "sound.spec.ts",
+          "line": 180,
+          "column": 1
+        },
+        {
+          "title": "failed instrument imagery preserves static narrative followed by usable SOUND",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1971,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:54:15.332Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-1e1c8a8c9e946b42e844",
+          "file": "sound.spec.ts",
+          "line": 189,
+          "column": 1
+        },
+        {
+          "title": "a stalled source times out truthfully and leaves no background analysis",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 16767,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sound-experience')\nExpected: \u001b[32m\"error\"\u001b[39m\nReceived: \u001b[31m\"playing\"\u001b[39m\nTimeout:  14000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 14000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sound-experience')\u001b[22m\n\u001b[2m    3 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"loading\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"loading\"\u001b[22m\n\u001b[2m    28 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"playing\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"playing\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sound-experience')\nExpected: \u001b[32m\"error\"\u001b[39m\nReceived: \u001b[31m\"playing\"\u001b[39m\nTimeout:  14000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 14000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sound-experience')\u001b[22m\n\u001b[2m    3 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"loading\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"loading\"\u001b[22m\n\u001b[2m    28 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"playing\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"playing\"\u001b[22m\n\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:201:30",
+                    "location": {
+                      "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                      "column": 30,
+                      "line": 201
+                    },
+                    "snippet": "  199 |   try {\n  200 |     await ready(page);await seek(page);await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','loading')\n> 201 |     await expect(root(page)).toHaveAttribute('data-audio-state','error',{timeout:14000})\n      |                              ^\n  202 |     expect(await audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBe(0)\n  203 |     await expect(root(page)).toHaveAttribute('data-audio-context','suspended')\n  204 |   } finally { release() }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                        "column": 30,
+                        "line": 201
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sound-experience')\nExpected: \u001b[32m\"error\"\u001b[39m\nReceived: \u001b[31m\"playing\"\u001b[39m\nTimeout:  14000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 14000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sound-experience')\u001b[22m\n\u001b[2m    3 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"loading\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"loading\"\u001b[22m\n\u001b[2m    28 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"playing\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-sound-visual=\"line-only\" data-contact-violet=\"electric\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"playing\"\u001b[22m\n\n\n  199 |   try {\n  200 |     await ready(page);await seek(page);await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','loading')\n> 201 |     await expect(root(page)).toHaveAttribute('data-audio-state','error',{timeout:14000})\n      |                              ^\n  202 |     expect(await audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBe(0)\n  203 |     await expect(root(page)).toHaveAttribute('data-audio-context','suspended')\n  204 |   } finally { release() }\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:201:30"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:54:17.314Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-a-stalled-source-tim-1e0b1-aves-no-background-analysis-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-a-stalled-source-tim-1e0b1-aves-no-background-analysis-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-a-stalled-source-tim-1e0b1-aves-no-background-analysis-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                    "column": 30,
+                    "line": 201
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-f6d0e73fb9a3be7132b3",
+          "file": "sound.spec.ts",
+          "line": 196,
+          "column": 1
+        },
+        {
+          "title": "resizing active playback to mobile settles every old desktop sample on pause",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3961,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:54:22.126Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-3bd5571e005f29c172ef",
+          "file": "sound.spec.ts",
+          "line": 207,
+          "column": 1
+        },
+        {
+          "title": "replay reuses buffered media and its single graph instead of issuing another load",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 3519,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:224:64",
+                    "location": {
+                      "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                      "column": 64,
+                      "line": 224
+                    },
+                    "snippet": "  222 |   const loads=await audio(page).getAttribute('data-loads')\n  223 |   await listen(page);expect(await audio(page).getAttribute('data-loads')).toBe(loads)\n> 224 |   expect(await page.evaluate(()=>window.soundContexts.length)).toBe(1)\n      |                                                                ^\n  225 |   expect(await audio(page).evaluate(el=>(el as HTMLAudioElement).currentTime)).toBeLessThan(1)\n  226 | })\n  227 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                        "column": 64,
+                        "line": 224
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\n  222 |   const loads=await audio(page).getAttribute('data-loads')\n  223 |   await listen(page);expect(await audio(page).getAttribute('data-loads')).toBe(loads)\n> 224 |   expect(await page.evaluate(()=>window.soundContexts.length)).toBe(1)\n      |                                                                ^\n  225 |   expect(await audio(page).evaluate(el=>(el as HTMLAudioElement).currentTime)).toBeLessThan(1)\n  226 | })\n  227 |\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:224:64"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:54:26.192Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-replay-reuses-buffer-b9cd1-ead-of-issuing-another-load-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-replay-reuses-buffer-b9cd1-ead-of-issuing-another-load-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-replay-reuses-buffer-b9cd1-ead-of-issuing-another-load-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                    "column": 64,
+                    "line": 224
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-1097e3af077e07b9aaf0",
+          "file": "sound.spec.ts",
+          "line": 216,
+          "column": 1
+        },
+        {
+          "title": "line friction rejects DC drift, retains current points and damps after interruption",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1377,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:54:30.306Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-e0be1f844a63195cdd32",
+          "file": "sound.spec.ts",
+          "line": 228,
+          "column": 1
+        },
+        {
+          "title": "320px KO and EN captions and all listening states have distinct readable space",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5635,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:54:31.794Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-6fbd2c87e03d1b15d91f",
+          "file": "sound.spec.ts",
+          "line": 253,
+          "column": 1
+        },
+        {
+          "title": "eight route returns release every previous context and do not accumulate Sound DOM",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 17450,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m1\u001b[39m\nReceived:    \u001b[31m1691.99154\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m1\u001b[39m\nReceived:    \u001b[31m1691.99154\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at seek (C:\\choyounkyoung-v2\\tests\\sound.spec.ts:18:9)\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:273:5",
+                    "location": {
+                      "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                      "column": 9,
+                      "line": 18
+                    },
+                    "snippet": "  16 |     const el=e as HTMLElement, travel=el.offsetHeight-el.querySelector<HTMLElement>('.poster-stage')!.offsetHeight\n  17 |     return Math.abs(Number(el.dataset.targetProgress)-p)*travel - travel*.000005\n> 18 |   },p)).toBeLessThanOrEqual(1)\n     |         ^\n  19 |   await expect.poll(()=>page.locator('.poster-scene').evaluate(e=>(e as HTMLElement).dataset.progress===(e as HTMLElement).dataset.targetProgress)).toBe(true)\n  20 | }\n  21 | async function listen(page: Page) { await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','playing');await expect.poll(()=>audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeGreaterThan(.1) }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                        "column": 9,
+                        "line": 18
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m1\u001b[39m\nReceived:    \u001b[31m1691.99154\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  16 |     const el=e as HTMLElement, travel=el.offsetHeight-el.querySelector<HTMLElement>('.poster-stage')!.offsetHeight\n  17 |     return Math.abs(Number(el.dataset.targetProgress)-p)*travel - travel*.000005\n> 18 |   },p)).toBeLessThanOrEqual(1)\n     |         ^\n  19 |   await expect.poll(()=>page.locator('.poster-scene').evaluate(e=>(e as HTMLElement).dataset.progress===(e as HTMLElement).dataset.targetProgress)).toBe(true)\n  20 | }\n  21 | async function listen(page: Page) { await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','playing');await expect.poll(()=>audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeGreaterThan(.1) }\n    at seek (C:\\choyounkyoung-v2\\tests\\sound.spec.ts:18:9)\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:273:5"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:54:34.683Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                    "column": 9,
+                    "line": 18
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-1aaa92a87c0d61549438",
+          "file": "sound.spec.ts",
+          "line": 269,
+          "column": 1
+        },
+        {
+          "title": "P2I: A/B and tail comparison preserves media position, graph, focus and the original line nodes",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 7307,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.3\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.3\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:292:110",
+                    "location": {
+                      "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                      "column": 110,
+                      "line": 292
+                    },
+                    "snippet": "  290 |   await page.getByRole('radio',{name:'B · Bow contact',exact:true}).check()\n  291 |   await expect(root(page)).toHaveAttribute('data-sound-visual','bow-contact')\n> 292 |   await expect.poll(()=>page.locator('.bow-contact').evaluate(el=>Number((el as SVGElement).style.opacity))).toBeGreaterThan(.3)\n      |                                                                                                              ^\n  293 |   await page.getByLabel('Tail',{exact:true}).selectOption('medium')\n  294 |   await expect(root(page)).toHaveAttribute('data-contact-trail','medium')\n  295 |   for(const tail of ['short','long','extra-long']){await page.getByLabel('Tail',{exact:true}).selectOption(tail);await expect(root(page)).toHaveAttribute('data-contact-trail',tail)}"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                        "column": 110,
+                        "line": 292
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.3\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  290 |   await page.getByRole('radio',{name:'B · Bow contact',exact:true}).check()\n  291 |   await expect(root(page)).toHaveAttribute('data-sound-visual','bow-contact')\n> 292 |   await expect.poll(()=>page.locator('.bow-contact').evaluate(el=>Number((el as SVGElement).style.opacity))).toBeGreaterThan(.3)\n      |                                                                                                              ^\n  293 |   await page.getByLabel('Tail',{exact:true}).selectOption('medium')\n  294 |   await expect(root(page)).toHaveAttribute('data-contact-trail','medium')\n  295 |   for(const tail of ['short','long','extra-long']){await page.getByLabel('Tail',{exact:true}).selectOption(tail);await expect(root(page)).toHaveAttribute('data-contact-trail',tail)}\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:292:110"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:54:37.442Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-P2I-A-B-and-tail-com-1d6ab-and-the-original-line-nodes-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-P2I-A-B-and-tail-com-1d6ab-and-the-original-line-nodes-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-P2I-A-B-and-tail-com-1d6ab-and-the-original-line-nodes-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                    "column": 110,
+                    "line": 292
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-652a5b8704a7e76e7681",
+          "file": "sound.spec.ts",
+          "line": 283,
+          "column": 1
+        },
+        {
+          "title": "P2I: smooth B uses a wide trajectory, long actual path and one Violet marker",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 9605,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m400\u001b[39m\nReceived:   \u001b[31mNaN\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m400\u001b[39m\nReceived:   \u001b[31mNaN\u001b[39m\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:323:89",
+                    "location": {
+                      "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                      "column": 89,
+                      "line": 323
+                    },
+                    "snippet": "  321 |     return {values,y:els.map(e=>parseFloat(e.style.top)),analysis:Number(document.querySelector<HTMLElement>('.sound-experience')!.dataset.analysisFrames)}\n  322 |   })\n> 323 |   expect(Math.max(...points.values.map(p=>p.x))-Math.min(...points.values.map(p=>p.x))).toBeGreaterThan(400)\n      |                                                                                         ^\n  324 |   expect(Math.min(...points.values.map(p=>p.y))).toBeLessThan(points.y[0]-40)\n  325 |   expect(Math.max(...points.values.map(p=>p.y))).toBeGreaterThan(points.y[1])\n  326 |   expect(Math.max(...points.values.map(p=>p.tail))).toBeGreaterThan(65)"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                        "column": 89,
+                        "line": 323
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m400\u001b[39m\nReceived:   \u001b[31mNaN\u001b[39m\n\n  321 |     return {values,y:els.map(e=>parseFloat(e.style.top)),analysis:Number(document.querySelector<HTMLElement>('.sound-experience')!.dataset.analysisFrames)}\n  322 |   })\n> 323 |   expect(Math.max(...points.values.map(p=>p.x))-Math.min(...points.values.map(p=>p.x))).toBeGreaterThan(400)\n      |                                                                                         ^\n  324 |   expect(Math.min(...points.values.map(p=>p.y))).toBeLessThan(points.y[0]-40)\n  325 |   expect(Math.max(...points.values.map(p=>p.y))).toBeGreaterThan(points.y[1])\n  326 |   expect(Math.max(...points.values.map(p=>p.tail))).toBeGreaterThan(65)\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:323:89"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:54:45.342Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-P2I-smooth-B-uses-a--cc70f--path-and-one-Violet-marker-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-P2I-smooth-B-uses-a--cc70f--path-and-one-Violet-marker-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-P2I-smooth-B-uses-a--cc70f--path-and-one-Violet-marker-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                    "column": 89,
+                    "line": 323
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-61f609c24066a73c90f7",
+          "file": "sound.spec.ts",
+          "line": 309,
+          "column": 1
+        },
+        {
+          "title": "P2I: B pause settles all work; natural end/replay fades back from the outgoing contact position",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 8379,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.2\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.2\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:344:127",
+                    "location": {
+                      "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                      "column": 127,
+                      "line": 344
+                    },
+                    "snippet": "  342 |   await page.waitForTimeout(400);expect(await root(page).getAttribute('data-analysis-frames')).toBe(frames)\n  343 |   expect(await page.locator('.bow-contact').getAttribute('data-y')).toBe(pausedY)\n> 344 |   await listen(page);await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.2)\n      |                                                                                                                               ^\n  345 |   await audio(page).evaluate(e=>{const a=e as HTMLAudioElement;a.currentTime=a.duration-.15})\n  346 |   await expect(root(page)).toHaveAttribute('data-audio-state','ended');await expect(page.locator('.bow-contact')).toHaveCSS('opacity','0')\n  347 |   await listen(page)"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                        "column": 127,
+                        "line": 344
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.2\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  342 |   await page.waitForTimeout(400);expect(await root(page).getAttribute('data-analysis-frames')).toBe(frames)\n  343 |   expect(await page.locator('.bow-contact').getAttribute('data-y')).toBe(pausedY)\n> 344 |   await listen(page);await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.2)\n      |                                                                                                                               ^\n  345 |   await audio(page).evaluate(e=>{const a=e as HTMLAudioElement;a.currentTime=a.duration-.15})\n  346 |   await expect(root(page)).toHaveAttribute('data-audio-state','ended');await expect(page.locator('.bow-contact')).toHaveCSS('opacity','0')\n  347 |   await listen(page)\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:344:127"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:54:52.967Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-P2I-B-pause-settles--0050f-e-outgoing-contact-position-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-P2I-B-pause-settles--0050f-e-outgoing-contact-position-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-P2I-B-pause-settles--0050f-e-outgoing-contact-position-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                    "column": 127,
+                    "line": 344
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-4582fc9170662cb27286",
+          "file": "sound.spec.ts",
+          "line": 337,
+          "column": 1
+        },
+        {
+          "title": "P2I: B reduced motion is a static contact with real audio and zero analysis",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2438,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:54:55.624Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-e873beeca8d37273f7ab",
+          "file": "sound.spec.ts",
+          "line": 352,
+          "column": 1
+        },
+        {
+          "title": "P2I: 320px B has an independent visible mark and no input or scroll trap",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 6737,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.3\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.3\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:364:108",
+                    "location": {
+                      "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                      "column": 108,
+                      "line": 364
+                    },
+                    "snippet": "  362 | for(const width of [320,390])test(`P2I: ${width}px B has an independent visible mark and no input or scroll trap`,async({page})=>{\n  363 |   await page.setViewportSize({width,height:width===320?568:844});await ready(page,'/en/?compare=b');await seek(page);await listen(page)\n> 364 |   await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.3)\n      |                                                                                                            ^\n  365 |   const mark=(await page.locator('.contact-head').boundingBox())!\n  366 |   expect(mark.width).toBeGreaterThanOrEqual(3.5);expect(mark.height).toBeGreaterThanOrEqual(3.5);expect(mark.x).toBeGreaterThan(45);expect(mark.y).toBeGreaterThan(145)\n  367 |   await expect(page.locator('.contact-head')).toHaveAttribute('rx','4');await expect(page.locator('.contact-head')).toHaveAttribute('ry','1.8')"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                        "column": 108,
+                        "line": 364
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.3\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  362 | for(const width of [320,390])test(`P2I: ${width}px B has an independent visible mark and no input or scroll trap`,async({page})=>{\n  363 |   await page.setViewportSize({width,height:width===320?568:844});await ready(page,'/en/?compare=b');await seek(page);await listen(page)\n> 364 |   await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.3)\n      |                                                                                                            ^\n  365 |   const mark=(await page.locator('.contact-head').boundingBox())!\n  366 |   expect(mark.width).toBeGreaterThanOrEqual(3.5);expect(mark.height).toBeGreaterThanOrEqual(3.5);expect(mark.x).toBeGreaterThan(45);expect(mark.y).toBeGreaterThan(145)\n  367 |   await expect(page.locator('.contact-head')).toHaveAttribute('rx','4');await expect(page.locator('.contact-head')).toHaveAttribute('ry','1.8')\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:364:108"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:54:58.162Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                    "column": 108,
+                    "line": 364
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-323a39d3cec073b0fe1b",
+          "file": "sound.spec.ts",
+          "line": 362,
+          "column": 30
+        },
+        {
+          "title": "P2I: 390px B has an independent visible mark and no input or scroll trap",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6801,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.3\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.3\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:364:108",
+                    "location": {
+                      "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                      "column": 108,
+                      "line": 364
+                    },
+                    "snippet": "  362 | for(const width of [320,390])test(`P2I: ${width}px B has an independent visible mark and no input or scroll trap`,async({page})=>{\n  363 |   await page.setViewportSize({width,height:width===320?568:844});await ready(page,'/en/?compare=b');await seek(page);await listen(page)\n> 364 |   await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.3)\n      |                                                                                                            ^\n  365 |   const mark=(await page.locator('.contact-head').boundingBox())!\n  366 |   expect(mark.width).toBeGreaterThanOrEqual(3.5);expect(mark.height).toBeGreaterThanOrEqual(3.5);expect(mark.x).toBeGreaterThan(45);expect(mark.y).toBeGreaterThan(145)\n  367 |   await expect(page.locator('.contact-head')).toHaveAttribute('rx','4');await expect(page.locator('.contact-head')).toHaveAttribute('ry','1.8')"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                        "column": 108,
+                        "line": 364
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.3\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  362 | for(const width of [320,390])test(`P2I: ${width}px B has an independent visible mark and no input or scroll trap`,async({page})=>{\n  363 |   await page.setViewportSize({width,height:width===320?568:844});await ready(page,'/en/?compare=b');await seek(page);await listen(page)\n> 364 |   await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.3)\n      |                                                                                                            ^\n  365 |   const mark=(await page.locator('.contact-head').boundingBox())!\n  366 |   expect(mark.width).toBeGreaterThanOrEqual(3.5);expect(mark.height).toBeGreaterThanOrEqual(3.5);expect(mark.x).toBeGreaterThan(45);expect(mark.y).toBeGreaterThan(145)\n  367 |   await expect(page.locator('.contact-head')).toHaveAttribute('rx','4');await expect(page.locator('.contact-head')).toHaveAttribute('ry','1.8')\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:364:108"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:55:01.968Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                    "column": 108,
+                    "line": 364
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-a3297b89ff05a939b466",
+          "file": "sound.spec.ts",
+          "line": 362,
+          "column": 30
+        },
+        {
+          "title": "P2I: B missing analyser/failing source never substitutes an animated contact for playback",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 10165,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sound-experience')\nExpected: \u001b[32m\"error\"\u001b[39m\nReceived: \u001b[31m\"playing\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sound-experience')\u001b[22m\n\u001b[2m    2 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"loading\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-contact-violet=\"electric\" data-sound-visual=\"bow-contact\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"loading\"\u001b[22m\n\u001b[2m    12 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"playing\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-contact-violet=\"electric\" data-sound-visual=\"bow-contact\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"playing\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sound-experience')\nExpected: \u001b[32m\"error\"\u001b[39m\nReceived: \u001b[31m\"playing\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sound-experience')\u001b[22m\n\u001b[2m    2 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"loading\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-contact-violet=\"electric\" data-sound-visual=\"bow-contact\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"loading\"\u001b[22m\n\u001b[2m    12 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"playing\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-contact-violet=\"electric\" data-sound-visual=\"bow-contact\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"playing\"\u001b[22m\n\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:386:28",
+                    "location": {
+                      "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                      "column": 28,
+                      "line": 386
+                    },
+                    "snippet": "  384 |   await expect(root(page)).toHaveAttribute('data-analysis-frames','0')\n  385 |   await page.route('**/*.m4a',route=>route.abort());await ready(page,'/?compare=b');await seek(page);await trigger(page).click()\n> 386 |   await expect(root(page)).toHaveAttribute('data-audio-state','error');await expect(page.locator('.bow-contact')).toHaveCSS('opacity','0')\n      |                            ^\n  387 | })\n  388 |\n  389 | test('P2I: B teardown removes old contact SVGs and hidden/reduced changes stop work',async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                        "column": 28,
+                        "line": 386
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sound-experience')\nExpected: \u001b[32m\"error\"\u001b[39m\nReceived: \u001b[31m\"playing\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.sound-experience') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sound-experience')\u001b[22m\n\u001b[2m    2 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"loading\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-contact-violet=\"electric\" data-sound-visual=\"bow-contact\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"loading\"\u001b[22m\n\u001b[2m    12 × locator resolved to <div data-audio-energy=\"0\" data-sound-ready=\"true\" class=\"sound-experience\" data-analysis-frames=\"0\" data-sound-static=\"false\" data-contact-trail=\"long\" data-audio-state=\"playing\" data-sound-releasing=\"true\" data-contact-activity=\"bold\" data-contact-violet=\"electric\" data-sound-visual=\"bow-contact\" data-audio-context=\"not-created\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"playing\"\u001b[22m\n\n\n  384 |   await expect(root(page)).toHaveAttribute('data-analysis-frames','0')\n  385 |   await page.route('**/*.m4a',route=>route.abort());await ready(page,'/?compare=b');await seek(page);await trigger(page).click()\n> 386 |   await expect(root(page)).toHaveAttribute('data-audio-state','error');await expect(page.locator('.bow-contact')).toHaveCSS('opacity','0')\n      |                            ^\n  387 | })\n  388 |\n  389 | test('P2I: B teardown removes old contact SVGs and hidden/reduced changes stop work',async({page})=>{\n    at C:\\choyounkyoung-v2\\tests\\sound.spec.ts:386:28"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:55:05.426Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-P2I-B-missing-analys-ec8dc-imated-contact-for-playback-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-P2I-B-missing-analys-ec8dc-imated-contact-for-playback-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\choyounkyoung-v2\\test-results\\sound\\sound-P2I-B-missing-analys-ec8dc-imated-contact-for-playback-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\choyounkyoung-v2\\tests\\sound.spec.ts",
+                    "column": 28,
+                    "line": 386
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-92223f466a3bc272be27",
+          "file": "sound.spec.ts",
+          "line": 380,
+          "column": 1
+        },
+        {
+          "title": "P2I: B teardown removes old contact SVGs and hidden/reduced changes stop work",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3909,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:55:09.410Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-d4dd0d4bce01b3de69bd",
+          "file": "sound.spec.ts",
+          "line": 389,
+          "column": 1
+        },
+        {
+          "title": "canonical SOUND /: frozen B2 without comparison controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3019,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:55:13.424Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-91d7801376af4e3a3da0",
+          "file": "sound.spec.ts",
+          "line": 404,
+          "column": 3
+        },
+        {
+          "title": "canonical SOUND /en?activity=medium&tail=short&violet=ink: frozen B2 without comparison controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2909,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-07T03:55:16.277Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1dd227664c7ce34191e-ca4902af4042cc005fce",
+          "file": "sound.spec.ts",
+          "line": 404,
+          "column": 3
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-07T03:51:21.253Z",
+    "duration": 238338.853,
+    "expected": 62,
+    "skipped": 0,
+    "unexpected": 16,
+    "flaky": 0
+  }
+}

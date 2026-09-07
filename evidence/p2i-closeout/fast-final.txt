@@ -1,0 +1,938 @@
+
+> cho-youn-kyoung-v2@0.0.0 gate:fast
+> npm run type-check && npm run lint && npm run test:locale && npm run test:navigation:contract && npm run test:content && npm run test:placement && npm run build && npm run test:content:visibility && npm run test:design-system:artifacts
+
+
+> cho-youn-kyoung-v2@0.0.0 type-check
+> node scripts/router.mjs root typegen && tsc -b
+
+
+> cho-youn-kyoung-v2@0.0.0 lint
+> eslint . --max-warnings 0
+
+
+> cho-youn-kyoung-v2@0.0.0 test:locale
+> node --test tests/locale-contract.test.ts
+
+✔ all nine semantic pairs have distinct URLs and no /ko alias (2.0762ms)
+✔ self canonical and reciprocal hreflang at / (1.1383ms)
+✔ self canonical and reciprocal hreflang at /cho-youn-kyoung-v2/ (0.3972ms)
+✔ missing translation: stay on the same Korean content, never advertise an English URL (0.3373ms)
+✔ authored-draft translation: stay on the same Korean content, never advertise an English URL (0.1257ms)
+✔ machine-draft translation: stay on the same Korean content, never advertise an English URL (0.1218ms)
+✔ unknown routes stay unknown and do not receive SEO identity or a HOME redirect (0.2452ms)
+✔ custom-root URL configuration replaces preview origin/base without changing semantic paths (0.3116ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 143.9601
+
+> cho-youn-kyoung-v2@0.0.0 test:navigation:contract
+> node --test tests/navigation-model.test.ts
+
+✔ all 18 identities retain five sections and exact counterpart under both bases (3.035ms)
+✔ WORKS remains the active ancestor for album/performance indexes and details (0.336ms)
+✔ missing, authored draft and machine draft EN stay on the same KO record (0.8038ms)
+✔ unknown/private paths have no fabricated current link or counterpart (0.299ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 142.1753
+
+> cho-youn-kyoung-v2@0.0.0 test:content
+> node --test tests/content-contract.test.ts tests/draft-content.test.ts
+
+✔ five neutral domains and the data-only growth catalog satisfy semantic contracts (19.8656ms)
+✔ adding one album/performance/media/press changes only data indexes and detail path instances (5.41ms)
+✔ generated routes reuse P0D canonical/hreflang/identity for / (1.8456ms)
+✔ generated routes reuse P0D canonical/hreflang/identity for /cho-youn-kyoung-v2/ (1.652ms)
+✔ draft/machine-assisted/missing EN never becomes a route or Korean field fallback (0.9273ms)
+✔ publication timing is explicit; archived stays public, release and event status do not publish drafts (3.0525ms)
+✔ date precision and event chronology never invent month/day or a wall clock (0.65ms)
+✔ stable IDs, unique slugs and referential integrity fail before a prerender list can escape (2.2281ms)
+✔ related data uses public IDs, preserves cross-domain relationships and does not expose drafts (0.6977ms)
+✔ playable audio requires a runtime asset, valid track order and positive measured duration (1.7931ms)
+✔ asset kind, runtime URL, mobile crop and public-language alt are validated (2.5895ms)
+✔ SEO overrides change authored copy only, never canonical or alternate URLs (0.4303ms)
+✔ draft Korean metadata cannot publish an English-only detail (0.5968ms)
+✔ asset lifecycle is explicit and prototype eligibility does not imply production approval (1.5994ms)
+✔ asset replacement changes the registry while content identities and route contracts stay stable (0.7967ms)
+✔ registered source preserves the approved P1C mapping without adding another real record (5.1513ms)
+✔ registered private draft stays outside every public selector before and after release (0.9314ms)
+✔ registered draft does not alter mixed public indexes, related works or route metadata (18.9741ms)
+✔ KO stays unreviewed and all nested EN editions stay missing after mapping approval (0.314ms)
+✔ draft KO and EN paths receive no identity, canonical, hreflang or OpenGraph at either base (0.478ms)
+✔ publication-only promotion is rejected without silently filling review or cover runtime (0.6387ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 203.6591
+
+> cho-youn-kyoung-v2@0.0.0 test:placement
+> node --test tests/static-layout.test.mjs
+
+✔ stable mapping with future nested slugs at / (1.4328ms)
+✔ stable mapping with future nested slugs at /cho-youn-kyoung-v2/ (0.1755ms)
+✔ reject collisions, unexpected upstream output, maps and unsafe paths (0.1991ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 121.6698
+
+> cho-youn-kyoung-v2@0.0.0 build
+> node scripts/router.mjs root build
+
+Using Vite Environment API
+vite v8.2.2 building client environment for production...
+transforming...
+✓ 88 modules transformed.
+rendering chunks...
+computing gzip size...
+build-root/client/assets/noto-sans-kr-latin-ext-wght-normal-B5bX9d3o.woff2             8.30 kB
+build-root/client/assets/noto-sans-kr-vietnamese-wght-normal-BHUVOYrQ.woff2            9.17 kB
+build-root/client/assets/noto-sans-kr-cyrillic-wght-normal-Bd4ZsfxM.woff2             10.11 kB
+build-root/client/assets/noto-serif-kr-latin-ext-wght-normal-srBaEPiu.woff2           10.38 kB
+build-root/client/assets/noto-serif-kr-vietnamese-wght-normal-DAu4eVJu.woff2          10.98 kB
+build-root/client/assets/cormorant-garamond-vietnamese-wght-normal-CDLFB6hb.woff2     11.22 kB
+build-root/client/assets/noto-sans-kr-98-wght-normal-DO7crlgc.woff2                   12.18 kB
+build-root/client/assets/noto-serif-kr-98-wght-normal-DU0EjZe_.woff2                  13.44 kB
+build-root/client/assets/noto-sans-kr-97-wght-normal-Dr2ufsTl.woff2                   14.17 kB
+build-root/client/assets/noto-sans-kr-117-wght-normal-DNkILo1k.woff2                  14.46 kB
+build-root/client/assets/noto-serif-kr-cyrillic-wght-normal-Dn-cTn_J.woff2            14.62 kB
+build-root/client/assets/noto-sans-kr-118-wght-normal-Be8jlQ51.woff2                  14.66 kB
+build-root/client/assets/noto-sans-kr-116-wght-normal-DvHAaAUg.woff2                  16.20 kB
+build-root/client/assets/noto-sans-kr-114-wght-normal-BcwVxkxL.woff2                  16.21 kB
+build-root/client/assets/noto-sans-kr-115-wght-normal-Czx6kN3B.woff2                  16.27 kB
+build-root/client/assets/noto-sans-kr-112-wght-normal-DApkhTZy.woff2                  16.44 kB
+build-root/client/assets/noto-sans-kr-113-wght-normal-DnhzVD4m.woff2                  16.46 kB
+build-root/client/assets/noto-sans-kr-119-wght-normal-C_6m2-od.woff2                  16.67 kB
+build-root/client/assets/noto-sans-kr-38-wght-normal-D7aEX-Z7.woff2                   16.69 kB
+build-root/client/assets/noto-sans-kr-99-wght-normal-DzzxDKB5.woff2                   16.88 kB
+build-root/client/assets/noto-sans-kr-111-wght-normal-DeeXajyY.woff2                  17.46 kB
+build-root/client/assets/noto-serif-kr-97-wght-normal-CIiLHY90.woff2                  17.51 kB
+build-root/client/assets/noto-sans-kr-110-wght-normal-Bz2J7MHi.woff2                  17.60 kB
+build-root/client/assets/noto-sans-kr-109-wght-normal-B6hzfDSQ.woff2                  18.06 kB
+build-root/client/assets/noto-sans-kr-41-wght-normal-CrDDFHLC.woff2                   18.14 kB
+build-root/client/assets/noto-sans-kr-107-wght-normal-CWnd6wcQ.woff2                  18.42 kB
+build-root/client/assets/noto-sans-kr-44-wght-normal-BOzNPFw1.woff2                   18.50 kB
+build-root/client/assets/noto-sans-kr-64-wght-normal-KNqhDR8m.woff2                   18.58 kB
+build-root/client/assets/noto-sans-kr-94-wght-normal-ihdiE-sw.woff2                   19.42 kB
+build-root/client/assets/noto-sans-kr-108-wght-normal-CVosuT20.woff2                  19.67 kB
+build-root/client/assets/noto-sans-kr-45-wght-normal-HgLQPnZe.woff2                   19.74 kB
+build-root/client/assets/noto-sans-kr-51-wght-normal-DYiiYWHC.woff2                   19.74 kB
+build-root/client/assets/noto-sans-kr-8-wght-normal-CstSMSR0.woff2                    19.83 kB
+build-root/client/assets/noto-sans-kr-25-wght-normal-pcUlc7hZ.woff2                   19.88 kB
+build-root/client/assets/noto-sans-kr-11-wght-normal-DnDO1vGF.woff2                   20.16 kB
+build-root/client/assets/noto-sans-kr-42-wght-normal-_xElrv31.woff2                   20.22 kB
+build-root/client/assets/noto-sans-kr-10-wght-normal-D44PZdTN.woff2                   20.48 kB
+build-root/client/assets/noto-sans-kr-6-wght-normal-CJnF25Ox.woff2                    20.59 kB
+build-root/client/assets/noto-sans-kr-55-wght-normal-Bb2kolOu.woff2                   20.70 kB
+build-root/client/assets/noto-sans-kr-5-wght-normal-D2ndBBlz.woff2                    20.78 kB
+build-root/client/assets/noto-sans-kr-46-wght-normal-B8aQM0KO.woff2                   20.92 kB
+build-root/client/assets/noto-sans-kr-40-wght-normal-B6XNibcs.woff2                   20.98 kB
+build-root/client/assets/noto-sans-kr-7-wght-normal-CImCbZMD.woff2                    21.01 kB
+build-root/client/assets/noto-sans-kr-63-wght-normal-Cc2PlhZU.woff2                   21.04 kB
+build-root/client/assets/noto-sans-kr-54-wght-normal-Dh8YqAZX.woff2                   21.07 kB
+build-root/client/assets/noto-sans-kr-53-wght-normal-D_jDj1TO.woff2                   21.11 kB
+build-root/client/assets/cormorant-garamond-cyrillic-wght-normal-BWCqVJN0.woff2       21.16 kB
+build-root/client/assets/noto-sans-kr-37-wght-normal-D0Nod484.woff2                   21.27 kB
+build-root/client/assets/noto-sans-kr-96-wght-normal-BsiGrPsV.woff2                   21.32 kB
+build-root/client/assets/noto-sans-kr-57-wght-normal-B8WEhlXz.woff2                   21.33 kB
+build-root/client/assets/noto-sans-kr-36-wght-normal-BQ3DsEFp.woff2                   21.35 kB
+build-root/client/assets/noto-sans-kr-35-wght-normal-CNljDv8x.woff2                   21.36 kB
+build-root/client/assets/noto-sans-kr-48-wght-normal-Ds0KCpXR.woff2                   21.41 kB
+build-root/client/assets/noto-sans-kr-56-wght-normal-C-IXS01q.woff2                   21.42 kB
+build-root/client/assets/noto-sans-kr-39-wght-normal-QVs81SbT.woff2                   21.43 kB
+build-root/client/assets/noto-sans-kr-43-wght-normal-D4Z4qIjx.woff2                   21.46 kB
+build-root/client/assets/noto-sans-kr-50-wght-normal-C8Hs8Bel.woff2                   21.50 kB
+build-root/client/assets/noto-sans-kr-16-wght-normal-D7pAhItn.woff2                   21.50 kB
+build-root/client/assets/noto-sans-kr-34-wght-normal-Dn9wUbC5.woff2                   21.56 kB
+build-root/client/assets/noto-sans-kr-18-wght-normal-B_Xt9mRz.woff2                   21.66 kB
+build-root/client/assets/noto-sans-kr-28-wght-normal-COQop0OG.woff2                   21.95 kB
+build-root/client/assets/noto-sans-kr-62-wght-normal-Brkp78oR.woff2                   21.95 kB
+build-root/client/assets/noto-sans-kr-58-wght-normal-CPkb-af3.woff2                   22.05 kB
+build-root/client/assets/noto-serif-kr-99-wght-normal-BPjHJEXJ.woff2                  22.07 kB
+build-root/client/assets/noto-sans-kr-14-wght-normal-BtTu50RG.woff2                   22.10 kB
+build-root/client/assets/noto-sans-kr-47-wght-normal-CisIuWX8.woff2                   22.20 kB
+build-root/client/assets/noto-sans-kr-21-wght-normal-CuThq_3_.woff2                   22.26 kB
+build-root/client/assets/noto-sans-kr-52-wght-normal-RCgHYf1C.woff2                   22.29 kB
+build-root/client/assets/noto-sans-kr-9-wght-normal-Dc1zs_Pa.woff2                    22.40 kB
+build-root/client/assets/noto-sans-kr-13-wght-normal-olvHB9I9.woff2                   22.66 kB
+build-root/client/assets/noto-sans-kr-12-wght-normal-gICIGsXI.woff2                   22.70 kB
+build-root/client/assets/noto-sans-kr-15-wght-normal-CxFswjwr.woff2                   22.75 kB
+build-root/client/assets/noto-sans-kr-49-wght-normal-BC5F4RRq.woff2                   22.83 kB
+build-root/client/assets/noto-sans-kr-29-wght-normal-Bwniia0r.woff2                   23.13 kB
+build-root/client/assets/noto-sans-kr-4-wght-normal-MlF4wjtz.woff2                    23.33 kB
+build-root/client/assets/cormorant-garamond-cyrillic-ext-wght-normal-Bg62sWL9.woff2   23.41 kB
+build-root/client/assets/noto-sans-kr-22-wght-normal-D-9XnguA.woff2                   23.53 kB
+build-root/client/assets/noto-sans-kr-30-wght-normal-BNXqYhtq.woff2                   23.55 kB
+build-root/client/assets/noto-sans-kr-17-wght-normal-CcMq9J3c.woff2                   23.58 kB
+build-root/client/assets/noto-sans-kr-31-wght-normal-BoAdonrH.woff2                   23.64 kB
+build-root/client/assets/noto-serif-kr-96-wght-normal-CVVndpUA.woff2                  23.68 kB
+build-root/client/assets/noto-sans-kr-61-wght-normal-C9Nbt4dY.woff2                   23.80 kB
+build-root/client/assets/noto-serif-kr-119-wght-normal-B8lslVpp.woff2                 23.92 kB
+build-root/client/assets/noto-sans-kr-23-wght-normal-CsoKTgIH.woff2                   24.07 kB
+build-root/client/assets/noto-sans-kr-103-wght-normal-C9B_csKo.woff2                  24.39 kB
+build-root/client/assets/noto-sans-kr-27-wght-normal-BYvOljic.woff2                   24.48 kB
+build-root/client/assets/noto-sans-kr-60-wght-normal-DriWx1rc.woff2                   24.50 kB
+build-root/client/assets/noto-sans-kr-106-wght-normal-DCG_yG2L.woff2                  24.74 kB
+build-root/client/assets/noto-sans-kr-3-wght-normal-DZIqdvJw.woff2                    24.79 kB
+build-root/client/assets/noto-sans-kr-19-wght-normal-DicL0vd6.woff2                   25.15 kB
+build-root/client/assets/noto-sans-kr-33-wght-normal-DMSZNpMD.woff2                   25.17 kB
+build-root/client/assets/noto-sans-kr-105-wght-normal-Bwk-4itQ.woff2                  25.22 kB
+build-root/client/assets/noto-sans-kr-59-wght-normal-C4laA72l.woff2                   25.25 kB
+build-root/client/assets/noto-sans-kr-24-wght-normal-CVm75uzf.woff2                   25.47 kB
+build-root/client/assets/noto-sans-kr-102-wght-normal-DPlG-Gq_.woff2                  25.58 kB
+build-root/client/assets/noto-sans-kr-26-wght-normal-gwaK2bp7.woff2                   25.64 kB
+build-root/client/assets/noto-sans-kr-20-wght-normal-PxcBBeNg.woff2                   25.91 kB
+build-root/client/assets/noto-sans-kr-latin-wght-normal-CZ1P3i-_.woff2                26.00 kB
+build-root/client/assets/noto-sans-kr-101-wght-normal-yIk-xkbt.woff2                  26.07 kB
+build-root/client/assets/noto-sans-kr-100-wght-normal-BUnzX67h.woff2                  26.26 kB
+build-root/client/assets/noto-sans-kr-32-wght-normal-BREiG6LA.woff2                   26.40 kB
+build-root/client/assets/noto-sans-kr-104-wght-normal-BV6o_vl3.woff2                  28.68 kB
+build-root/client/assets/noto-sans-kr-93-wght-normal-LhQTABfI.woff2                   29.06 kB
+build-root/client/assets/noto-serif-kr-118-wght-normal-C4j1xH6l.woff2                 31.06 kB
+build-root/client/assets/noto-serif-kr-94-wght-normal-AQwjKYHD.woff2                  33.09 kB
+build-root/client/assets/cormorant-garamond-latin-ext-wght-normal-ltf1AbuM.woff2      33.73 kB
+build-root/client/assets/noto-sans-kr-0-wght-normal-D06yvloL.woff2                    34.28 kB
+build-root/client/assets/noto-serif-kr-latin-wght-normal-DdBYjaA7.woff2               34.74 kB
+build-root/client/assets/noto-sans-kr-2-wght-normal-BlW3AcBF.woff2                    35.98 kB
+build-root/client/assets/noto-serif-kr-117-wght-normal-Kx6LOXtf.woff2                 36.46 kB
+build-root/client/assets/noto-serif-kr-64-wght-normal-TegE858a.woff2                  37.42 kB
+build-root/client/assets/cormorant-garamond-latin-wght-normal-CUoBjw-S.woff2          37.64 kB
+build-root/client/assets/noto-serif-kr-115-wght-normal-CD3J_hkm.woff2                 38.66 kB
+build-root/client/assets/noto-serif-kr-116-wght-normal-CEgGIndr.woff2                 39.00 kB
+build-root/client/assets/noto-serif-kr-41-wght-normal-Lfsy7Qjh.woff2                  39.88 kB
+build-root/client/assets/noto-serif-kr-114-wght-normal-BR9tFfOX.woff2                 40.14 kB
+build-root/client/assets/noto-serif-kr-112-wght-normal-DOhh2iwR.woff2                 41.10 kB
+build-root/client/assets/noto-sans-kr-83-wght-normal-McHuBf-B.woff2                   41.15 kB
+build-root/client/assets/noto-serif-kr-25-wght-normal-BboTOaCM.woff2                  41.17 kB
+build-root/client/assets/noto-serif-kr-93-wght-normal-DQxlG0_9.woff2                  41.44 kB
+build-root/client/assets/noto-serif-kr-38-wght-normal-D5_AKE_2.woff2                  41.47 kB
+build-root/client/assets/noto-serif-kr-109-wght-normal-BbmBYgvB.woff2                 41.48 kB
+build-root/client/assets/noto-serif-kr-113-wght-normal-D3cwdMxZ.woff2                 41.58 kB
+build-root/client/assets/noto-sans-kr-90-wght-normal-lqvjLFoO.woff2                   41.92 kB
+build-root/client/assets/noto-serif-kr-107-wght-normal-Cvdq43h0.woff2                 42.13 kB
+build-root/client/assets/noto-serif-kr-111-wght-normal-CXjrVraB.woff2                 42.48 kB
+build-root/client/assets/noto-sans-kr-92-wght-normal-CfCk7nA7.woff2                   42.68 kB
+build-root/client/assets/noto-serif-kr-61-wght-normal-Cz4TOC_4.woff2                  42.76 kB
+build-root/client/assets/noto-serif-kr-101-wght-normal-BC5y5dqO.woff2                 42.87 kB
+build-root/client/assets/noto-serif-kr-110-wght-normal-XwNdx1GB.woff2                 43.25 kB
+build-root/client/assets/noto-serif-kr-11-wght-normal-D5TYFTx2.woff2                  43.40 kB
+build-root/client/assets/noto-serif-kr-51-wght-normal-Dl3gls5E.woff2                  43.53 kB
+build-root/client/assets/noto-serif-kr-8-wght-normal-DJcZjzjW.woff2                   43.56 kB
+build-root/client/assets/noto-serif-kr-28-wght-normal-87tsSzwV.woff2                  43.60 kB
+build-root/client/assets/noto-serif-kr-58-wght-normal-BidfWKaw.woff2                  43.99 kB
+build-root/client/assets/noto-serif-kr-34-wght-normal-trfXr60v.woff2                  44.02 kB
+build-root/client/assets/noto-serif-kr-15-wght-normal-CFopVi0t.woff2                  44.63 kB
+build-root/client/assets/noto-serif-kr-31-wght-normal-BMXFtB5s.woff2                  44.73 kB
+build-root/client/assets/noto-serif-kr-0-wght-normal-BRl0rkVG.woff2                   44.87 kB
+build-root/client/assets/noto-serif-kr-103-wght-normal-D2tgQr2m.woff2                 44.95 kB
+build-root/client/assets/noto-sans-kr-91-wght-normal-DsGtjSva.woff2                   44.99 kB
+build-root/client/assets/noto-sans-kr-87-wght-normal-CBZPTWsE.woff2                   45.01 kB
+build-root/client/assets/noto-serif-kr-56-wght-normal-Gtx5Oq0z.woff2                  45.40 kB
+build-root/client/assets/noto-serif-kr-26-wght-normal-C_usrI7l.woff2                  45.42 kB
+build-root/client/assets/noto-serif-kr-48-wght-normal-DbuWoeJz.woff2                  45.42 kB
+build-root/client/assets/noto-sans-kr-72-wght-normal-CYbqUrRD.woff2                   45.51 kB
+build-root/client/assets/noto-sans-kr-89-wght-normal-D3Fd3_EL.woff2                   45.53 kB
+build-root/client/assets/noto-serif-kr-100-wght-normal-Ch1vp3-c.woff2                 45.61 kB
+build-root/client/assets/noto-serif-kr-57-wght-normal-Cx76QYGz.woff2                  45.67 kB
+build-root/client/assets/noto-serif-kr-18-wght-normal-CyvofnkJ.woff2                  45.72 kB
+build-root/client/assets/noto-serif-kr-108-wght-normal-D7w6Q2lY.woff2                 45.78 kB
+build-root/client/assets/noto-serif-kr-102-wght-normal-BRsEzEdt.woff2                 46.06 kB
+build-root/client/assets/noto-serif-kr-55-wght-normal-D5BsWmpa.woff2                  46.26 kB
+build-root/client/assets/noto-serif-kr-105-wght-normal-UZUY9ckr.woff2                 46.33 kB
+build-root/client/assets/noto-sans-kr-88-wght-normal-_V-zytEf.woff2                   46.46 kB
+build-root/client/assets/noto-serif-kr-14-wght-normal-C-PDqpyc.woff2                  46.64 kB
+build-root/client/assets/noto-serif-kr-23-wght-normal-ChB8Iiij.woff2                  46.70 kB
+build-root/client/assets/noto-serif-kr-44-wght-normal-TPgfsK-i.woff2                  47.02 kB
+build-root/client/assets/noto-sans-kr-70-wght-normal-BSMUUut2.woff2                   47.28 kB
+build-root/client/assets/noto-serif-kr-45-wght-normal-3ujqNkKt.woff2                  47.34 kB
+build-root/client/assets/noto-serif-kr-106-wght-normal-CiM5P2eP.woff2                 47.35 kB
+build-root/client/assets/noto-serif-kr-12-wght-normal-DpnTDlnQ.woff2                  47.83 kB
+build-root/client/assets/noto-serif-kr-22-wght-normal-BUIAFENr.woff2                  47.88 kB
+build-root/client/assets/noto-serif-kr-54-wght-normal-CG-PWwu4.woff2                  47.90 kB
+build-root/client/assets/noto-serif-kr-10-wght-normal-CSXOSQLO.woff2                  47.97 kB
+build-root/client/assets/noto-sans-kr-81-wght-normal-DZCTVH03.woff2                   48.01 kB
+build-root/client/assets/noto-sans-kr-69-wght-normal-BReeBVHk.woff2                   48.36 kB
+build-root/client/assets/noto-sans-kr-67-wght-normal-CWhGYJ2i.woff2                   48.38 kB
+build-root/client/assets/noto-sans-kr-78-wght-normal-CxH4Pb6I.woff2                   48.44 kB
+build-root/client/assets/noto-serif-kr-29-wght-normal-BfXtFxuP.woff2                  48.54 kB
+build-root/client/assets/noto-serif-kr-5-wght-normal-B_nlXKun.woff2                   48.55 kB
+build-root/client/assets/noto-sans-kr-76-wght-normal-BRcUMWZ8.woff2                   48.58 kB
+build-root/client/assets/noto-serif-kr-13-wght-normal-DnofgP66.woff2                  48.67 kB
+build-root/client/assets/noto-serif-kr-63-wght-normal-Brj53soL.woff2                  48.75 kB
+build-root/client/assets/noto-serif-kr-33-wght-normal-CbCZbNqb.woff2                  48.90 kB
+build-root/client/assets/noto-serif-kr-21-wght-normal-BPd5_fRb.woff2                  49.24 kB
+build-root/client/assets/noto-serif-kr-27-wght-normal-TMFolNL8.woff2                  49.57 kB
+build-root/client/assets/noto-serif-kr-35-wght-normal-DSNM7sqe.woff2                  49.61 kB
+build-root/client/assets/noto-serif-kr-62-wght-normal-jL4bYEZP.woff2                  49.72 kB
+build-root/client/assets/noto-serif-kr-52-wght-normal-C2MRjoDW.woff2                  49.99 kB
+build-root/client/assets/noto-serif-kr-30-wght-normal-BIVVFnSH.woff2                  50.00 kB
+build-root/client/assets/noto-serif-kr-53-wght-normal-CVSBOxAV.woff2                  50.19 kB
+build-root/client/assets/noto-sans-kr-73-wght-normal-Dq-lIKz-.woff2                   50.29 kB
+build-root/client/assets/noto-serif-kr-6-wght-normal-BFgXvZJN.woff2                   50.36 kB
+build-root/client/assets/noto-serif-kr-104-wght-normal-B9I2aAtP.woff2                 50.40 kB
+build-root/client/assets/noto-serif-kr-59-wght-normal-D1RQtq5J.woff2                  50.48 kB
+build-root/client/assets/noto-serif-kr-32-wght-normal-BQY_Bla7.woff2                  50.52 kB
+build-root/client/assets/noto-sans-kr-82-wght-normal-CJo3UUYg.woff2                   50.54 kB
+build-root/client/assets/noto-serif-kr-50-wght-normal-Chj_f17v.woff2                  50.57 kB
+build-root/client/assets/noto-sans-kr-80-wght-normal-C5D21FTw.woff2                   51.00 kB
+build-root/client/assets/noto-serif-kr-49-wght-normal-Be2Q4ccq.woff2                  51.09 kB
+build-root/client/assets/noto-serif-kr-36-wght-normal-tGVh35mi.woff2                  51.20 kB
+build-root/client/assets/noto-serif-kr-9-wght-normal-7q74m1CZ.woff2                   51.34 kB
+build-root/client/assets/noto-sans-kr-86-wght-normal-B7E1-Ec0.woff2                   51.62 kB
+build-root/client/assets/noto-serif-kr-42-wght-normal-BjSFFvJd.woff2                  51.65 kB
+build-root/client/assets/noto-serif-kr-39-wght-normal-DH200jCI.woff2                  51.70 kB
+build-root/client/assets/noto-sans-kr-68-wght-normal-BrksQ5yZ.woff2                   51.73 kB
+build-root/client/assets/noto-serif-kr-40-wght-normal-BDyuUrKc.woff2                  51.82 kB
+build-root/client/assets/noto-serif-kr-16-wght-normal-DZYyxzqN.woff2                  52.06 kB
+build-root/client/assets/noto-serif-kr-47-wght-normal-C6T0nagd.woff2                  52.29 kB
+build-root/client/assets/noto-serif-kr-46-wght-normal-CUZYd8Ur.woff2                  52.50 kB
+build-root/client/assets/noto-serif-kr-7-wght-normal-BTAH3_VS.woff2                   52.53 kB
+build-root/client/assets/noto-sans-kr-85-wght-normal-BlAw-6qA.woff2                   52.55 kB
+build-root/client/assets/noto-sans-kr-77-wght-normal-q_AHRG0H.woff2                   52.60 kB
+build-root/client/assets/noto-serif-kr-19-wght-normal-BnkCAtkM.woff2                  52.61 kB
+build-root/client/assets/noto-serif-kr-3-wght-normal-CPQ-0t-0.woff2                   52.71 kB
+build-root/client/assets/noto-serif-kr-60-wght-normal-BIuubTN3.woff2                  53.20 kB
+build-root/client/assets/noto-sans-kr-95-wght-normal-aqERMEsW.woff2                   53.26 kB
+build-root/client/assets/noto-serif-kr-24-wght-normal-k7mvj-F2.woff2                  53.30 kB
+build-root/client/assets/noto-serif-kr-4-wght-normal-DReMKJeS.woff2                   53.39 kB
+build-root/client/assets/noto-serif-kr-37-wght-normal-BQQYVVXN.woff2                  53.44 kB
+build-root/client/assets/noto-serif-kr-17-wght-normal-CyJe9L03.woff2                  53.73 kB
+build-root/client/assets/noto-serif-kr-20-wght-normal-DfLaiLvg.woff2                  54.22 kB
+build-root/client/assets/noto-sans-kr-74-wght-normal-Dsmj0w4F.woff2                   54.44 kB
+build-root/client/assets/noto-sans-kr-84-wght-normal-DLV_AXtC.woff2                   54.47 kB
+build-root/client/assets/noto-serif-kr-43-wght-normal-Cs3NlJUx.woff2                  54.70 kB
+build-root/client/assets/noto-serif-kr-83-wght-normal-DRPADWH8.woff2                  55.87 kB
+build-root/client/assets/noto-sans-kr-66-wght-normal-IxdJCmlc.woff2                   56.05 kB
+build-root/client/assets/noto-sans-kr-1-wght-normal-Bqp_kP4o.woff2                    56.20 kB
+build-root/client/assets/noto-sans-kr-75-wght-normal-JM9JBG-M.woff2                   56.76 kB
+build-root/client/assets/noto-sans-kr-71-wght-normal-D9VPS-IJ.woff2                   56.88 kB
+build-root/client/assets/noto-serif-kr-92-wght-normal-BjRlDXWq.woff2                  58.29 kB
+build-root/client/assets/noto-serif-kr-91-wght-normal-Cwje09OV.woff2                  58.74 kB
+build-root/client/assets/noto-serif-kr-90-wght-normal-CjbUAWAr.woff2                  59.18 kB
+build-root/client/assets/noto-sans-kr-79-wght-normal-Bdi4I7EA.woff2                   60.83 kB
+build-root/client/assets/noto-serif-kr-2-wght-normal-DOgk9iZn.woff2                   61.23 kB
+build-root/client/assets/noto-serif-kr-87-wght-normal-CHchL0N_.woff2                  62.71 kB
+build-root/client/assets/noto-serif-kr-89-wght-normal-tuIl-8K3.woff2                  63.18 kB
+build-root/client/assets/noto-serif-kr-72-wght-normal-8IO8jmzC.woff2                  63.38 kB
+build-root/client/assets/noto-sans-kr-65-wght-normal-FHC1ZHx-.woff2                   64.46 kB
+build-root/client/assets/noto-serif-kr-78-wght-normal-KBw3j_cb.woff2                  65.17 kB
+build-root/client/assets/noto-serif-kr-88-wght-normal-DRZ3kFg_.woff2                  65.18 kB
+build-root/client/assets/noto-serif-kr-81-wght-normal-DH4ui8jq.woff2                  65.40 kB
+build-root/client/assets/noto-serif-kr-86-wght-normal-BhiIa3BY.woff2                  66.02 kB
+build-root/client/assets/noto-serif-kr-73-wght-normal-D_YjWBf2.woff2                  67.12 kB
+build-root/client/assets/noto-serif-kr-76-wght-normal-B9BuWa4w.woff2                  67.76 kB
+build-root/client/assets/noto-serif-kr-85-wght-normal-Bk-Tbk4S.woff2                  68.06 kB
+build-root/client/assets/noto-serif-kr-82-wght-normal-D1bXX6uk.woff2                  68.25 kB
+build-root/client/assets/noto-serif-kr-67-wght-normal-DTSCuWj_.woff2                  68.44 kB
+build-root/client/assets/noto-serif-kr-68-wght-normal-DiEXzR28.woff2                  68.48 kB
+build-root/client/assets/noto-serif-kr-77-wght-normal-BKsrrnQo.woff2                  69.27 kB
+build-root/client/assets/noto-serif-kr-69-wght-normal-BvLG2HtK.woff2                  70.60 kB
+build-root/client/assets/noto-serif-kr-70-wght-normal-Dghe7UZx.woff2                  71.20 kB
+build-root/client/assets/noto-serif-kr-84-wght-normal-D9CK0s6a.woff2                  72.72 kB
+build-root/client/assets/noto-serif-kr-95-wght-normal-DU36_q8K.woff2                  74.12 kB
+build-root/client/assets/noto-serif-kr-75-wght-normal-BWrWu3gd.woff2                  74.66 kB
+build-root/client/assets/noto-serif-kr-1-wght-normal-08KBNaSe.woff2                   75.88 kB
+build-root/client/assets/noto-serif-kr-80-wght-normal-DdjnSx3m.woff2                  76.70 kB
+build-root/client/assets/noto-serif-kr-71-wght-normal-h8VdPzTz.woff2                  78.22 kB
+build-root/client/assets/noto-serif-kr-66-wght-normal-2BbBcMOj.woff2                  78.25 kB
+build-root/client/assets/noto-serif-kr-74-wght-normal-VK9q6WOB.woff2                  79.40 kB
+build-root/client/.vite/manifest.json                                                 84.73 kB │ gzip:  7.21 kB
+build-root/client/assets/noto-serif-kr-79-wght-normal-dOkbFG4J.woff2                  85.96 kB
+build-root/client/assets/noto-serif-kr-65-wght-normal-BDeHLMrr.woff2                  91.84 kB
+build-root/client/assets/root-DM3a_tvB.css                                           170.06 kB │ gzip: 56.07 kB
+build-root/client/assets/not-found-Bs1o1m1x.js                                         0.07 kB │ gzip:  0.08 kB
+build-root/client/assets/root-BJAbO_9Q.js                                              0.61 kB │ gzip:  0.36 kB
+build-root/client/assets/spike-Cwri-VoO.js                                             0.90 kB │ gzip:  0.49 kB
+build-root/client/assets/paths-DXD0H1MM.js                                             1.55 kB │ gzip:  0.83 kB
+build-root/client/assets/not-found-CKTyCLVt.js                                         9.52 kB │ gzip:  3.85 kB
+build-root/client/assets/jsx-runtime-CANsxKfg.js                                     118.26 kB │ gzip: 38.90 kB
+build-root/client/assets/entry.client-QNCYM9-G.js                                    185.82 kB │ gzip: 58.58 kB
+
+✓ built in 489ms
+vite v8.2.2 building ssr environment for production...
+transforming...
+✓ 13 modules transformed.
+rendering chunks...
+
+✓ 254 assets cleaned from React Router server build.
+build-root\client\assets\cormorant-garamond-cyrillic-ext-wght-normal-Bg62sWL9.woff2
+build-root\client\assets\cormorant-garamond-cyrillic-wght-normal-BWCqVJN0.woff2
+build-root\client\assets\cormorant-garamond-vietnamese-wght-normal-CDLFB6hb.woff2
+build-root\client\assets\cormorant-garamond-latin-ext-wght-normal-ltf1AbuM.woff2
+build-root\client\assets\cormorant-garamond-latin-wght-normal-CUoBjw-S.woff2
+build-root\client\assets\noto-serif-kr-0-wght-normal-BRl0rkVG.woff2
+build-root\client\assets\noto-serif-kr-1-wght-normal-08KBNaSe.woff2
+build-root\client\assets\noto-serif-kr-2-wght-normal-DOgk9iZn.woff2
+build-root\client\assets\noto-serif-kr-3-wght-normal-CPQ-0t-0.woff2
+build-root\client\assets\noto-serif-kr-4-wght-normal-DReMKJeS.woff2
+build-root\client\assets\noto-serif-kr-5-wght-normal-B_nlXKun.woff2
+build-root\client\assets\noto-serif-kr-6-wght-normal-BFgXvZJN.woff2
+build-root\client\assets\noto-serif-kr-7-wght-normal-BTAH3_VS.woff2
+build-root\client\assets\noto-serif-kr-8-wght-normal-DJcZjzjW.woff2
+build-root\client\assets\noto-serif-kr-9-wght-normal-7q74m1CZ.woff2
+build-root\client\assets\noto-serif-kr-10-wght-normal-CSXOSQLO.woff2
+build-root\client\assets\noto-serif-kr-11-wght-normal-D5TYFTx2.woff2
+build-root\client\assets\noto-serif-kr-12-wght-normal-DpnTDlnQ.woff2
+build-root\client\assets\noto-serif-kr-13-wght-normal-DnofgP66.woff2
+build-root\client\assets\noto-serif-kr-14-wght-normal-C-PDqpyc.woff2
+build-root\client\assets\noto-serif-kr-15-wght-normal-CFopVi0t.woff2
+build-root\client\assets\noto-serif-kr-16-wght-normal-DZYyxzqN.woff2
+build-root\client\assets\noto-serif-kr-17-wght-normal-CyJe9L03.woff2
+build-root\client\assets\noto-serif-kr-18-wght-normal-CyvofnkJ.woff2
+build-root\client\assets\noto-serif-kr-19-wght-normal-BnkCAtkM.woff2
+build-root\client\assets\noto-serif-kr-20-wght-normal-DfLaiLvg.woff2
+build-root\client\assets\noto-serif-kr-21-wght-normal-BPd5_fRb.woff2
+build-root\client\assets\noto-serif-kr-22-wght-normal-BUIAFENr.woff2
+build-root\client\assets\noto-serif-kr-23-wght-normal-ChB8Iiij.woff2
+build-root\client\assets\noto-serif-kr-24-wght-normal-k7mvj-F2.woff2
+build-root\client\assets\noto-serif-kr-25-wght-normal-BboTOaCM.woff2
+build-root\client\assets\noto-serif-kr-26-wght-normal-C_usrI7l.woff2
+build-root\client\assets\noto-serif-kr-27-wght-normal-TMFolNL8.woff2
+build-root\client\assets\noto-serif-kr-28-wght-normal-87tsSzwV.woff2
+build-root\client\assets\noto-serif-kr-29-wght-normal-BfXtFxuP.woff2
+build-root\client\assets\noto-serif-kr-30-wght-normal-BIVVFnSH.woff2
+build-root\client\assets\noto-serif-kr-31-wght-normal-BMXFtB5s.woff2
+build-root\client\assets\noto-serif-kr-32-wght-normal-BQY_Bla7.woff2
+build-root\client\assets\noto-serif-kr-33-wght-normal-CbCZbNqb.woff2
+build-root\client\assets\noto-serif-kr-34-wght-normal-trfXr60v.woff2
+build-root\client\assets\noto-serif-kr-35-wght-normal-DSNM7sqe.woff2
+build-root\client\assets\noto-serif-kr-36-wght-normal-tGVh35mi.woff2
+build-root\client\assets\noto-serif-kr-37-wght-normal-BQQYVVXN.woff2
+build-root\client\assets\noto-serif-kr-38-wght-normal-D5_AKE_2.woff2
+build-root\client\assets\noto-serif-kr-39-wght-normal-DH200jCI.woff2
+build-root\client\assets\noto-serif-kr-40-wght-normal-BDyuUrKc.woff2
+build-root\client\assets\noto-serif-kr-41-wght-normal-Lfsy7Qjh.woff2
+build-root\client\assets\noto-serif-kr-42-wght-normal-BjSFFvJd.woff2
+build-root\client\assets\noto-serif-kr-43-wght-normal-Cs3NlJUx.woff2
+build-root\client\assets\noto-serif-kr-44-wght-normal-TPgfsK-i.woff2
+build-root\client\assets\noto-serif-kr-45-wght-normal-3ujqNkKt.woff2
+build-root\client\assets\noto-serif-kr-46-wght-normal-CUZYd8Ur.woff2
+build-root\client\assets\noto-serif-kr-47-wght-normal-C6T0nagd.woff2
+build-root\client\assets\noto-serif-kr-48-wght-normal-DbuWoeJz.woff2
+build-root\client\assets\noto-serif-kr-49-wght-normal-Be2Q4ccq.woff2
+build-root\client\assets\noto-serif-kr-50-wght-normal-Chj_f17v.woff2
+build-root\client\assets\noto-serif-kr-51-wght-normal-Dl3gls5E.woff2
+build-root\client\assets\noto-serif-kr-52-wght-normal-C2MRjoDW.woff2
+build-root\client\assets\noto-serif-kr-53-wght-normal-CVSBOxAV.woff2
+build-root\client\assets\noto-serif-kr-54-wght-normal-CG-PWwu4.woff2
+build-root\client\assets\noto-serif-kr-55-wght-normal-D5BsWmpa.woff2
+build-root\client\assets\noto-serif-kr-56-wght-normal-Gtx5Oq0z.woff2
+build-root\client\assets\noto-serif-kr-57-wght-normal-Cx76QYGz.woff2
+build-root\client\assets\noto-serif-kr-58-wght-normal-BidfWKaw.woff2
+build-root\client\assets\noto-serif-kr-59-wght-normal-D1RQtq5J.woff2
+build-root\client\assets\noto-serif-kr-60-wght-normal-BIuubTN3.woff2
+build-root\client\assets\noto-serif-kr-61-wght-normal-Cz4TOC_4.woff2
+build-root\client\assets\noto-serif-kr-62-wght-normal-jL4bYEZP.woff2
+build-root\client\assets\noto-serif-kr-63-wght-normal-Brj53soL.woff2
+build-root\client\assets\noto-serif-kr-64-wght-normal-TegE858a.woff2
+build-root\client\assets\noto-serif-kr-65-wght-normal-BDeHLMrr.woff2
+build-root\client\assets\noto-serif-kr-66-wght-normal-2BbBcMOj.woff2
+build-root\client\assets\noto-serif-kr-67-wght-normal-DTSCuWj_.woff2
+build-root\client\assets\noto-serif-kr-68-wght-normal-DiEXzR28.woff2
+build-root\client\assets\noto-serif-kr-69-wght-normal-BvLG2HtK.woff2
+build-root\client\assets\noto-serif-kr-70-wght-normal-Dghe7UZx.woff2
+build-root\client\assets\noto-serif-kr-71-wght-normal-h8VdPzTz.woff2
+build-root\client\assets\noto-serif-kr-72-wght-normal-8IO8jmzC.woff2
+build-root\client\assets\noto-serif-kr-73-wght-normal-D_YjWBf2.woff2
+build-root\client\assets\noto-serif-kr-74-wght-normal-VK9q6WOB.woff2
+build-root\client\assets\noto-serif-kr-75-wght-normal-BWrWu3gd.woff2
+build-root\client\assets\noto-serif-kr-76-wght-normal-B9BuWa4w.woff2
+build-root\client\assets\noto-serif-kr-77-wght-normal-BKsrrnQo.woff2
+build-root\client\assets\noto-serif-kr-78-wght-normal-KBw3j_cb.woff2
+build-root\client\assets\noto-serif-kr-79-wght-normal-dOkbFG4J.woff2
+build-root\client\assets\noto-serif-kr-80-wght-normal-DdjnSx3m.woff2
+build-root\client\assets\noto-serif-kr-81-wght-normal-DH4ui8jq.woff2
+build-root\client\assets\noto-serif-kr-82-wght-normal-D1bXX6uk.woff2
+build-root\client\assets\noto-serif-kr-83-wght-normal-DRPADWH8.woff2
+build-root\client\assets\noto-serif-kr-84-wght-normal-D9CK0s6a.woff2
+build-root\client\assets\noto-serif-kr-85-wght-normal-Bk-Tbk4S.woff2
+build-root\client\assets\noto-serif-kr-86-wght-normal-BhiIa3BY.woff2
+build-root\client\assets\noto-serif-kr-87-wght-normal-CHchL0N_.woff2
+build-root\client\assets\noto-serif-kr-88-wght-normal-DRZ3kFg_.woff2
+build-root\client\assets\noto-serif-kr-89-wght-normal-tuIl-8K3.woff2
+build-root\client\assets\noto-serif-kr-90-wght-normal-CjbUAWAr.woff2
+build-root\client\assets\noto-serif-kr-91-wght-normal-Cwje09OV.woff2
+build-root\client\assets\noto-serif-kr-92-wght-normal-BjRlDXWq.woff2
+build-root\client\assets\noto-serif-kr-93-wght-normal-DQxlG0_9.woff2
+build-root\client\assets\noto-serif-kr-94-wght-normal-AQwjKYHD.woff2
+build-root\client\assets\noto-serif-kr-95-wght-normal-DU36_q8K.woff2
+build-root\client\assets\noto-serif-kr-96-wght-normal-CVVndpUA.woff2
+build-root\client\assets\noto-serif-kr-97-wght-normal-CIiLHY90.woff2
+build-root\client\assets\noto-serif-kr-98-wght-normal-DU0EjZe_.woff2
+build-root\client\assets\noto-serif-kr-99-wght-normal-BPjHJEXJ.woff2
+build-root\client\assets\noto-serif-kr-100-wght-normal-Ch1vp3-c.woff2
+build-root\client\assets\noto-serif-kr-101-wght-normal-BC5y5dqO.woff2
+build-root\client\assets\noto-serif-kr-102-wght-normal-BRsEzEdt.woff2
+build-root\client\assets\noto-serif-kr-103-wght-normal-D2tgQr2m.woff2
+build-root\client\assets\noto-serif-kr-104-wght-normal-B9I2aAtP.woff2
+build-root\client\assets\noto-serif-kr-105-wght-normal-UZUY9ckr.woff2
+build-root\client\assets\noto-serif-kr-106-wght-normal-CiM5P2eP.woff2
+build-root\client\assets\noto-serif-kr-107-wght-normal-Cvdq43h0.woff2
+build-root\client\assets\noto-serif-kr-108-wght-normal-D7w6Q2lY.woff2
+build-root\client\assets\noto-serif-kr-109-wght-normal-BbmBYgvB.woff2
+build-root\client\assets\noto-serif-kr-110-wght-normal-XwNdx1GB.woff2
+build-root\client\assets\noto-serif-kr-111-wght-normal-CXjrVraB.woff2
+build-root\client\assets\noto-serif-kr-112-wght-normal-DOhh2iwR.woff2
+build-root\client\assets\noto-serif-kr-113-wght-normal-D3cwdMxZ.woff2
+build-root\client\assets\noto-serif-kr-114-wght-normal-BR9tFfOX.woff2
+build-root\client\assets\noto-serif-kr-115-wght-normal-CD3J_hkm.woff2
+build-root\client\assets\noto-serif-kr-116-wght-normal-CEgGIndr.woff2
+build-root\client\assets\noto-serif-kr-117-wght-normal-Kx6LOXtf.woff2
+build-root\client\assets\noto-serif-kr-118-wght-normal-C4j1xH6l.woff2
+build-root\client\assets\noto-serif-kr-119-wght-normal-B8lslVpp.woff2
+build-root\client\assets\noto-serif-kr-cyrillic-wght-normal-Dn-cTn_J.woff2
+build-root\client\assets\noto-serif-kr-vietnamese-wght-normal-DAu4eVJu.woff2
+build-root\client\assets\noto-serif-kr-latin-ext-wght-normal-srBaEPiu.woff2
+build-root\client\assets\noto-serif-kr-latin-wght-normal-DdBYjaA7.woff2
+build-root\client\assets\noto-sans-kr-0-wght-normal-D06yvloL.woff2
+build-root\client\assets\noto-sans-kr-1-wght-normal-Bqp_kP4o.woff2
+build-root\client\assets\noto-sans-kr-2-wght-normal-BlW3AcBF.woff2
+build-root\client\assets\noto-sans-kr-3-wght-normal-DZIqdvJw.woff2
+build-root\client\assets\noto-sans-kr-4-wght-normal-MlF4wjtz.woff2
+build-root\client\assets\noto-sans-kr-5-wght-normal-D2ndBBlz.woff2
+build-root\client\assets\noto-sans-kr-6-wght-normal-CJnF25Ox.woff2
+build-root\client\assets\noto-sans-kr-7-wght-normal-CImCbZMD.woff2
+build-root\client\assets\noto-sans-kr-8-wght-normal-CstSMSR0.woff2
+build-root\client\assets\noto-sans-kr-9-wght-normal-Dc1zs_Pa.woff2
+build-root\client\assets\noto-sans-kr-10-wght-normal-D44PZdTN.woff2
+build-root\client\assets\noto-sans-kr-11-wght-normal-DnDO1vGF.woff2
+build-root\client\assets\noto-sans-kr-12-wght-normal-gICIGsXI.woff2
+build-root\client\assets\noto-sans-kr-13-wght-normal-olvHB9I9.woff2
+build-root\client\assets\noto-sans-kr-14-wght-normal-BtTu50RG.woff2
+build-root\client\assets\noto-sans-kr-15-wght-normal-CxFswjwr.woff2
+build-root\client\assets\noto-sans-kr-16-wght-normal-D7pAhItn.woff2
+build-root\client\assets\noto-sans-kr-17-wght-normal-CcMq9J3c.woff2
+build-root\client\assets\noto-sans-kr-18-wght-normal-B_Xt9mRz.woff2
+build-root\client\assets\noto-sans-kr-19-wght-normal-DicL0vd6.woff2
+build-root\client\assets\noto-sans-kr-20-wght-normal-PxcBBeNg.woff2
+build-root\client\assets\noto-sans-kr-21-wght-normal-CuThq_3_.woff2
+build-root\client\assets\noto-sans-kr-22-wght-normal-D-9XnguA.woff2
+build-root\client\assets\noto-sans-kr-23-wght-normal-CsoKTgIH.woff2
+build-root\client\assets\noto-sans-kr-24-wght-normal-CVm75uzf.woff2
+build-root\client\assets\noto-sans-kr-25-wght-normal-pcUlc7hZ.woff2
+build-root\client\assets\noto-sans-kr-26-wght-normal-gwaK2bp7.woff2
+build-root\client\assets\noto-sans-kr-27-wght-normal-BYvOljic.woff2
+build-root\client\assets\noto-sans-kr-28-wght-normal-COQop0OG.woff2
+build-root\client\assets\noto-sans-kr-29-wght-normal-Bwniia0r.woff2
+build-root\client\assets\noto-sans-kr-30-wght-normal-BNXqYhtq.woff2
+build-root\client\assets\noto-sans-kr-31-wght-normal-BoAdonrH.woff2
+build-root\client\assets\noto-sans-kr-32-wght-normal-BREiG6LA.woff2
+build-root\client\assets\noto-sans-kr-33-wght-normal-DMSZNpMD.woff2
+build-root\client\assets\noto-sans-kr-34-wght-normal-Dn9wUbC5.woff2
+build-root\client\assets\noto-sans-kr-35-wght-normal-CNljDv8x.woff2
+build-root\client\assets\noto-sans-kr-36-wght-normal-BQ3DsEFp.woff2
+build-root\client\assets\noto-sans-kr-37-wght-normal-D0Nod484.woff2
+build-root\client\assets\noto-sans-kr-38-wght-normal-D7aEX-Z7.woff2
+build-root\client\assets\noto-sans-kr-39-wght-normal-QVs81SbT.woff2
+build-root\client\assets\noto-sans-kr-40-wght-normal-B6XNibcs.woff2
+build-root\client\assets\noto-sans-kr-41-wght-normal-CrDDFHLC.woff2
+build-root\client\assets\noto-sans-kr-42-wght-normal-_xElrv31.woff2
+build-root\client\assets\noto-sans-kr-43-wght-normal-D4Z4qIjx.woff2
+build-root\client\assets\noto-sans-kr-44-wght-normal-BOzNPFw1.woff2
+build-root\client\assets\noto-sans-kr-45-wght-normal-HgLQPnZe.woff2
+build-root\client\assets\noto-sans-kr-46-wght-normal-B8aQM0KO.woff2
+build-root\client\assets\noto-sans-kr-47-wght-normal-CisIuWX8.woff2
+build-root\client\assets\noto-sans-kr-48-wght-normal-Ds0KCpXR.woff2
+build-root\client\assets\noto-sans-kr-49-wght-normal-BC5F4RRq.woff2
+build-root\client\assets\noto-sans-kr-50-wght-normal-C8Hs8Bel.woff2
+build-root\client\assets\noto-sans-kr-51-wght-normal-DYiiYWHC.woff2
+build-root\client\assets\noto-sans-kr-52-wght-normal-RCgHYf1C.woff2
+build-root\client\assets\noto-sans-kr-53-wght-normal-D_jDj1TO.woff2
+build-root\client\assets\noto-sans-kr-54-wght-normal-Dh8YqAZX.woff2
+build-root\client\assets\noto-sans-kr-55-wght-normal-Bb2kolOu.woff2
+build-root\client\assets\noto-sans-kr-56-wght-normal-C-IXS01q.woff2
+build-root\client\assets\noto-sans-kr-57-wght-normal-B8WEhlXz.woff2
+build-root\client\assets\noto-sans-kr-58-wght-normal-CPkb-af3.woff2
+build-root\client\assets\noto-sans-kr-59-wght-normal-C4laA72l.woff2
+build-root\client\assets\noto-sans-kr-60-wght-normal-DriWx1rc.woff2
+build-root\client\assets\noto-sans-kr-61-wght-normal-C9Nbt4dY.woff2
+build-root\client\assets\noto-sans-kr-62-wght-normal-Brkp78oR.woff2
+build-root\client\assets\noto-sans-kr-63-wght-normal-Cc2PlhZU.woff2
+build-root\client\assets\noto-sans-kr-64-wght-normal-KNqhDR8m.woff2
+build-root\client\assets\noto-sans-kr-65-wght-normal-FHC1ZHx-.woff2
+build-root\client\assets\noto-sans-kr-66-wght-normal-IxdJCmlc.woff2
+build-root\client\assets\noto-sans-kr-67-wght-normal-CWhGYJ2i.woff2
+build-root\client\assets\noto-sans-kr-68-wght-normal-BrksQ5yZ.woff2
+build-root\client\assets\noto-sans-kr-69-wght-normal-BReeBVHk.woff2
+build-root\client\assets\noto-sans-kr-70-wght-normal-BSMUUut2.woff2
+build-root\client\assets\noto-sans-kr-71-wght-normal-D9VPS-IJ.woff2
+build-root\client\assets\noto-sans-kr-72-wght-normal-CYbqUrRD.woff2
+build-root\client\assets\noto-sans-kr-73-wght-normal-Dq-lIKz-.woff2
+build-root\client\assets\noto-sans-kr-74-wght-normal-Dsmj0w4F.woff2
+build-root\client\assets\noto-sans-kr-75-wght-normal-JM9JBG-M.woff2
+build-root\client\assets\noto-sans-kr-76-wght-normal-BRcUMWZ8.woff2
+build-root\client\assets\noto-sans-kr-77-wght-normal-q_AHRG0H.woff2
+build-root\client\assets\noto-sans-kr-78-wght-normal-CxH4Pb6I.woff2
+build-root\client\assets\noto-sans-kr-79-wght-normal-Bdi4I7EA.woff2
+build-root\client\assets\noto-sans-kr-80-wght-normal-C5D21FTw.woff2
+build-root\client\assets\noto-sans-kr-81-wght-normal-DZCTVH03.woff2
+build-root\client\assets\noto-sans-kr-82-wght-normal-CJo3UUYg.woff2
+build-root\client\assets\noto-sans-kr-83-wght-normal-McHuBf-B.woff2
+build-root\client\assets\noto-sans-kr-84-wght-normal-DLV_AXtC.woff2
+build-root\client\assets\noto-sans-kr-85-wght-normal-BlAw-6qA.woff2
+build-root\client\assets\noto-sans-kr-86-wght-normal-B7E1-Ec0.woff2
+build-root\client\assets\noto-sans-kr-87-wght-normal-CBZPTWsE.woff2
+build-root\client\assets\noto-sans-kr-88-wght-normal-_V-zytEf.woff2
+build-root\client\assets\noto-sans-kr-89-wght-normal-D3Fd3_EL.woff2
+build-root\client\assets\noto-sans-kr-90-wght-normal-lqvjLFoO.woff2
+build-root\client\assets\noto-sans-kr-91-wght-normal-DsGtjSva.woff2
+build-root\client\assets\noto-sans-kr-92-wght-normal-CfCk7nA7.woff2
+build-root\client\assets\noto-sans-kr-93-wght-normal-LhQTABfI.woff2
+build-root\client\assets\noto-sans-kr-94-wght-normal-ihdiE-sw.woff2
+build-root\client\assets\noto-sans-kr-95-wght-normal-aqERMEsW.woff2
+build-root\client\assets\noto-sans-kr-96-wght-normal-BsiGrPsV.woff2
+build-root\client\assets\noto-sans-kr-97-wght-normal-Dr2ufsTl.woff2
+build-root\client\assets\noto-sans-kr-98-wght-normal-DO7crlgc.woff2
+build-root\client\assets\noto-sans-kr-99-wght-normal-DzzxDKB5.woff2
+build-root\client\assets\noto-sans-kr-100-wght-normal-BUnzX67h.woff2
+build-root\client\assets\noto-sans-kr-101-wght-normal-yIk-xkbt.woff2
+build-root\client\assets\noto-sans-kr-102-wght-normal-DPlG-Gq_.woff2
+build-root\client\assets\noto-sans-kr-103-wght-normal-C9B_csKo.woff2
+build-root\client\assets\noto-sans-kr-104-wght-normal-BV6o_vl3.woff2
+build-root\client\assets\noto-sans-kr-105-wght-normal-Bwk-4itQ.woff2
+build-root\client\assets\noto-sans-kr-106-wght-normal-DCG_yG2L.woff2
+build-root\client\assets\noto-sans-kr-107-wght-normal-CWnd6wcQ.woff2
+build-root\client\assets\noto-sans-kr-108-wght-normal-CVosuT20.woff2
+build-root\client\assets\noto-sans-kr-109-wght-normal-B6hzfDSQ.woff2
+build-root\client\assets\noto-sans-kr-110-wght-normal-Bz2J7MHi.woff2
+build-root\client\assets\noto-sans-kr-111-wght-normal-DeeXajyY.woff2
+build-root\client\assets\noto-sans-kr-112-wght-normal-DApkhTZy.woff2
+build-root\client\assets\noto-sans-kr-113-wght-normal-DnhzVD4m.woff2
+build-root\client\assets\noto-sans-kr-114-wght-normal-BcwVxkxL.woff2
+build-root\client\assets\noto-sans-kr-115-wght-normal-Czx6kN3B.woff2
+build-root\client\assets\noto-sans-kr-116-wght-normal-DvHAaAUg.woff2
+build-root\client\assets\noto-sans-kr-117-wght-normal-DNkILo1k.woff2
+build-root\client\assets\noto-sans-kr-118-wght-normal-Be8jlQ51.woff2
+build-root\client\assets\noto-sans-kr-119-wght-normal-C_6m2-od.woff2
+build-root\client\assets\noto-sans-kr-cyrillic-wght-normal-Bd4ZsfxM.woff2
+build-root\client\assets\noto-sans-kr-vietnamese-wght-normal-BHUVOYrQ.woff2
+build-root\client\assets\noto-sans-kr-latin-ext-wght-normal-B5bX9d3o.woff2
+build-root\client\assets\noto-sans-kr-latin-wght-normal-CZ1P3i-_.woff2
+build-root\server\assets\server-build-DM3a_tvB.css
+
+computing gzip size...
+build-root/server/assets/noto-sans-kr-latin-ext-wght-normal-B5bX9d3o.woff2             8.30 kB
+build-root/server/assets/noto-sans-kr-vietnamese-wght-normal-BHUVOYrQ.woff2            9.17 kB
+build-root/server/assets/noto-sans-kr-cyrillic-wght-normal-Bd4ZsfxM.woff2             10.11 kB
+build-root/server/assets/noto-serif-kr-latin-ext-wght-normal-srBaEPiu.woff2           10.38 kB
+build-root/server/assets/noto-serif-kr-vietnamese-wght-normal-DAu4eVJu.woff2          10.98 kB
+build-root/server/assets/cormorant-garamond-vietnamese-wght-normal-CDLFB6hb.woff2     11.22 kB
+build-root/server/assets/noto-sans-kr-98-wght-normal-DO7crlgc.woff2                   12.18 kB
+build-root/server/assets/noto-serif-kr-98-wght-normal-DU0EjZe_.woff2                  13.44 kB
+build-root/server/assets/noto-sans-kr-97-wght-normal-Dr2ufsTl.woff2                   14.17 kB
+build-root/server/assets/noto-sans-kr-117-wght-normal-DNkILo1k.woff2                  14.46 kB
+build-root/server/assets/noto-serif-kr-cyrillic-wght-normal-Dn-cTn_J.woff2            14.62 kB
+build-root/server/assets/noto-sans-kr-118-wght-normal-Be8jlQ51.woff2                  14.66 kB
+build-root/server/assets/noto-sans-kr-116-wght-normal-DvHAaAUg.woff2                  16.20 kB
+build-root/server/assets/noto-sans-kr-114-wght-normal-BcwVxkxL.woff2                  16.21 kB
+build-root/server/assets/noto-sans-kr-115-wght-normal-Czx6kN3B.woff2                  16.27 kB
+build-root/server/assets/noto-sans-kr-112-wght-normal-DApkhTZy.woff2                  16.44 kB
+build-root/server/assets/noto-sans-kr-113-wght-normal-DnhzVD4m.woff2                  16.46 kB
+build-root/server/assets/noto-sans-kr-119-wght-normal-C_6m2-od.woff2                  16.67 kB
+build-root/server/assets/noto-sans-kr-38-wght-normal-D7aEX-Z7.woff2                   16.69 kB
+build-root/server/assets/noto-sans-kr-99-wght-normal-DzzxDKB5.woff2                   16.88 kB
+build-root/server/assets/noto-sans-kr-111-wght-normal-DeeXajyY.woff2                  17.46 kB
+build-root/server/assets/noto-serif-kr-97-wght-normal-CIiLHY90.woff2                  17.51 kB
+build-root/server/assets/noto-sans-kr-110-wght-normal-Bz2J7MHi.woff2                  17.60 kB
+build-root/server/assets/noto-sans-kr-109-wght-normal-B6hzfDSQ.woff2                  18.06 kB
+build-root/server/assets/noto-sans-kr-41-wght-normal-CrDDFHLC.woff2                   18.14 kB
+build-root/server/assets/noto-sans-kr-107-wght-normal-CWnd6wcQ.woff2                  18.42 kB
+build-root/server/assets/noto-sans-kr-44-wght-normal-BOzNPFw1.woff2                   18.50 kB
+build-root/server/assets/noto-sans-kr-64-wght-normal-KNqhDR8m.woff2                   18.58 kB
+build-root/server/assets/noto-sans-kr-94-wght-normal-ihdiE-sw.woff2                   19.42 kB
+build-root/server/assets/noto-sans-kr-108-wght-normal-CVosuT20.woff2                  19.67 kB
+build-root/server/assets/noto-sans-kr-45-wght-normal-HgLQPnZe.woff2                   19.74 kB
+build-root/server/assets/noto-sans-kr-51-wght-normal-DYiiYWHC.woff2                   19.74 kB
+build-root/server/assets/noto-sans-kr-8-wght-normal-CstSMSR0.woff2                    19.83 kB
+build-root/server/assets/noto-sans-kr-25-wght-normal-pcUlc7hZ.woff2                   19.88 kB
+build-root/server/assets/noto-sans-kr-11-wght-normal-DnDO1vGF.woff2                   20.16 kB
+build-root/server/assets/noto-sans-kr-42-wght-normal-_xElrv31.woff2                   20.22 kB
+build-root/server/assets/noto-sans-kr-10-wght-normal-D44PZdTN.woff2                   20.48 kB
+build-root/server/assets/noto-sans-kr-6-wght-normal-CJnF25Ox.woff2                    20.59 kB
+build-root/server/assets/noto-sans-kr-55-wght-normal-Bb2kolOu.woff2                   20.70 kB
+build-root/server/assets/noto-sans-kr-5-wght-normal-D2ndBBlz.woff2                    20.78 kB
+build-root/server/assets/noto-sans-kr-46-wght-normal-B8aQM0KO.woff2                   20.92 kB
+build-root/server/assets/noto-sans-kr-40-wght-normal-B6XNibcs.woff2                   20.98 kB
+build-root/server/assets/noto-sans-kr-7-wght-normal-CImCbZMD.woff2                    21.01 kB
+build-root/server/assets/noto-sans-kr-63-wght-normal-Cc2PlhZU.woff2                   21.04 kB
+build-root/server/assets/noto-sans-kr-54-wght-normal-Dh8YqAZX.woff2                   21.07 kB
+build-root/server/assets/noto-sans-kr-53-wght-normal-D_jDj1TO.woff2                   21.11 kB
+build-root/server/assets/cormorant-garamond-cyrillic-wght-normal-BWCqVJN0.woff2       21.16 kB
+build-root/server/assets/noto-sans-kr-37-wght-normal-D0Nod484.woff2                   21.27 kB
+build-root/server/assets/noto-sans-kr-96-wght-normal-BsiGrPsV.woff2                   21.32 kB
+build-root/server/assets/noto-sans-kr-57-wght-normal-B8WEhlXz.woff2                   21.33 kB
+build-root/server/assets/noto-sans-kr-36-wght-normal-BQ3DsEFp.woff2                   21.35 kB
+build-root/server/assets/noto-sans-kr-35-wght-normal-CNljDv8x.woff2                   21.36 kB
+build-root/server/assets/noto-sans-kr-48-wght-normal-Ds0KCpXR.woff2                   21.41 kB
+build-root/server/assets/noto-sans-kr-56-wght-normal-C-IXS01q.woff2                   21.42 kB
+build-root/server/assets/noto-sans-kr-39-wght-normal-QVs81SbT.woff2                   21.43 kB
+build-root/server/assets/noto-sans-kr-43-wght-normal-D4Z4qIjx.woff2                   21.46 kB
+build-root/server/assets/noto-sans-kr-50-wght-normal-C8Hs8Bel.woff2                   21.50 kB
+build-root/server/assets/noto-sans-kr-16-wght-normal-D7pAhItn.woff2                   21.50 kB
+build-root/server/assets/noto-sans-kr-34-wght-normal-Dn9wUbC5.woff2                   21.56 kB
+build-root/server/assets/noto-sans-kr-18-wght-normal-B_Xt9mRz.woff2                   21.66 kB
+build-root/server/assets/noto-sans-kr-28-wght-normal-COQop0OG.woff2                   21.95 kB
+build-root/server/assets/noto-sans-kr-62-wght-normal-Brkp78oR.woff2                   21.95 kB
+build-root/server/assets/noto-sans-kr-58-wght-normal-CPkb-af3.woff2                   22.05 kB
+build-root/server/assets/noto-serif-kr-99-wght-normal-BPjHJEXJ.woff2                  22.07 kB
+build-root/server/assets/noto-sans-kr-14-wght-normal-BtTu50RG.woff2                   22.10 kB
+build-root/server/assets/noto-sans-kr-47-wght-normal-CisIuWX8.woff2                   22.20 kB
+build-root/server/assets/noto-sans-kr-21-wght-normal-CuThq_3_.woff2                   22.26 kB
+build-root/server/assets/noto-sans-kr-52-wght-normal-RCgHYf1C.woff2                   22.29 kB
+build-root/server/assets/noto-sans-kr-9-wght-normal-Dc1zs_Pa.woff2                    22.40 kB
+build-root/server/assets/noto-sans-kr-13-wght-normal-olvHB9I9.woff2                   22.66 kB
+build-root/server/assets/noto-sans-kr-12-wght-normal-gICIGsXI.woff2                   22.70 kB
+build-root/server/assets/noto-sans-kr-15-wght-normal-CxFswjwr.woff2                   22.75 kB
+build-root/server/assets/noto-sans-kr-49-wght-normal-BC5F4RRq.woff2                   22.83 kB
+build-root/server/assets/noto-sans-kr-29-wght-normal-Bwniia0r.woff2                   23.13 kB
+build-root/server/assets/noto-sans-kr-4-wght-normal-MlF4wjtz.woff2                    23.33 kB
+build-root/server/assets/cormorant-garamond-cyrillic-ext-wght-normal-Bg62sWL9.woff2   23.41 kB
+build-root/server/assets/noto-sans-kr-22-wght-normal-D-9XnguA.woff2                   23.53 kB
+build-root/server/assets/noto-sans-kr-30-wght-normal-BNXqYhtq.woff2                   23.55 kB
+build-root/server/assets/noto-sans-kr-17-wght-normal-CcMq9J3c.woff2                   23.58 kB
+build-root/server/assets/noto-sans-kr-31-wght-normal-BoAdonrH.woff2                   23.64 kB
+build-root/server/assets/noto-serif-kr-96-wght-normal-CVVndpUA.woff2                  23.68 kB
+build-root/server/assets/noto-sans-kr-61-wght-normal-C9Nbt4dY.woff2                   23.80 kB
+build-root/server/assets/noto-serif-kr-119-wght-normal-B8lslVpp.woff2                 23.92 kB
+build-root/server/assets/noto-sans-kr-23-wght-normal-CsoKTgIH.woff2                   24.07 kB
+build-root/server/assets/noto-sans-kr-103-wght-normal-C9B_csKo.woff2                  24.39 kB
+build-root/server/assets/noto-sans-kr-27-wght-normal-BYvOljic.woff2                   24.48 kB
+build-root/server/assets/noto-sans-kr-60-wght-normal-DriWx1rc.woff2                   24.50 kB
+build-root/server/assets/noto-sans-kr-106-wght-normal-DCG_yG2L.woff2                  24.74 kB
+build-root/server/assets/noto-sans-kr-3-wght-normal-DZIqdvJw.woff2                    24.79 kB
+build-root/server/assets/noto-sans-kr-19-wght-normal-DicL0vd6.woff2                   25.15 kB
+build-root/server/assets/noto-sans-kr-33-wght-normal-DMSZNpMD.woff2                   25.17 kB
+build-root/server/assets/noto-sans-kr-105-wght-normal-Bwk-4itQ.woff2                  25.22 kB
+build-root/server/assets/noto-sans-kr-59-wght-normal-C4laA72l.woff2                   25.25 kB
+build-root/server/assets/noto-sans-kr-24-wght-normal-CVm75uzf.woff2                   25.47 kB
+build-root/server/assets/noto-sans-kr-102-wght-normal-DPlG-Gq_.woff2                  25.58 kB
+build-root/server/assets/noto-sans-kr-26-wght-normal-gwaK2bp7.woff2                   25.64 kB
+build-root/server/assets/noto-sans-kr-20-wght-normal-PxcBBeNg.woff2                   25.91 kB
+build-root/server/assets/noto-sans-kr-latin-wght-normal-CZ1P3i-_.woff2                26.00 kB
+build-root/server/assets/noto-sans-kr-101-wght-normal-yIk-xkbt.woff2                  26.07 kB
+build-root/server/assets/noto-sans-kr-100-wght-normal-BUnzX67h.woff2                  26.26 kB
+build-root/server/assets/noto-sans-kr-32-wght-normal-BREiG6LA.woff2                   26.40 kB
+build-root/server/assets/noto-sans-kr-104-wght-normal-BV6o_vl3.woff2                  28.68 kB
+build-root/server/assets/noto-sans-kr-93-wght-normal-LhQTABfI.woff2                   29.06 kB
+build-root/server/assets/noto-serif-kr-118-wght-normal-C4j1xH6l.woff2                 31.06 kB
+build-root/server/assets/noto-serif-kr-94-wght-normal-AQwjKYHD.woff2                  33.09 kB
+build-root/server/assets/cormorant-garamond-latin-ext-wght-normal-ltf1AbuM.woff2      33.73 kB
+build-root/server/assets/noto-sans-kr-0-wght-normal-D06yvloL.woff2                    34.28 kB
+build-root/server/assets/noto-serif-kr-latin-wght-normal-DdBYjaA7.woff2               34.74 kB
+build-root/server/assets/noto-sans-kr-2-wght-normal-BlW3AcBF.woff2                    35.98 kB
+build-root/server/assets/noto-serif-kr-117-wght-normal-Kx6LOXtf.woff2                 36.46 kB
+build-root/server/assets/noto-serif-kr-64-wght-normal-TegE858a.woff2                  37.42 kB
+build-root/server/assets/cormorant-garamond-latin-wght-normal-CUoBjw-S.woff2          37.64 kB
+build-root/server/assets/noto-serif-kr-115-wght-normal-CD3J_hkm.woff2                 38.66 kB
+build-root/server/assets/noto-serif-kr-116-wght-normal-CEgGIndr.woff2                 39.00 kB
+build-root/server/assets/noto-serif-kr-41-wght-normal-Lfsy7Qjh.woff2                  39.88 kB
+build-root/server/assets/noto-serif-kr-114-wght-normal-BR9tFfOX.woff2                 40.14 kB
+build-root/server/assets/noto-serif-kr-112-wght-normal-DOhh2iwR.woff2                 41.10 kB
+build-root/server/assets/noto-sans-kr-83-wght-normal-McHuBf-B.woff2                   41.15 kB
+build-root/server/assets/noto-serif-kr-25-wght-normal-BboTOaCM.woff2                  41.17 kB
+build-root/server/assets/noto-serif-kr-93-wght-normal-DQxlG0_9.woff2                  41.44 kB
+build-root/server/assets/noto-serif-kr-38-wght-normal-D5_AKE_2.woff2                  41.47 kB
+build-root/server/assets/noto-serif-kr-109-wght-normal-BbmBYgvB.woff2                 41.48 kB
+build-root/server/assets/noto-serif-kr-113-wght-normal-D3cwdMxZ.woff2                 41.58 kB
+build-root/server/assets/noto-sans-kr-90-wght-normal-lqvjLFoO.woff2                   41.92 kB
+build-root/server/assets/noto-serif-kr-107-wght-normal-Cvdq43h0.woff2                 42.13 kB
+build-root/server/assets/noto-serif-kr-111-wght-normal-CXjrVraB.woff2                 42.48 kB
+build-root/server/assets/noto-sans-kr-92-wght-normal-CfCk7nA7.woff2                   42.68 kB
+build-root/server/assets/noto-serif-kr-61-wght-normal-Cz4TOC_4.woff2                  42.76 kB
+build-root/server/assets/noto-serif-kr-101-wght-normal-BC5y5dqO.woff2                 42.87 kB
+build-root/server/assets/noto-serif-kr-110-wght-normal-XwNdx1GB.woff2                 43.25 kB
+build-root/server/assets/noto-serif-kr-11-wght-normal-D5TYFTx2.woff2                  43.40 kB
+build-root/server/assets/noto-serif-kr-51-wght-normal-Dl3gls5E.woff2                  43.53 kB
+build-root/server/assets/noto-serif-kr-8-wght-normal-DJcZjzjW.woff2                   43.56 kB
+build-root/server/assets/noto-serif-kr-28-wght-normal-87tsSzwV.woff2                  43.60 kB
+build-root/server/assets/noto-serif-kr-58-wght-normal-BidfWKaw.woff2                  43.99 kB
+build-root/server/assets/noto-serif-kr-34-wght-normal-trfXr60v.woff2                  44.02 kB
+build-root/server/assets/noto-serif-kr-15-wght-normal-CFopVi0t.woff2                  44.63 kB
+build-root/server/assets/noto-serif-kr-31-wght-normal-BMXFtB5s.woff2                  44.73 kB
+build-root/server/assets/noto-serif-kr-0-wght-normal-BRl0rkVG.woff2                   44.87 kB
+build-root/server/assets/noto-serif-kr-103-wght-normal-D2tgQr2m.woff2                 44.95 kB
+build-root/server/assets/noto-sans-kr-91-wght-normal-DsGtjSva.woff2                   44.99 kB
+build-root/server/assets/noto-sans-kr-87-wght-normal-CBZPTWsE.woff2                   45.01 kB
+build-root/server/assets/noto-serif-kr-56-wght-normal-Gtx5Oq0z.woff2                  45.40 kB
+build-root/server/assets/noto-serif-kr-26-wght-normal-C_usrI7l.woff2                  45.42 kB
+build-root/server/assets/noto-serif-kr-48-wght-normal-DbuWoeJz.woff2                  45.42 kB
+build-root/server/assets/noto-sans-kr-72-wght-normal-CYbqUrRD.woff2                   45.51 kB
+build-root/server/assets/noto-sans-kr-89-wght-normal-D3Fd3_EL.woff2                   45.53 kB
+build-root/server/assets/noto-serif-kr-100-wght-normal-Ch1vp3-c.woff2                 45.61 kB
+build-root/server/assets/noto-serif-kr-57-wght-normal-Cx76QYGz.woff2                  45.67 kB
+build-root/server/assets/noto-serif-kr-18-wght-normal-CyvofnkJ.woff2                  45.72 kB
+build-root/server/assets/noto-serif-kr-108-wght-normal-D7w6Q2lY.woff2                 45.78 kB
+build-root/server/assets/noto-serif-kr-102-wght-normal-BRsEzEdt.woff2                 46.06 kB
+build-root/server/assets/noto-serif-kr-55-wght-normal-D5BsWmpa.woff2                  46.26 kB
+build-root/server/assets/noto-serif-kr-105-wght-normal-UZUY9ckr.woff2                 46.33 kB
+build-root/server/assets/noto-sans-kr-88-wght-normal-_V-zytEf.woff2                   46.46 kB
+build-root/server/assets/noto-serif-kr-14-wght-normal-C-PDqpyc.woff2                  46.64 kB
+build-root/server/assets/noto-serif-kr-23-wght-normal-ChB8Iiij.woff2                  46.70 kB
+build-root/server/assets/noto-serif-kr-44-wght-normal-TPgfsK-i.woff2                  47.02 kB
+build-root/server/assets/noto-sans-kr-70-wght-normal-BSMUUut2.woff2                   47.28 kB
+build-root/server/assets/noto-serif-kr-45-wght-normal-3ujqNkKt.woff2                  47.34 kB
+build-root/server/assets/noto-serif-kr-106-wght-normal-CiM5P2eP.woff2                 47.35 kB
+build-root/server/assets/noto-serif-kr-12-wght-normal-DpnTDlnQ.woff2                  47.83 kB
+build-root/server/assets/noto-serif-kr-22-wght-normal-BUIAFENr.woff2                  47.88 kB
+build-root/server/assets/noto-serif-kr-54-wght-normal-CG-PWwu4.woff2                  47.90 kB
+build-root/server/assets/noto-serif-kr-10-wght-normal-CSXOSQLO.woff2                  47.97 kB
+build-root/server/assets/noto-sans-kr-81-wght-normal-DZCTVH03.woff2                   48.01 kB
+build-root/server/assets/noto-sans-kr-69-wght-normal-BReeBVHk.woff2                   48.36 kB
+build-root/server/assets/noto-sans-kr-67-wght-normal-CWhGYJ2i.woff2                   48.38 kB
+build-root/server/assets/noto-sans-kr-78-wght-normal-CxH4Pb6I.woff2                   48.44 kB
+build-root/server/assets/noto-serif-kr-29-wght-normal-BfXtFxuP.woff2                  48.54 kB
+build-root/server/assets/noto-serif-kr-5-wght-normal-B_nlXKun.woff2                   48.55 kB
+build-root/server/assets/noto-sans-kr-76-wght-normal-BRcUMWZ8.woff2                   48.58 kB
+build-root/server/assets/noto-serif-kr-13-wght-normal-DnofgP66.woff2                  48.67 kB
+build-root/server/assets/noto-serif-kr-63-wght-normal-Brj53soL.woff2                  48.75 kB
+build-root/server/assets/noto-serif-kr-33-wght-normal-CbCZbNqb.woff2                  48.90 kB
+build-root/server/assets/noto-serif-kr-21-wght-normal-BPd5_fRb.woff2                  49.24 kB
+build-root/server/assets/noto-serif-kr-27-wght-normal-TMFolNL8.woff2                  49.57 kB
+build-root/server/assets/noto-serif-kr-35-wght-normal-DSNM7sqe.woff2                  49.61 kB
+build-root/server/assets/noto-serif-kr-62-wght-normal-jL4bYEZP.woff2                  49.72 kB
+build-root/server/assets/noto-serif-kr-52-wght-normal-C2MRjoDW.woff2                  49.99 kB
+build-root/server/assets/noto-serif-kr-30-wght-normal-BIVVFnSH.woff2                  50.00 kB
+build-root/server/assets/noto-serif-kr-53-wght-normal-CVSBOxAV.woff2                  50.19 kB
+build-root/server/assets/noto-sans-kr-73-wght-normal-Dq-lIKz-.woff2                   50.29 kB
+build-root/server/assets/noto-serif-kr-6-wght-normal-BFgXvZJN.woff2                   50.36 kB
+build-root/server/assets/noto-serif-kr-104-wght-normal-B9I2aAtP.woff2                 50.40 kB
+build-root/server/assets/noto-serif-kr-59-wght-normal-D1RQtq5J.woff2                  50.48 kB
+build-root/server/assets/noto-serif-kr-32-wght-normal-BQY_Bla7.woff2                  50.52 kB
+build-root/server/assets/noto-sans-kr-82-wght-normal-CJo3UUYg.woff2                   50.54 kB
+build-root/server/assets/noto-serif-kr-50-wght-normal-Chj_f17v.woff2                  50.57 kB
+build-root/server/assets/noto-sans-kr-80-wght-normal-C5D21FTw.woff2                   51.00 kB
+build-root/server/assets/noto-serif-kr-49-wght-normal-Be2Q4ccq.woff2                  51.09 kB
+build-root/server/assets/noto-serif-kr-36-wght-normal-tGVh35mi.woff2                  51.20 kB
+build-root/server/assets/noto-serif-kr-9-wght-normal-7q74m1CZ.woff2                   51.34 kB
+build-root/server/assets/noto-sans-kr-86-wght-normal-B7E1-Ec0.woff2                   51.62 kB
+build-root/server/assets/noto-serif-kr-42-wght-normal-BjSFFvJd.woff2                  51.65 kB
+build-root/server/assets/noto-serif-kr-39-wght-normal-DH200jCI.woff2                  51.70 kB
+build-root/server/assets/noto-sans-kr-68-wght-normal-BrksQ5yZ.woff2                   51.73 kB
+build-root/server/assets/noto-serif-kr-40-wght-normal-BDyuUrKc.woff2                  51.82 kB
+build-root/server/assets/noto-serif-kr-16-wght-normal-DZYyxzqN.woff2                  52.06 kB
+build-root/server/assets/noto-serif-kr-47-wght-normal-C6T0nagd.woff2                  52.29 kB
+build-root/server/assets/noto-serif-kr-46-wght-normal-CUZYd8Ur.woff2                  52.50 kB
+build-root/server/assets/noto-serif-kr-7-wght-normal-BTAH3_VS.woff2                   52.53 kB
+build-root/server/assets/noto-sans-kr-85-wght-normal-BlAw-6qA.woff2                   52.55 kB
+build-root/server/assets/noto-sans-kr-77-wght-normal-q_AHRG0H.woff2                   52.60 kB
+build-root/server/assets/noto-serif-kr-19-wght-normal-BnkCAtkM.woff2                  52.61 kB
+build-root/server/assets/noto-serif-kr-3-wght-normal-CPQ-0t-0.woff2                   52.71 kB
+build-root/server/assets/noto-serif-kr-60-wght-normal-BIuubTN3.woff2                  53.20 kB
+build-root/server/assets/noto-sans-kr-95-wght-normal-aqERMEsW.woff2                   53.26 kB
+build-root/server/assets/noto-serif-kr-24-wght-normal-k7mvj-F2.woff2                  53.30 kB
+build-root/server/assets/noto-serif-kr-4-wght-normal-DReMKJeS.woff2                   53.39 kB
+build-root/server/assets/noto-serif-kr-37-wght-normal-BQQYVVXN.woff2                  53.44 kB
+build-root/server/assets/noto-serif-kr-17-wght-normal-CyJe9L03.woff2                  53.73 kB
+build-root/server/assets/noto-serif-kr-20-wght-normal-DfLaiLvg.woff2                  54.22 kB
+build-root/server/assets/noto-sans-kr-74-wght-normal-Dsmj0w4F.woff2                   54.44 kB
+build-root/server/assets/noto-sans-kr-84-wght-normal-DLV_AXtC.woff2                   54.47 kB
+build-root/server/assets/noto-serif-kr-43-wght-normal-Cs3NlJUx.woff2                  54.70 kB
+build-root/server/assets/noto-serif-kr-83-wght-normal-DRPADWH8.woff2                  55.87 kB
+build-root/server/assets/noto-sans-kr-66-wght-normal-IxdJCmlc.woff2                   56.05 kB
+build-root/server/assets/noto-sans-kr-1-wght-normal-Bqp_kP4o.woff2                    56.20 kB
+build-root/server/assets/noto-sans-kr-75-wght-normal-JM9JBG-M.woff2                   56.76 kB
+build-root/server/assets/noto-sans-kr-71-wght-normal-D9VPS-IJ.woff2                   56.88 kB
+build-root/server/assets/noto-serif-kr-92-wght-normal-BjRlDXWq.woff2                  58.29 kB
+build-root/server/assets/noto-serif-kr-91-wght-normal-Cwje09OV.woff2                  58.74 kB
+build-root/server/assets/noto-serif-kr-90-wght-normal-CjbUAWAr.woff2                  59.18 kB
+build-root/server/assets/noto-sans-kr-79-wght-normal-Bdi4I7EA.woff2                   60.83 kB
+build-root/server/assets/noto-serif-kr-2-wght-normal-DOgk9iZn.woff2                   61.23 kB
+build-root/server/assets/noto-serif-kr-87-wght-normal-CHchL0N_.woff2                  62.71 kB
+build-root/server/assets/noto-serif-kr-89-wght-normal-tuIl-8K3.woff2                  63.18 kB
+build-root/server/assets/noto-serif-kr-72-wght-normal-8IO8jmzC.woff2                  63.38 kB
+build-root/server/assets/noto-sans-kr-65-wght-normal-FHC1ZHx-.woff2                   64.46 kB
+build-root/server/assets/noto-serif-kr-78-wght-normal-KBw3j_cb.woff2                  65.17 kB
+build-root/server/assets/noto-serif-kr-88-wght-normal-DRZ3kFg_.woff2                  65.18 kB
+build-root/server/assets/noto-serif-kr-81-wght-normal-DH4ui8jq.woff2                  65.40 kB
+build-root/server/assets/noto-serif-kr-86-wght-normal-BhiIa3BY.woff2                  66.02 kB
+build-root/server/assets/noto-serif-kr-73-wght-normal-D_YjWBf2.woff2                  67.12 kB
+build-root/server/assets/noto-serif-kr-76-wght-normal-B9BuWa4w.woff2                  67.76 kB
+build-root/server/assets/noto-serif-kr-85-wght-normal-Bk-Tbk4S.woff2                  68.06 kB
+build-root/server/assets/noto-serif-kr-82-wght-normal-D1bXX6uk.woff2                  68.25 kB
+build-root/server/assets/noto-serif-kr-67-wght-normal-DTSCuWj_.woff2                  68.44 kB
+build-root/server/assets/noto-serif-kr-68-wght-normal-DiEXzR28.woff2                  68.48 kB
+build-root/server/assets/noto-serif-kr-77-wght-normal-BKsrrnQo.woff2                  69.27 kB
+build-root/server/assets/noto-serif-kr-69-wght-normal-BvLG2HtK.woff2                  70.60 kB
+build-root/server/assets/noto-serif-kr-70-wght-normal-Dghe7UZx.woff2                  71.20 kB
+build-root/server/assets/noto-serif-kr-84-wght-normal-D9CK0s6a.woff2                  72.72 kB
+build-root/server/assets/noto-serif-kr-95-wght-normal-DU36_q8K.woff2                  74.12 kB
+build-root/server/assets/noto-serif-kr-75-wght-normal-BWrWu3gd.woff2                  74.66 kB
+build-root/server/assets/noto-serif-kr-1-wght-normal-08KBNaSe.woff2                   75.88 kB
+build-root/server/assets/noto-serif-kr-80-wght-normal-DdjnSx3m.woff2                  76.70 kB
+build-root/server/assets/noto-serif-kr-71-wght-normal-h8VdPzTz.woff2                  78.22 kB
+build-root/server/assets/noto-serif-kr-66-wght-normal-2BbBcMOj.woff2                  78.25 kB
+build-root/server/assets/noto-serif-kr-74-wght-normal-VK9q6WOB.woff2                  79.40 kB
+build-root/server/.vite/manifest.json                                                 83.30 kB │ gzip:  6.88 kB
+build-root/server/assets/noto-serif-kr-79-wght-normal-dOkbFG4J.woff2                  85.96 kB
+build-root/server/assets/noto-serif-kr-65-wght-normal-BDeHLMrr.woff2                  91.84 kB
+build-root/server/assets/server-build-DM3a_tvB.css                                   170.06 kB │ gzip: 56.07 kB
+build-root/server/index.js                                                            27.23 kB │ gzip:  4.62 kB
+
+✓ built in 602ms
+Prerender (html): / -> build-root\client\index.html
+Prerender (html): /works -> build-root\client\works\index.html
+Prerender (html): /albums -> build-root\client\albums\index.html
+Prerender (html): /performances -> build-root\client\performances\index.html
+Prerender (html): /album/test-album -> build-root\client\album\test-album\index.html
+Prerender (html): /performance/test-performance -> build-root\client\performance\test-performance\index.html
+Prerender (html): /media -> build-root\client\media\index.html
+Prerender (html): /about -> build-root\client\about\index.html
+Prerender (html): /contact -> build-root\client\contact\index.html
+Prerender (html): /en -> build-root\client\en\index.html
+Prerender (html): /en/works -> build-root\client\en\works\index.html
+Prerender (html): /en/albums -> build-root\client\en\albums\index.html
+Prerender (html): /en/performances -> build-root\client\en\performances\index.html
+Prerender (html): /en/album/test-album -> build-root\client\en\album\test-album\index.html
+Prerender (html): /en/performance/test-performance -> build-root\client\en\performance\test-performance\index.html
+Prerender (html): /en/media -> build-root\client\en\media\index.html
+Prerender (html): /en/about -> build-root\client\en\about\index.html
+Prerender (html): /en/contact -> build-root\client\en\contact\index.html
+Prerender (html): SPA Fallback -> build-root\client\__spa-fallback.html
+Static artifact (root): 284 unchanged files -> build-root\static
+
+> cho-youn-kyoung-v2@0.0.0 test:content:visibility
+> node --test tests/content-visibility.test.ts
+
+✔ root build omits registered drafts from every public HTML, script and manifest (546.0527ms)
+ℹ {"target":"root","scannedFiles":{"client":286,"static":285},"routes":18,"privateDraftsExcluded":1}
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 679.9892
+
+> cho-youn-kyoung-v2@0.0.0 test:design-system:artifacts
+> node --test tests/design-artifacts.test.ts
+
+✔ fresh root artifact includes licensed local fonts and excludes the development Lab (843.3152ms)
+ℹ {"target":"root","routes":18,"labExcluded":true,"localFontUrls":253,"fontFiles":253,"fontBytes":9896644,"javascriptBytes":324591}
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 968.9617

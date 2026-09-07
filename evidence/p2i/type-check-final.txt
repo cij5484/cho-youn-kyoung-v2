@@ -1,0 +1,4 @@
+
+> cho-youn-kyoung-v2@0.0.0 type-check
+> node scripts/router.mjs root typegen && tsc -b
+

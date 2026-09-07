@@ -13,7 +13,7 @@ export async function assertDesignArtifacts(targetName: BuildTargetName) {
       if (entry.isDirectory()) { await inspect(path); continue }
       assert.ok(!path.includes('/lab/') && !/portrait-(initial|instrument)|haegeum-(playing|editorial-ai)|hanbeomsu-jungjungmori-preview|labs\/(hero|haegeum|sound)/.test(path), `Lab artifact path: ${path}`)
       const bytes = await readFile(path)
-      for (const marker of markers) assert.ok(!bytes.includes(Buffer.from(marker)), `Lab content leaked: ${path}`)
+      for (const marker of [...markers, 'P2I_SOUND_COMPARISON_LAB_ONLY', 'bow-contact', 'contact-motion', 'sound-comparison']) assert.ok(!bytes.includes(Buffer.from(marker)), `Lab content leaked: ${path}`)
       if (entry.name.endsWith('.woff2')) { fontFiles++; fontBytes += bytes.length }
       if (entry.name.endsWith('.js')) javascriptBytes += bytes.length
     }
