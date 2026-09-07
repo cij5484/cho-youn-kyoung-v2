@@ -1025,11 +1025,25 @@ engines, rigging systems, gameplay state or FBX pipelines for that possibility.
 
 # 49. CURRENT HOME CLOSING MOTION CONTRACT
 
-2026-09-07 sprint: `src/home/motion.ts` coordinates native-scroll scene progress and the actual SOUND-line handoff;
-no wheel interception or per-frame React state. Works uses measured cluster inversion and a separate four-column
-mobile layout. `album-motion.ts` owns bounded drag velocity, inertia and pose; the replaceable paper render adapter
-owns appearance only. Vertical touch/pinch scrolling takes priority; buttons/keyboard and reduced motion remain usable.
-Offscreen/unmount cancels object animation and releases observers/listeners. Performance contrast is interpolated on the
-header only; its dialog palette remains approved. Artist shifts an intact portrait; Outro carries the name into paired rules.
-Composition/content/source limits live in [HOME](04-HOME.md); these are current development interactions, not final 3D
-quality approval or permission to implement other pages. No new animation library or WebGL dependency was added.
+2026-09-07 Visual Impact Sprint: `src/home/motion.ts` coordinates native-scroll entry/exit and actual stage/header contrast.
+The menu dialog retains its approved palette. No wheel interception or per-frame React state.
+
+- `works-motion.ts` owns the 90svh-travel ribbon and two-point continuity. Actual outgoing SOUND strands converge into
+  free points, gather on a nearby/focused work, orbit behind/in front of its image plane, release continuously, then carry
+  toward the incoming album. Two depth canvases share the existing monotone trail resampler; history is bounded to 72
+  samples/430ms. rAF positions, age/width taper, capped DPR and offscreen/menu/visibility cleanup remain independent
+  of audio sampling. This owner does not retune SOUND or create another audio source. Mobile/reduced motion uses a
+  four-column/native grid without the pinned canvas loop; active-link plus labelled-button navigation covers desktop.
+- `album-motion.ts` owns drag velocity/inertia/pose. The paper adapter owns appearance. Three retained CSS volumes
+  exchange through 920ms spatial transforms, with visibility delayed until departure completes and no opacity flattening
+  of 3D descendants. Interrupted selections continue from current CSS transforms; outer pose does not reset. The
+  5.7%-of-cover-width presentation thickness is an artwork-scaled visual approximation, not measured manufacturing data.
+- `surface-response.ts` is the shared pointer/rAF owner for stage light/planes and the intact Artist photo/crop/light.
+  It normalizes and exponentially settles input, suspends offscreen/hidden, and respects coarse/reduced input. The face
+  is not warped. The existing per-portrait event/spacing implementation and scattered Works inversion are removed.
+- Outro alone keeps the closing oversized English name; typography grouping and scene-specific hierarchy live in HOME.
+
+Vertical touch/pinch scrolling, explicit controls and reduced motion remain usable. Observers/listeners and animation
+owners are cleaned up on unmount, including locale remounts. Composition/content/source limits live in [HOME](04-HOME.md);
+these are current development interactions, not final 3D quality approval or permission to implement other pages.
+No animation library, WebGL dependency, Blender/Tray gate waiver, public integration or deployment was added.

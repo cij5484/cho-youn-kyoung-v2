@@ -81,7 +81,8 @@ subsystem. Preserve active Lab comparisons and historical evidence; do not broad
   development HOME on 4180 continues through Works, Album Object, Performance, Artist and Outro in `src/home`.
   New scenes are implemented, not self-granted QUALITY APPROVED. P2K and this sprint's exact delivery/QA are
   recorded in HANDOFF §26 and GitHub; historical reports are revision-specific. Public HOME integration remains separate.
-  The latest explicit sprint minimizes the moving Violet head without rewriting choreography. Existing upstream
+  The current Visual Impact Sprint strengthens the later-HOME ribbon, object exchange, stage/portrait response and
+  typographic hierarchy. The previous moving Violet head reduction remains unchanged. Existing upstream
   comparisons remain development-only; default HOME has no comparison dock. The eight experience principles
   live in MASTER §3.1, and INTERACTION-GLOSSARY is a human reference, not additional agent instructions.
   Authentic sources and generated editorial instrument imagery stay distinct. Hero portraits remain provisional;
