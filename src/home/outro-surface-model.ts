@@ -1,14 +1,38 @@
 const clamp = (value: number) => Math.max(0, Math.min(1, value))
+const smooth = (value: number) => { const t = clamp(value); return t * t * (3 - 2 * t) }
 
-export function wetEnvelope(age: number, duration = 1.45, attack = 0) {
-  const t = clamp(age / duration), arrival = attack ? clamp(age / attack) : 1
+export function wetEnvelope(age: number, duration = 6, expansion = 1.5) {
   // An input event can be stamped after this frame's RAF timestamp; that stain is just born.
-  return { opacity: Math.pow(1 - t, 1.7) * arrival * arrival * (3 - 2 * arrival), spread: 1 + Math.sin(t * Math.PI / 2) * .23 }
+  const elapsed = Math.max(0, age), life = Math.max(.001, duration), growthTime = Math.max(.001, Math.min(expansion, life * .65))
+  const growth = smooth(elapsed / growthTime), holdUntil = growthTime + Math.min(.65, life * .12)
+  const dry = smooth((elapsed - holdUntil) / Math.max(.001, life - holdUntil))
+  // A concentrated small birth opens into fibres before the broad region slowly dries.
+  return { opacity: smooth(elapsed / .14) * (1 - growth * .12) * (1 - dry),
+    spread: .18 + growth * .82 + smooth((elapsed - growthTime) / Math.max(.001, life - growthTime)) * .055 }
 }
 
-export const wetFieldTiming = { colorCycle: 72, mobileLife: 5.2, mobileAttack: .42, entryQuiet: 850, scrollQuiet: 280, interval: 1800, regionLimit: 3 } as const
-export const desktopWetTiming = { interval: 580, travel: 56, regionLimit: 4, life: 3.4, attack: .38, pendingLife: 1100 } as const
+export const wetFieldTiming = { colorCycle: 72, mobileLife: 6, entryQuiet: 850, scrollQuiet: 280, interval: 1800, regionLimit: 3 } as const
+export const desktopWetTiming = { interval: 580, travel: 56, regionLimit: 4, life: 6, pendingLife: 1100 } as const
 const wetTones = [[99, 52, 229], [173, 140, 84], [163, 61, 54]] as const
+
+export type WetSource = 'pointer' | 'points' | 'tap'
+export type WetStainProfile = { radius: number; strength: number; life: number; expansion: number; turn: number; warmth: number }
+
+/** Stable per-region variation; neither frame rate nor subsequent pointer samples reroll it. */
+function stainVariation(seed: number, channel: number) {
+  let value = Math.imul((seed + 1) ^ Math.imul(channel + 1, 0x9e3779b9), 0x85ebca6b)
+  value = Math.imul(value ^ value >>> 13, 0xc2b2ae35)
+  return ((value ^ value >>> 16) >>> 0) / 0xffffffff * 2 - 1
+}
+
+export function wetStainProfile(source: WetSource, speed: number, seed: number): WetStainProfile {
+  const desktop = source === 'pointer', energy = clamp(speed)
+  const radius = desktop ? (96 + energy * 30) * 2.4 : (source === 'tap' ? 42 : 47 + energy * 15) * 2.7
+  const strength = desktop ? (.12 + energy * .025) * 1.9 : (source === 'tap' ? .15 : .135) * 2
+  return { radius: radius * (1 + stainVariation(seed, 0) * .2), strength: strength * (1 + stainVariation(seed, 1) * .12),
+    life: (desktop ? desktopWetTiming.life : wetFieldTiming.mobileLife) * (1 + stainVariation(seed, 2) * .15),
+    expansion: 1.5 + stainVariation(seed, 3) * .2, turn: stainVariation(seed, 4) * .45, warmth: stainVariation(seed, 5) }
+}
 
 export function outroInputSource(finePointer: boolean, mobileLayout: boolean, reduced: boolean) {
   return reduced ? 'static' : finePointer && !mobileLayout ? 'pointer' : 'points'
@@ -19,6 +43,12 @@ export function wetColorAt(seconds: number): readonly [number, number, number] {
   const cycle = ((seconds / wetFieldTiming.colorCycle) % 1 + 1) % 1, phase = cycle * wetTones.length
   const index = Math.floor(phase), t = phase - index, mix = t * t * (3 - 2 * t)
   return wetTones[index].map((value, channel) => value + (wetTones[(index + 1) % wetTones.length][channel] - value) * mix) as [number, number, number]
+}
+
+/** A small pigment-temperature bias preserves the shared phase instead of selecting a new hue. */
+export function wetStainColor(seconds: number, warmth: number): readonly [number, number, number] {
+  const temperature = Math.max(-1, Math.min(1, warmth)), offsets = [10, 4, -7]
+  return wetColorAt(seconds).map((value, channel) => Math.max(0, Math.min(255, value + offsets[channel] * temperature))) as [number, number, number]
 }
 
 type AutonomousWetInput = { now: number; enteredAt: number; lastScroll: number; lastStain: number; regions: number; visible: boolean; reduced: boolean; touching: boolean }

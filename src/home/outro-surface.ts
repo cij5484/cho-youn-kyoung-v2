@@ -1,10 +1,10 @@
 import { useEffect, type RefObject } from 'react'
 import { createHanjiField } from '../experience-prototype/hanji-mask.ts'
 import { autonomousWetBlock, blankTapIsWet, desktopWetReady, desktopWetTiming, gentleGlyph, outroCanvasScale, outroGlyphTarget, outroInputSource, restingGlyph,
-  wetColorAt, wetEnvelope, wetFieldTiming, wetScrollActivity, type GlyphPose } from './outro-surface-model.ts'
+  wetColorAt, wetEnvelope, wetFieldTiming, wetScrollActivity, wetStainColor, wetStainProfile, type GlyphPose, type WetSource, type WetStainProfile } from './outro-surface-model.ts'
 import './outro-surface.css'
 
-type Stain = { x: number; y: number; birth: number; radius: number; angle: number; strength: number; life: number; attack: number }
+type Stain = Omit<WetStainProfile, 'turn'> & { x: number; y: number; birth: number; angle: number }
 type Letter = { element: HTMLElement; x: number; y: number; pose: GlyphPose }
 type PaperPoint = { x: number; y: number; clientX: number; clientY: number; speed: number; angle: number; strand: number }
 type BloomSample = { x: number; y: number; sampledAt: number; travel: number; speed: number; angle: number }
@@ -89,12 +89,16 @@ export function useOutroSurface(ref: RefObject<HTMLElement | null>) {
       }
       return true
     }
-    function colorStamp(now: number) {
+    function addStain(x: number, y: number, now: number, source: WetSource, speed: number, angle: number) {
+      const { turn, ...profile } = wetStainProfile(source, speed, stampIndex++)
+      stains.push({ x, y, birth: now, angle: angle + turn, ...profile })
+    }
+    function colorStamp(seconds: number, warmth: number) {
       if (!dye || !dyed || !stamp) return
-      const color = wetColorAt((now - colorOrigin) / 1000).map(value => value.toFixed(3)).join(' ')
+      const color = wetStainColor(seconds, warmth).map(value => value.toFixed(3)).join(' ')
       dye.clearRect(0, 0, dyed.width, dyed.height); dye.globalCompositeOperation = 'source-over'; dye.drawImage(stamp, 0, 0)
       dye.globalCompositeOperation = 'source-in'; dye.fillStyle = `rgb(${color})`; dye.fillRect(0, 0, dyed.width, dyed.height)
-      dye.globalCompositeOperation = 'source-over'; root!.dataset.outroColor = color
+      dye.globalCompositeOperation = 'source-over'
     }
     function mobilePoints(now: number): PaperPoint[] {
       if (!pointOwner || pointOwner.dataset.orbitState !== 'running' || pointOwner.dataset.orbitScene !== '8') return []
@@ -125,8 +129,7 @@ export function useOutroSurface(ref: RefObject<HTMLElement | null>) {
       const point = candidates.find(point => point.strand === nextStrand) ?? candidates[0]
       if (!point) { root!.dataset.outroWetBlock = 'candidate'; return }
       if (!prepareStamp()) { root!.dataset.outroWetBlock = 'canvas'; return }
-      stains.push({ x: point.x, y: point.y, birth: now, radius: 47 + Math.min(1, point.speed / .18) * 15,
-        angle: point.angle, strength: .135, life: wetFieldTiming.mobileLife, attack: wetFieldTiming.mobileAttack })
+      addStain(point.x, point.y, now, 'points', point.speed / .18, point.angle)
       nextStrand = 1 - point.strand; lastAutonomous = now; autonomousCount++
       root!.dataset.outroAutonomousStamps = String(autonomousCount)
     }
@@ -135,10 +138,8 @@ export function useOutroSurface(ref: RefObject<HTMLElement | null>) {
       if (now - bloom.sampledAt > desktopWetTiming.pendingLife || stains.length >= desktopWetTiming.regionLimit) { bloom = null; return }
       if (!desktopWetReady({ now, lastStain: lastDesktopAt, travel: bloom.travel, sampledAt: bloom.sampledAt, regions: stains.length })) return
       if (prepareStamp()) {
-        stains.push({ x: bloom.x, y: bloom.y, birth: now, radius: 96 + bloom.speed * 30,
-          angle: bloom.angle + Math.sin(stampIndex * 1.71) * .6, strength: .12 + bloom.speed * .025,
-          life: desktopWetTiming.life, attack: desktopWetTiming.attack })
-        emitted = { x: bloom.x, y: bloom.y }; lastDesktopAt = now; stampIndex++; desktopCount++
+        addStain(bloom.x, bloom.y, now, 'pointer', bloom.speed, bloom.angle)
+        emitted = { x: bloom.x, y: bloom.y }; lastDesktopAt = now; desktopCount++
         root!.dataset.outroDesktopStamps = String(desktopCount)
       }
       bloom = null
@@ -153,10 +154,12 @@ export function useOutroSurface(ref: RefObject<HTMLElement | null>) {
       if (desktop) desktopBloom(now)
       else autonomous(points, now)
       context?.clearRect(0, 0, width, height)
-      if (stains.length) colorStamp(now)
+      const colorSeconds = (now - colorOrigin) / 1000
+      if (stains.length) root!.dataset.outroColor = wetColorAt(colorSeconds).map(value => value.toFixed(3)).join(' ')
       for (const stain of stains) {
-        const envelope = wetEnvelope((now - stain.birth) / 1000, stain.life, stain.attack)
+        const envelope = wetEnvelope((now - stain.birth) / 1000, stain.life, stain.expansion)
         if (context && dyed) {
+          colorStamp(colorSeconds, stain.warmth)
           const size = stain.radius * envelope.spread * 2
           context.save(); context.globalAlpha = envelope.opacity * stain.strength
           context.translate(stain.x, stain.y); context.rotate(stain.angle)
@@ -227,8 +230,7 @@ export function useOutroSurface(ref: RefObject<HTMLElement | null>) {
       const distance = Math.max(candidate.distance, Math.hypot(event.clientX - candidate.x, event.clientY - candidate.y))
       if (blankTapIsWet(now - candidate.started, distance, interactive(event.target), contactCount) && stains.length < wetFieldTiming.regionLimit && prepareStamp()) {
         const box = root!.getBoundingClientRect()
-        stains.push({ x: event.clientX - box.left, y: event.clientY - box.top, birth: now, radius: 42, angle: -.4,
-          strength: .15, life: wetFieldTiming.mobileLife, attack: wetFieldTiming.mobileAttack })
+        addStain(event.clientX - box.left, event.clientY - box.top, now, 'tap', 0, -.4)
         lastAutonomous = now; tapCount++; root!.dataset.outroTapStamps = String(tapCount); request()
       }
     }

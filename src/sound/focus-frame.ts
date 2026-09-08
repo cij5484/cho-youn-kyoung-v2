@@ -1,4 +1,6 @@
-/** Final continuation frame, before the sticky stage departs. Geometry shares the Hero controller's denominator. */
+import { measureSoundScrollGeometry, soundFocusFrame } from './scroll-geometry.ts'
+
+/** The same authored denominator as Hero; mobile can land inside its additional end hold. */
 export function soundFocusTarget(root: HTMLElement) {
   const scene = root.querySelector<HTMLElement>('.poster-scene')!
   const stage = scene.querySelector<HTMLElement>('.poster-stage')!
@@ -8,10 +10,8 @@ export function soundFocusTarget(root: HTMLElement) {
     const panel = root.querySelector<HTMLElement>('.sound-surface')!
     return { top: scrollY + panel.getBoundingClientRect().top - obstruction, progress: 1 }
   }
-  const travel = Math.max(1, scene.offsetHeight - stage.offsetHeight)
-  // Keep the fully extended pair well below the header, with a small in-pin landing margin.
-  const margin = Math.min(stage.offsetHeight * .015, Math.max(0, stage.offsetHeight * .37 - obstruction) * .08)
-  return { top: scrollY + scene.getBoundingClientRect().top + travel - margin, progress: 1 - margin / travel }
+  const frame = soundFocusFrame(measureSoundScrollGeometry(scene, stage), stage.offsetHeight, obstruction)
+  return { top: scrollY + scene.getBoundingClientRect().top + frame.offset, progress: frame.progress }
 }
 
 /** One activation, one native smooth scroll. Direct user input cancels; no scroll listener re-snaps. */

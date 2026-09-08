@@ -23,12 +23,12 @@ test('mobile waits for entry and native scroll, then caps sparse regions at thre
   }
 })
 
-test('mobile paper grows quietly and is completely dry after its 5.2-second life', () => {
-  assert.equal(wetEnvelope(0, wetFieldTiming.mobileLife, wetFieldTiming.mobileAttack).opacity, 0)
-  assert.ok(wetEnvelope(.3, 5.2, .42).opacity > 0)
-  assert.ok(wetEnvelope(3, 5.2, .42).spread > wetEnvelope(.3, 5.2, .42).spread)
-  assert.equal(wetEnvelope(5.2, 5.2, .42).opacity, 0)
-  assert.equal(wetEnvelope(8, 5.2, .42).opacity, 0)
+test('mobile paper expands over 1.5 seconds and is completely dry after its six-second base life', () => {
+  assert.equal(wetEnvelope(0, wetFieldTiming.mobileLife).opacity, 0)
+  assert.ok(wetEnvelope(.3, 6, 1.5).opacity > 0)
+  assert.ok(wetEnvelope(1.5, 6, 1.5).spread > wetEnvelope(.3, 6, 1.5).spread * 2)
+  assert.equal(wetEnvelope(6, 6, 1.5).opacity, 0)
+  assert.equal(wetEnvelope(8, 6, 1.5).opacity, 0)
 })
 
 test('only a short stationary blank tap adds paper; scrolling or links do not', () => {
