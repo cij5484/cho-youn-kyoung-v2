@@ -1,16 +1,16 @@
 # Implementation Task Protocol — mandatory bounded work
 
-Revision 1.30 · 2026-09-08 · opt-in experience prototypes / subpage research; lean visual validation.
+Revision 1.31 · 2026-09-08 · Canonical experience / HOME fix / actual WORKS; lean validation.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
 
-**Current Experience Prototype / Subpage Research pass:** start from clean main/origin `150529b`, preserve 04 and
-all approved default HOME owners. Parallel tracks own opt-in 07 photo/profile, opt-in 03/06 Scene Magnet and one
-reference/subpage research report. Main owns the reused development comparison UI, query/lazy-load integration,
-common MD, minimal checks and PR/main/automatic Preview delivery. Research does not authorize full subpage code.
-New effects stay OFF at the ordinary deployed URL. No Edition Gate, Classic integration, domain/SEO changes or
-Full Release Gate. Report the real compare URL and user choices, then STOP. Rollback only this branch's opt-in diff.
+**Current Canonical / HOME Fix / WORKS bundle (2026-09-08):** explicit user authorization starts at
+clean main `00229d3`. Parallel owned tracks cover persisted choice/promotion, 06/08 and the first real WORKS.
+Shared routing/Preview/docs integrate once. Preserve 04 and completed Hanji no-zoom; run the requested small
+contracts and built-mode sanity, then Fast CI → PR → merge → automatic Preview → minimal public verification.
+Full Release Gate and unrelated SOUND Canvas investigation are excluded. Promotion approval is explicit for
+Hanji/Profile/Magnet; new WORKS/08 visuals remain reviewable. [Workflow](EXPERIENCE-PROMOTION.md) owns details.
 
 **Lean Visual Validation:** type/compile, changed-area lint, actual Preview build and focused critical runtime checks;
 small endpoint/cancellation models and the minimum desktop/mobile interaction sanity. Read command inclusion first.
@@ -40,7 +40,7 @@ PR #9 / `d98aaa6` records that completed prerequisite.
 **Current delivery revision, user authorized 2026-09-08:** development Pages preview automatically deploys
 on main push/merge after Fast + preview build. Full browser validation remains a separate manual Release Gate. The existing HOME/InteractionLab is mounted
 unchanged by `preview/main.tsx`; `build:development-preview` emits its own noindex artifact with catalog-derived
-HTML build inputs. Release root/project prerender fixtures remain separate and retain their original checks.
+HTML build inputs. Release root/project prerender remains separate; actual KO WORKS replaces its fixture with locale-aware checks.
 This pipeline task uses Fast/build/actionlint and public-URL smoke only; stop Linux WebKit SOUND investigation.
 Preview delivery is not a release-quality claim. This supersedes earlier Full-before-preview policy.
 

@@ -44,7 +44,7 @@ export function EditorialNavigation({ catalog, mainId }: Props) {
 
   return <>
     <a className="skip-link" href={`#${mainId}`}>{ko ? '본문으로 이동' : 'Skip to content'}</a>
-    <header className="editorial-navigation" data-prototype="P2B_NAVIGATION_LAB_ONLY">
+    <header className="editorial-navigation">
       <Link className="nav-signature" to={routeHref(model.home)} aria-label={ko ? '조윤경 홈' : 'Cho Youn Kyoung home'} lang="en">CHO YOUN KYOUNG</Link>
       <button className="menu-toggle menu-trigger" aria-label="MENU" aria-haspopup="dialog" aria-expanded={phase !== 'closed'}
         aria-controls="navigation-menu" onClick={() => reveal.current?.open()}>{triggerGraphic}</button>

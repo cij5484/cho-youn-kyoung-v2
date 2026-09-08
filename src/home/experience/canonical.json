@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "kind": "experience-canonical",
+  "options": {
+    "portrait": "hanji",
+    "magnet": true,
+    "points": true,
+    "janggu": true,
+    "type": true,
+    "color": "lacquer"
+  }
+}

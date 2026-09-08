@@ -1,10 +1,10 @@
 import type { MetaDescriptor } from 'react-router'
 import { routeMetadata } from '../routing/locale-contract'
-import { spikeCatalog } from './fixtures'
+import { siteCatalog } from '../routing/site-catalog'
 import { logicalPath, siteLocation } from './paths'
 
 export function spikeMetadata(pathname: string): MetaDescriptor[] {
-  const metadata = routeMetadata(logicalPath(pathname), spikeCatalog, siteLocation)
+  const metadata = routeMetadata(logicalPath(pathname), siteCatalog, siteLocation)
   return [
     { title: metadata?.title ?? '404 | P0B' },
     { name: 'description', content: metadata?.description ?? 'Unknown routing spike path.' },

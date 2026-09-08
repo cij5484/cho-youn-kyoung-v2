@@ -11,7 +11,7 @@ export function navigationModel(pathname: string, catalog: readonly SemanticRout
     home: localizedPath('/', lang),
     links: sections.flatMap(key => {
       const record = catalog.find(route => route.key === key)
-      const to = record && routePair(record)[lang]
+      const to = record && (routePair(record)[lang] ?? routePair(record).ko)
       return to ? [{ key, label: key.toUpperCase(), to, current: section === key,
         exact: normalizePath(pathname) === to }] : []
     }),

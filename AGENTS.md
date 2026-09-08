@@ -75,11 +75,12 @@ judgment of elegance, crop, typography, motion feel or A/B preference: the user 
 Fix errors introduced by the current change; report unrelated failures separately. Keep existing Fast CI and the
 manual Release Gate intact; never weaken tests, claim unperformed device QA or promote a prototype automatically.
 
-**Current protection:** HOME 04 stays exactly on the restored `d98aaa6` ribbon within latest main `150529b`.
+**Current protection:** HOME 04 stays exactly on the restored `d98aaa6` ribbon within this pass baseline main `00229d3`.
 Do not touch its JSX/CSS/choreography, or reintroduce Depth Queue, clips, holds, afterimages or Scene Magnet indirectly.
-New 07 photo/profile and 03/06 alignment candidates are opt-in experiments; ordinary deployed Preview keeps its
-existing HOME. `?dev=1` is an explicit comparison switch, not authentication. Legacy `?compare`/`?all` remain aliases;
-`?dev=0`/exit removes experiments. Never put private originals, local source paths or secrets into comparison UI.
+User selected 07 Hanji + Compact Profile and 03/06 Scene Magnet as Canonical; their formal owner is
+`src/home/experience`. Normal URL and `?dev=0` use Canonical. Explicit `?dev=1` uses URL > saved Draft >
+Canonical; exit disables overrides, not Canonical. See the promotion workflow. Legacy `?compare`/`?all` remain
+aliases, not authentication. Never put private originals, local source paths or secrets into comparison UI.
 Classic remains a separate operating repository/build. Edition Gate and any Classic path/deployment integration are
 FUTURE work after the complete V2, not part of this prototype or subpage research pass.
 

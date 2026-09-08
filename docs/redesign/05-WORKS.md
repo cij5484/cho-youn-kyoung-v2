@@ -1,14 +1,31 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 05 — WORKS
 
-**Version:** 1.2\
-**Status:** Approved WORKS Baseline  
+**Version:** 1.3\
+**Status:** First real KO WORKS implemented / REVIEW READY; baseline preserved\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`  
 **Page Role:** Visual Archive + Functional Archive
 
-## 2026-09-08 연구 반영 — 다음 구현 후보
+## 2026-09-08 실제 구현 — REVIEW READY
 
-기존 Dual Archive + Unified Timeline baseline을 유지한다. 현재 `/works/`는 **route fixture**이며
+`src/works/WorksPage.tsx` 하나를 Framework와 Pages Preview `/works/`에서 사용한다. Album/package와
+Performance/poster 비대칭 portal 두 개가 동일 DOM으로 이동·축소되며 12열 editorial archive로 이어진다.
+모바일은 큰 세로 portal/1열 archive. ALL/ALBUMS/PERFORMANCES는 query 기반 reflow와 Back/Forward를 보존하며,
+Chronological Index는 별도의 정확한 탐색층이다. Reduced motion은 정적 기록/필터를 유지한다.
+
+독립 `catalog.ts`/`source-manifest.json`은 legacy main `3df8057`의 전체 음반 4건·공연 3건을 감사했다.
+P1D 비공개 충돌 1건을 제외한 **음반 3건 + 공연 3건**만 최소 사실로 포함한다. HOME selection을 전체 기록으로
+간주하지 않는다. 미확인 발매일은 만들지 않고 발매 예정 상태를 유지한다. 상세는 확인된 legacy `/#/album/...`,
+`/#/performance/...`로 연결한다. V2는 clean URL 유지, 다른 서브페이지와 Native detail transition은 미구현이다.
+
+영문 번역 미확보: KO만 공개하고 `/en/works/`를 생성하지 않는다. 실제 KO metadata와 ko/x-default만 출력한다.
+공통 EN 메뉴에서 원문 KO WORKS로 접근 가능하며 이 페이지의 EN 언어 전환은 unavailable이다.
+무대 실사진이 없는 항목은 공식 포스터를 사용한다. 새 2개 이미지는 기존 최적화본의 정확한 복사이며
+master를 변경하지 않았다. 자산 provisional 상태는 유지한다. 새 페이지의 시각 품질 승인은 사용자 검토 후다.
+
+## 2026-09-08 연구 반영 — historical plan
+
+기존 Dual Archive + Unified Timeline baseline을 유지한다. 아래는 구현 전 `/works/` **route fixture** 시점의 계획이며
 아래 후보는 구현·공개 콘텐츠·시각 승인이 아니다. HOME 04의 복원된 Desktop/Mobile ribbon은 고정한다.
 
 - **목적 / 첫 화면:** album 1개와 performance 1개의 비대칭 입구로 작업의 두 성격을 보여주고,

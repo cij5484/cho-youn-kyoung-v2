@@ -2,7 +2,7 @@
 ## 04 — HOME
 
 **Version:** 2.1\
-**Status:** HOME V2.1 baseline preserved; opt-in 07 / 03·06 prototypes implemented, user selection pending; delivery and technical checks in HANDOFF\
+**Status:** Hanji/Profile and 03·06 Scene Magnet selected as Canonical; slow/mobile 08 and 06 built fix implemented; delivery/visual review in HANDOFF\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`  
 **Art Direction:** Contemporary Editorial / Ivory  
 **Narrative Structure:** ARTIST → INSTRUMENT → SOUND → WORK → OBJECT → STAGE → ARTIST → NAME
@@ -1389,7 +1389,7 @@ Stable album object/front/back identities and the featured performance content/i
 No destination snapshot, route-transition handler or new detail route was added. These hooks preserve identity for a
 separately authorized transition, while current links and local selection retain their existing behavior.
 
-## 2026-09-08 Experience Prototype — opt-in / 사용자 선택 대기
+## 2026-09-08 Experience Prototype — historical comparison, superseded by promotion below
 
 **기본 화면:** main `150529b`의 복원된 04 Desktop/Mobile ribbon을 고정한다. 새 Depth Queue, mask,
 감상 hold, 잔상, Scene Magnet을 04에 추가하지 않는다. Hero/Haegeum/SOUND, 앨범 조작/교체와
@@ -1415,3 +1415,21 @@ LISTEN과 직접 이동/키보드/메뉴가 우선한다. 입력·관성 종료 
 `?dev=0` / 종료는 후보를 해제한다. 기존 `?compare` / `?all`은 호환한다. 사용자 선택 대기 후보를
 cleanup으로 삭제하지 않는다. URL은 보안 장치가 아니며 개인정보/비공개 자산을 담지 않는다.
 비교 주소·추천·검증은 [통합 연구/결과 §7](review/EXPERIENCE-PROTOTYPE-RESEARCH.md#7-home-비교-실험-결과)에만 기록한다.
+
+
+## 2026-09-08 Canonical promotion / HOME fixes
+
+사용자 선택으로 07 **Hanji Wet Reveal + Compact Profile**, 03/06 **Scene Magnet**을 일반 Preview에 승격한다.
+정식 owner는 `src/home/experience`; `DevelopmentTools`는 선택 UI만 담당한다. 일반 URL/`dev=0`은 Canonical,
+`dev=1`은 URL → 저장 Draft → Canonical이다. [승격 절차](review/EXPERIENCE-PROMOTION.md).
+한복 100% 완료 후 scale/crop 고정과 .825–.955 Viewing Window를 보존한다. 04 ribbon은 그대로다.
+
+06의 built-only 지연 표시 원인은 fetch/base/timeline이 아니라 `.dark-stage`와 copy overlay의 동일 specificity
+배경 충돌이었다. sequence 안의 copy overlay만 명시적으로 투명하게 하고, 포스터 한 장만 낮은 fetch priority로
+미리 decode한다. aperture/07 handoff 타이밍과 9/22 콘텐츠는 변경하지 않는다.
+
+08 기존 wet shape·Ivory 회복·glyph·두 점·Hover·Scene Index를 유지한다. 색은 stain 개수와 무관한 72초 clock에서
+Violet→Bronze→Lacquer를 연속 보간한다. Mobile은 별도 cursor 없이 실제 두 점을 source로 공유 surface를 사용한다.
+850ms quiet entry, 280ms scroll settlement, 최소 1.8초 생성 간격, 동시 최대 3개, 5.2초 decay. 빈 공간의
+280ms/8px 이내 tap만 보조 반응하고 scroll/link/multitouch를 가로채지 않는다. Reduced motion에서는 번짐과
+근처 glyph 반응을 끄고 이름·링크·Index를 유지한다. 새 08 strength/cadence는 REVIEW READY이며 기기 QA와 구별한다.

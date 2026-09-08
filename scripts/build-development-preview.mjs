@@ -4,14 +4,14 @@ import { dirname, relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { build } from 'vite'
 import { buildTargets } from '../config/build.ts'
-import { spikeRoutes } from '../src/spike/fixtures.ts'
+import { siteRoutes } from '../src/routing/site-catalog.ts'
 
 const repository = fileURLToPath(new URL('..', import.meta.url))
 const inputRoot = resolve(repository, '.checkpoints/development-preview-input')
 const output = resolve(repository, 'build-development-preview')
 const entry = resolve(repository, 'preview/main.tsx')
 const input = {}
-for (const route of spikeRoutes) {
+for (const route of siteRoutes) {
   const html = resolve(inputRoot, route.path === '/' ? 'index.html' : `${route.path.slice(1)}/index.html`)
   await mkdir(dirname(html), { recursive: true })
   const script = relative(dirname(html), entry).replaceAll('\\', '/')

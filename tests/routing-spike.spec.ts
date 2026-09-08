@@ -3,7 +3,8 @@ import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { expect, test, type Page, type TestInfo } from '@playwright/test'
 import { getBuildTarget } from '../config/build.ts'
-import { spikeRoutes, type SpikeRoute } from '../src/spike/fixtures.ts'
+import type { SpikeRoute } from '../src/spike/fixtures.ts'
+import { siteRoutes } from '../src/routing/site-catalog.ts'
 import { expectLocaleMetadata } from './metadata-assertions.ts'
 import { assertDraftArtifactsExcluded } from './assert-draft-artifacts.ts'
 import { contentCatalog } from '../src/content/registry.server.ts'
@@ -16,17 +17,18 @@ function pathAtBase(fixture: SpikeRoute, info: TestInfo, trailingSlash = true) {
 
 async function checkMetadata(page: Page, fixture: SpikeRoute, info: TestInfo) {
   const target = getBuildTarget(info.project.name)
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText(`${fixture.name} (${fixture.lang})`)
-  await expect(page).toHaveTitle(`${fixture.name} (${fixture.lang}) | P0B`)
+  const actualWorks = fixture.key === 'works'
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(actualWorks ? 'Works.' : `${fixture.name} (${fixture.lang})`)
+  await expect(page).toHaveTitle(actualWorks ? 'WORKS — 조윤경' : `${fixture.name} (${fixture.lang}) | P0B`)
   await expect(page.locator('html')).toHaveAttribute('lang', fixture.lang)
-  await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', `Routing spike: ${fixture.path} [${fixture.lang}]. Test metadata only.`)
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', actualWorks ? '조윤경의 음반과 공연 기록.' : `Routing spike: ${fixture.path} [${fixture.lang}]. Test metadata only.`)
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `${target.canonicalOrigin}${pathAtBase(fixture, info)}`)
   await expectLocaleMetadata(page, fixture, target.canonicalOrigin, target.base)
 }
 
 test.describe('Static HTML without JavaScript', () => {
   test.use({ javaScriptEnabled: false })
-  for (const fixture of spikeRoutes) {
+  for (const fixture of siteRoutes) {
     test(`direct ${fixture.path}: HTML, metadata, links and assets`, async ({ page, request }, info) => {
       const target = getBuildTarget(info.project.name)
       const response = await page.goto(pathAtBase(fixture, info, false))
@@ -35,13 +37,21 @@ test.describe('Static HTML without JavaScript', () => {
       expect((await page.reload())?.status()).toBe(200)
       await checkMetadata(page, fixture, info)
       await expect(page).toHaveURL(new URL(pathAtBase(fixture, info), info.project.use.baseURL).href)
-      for (const link of spikeRoutes) {
-        await expect(page.locator(`[data-route-id="${link.id}"]`)).toHaveAttribute('href', pathAtBase(link, info))
+      if (fixture.key === 'works') {
+        await expect(page.locator('.editorial-navigation .nav-signature')).toHaveAttribute('href', target.base)
+        await expect(page.locator('.menu-links a')).toHaveCount(5)
+        await expect(page.locator('.works-card')).toHaveCount(6)
+        await expect(page.locator('.works-index-list a')).toHaveCount(6)
+        await expect(page.locator('a[href*="/en/works"]')).toHaveCount(0)
+      } else {
+        for (const link of siteRoutes) {
+          await expect(page.locator(`[data-route-id="${link.id}"]`)).toHaveAttribute('href', pathAtBase(link, info))
+        }
       }
       const references = await page.locator('link[rel="stylesheet"], link[rel="modulepreload"], img').evaluateAll((elements) => elements.map((el) => el.getAttribute('href') ?? el.getAttribute('src') ?? ''))
       expect(references.some((url) => url.endsWith('.css'))).toBe(true)
       expect(references.some((url) => url.endsWith('.js'))).toBe(true)
-      expect(references.some((url) => url.endsWith('.svg'))).toBe(true)
+      expect(references.some((url) => url.endsWith(fixture.key === 'works' ? '.webp' : '.svg'))).toBe(true)
       for (const url of references) {
         expect(url.startsWith(target.base)).toBe(true)
         expect((await request.get(url)).status()).toBe(200)
@@ -55,7 +65,7 @@ test.describe('Static HTML without JavaScript', () => {
   }
 })
 
-for (const fixture of spikeRoutes) {
+for (const fixture of siteRoutes) {
   test(`hydrated ${fixture.path}: direct, hard refresh, semantic counterpart and history`, async ({ page, context }, info) => {
     const errors: string[] = []
     page.on('pageerror', (error) => errors.push(error.message))
@@ -70,15 +80,41 @@ for (const fixture of spikeRoutes) {
     await page.waitForLoadState('networkidle')
     await checkMetadata(page, fixture, info)
     await page.evaluate(() => { Object.assign(window, { p0dMarker: true }) })
-    const counterpart = spikeRoutes.find((route) => route.key === fixture.key && route.lang !== fixture.lang)!
-    await page.locator(`[data-route-id="${counterpart.id}"]`).click()
-    await checkMetadata(page, counterpart, info)
-    await expect(page).toHaveURL(new URL(pathAtBase(counterpart, info), info.project.use.baseURL).href)
-    expect(await page.evaluate(() => Reflect.get(window, 'p0dMarker'))).toBe(true)
-    await page.goBack()
-    await checkMetadata(page, fixture, info)
-    await page.goForward()
-    await checkMetadata(page, counterpart, info)
+    if (fixture.key === 'works') {
+      await page.getByRole('button', { name: 'MENU', exact: true }).click()
+      await expect(page.locator('dialog')).toHaveAttribute('data-phase', 'open')
+      await expect(page.getByRole('button', { name: 'English — translation unavailable' })).toBeDisabled()
+      await expect(page.locator('dialog a[hreflang="en"]')).toHaveCount(0)
+      await page.keyboard.press('Escape')
+      await expect(page.locator('dialog')).not.toBeVisible()
+      await page.getByRole('button', { name: '음반 3건', exact: true }).click()
+      await expect(page.locator('.works-page')).toHaveAttribute('data-filter', 'albums')
+      await expect(page.locator('.works-card[data-kind="album"]')).toHaveCount(3)
+      await expect(page.locator('.works-card[data-kind="performance"]')).toHaveCount(0)
+      expect(new URL(page.url()).searchParams.get('type')).toBe('albums')
+      await page.getByRole('button', { name: '공연 3건', exact: true }).click()
+      await expect(page.locator('.works-card[data-kind="performance"]')).toHaveCount(3)
+      await expect(page.locator('.works-card[data-kind="album"]')).toHaveCount(0)
+      await page.goBack()
+      await expect(page.locator('.works-page')).toHaveAttribute('data-filter', 'albums')
+      await page.goBack()
+      await expect(page.locator('.works-page')).toHaveAttribute('data-filter', 'all')
+      await expect(page.locator('.works-card')).toHaveCount(6)
+      await page.goForward()
+      await expect(page.locator('.works-page')).toHaveAttribute('data-filter', 'albums')
+      await checkMetadata(page, fixture, info)
+      expect(await page.evaluate(() => Reflect.get(window, 'p0dMarker'))).toBe(true)
+    } else {
+      const counterpart = siteRoutes.find((route) => route.key === fixture.key && route.lang !== fixture.lang)!
+      await page.locator(`[data-route-id="${counterpart.id}"]`).click()
+      await checkMetadata(page, counterpart, info)
+      await expect(page).toHaveURL(new URL(pathAtBase(counterpart, info), info.project.use.baseURL).href)
+      expect(await page.evaluate(() => Reflect.get(window, 'p0dMarker'))).toBe(true)
+      await page.goBack()
+      await checkMetadata(page, fixture, info)
+      await page.goForward()
+      await checkMetadata(page, counterpart, info)
+    }
     expect(errors).toEqual([])
     await cdp.detach()
   })
@@ -89,22 +125,24 @@ test('hydrated links, both locales, assets, history and reload', async ({ page }
   page.on('pageerror', (error) => errors.push(error.message))
   page.on('console', (message) => { if (message.type() === 'error') errors.push(message.text()) })
   page.on('response', (response) => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`) })
-  await page.goto(pathAtBase(spikeRoutes[0], info))
+  await page.goto(pathAtBase(siteRoutes[0], info))
   await page.waitForLoadState('networkidle')
   // A full document navigation drops this marker; genuine client navigation retains it.
   await page.evaluate(() => { Object.assign(window, { p0bDocumentMarker: 'same-document' }) })
-  for (const fixture of spikeRoutes.slice(1)) {
+  for (const fixture of siteRoutes.slice(1)) {
+    // The real page keeps the approved menu, not the neutral fixture's debug links.
+    if (await page.locator('.works-page').count()) await page.locator('.editorial-navigation .nav-signature').click()
     await page.locator(`[data-route-id="${fixture.id}"]`).click()
     await checkMetadata(page, fixture, info)
     await expect(page).toHaveURL(new URL(pathAtBase(fixture, info), info.project.use.baseURL).href)
     expect(await page.evaluate(() => Reflect.get(window, 'p0bDocumentMarker'))).toBe('same-document')
   }
   await page.goBack()
-  await checkMetadata(page, spikeRoutes[spikeRoutes.length - 2], info)
+  await checkMetadata(page, siteRoutes[siteRoutes.length - 2], info)
   await page.goForward()
-  await checkMetadata(page, spikeRoutes[spikeRoutes.length - 1], info)
+  await checkMetadata(page, siteRoutes[siteRoutes.length - 1], info)
   expect((await page.reload())?.status()).toBe(200)
-  await checkMetadata(page, spikeRoutes[spikeRoutes.length - 1], info)
+  await checkMetadata(page, siteRoutes[siteRoutes.length - 1], info)
   expect(await page.locator('img').evaluate((img) => (img as HTMLImageElement).naturalWidth)).toBe(16)
   expect(await page.locator('html').evaluate((el) => getComputedStyle(el).getPropertyValue('--p0b-css-loaded').trim())).toBe('1')
   await page.screenshot({ path: `test-results/${info.project.name}-neutral-shell.png`, fullPage: true })
@@ -113,7 +151,7 @@ test('hydrated links, both locales, assets, history and reload', async ({ page }
 
 test('strict host returns HTTP 404 for unknown routes, slugs and assets', async ({ request }, info) => {
   const { base } = getBuildTarget(info.project.name)
-  for (const path of ['ko', 'ko/works/', 'missing-route', 'missing-route/', 'album/missing-album/', 'performance/missing-performance/', 'en/album/missing-album/', 'en/performance/missing-performance/', 'assets/missing.js']) {
+  for (const path of ['ko', 'ko/works/', 'en/works/', 'missing-route', 'missing-route/', 'album/missing-album/', 'performance/missing-performance/', 'en/album/missing-album/', 'en/performance/missing-performance/', 'assets/missing.js']) {
     const response = await request.get(`${base}${path}`)
     expect(response.status()).toBe(404)
     expect(await response.text()).toBe('404 Not Found')
@@ -126,7 +164,7 @@ test('strict host returns HTTP 404 for unknown routes, slugs and assets', async 
 
 test('client unknown routes and slugs show 404, distinct from HTTP status', async ({ page }, info) => {
   for (const link of ['unknown-link', 'unknown-album-link']) {
-    await page.goto(pathAtBase(spikeRoutes[0], info))
+    await page.goto(pathAtBase(siteRoutes[0], info))
     await page.waitForLoadState('networkidle')
     await page.getByTestId(link).click()
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('404')
@@ -139,7 +177,7 @@ test('client unknown routes and slugs show 404, distinct from HTTP status', asyn
 })
 
 test('slash redirect preserves query; canonical excludes query/hash', async ({ page, request }, info) => {
-  const fixture = spikeRoutes[1]
+  const fixture = siteRoutes[1]
   const direct = pathAtBase(fixture, info, false)
   const response = await request.get(`${direct}?p0b=1`, { maxRedirects: 0 })
   expect(response.status()).toBe(301)

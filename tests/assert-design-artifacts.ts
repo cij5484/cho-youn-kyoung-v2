@@ -1,3 +1,4 @@
+import { siteRoutes } from '../src/routing/site-catalog.ts'
 import assert from 'node:assert/strict'
 import { readFile, readdir } from 'node:fs/promises'
 import { resolve } from 'node:path'
@@ -6,7 +7,7 @@ import { getBuildTarget, type BuildTargetName } from '../config/build.ts'
 export async function assertDesignArtifacts(targetName: BuildTargetName) {
   const target = getBuildTarget(targetName)
   let fontBytes = 0, fontFiles = 0, javascriptBytes = 0
-  const markers = ['P2A_DESIGN_SYSTEM_LAB_ONLY', 'lab-sheet', 'Design foundation', 'labs/design-system', 'P2B_NAVIGATION_LAB_ONLY', 'editorial-navigation', 'navigation-menu', 'nav-lab-space', 'labs/navigation', 'P2C_HERO_LAB_ONLY', 'P2D_HERO_LAB_ONLY', 'bold-hero', 'src/hero', 'poster-scene', 'portrait-initial', 'portrait-instrument', 'labs/hero', 'P2E_HAEGEUM_LAB_ONLY', 'haegeum-experience', 'haegeum-playing', 'haegeum-editorial-ai', 'src/haegeum', 'labs/haegeum', 'P2G_SOUND_LAB_ONLY', 'sound-experience', 'sound-surface', 'sound-thread', 'hanbeomsu-jungjungmori-preview', 'src/sound', 'labs/sound']
+  const markers = ['P2A_DESIGN_SYSTEM_LAB_ONLY', 'lab-sheet', 'Design foundation', 'labs/design-system', 'P2B_NAVIGATION_LAB_ONLY', 'nav-lab-space', 'labs/navigation', 'P2C_HERO_LAB_ONLY', 'P2D_HERO_LAB_ONLY', 'bold-hero', 'src/hero', 'poster-scene', 'portrait-initial', 'portrait-instrument', 'labs/hero', 'P2E_HAEGEUM_LAB_ONLY', 'haegeum-experience', 'haegeum-playing', 'haegeum-editorial-ai', 'src/haegeum', 'labs/haegeum', 'P2G_SOUND_LAB_ONLY', 'sound-experience', 'sound-surface', 'sound-thread', 'hanbeomsu-jungjungmori-preview', 'src/sound', 'labs/sound']
   async function inspect(directory: string) {
     for (const entry of await readdir(directory, { withFileTypes: true })) {
       const path = resolve(directory, entry.name)
@@ -23,7 +24,8 @@ export async function assertDesignArtifacts(targetName: BuildTargetName) {
   fontBytes = 0; fontFiles = 0; javascriptBytes = 0
   await inspect(resolve(target.directory, 'static'))
   const manifest = JSON.parse(await readFile(resolve(target.directory, 'static/build-info.json'), 'utf8'))
-  assert.equal(manifest.routes.length, 18)
+  assert.deepEqual(manifest.routes, siteRoutes.map(route => route.path))
+  assert.ok(!manifest.routes.includes('/en/works'))
   assert.ok(manifest.routes.every((path: string) => !path.includes('/lab')))
   const cssNames = (await readdir(resolve(target.directory, 'static/assets'))).filter(name => name.endsWith('.css'))
   let localFontUrls = 0
@@ -45,5 +47,5 @@ export async function assertDesignArtifacts(targetName: BuildTargetName) {
     assert.deepEqual(await readFile(resolve(target.directory, `static/licenses/${name}-OFL.txt`)),
       await readFile(`node_modules/@fontsource-variable/${name}/LICENSE`))
   }
-  return { target: targetName, routes: 18, labExcluded: true, localFontUrls, fontFiles, fontBytes, javascriptBytes }
+  return { target: targetName, routes: siteRoutes.length, labExcluded: true, localFontUrls, fontFiles, fontBytes, javascriptBytes }
 }
