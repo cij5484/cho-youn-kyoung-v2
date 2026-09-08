@@ -4,6 +4,7 @@
   "options": {
     "portrait": "hanji",
     "magnet": true,
+    "worksLayout": "current",
     "points": true,
     "janggu": true,
     "type": true,

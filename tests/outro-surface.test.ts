@@ -20,8 +20,8 @@ test('both inherited points remain alive at the end, without a scroll-dependent 
 
 test('the paper response dries completely, while nearby glyph tension stays small and local', () => {
   assert.deepEqual(wetEnvelope(-.006), wetEnvelope(0))
-  assert.equal(wetEnvelope(-.006).opacity, 1)
-  assert.equal(wetEnvelope(1.45).opacity, 0)
+  assert.equal(wetEnvelope(-.006).opacity, 0)
+  assert.equal(wetEnvelope(6).opacity, 0)
   assert.equal(wetEnvelope(30).opacity, 0)
   assert.ok(wetEnvelope(.3).opacity > wetEnvelope(.9).opacity)
   assert.deepEqual(outroGlyphTarget(205, 205, 205), restingGlyph)

@@ -1,10 +1,50 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 05 — WORKS
 
-**Version:** 1.4\
-**Status:** Dual Worlds → Convergence → Archive rebuilt / REVIEW READY; previous visual direction rejected\
+**Version:** 1.5\
+**Status:** Current DOM archive preserved; Three.js Spatial Helix development candidate / REVIEW READY (not promoted)\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`  
 **Page Role:** Visual Archive + Functional Archive
+
+## 2026-09-08 Three.js Spatial Archive — development candidate
+
+사용자가 새 **Dual Helix Spatial Archive** prototype을 명시적으로 요청했다. 일반 `/works/`의 현재 DOM
+구성과 상단 title 위치는 그대로다. `worksLayout: spatial-helix`는 검토·저장·승격 가능한 후보이며 자동 적용하지 않는다.
+개발 URL: `/works/?dev=1&works=spatial-helix`; 종료/`dev=0`는 current Canonical로 복귀한다.
+[공유 선택·승격 계약](review/EXPERIENCE-PROMOTION.md#works-extension--2026-09-08).
+이 선택은 HOME와 동일한 development Pages Preview/Interaction Lab에서 제공한다. 정식 Framework root
+빌드는 기존 `WorksPage`만 참조하며 Three 후보와 HOME 개발 도구를 포함하지 않는다. 향후 정식 사이트
+통합은 별도 승인 범위이며, Preview에서의 Draft/Canonical 선택과 구별한다.
+
+후보는 direct Three.js core의 Scene / PerspectiveCamera / 실제 얇은 입체 object / quaternion / Raycaster를
+사용한다. Album과 Performance를 두 strand에 배치하고 실제 Z·perspective·occlusion과 curve-local orientation으로
+이동한다. 항상 정면인 billboard carousel이나 CSS 3D가 아니다. Focus arc에서만 slerp로 읽기 좋게 정렬한다.
+표지와 포스터의 native 비율, 실제 texture와 중립 뒷면을 유지하고 그림/글자를 변형하지 않는다.
+
+Native vertical scroll이 입력을 소유하고 damped motion이 멈추면 render도 쉰다. Mobile은 같은 수학의 별도
+반경·camera·강조 범위를 사용한다. 마지막에는 depth와 회전을 줄여 작은 thumbnail/제목/날짜/필터의
+Compact Archive로 정리한다. 거대한 이미지 grid를 다시 만들지 않는다. 활성 제목과 링크는 DOM에 남는다.
+WebGL unsupported/context lost/reduced motion은 실제 6개 이미지와 링크가 있는 compact 탐색으로 이어진다.
+
+후보 owner는 `src/works/spatial/{model,scene,SpatialWorksPage,spatial.css}`다. Perspective FOV는
+Desktop38° / Mobile40°, DPR cap은1.5/1.25다. 두 strand의 phase는π이며 tangent/radial/binormal basis에서
+quaternion을 만든다. 불균등 focus 간격은 연속 ordinal 좌표로 보정하며 focus 부근에서만 readable pose로
+slerp한다. Mobile은 실제 heading/caption 사이에 viewing band를 잡고 이전/현재/다음 작품을 위·아래
+partial arc로 분리한다. 먼 작품은 작은 파편으로 축소하지 않고 깊이와 opacity로 물러난다.
+
+마지막20%에서 두 strand가 작은 두 열로 풀리며 Compact Archive에 이어진다. Geometry는6개 thin box,
+texture도6개만 공유한다. Loading 중 최종 scroll geometry를 예약해 늦은 texture 로드가 page height를
+바꾸지 않는다. Reduced-motion을 다시 해제할 때는 새 canvas/context를 만들며 pending texture와 늦은
+callback까지 generation/dispose 경계에서 정리한다. WORKS 전용 canvas class는 HOME Canvas와 분리한다.
+
+1440/390 Chromium에서 texture6개, 순·역방향 orientation, Raycaster의 동일 실제 링크, mobile native scroll,
+settled/offscreen render 중단, reduced on→off 재시작, context loss/unsupported fallback을 확인했다.
+이는 자동화 Chromium/소프트웨어 WebGL 검증이며 물리 GPU·휴대폰·Safari QA를 의미하지 않는다.
+별도 Three scene chunk는 약530KB minified /134KB gzip이며 일반HOME/currentWORKS 초기 요청에는 없다.
+Vite의500KB chunk advisory는 숨기지 않는다. 후보 진입의 초기 전송 비용은 남아 있는 성능 검토 항목이다.
+
+6개 검증 record, KO route, 원문 legacy detail destination과 자산 provenance를 재사용한다. 새 Three 후보에
+3D physics, Blender, R3F, postprocessing을 추가하지 않는다. 기술 검증은 자연스러운 3D의 시각 승인을 대신하지 않는다.
 
 ## 2026-09-08 실제 구현 — Visual Rebuild / REVIEW READY
 

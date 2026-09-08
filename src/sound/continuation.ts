@@ -1,5 +1,6 @@
 import { haegeumContinuation } from '../haegeum/choreography.ts'
 import type { HeroContinuation } from '../hero/useHeroMotion.ts'
+import { measureSoundScrollGeometry } from './scroll-geometry.ts'
 
 // P2F keeps its original155svh. Only the following80svh belongs to the release into SOUND.
 export const HAEGEUM_SHARE = 155 / 235
@@ -9,6 +10,7 @@ const mix = (a: number, b: number, t: number) => a+(b-a)*t
 
 export const soundContinuation: HeroContinuation = {
   ...haegeumContinuation,
+  timelineTravel: (scene, stage) => measureSoundScrollGeometry(scene, stage).travel,
   portraitEnd: haegeumContinuation.portraitEnd * HAEGEUM_SHARE,
   imageEntry: (haegeumContinuation.imageEntry ?? .4) * HAEGEUM_SHARE,
   pointerGain: p => haegeumContinuation.pointerGain?.(clamp(p/HAEGEUM_SHARE)) ?? 0,

@@ -6,6 +6,7 @@ export interface HeroContinuation {
   requiredImages?: string
   imageEntry?: number
   pointerGain?: (progress: number) => number
+  timelineTravel?: (scene: HTMLElement, stage: HTMLElement) => number
   paint: (scene: HTMLElement, stage: HTMLElement, progress: number, still: boolean) => void
 }
 
@@ -34,7 +35,8 @@ export function useHeroMotion(ref: RefObject<HTMLElement | null>, continuation?:
       const bounds = scene.getBoundingClientRect()
       const reflow = (header?.offsetHeight ?? 0) > 112 && innerWidth < 640
       // Both measurements use the same stable viewport geometry, including Safari toolbar changes.
-      const target = clampProgress(-bounds.top / Math.max(1, scene.offsetHeight - stage.offsetHeight))
+      const travel = continuation?.timelineTravel?.(scene, stage) ?? scene.offsetHeight - stage.offsetHeight
+      const target = clampProgress(-bounds.top / Math.max(1, travel))
       // Missing continuation imagery switches to a readable static sequence. A late download cannot
       // insert a new photographic plane into a stationary, deep-scrolled composition.
       if (continuation?.requiredImages && target > (continuation.imageEntry ?? 1)) {

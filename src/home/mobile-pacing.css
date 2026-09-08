@@ -1,0 +1,10 @@
+/* Native mobile viewing distance only. The existing crops, ribbon and stage curves stay intact. */
+@media (max-width:639px) and (prefers-reduced-motion:no-preference) {
+  .sound-experience .continues-to-sound {
+    --sound-mobile-pacing:1;
+    /* The original 155svh + 80svh choreography completes before this 55svh viewing hold. */
+    --scroll-distance:290svh;
+  }
+  .home-closing .works-scene { min-height:340svh; }
+  .home-closing .stage-artist-sequence { height:440svh; }
+}

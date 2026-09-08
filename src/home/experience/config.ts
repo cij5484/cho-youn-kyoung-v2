@@ -34,7 +34,13 @@ export function validateCanonical(value: unknown): CanonicalExperience {
 }
 export function validateDraft(value: unknown): ExperienceDraft {
   const raw = envelope(value, 'experience-draft')
-  return { schemaVersion: 1, kind: 'experience-draft', options: validateExperienceOptions(raw.options) }
+  let options = record(raw.options)
+  // Additive v1 extension: preserve complete older HOME drafts without accepting arbitrary omissions.
+  if (!('worksLayout' in options)) {
+    exactKeys(options, experienceKeys.filter(key => key !== 'worksLayout'))
+    options = { ...options, worksLayout: 'current' }
+  }
+  return { schemaVersion: 1, kind: 'experience-draft', options: validateExperienceOptions(options) }
 }
 export function validatePromotion(value: unknown): PromotionCandidate {
   const raw = envelope(value, 'experience-promotion'), values = record(raw.options)

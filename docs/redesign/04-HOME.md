@@ -1449,3 +1449,51 @@ Desktop pointer 추적과 stain 생성 clock을 분리한다. 580ms / 56px을 �
 채택하며 동시 최대 4개, 3.4초 wet/dry, .38초 arrival로 넓게 퍼질 시간을 준다. 72초 색 phase, fibre shape,
 Ivory 회복, glyph와 두 점 동작은 그대로다. Mobile의 최대 3개 / 5.2초 life / 1.8초 interval, blank tap과
 native scroll 우선권도 유지한다. 다른 HOME scene과 Canonical/Draft 시스템은 이번 범위에서 변경하지 않는다.
+
+
+## 2026-09-08 Wet Field visibility — stronger / wider / slower
+
+이번 추가 pass는 08 surface/model만 다룬다. Desktop 기본 반경은 (96–126)×2.4px, Mobile autonomous는
+(47–62)×2.7px이며 region별 ±20% 변화를 고정한다. 실제 profile 범위는 Desktop 약184–363px,
+Mobile 약102–201px다. Strength는 Desktop .228–.2755, Mobile .27에 각각 ±12%. Blank tap은
+약91–136px의 작은 반경과 .30±12% strength를 사용한다. 화면 전체를 일괄 tint하지 않고 실제 source 주변만 적신다.
+
+Birth는 반경18%에서 시작해 1.3–1.7초 확장, .65초 hold, 총5.1–6.9초 안에 완전히 건조한다.
+Seed로 radius/life/strength/angle을 한 번 정하며 frame마다 다시 뽑지 않는다. 색은 기존72초
+Violet→Bronze→Lacquer에 동행하고 작은 고정 warm/cool 편차만 허용한다. Palette 무작위 선택은 없다.
+
+Desktop 580ms/56px/최대4개, Mobile1.8초/최대3개와 actual-scroll quiet ownership, point source,
+blank tap, reduced motion, glyph와 기존 two-point choreography를 보존한다. 1440/390 브라우저에서
+확장 후 실제 Canvas paint와 육안 가시성을 확인하며 물리 휴대폰의 장기 QA로 확대해 주장하지 않는다.
+
+## 2026-09-08 Mobile cinematic pacing — viewing distance only
+
+사용자의 후속 지시에 따라 모바일 ≤639px / motion enabled에서만 감상 거리를 늘린다.
+Native vertical scroll과 브라우저 관성이 입력의 주인이며 Desktop wheel/마우스 감각은 그대로다.
+`mobile-pacing.css`의 명시적 opt-in과 `sound/scroll-geometry.ts`가 이 작은 범위의 owner다.
+
+| Scene | 변경 | 보존 |
+|---|---|---|
+| 03 SOUND | 기존235svh 전개 뒤 완성 프레임55svh 추가 | Hero155 + SOUND80svh의 기존 절대 위치/곡선 |
+| 04 SELECTED WORKS | section250→340svh, sticky travel150→240svh | 이전 ribbon 배치·크롭·transform·작품 순서 |
+| 05 ALBUM | 기존 약991px 일반 흐름 유지(390×844 실측) | touch drag와 페이지 스크롤 |
+| 06 PERFORMANCE / 07 ARTIST | 공용 section320→440svh, sticky travel220→340svh | aperture/Hanji/Viewing Window의 상대 진행도와 구도 |
+
+03의 실제 section은390svh이며 원래335svh보다55svh 길다. 새 거리에서 progress=1을 유지한다.
+LISTEN·Revisit·Scene Magnet은 동일 helper로 hold 중앙에 도착한다. 고정 픽셀 보정이나 매번 재정렬은 없다.
+04는 작품별 이동 거리가37.5→60svh, 06 stage hold33→51svh, 07 완성된 한복 구간28.6→44.2svh로 늘어난다.
+05는 sticky가 없어서 높이만 늘리면 하단 공백이 생기므로 이번 pacing에서 변경하지 않는다.
+
+390×844 Chromium의 native touch 입력 기준 baseline short/medium/strong/reverse 이동은
+약196/420/785/−330px였다. 이 측정에서는 한 gesture가 여러 major scene을 소실시키는 상황까지
+재현하지 못했지만, 완성 SOUND가40px이고 07 Viewing Window가241px에 불과한 짧은 geometry는 확인했다.
+새 geometry에서도 관성 거리를 강제로 줄이지 않는다. 물리 iPhone/iOS 관성을 검증했다고 주장하지 않는다.
+같은 시작 위치·입력으로 변경 후 약195/426/783/−329px를 관찰했다. Medium은 관성 종료 뒤7px를
+hold 중앙에 settle했다. 손가락을550ms 유지하는 동안 이동0px, release 후 약390ms부터 settle,
+새 touch에서 controller 취소와 compositor의 진행 중 frame 이후 정지를 확인했다. 두 프레임 사이의
+native compositor 이동을 입력을 가로채서 없애려 하지 않는다. 전체HOME E2E/Full Gate는 실행하지 않는다.
+
+기존 Scene Magnet의 held finger 차단, 입력360ms/실제scroll200ms quiet, rapid crossing 제외,
+새 touch 즉시 취소를 유지한다. 충분히 조용하고 Threshold Frame 가까울 때만 작은 settle을 허용한다.
+`touchmove.preventDefault`, delta scaling, hard snap, mandatory hold, 새 scroll engine은 추가하지 않는다.
+Reduced motion에는 새 height/hold가 적용되지 않고 기존 정적인 구조를 유지한다.

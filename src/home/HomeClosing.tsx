@@ -8,6 +8,7 @@ import { useHomeClosingMotion } from './motion.ts'
 import { homeAlbums, type HomeWork } from './content.ts'
 import './home.css'
 import './continuity.css'
+import './mobile-pacing.css'
 
 export function HomeClosing({ locale }: { locale: 'ko' | 'en' }) {
   const root = useRef<HTMLDivElement>(null), [album, setAlbum] = useState(0)
