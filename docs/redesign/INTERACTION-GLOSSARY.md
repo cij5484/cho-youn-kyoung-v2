@@ -78,7 +78,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 여러 번 계속 내려야만 끝나는 긴 도입부 대신 핵심 변화를 압축합니다.
 - 일반 구현: 메시지와 장면 수를 먼저 정하고 필요한 최소 scroll 거리를 검토합니다. 시간을 억지로 늘리지 않습니다.
 - 기술/API: scrollytelling과 동일; 거리·속도·내용 설계가 핵심입니다.
-- V2: **승인된 원칙**. 현재 Works는 desktop 120svh / mobile 150svh travel로 다섯 작품을 전개합니다. 구간별 짧은 정렬은 scroll 거리이며 강제 체류 시간이 아닙니다. P2I의 기존 235svh 전환은 이번 pass에서 늘리지 않았습니다.
+- V2: **승인된 원칙**. 04 선택적 되돌림 후 Works는 직전 baseline의 desktop 90svh / mobile 150svh native travel로 다섯 작품을 전개합니다. 이번 pass의 추가 interval hold는 제거했고, 강제 체류 시간도 없습니다. P2I의 기존 235svh 전환은 늘리지 않았습니다.
 - 참고: 프로젝트 설명; [MASTER §3.1](00-MASTER-PLAN.md#v2-experience-principles).
 
 ## 09. GSAP Flip
@@ -96,7 +96,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 작품들이 흩어져 있다가 같은 작품끼리 정돈된 목록으로 모입니다.
 - 일반 구현: 의미/ID가 같은 항목의 시작·도착 geometry를 연결합니다. 내용 순서와 포커스도 관리합니다.
 - 기술/API: CSS Grid/Flex, FLIP, transform, ResizeObserver.
-- V2: 이전 HOME cluster 재배열과 일반 모바일 grid는 **대체됨**. 현재 desktop/mobile 모두 한 작품씩 전개하는 Depth Queue이며, static grid는 reduced-motion 대안으로만 남습니다.
+- V2: 이전 HOME cluster와 일반 모바일 grid는 **대체됨**. 현재는 직전 baseline으로 복원된 desktop/mobile native-scroll ribbon입니다. 이번 Depth Queue는 되돌렸으며 static grid는 reduced-motion 대안으로만 남습니다.
 - 참고: 구현 기법 예시 [GSAP Flip](https://gsap.com/docs/v3/Plugins/Flip/); 이 용어 자체는 프로젝트 설명입니다.
 
 ## 11. Filmstrip Gallery
@@ -105,7 +105,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 개별 카드 격자 대신 사진이 한 줄의 리듬으로 이어집니다.
 - 일반 구현: 크기가 다른 미디어를 strip/ribbon에 배치하고 native scroll 또는 드래그와 명시적 탐색을 제공합니다.
 - 기술/API: CSS flex, scroll-snap, Pointer Events; 필요 시 가상화.
-- V2: **현재 HOME Selected Works의 출발점**. 현재는 native-scroll ribbon을 Depth Queue로 다듬어 foreground work와 다음 edge를 연결합니다. 모바일도 같은 작품 순서를 큰 이미지로 전개하며, grid 축소판이 아닙니다. MEDIA filmstrip은 별도 미래 후보입니다.
+- V2: **현재 HOME Selected Works에서 구현**. 04만 시작 직전 baseline으로 되돌려 큰 공간 리본과 번호 탐색을 유지합니다. 모바일도 같은 작품 순서를 큰 이미지로 전개하며, grid 축소판이 아닙니다. 이번의 Depth Queue/edge clipping은 현재 적용하지 않습니다. MEDIA filmstrip은 별도 미래 후보입니다.
 - 참고: 프로젝트 설명; [MASTER §3.1](00-MASTER-PLAN.md#v2-experience-principles).
 
 ## 12. Shader Distortion
@@ -448,16 +448,16 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 
 ## HOME cinematic continuity 용어 — 현재 구현 / 미채택 / FUTURE 구분
 
-아래는 2026-09-08 현재 개발 HOME의 구현 설명입니다. 코드에 존재한다는 뜻이며 사용자 시각 승인이나
+아래는 2026-09-08 현재 개발 HOME과 이후 04 선택적 되돌림을 반영한 설명입니다. 현재 구현과 미채택/FUTURE를 구분하며 사용자 시각 승인이나
 실기기 품질 보증은 아닙니다. 정확한 구현 경계는 [HOME의 현재 revision](04-HOME.md),
 [Motion §49](03-MOTION-SYSTEM.md#49-current-home-closing-motion-contract), 검증/전달 상태는 HANDOFF가 소유합니다.
 
 ## 52. Scene Afterimage
 
 - 한국어: 이전 장면의 짧은 물질적 잔상.
-- 쉽게 말하면: 작품의 마지막 모서리가 앨범 공간까지 잠시 남아, 같은 공간을 지나간다고 느끼게 합니다.
+- 쉽게 말하면: 앨범 주변의 빛이 다음 무대 입구에 잠시 남아, 같은 공간을 지나간다고 느끼게 합니다.
 - 일반 구현: outgoing geometry/asset/light를 좁은 mask 안에서 다음 anchor로 연결하고 수명을 짧게 제한합니다.
-- V2: **현재 구현**. 실제 마지막 Works image edge→Album, 선택된 album RGB/light→Stage, 실제 Artist seam→Outro를 연결합니다. 긴 ghost나 blur가 아니라 짧은 edge/light이며 입력을 가로채지 않습니다.
+- V2: **현재 구현**. 선택된 album RGB/light→Stage와 실제 Artist seam→Outro를 연결합니다. 새 Works image edge→Album transfer는 04 선택적 되돌림과 함께 제거했습니다. 남은 잔상은 짧은 edge/light이며 입력을 가로채지 않습니다.
 - 코드: [SceneAfterimages.tsx](../../src/home/SceneAfterimages.tsx), [continuity.css](../../src/home/continuity.css).
 
 ## 53. Z-depth Transition
@@ -465,8 +465,8 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 한국어: 앞뒤 공간을 통해 교체되는 전환.
 - 쉽게 말하면: 화면이 꺼졌다 켜지는 대신 현재 이미지가 뒤로 물러나고 다음 이미지가 앞에 도착합니다.
 - 일반 구현: perspective와 translateZ, scale, crop의 관계를 함께 설계합니다. WebGL은 필수가 아닙니다.
-- V2: **현재 구현**. Works queue와 Album object 교체의 DOM/CSS depth에 사용합니다. 모바일은 깊이를 줄이고 한 작품을 크게 유지합니다. Route-level shared transition과는 구분합니다.
-- 코드: [depth-queue.ts](../../src/home/depth-queue.ts), [album-depth.css](../../src/home/album-depth.css).
+- V2: **현재 구현**. Album object 교체의 DOM/CSS depth를 유지합니다. Works는 이번 queue 방식 대신 기존 ribbon의 perspective/transform으로 복원됐습니다. Route-level shared transition과는 구분합니다.
+- 코드: [album-depth.css](../../src/home/album-depth.css). Works 현재 동작은 [works-motion.ts](../../src/home/works-motion.ts).
 
 ## 54. Occlusion Typography
 
@@ -481,7 +481,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 한국어: 장면이 완성되어 보이는 정렬 순간.
 - 쉽게 말하면: 움직이던 이미지·글자·선이 잠깐 가장 좋은 자리에 모인 뒤 다음 장면으로 넘어갑니다.
 - 일반 구현: scroll 구간에 짧은 hold를 두거나 물체의 자연스러운 settlement를 이용합니다. 시간을 강제로 묶지 않습니다.
-- V2: **현재 구현**. SOUND canonical frame은 이전 LISTEN snap을 유지합니다. Works에는 interval hold, Album에는 pose/light settle, Stage에는 poster/date hold, Artist에는 47.6% split hold, Outro에는 두 endpoint 수렴이 있습니다.
+- V2: **현재 구현**. SOUND canonical frame은 이전 LISTEN snap을 유지합니다. Album에는 pose/light settle, Stage에는 poster/date hold, Artist에는 47.6% split hold, Outro에는 두 endpoint 수렴이 있습니다. Works의 새 interval hold는 04 선택적 되돌림으로 제거했습니다.
 - 한계: .82–.91 Artist hold 등은 progress 거리이며 0.5–1초 재생을 보장하는 타이머가 아닙니다. 빠른 스크롤을 막지 않습니다.
 
 ## 56. Persistent Two-Point Narrative
@@ -498,9 +498,9 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 한국어: 다음 작품이 깊이에서 기다리는 작품 열.
 - 쉽게 말하면: 한 작품은 크게 보이고, 다음 작품은 작은 카드가 아닌 먼 모서리로 예고되다가 앞으로 다가옵니다.
 - 일반 구현: 순서가 있는 plane에 relative depth/crop을 계산하고 현재 작품의 짧은 full-composition 구간을 둡니다.
-- V2: **현재 desktop/mobile 구현**. 다섯 작품의 native travel은 desktop 120svh, mobile 150svh이며, 각 interval은 .13/.87 바깥에서 잠시 정렬됩니다. Active image/title/year/type와 번호 탐색을 유지합니다.
-- 정적 대안: reduced motion에서는 전 작품 링크와 caption을 읽을 수 있는 grid로 바뀝니다.
-- 코드: [depth-queue.ts](../../src/home/depth-queue.ts).
+- V2: **FUTURE / 현재 미채택 — 이번 시도는 되돌림**. 사용자가 04를 시작 직전 baseline으로 복원하도록 요청해 Depth Queue, .13/.87 interval hold, next-edge clipping과 새 모바일 queue tuning을 제거했습니다.
+- 현재 대안: desktop 190svh total / 90svh travel, mobile 250svh / 150svh의 기존 native ribbon. Active image/title/year/type, 번호 탐색과 reduced-motion static grid는 유지합니다.
+- 현재 코드: [works-motion.ts](../../src/home/works-motion.ts). 이 용어를 남기는 것은 재구현 승인이 아닙니다.
 
 ## 58. Album Light Memory
 

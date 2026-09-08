@@ -1029,8 +1029,9 @@ engines, rigging systems, gameplay state or FBX pipelines for that possibility.
 
 # 49. CURRENT HOME CLOSING MOTION CONTRACT
 
-2026-09-08 cinematic continuity / depth pass. This section describes the actual development HOME and supersedes the
-prior 90svh ribbon, mobile gallery, album cursor orbit, full-scene poster/Artist orbits and long diagonal Outro escape.
+2026-09-08 cinematic continuity / depth pass, followed by the user's 04 selective revert. This section describes the
+development HOME with the start-of-pass Works ribbon restored. Album cursor orbit, full-scene poster/Artist orbits
+and long diagonal Outro escape remain superseded by the retained later-scene refinements.
 Historical result reports retain their original tuning and evidence. Implementation is not visual quality approval;
 HANDOFF owns current approval, validation and delivery.
 
@@ -1038,35 +1039,35 @@ HANDOFF owns current approval, validation and delivery.
 
 | Owner | Current responsibility |
 |---|---|
-| `works-motion.ts` / `depth-queue.ts` | Native-scroll work progress, one foreground plane, next depth edge, active-link focus and the same closing trail pair |
+| `works-motion.ts` | Restored native-scroll ribbon transforms and active-link focus; the shared owner retains separate later-scene trail refinements |
 | `album-motion.ts` / `album-light.ts` | Existing input/pose/inertia, selected-cover tone and slower light settlement; presentation adapter remains separate |
 | `stage-artist-motion.ts` / `stage-depth.css` | One reversible aperture→poster→suit→hanbok timeline, date geometry, threshold holds and subtle photo/mask/type depth |
 | `surface-response.ts` | Damped fine-pointer input for stage/portrait light and the small bounded split response; no face distortion |
-| `SceneAfterimages.tsx` / `continuity.css` | Brief actual Works-edge, album-light and Artist-seam transfers between measured outgoing/incoming geometry |
+| `SceneAfterimages.tsx` / `continuity.css` | Brief album-light and Artist-seam transfers; the new Works-edge transfer is removed |
 | `closing-orbit.ts` | Shared spatial math and two authored Outro resolution endpoints; no independent scene loop |
 
 `motion.ts` retains ordinary closing-scene entry/exit geometry. The shared stage timeline owns actual stage/header
 contrast. It switches the authored foreground/background pair together; an interpolated middle-gray pair is not used.
 The menu dialog and approved Bold navigation motion retain their own contracts.
 
-**Scene Afterimage** means that a recognizable piece of outgoing material becomes the incoming scene's cue. The actual
-last work image supplies a narrowly clipped plane edge toward the album; selected album RGB/direction supplies a short
-clipped stage light; the actual Artist seam supplies a short edge toward Outro's name. These layers never intercept
+**Scene Afterimage** means that a recognizable piece of outgoing material becomes the incoming scene's cue. Selected
+album RGB/direction supplies a short clipped stage light; the actual Artist seam supplies a short edge toward Outro's
+name. The added last-work plane edge is removed by the 04 selective revert. Retained layers never intercept
 input or own layout. They use event-driven geometry/state updates, not a perpetual loop, broad blur or repeated ghosts.
 SOUND's existing rightward strand contraction and the existing 06→07 shared seam remain the larger continuity anchors.
 
-## 49.2 Works Depth Queue
+## 49.2 Works ribbon — baseline restored
 
-Desktop uses 220svh total section height / 120svh nominal travel; mobile uses 250svh / 150svh. Progress uses actual
-section minus sticky height. Five works remain sequential: foreground → depth retreat → approaching next plane →
-threshold. A smooth interval mapping holds the composition through fractional progress .13 and after .87. This is
-scroll distance, not a timed pause or wheel interception. Numbered controls seek the same state; only the active
-work link is interactive. Reduced motion restores all links and attached captions in a static grid.
+The user requested 04 only to return to `d98aaa6444b472537bfd5d1e549f864635930a85`. Desktop restores 190svh total
+section height / 90svh nominal travel and its existing ribbon transform: spacing .46 of viewport width, depth tuning
+210px and Y-turn tuning 48°. Mobile retains the preceding authored native-scroll ribbon at 250svh / 150svh, not a
+static gallery. Progress uses actual section minus sticky height, and numbered controls seek the active work.
 
-`depthQueuePose` supplies CSS perspective, translateZ, cropped leading/trailing edges and limited Y rotation. Desktop
-uses more depth than mobile; mobile's next work is an edge cue rather than a second small card. Pointer/focus can still
-gather trails and slightly tilt the current work on desktop. Native touch scrolling alone exposes all content.
-No scroll-velocity-dependent content state or new motion library is added.
+The cinematic pass's **Depth Queue is REVERTED / NOT ACTIVE**: no additional .13/.87 interval hold, next-plane edge
+clipping, new mobile queue pose or Works→Album plane afterimage. The term remains a FUTURE possibility, not the
+current implementation. Existing perspective/ribbon movement, one large current image, title/year/type ledger,
+pointer/focus gathering and active-link access remain. Reduced motion still restores every link/caption in a static grid.
+Native touch scrolling exposes all works. No scroll-velocity-dependent content state or new motion library is added.
 
 ## 49.3 Album Light Memory and object depth
 
@@ -1137,8 +1138,8 @@ are hidden in reduced motion; the normal static content/identity remains complet
 
 ## 49.6 Scope and future route boundary
 
-Stable work content/asset attributes, album object/front/back identities and the fixed featured-performance image ID
-preserve future continuity inputs. **HOME→Album Detail / HOME→Performance Detail shared transitions are FUTURE /
+Stable album object/front/back identities and the fixed featured-performance content/image identity preserve
+future continuity inputs. **HOME→Album Detail / HOME→Performance Detail shared transitions are FUTURE /
 NOT IMPLEMENTED**. No route snapshots, new detail pages, View Transition API adapter or route animation is included.
 
 All current motion owners clean listeners/observers/frames on unmount. Meaningful native touch scroll, explicit

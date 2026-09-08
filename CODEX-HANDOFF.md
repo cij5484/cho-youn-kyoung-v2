@@ -2,7 +2,7 @@
 ## CODEX HANDOFF
 
 **Status:** HOME cinematic continuity / depth pass builds on delivered main `d98aaa6`. Current implementation and the authorized PR/Preview delivery receipt are in §26 and the linked result; visual approval remains separate.\
-**Revision:** 1.36 / 2026-09-08 — HOME cinematic continuity, targeted validation and Preview delivery\
+**Revision:** 1.37 / 2026-09-08 — selective Works baseline restoration; later continuity preserved\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 **Latest delivery policy — 2026-09-08:** user stopped Linux WebKit SOUND investigation and authorized pipeline-only
@@ -476,13 +476,17 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 
 The user authorized the previous interaction pass's delivery as a prerequisite: [PR #9](https://github.com/cij5484/cho-youn-kyoung-v2/pull/9)
 merged as `d98aaa6`; Fast CI and automatic Pages Preview run `34190400938` succeeded. Latest main was pulled
-before this pass, and the actual 4180 runtime/code was inspected. The following coherent bundle is implemented on
-`codex/home-cinematic-continuity`: Works Depth Queue/thresholds, short source-material afterimages, Album Light
-Memory, Stage Date Geometry, dual-portrait threshold/depth, selective two-point cues and Outro resolution.
+before this pass, and the actual 4180 runtime/code was inspected. The cinematic pass was delivered by [PR #10](https://github.com/cij5484/cho-youn-kyoung-v2/pull/10) as
+`e7a9473`. The user then preferred the previous 04 composition and requested a selective restoration on
+`codex/restore-selected-works`: 04 returns to `d98aaa6` Desktop/Mobile ribbon geometry and timing; the Depth Queue,
+added holds/clips and Works→Album plane afterimage are removed. Album Light Memory, Album→Stage light, Stage Date
+Geometry, dual-portrait threshold/depth, Artist→Outro edge, selective later two-point cues and Outro resolution remain.
+Shared files are patched by owning behavior, never restored wholesale. Further Works refinement needs a separate visual pass.
 
 [Current result](HOME-CINEMATIC-CONTINUITY-RESULT.md) records checks, source limitations and delivery procedure.
-Final fixed-source Chromium/WebKit HOME: **89 passed, one CDP-platform skip**; type-check/lint/root/Preview builds
-and four light contracts pass. The idle-loop probe additionally passed six repeated browser runs.
+Before the selective 04 restoration, fixed-source Chromium/WebKit HOME: **89 passed, one CDP-platform skip**; type-check/lint/root/Preview builds
+and four light contracts pass. The idle-loop probe additionally passed six repeated browser runs. Restoration checks: **81 HOME passes / one existing platform skip**, type-check/lint/root/Preview build PASS;
+64 Chromium/WebKit geometry comparisons against the original 320/390/768/1440 ribbon match. See the result.
 HOME/Motion own actual choreography; the glossary describes 61 terms. Portraits, poster, audio, Hero/Haegeum and
 Navigation behavior remain the current sources/contracts. No new scene, real 3D subsystem or detail route was added.
 Silhouette-based Occlusion Typography and Scroll Velocity Response were not adopted. Stable identity attributes
