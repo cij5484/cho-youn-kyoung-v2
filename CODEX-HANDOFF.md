@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** Main `0f7620a` includes all prior local HOME work. Current `codex/home-interaction-pass` refines SOUND alignment, mobile Works/Album and shared 06→07 Aperture/Dual Portrait. Local user visual review pending; no delivery implied.\
-**Revision:** 1.35 / 2026-09-08 — HOME interaction pass; targeted validation and STOP\
+**Status:** HOME cinematic continuity / depth pass builds on delivered main `d98aaa6`. Current implementation and the authorized PR/Preview delivery receipt are in §26 and the linked result; visual approval remains separate.\
+**Revision:** 1.36 / 2026-09-08 — HOME cinematic continuity, targeted validation and Preview delivery\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 **Latest delivery policy — 2026-09-08:** user stopped Linux WebKit SOUND investigation and authorized pipeline-only
@@ -472,7 +472,28 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 
 # 26. CURRENT HANDOFF STATE
 
-## Current HOME interaction pass — 2026-09-08
+## Current HOME cinematic continuity / depth pass — 2026-09-08
+
+The user authorized the previous interaction pass's delivery as a prerequisite: [PR #9](https://github.com/cij5484/cho-youn-kyoung-v2/pull/9)
+merged as `d98aaa6`; Fast CI and automatic Pages Preview run `34190400938` succeeded. Latest main was pulled
+before this pass, and the actual 4180 runtime/code was inspected. The following coherent bundle is implemented on
+`codex/home-cinematic-continuity`: Works Depth Queue/thresholds, short source-material afterimages, Album Light
+Memory, Stage Date Geometry, dual-portrait threshold/depth, selective two-point cues and Outro resolution.
+
+[Current result](HOME-CINEMATIC-CONTINUITY-RESULT.md) records checks, source limitations and delivery procedure.
+Final fixed-source Chromium/WebKit HOME: **89 passed, one CDP-platform skip**; type-check/lint/root/Preview builds
+and four light contracts pass. The idle-loop probe additionally passed six repeated browser runs.
+HOME/Motion own actual choreography; the glossary describes 61 terms. Portraits, poster, audio, Hero/Haegeum and
+Navigation behavior remain the current sources/contracts. No new scene, real 3D subsystem or detail route was added.
+Silhouette-based Occlusion Typography and Scroll Velocity Response were not adopted. Stable identity attributes
+prepare future detail handoffs without implementing them. Physical phones/native Safari/Retina remain separate QA.
+
+The current explicit instruction authorizes targeted validation → PR/main merge → automatic Preview deployment →
+public-URL smoke → REPORT/STOP. Full Release Gate is excluded; earlier unresolved Linux WebKit Release evidence
+is preserved. **IMPLEMENTED / REVIEW READY** does not mean user-granted QUALITY APPROVED. No next task starts
+automatically. Exact merged SHA and workflow outcome are attached to the delivering PR and final response.
+
+## Previous HOME interaction pass — 2026-09-08 (subsequently delivered by PR #9)
 
 Main `0f7620a` delivered the prior local work through PR #8. The current branch `codex/home-interaction-pass`
 implements the latest explicitly authorized SOUND alignment, mobile scroll-driven Works, touch Album rotation,

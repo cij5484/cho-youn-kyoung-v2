@@ -17,7 +17,7 @@
 .editorial-link:focus-visible .editorial-link-arrow { transform:translate(4px,-4px); }
 
 /* Large image planes follow one short curved ribbon; the ledger has one stable baseline. */
-.works-scene { min-height:190svh; }
+.works-scene { min-height:220svh; }
 .works-sticky { position:sticky; top:0; height:100svh; min-height:610px; padding:100px var(--page-gutter) 30px; overflow:clip; }
 .works-axis { position:fixed; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; opacity:0; z-index:4; }
 .works-axis path { fill:none; stroke:var(--color-charcoal); stroke-width:1; }
@@ -56,7 +56,7 @@
 .album-presentation { position:relative; width:100%; margin:22px auto 0; }
 .album-object-surface { position:relative; width:100%; height:clamp(470px,46vw,700px); perspective:1200px; transform-style:preserve-3d; touch-action:pan-y pinch-zoom; cursor:grab; user-select:none; outline-offset:-12px; }
 .album-object-surface[data-dragging="true"] { cursor:grabbing; }
-.album-exchange-slot { pointer-events:none; position:absolute; top:50%; left:50%; width:min(49vw,660px); transform-style:preserve-3d; visibility:hidden; transform:translate(-50%,-50%) translate3d(calc(var(--slot-offset) * 90vw),calc(var(--slot-offset) * -100px),calc(var(--slot-offset) * var(--slot-offset) * -380px)) rotateY(calc(var(--slot-offset) * -60deg)) rotateZ(calc(var(--slot-offset) * 17deg)); transition:transform var(--exchange-duration) cubic-bezier(.22,.75,.2,1),visibility 0s linear var(--exchange-duration); }
+.album-exchange-slot { pointer-events:none; position:absolute; top:50%; left:50%; width:min(49vw,660px); transform-style:preserve-3d; visibility:hidden; transition:transform var(--exchange-duration) cubic-bezier(.22,.75,.2,1),visibility 0s linear var(--exchange-duration); }
 .album-exchange-slot[data-active="true"] { visibility:visible; transition-delay:0s; }
 .album-object-pose { width:100%; position:relative; transform-style:preserve-3d; transform:translateY(calc((1 - var(--scene-entry)) * 90px)) rotateX(var(--object-tilt,-12deg)) rotateY(var(--object-turn,-28deg)) rotateZ(calc(-14deg + var(--scene-entry) * 10deg)); }
 .paper-album { position:relative; width:100%; aspect-ratio:var(--album-aspect); transform-style:preserve-3d; }
@@ -64,7 +64,7 @@
 .album-face img { width:100%; height:100%; object-fit:fill; pointer-events:none; }
 .album-front { transform:translateZ(calc(var(--album-depth,28px) / 2)); }
 .album-back { transform:rotateY(180deg) translateZ(calc(var(--album-depth,28px) / 2)); }
-.album-face::after { content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(112deg,#ffffff38,transparent 28%,rgb(0 0 0 / var(--object-shade,.12))),radial-gradient(ellipse at var(--object-light,40%) 0%,#ffffff38,transparent 65%); box-shadow:inset 0 0 0 1px #ffffff58,inset -4px 0 6px #00000019,inset 4px 0 3px #ffffff20; }
+.album-face::after { content:''; position:absolute; inset:0; pointer-events:none; box-shadow:inset 0 0 0 1px #ffffff58,inset -4px 0 6px #00000019,inset 4px 0 3px #ffffff20; }
 .album-spine, .album-page-edge { position:absolute; top:0; height:100%; width:var(--album-depth,28px); backface-visibility:hidden; }
 .album-spine { left:0; transform:translateX(-50%) rotateY(-90deg); background:#655b4d; }
 .album-spine img { width:100%; height:100%; object-fit:fill; }
@@ -73,7 +73,7 @@
 .album-top-edge, .album-bottom-edge { position:absolute; left:0; width:100%; height:var(--album-depth,28px); background:linear-gradient(#eee8dc,#b7ac98); backface-visibility:hidden; }
 .album-top-edge { top:0; transform:translateY(-50%) rotateX(90deg); }
 .album-bottom-edge { bottom:0; transform:translateY(50%) rotateX(-90deg); }
-.album-object-shadow { position:absolute; left:22%; right:18%; bottom:14%; height:12%; border-radius:50%; background:#46342a; filter:blur(30px); opacity:.22; transform:rotate(-8deg); pointer-events:none; }
+.album-object-shadow { position:absolute; left:22%; right:18%; bottom:14%; height:12%; border-radius:50%; pointer-events:none; }
 .album-handling { display:flex; justify-content:center; align-items:center; gap:26px; padding-top:8px; }
 .album-object-hint { font:400 11px/1.8 var(--font-ui); }
 .album-side-controls { display:flex; align-items:center; gap:4px; font:400 11px var(--font-ui); }
@@ -225,8 +225,7 @@
 .performance-scene { background:transparent; color:#f4f0e8; clip-path:inset(0 0 calc(var(--stage-copy-exit,0) * 100%) 0); }
 .performance-scene>.section-index,.artist-scene>.section-index { position:absolute; left:var(--page-gutter); top:86px; }
 .performance-caption { position:absolute; left:9%; width:29%; top:45.5%; transform:translateY(calc((1 - var(--stage-exposure,0)) * 40px - var(--stage-copy-exit,0) * 60px)); }
-.stage-date { position:absolute; left:9%; top:26%; display:flex; align-items:baseline; gap:.08em; font:400 clamp(65px,10.5vw,160px)/.85 var(--font-display); letter-spacing:-.065em; }
-.stage-date i { font-size:.48em; padding-inline:.12em; color:#bca37b; font-weight:300; }
+.stage-date { position:absolute; left:9%; top:26%; font-family:var(--font-display); font-weight:400; }
 .performance-caption h2 { margin-top:0; font:400 clamp(28px,3vw,47px)/1.4 var(--font-display-ko); letter-spacing:-.045em; word-break:keep-all; }
 .performance-caption h2 em { font-style:normal; }
 .performance-caption>p { margin-top:22px; font:400 12px/1.9 var(--font-ui); color:#d8cbb8; }

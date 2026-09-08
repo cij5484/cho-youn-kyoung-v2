@@ -1,15 +1,14 @@
 import { useEffect, useRef, type RefObject } from 'react'
-import { artistOrbit, blendPoint, ellipse, outroOrbit } from './closing-orbit.ts'
+import { blendPoint, clamp, smooth, ellipse, outroOrbit } from './closing-orbit.ts'
+import { depthQueuePosition, depthQueuePose } from './depth-queue.ts'
 import { createTrailSampler, type TrailSample } from '../motion/trail-geometry.ts'
 
 export const worksRibbonTuning = {
-  spacing: .46, depth: 210, turn: 48, response: 11,
+  response: 11,
   orbitResponse: 5.5, orbitSpeed: .65, trailMs: 2000, trailWidth: 2.2, historyLimit: 360,
   collapseEnd: .6,
   colors: ['#6334E5', '#A33D36'],
 } as const
-const clamp = (n: number) => Math.max(0, Math.min(1, n))
-const smooth = (n: number) => { const p = clamp(n); return p * p * (3 - 2 * p) }
 
 /** A short native-scroll ribbon. Its two-depth motif inherits the real outgoing SOUND strands. */
 export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (index: number) => void) {
@@ -28,6 +27,8 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
     const portrait = owner.querySelector<HTMLElement>('.artist-portrait-aperture')!
     const name = owner.querySelector<HTMLElement>('#artist-heading')!
     const outro = owner.querySelector<HTMLElement>('.outro-name')!
+    const sequence=owner.querySelector<HTMLElement>('.stage-artist-sequence')!
+    const seam=sequence.querySelector<HTMLElement>('.shared-seam')!
     const tune = worksRibbonTuning, sampler = createTrailSampler(2048)
     const histories: TrailSample[][] = [[], []]
     const tilts = cards.map(() => ({ x: 0, y: 0 }))
@@ -47,10 +48,9 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
       visible = section.top < innerHeight && owner.getBoundingClientRect().bottom > 0
       if (!visible || reduced.matches || document.hidden || document.querySelector('dialog[open]')) { owner.dataset.orbitState='suspended'; last = 0; contexts.forEach(context=>context?.clearRect(0,0,width,height)); histories.forEach(history => { history.length = 0 }); axis.style.opacity='0'; return }
       const dt = Math.min(.04, (now - (last || now - 16)) / 1000); last = now; phase += dt * tune.orbitSpeed
-      const grid = mobile.matches
+      const touchLayout = mobile.matches
       const laterBoxes = later.map(scene => scene.getBoundingClientRect())
       const weights = laterBoxes.map(box => smooth((height*.85-box.top)/(height*.7)))
-      const sequence=owner.querySelector<HTMLElement>('.stage-artist-sequence')!
       const sequenceBox=sequence.getBoundingClientRect(), sequenceP=Number(sequence.dataset.sequenceProgress??0)
       weights[1]=smooth((height*.85-sequenceBox.top)/(height*.7))
       weights[2]=smooth((sequenceP-.53)/.14)*weights[1]
@@ -61,16 +61,21 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
       owner.dataset.orbitEnding = ending.toFixed(3)
       if (endMotion === 1) { contexts.forEach(ctx=>ctx?.clearRect(0,0,width,height)); histories.forEach(h=>{h.length=0}); owner.dataset.orbitState='finished'; last=0; return }
       owner.dataset.orbitState='running'
-      target = clamp(-section.top / Math.max(1, section.height - sticky.offsetHeight)) * (cards.length - 1)
+      target = depthQueuePosition(-section.top / Math.max(1, section.height - sticky.offsetHeight),cards.length)
       position += (target - position) * (1 - Math.exp(-tune.response * dt))
       if (Math.abs(target - position) < .0005) position = target
+      const ribbonPosition=position.toFixed(4)
+      if(root.dataset.ribbonPosition!==ribbonPosition)root.dataset.ribbonPosition=ribbonPosition
+      root.dataset.workThreshold=String(Math.abs(position-Math.round(position))<.035)
       const nextActive = Math.round(position)
       if (nextActive !== active) { active = nextActive; onActive(active); root.dataset.ribbonIndex = String(active) }
       const boardBox = board.getBoundingClientRect()
       if (section.bottom > 0) {
         cards.forEach((card, i) => {
           const offset = i - position, distance = Math.abs(offset)
-          card.style.transform = grid ? `translate(-50%,-50%) translate3d(${(offset * width * .94).toFixed(2)}px,${(distance * 24).toFixed(2)}px,${(-distance * 90).toFixed(2)}px) rotateY(${(-Math.max(-1, Math.min(1, offset)) * 18).toFixed(2)}deg)` : `translate(-50%,-50%) translate3d(${(offset * width * tune.spacing).toFixed(2)}px,${(distance * distance * 26).toFixed(2)}px,${(-Math.pow(distance, 1.3) * tune.depth).toFixed(2)}px) rotateY(${(-Math.max(-1.6, Math.min(1.6, offset)) * tune.turn).toFixed(2)}deg) rotateZ(${(offset * 4).toFixed(2)}deg)`
+          const pose=depthQueuePose(offset,width,touchLayout)
+          card.style.transform=pose.transform;card.style.clipPath=pose.clip;card.style.visibility=pose.visible?'visible':'hidden'
+          card.dataset.depth=pose.z.toFixed(2)
           card.style.zIndex = String(10 - Math.round(distance * 2)); card.style.setProperty('--work-distance', String(Math.min(1, distance)))
           links[i].tabIndex = i === active ? 0 : -1
           card.inert = i !== active
@@ -88,8 +93,8 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
       sound?.style.setProperty('--home-line-handoff', reduced.matches ? '0' : String(transfer))
       const origins = sources.map(source => { const box = source.getBoundingClientRect(); return {left:box.left,right:box.right,y:box.top + handoff * height + box.height / 2} })
       origins.forEach((origin,i) => paths[i]?.setAttribute('d', `M${(origin.left + (origin.right-origin.left)*collapse).toFixed(2)},${origin.y.toFixed(2)} H${origin.right.toFixed(2)}`))
-      let hover = grid ? -1 : focus
-      if (!grid && pointer && fine.matches) {
+      let hover = touchLayout ? -1 : focus
+      if (!touchLayout && pointer && fine.matches) {
         let closest = 100
         cards.forEach((card, i) => {
           const box = card.querySelector('.work-image')!.getBoundingClientRect()
@@ -116,37 +121,44 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
       // Touch uses a free path around the current full-size work, never a hover dependency.
       const gridTop = Math.max(96,Math.min(height-120,boardBox.top))
       const gridBottom = Math.max(gridTop+60,Math.min(height-40,boardBox.bottom))
-      const freeY = grid ? (gridTop+gridBottom)/2 : anchor ? anchor.top + anchor.height * .51 : boardBox.top + boardBox.height * .48
+      const freeY = touchLayout ? (gridTop+gridBottom)/2 : anchor ? anchor.top + anchor.height * .51 : boardBox.top + boardBox.height * .48
       const tx = incoming ? freeX + (incoming.left + incoming.width / 2 - freeX) * departure : freeX
       const ty = incoming ? freeY + (incoming.top + incoming.height / 2 - freeY) * departure : freeY
       if (!cx) { cx = tx; cy = ty; rx = width * .34; ry = Math.min(150, height * .16) }
       cx += (tx - cx) * blend; cy += (ty - cy) * blend
       rx += ((anchor ? anchor.width * .63 : width * .34 * (1 - departure * .35)) - rx) * blend
-      ry += ((grid ? (gridBottom-gridTop)*.38 : anchor ? anchor.height * .28 : Math.min(150, height * .16)) - ry) * blend
+      ry += ((touchLayout ? (gridBottom-gridTop)*.38 : anchor ? anchor.height * .28 : Math.min(150, height * .16)) - ry) * blend
       root.dataset.motif = departure > .1 ? 'object-handoff' : orbit > .5 ? 'orbit' : 'free'
       root.dataset.orbitWork = gathering ? String(hover) : ''
       const stagePresence=weights[1]*(1-weights[3])
-      const motifPresence=1-stagePresence
+      const stageCue=smooth((sequenceP-.025)/.055)*(1-smooth((sequenceP-.18)/.065))
+      const artistCue=smooth((sequenceP-.69)/.045)*(1-smooth((sequenceP-.81)/.05))
+      const albumMoving=album.dataset.moving==='true'||album.dataset.dragging==='true'
+      const albumPresence=(1-weights[0])+weights[0]*(albumMoving?.8:.28)
+      const motifPresence=(1-stagePresence)*albumPresence+stagePresence*Math.max(stageCue,artistCue)*.65
+      owner.dataset.motifPresence=motifPresence.toFixed(4)
       const alpha = motifPresence * smooth((handoff - .45) / .15) * (1-smooth((endMotion-.91)/.09))
       const albumBox = album.getBoundingClientRect(), posterBox = poster.getBoundingClientRect()
-      const photoBox = portrait.getBoundingClientRect(), nameBox = name.getBoundingClientRect(), outroBox = outro.getBoundingClientRect()
-      const mouseInAlbum = pointer && fine.matches && pointer.y >= laterBoxes[0].top && pointer.y <= laterBoxes[0].bottom
-      const mouseBox = {left:(mouseInAlbum ? pointer!.x : albumBox.left+albumBox.width/2)-Math.min(130,width*.2),
-        top:(mouseInAlbum ? pointer!.y : albumBox.top+albumBox.height/2)-80,width:Math.min(260,width*.4),height:160}
+      const photoBox = portrait.getBoundingClientRect(), outroBox = outro.getBoundingClientRect()
+      const objectBox=incoming??albumBox, seamBox=seam.getBoundingClientRect()
       for (let i = 0; i < 2; i++) {
         const angle = phase + i * Math.PI, z = Math.sin(angle)
-        const orbitX = cx + Math.cos(angle) * rx, orbitY = cy + Math.sin(grid ? angle*1.37 : angle) * ry + Math.cos(angle) * rx * .12 * orbit
+        const orbitX = cx + Math.cos(angle) * rx, orbitY = cy + Math.sin(touchLayout ? angle*1.37 : angle) * ry + Math.cos(angle) * rx * .12 * orbit
         const origin = origins[i]
         let x = origin ? origin.left + (origin.right-origin.left)*collapse + (orbitX-origin.right)*release : orbitX
         let y = origin ? origin.y + (orbitY-origin.y)*release : orbitY
         let point = {x,y,z}
-        point=blendPoint(point,ellipse(mouseBox,angle,.65,.6),weights[0])
-        point=blendPoint(point,ellipse(posterBox,angle,.61,.54),weights[1])
-        point=blendPoint(point,artistOrbit(photoBox,nameBox,angle),weights[2])
-        point=blendPoint(point,outroOrbit(outroBox,angle,endMotion,width),weights[3])
+        point=blendPoint(point,ellipse(objectBox,angle,.58,.49),weights[0])
+        // Cues belong to the opening boundary, not the cursor. Quiet threshold frames clear them.
+        const opening=Number(sequence.dataset.stageOpening??0)
+        const frameBox=seam.closest('.shared-image-frame')!.getBoundingClientRect()
+        const edgeX=frameBox.left+frameBox.width*(.5+(i?1:-1)*opening*.5)
+        point=blendPoint(point,{x:edgeX+Math.sin(phase*1.7)*3,y:frameBox.top+frameBox.height*(i?.78:.22),z:i?1:-1},weights[1])
+        point=blendPoint(point,{x:seamBox.left+Math.sin(phase*1.7)*3,y:seamBox.top+seamBox.height*(i?.8:.2),z:i?1:-1},weights[2])
+        point=blendPoint(point,outroOrbit(outroBox,angle,endMotion,i),weights[3])
         const history = histories[i]
         const previous=history.at(-1), settle=1-Math.exp(-dt*9)
-        if(previous && (grid || weights[0]>0)) point=blendPoint(previous,point,settle)
+        if(previous && (touchLayout || weights[0]>0)) point=blendPoint(previous,point,settle)
         x=point.x;y=point.y
         owner.dataset[`orbit${i}X`]=x.toFixed(2);owner.dataset[`orbit${i}Y`]=y.toFixed(2)
         history.push({ x, y, z:point.z, time: now })
@@ -166,7 +178,7 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
       const back=contexts[0]
       if(back){
         const masks:DOMRect[]=[]
-        if(weights[0]<1 && !grid) cards.forEach(card=>masks.push(card.querySelector('.work-image')!.getBoundingClientRect()))
+        if(weights[0]<1 && !touchLayout) cards.forEach(card=>masks.push(card.querySelector('.work-image')!.getBoundingClientRect()))
         if(weights[1]>0 && weights[2]<1) masks.push(posterBox)
         if(weights[2]>0 && weights[3]<1) masks.push(photoBox)
         masks.forEach(box=>back.clearRect(box.left,box.top,box.width,box.height))
@@ -183,7 +195,8 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
           back.restore()
         }
       }
-      request()
+      if(alpha>.005||position!==target||Math.abs(ending-endMotion)>.0005)request()
+      else {owner.dataset.orbitState='quiet';last=0;histories.forEach(h=>{h.length=0})}
     }
     function scroll() {
       const box = root.getBoundingClientRect()
@@ -200,14 +213,15 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
     function leave() { pointer = null; request() }
     function focused(event: FocusEvent) { focus = Number((event.target as HTMLElement).closest<HTMLElement>('[data-work-index]')?.dataset.workIndex ?? -1); request() }
     function blurred() { focus = -1; request() }
-    function change() { if(reduced.matches)cards.forEach((card,i)=>{card.inert=false;links[i].tabIndex=0;card.style.removeProperty('transform')}); histories.forEach(history => { history.length = 0 }); request() }
+    function change() { if(reduced.matches)cards.forEach((card,i)=>{card.inert=false;links[i].tabIndex=0;for(const property of ['transform','clip-path','visibility'])card.style.removeProperty(property)}); histories.forEach(history => { history.length = 0 }); request() }
     const observer = new ResizeObserver(resize); observer.observe(sticky)
     window.addEventListener('resize',resize)
     const modal = new MutationObserver(() => { last = 0; request() }); const dialog = document.querySelector('dialog'); if (dialog) modal.observe(dialog, { attributes: true, attributeFilter: ['open'] })
+    const choreography=new MutationObserver(request);choreography.observe(sequence,{attributes:true,attributeFilter:['data-sequence-progress']});choreography.observe(album,{attributes:true,attributeFilter:['data-moving','data-dragging']})
     owner.addEventListener('pointermove', move); owner.addEventListener('pointerleave', leave); board.addEventListener('focusin', focused); board.addEventListener('focusout', blurred)
     window.addEventListener('scroll', scroll, { passive: true }); reduced.addEventListener('change', change); mobile.addEventListener('change', change); document.addEventListener('visibilitychange', change)
     resize()
-    return () => { disposed = true; if (frame) cancelAnimationFrame(frame); observer.disconnect(); window.removeEventListener('resize',resize); modal.disconnect(); seek.current = () => {}; owner.removeEventListener('pointermove', move); owner.removeEventListener('pointerleave', leave); board.removeEventListener('focusin', focused); board.removeEventListener('focusout', blurred); window.removeEventListener('scroll', scroll); reduced.removeEventListener('change', change); mobile.removeEventListener('change', change); document.removeEventListener('visibilitychange', change); sound?.style.removeProperty('--home-line-handoff') }
+    return () => { disposed = true; if (frame) cancelAnimationFrame(frame); observer.disconnect(); choreography.disconnect(); window.removeEventListener('resize',resize); modal.disconnect(); seek.current = () => {}; owner.removeEventListener('pointermove', move); owner.removeEventListener('pointerleave', leave); board.removeEventListener('focusin', focused); board.removeEventListener('focusout', blurred); window.removeEventListener('scroll', scroll); reduced.removeEventListener('change', change); mobile.removeEventListener('change', change); document.removeEventListener('visibilitychange', change); sound?.style.removeProperty('--home-line-handoff') }
   }, [ref, onActive])
   return seek
 }

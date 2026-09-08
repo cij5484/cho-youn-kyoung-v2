@@ -261,7 +261,7 @@ async function trailInk(page: Page) {
   },0))
 }
 
-test('one headless pair persists through 05–08, follows the album pointer, ends and returns on reverse',async({page})=>{
+test('one headless pair follows the album object, yields at stage/artist thresholds, ends and returns on reverse',async({page})=>{
   await page.setViewportSize({width:1440,height:1000});await ready(page)
   await page.locator('.home-closing > .works-motif').evaluateAll(elements=>{
     (window as unknown as {closingCanvases:Element[]}).closingCanvases=elements
@@ -270,10 +270,11 @@ test('one headless pair persists through 05–08, follows the album pointer, end
   await page.mouse.move(600,450)
   await expect(page.locator('.home-closing')).toHaveAttribute('data-orbit-scene','5')
   const center=()=>page.locator('.home-closing').evaluate(e=>({x:(Number(e.dataset.orbit0X)+Number(e.dataset.orbit1X))/2,y:(Number(e.dataset.orbit0Y)+Number(e.dataset.orbit1Y))/2}))
-  await expect.poll(async()=>Math.abs((await center()).x-600)).toBeLessThan(35)
+  const objectCenter=()=>page.locator('.album-exchange-slot[data-active="true"] .album-object-pose').evaluate(e=>{const b=e.getBoundingClientRect();return{x:b.x+b.width/2,y:b.y+b.height/2}})
+  await expect.poll(async()=>Math.abs((await center()).x-(await objectCenter()).x)).toBeLessThan(45)
   await page.mouse.move(950,580)
-  await expect.poll(async()=>Math.abs((await center()).x-950)).toBeLessThan(35)
-  await expect.poll(async()=>Math.abs((await center()).y-580)).toBeLessThan(20)
+  await expect.poll(async()=>Math.abs((await center()).x-(await objectCenter()).x)).toBeLessThan(45)
+  expect(Math.abs((await center()).x-950)).toBeGreaterThan(80)
   for(const [selector,number] of [['.performance-scene','6'],['.artist-scene','7'],['.outro-name','8']]){
     if(number==='8')await page.locator(selector).scrollIntoViewIfNeeded();else await scene(page,selector)
     await expect(page.locator('.home-closing')).toHaveAttribute('data-orbit-scene',number)
