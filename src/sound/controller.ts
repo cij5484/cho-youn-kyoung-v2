@@ -13,6 +13,7 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
   const panel = root.querySelector<HTMLElement>('.sound-surface')!
   const engine = createBowChoreographyEngine(root, [...root.querySelectorAll<HTMLElement>('.poster-lines .tension-line')], () => innerWidth < 640, bindAudioFeatures(source.features, source))
   let context: AudioContext | null = null, analyser: AnalyserNode | null = null, node: MediaElementAudioSourceNode | null = null
+  let suspension: Promise<void> | null = null
   const src=playableSource(source)
   let phase: PlaybackPhase = src ? 'idle' : 'unavailable', hasPlayed=false
   let desired = false, disposed = false, visible = false, intent = 0, frame = 0, previous = 0, lastDraw = 0
@@ -54,7 +55,14 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
     // Commit the native media position before suspending its Web Audio destination.
     // WebKit can otherwise roll its buffered playback clock back when the graph stops.
     if (next==='paused' && media.readyState>0 && !media.seeking) media.currentTime=position
-    if (context && context.state !== 'closed') void context.suspend().catch(()=>{})
+    if (context && context.state !== 'closed' && !suspension) {
+      const pending=context.suspend()
+      suspension=pending
+      void pending.then(()=>{if(suspension===pending)suspension=null},error=>{
+        if(suspension===pending)suspension=null
+        reportError(error)
+      })
+    }
     change(next); request()
   }
   function unavailableView() {
@@ -133,9 +141,22 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
     destroy() {
       disposed=true; desired=false; intent++; stopClock(); cancelFrame(); observer.disconnect(); mutation.disconnect()
       reduced.removeEventListener('change',preference); document.removeEventListener('visibilitychange',unavailableView)
-      removers.forEach(fn=>fn()); media.pause(); media.removeAttribute('src'); media.load()
-      node?.disconnect(); analyser?.disconnect()
-      if(context){context.removeEventListener('statechange',contextState);void context.close().catch(()=>{})}
+      removers.forEach(fn=>fn()); media.pause()
+      const release=()=>{node?.disconnect();analyser?.disconnect();media.removeAttribute('src');media.load()}
+      if(context){
+        const closingContext=context
+        closingContext.removeEventListener('statechange',contextState)
+        // A pending WebKit suspend still owns the destination. Let it settle before closing
+        // or detaching the graph/media; racing these operations can leave it unclosed.
+        const close=async()=>{
+          try { await suspension }
+          finally {
+            try { if(closingContext.state!=='closed')await closingContext.close() }
+            finally { release() }
+          }
+        }
+        void close().catch(error=>reportError(error))
+      } else release()
       engine.destroy()
     },
   }

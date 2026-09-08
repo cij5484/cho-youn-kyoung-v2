@@ -289,6 +289,7 @@ test('320px KO and EN captions and all listening states have distinct readable s
 })
 
 test('eight route returns release every previous context and do not accumulate Sound DOM',async({page})=>{
+  const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message))
   await page.addInitScript(()=>{window.soundContexts=[];const Native=window.AudioContext;if(Native)window.AudioContext=class extends Native{constructor(options?:AudioContextOptions){super(options);window.soundContexts.push(this)}}})
   await ready(page)
   for(let i=0;i<8;i++){
@@ -302,7 +303,42 @@ test('eight route returns release every previous context and do not accumulate S
     await expect.poll(()=>page.evaluate(()=>window.soundContexts.every(c=>c.state==='closed'))).toBe(true)
     await expect(root(page)).toHaveAttribute('data-audio-context','not-created')
   }
-  await graphCount(page,8)
+  await graphCount(page,8);expect(errors).toEqual([])
+})
+
+test('route teardown waits for an in-flight suspension before closing its audio destination',async({page})=>{
+  await page.addInitScript(()=>{
+    const w=window as typeof window & { releaseSoundSuspension:()=>void; soundCloseCalls:number; soundCloseWhilePending:boolean }
+    window.soundContexts=[];w.soundCloseCalls=0;w.soundCloseWhilePending=false
+    const Native=window.AudioContext
+    if(!Native)return
+    let release!:()=>void,pending=false
+    const hold=new Promise<void>(resolve=>{release=resolve})
+    w.releaseSoundSuspension=release
+    window.AudioContext=class extends Native{
+      constructor(options?:AudioContextOptions){super(options);window.soundContexts.push(this)}
+      override suspend(){pending=true;return super.suspend().then(()=>hold).then(()=>{pending=false})}
+      override close(){w.soundCloseCalls++;w.soundCloseWhilePending ||= pending;return super.close()}
+    }
+  })
+  const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message))
+  await ready(page);await seek(page);await listen(page)
+  if(!await hasAnalysis(page)){await expectStaticPlayback(page);return}
+  await audio(page).evaluate(e=>{window.retainedMedia=e as HTMLAudioElement})
+  await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','paused')
+  await page.getByRole('button',{name:'MENU',exact:true}).click()
+  await expect(page.locator('dialog')).toHaveAttribute('data-phase','open')
+  await page.getByRole('link',{name:'English',exact:true}).click()
+  await expect(root(page)).toHaveAttribute('data-audio-context','not-created')
+  await expect.poll(()=>page.evaluate(()=>window.soundContexts[0].state)).toBe('suspended')
+  expect(await page.evaluate(()=>window.retainedMedia.paused)).toBe(true)
+  expect(await page.evaluate(()=>(window as typeof window & {soundCloseCalls:number}).soundCloseCalls)).toBe(0)
+  await page.evaluate(()=>(window as typeof window & {releaseSoundSuspension:()=>void}).releaseSoundSuspension())
+  await expect.poll(()=>page.evaluate(()=>window.soundContexts[0].state)).toBe('closed')
+  await expect.poll(()=>page.evaluate(()=>window.retainedMedia.getAttribute('src'))).toBeNull()
+  expect(await page.evaluate(()=>(window as typeof window & {soundCloseCalls:number}).soundCloseCalls)).toBe(1)
+  expect(await page.evaluate(()=>(window as typeof window & {soundCloseWhilePending:boolean}).soundCloseWhilePending)).toBe(false)
+  expect(errors).toEqual([])
 })
 
 test('P2I: A/B and tail comparison preserves media position, graph, focus and the original line nodes',async({page})=>{
@@ -387,13 +423,26 @@ test('P2I: B reduced motion is a static contact with real audio and zero analysi
   await trigger(page).focus();await trigger(page).press('Space');await expect(root(page)).toHaveAttribute('data-audio-state','paused')
 })
 
-for(const width of [320,390])test(`P2I: ${width}px B has an independent visible mark and no input or scroll trap`,async({page})=>{
+for(const width of [320,390])test(`P2I: ${width}px B preserves the approved moving cap, static marker and unblocked controls`,async({page})=>{
   await page.setViewportSize({width,height:width===320?568:844});await ready(page,'/en/?compare=b');await seek(page);await listen(page)
   if(!await hasAnalysis(page)){await expectStaticPlayback(page);await seek(page,.3);await expect(root(page)).toHaveAttribute('data-audio-state','paused');return}
   await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.3)
   const mark=(await page.locator('.contact-head').boundingBox())!
-  expect(mark.width).toBeGreaterThanOrEqual(3.5);expect(mark.height).toBeGreaterThanOrEqual(3.5);expect(mark.x).toBeGreaterThan(45);expect(mark.y).toBeGreaterThan(145)
-  await expect(page.locator('.contact-head')).toHaveAttribute('rx','4');await expect(page.locator('.contact-head')).toHaveAttribute('ry','1.8')
+  // The approved moving cap is trail-width × half-width, not the larger static fallback.
+  // Its rotated screen box changes with direction; check intrinsic size and screen scale separately.
+  const cap=await page.locator('.contact-head').evaluate(el=>{
+    const e=el as SVGEllipseElement,b=e.getBBox(),m=e.getScreenCTM()!
+    return {width:b.width,height:b.height,scaleX:Math.hypot(m.a,m.b),scaleY:Math.hypot(m.c,m.d)}
+  })
+  expect(cap.width).toBeCloseTo(3.2,5);expect(cap.height).toBeCloseTo(1.6,5)
+  expect(cap.scaleX).toBeCloseTo(1,5);expect(cap.scaleY).toBeCloseTo(1,5)
+  expect(mark.x).toBeGreaterThan(45);expect(mark.y).toBeGreaterThan(145)
+  await expect(page.locator('.contact-head')).toHaveAttribute('rx','1.6');await expect(page.locator('.contact-head')).toHaveAttribute('ry','0.8')
+  await expect(page.locator('.contact-head')).toHaveCSS('opacity','0.08')
+  await expect(page.locator('.bow-contact')).toHaveAttribute('aria-hidden','true')
+  await expect(page.locator('.bow-contact')).toHaveCSS('pointer-events','none')
+  expect((await trigger(page).boundingBox())!.height).toBeGreaterThanOrEqual(44)
+  await expect.poll(()=>page.locator('.contact-tail').evaluateAll(els=>els.some(el=>(el.getAttribute('d')?.length ?? 0)>0))).toBe(true)
   const dock=(await page.locator('.sound-comparison').boundingBox())!
   for(const element of [page.locator('.sound-caption'),trigger(page)]){
     const box=(await element.boundingBox())!
@@ -404,6 +453,14 @@ for(const width of [320,390])test(`P2I: ${width}px B has an independent visible 
   await seek(page,.3);await expect(root(page)).toHaveAttribute('data-audio-state','paused');await expect(page.locator('.bow-contact')).toHaveCSS('opacity','0')
   const frames=await root(page).getAttribute('data-analysis-frames');await page.waitForTimeout(350);expect(await root(page).getAttribute('data-analysis-frames')).toBe(frames)
   await seek(page);await expect(root(page)).toHaveAttribute('data-audio-state','paused')
+  await page.emulateMedia({reducedMotion:'reduce'})
+  await trigger(page).scrollIntoViewIfNeeded()
+  await expect(page.locator('.bow-contact')).toBeHidden()
+  await expect(page.locator('.sound-static-contact')).toBeVisible()
+  await expect(page.locator('.sound-static-contact')).toHaveCSS('width','8px')
+  expect(await root(page).evaluate(e=>(e as HTMLElement).style.getPropertyValue('--contact-height-mobile'))).toBe('3.6px')
+  const staticMark=(await page.locator('.sound-static-contact').boundingBox())!
+  expect(staticMark.width).toBeGreaterThanOrEqual(3.5);expect(staticMark.height).toBeGreaterThanOrEqual(3.5)
 })
 
 test('P2I: B missing analyser/failing source never substitutes an animated contact for playback',async({page})=>{
@@ -458,7 +515,8 @@ test('P2J: hybrid follows the native playhead through seek, pause, replay and of
   await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','paused')
   await expect(page.locator('.bow-contact')).toHaveCSS('opacity','0')
   const time=await audio(page).evaluate(el=>(el as HTMLAudioElement).currentTime)
-  await listen(page);expect(await audio(page).evaluate(el=>(el as HTMLAudioElement).currentTime)).toBeGreaterThan(time)
+  // Playing state can precede the next native clock tick, especially after WebKit resume.
+  await listen(page);await expect.poll(()=>audio(page).evaluate(el=>(el as HTMLAudioElement).currentTime)).toBeGreaterThan(time)
   await audio(page).evaluate(el=>{const a=el as HTMLAudioElement;a.currentTime=a.duration-.12})
   await expect(root(page)).toHaveAttribute('data-audio-state','ended');await listen(page)
   expect(await audio(page).evaluate(el=>(el as HTMLAudioElement).currentTime)).toBeLessThan(1)
