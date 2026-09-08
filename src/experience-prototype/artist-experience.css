@@ -1,0 +1,124 @@
+/* These rules exist only behind the comparison adapter's attribute. Disable restores HOME verbatim. */
+.stage-artist-sequence[data-artist-experience] {
+  --experience-photo:0;
+  --experience-profile:0;
+  --experience-seam:1;
+  --experience-mask:linear-gradient(transparent,transparent);
+}
+/* Keep the existing name measurement hook for the shared motif owner, aligned with the new DOM title. */
+.stage-artist-sequence[data-artist-experience] .artist-copy {
+  visibility:hidden;
+  pointer-events:none;
+  left:56%; right:5%; top:26%; bottom:auto;
+  display:block; transform:none; translate:none;
+}
+.stage-artist-sequence[data-artist-experience] .artist-copy > .artist-english,
+.stage-artist-sequence[data-artist-experience] .artist-copy > .editorial-link { display:none; }
+.stage-artist-sequence[data-artist-experience] #artist-heading {
+  display:block; font:400 clamp(38px,4.6vw,70px)/1.3 var(--font-display-ko);
+  letter-spacing:-.055em; margin:0;
+}
+.stage-artist-sequence[data-artist-experience] .artist-hanbok {
+  clip-path:inset(0 calc((1 - var(--experience-photo)) * 100%) 0 0);
+}
+.stage-artist-sequence[data-artist-mask="hanji"] .artist-hanbok {
+  clip-path:none;
+  mask-image:var(--experience-mask);
+  mask-size:100% 100%;
+  mask-position:center;
+  mask-repeat:no-repeat;
+}
+.stage-artist-sequence[data-artist-experience] .shared-seam {
+  left:calc((1 - var(--handoff)) * var(--seam) * 1% + var(--handoff) * var(--experience-photo) * 100%);
+  box-shadow:none;
+  opacity:calc(1 - var(--experience-photo));
+}
+.stage-artist-sequence[data-artist-experience="hanji"] .shared-seam { opacity:var(--experience-seam); }
+.stage-artist-sequence[data-artist-experience] .artist-scene {
+  clip-path:inset(calc((1 - var(--experience-profile)) * 100%) 0 0);
+}
+.stage-artist-sequence[data-artist-experience] .artist-scene > .section-index { left:56%; }
+.artist-experience-profile {
+  position:absolute;
+  left:56%;
+  right:5%;
+  top:26%;
+  color:var(--home-ink);
+  translate:0 calc((1 - var(--experience-profile)) * 24px);
+}
+.artist-experience-identity h2 {
+  font:400 clamp(38px,4.6vw,70px)/1.3 var(--font-display-ko);
+  letter-spacing:-.055em;
+  margin:0 0 5px;
+}
+.artist-experience-name {
+  font:400 clamp(27px,2.9vw,44px)/1.15 var(--font-display);
+  letter-spacing:-.025em;
+  margin:0;
+}
+.artist-experience-role {
+  font:400 14px/1.6 var(--font-ui);
+  margin-top:22px;
+  letter-spacing:.07em;
+}
+.artist-experience-credentials {
+  margin:29px 0 0;
+  padding:0;
+  list-style:none;
+  font:400 clamp(13px,1.1vw,16px)/1.95 var(--font-ui);
+  color:var(--text-secondary);
+  letter-spacing:-.025em;
+  word-break:keep-all;
+}
+.artist-experience-credentials li + li { margin-top:2px; }
+.artist-experience-credentials span { margin-left:.23em; }
+.artist-experience-profile .editorial-link { pointer-events:auto; margin-top:24px; min-height:44px; }
+.artist-experience-profile .editorial-link:focus-visible { outline:2px solid currentColor; outline-offset:5px; }
+@media (min-width:640px) and (max-width:1000px) {
+  .stage-artist-sequence[data-artist-experience] .artist-copy { left:55%; right:4%; top:27%; }
+  .stage-artist-sequence[data-artist-experience] #artist-heading { font-size:4.8vw; }
+  .artist-experience-profile { left:55%; right:4%; top:27%; }
+  .artist-experience-identity h2 { font-size:4.8vw; }
+  .artist-experience-name { font-size:3.4vw; }
+  .artist-experience-credentials { font-size:13px; line-height:1.85; margin-top:22px; }
+}
+@media (max-width:639px) {
+  /* Portrait and profile receive separate vertical space. This changes only the opt-in 07 endpoint;
+     all 06 stage geometry is the existing value while handoff is zero. */
+  .stage-artist-sequence[data-artist-experience] .shared-image-frame {
+    height:calc(51% - var(--handoff) * 7%);
+  }
+  .stage-artist-sequence[data-artist-experience] .artist-suit {
+    object-position:50% 44%;
+    transform:scale(1.07);
+  }
+  .stage-artist-sequence[data-artist-experience] .artist-hanbok { object-position:50% 32%; }
+  .stage-artist-sequence[data-artist-experience] .artist-scene > .section-index { left:6%; }
+  .stage-artist-sequence[data-artist-experience] .artist-copy { left:7%; right:7%; top:59%; }
+  .stage-artist-sequence[data-artist-experience] #artist-heading { font-size:35px; }
+  .artist-experience-profile { left:7%; right:7%; top:59%; }
+  .artist-experience-identity { display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
+  .artist-experience-identity h2 { font-size:35px; margin:0; }
+  .artist-experience-name { font-size:20px; }
+  .artist-experience-role { font-size:12px; line-height:1.5; margin-top:5px; }
+  .artist-experience-credentials { font-size:13px; line-height:1.7; margin-top:16px; }
+  .artist-experience-credentials li + li { margin-top:0; }
+  .artist-experience-profile .editorial-link { min-height:44px; margin-top:9px; font-size:12px; }
+}
+@media (max-width:359px) {
+  .stage-artist-sequence[data-artist-experience] .artist-copy { left:6%; right:6%; top:58.5%; }
+  .stage-artist-sequence[data-artist-experience] #artist-heading { font-size:31px; }
+  .artist-experience-profile { left:6%; right:6%; top:58.5%; }
+  .artist-experience-identity h2 { font-size:31px; }
+  .artist-experience-name { font-size:18px; }
+  .artist-experience-credentials { font-size:12px; line-height:1.8; margin-top:12px; }
+  .artist-experience-profile .editorial-link { margin-top:5px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .stage-artist-sequence[data-artist-experience] .artist-copy { display:none; }
+  .stage-artist-sequence[data-artist-experience] .artist-hanbok { mask:none; clip-path:none; }
+  .stage-artist-sequence[data-artist-experience] .shared-image-frame { height:auto; }
+  .stage-artist-sequence[data-artist-experience] .artist-scene { clip-path:none; }
+  .stage-artist-sequence[data-artist-experience] .shared-seam { display:none; }
+  .artist-experience-profile { position:static; translate:none; margin-block:22px 0; }
+}

@@ -1,10 +1,29 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 08 — PERFORMANCES
 
-**Version:** 1.1\
+**Version:** 1.2\
 **Status:** Approved PERFORMANCES Baseline  
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`, `05-WORKS.md`  
 **Page Role:** Cinematic Timeline Archive
+
+## 2026-09-08 연구 반영 — 다음 구현 후보
+
+Cinematic Timeline Archive와 UPCOMING/ARCHIVE의 단일 페이지 구조를 유지한다.
+현재 `/performances/`는 **route fixture**다. HOME의 **2026.09.22 〈풀고, 엮다〉** 대표 콘텐츠는 보존하되
+HOME projection만으로 정식 공연 record의 공개 상태를 결정하지 않는다.
+
+- **목적 / 첫 화면:** 대표 공연 title/date/venue를 먼저 읽고 정확한 연도 Index로 바로 탐색한다.
+  상세 접근 전에 HOME Stage Aperture를 다시 감상하도록 요구하지 않는다.
+- **대표 기법:** desktop의 한 Stage Window가 공연 행의 선택에 따라 실제 image를 이어 보여준다.
+  Obys의 작품-색인 관계와 PHOTOYOSHI의 overview→focus 원리; hover와 keyboard focus가 대응한다.
+- **자산 / 모바일:** 9/22 official poster는 있으나 해당 무대 documentary photo는 확인되지 않았다.
+  poster의 고유 비율을 존중한다. 모바일은 날짜→큰 inline image→제목/장소의 세로 timeline이며
+  desktop 고정 창을 축소하지 않는다.
+- **다음 단위:** 승인 항목으로 PERFORMANCES year index/Stage Window와 mobile inline 탐색.
+  클릭한 현재 asset을 detail 첫 이미지로 유지하며 공개 record 정리가 필요하면 publication owner를 먼저 분리한다.
+
+자산·visualMode·이동과 다음 단위는 [연구 §4.3](review/EXPERIENCE-PROTOTYPE-RESEARCH.md#43-performances--날짜를-읽으면-무대가-따라옴)에 정리한다.
+이 기법은 후속 구현 후보이며 현재 페이지 완성·시각 승인이 아니다.
 
 ---
 

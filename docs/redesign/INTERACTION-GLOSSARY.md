@@ -1,6 +1,6 @@
 # INTERACTION GLOSSARY — 웹 인터랙션 학습 노트
 
-2026-09-08 · 61 terms · **사용자를 위한 human-readable reference. Agent instruction이 아닙니다.**
+2026-09-08 · 67 terms · **사용자를 위한 human-readable reference. Agent instruction이 아닙니다.**
 
 영어 이름을 알면 레퍼런스를 보고 원하는 효과를 더 정확하게 이야기할 수 있습니다. 일반적인 구현 방법과
 V2의 현재 구현을 구분해 읽어 주세요. **현재 Lab / 미래 후보 / 필수 spike 미실행**은 서로 다른 상태입니다.
@@ -536,3 +536,40 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 일반 구현: scroll position과 velocity를 구분하고 bounded response에만 속도를 사용합니다. 핵심 content 위치를 속도에 의존시키지 않습니다.
 - V2: **OPTIONAL / 이번 pass 미채택**. Native position과 시간 기반 settlement를 유지했습니다. 새 velocity inertia를 넣거나 fast scroll에서 작품 선택 기준을 바꾸지 않았습니다.
 - 기준: mobile jank, 위치 불안정, 멀미나 reverse discontinuity가 생기면 사용하지 않는 기법입니다.
+
+## 62. Threshold Frame — 완성 구도
+
+이미지·글자·선이 가장 잘 보이는 한 위치입니다. 03의 기존 LISTEN 기준 위치와 06의 완성된 공연
+포스터 위치를 비교 실험의 기준으로 씁니다. 새 section이나 별도의 사진을 뜻하지 않습니다.
+
+## 63. Viewing Window — 감상 구간
+
+완성 구도가 유지되는 스크롤 거리입니다. 의무 대기 시간이 아니므로 빠르게 지나갈 수 있습니다.
+07 비교안은 한복 100%가 된 뒤 사진과 프로필을 읽을 구간을 확보하고 나서 퇴장합니다.
+
+## 64. Scene Magnet — 약한 장면 자동 정렬
+
+기준 위치 가까이에서 스크롤이 잦아들면 조금만 정렬하는 기능입니다. 새 입력이면 바로 취소되고
+반복해서 끌어당기지 않습니다. **03/06 opt-in 후보**이며 04에는 적용하지 않습니다. LISTEN/메뉴/
+직접 이동이 우선하고 reduced-motion에서는 꺼집니다. 사용자가 체감을 비교한 뒤 채택을 결정합니다.
+
+## 65. Hanji Wet Reveal — 한지에 물이 스미는 사진 전환
+
+불규칙하게 젖는 영역에서 다음 사진이 드러나되 얼굴과 옷의 형태는 그대로입니다. 검은 먹물을
+덮거나 사진을 휘게 하지 않습니다. **07 opt-in 후보**는 동일 진행도에 동일 마스크를 계산하므로
+역스크롤도 같은 길을 되짚고 마지막에는 깨끗한 한복 사진만 남습니다.
+
+## 66. Wet Arrival Field — 젖음이 도착하는 순서 지도
+
+사진의 각 지점이 언제 드러날지를 미리 정한 작은 데이터 지도입니다. 진행도가 각 지점의 도착
+순서를 넘으면 그 부분을 공개합니다. V2 후보는 연결된 섬유 같은 경계를 사용하고 실시간 유체
+계산을 하지 않습니다. 화면 밖에서는 새 마스크를 그리지 않습니다.
+
+## 67. Shared Element Route Transition — 클릭한 이미지가 상세로 이어지는 이동
+
+목록 표지가 사라졌다 다시 생기는 대신 상세의 표지 자리로 이어지는 기법입니다. V2는 **연구 완료 /
+미구현**이며, 실제 목록·상세 한쌍에서 기존 Framework router의 native 전환부터 검토합니다.
+직접 방문/뒤로가기/이미지 실패/초점/모션 축소 시에도 정상 정보 접근이 먼저입니다.
+현재 Preview의 임시 상세 경로는 이 기능의 완성이 아닙니다.
+
+새 후보의 기술 선택과 제한: [통합 연구](review/EXPERIENCE-PROTOTYPE-RESEARCH.md).

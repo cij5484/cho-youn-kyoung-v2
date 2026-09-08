@@ -16,5 +16,5 @@
 .type-state-controls {display:flex;flex-wrap:wrap;gap:16px;margin-block:40px;}
 .type-state-controls button {min-height:44px;background:transparent;border:1px solid var(--line-color);padding:8px 14px;color:var(--text-primary);}
 .type-study>p {font-size:12px;line-height:1.8;}
-@media(max-width:639px){.type-study-pair{grid-template-columns:1fr;gap:60px}.type-study .listen-trigger{font-size:18vw}.p2k-comparison{inset:66px 12px auto auto;max-width:calc(100vw - 24px)}}
+@media(max-width:639px){.type-study-pair{grid-template-columns:1fr;gap:60px}.type-study .listen-trigger{font-size:18vw}}
 @media(prefers-reduced-motion:reduce){.spatial-canvas{display:none}.glyph-inner{transition:none!important;transform:none!important}}

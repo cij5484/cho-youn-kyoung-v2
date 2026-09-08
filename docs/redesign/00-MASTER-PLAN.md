@@ -1,7 +1,7 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 00 — REDESIGN MASTER PLAN
 
-**Version:** 1.20\
+**Version:** 1.21\
 **Status:** Approved Planning Baseline — P1C/P1D approved and delivered; P2A visually approved and delivered; P2B Bold QUALITY APPROVED FOR HERO INTEGRATION / FROZEN; enlarged bounded-task policy retained; HOME/product visual approval pending\
 **Legacy Repository:** `cij5484/cho-youn-kyoung`  
 **Target Repository:** `cij5484/cho-youn-kyoung-v2`  
@@ -21,7 +21,9 @@ Cho Youn Kyoung Website V2는 기존 홈페이지의 부분 리뉴얼이 아니�
 
 V2는 별도의 Public GitHub Repository에서 완전히 독립적으로 개발한다.
 
-V2가 최종 QA를 통과한 이후에만 기존 `choyounkyoung.com`을 새 프로젝트로 전환한다.
+V2 전체 개발 완료 후 `choyounkyoung.com` 단일 도메인에서 두 Edition을 선택하는 경험을 별도로 설계·구현한다.
+**FUTURE / 현재 제외:** Classic은 기존 독립 저장소·코드·CSS·의존성·빌드를 유지하며 V2 안에 섞지 않는다.
+실제 경로·배포·검색 처리는 해당 작업 시작 시 확인한다. 이번 단계에는 입구·overlay·기억 기능·연결 코드를 만들지 않는다.
 
 ---
 
@@ -49,6 +51,13 @@ flagship이다. Artist brand, 공연 홍보, 전문적 신뢰도를 함께 강�
 
 ## EXPERIENCE
 방문자가 조윤경의 음악, 작품, 이미지, 움직임과 분위기를 감각적으로 경험한다.
+
+## Page purpose and intensity — current design research
+
+HOME / Album Detail은 강한 경험, WORKS / ALBUMS / PERFORMANCES는 감상과 탐색의 균형,
+MEDIA는 발견과 재생, ABOUT은 사진·글자·약력 편집, CONTACT는 짧고 명확한 마무리를 우선한다.
+정보를 찾는 사람에게 긴 연출을 강요하지 않는다. 상위 메뉴를 자동으로 늘리지 않고 WORKS 아래의 유형별
+탐색 관계를 유지한다. 구체적인 후보·출처·다음 구현 단위는 [통합 연구](review/EXPERIENCE-PROTOTYPE-RESEARCH.md)가 소유한다.
 
 ## INFORMATION
 공연, 앨범, 프로필, 약력, 프로그램, 출연진, 음원, 영상, 기사 등의 정보를 빠르고 정확하게 찾을 수 있다.
@@ -939,10 +948,10 @@ NO라면 아무리 멋진 기술이라도 사용하지 않는다.
 
 # 43. IMPLEMENTATION CHUNKING / STOP RULE — MANDATORY
 
-PLAN → SUBTASK A → SUBTASK B → SUBTASK C if tightly related → FULL VALIDATION → REPORT → STOP → USER APPROVAL.
+PLAN → RELATED SUBTASKS (PARALLEL WHEN INDEPENDENT) → TASK-APPROPRIATE CHECKS → REPORT → STOP → USER APPROVAL.
 
-2026-09-06 사용자 승인: 기존 작은 단위보다 약 2.5–3배 큰 bounded task를 허용한다. 한 목표/owner 안에서
-강하게 연관된 2–3개 subtask를 묶어 약 60–90분 안에 검증 가능한 결과를 목표로 한다. 시간은 분량 기준이며
+2026-09-06 확대 승인: 한 목표 안에서 강하게 연관된 4–6개 subtask를 묶어 약 120–180분의 검토 가능한
+결과를 목표로 한다. 2026-09-08부터 독립 파일 소유권을 가진 트랙은 적극 병렬화한다. 시간은 분량 기준이며
 억지로 채우거나 검증을 생략할 마감이 아니다. 승인된 bundle 내부 A/B/C 사이에는 별도 승인을 다시 요구하지 않는다.
 PLAN에 subtask 순서·파일 범위·입력·전체 검증·rollback을 제시하고, bundle 완료 후 보고/STOP/다음 승인 경계를 지킨다.
 다른 subsystem 또는 시각 디자인/3D/콘텐츠 migration을 무리하게 섞지 않는다. 기존 작은 작업 큐는 bundle 설계의 재료이며,
@@ -950,7 +959,9 @@ PLAN에 subtask 순서·파일 범위·입력·전체 검증·rollback을 제시
 
 Never execute multiple phases, the entire HOME, multiple pages, or several 3D subsystems in one automatic implementation run. Never continue for hours without review. Each task has one clear goal, limited impact, explainable file scope, immediate validation and a simple rollback/checkpoint. If validation fails, fix only within the approved scope or stop and report the blocker; do not expand into another subsystem.
 
-FULL VALIDATION은 bundle에 필요한 전체 검증이며 기존 Fast/Full/배포 gate도 적용한다.
+검증은 작업 위험과 최신 Task Protocol에 맞춘다. Visual R&D는 타입·변경 영역 lint·실제 Preview build·
+작은 상태 테스트·핵심 browser smoke로 한정한다. Full Release Gate·전체 HOME suite·대량 증빙·중복
+통과 검증을 관성적으로 실행하지 않는다. 기존 Fast CI와 별도 수동 Release Gate는 유지한다.
 사용자가 결과 항목을 지정하면 그 형식을 따르고, 별도 지정이 없으면 다음 7항목을 보고한다:
 1. What was changed
 2. Files changed

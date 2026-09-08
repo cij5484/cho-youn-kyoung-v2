@@ -4,6 +4,14 @@
 
 현재 정본은 갱신된 MASTER의 PHASE 0–14다. React Router + Static Prerender는 사용자가 지정한 P0C 실제 Pages gate 통과로 확정했다. P0D neutral locale/hreflang 계약은 두 base에서 통과했고 실제 번역·제품 구현과 운영 SEO는 별도 gate다. 이 문서는 실제 구현 승인이 아니다.
 
+## Current bounded pass — 2026-09-08
+
+**Experience Prototype / Subpage Research** starts from main `150529b`; 04 remains fixed. Three independent
+tracks own opt-in 07, opt-in 03/06 alignment and research; root owns comparison integration/docs/lean checks/delivery.
+No default visual selection, Edition Gate or subpage implementation. Current prototypes, user choices and proposed
+next WORKS unit: [consolidated research/result](EXPERIENCE-PROTOTYPE-RESEARCH.md). This dated state supersedes the
+older implementation-status summary above; HANDOFF owns approval and exact delivery.
+
 ## 1. Understanding Summary
 
 V2는 조윤경의 음악을 경험하는 Digital Artist Archive이자 공식 정보 사이트다. 기존 프로젝트를 고치는 것이 아니라 새로운 프런트엔드를 만든다. 검증된 사실·원본 작품·진짜 기록·유용한 알고리즘만 개별 심사를 거쳐 사용한다.

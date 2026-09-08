@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** HOME cinematic continuity / depth pass builds on delivered main `d98aaa6`. Current implementation and the authorized PR/Preview delivery receipt are in §26 and the linked result; visual approval remains separate.\
-**Revision:** 1.37 / 2026-09-08 — selective Works baseline restoration; later continuity preserved\
+**Status:** Experience Prototype / Subpage Research implemented as opt-in only from delivered main `150529b`; HOME 04 protected. User comparison/selection pending; delivery receipt in §26.\
+**Revision:** 1.38 / 2026-09-08 — opt-in experience prototypes / lean research and Preview delivery\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 **Latest delivery policy — 2026-09-08:** user stopped Linux WebKit SOUND investigation and authorized pipeline-only
@@ -437,7 +437,7 @@ Stop and report:
 [ ] No real playable source gives unavailable/disabled/coming-soon; no silent timer or false playing
 [ ] Real mobile programmatic-volume capability tested in PHASE 0 or Audio spike
 [ ] Unsupported volume gets reported capability-based UX/fallback; no forced workaround
-[ ] PLAN → 4–6 TIGHTLY RELATED SUBTASKS → FULL VALIDATION → REPORT → STOP → USER APPROVAL
+[ ] PLAN → RELATED SUBTASKS (PARALLEL WHEN INDEPENDENT) → TASK-APPROPRIATE CHECKS → REPORT → STOP → USER APPROVAL
 [ ] Each task has one goal, limited impact/file scope, immediate validation and easy rollback
 [ ] PHASE 0 uses individually approved P0A–F; no automatic next unit
 [ ] 3D geometry/materials/camera/lighting/drag/inertia/open/tray/disc/transition are separate reviewed units
@@ -447,13 +447,13 @@ Stop and report:
 # 25. IMPLEMENTATION CHUNKING / STOP RULE
 
 Mandatory sequence:
-PLAN → 4–6 TIGHTLY RELATED SUBTASKS → FULL VALIDATION → REPORT → STOP → USER APPROVAL.
+PLAN → RELATED SUBTASKS (PARALLEL WHEN INDEPENDENT) → TASK-APPROPRIATE CHECKS → REPORT → STOP → USER APPROVAL.
 
 Latest user revision 2026-09-06: enlarge the previous bundle about 2×. One approved coherent bundle may contain
 4–6 tightly related subtasks, targeting a fully verifiable result in roughly 120–180
 minutes. This is a planning target, not mandatory elapsed time or a reason to omit checks. No new approval is
 needed between already-authorized subtasks. Architecture changes retain a separate approval gate; major 3D stays smaller. Unexpected complexity or a direction decision requires STOP. User visual approval gates the next major scene. Do not mix unrelated subsystems or visual design/3D/content migration.
-Full validation covers the complete bundle and its applicable Fast/Full gates. Other Phase/3D owner boundaries remain.
+For visual R&D, use Lean Visual Validation: types, changed-area lint, actual Preview build, small state tests and core smoke. No automatic Full/whole HOME matrix/evidence packs/repetition of passing checks. Existing Fast CI and manual Release Gate remain separate; Phase/3D owner boundaries remain.
 
 No explicit next-task approval means STOP, even when the next task is obvious or tests passed. A broad direction/plan approval does not authorize continuous execution. A failed check permits only correction within the approved bounded scope; if another subsystem must change, report and request a new bounded approval.
 
@@ -472,7 +472,41 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 
 # 26. CURRENT HANDOFF STATE
 
-## Current HOME cinematic continuity / depth pass — 2026-09-08
+## Current Experience Prototype / Subpage Research — 2026-09-08
+
+Start: clean `main == origin/main`, **`150529b4c1b9a7e1c4fa306ebe0abdbf51246cdb`**, after PR #11.
+Branch: `codex/experience-prototype-research`. The explicit user bundle authorizes opt-in HOME prototypes,
+subpage research/docs, lean checks and PR → main merge → existing automatic Pages Preview → minimal URL smoke.
+The user delegates visual judgment to their own Preview review. No Full Release Gate or next page implementation.
+
+- **Default HOME preserved:** 04 restored ribbon and its common geometry untouched; no Depth Queue/hold/mask/
+  afterimage/magnet. Hero/Haegeum/SOUND, 05 object inputs and 06 2026.09.22 `<풀고, 엮다>` retain baseline owners.
+- **Implemented opt-in / selection pending:** straight vs Hanji 07 photo reveal, both exact suit→hanbok endpoints,
+  completed-photo viewing window and latest compact profile; 03/06 weak Scene Magnet on/off. Current role is
+  국립부산국악원 기악단 단원. The earlier 68% default is not a candidate endpoint. No factual error was found in
+  current V2 role copy; Classic and historical reports were not edited.
+- **Comparison entry:** local collapsed `개발 비교`; public `?dev=1`. Ordinary public URL has no panel/new effects.
+  `?dev=0` or exit restores baseline, including effect/resource cleanup. Legacy compare/all links remain available.
+  Query-only choices keep audio identity/time and locale/hash/unrelated parameters. Heavy modules are lazy.
+- **Public comparisons:** [Hanji](https://cij5484.github.io/cho-youn-kyoung-v2/?dev=1&portrait=hanji&magnet=on),
+  [Straight](https://cij5484.github.io/cho-youn-kyoung-v2/?dev=1&portrait=straight&magnet=on).
+  Use Korean 03/06/07 jump controls; toggle automatic alignment independently. [Baseline](https://cij5484.github.io/cho-youn-kyoung-v2/?dev=0).
+- **Research complete / pages not implemented:** three new verified references; current router/catalog boundary,
+  page-specific plans and native-first future list/detail transition recommendation. Single evidence/result owner:
+  [Experience Prototype Research](docs/redesign/review/EXPERIENCE-PROTOTYPE-RESEARCH.md). ABOUT remains a fixture.
+- **Pending user decisions:** straight vs Hanji, 07 profile/crop quality, 03/06 magnet feel/adoption. Technical success
+  is not QUALITY APPROVED or permission to change defaults. Physical phone/native Safari/Retina remain unverified.
+- **Recommended next bounded task after selection:** WORKS — Dual Archive + Functional Index Prototype, separate
+  from HOME 04. No automatic continuation.
+
+**FUTURE / Edition Gate:** only after all V2 HOME/subpages are complete, separately design one-domain two Editions.
+Classic retains its independent repository/code/CSS/dependencies/build; never mix it into V2. Actual paths,
+deployment and search handling are decided then. No Classic research, gate code, domain/DNS/CNAME or SEO changes here.
+
+Delivery uses the existing main-push Fast + Preview workflow. The delivering PR records the exact merged SHA,
+Fast/Pages outcome and public smoke; §7 of the research records local lean checks. End at REPORT / STOP.
+
+## Previous HOME cinematic continuity / depth pass — 2026-09-08 (PR #10 / #11 delivered)
 
 The user authorized the previous interaction pass's delivery as a prerequisite: [PR #9](https://github.com/cij5484/cho-youn-kyoung-v2/pull/9)
 merged as `d98aaa6`; Fast CI and automatic Pages Preview run `34190400938` succeeded. Latest main was pulled

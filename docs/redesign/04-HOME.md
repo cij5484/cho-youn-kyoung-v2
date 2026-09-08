@@ -2,7 +2,7 @@
 ## 04 — HOME
 
 **Version:** 2.1\
-**Status:** HOME V2.1 / 2026-09-08 cinematic continuity and depth pass implemented in the development HOME; current validation, delivery and user visual approval are recorded separately in HANDOFF\
+**Status:** HOME V2.1 baseline preserved; opt-in 07 / 03·06 prototypes implemented, user selection pending; delivery and technical checks in HANDOFF\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`  
 **Art Direction:** Contemporary Editorial / Ivory  
 **Narrative Structure:** ARTIST → INSTRUMENT → SOUND → WORK → OBJECT → STAGE → ARTIST → NAME
@@ -936,7 +936,7 @@ Do not continue hiding the face here.
 
 ## Composition
 
-Current user-authorized composition:
+Default composition (new opt-in comparison requirements are in the dated Experience Prototype revision below):
 - one large suit/hanbok portrait composition, using the two distinct real photographic poses
 - suit initially dominant; hanbok enters through a moving split mask
 - grouped Cho / Youn Kyoung and 조윤경 identity, with a short `연주자 소개` link
@@ -946,7 +946,7 @@ No CV timeline on HOME.
 
 ## Motion
 
-Current Split Mask + subtle DOM 2.5D direction:
+Default Split Mask + subtle DOM 2.5D direction (not the new comparison endpoints):
 - the neutral-pointer hanbok split holds at 47.6% over sequence progress .82–.91 before continuing to the retained 68% endpoint
 - intact photo planes and their seam share small translations; the name group moves at a smaller, opposite depth
 - fine-pointer movement adds bounded split/light response; mobile uses only a small scroll-driven crop/depth shift
@@ -1382,3 +1382,30 @@ Stable album object/front/back identities and the featured performance content/i
 **HOME → Album Detail Shared Element** and **HOME → Performance Detail Shared Element remain FUTURE / NOT IMPLEMENTED**.
 No destination snapshot, route-transition handler or new detail route was added. These hooks preserve identity for a
 separately authorized transition, while current links and local selection retain their existing behavior.
+
+## 2026-09-08 Experience Prototype — opt-in / 사용자 선택 대기
+
+**기본 화면:** main `150529b`의 복원된 04 Desktop/Mobile ribbon을 고정한다. 새 Depth Queue, mask,
+감상 hold, 잔상, Scene Magnet을 04에 추가하지 않는다. Hero/Haegeum/SOUND, 앨범 조작/교체와
+2026.09.22 `<풀고, 엮다>` 콘텐츠는 유지한다. 아래는 기본 HOME의 시각 승인이나 확정 적용이 아니다.
+
+**07 비교 요구:** 직선 / 한지 번짐 모두 100% 정장 → 100% 한복. 전환 완료는 scene 퇴장이 아니며
+완성된 사진과 프로필의 감상 구간을 확보한다. 역스크롤도 같은 모양을 되짚는다. 기존 68% 제한은
+기본 화면의 역사적 tuning일 뿐 새 후보에 적용하지 않는다. 사진은 실제 suit/hanbok을 그대로 사용하며
+기울기·얼굴 왜곡·가짜 사진·실루엣 재생성을 추가하지 않는다. 두 후보는 같은 진행도와 프로필로 비교한다.
+
+**간략 프로필:** 조윤경 / Cho Youn Kyoung → 해금 연주자 → 국립부산국악원 기악단 **단원**,
+한양대학교 음악학박사(D.M.A.), 국가무형유산 「종묘제례악」 이수자,
+제27회 온나라국악경연대회 해금부문 금상 → 전체 프로필 보기. 현재 수석이 아니다.
+`前 국립부산국악원 기악단 수석 역임`과 새.생 동인은 ABOUT 계획에서 별도 구분한다.
+현재 활성 V2에 잘못된 현직 문구는 발견되지 않았다. ABOUT 목적지는 여전히 임시 route fixture다.
+모바일은 위 사진/아래 프로필의 별도 구성이며 읽는 정보는 DOM에 남긴다.
+
+**03/06 실험:** 기존 완성 구도/감상 구간을 이용한 약한 장면 자동 정렬. 기본 OFF이며,
+LISTEN과 직접 이동/키보드/메뉴가 우선한다. 입력·관성 종료 후 가까울 때만 안착하고 새로운 입력으로
+즉시 취소한다. 시간 강제 감상이나 scroll lock이 아니다. 구체 계약은 [Motion §50](03-MOTION-SYSTEM.md#50-opt-in-experience-prototypes--user-selection-pending).
+
+**접근:** 로컬은 접힌 `개발 비교` 버튼, 공개 Preview는 `?dev=1`. 일반 공개 주소는 패널/새 실험 OFF.
+`?dev=0` / 종료는 후보를 해제한다. 기존 `?compare` / `?all`은 호환한다. 사용자 선택 대기 후보를
+cleanup으로 삭제하지 않는다. URL은 보안 장치가 아니며 개인정보/비공개 자산을 담지 않는다.
+비교 주소·추천·검증은 [통합 연구/결과 §7](review/EXPERIENCE-PROTOTYPE-RESEARCH.md#7-home-비교-실험-결과)에만 기록한다.

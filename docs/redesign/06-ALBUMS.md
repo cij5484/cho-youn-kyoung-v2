@@ -1,10 +1,27 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 06 — ALBUMS
 
-**Version:** 1.0  
+**Version:** 1.1\
 **Status:** Approved ALBUMS Baseline  
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`, `05-WORKS.md`  
 **Page Role:** Digital Discography Exhibition
+
+## 2026-09-08 연구 반영 — 다음 구현 후보
+
+Discography Exhibition과 SANJO/JEONGAK grouping을 유지한다. 현재 `/albums/`는 **route fixture**다.
+HOME의 앨범 projection과 cover 자료는 정식 archive 공개나 production 3D source 완료를 뜻하지 않는다.
+
+- **목적 / 첫 화면:** 음악 grouping, 실제 cover/package, 작품명·연도·발매 상태를 읽는 전시.
+  상세보다 조용하고 탐색 가능한 장면을 만든다.
+- **대표 기법:** 선택한 음반 표면이 상세의 닫힌 음반 첫 장면으로 이어진다. Joffrey Spitzer의
+  동일 대상 geometry 원리를 참고하되 목록마다 live canvas를 만들지 않는다.
+- **자산 / 모바일:** production 3D still이 없으면 진짜 cover의 shared-image가 우선이다.
+  모바일은 충분히 큰 한 음반씩 세로 chapter로 감상하며 추가 sticky SANJO/JEONGAK switch는 두지 않는다.
+- **다음 단위:** ALBUMS 2D exhibition과 cover→한 detail entry 비교. 정확한 still→live handoff,
+  실제 package 규격·renderer source와 3D 품질 gate는 기존 계약대로 별도다.
+
+세부 후보와 실제 자산 한계는 [연구 §4.2](review/EXPERIENCE-PROTOTYPE-RESEARCH.md#42-albums--음반의-물성을-비교하는-전시)를 참조한다.
+원리 채택은 페이지 구현·시각 승인·record publication이 아니다.
 
 ---
 

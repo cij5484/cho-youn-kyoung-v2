@@ -14,7 +14,9 @@ test('A retains frozen line/word presentation; comparison changes do not remount
   await ready(page,'/?all=a');const root=page.locator('.sound-experience');await expect(root).toHaveAttribute('data-spatial-points','false')
   await expect(page.locator('.sound-surface .listen-mask')).toHaveCount(1);await expect(page.locator('.sound-surface .glyph-label')).toHaveCount(0)
   await seek(page,1);await page.locator('audio').evaluate(e=>e.dataset.identity='same-element')
-  await page.locator('.p2k-comparison summary').click();await page.getByLabel('B · 공간을 흐르는 두 점',{exact:true}).check();await page.getByLabel('B · 해금과 장구',{exact:true}).check();await page.getByLabel('B · 글자 재조립',{exact:true}).check()
+  await page.locator('.p2k-comparison summary').click()
+  // URL-backed controlled inputs commit with the router transition; observe the settled choice.
+  for(const label of ['공간을 흐르는 두 점','해금과 장구','글자 재조립']){const choice=page.getByLabel(label,{exact:true});await choice.click();await expect(choice).toBeChecked()}
   await expect(page.locator('audio')).toHaveAttribute('data-identity','same-element');await expect(page.locator('.spatial-canvas')).toHaveCount(2)
 })
 test('free trajectories have depth and bounded history, lock precisely to authored imagery, reverse cleanly',async({page})=>{
