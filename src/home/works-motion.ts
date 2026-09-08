@@ -1,10 +1,9 @@
 import { useEffect, useRef, type RefObject } from 'react'
 import { blendPoint, clamp, smooth, ellipse, outroOrbit } from './closing-orbit.ts'
-import { depthQueuePosition, depthQueuePose } from './depth-queue.ts'
 import { createTrailSampler, type TrailSample } from '../motion/trail-geometry.ts'
 
 export const worksRibbonTuning = {
-  response: 11,
+  spacing: .46, depth: 210, turn: 48, response: 11,
   orbitResponse: 5.5, orbitSpeed: .65, trailMs: 2000, trailWidth: 2.2, historyLimit: 360,
   collapseEnd: .6,
   colors: ['#6334E5', '#A33D36'],
@@ -61,21 +60,16 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
       owner.dataset.orbitEnding = ending.toFixed(3)
       if (endMotion === 1) { contexts.forEach(ctx=>ctx?.clearRect(0,0,width,height)); histories.forEach(h=>{h.length=0}); owner.dataset.orbitState='finished'; last=0; return }
       owner.dataset.orbitState='running'
-      target = depthQueuePosition(-section.top / Math.max(1, section.height - sticky.offsetHeight),cards.length)
+      target = clamp(-section.top / Math.max(1, section.height - sticky.offsetHeight)) * (cards.length - 1)
       position += (target - position) * (1 - Math.exp(-tune.response * dt))
       if (Math.abs(target - position) < .0005) position = target
-      const ribbonPosition=position.toFixed(4)
-      if(root.dataset.ribbonPosition!==ribbonPosition)root.dataset.ribbonPosition=ribbonPosition
-      root.dataset.workThreshold=String(Math.abs(position-Math.round(position))<.035)
       const nextActive = Math.round(position)
       if (nextActive !== active) { active = nextActive; onActive(active); root.dataset.ribbonIndex = String(active) }
       const boardBox = board.getBoundingClientRect()
       if (section.bottom > 0) {
         cards.forEach((card, i) => {
           const offset = i - position, distance = Math.abs(offset)
-          const pose=depthQueuePose(offset,width,touchLayout)
-          card.style.transform=pose.transform;card.style.clipPath=pose.clip;card.style.visibility=pose.visible?'visible':'hidden'
-          card.dataset.depth=pose.z.toFixed(2)
+          card.style.transform = touchLayout ? `translate(-50%,-50%) translate3d(${(offset * width * .94).toFixed(2)}px,${(distance * 24).toFixed(2)}px,${(-distance * 90).toFixed(2)}px) rotateY(${(-Math.max(-1, Math.min(1, offset)) * 18).toFixed(2)}deg)` : `translate(-50%,-50%) translate3d(${(offset * width * tune.spacing).toFixed(2)}px,${(distance * distance * 26).toFixed(2)}px,${(-Math.pow(distance, 1.3) * tune.depth).toFixed(2)}px) rotateY(${(-Math.max(-1.6, Math.min(1.6, offset)) * tune.turn).toFixed(2)}deg) rotateZ(${(offset * 4).toFixed(2)}deg)`
           card.style.zIndex = String(10 - Math.round(distance * 2)); card.style.setProperty('--work-distance', String(Math.min(1, distance)))
           links[i].tabIndex = i === active ? 0 : -1
           card.inert = i !== active
@@ -213,7 +207,7 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
     function leave() { pointer = null; request() }
     function focused(event: FocusEvent) { focus = Number((event.target as HTMLElement).closest<HTMLElement>('[data-work-index]')?.dataset.workIndex ?? -1); request() }
     function blurred() { focus = -1; request() }
-    function change() { if(reduced.matches)cards.forEach((card,i)=>{card.inert=false;links[i].tabIndex=0;for(const property of ['transform','clip-path','visibility'])card.style.removeProperty(property)}); histories.forEach(history => { history.length = 0 }); request() }
+    function change() { if(reduced.matches)cards.forEach((card,i)=>{card.inert=false;links[i].tabIndex=0;card.style.removeProperty('transform')}); histories.forEach(history => { history.length = 0 }); request() }
     const observer = new ResizeObserver(resize); observer.observe(sticky)
     window.addEventListener('resize',resize)
     const modal = new MutationObserver(() => { last = 0; request() }); const dialog = document.querySelector('dialog'); if (dialog) modal.observe(dialog, { attributes: true, attributeFilter: ['open'] })

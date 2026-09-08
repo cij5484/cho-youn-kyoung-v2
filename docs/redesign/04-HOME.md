@@ -43,7 +43,7 @@ V2.1 canonical rhythm and approximate experience budgets:
 | 01 HERO | ARTIST | 5/5 | 100–120vh | First-five-seconds peak; Moving Editorial Poster |
 | 02 HAEGEUM | INSTRUMENT | 4.5/5 | 120–160vh | Continuous transformation from Hero |
 | 03 SOUND | SOUND / LISTEN | 3/5 | 70–90vh | Quiet pause; explicit optional listening |
-| 04 SELECTED WORKS | WORK | 4/5 | Current desktop 220svh / 120svh travel; mobile 250svh / 150svh travel | Five-work Depth Queue; one foreground composition and a restrained next edge |
+| 04 SELECTED WORKS | WORK | 4/5 | Desktop 190svh / 90svh travel; mobile 250svh / 150svh travel | Restored five-work native-scroll ribbon; one large active image and readable ledger |
 | 05 ALBUM OBJECT | OBJECT | 5/5 | 110–140vh | Second major visual peak; collectible objects |
 | 06 PERFORMANCE | STAGE | Entry peak → quiet hold | Shares one 330svh sequence with 07; mobile 320svh | Stage Aperture + 09 / 22 Date Geometry; official poster resolves before the handoff |
 | 07 THE ARTIST | ARTIST | Reveal → quiet hold | Same 06→07 sequence, not a second spacer | Suit / Hanbok Split Mask; subtle photo/mask/type depth and a held identity frame |
@@ -564,8 +564,8 @@ Show that the artist has a substantial body of work without turning HOME into an
 
 ## Composition
 
-Current user-authorized Depth Queue direction (retains the scroll ribbon narrative):
-- five image planes, with one large foreground work and its successor suggested as a cropped edge in depth
+Current user-directed baseline restoration (`d98aaa6444b472537bfd5d1e549f864635930a85`):
+- five large image planes on the existing spatial ribbon, with one work clearly exposed at a time
 - 4–5 selected works
 - authentic aspect ratios, spatial depth and varied proportions
 - large whitespace
@@ -585,23 +585,23 @@ No summary paragraph on HOME.
 ## Interaction
 
 Desktop:
-- brief sticky composition (220svh scene, 120svh travel); no wheel interception or drag requirement
-- native scroll moves the current work back while the next plane approaches; each interval has a short composition hold before and after movement
+- brief sticky composition (190svh scene, 90svh travel); no wheel interception or drag requirement
+- native scroll moves the existing ribbon continuously; the cinematic pass's added interval holds and next-edge clipping are removed
 - five labelled buttons expose any work, and its central link remains keyboard reachable
 - near-pointer/focus gathers the pair around the artwork, with front/back depth and continuous release to free motion
 - pointer also tilts the artwork surface; recent paths use the shared trail resampler, not discrete dots
 - height-aware image sizing keeps the main image clear of the heading and the single caption ledger
 
 Mobile:
-- independently composed sticky Depth Queue (250svh scene, 150svh travel), with one large image and readable title/year/type
-- shallower depth and a restrained next edge; no hover requirement or small multi-card gallery
+- restored independently composed sticky ribbon (250svh scene, 150svh travel), with one large image and readable title/year/type
+- existing mobile spacing/depth/rotation; no new Depth Queue clipping or hover requirement
 - native vertical scroll and five labelled selectors expose every work; direct tap follows the same content identity
 
 ## Detail Entry
 
 Current HOME selection keeps the album content identity when entering Album Object. The featured 9/22 performance
-links to its fixed HOME stage; other performances retain their own existing official-site detail links. Work/image and
-album-face DOM attributes expose stable content/asset identity. Actual HOME→Detail shared transitions remain **FUTURE**;
+links to its fixed HOME stage; other performances retain their own existing official-site detail links. Album-face and
+featured-performance DOM attributes expose stable content/asset identity. Actual HOME→Detail shared transitions remain **FUTURE**;
 these identity hooks do not implement route animation, destination snapshots or new detail pages.
 
 The selected image/artwork should expand/reposition into the detail Hero where possible.
@@ -649,11 +649,10 @@ Reduce lateral exploration and increase object focus.
 
 The transition should prepare the visitor for 3D rather than abruptly spawning a WebGL scene.
 
-The point pair leaves the ribbon toward the actual incoming object's measured location and subsides as the album
-takes focus. A short afterimage uses the actual last work asset as a narrow plane edge, measured between the outgoing
-image and incoming album bounds. It retreats in depth and contracts instead of leaving a long ghost image. Selecting
-a work retains its content identity. This is a within-HOME material handoff, not a cross-route shared transition or
-final geometry approval.
+The point pair leaves the restored ribbon toward the actual incoming object's measured location and subsides as the
+album takes focus. Selecting a work retains its content identity. The cinematic pass's additional last-work plane-edge
+afterimage is removed with the 04 selective revert. This boundary does not add a cross-route shared transition or
+claim final geometry approval; the separate Album→Stage light and Artist→Outro seam afterimages remain.
 
 ---
 
@@ -1330,13 +1329,18 @@ visual tuning and the approved SOUND response remain unchanged. Local review pre
 The current runtime and this revision supersede conflicting earlier sprint descriptions. No new HOME scene,
 Detail page, audio engine, navigation motion or Hero/Haegeum redesign is part of this pass.
 
+**Subsequent user correction — 04 selective revert:** restore Selected Works to the start-of-pass baseline
+`d98aaa6444b472537bfd5d1e549f864635930a85`. The Depth Queue, added interval thresholds, next-edge clipping,
+new mobile queue tuning and Works→Album plane afterimage are **REVERTED / NOT ACTIVE**. Retain the other scenes'
+cinematic refinements below. Historical pass results describe their recorded revision, not the current 04 runtime.
+
 ### Continuity principles and actual signatures
 
 - **Scene Afterimage:** a brief piece of the outgoing material becomes the next scene's input. `SceneAfterimages.tsx`
-  carries the actual last Works image edge toward the album, the selected album's RGB/light direction into the stage,
-  and the actual portrait seam toward Outro typography. These are clipped edge/light transfers, not long blurred ghosts.
-- **Z-depth Transition:** the Works foreground recedes as the next plane approaches; retained album objects exchange
-  in depth. CSS perspective/transforms provide the spatial relation without a new WebGL renderer. Shared geometry is
+  carries the selected album's RGB/light direction into the stage and the actual portrait seam toward Outro typography.
+  These are clipped edge/light transfers, not long blurred ghosts. The new Works plane transfer is removed.
+- **Z-depth Transition:** retained album objects exchange in depth; Works retains its pre-pass ribbon transforms.
+  CSS perspective/transforms provide the spatial relation without a new WebGL renderer. Shared geometry is
   preferred over a reset; opacity only bounds an edge/light lifetime rather than serving as the complete transition.
 - **Threshold Moment:** movement → complete composition → short settle → handoff. Holds are authored scroll
   distance or natural motion settlement, never timed scroll locks. Fast input may pass through; reverse remains native.
@@ -1347,7 +1351,7 @@ Detail page, audio engine, navigation motion or Hero/Haegeum redesign is part of
 | Scene | Current threshold and continuation |
 |---|---|
 | SOUND | Retained geometry-based LISTEN alignment, immediate gesture unlock and audible playback near alignment; no retuning in this pass |
-| Works | Each interval holds the current composition through its first .13 and after .87; one work is foreground, the successor only a cropped depth edge |
+| Works | Pre-pass native-scroll ribbon restored; active-image alignment and labelled selectors remain, with no added .13/.87 interval hold or next-edge clipping |
 | Album | Existing three-quarter/front/back pose and bounded release settle; light follows more slowly, then its rAF stops. No new forced orientation snap |
 | Performance | Aperture opens over shared progress 0–.24; date/poster hold before the .43–.64 seam handoff |
 | Artist | Hanbok split reaches 47.6% at .82 and holds to .91, then continues to 68%; the final .955–1 interval gently withdraws the frame |
@@ -1374,7 +1378,7 @@ No sustained phone/thermal or native Safari quality claim follows from these imp
 
 ### Future Detail boundary
 
-Stable work content/asset IDs, album object/front/back identities and the featured performance image ID are present.
+Stable album object/front/back identities and the featured performance content/image identity are present.
 **HOME → Album Detail Shared Element** and **HOME → Performance Detail Shared Element remain FUTURE / NOT IMPLEMENTED**.
 No destination snapshot, route-transition handler or new detail route was added. These hooks preserve identity for a
 separately authorized transition, while current links and local selection retain their existing behavior.

@@ -681,3 +681,7 @@ PR/main/자동 Preview 배포와 공개 URL 확인이다. 사용자 병렬 작�
 고정 소스에서 통합한다. 기준 SHA로 이 단위만 rollback 가능하게 분리한다. 실제 Detail Shared Element는 FUTURE,
 silhouette Occlusion Typography와 velocity response는 이번에 채택하지 않았다. Full Release Gate는 실행하지 않는다.
 새 Scene 또는 다음 Phase로 진행하지 않고 [결과](../../../HOME-CINEMATIC-CONTINUITY-RESULT.md) 보고 후 STOP한다.
+
+2026-09-08 같은 작업의 사용자 정정: PR #10 / `e7a9473`의 04만 시작 전 `d98aaa6` ribbon으로 선택 복원한다.
+Depth Queue·추가 hold/clipping·04 작품 잔상은 적용하지 않는다. 03/05/06/07와 다른 연속성 변경은 보존하고,
+관련 검증/PR/자동 Preview 후 STOP한다. 04 재개선은 별도 visual pass에서 검토한다.

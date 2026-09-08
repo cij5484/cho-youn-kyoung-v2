@@ -1,6 +1,6 @@
 # Implementation Task Protocol — mandatory bounded work
 
-Revision 1.28 · 2026-09-08 · HOME cinematic continuity preview bundle; enlarged coherent scope and terminal STOP retained.
+Revision 1.29 · 2026-09-08 · selective Works restoration within the authorized continuity preview bundle.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
@@ -8,6 +8,10 @@ Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 **Current cinematic continuity bundle:** after delivering the prior HOME interaction pass through PR #9, the user
 authorizes current-main audit → Works depth/afterimages → Album Light Memory → Performance date/Artist depth →
 two-point resolution, docs and targeted checks → PR/main merge/automatic Pages preview/public-URL smoke → STOP.
+User correction after PR #10: restore only 04 JSX/CSS/ribbon behavior to the pre-pass `d98aaa6` baseline; remove
+Depth Queue, its added hold/clips and work-plane afterimage. Preserve 03/05/06/07 and the other continuity changes;
+never restore a whole shared file. This correction continues the same targeted-check/PR/Preview delivery authorization.
+Further 04 visual improvement is deferred to a separately authorized pass.
 Parallel work is explicitly permitted, with separate file ownership and a final fixed-source integration run.
 Type-check, lint, build, HOME targeted and changed-subsystem checks plus desktop/mobile sanity are required.
 Full Release Gate is explicitly excluded from this visual preview pass. No new scene, detail route, WebGL, asset

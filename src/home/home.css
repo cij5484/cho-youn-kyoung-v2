@@ -17,7 +17,7 @@
 .editorial-link:focus-visible .editorial-link-arrow { transform:translate(4px,-4px); }
 
 /* Large image planes follow one short curved ribbon; the ledger has one stable baseline. */
-.works-scene { min-height:220svh; }
+.works-scene { min-height:190svh; }
 .works-sticky { position:sticky; top:0; height:100svh; min-height:610px; padding:100px var(--page-gutter) 30px; overflow:clip; }
 .works-axis { position:fixed; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; opacity:0; z-index:4; }
 .works-axis path { fill:none; stroke:var(--color-charcoal); stroke-width:1; }
