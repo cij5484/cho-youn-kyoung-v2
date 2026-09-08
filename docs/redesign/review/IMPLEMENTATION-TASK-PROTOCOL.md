@@ -1,9 +1,16 @@
 # Implementation Task Protocol — mandatory bounded work
 
-Revision 1.26 · 2026-09-07 · P2I SOUND QUALITY APPROVED / FROZEN; classified QA gaps remain / STOP; enlarged coherent bundle and terminal STOP retained.
+Revision 1.27 · 2026-09-08 · P2I SOUND QUALITY APPROVED / FROZEN; classified QA gaps remain / STOP; enlarged coherent bundle and terminal STOP retained.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
+
+**Current delivery revision, user authorized 2026-09-08:** development Pages preview automatically deploys
+on main push/merge after Fast + preview build. Full browser validation remains a separate manual Release Gate. The existing HOME/InteractionLab is mounted
+unchanged by `preview/main.tsx`; `build:development-preview` emits its own noindex artifact with catalog-derived
+HTML build inputs. Release root/project prerender fixtures remain separate and retain their original checks.
+This pipeline task uses Fast/build/actionlint and public-URL smoke only; stop Linux WebKit SOUND investigation.
+Preview delivery is not a release-quality claim. This supersedes earlier Full-before-preview policy.
 
 **Task-specific exception, 2026-09-07 HOME Visual Impact Sprint:** after the closing baseline delivery, the user explicitly
 authorized the later-HOME visual/typography refinement as one unattended bundle, minimum type/lint/build/HOME smoke,
@@ -58,8 +65,8 @@ Do not install dependencies again for every small task if the tested lockfile/en
 | Gate | Command / owner | Required work |
 |---|---|---|
 | Fast | `npm.cmd run gate:fast` | type-check → lint → locale/metadata, navigation and content unit contracts → placement contracts → root production build/prerender/placement → `test:content:visibility` and `test:design-system:artifacts` on that fresh artifact |
-| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → 84 route/browser cases over both strict static hosts → 11 development-only Design System Lab cases → 26 canonical Bold Editorial Navigation Lab cases → 44 single-B Hero cases (22 Chromium / 22 WebKit) → 32 Haegeum cases (16 each engine) → 74 Sound cases (37 each engine), preceded by 6 SOUND motion contracts |
-| Live deployment | `npm.cmd run test:pages` with actual `EXPECTED_DEPLOY_SHA` | 18-route JS on/off metadata, refresh/history, variants, actual HTTP 404, artifact identity/hash/MIME/cache |
+| Full | `npm.cmd run gate:full` | Fast → project subpath build/prerender/placement → 84 route/browser cases over both strict static hosts → 11 development-only Design System Lab cases → 26 canonical Bold Editorial Navigation Lab cases → 44 single-B Hero cases (22 Chromium / 22 WebKit) → 32 Haegeum cases (16 each engine) → 90 Sound cases (45 each engine), SOUND motion contracts, and 24 interaction browser cases |
+| Neutral fixture release-host verification (not development preview) | `npm.cmd run test:pages` with actual `EXPECTED_DEPLOY_SHA` | 18-route JS on/off metadata, refresh/history, variants, actual HTTP 404, artifact identity/hash/MIME/cache |
 | Workflow configuration | actionlint 1.7.12 | YAML, expressions, reusable workflow input/job wiring; Linux also checks embedded shell |
 
 Individual commands remain available: type-check, lint, test:locale, test:content, test:placement, build,
@@ -73,19 +80,15 @@ The separate Lab suite uses pinned Playwright Chromium on all platforms; prepare
 `test:design-system` owns port 4175 and rejects an already running manual Lab server. Test assertions
 are the same. No reduced route sample or retry was introduced to hide failures.
 
-Fast runs on every branch push and PR, including documents, through ci.yml → reusable quality-gates.yml.
-It never installs a browser, uploads a Pages artifact or deploys. This small unconditional gate avoids
-missing/pending checks on documentation-only PRs. A branch push plus an open PR can create two Fast runs;
-concurrency cancels superseded runs on the same event ref. No repository ruleset is silently changed.
+Fast runs on every branch push and PR through ci.yml → quality-gates.yml. It does not install browsers.
+Main push (including a PR merge) separately triggers pages.yml: Fast + preview artifact build → Pages deploy →
+minimal public URL HTTP check. `preview_artifact` requests artifact upload only after successful Fast/build.
+Only the deploy job has Pages/OIDC write permissions. No PR-head deployment or repository ruleset change.
 
-Full runs through an explicit pages.yml workflow_dispatch. It repeats Fast on that exact revision,
-then checks both static bases, all 84 route/browser cases and five Lab suites (11 foundation + 26 navigation + 44 Hero + 32 Haegeum + 74 Sound). A failed type/lint/unit/build/placement/browser
-step fails the job; upload/deploy depend on that success. Full without deployment retains test evidence
-but never uploads the special Pages artifact. Only successful Full with deploy=true uploads static/.
-
-The previous P0D local browser run was about 56 seconds before browser installation/CI provisioning.
-Keeping it out of every push provides a small Fast gate while every requested deployment still runs it.
-Actual P0E timings/results are recorded in [P0E result](../../../P0E-RESULT.md), not treated as fixed budgets.
+Full runs only through explicit release.yml workflow_dispatch with the expected full SHA. It retains all Fast,
+root/project route, Design System, Navigation, Hero, Haegeum, SOUND and interaction checks and their assertions.
+Failures remain failures and evidence is retained. Release Gate never uploads/deploys a preview artifact and uses
+separate concurrency, so a failed or long Full cannot block development preview delivery.
 
 ### Explicit delivery states
 
@@ -96,7 +99,7 @@ Actual P0E timings/results are recorded in [P0E result](../../../P0E-RESULT.md),
 | REVIEW READY | Diff, files, tests, result, known issues, preview/evidence and next recommendation reported; STOP |
 | APPROVED | User accepted the reviewed result; identify whether authorization covers commit, push, merge and/or deploy |
 | COMMITTED | Logical checkpoint created locally; does not mean pushed, merged, deployed or next-task approval |
-| PUSHED | Authorized remote ref updated; Fast CI may still be pending/failed; no implicit deployment |
+| PUSHED | Authorized remote ref updated; Fast may be pending/failed; main automatically starts Preview workflow |
 | DEPLOYED | Pages deploy job succeeded for the approved SHA; independently label live verification pending/passed/failed |
 
 Typical sequence: WORKING → VALIDATED LOCALLY → REVIEW READY → APPROVED → COMMITTED → PUSHED →
@@ -106,16 +109,17 @@ Local checkpoint commits may also be used during an authorized task. Neither a g
 approval state authorizes the next bounded task. Do not collapse deployed and verified into one claim.
 
 If the user explicitly skips local validation for delivery, record VALIDATION SKIPPED, not VALIDATED.
-Do not disable CI or claim old results were rerun. A request to merge is not a request to dispatch preview
-deployment under the new workflow. Final task reports must still end with STOP.
+Do not disable CI or claim old results were rerun. Under the current user-approved policy, merging to main
+automatically triggers development Preview delivery, not a Release Gate or production-domain release. Final reports end with STOP.
 
 ### Commit, push and review policy
 
 - Read current path, branch, remote, HEAD, working changes and upstream state before publishing.
 - Preserve user work, planning/review history and checkpoints. Group related work; HOME art direction
   and CI wiring are separate logical commits. Generated outputs, caches, secrets and temporary reports stay ignored.
-- Code delivery normally requires Fast; routing/metadata/prerender/CI changes require Full before review-ready
-  delivery, and deployment always requires Full. Use focused tests for the task before these delivery gates.
+- Code delivery requires Fast and task-appropriate checks. Release validation retains Full for routing/metadata/
+  prerender changes. Development Preview deployment requires Fast + preview build; the current pipeline-only
+  task requires Fast/build/actionlint, with Full explicitly decoupled by the user.
 - Approval of an implementation unit is not blanket future publication/deployment permission. Follow the
   current user's explicit scope; ask only for an actually missing consequential approval after preparing the result.
 - Push only the named V2 repository/ref. PR/merge or direct push must be covered by that scope. This repository
@@ -124,28 +128,19 @@ deployment under the new workflow. Final task reports must still end with STOP.
 
 ### Preview deployment policy and commands
 
-V2 Pages is a preview/development environment only. Production domain and legacy repository are excluded.
-Automatic deployment on main push is removed. The default manual dispatch runs Full with deploy=false.
-For example, after confirming the selected ref's full SHA:
+V2 Pages is a development preview only. Production domain and legacy repository are excluded.
+Every main push/merge triggers pages.yml automatically after Fast/build. Manual preview retry is main-only:
 
 ```powershell
-# Full verification only; this is not a deployment.
-gh workflow run pages.yml --repo cij5484/cho-youn-kyoung-v2 --ref main -f deploy=false -f expected_sha=<40-character-reviewed-SHA>
+gh workflow run pages.yml --repo cij5484/cho-youn-kyoung-v2 --ref main
 
-# Only when the user has authorized this preview deployment:
-gh workflow run pages.yml --repo cij5484/cho-youn-kyoung-v2 --ref main -f deploy=true -f expected_sha=<40-character-approved-SHA>
+# Separate manual Release Gate; never deploys.
+gh workflow run release.yml --repo cij5484/cho-youn-kyoung-v2 --ref main -f expected_sha=<40-character-reviewed-SHA>
 ```
 
-Replace the placeholders with real values; do not run them literally. Dispatch rejects a mismatched SHA.
-Only refs/heads/main can deploy to the shared preview; Full-only may inspect another ref. The revision check
-protects against a ref moving between review and dispatch. It does not freeze main or replace human approval.
-Runs are serialized with no in-progress deployment cancellation. Only the deploy job has Pages/OIDC write
-permissions. No gh-pages branch, CNAME, runtime server, SPA rewrite or manual file movement is introduced.
-
-A checkbox is a technical guard, not proof of user approval. Never turn deploy=true on automatically just
-because code was pushed or CI is green. Documentation-only work usually needs no preview delivery.
-If multiple approved deployments are queued, review whether earlier ones are still desired; do not silently
-replace approval with an instruction to deploy an unrelated newer revision.
+Release dispatch rejects mismatched SHA. Preview runs are serialized without cancelling an in-progress deployment.
+No deploy=true switch or per-preview SHA approval is needed under this explicit user-approved automation policy.
+Neither preview success nor a green build grants visual quality approval or authorization for another bounded task.
 
 ### Failure handling, evidence and rollback
 
@@ -153,15 +148,17 @@ Never delete/relax tests or change the approved architecture to obtain a green g
 owner subsystem. If a contract itself must change, STOP and report before changing it. Do not use
 continue-on-error, skip a failing requirement or silently deploy a previous artifact.
 
-A failed predeployment gate must leave the live preview untouched. If live tests fail after a successful
+A failed preview Fast/build must leave the live preview untouched. A failed manual Full remains a release blocker,
+not a preview blocker. If live tests fail after a successful
 deployment, report DEPLOYED / VERIFICATION FAILED, preserve evidence and investigate only within scope;
 do not call it successful delivery or automatically retry through contract failures. Rollback is an explicitly
-authorized V2 action, using a reviewed known-good revision with the applicable Full/identity checks. Keep
+authorized V2 action, using a reviewed known-good revision with the applicable preview Fast/build checks (Full for release). Keep
 the prior live artifact until approval; never touch legacy or the operating custom domain.
 
 Local evidence: test-results/results.json, playwright-report/index.html; live evidence:
 test-results-pages/results.json and playwright-pages-report/. Logs and BUILD_SHA are in GitHub Actions.
-Full and live reports are retained as separate SHA-named artifacts for 14 days. Curated results belong
+Manual Full reports are retained as SHA-named artifacts for 14 days. Preview HTTP smoke is recorded in the
+Actions job log/summary; it does not claim the separate neutral-fixture live browser suite passed. Curated results belong
 under evidence/p0e/ and P0E-RESULT.md. Build-info.json records public file hashes/commit; local dirty-build
 HEAD alone is not source identity. Never commit generated browser reports/build directories or secrets.
 

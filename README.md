@@ -10,9 +10,17 @@ Hero → Haegeum → SOUND → Works → Album Object → Performance → Artist
 [검증 증거](evidence/p0d/README.md). P0D는 PR #1로 머지됐습니다. 현재 CI/delivery 정본은
 [Task Protocol의 CI/delivery 절](docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md), 실행 결과는 [P0E 결과](P0E-RESULT.md)입니다.
 
-Preview: [GitHub Pages](https://cij5484.github.io/cho-youn-kyoung-v2/). 최신 배포 SHA/실제 CI 결과는 P0E 결과에서 확인합니다.
+Preview: [GitHub Pages](https://cij5484.github.io/cho-youn-kyoung-v2/). 최신 배포 SHA/실제 CI 결과는 GitHub Actions에서 확인합니다. P0E 결과는 당시 기록입니다.
 [P0C 당시 배포·검증 결과](P0C-RESULT.md), [변경되지 않은 파일 배치 설명 / 과거 pipeline](P0C-DEPLOYMENT.md).
-**Push/merge는 더 이상 자동 배포하지 않습니다. 수동 Full gate의 deploy 기본값은 false입니다.**
+**2026-09-08 정책: main push / PR merge → Fast + preview build → GitHub Pages 자동 배포 → 공개 URL 최소 확인. Full은 수동 Release Gate로 분리합니다.**
+
+`npm run build:development-preview`는 기존 `InteractionLab`/HOME를 그대로 연결해
+`build-development-preview/`를 생성합니다. Pages는 이 개발용 산출물을 배포하며 noindex를 유지합니다.
+기존 `build:pages-preview`/`build-pages-preview/static`는 Release Gate의 중립 라우팅 fixture입니다.
+화면 컴포넌트 수정 없이 기존 route catalog의 HTML 입력을 Vite로 빌드하므로 알려진 KO/EN URL은 직접 열립니다.
+이는 최종 HOME/SEO/시각 품질 승인이 아닙니다. 기존 `test:pages`의 중립 fixture 전체 검증과 구별해
+개발 Preview는 배포 후 공개 URL reachability만 확인합니다.
+
 
 P1A는 content schema/neutral fixture/route adapter를 검증했습니다. P1C 매핑 승인 후 P1D에서 지영희류 KO record
 한 건을 실제 content layer의 비공개 draft로 등록했습니다. [Content Schema Contract](docs/redesign/review/CONTENT-SCHEMA-CONTRACT.md)와
@@ -69,7 +77,8 @@ npm.cmd run test:sound
 
 일반 코드 확인은 `npm.cmd run gate:fast`, routing/metadata/CI 변경의 전체 확인은
 `npm.cmd run gate:full`을 사용합니다. Fast는 위의 첫 아홉 명령, Full은 위 전체 명령입니다.
-Push/PR마다 Fast + workflow syntax 검사를 수행하고, 브라우저 설치와 84 route + 11 foundation + 26 navigation + 44 Hero + 32 Haegeum + 58 Sound Full은 명시적 수동 실행과 배포 전에 수행합니다.
+Push/PR마다 Fast + workflow syntax 검사를 수행합니다. main은 Fast + preview build가 통과하면 자동 배포합니다.
+Full browser suites는 `release.yml` 수동 Release Gate에 유지하며 Preview 배포를 막지 않습니다.
 Linux CI는 Chromium, 기본 로컬 설정은 Edge입니다. 이 Mac에서는 기존 Chromium을 `CI=1`로 선택해 같은 assertion을 실행합니다.
 macOS/Linux 명령은 `npm.cmd` 대신 `npm`을 사용합니다. Node 24.x/npm 11.x 요구사항은 동일합니다.
 
@@ -143,8 +152,9 @@ React Router가 제공하며 커스텀 renderer를 만들지 않았습니다.
 
 P0B까지 기획·review 원본 21개를 보존했습니다. P0C에서는 사용자 지시대로 관련 planning 상태만 architecture APPROVE로 갱신했습니다.
 P0A–D 결과는 당시 기록으로 보존합니다. 현재 delivery 상태는 HANDOFF를, 과거 배포 증거는 P0E 결과를 따릅니다.
-모든 push는 Fast 검사만 하며 문서 변경 때문에 배포할 필요는 없습니다. 실제 preview 배포는 사용자 승인 범위에서
-pages.yml을 deploy=true와 승인된 full SHA로 명시적으로 실행합니다. main SHA와 실제 배포 SHA를 구분합니다.
+main push / PR merge는 `pages.yml`에서 Fast/build 후 preview를 자동 배포합니다. 수동 재배포도 main에서만 가능합니다.
+Full 검증은 `gh workflow run release.yml --ref main -f expected_sha=<40-character-SHA>`로 별도 실행합니다.
+main SHA와 실제 배포 SHA, Preview 성공과 Release Gate 결과는 구분합니다.
 **P2A visual 승인·7714907 main push·Fast CI 34004955387 성공. P2B Bold 시각 승인: QUALITY APPROVED FOR HERO INTEGRATION / FROZEN. P2B 보고 후 STOP; HOME/P2C 자동 진행 없음.**
 
 ## 실제 콘텐츠 추가 절차
@@ -347,7 +357,7 @@ npm run gate:full
 추가 dependency 없음. Fast는 Node 계약을, `test:interaction`은 기존 24개 Chromium/WebKit case를 검사합니다.
 테스트는 4180, 촬영은 4195를 사용합니다. 수동 4179/4180 서버는 Full 전에 종료하고 browser suite와 촬영을
 동시에 실행하지 마세요. 기존 촬영 명령과 evidence/p2k는 역사적 revision용이며 현재 검증으로 덮어쓰지 않습니다.
-Production export는 차단되어 있고 실제 Pages 배포나 public HOME 편입은 하지 않습니다. **STOP → 사용자 승인.**
+당시 P2K production export는 차단됐습니다. 2026-09-08에는 기존 Lab을 수정하지 않는 별도 개발 Preview build가 승인됐으며, 최종 public HOME 편입과는 구분합니다. **STOP → 사용자 승인.**
 
 ### 현재 HOME 후반부 검증
 

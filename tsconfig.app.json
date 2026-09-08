@@ -37,6 +37,7 @@
     "labs/hero",
     "labs/haegeum",
     "labs/sound",
-    "labs/interaction"
+    "labs/interaction",
+    "preview"
   ]
 }

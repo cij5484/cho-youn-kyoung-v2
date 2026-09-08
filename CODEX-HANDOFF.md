@@ -1,9 +1,16 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** P2F/P2I freezes retained; HOME closing baseline delivered via PR #4 / 7226dda. Current Visual Impact Sprint strengthens Scenes 04–08 and their typography on 4180; user visual judgment remains separate from implementation and delivery. Public routes remain neutral.\
-**Revision:** 1.30 / 2026-09-07 — HOME Visual Impact Sprint; current approval boundary below in §26\
+**Status:** P2F/P2I freezes retained; HOME closing baseline delivered via PR #4 / 7226dda. Current Visual Impact Sprint strengthens Scenes 04–08 and their typography on 4180; user visual judgment remains separate from implementation and delivery. Release route fixtures remain neutral; current development Pages delivery policy follows below.\
+**Revision:** 1.31 / 2026-09-08 — automatic development Preview / separate manual Release Gate\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
+
+**Latest delivery policy — 2026-09-08:** user stopped Linux WebKit SOUND investigation and authorized pipeline-only
+separation. main push/PR merge automatically deploys development Pages preview after Fast/build; only a minimal
+public URL smoke follows. `preview/main.tsx` imports the existing HOME Lab unchanged;
+`build:development-preview` emits a separate noindex device-preview artifact. Full stays intact as manual `release.yml`, with no preview dependency. PR #6 merged
+the Navigation/SOUND fixes as `f33a222`; local Full passed but Linux WebKit seek/replay failures in run 34184294697
+remain unresolved Release Gate evidence. No visual or existing HOME changes are authorized by this pipeline task.
 
 ---
 

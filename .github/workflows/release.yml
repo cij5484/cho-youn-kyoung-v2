@@ -1,0 +1,35 @@
+name: V2 Full Release Gate
+
+on:
+  workflow_dispatch:
+    inputs:
+      expected_sha:
+        description: 'Full 40-character SHA to validate at the selected ref'
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v2-release-gate-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  request:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - name: Verify requested release revision
+        env:
+          EXPECTED_SHA: ${{ inputs.expected_sha }}
+          ACTUAL_SHA: ${{ github.sha }}
+        run: |
+          [[ "$EXPECTED_SHA" =~ ^[a-f0-9]{40}$ ]] || { echo 'Provide a full commit SHA'; exit 1; }
+          [[ "$EXPECTED_SHA" == "$ACTUAL_SHA" ]] || { echo 'Selected ref changed'; exit 1; }
+
+  full:
+    needs: request
+    uses: ./.github/workflows/quality-gates.yml
+    with:
+      full: true
