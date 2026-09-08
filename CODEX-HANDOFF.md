@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** P2F/P2I freezes retained; HOME closing baseline delivered via PR #4 / 7226dda. Current Visual Impact Sprint strengthens Scenes 04–08 and their typography on 4180; user visual judgment remains separate from implementation and delivery. Public routes remain neutral.\
-**Revision:** 1.30 / 2026-09-07 — HOME Visual Impact Sprint; current approval boundary below in §26\
+**Status:** Synced main baseline `83e80b1`; 2026-09-08 local refinements now extend the headless pair continuously through 05–08; visual review pending. Public routes remain neutral.\
+**Revision:** 1.33 / 2026-09-08 — one refinement bundle; STOP after report\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 ---
@@ -465,7 +465,25 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 
 # 26. CURRENT HANDOFF STATE
 
-## Current HOME Visual Impact Sprint — 2026-09-07
+## Current continuous closing-pair refinement — 2026-09-08
+
+The latest explicit user request extends the same pair from 04 through the already implemented 05–08 scenes:
+album pointer orbit → poster orbit → profile/name figure-eight → typographic depth and final exit.
+Previous local rightward contraction, long headless Violet/Lacquer trails, album hover and reduced copy are preserved.
+[Closing-pair result](HOME-CLOSING-ORBITS-RESULT.md) records this bounded task. The subsequent explicit mobile 04 fix
+removes its early loop exit and adds a viewport-sized free image-grid path; see [mobile result](MOBILE-WORKS-ORBIT-RESULT.md). Local review only; no commit/push/deploy.
+New visual judgment remains **REVIEW READY**, not self-granted QUALITY APPROVED. Report then STOP.
+
+## Previous HOME refinement — 2026-09-08
+
+User authorized the concrete requested fixes with “작업 시작해”. The baseline is main `83e80b1` (PR #5).
+Rightward SOUND contraction, headless Violet/Lacquer 2-second trails, two-axis album pointer response and reduced
+visible explanatory copy are implemented locally. [Result](HOME-REFINEMENT-20260908-RESULT.md) owns validation,
+evidence and remaining review. No new scene, asset, dependency, public route, commit/push or deployment in this bundle.
+Status: **IMPLEMENTED / LOCALLY VERIFIED / REVIEW READY / STOP**. User visual approval is still separate.
+The September 7 unattended sprint/delivery exception below is historical and does not carry into this refinement.
+
+## Historical HOME Visual Impact Sprint — 2026-09-07
 
 The closing baseline merged through PR #4 / `7226dda`. The user then explicitly authorized the later-HOME Visual Impact
 Sprint, including a full typographic composition refinement, minimum validation and

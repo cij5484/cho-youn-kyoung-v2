@@ -32,7 +32,6 @@ export function SoundSurface({ root, locale, source, visual, trail, activity, vi
       <p className="sound-clock" aria-hidden="true">{clock(state.seconds)} <span>/</span> {clock(state.duration)}</p>
     </div>
     <div className="sound-caption" id="sound-caption">
-      <p className="sound-thought">{locale==='ko' ? <>두 현 사이,<br />남는 울림.</> : <>Two strings.<br />A resonance remains.</>}</p>
       <p className="sound-credit">{source.title[locale]}<br />{locale==='ko' ? '조윤경 / 해금 · 18초 미리듣기' : 'Cho Youn Kyoung / Haegeum · 18-second excerpt'}</p>
     </div>
     {!state.analysisAvailable && <p className="sound-visual-fallback">{analysisFallback ?? (locale==='ko' ? '정적인 선과 함께 재생합니다.' : 'Playing with a static visual.')}</p>}

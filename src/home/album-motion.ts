@@ -2,7 +2,7 @@ import { useEffect, useRef, type RefObject } from 'react'
 
 export const albumObjectTuning = {
   initialTurn: -28, initialTilt: -12, dragDegreesPerPixel: .45,
-  pointerTilt: 11, response: 11, friction: 4.5, maxVelocity: 300,
+  pointerTurn: 28, pointerTilt: 20, response: 11, friction: 4.5, maxVelocity: 300,
   exchangeDuration: 920, depthRatio: .057,
 } as const
 
@@ -14,6 +14,7 @@ export function useAlbumMotion(ref: RefObject<HTMLDivElement | null>) {
     const fine = matchMedia('(hover: hover) and (pointer: fine)')
     const tune = albumObjectTuning
     let angle: number = tune.initialTurn, target = angle, tilt: number = tune.initialTilt, tiltTarget = tilt
+    let hoverTurn = 0, hoverTarget = 0
     let velocity = 0, frame = 0, last = 0, visible = false, disposed = false
     let pointer: { id: number; x: number; y: number; lastX: number; time: number; dragging: boolean; rejected: boolean } | null = null
     function paint(now: number) {
@@ -22,20 +23,24 @@ export function useAlbumMotion(ref: RefObject<HTMLDivElement | null>) {
       if (!pointer?.dragging && Math.abs(velocity) > .1) { target += velocity * dt; velocity *= Math.exp(-tune.friction * dt) }
       const settle = reduced.matches ? 1 : 1 - Math.exp(-tune.response * dt)
       angle += (target - angle) * settle; tilt += (tiltTarget - tilt) * settle
-      element.style.setProperty('--object-turn', `${angle.toFixed(3)}deg`)
+      hoverTurn += (hoverTarget - hoverTurn) * settle
+      element.style.setProperty('--object-turn', `${(angle + hoverTurn).toFixed(3)}deg`)
       element.style.setProperty('--object-tilt', `${tilt.toFixed(3)}deg`)
-      element.style.setProperty('--object-light', `${(50 + Math.sin(angle * Math.PI / 180) * 40).toFixed(2)}%`)
-      element.style.setProperty('--object-shade', `${(.07 + Math.abs(Math.sin(angle * Math.PI / 180)) * .16).toFixed(3)}`)
+      element.style.setProperty('--object-light', `${(50 + Math.sin((angle + hoverTurn) * Math.PI / 180) * 40).toFixed(2)}%`)
+      element.style.setProperty('--object-shade', `${(.07 + Math.abs(Math.sin((angle + hoverTurn) * Math.PI / 180)) * .16).toFixed(3)}`)
       element.dataset.turn = angle.toFixed(1)
-      element.dataset.moving = String(Math.abs(target - angle) > .02 || Math.abs(velocity) > .1)
-      if (Math.abs(target - angle) > .02 || Math.abs(tiltTarget - tilt) > .02 || Math.abs(velocity) > .1) request()
+      element.dataset.pointerTurn = hoverTurn.toFixed(2)
+      element.dataset.tilt = tilt.toFixed(2)
+      element.dataset.moving = String(Math.abs(target - angle) > .02 || Math.abs(tiltTarget - tilt) > .02 || Math.abs(hoverTarget - hoverTurn) > .02 || Math.abs(velocity) > .1)
+      if (Math.abs(target - angle) > .02 || Math.abs(tiltTarget - tilt) > .02 || Math.abs(hoverTarget - hoverTurn) > .02 || Math.abs(velocity) > .1) request()
     }
     function request() { if (!disposed && visible && !frame) frame = requestAnimationFrame(paint) }
     turn.current = degrees => { velocity = 0; target = Math.round((target - degrees) / 360) * 360 + degrees; request() }
     function down(event: PointerEvent) {
       if (event.button !== 0 || reduced.matches) return
       pointer = { id: event.pointerId, x: event.clientX, y: event.clientY, lastX: event.clientX, time: event.timeStamp, dragging: false, rejected: false }
-      velocity = 0
+      // Absorb the live hover pose into drag ownership; pointer-down cannot reset the visible angle.
+      angle += hoverTurn; target = angle; hoverTurn = 0; hoverTarget = 0; velocity = 0
     }
     function move(event: PointerEvent) {
       if (pointer?.id === event.pointerId && !pointer.rejected) {
@@ -53,7 +58,10 @@ export function useAlbumMotion(ref: RefObject<HTMLDivElement | null>) {
       }
       if (fine.matches && !reduced.matches && !pointer?.dragging) {
         const rect = element.getBoundingClientRect()
-        tiltTarget = tune.initialTilt + ((event.clientY - rect.top) / rect.height - .5) * tune.pointerTilt
+        const nx = Math.max(-1, Math.min(1, (event.clientX - rect.left) / rect.width * 2 - 1))
+        const ny = Math.max(-1, Math.min(1, (event.clientY - rect.top) / rect.height * 2 - 1))
+        hoverTarget = nx * tune.pointerTurn
+        tiltTarget = tune.initialTilt - ny * tune.pointerTilt
         request()
       }
     }
@@ -63,12 +71,12 @@ export function useAlbumMotion(ref: RefObject<HTMLDivElement | null>) {
       if (element.hasPointerCapture(event.pointerId)) element.releasePointerCapture(event.pointerId)
       pointer = null; element.dataset.dragging = 'false'; request()
     }
-    function leave() { tiltTarget = tune.initialTilt; if (pointer && !pointer.dragging) pointer = null; request() }
+    function leave() { hoverTarget = 0; tiltTarget = tune.initialTilt; if (pointer && !pointer.dragging) pointer = null; request() }
     function key(event: KeyboardEvent) {
       if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return
       event.preventDefault(); target += event.key === 'ArrowLeft' ? -35 : 35; velocity = 0; request()
     }
-    function resetMotion() { velocity = 0; pointer = null; element.dataset.dragging = 'false'; tiltTarget = tune.initialTilt; if (reduced.matches) target = Math.round(target / 180) * 180; request() }
+    function resetMotion() { velocity = 0; pointer = null; element.dataset.dragging = 'false'; tiltTarget = tune.initialTilt; hoverTarget = 0; if (reduced.matches) target = Math.round(target / 180) * 180; request() }
     const size = new ResizeObserver(() => { const pose = element.querySelector<HTMLElement>('.album-object-pose'); if (pose) element.style.setProperty('--album-depth', `${(pose.offsetWidth * tune.depthRatio).toFixed(2)}px`) })
     size.observe(element)
     const observer = new IntersectionObserver(([entry]) => {

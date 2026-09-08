@@ -5,7 +5,7 @@ Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
 
-**Task-specific exception, 2026-09-07 HOME Visual Impact Sprint:** after the closing baseline delivery, the user explicitly
+**Historical task-specific exception, 2026-09-07 HOME Visual Impact Sprint (ended; not inherited by the September 8 refinement):** after the closing baseline delivery, the user explicitly
 authorized the later-HOME visual/typography refinement as one unattended bundle, minimum type/lint/build/HOME smoke,
 no screenshot/video evidence, and final PR/CI/merge.
 Its absolute stop is 21:30 KST. This authorization covers only the current 4180 HOME composition and delivery;

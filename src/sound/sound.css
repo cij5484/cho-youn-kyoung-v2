@@ -21,9 +21,7 @@
 .sound-clock { font-variant-numeric: tabular-nums; letter-spacing: .08em; }
 .sound-clock > span { display: inline-block; margin-inline: 20px; color: var(--color-accent); }
 .sound-caption { position: absolute; left: 6.5%; right: 52%; top: 62%; }
-.sound-thought { font-family: var(--font-display-ko); font-weight: 400; font-size: clamp(1.1rem, 1.55vw, 1.75rem); line-height: 1.7; letter-spacing: -.02em; }
-:lang(en) .sound-thought { font-family: var(--font-display); font-size: clamp(1.5rem,2vw,2.5rem); line-height: 1.3; }
-.sound-credit { font-family: var(--font-ui); font-size: var(--micro); line-height: 1.9; color: var(--text-secondary); margin-block-start: var(--space-5); word-break: keep-all; overflow-wrap: break-word; }
+.sound-credit { font-family: var(--font-ui); font-size: var(--micro); line-height: 1.9; color: var(--text-secondary); margin-block-start: 0; word-break: keep-all; overflow-wrap: break-word; }
 .sound-visual-fallback { position: absolute; left: 6.5%; bottom: 7%; font-size: var(--micro); color: var(--text-secondary); }
 .continues-to-sound .instrument-keyword span { translate: 0 calc(var(--sound-type-exit, 0) * -15%); }
 .continues-to-sound .instrument-index { translate: 0 calc(var(--sound-type-exit, 0) * 160px); }
@@ -46,16 +44,13 @@
   .listen-composition { top: 42%; left: 20%; right: 7.5%; }
   .listen-trigger { font-size: 18.5vw; min-block-size: 64px; }
   .sound-state, .sound-clock { font-size: var(--micro); margin-block-start: 12px; }
-  .sound-caption { top: 71%; left: 7.5%; right: 7.5%; display: grid; grid-template-columns: 1fr 1.3fr; gap: 12px; align-items: end; }
-  .sound-thought { font-size: 1rem; line-height: 1.7; }
-  :lang(en) .sound-thought { font-size: 1.25rem; }
+  .sound-caption { top: 71%; left: 7.5%; right: 7.5%; display: block; }
   .sound-credit { font-size: var(--micro); line-height: 1.7; margin: 0; }
   .listen-trigger:focus-visible { outline-offset: 6px; }
   .listen-trigger:active .listen-mark { transform: translate(2px,-.3em); }
 }
 @media (max-width:359px) {
   .sound-caption { top: 68%; display: block; }
-  .sound-credit { margin-block-start: 16px; }
 }
 /* Reduced motion, image fallback and enlarged text preserve ARTIST→INSTRUMENT→SOUND in DOM order. */
 [data-sound-static="true"] .sound-region { position: relative; inset: auto; min-block-size: 80svh; }

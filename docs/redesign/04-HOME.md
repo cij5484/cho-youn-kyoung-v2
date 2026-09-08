@@ -2,7 +2,7 @@
 ## 04 — HOME
 
 **Version:** 2.1\
-**Status:** HOME V2.1 / 2026-09-07 Visual Impact Sprint — image-led ribbon, physical exchange, responsive stage/portrait and typographic hierarchy implemented on 4180; visual judgment and public integration remain separate\
+**Status:** HOME V2.1 / 2026-09-08 SOUND exit, headless long trails, two-axis album hover and minimal copy refinement on 4180; REVIEW READY, visual judgment and public integration remain separate\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`  
 **Art Direction:** Contemporary Editorial / Ivory  
 **Narrative Structure:** ARTIST → INSTRUMENT → SOUND → WORK → OBJECT → STAGE → ARTIST → NAME
@@ -539,15 +539,17 @@ When needed, request:
 
 # 9. TRANSITION 03 → 04
 
-The current development composition inherits the outgoing SOUND strand coordinates and continuously contracts both
-lines into two moving points. Their recent paths remain visible through free motion, work-focused front/back orbit,
-release and the later Album handoff. Reverse scroll restores the source lines; reduced motion retains the static alternative.
+The current development composition reverses the line reveal: each left endpoint contracts toward its fixed right
+endpoint before the pair releases into spatial motion. Do not pull both ends toward an orbiting point. The exit guide
+compensates for the outgoing stage moving upward, so the contraction remains visible. Reverse scroll restores it.
+The returned pair keeps Haegeum Electric Violet and Janggu Lacquer consistently: no circular heads, only long tapered
+trails through free motion, work-focused front/back orbit and the remaining HOME scenes through 08. Reduced motion remains static.
 
 This is an intentional signature transition.
 
 Narrative:
 
-`SOUND strands → two spatial points → artwork orbit → physical-object focus`
+`SOUND strands → rightward contraction → two headless trails → work → cursor → poster → portrait/name → typographic resolution`
 
 Do not reset the visual language between scenes.
 
@@ -652,7 +654,7 @@ or final geometry approval.
 
 **Current sprint implementation:** three retained lightweight CSS volumes with one active manipulation target. Actual
 front/back/spine artwork, connected perspective through all volume ancestors, edge depth, directional light, drag/inertia,
-pointer tilt and explicit front/back/keyboard controls. Selection produces a 920ms spatial entrance/exit; rapid changes
+two-axis pointer response (horizontal ±28°, vertical ±20° around the existing pose) and explicit front/back/keyboard controls. Selection produces a 920ms spatial entrance/exit; rapid changes
 continue from the browser's current interpolated transforms instead of resetting a timer or pose. Scene selection/pose
 is separate from the `PaperAlbumObject` render adapter. Replacing that adapter with a future GLB does not require rewriting
 the scene. This is presentation geometry, not a manufacturing model or a waiver of Blender/Tray/Album Detail quality gates.
@@ -673,12 +675,13 @@ Approved primary concept:
 - selected album is the focused manipulation target
 - stable, mostly static default pose in the Ivory exhibition space; no perpetual idle rotation
 
-V2.1 prioritizes the perceptual quality of a physical object over displaying three live objects. Approach gives a subtle response and ROTATE cue, intentional drag explores the object, and selection brings it forward. This describes the experience, not a requirement to drag before selecting; tap/keyboard detail access remains available. The full continuity sequence below still governs supported state transitions.
+V2.1 prioritizes the perceptual quality of a physical object over displaying three live objects. Pointer position gives a clear two-axis response, intentional drag explores the object, and selection brings it forward. This describes the experience, not a requirement to drag before selecting; tap/keyboard detail access remains available. The full continuity sequence below still governs supported state transitions.
 
 ## Interaction
 
 Desktop:
-- hover indicates `ROTATE`
+- pointer position tilts/turns the selected album; short drag/arrow-key instruction remains visible
+- drag inherits the actual rendered hover pose; pointer leave settles without a jump
 - drag rotates selected album
 - natural inertia
 
@@ -847,7 +850,7 @@ Current Visual Impact direction:
 - a strong, scroll-driven optical aperture reveals the intact poster
 - pointer position changes the stage light, background planes and shallow poster depth
 - title/date/venue remain in a separate stable reading column; no competing giant ON STAGE lettering
-- the scene remains settled without input; no perpetual stage animation
+- the stage/photo remains settled without input; the user-authorized shared pair continues orbiting the poster
 
 Do not add another drag rail or active 3D interaction here.
 
@@ -973,7 +976,7 @@ If a new portrait would materially improve the final emotional payoff, proactive
 
 The About scene should dissolve into closure rather than introduce new information.
 
-The line motif reappears in its simplest editorial form.
+The existing headless Violet/Lacquer pair continues into the closing typography; it is not recreated as a new motif.
 
 ---
 
@@ -1003,7 +1006,7 @@ This scene should breathe.
 
 ## Line Resolution
 
-The two-line motif returns in a resolved, restrained form under/near the oversized name. A strand may lead a final editorial rule while the pair’s identity remains legible; it is the completion of the initial name/line composition, not a new motif.
+The pair threads through the oversized name with front/back depth and glyph occlusion. The wide orbit gathers into a diagonal stroke and exits at the page end. Reverse scroll reopens the same sequence. It completes the initial name/line composition without adding another scene.
 
 Narrative:
 
@@ -1241,3 +1244,28 @@ Hero→Haegeum and Violet SOUND remain A references. B tests two abstract Bronze
 string convergence and left-to-right SOUND handoff; secondary Janggu counterpoint and shared-glyph action text
 remain unapproved visual candidates. [Single P2K owner](review/P2K-INTERACTION-PROTOTYPES.md) contains tuning,
 source alignment/provenance, reference research and comparison behavior. No next Scene or public HOME integration.
+
+## 2026-09-08 visible-copy refinement
+
+Keep section identity, artist/work names, year/venue, audio source/state, short controls, accessible labels and asset
+provenance. Remove repeated explanatory/poetic paragraphs in SOUND, Works, Album, Performance, Artist and Outro.
+Shorten CTAs to their action. This is a presentation-copy pass, not a content-record migration or automatic EN translation.
+
+## 2026-09-08 continuous closing-pair revision
+
+The user explicitly extends the same pair through the existing 05–08 scenes. Keep Electric Violet/Lacquer,
+headless tapered trails and the preceding rightward SOUND contraction. Do not recreate/reset the pair per scene.
+
+- 05 THE ALBUM: damped orbit around the fine pointer; touch/no-pointer uses the album center.
+- 06 LIVE PERFORMANCE: orbit around the actual current poster with front/back occlusion.
+- 07 THE ARTIST: figure-eight around the profile photograph and Korean name, aligned to their responsive layout.
+- 08 AN OPEN END: projected depth through the actual glyphs; gather/diagonal exit at the bottom; reversible.
+
+These are one shared decorative motion owner, not independent scene rebuilds or a new 3D asset subsystem.
+Canvas cannot intercept input. Mobile preserves vertical scroll with capped resolution/history; reduced motion
+hides decorative orbital motion while all content/controls remain available. Native Safari/phone QA remains distinct.
+
+Mobile 04 follow-up: the pair is also active throughout the native Works image grid. Its free horizontal/vertical
+path uses the currently visible board area rather than the center of the whole tall grid, and continues into 05.
+Mobile 04 excludes image occlusion so its large first image cannot hide one trail for an extended interval.
+No mobile hover/scroll capture is added; headless colors, 2-second trails and reduced-motion suspension remain.
