@@ -1269,3 +1269,30 @@ Mobile 04 follow-up: the pair is also active throughout the native Works image g
 path uses the currently visible board area rather than the center of the whole tall grid, and continues into 05.
 Mobile 04 excludes image occlusion so its large first image cannot hide one trail for an extended interval.
 No mobile hover/scroll capture is added; headless colors, 2-second trails and reduced-motion suspension remain.
+
+## 2026-09-08 HOME interaction pass — current implementation revision
+
+This later explicit user bundle supersedes the prior mobile gallery, selectable 8/2 stage and tilted Artist plate.
+Scope: SOUND usability, mobile Works/Album input, and one continuous Performance→Artist sequence. Hero/Haegeum
+visual tuning and the approved SOUND response remain unchanged. Local review precedes any delivery approval.
+
+- LISTEN unlocks native media/Web Audio within its gesture, primes inaudibly without consuming the excerpt,
+  aligns once to the final in-pin SOUND frame, then starts audible playback. Geometry uses the same stage/travel
+  denominator as Hero, with header clearance. User wheel/touch/navigation cancellation yields immediately;
+  RESUME does not re-snap. Reduced motion aligns instantly to the readable static panel.
+- Mobile Works uses the same five-step scroll ribbon with independently authored spacing, depth and 250svh total
+  section height (150svh travel). One large active image plus title/year/type, native vertical scroll and keyboard
+  selectors. Only reduced motion uses the static grid; decorative trails remain on touch.
+- Album interaction uses a stable input surface (`pan-y pinch-zoom`) instead of transformed child faces as targets.
+  A 4px horizontal touch threshold claims rotation; vertical intent remains browser scrolling. Live pose is inherited,
+  touch tracks directly, release momentum is bounded and reduced motion has explicit face buttons/keyboard access.
+- HOME's featured event is permanently 2026-09-22 `<풀고, 엮다>`, 19:30, 국립부산국악원 예지당. It uses that
+  event's official gold poster, not a documentary stage photograph. The working event CTA goes to its existing
+  official-site detail; V2 archive publication remains separate. Other work selections cannot overwrite this feature.
+- 06→07 shares one sticky image frame and one DOM seam. Aperture opens, poster resolves, its right boundary wipes
+  to the suit portrait, then turns into the scroll/pointer-driven hanbok split. No independent section reset/crossfade.
+  Native scroll reverses the same geometry. Mobile has its own portrait proportions, date and metadata placement.
+- The supplied hanbok portrait is a separate optimized derivative with original SHA/provenance in the HOME manifest.
+  Suit and hanbok eyes/crops are authored separately; the photos' distinct angles are retained, not reconstructed.
+- The existing two-color trail pair yields during 06/07 so it does not obscure the primary technique; it returns in 08.
+  Reduced motion exposes the event and both portraits as static content. No animation library or 3D renderer added.

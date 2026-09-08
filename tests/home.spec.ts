@@ -6,6 +6,7 @@ async function ready(page: Page, path = '/') {
   await page.evaluate(() => document.fonts.ready)
 }
 async function scene(page: Page, selector: string, progress = 0) {
+  if (selector === '.performance-scene' || selector === '.artist-scene') { progress=selector === '.performance-scene' ? .28 : .87; selector='.stage-artist-sequence' }
   await page.locator(selector).evaluate((element, p) => {
     const box = element.getBoundingClientRect()
     scrollTo({ top: scrollY + box.top + Math.max(0, box.height - innerHeight) * p, behavior: 'instant' })
@@ -53,9 +54,10 @@ test('the short works ribbon exposes each selection and keeps native hash naviga
   await page.locator('.work-3 a').click()
   await expect(page).toHaveURL(/#album-object$/)
   await expect(page.locator('.album-presentation')).toHaveAttribute('data-selected-album', 'album:yeongsan-hoesang-2026')
-  await scene(page, '.works-scene', 1); await page.locator('.work-5 a').click()
+  await scene(page, '.works-scene', .25); await page.locator('.works-selector button').nth(1).click(); await page.locator('.work-2 a').click()
   await expect(page).toHaveURL(/#performance$/)
-  await expect(page.locator('.performance-caption h3')).toHaveText('산조길, 둘')
+  await expect(page.locator('.performance-caption h2')).toHaveText('풀고, 엮다')
+  await expect(page.locator('.work-5 a')).toHaveAttribute('href','https://choyounkyoung.com/performance/sanjo-gil-2026-08-16/')
 })
 
 test('each ribbon image is large, fully exposed and clear of the shared heading and caption ledger', async ({ page }) => {
@@ -137,11 +139,16 @@ test('navigation adapts to the actual stage and returns to Ivory; opening and cl
   await scene(page, '.artist-scene', .4); await expect(navigation).toHaveAttribute('data-home-dark', 'false')
 })
 
-for (const width of [320, 390]) test(`mobile ${width}: four-column reflow, visible content, working CTAs and no horizontal/scroll lock`, async ({ page }) => {
+for (const width of [320, 390]) test(`mobile ${width}: authored scroll ribbon, visible content, working CTAs and no horizontal/scroll lock`, async ({ page }) => {
   await page.setViewportSize({ width, height: 844 }); await ready(page)
-  const columns = await page.locator('.works-board').evaluate(e => getComputedStyle(e).gridTemplateColumns.split(' ').length)
-  expect(columns).toBe(4)
-  await expect(page.locator('.work-caption:visible')).toHaveCount(5)
+  await expect(page.locator('.works-sticky')).toHaveCSS('position','sticky')
+  for(let i=0;i<5;i++){
+    await scene(page,'.works-scene',i/4)
+    await expect(page.locator('.works-scene')).toHaveAttribute('data-ribbon-index',String(i))
+    await expect(page.locator('.works-current h3')).toHaveText(await page.locator('.selected-work h3').nth(i).innerText())
+    const image=await page.locator('.selected-work .work-image').nth(i).boundingBox()
+    expect(image!.width).toBeGreaterThan(width*.6)
+  }
   for (const id of ['.works-scene', '.album-object-scene', '.performance-scene', '.artist-scene', '.home-outro']) {
     await scene(page, id, .5)
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
@@ -179,15 +186,15 @@ test('EN shell keeps authored Korean source language explicit and preserves sema
   expect(endpoint).toBeGreaterThan(0);expect(endpoint).toBeLessThan(page.viewportSize()!.width)
 })
 
-test('stage light and intact portrait respond to pointer position and settle on leave',async({page})=>{
+test('shared stage light and portrait seam respond to the pointer and settle on leave',async({page})=>{
   await ready(page)
   for(const selector of ['.performance-scene','.artist-scene']){
     await scene(page,selector)
-    const surface=page.locator(selector),box=(await surface.boundingBox())!
-    await page.mouse.move(box.x+box.width*.8,Math.min(650,box.y+box.height*.35))
+    const surface=page.locator('.stage-artist-sequence')
+    await page.mouse.move(1000,450)
     await expect(surface).toHaveAttribute('data-surface','responding')
     await expect.poll(()=>surface.evaluate(e=>parseFloat(e.style.getPropertyValue('--surface-x')))).toBeGreaterThan(.4)
-    const moving=page.locator(selector==='.performance-scene'?'.performance-image-window':'.artist-portrait-mount')
+    const moving=page.locator(selector==='.performance-scene'?'.shared-image-frame':'.artist-hanbok')
     expect(await moving.evaluate(e=>getComputedStyle(e).transform)).not.toBe('none')
     await page.mouse.move(1,1)
     await expect(surface).toHaveAttribute('data-surface','rest')
@@ -267,10 +274,11 @@ test('one headless pair persists through 05–08, follows the album pointer, end
   await page.mouse.move(950,580)
   await expect.poll(async()=>Math.abs((await center()).x-950)).toBeLessThan(35)
   await expect.poll(async()=>Math.abs((await center()).y-580)).toBeLessThan(20)
-  for(const [selector,number] of [['.performance-image-window','6'],['.artist-composition','7'],['.outro-name','8']]){
-    await page.locator(selector).scrollIntoViewIfNeeded()
+  for(const [selector,number] of [['.performance-scene','6'],['.artist-scene','7'],['.outro-name','8']]){
+    if(number==='8')await page.locator(selector).scrollIntoViewIfNeeded();else await scene(page,selector)
     await expect(page.locator('.home-closing')).toHaveAttribute('data-orbit-scene',number)
-    await expect.poll(()=>trailInk(page)).toBeGreaterThan(100)
+    if(number==='8')await expect.poll(()=>trailInk(page)).toBeGreaterThan(100)
+    else await expect.poll(()=>trailInk(page)).toBe(0)
     expect(await page.evaluate(()=>(window as unknown as {closingCanvases:Element[]}).closingCanvases.every(e=>e.isConnected))).toBe(true)
   }
   await page.evaluate(()=>scrollTo({top:document.documentElement.scrollHeight,behavior:'instant'}))
@@ -282,7 +290,7 @@ test('one headless pair persists through 05–08, follows the album pointer, end
 })
 
 test('closing trails suspend under menu and reduced motion without obstructing keyboard controls',async({page})=>{
-  await ready(page);await page.locator('.performance-image-window').scrollIntoViewIfNeeded()
+  await ready(page);await page.locator('.album-object-surface').scrollIntoViewIfNeeded()
   await expect.poll(()=>trailInk(page)).toBeGreaterThan(100)
   await page.getByRole('button',{name:'MENU',exact:true}).focus()
   await page.keyboard.press('Enter')
@@ -299,8 +307,8 @@ test('closing trails suspend under menu and reduced motion without obstructing k
 
 for(const width of [320,390])test(`closing trails on ${width}px follow scene subjects with native vertical scrolling`,async({page})=>{
   await page.setViewportSize({width,height:844});await ready(page)
-  for(const selector of ['.work-1 .work-image','.work-4 .work-image','.album-object-surface','.performance-image-window','.artist-portrait-aperture','.outro-name']){
-    await page.locator(selector).scrollIntoViewIfNeeded()
+  for(const selector of ['.work-1 .work-image','.work-4 .work-image','.album-object-surface','.outro-name']){
+    if(selector.startsWith('.work-'))await scene(page,'.works-scene',selector.includes('4')?.75:0);else await page.locator(selector).scrollIntoViewIfNeeded()
     await expect(page.locator('.works-motif-front')).toHaveCSS('display','block')
     await expect.poll(()=>trailInk(page)).toBeGreaterThan(10)
   }
@@ -312,10 +320,10 @@ for(const width of [320,390])test(`closing trails on ${width}px follow scene sub
 })
 
 
-for(const width of [320,390])test(`mobile Works ${width}: both colored trails move freely through the image grid`,async({page})=>{
+for(const width of [320,390])test(`mobile Works ${width}: both colored trails move freely around the active scroll-driven work`,async({page})=>{
   await page.setViewportSize({width,height:844});await ready(page)
   for(const selector of ['.work-1 .work-image','.work-4 .work-image']){
-    await page.locator(selector).scrollIntoViewIfNeeded()
+    await scene(page,'.works-scene',selector.includes('4')?.75:0)
     await expect(page.locator('.home-closing')).toHaveAttribute('data-orbit-scene','4')
     await expect.poll(()=>page.locator('.home-closing > .works-motif').evaluateAll(elements=>{
       const counts=[0,0]

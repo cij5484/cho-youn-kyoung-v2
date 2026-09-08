@@ -1,3 +1,4 @@
+import { alignSoundFrame } from './focus-frame.ts'
 import { createBowChoreographyEngine } from './bow-engine.ts'
 import { bindAudioFeatures } from '../audio/features.ts'
 import type { BowPresetName } from './tuning-presets.ts'
@@ -14,6 +15,8 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
   const engine = createBowChoreographyEngine(root, [...root.querySelectorAll<HTMLElement>('.poster-lines .tension-line')], () => innerWidth < 640, bindAudioFeatures(source.features, source))
   let context: AudioContext | null = null, analyser: AnalyserNode | null = null, node: MediaElementAudioSourceNode | null = null
   let suspension: Promise<void> | null = null
+  let alignment: AbortController | null = null
+  let primer: { token: number; muted: boolean } | null = null
   const src=playableSource(source)
   let phase: PlaybackPhase = src ? 'idle' : 'unavailable', hasPlayed=false
   let desired = false, disposed = false, visible = false, intent = 0, frame = 0, previous = 0, lastDraw = 0
@@ -23,7 +26,7 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
   function emit() {
     if (disposed) return
     root.dataset.audioState = phase
-    update({ phase, seconds: media.currentTime, duration: Number.isFinite(media.duration) ? media.duration : source.duration, analysisAvailable })
+    update({ phase, seconds: primer ? 0 : media.currentTime, duration: Number.isFinite(media.duration) ? media.duration : source.duration, analysisAvailable })
   }
   function change(next: PlaybackPhase) { phase = next; if(next==='playing')hasPlayed=true; emit() }
   const eligible = () => visible && !document.hidden && root.dataset.soundReady === 'true'
@@ -51,7 +54,8 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
   }
   function pause(next: PlaybackPhase = 'paused') {
     const position=media.currentTime
-    desired=false; intent++; stopClock(); media.pause()
+    desired=false; intent++; alignment?.abort(); alignment=null; stopClock(); media.pause()
+    if(primer){media.muted=primer.muted;primer=null}
     // Commit the native media position before suspending its Web Audio destination.
     // WebKit can otherwise roll its buffered playback clock back when the graph stops.
     if (next==='paused' && media.readyState>0 && !media.seeking) media.currentTime=position
@@ -73,7 +77,7 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
   function contextState() {
     if (!context || disposed) return
     root.dataset.audioContext=context.state
-    if (context.state==='running' && desired && !media.paused && !media.seeking && media.readyState>=3) { stopClock(); change('playing'); request() }
+    if (context.state==='running' && !primer && desired && !media.paused && !media.seeking && media.readyState>=3) { stopClock(); change('playing'); request() }
     else if (phase==='playing' && context.state!=='running') pause()
   }
   function prepare() {
@@ -96,6 +100,7 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
     // Keyboard focus/scroll can precede delivery of the IntersectionObserver callback.
     const bounds=panel.getBoundingClientRect(); visible=bounds.bottom>0 && bounds.top<innerHeight
     if (!src || !eligible() || disposed) return
+    const focus = !hasPlayed || media.ended || !!media.error
     const token=++intent; desired=true; change('loading')
     prepare()
     if (media.ended || media.error) {
@@ -106,8 +111,24 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
     }
     timeout=window.setTimeout(()=>{ if(token===intent && desired && ['loading','buffering'].includes(phase)) pause('error') },12000)
     try {
-      // Both calls happen inside the explicit activation, before awaiting either promise.
-      await Promise.all([context?.resume(),media.play()])
+      // Unlock BOTH native media and Web Audio in the original gesture. The inaudible
+      // primer is paused/rewound; no part of the excerpt is consumed during alignment.
+      if (focus) {
+        const abort = new AbortController(); alignment=abort
+        const prime={token,muted:media.muted}, position=media.currentTime; primer=prime
+        media.muted=true
+        const landing=alignSoundFrame(root,abort.signal)
+        void landing.then(aligned=>{if(!aligned&&!disposed&&token===intent)pause()})
+        try {
+          await Promise.all([context?.resume(),media.play()])
+          if (disposed || token!==intent) return
+          media.pause(); media.currentTime=position
+          const aligned=await landing
+          if (disposed || token!==intent) return
+          if (!aligned) { pause(); return }
+        } finally { abort.abort(); if(primer===prime){primer=null;media.muted=prime.muted} if(alignment===abort)alignment=null }
+        await media.play()
+      } else await Promise.all([context?.resume(),media.play()])
       if (disposed || token!==intent) return
       if (!eligible()) { pause(); return }
       if (!media.paused && (!context || context.state==='running')) { stopClock(); change('playing'); request() }
@@ -117,14 +138,15 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
   }
   function listen(type: string, fn: () => void) { media.addEventListener(type,fn); removers.push(()=>media.removeEventListener(type,fn)) }
   listen('playing',()=>{
+    if (primer) return
     if (!desired || !eligible()) { media.pause(); return }
     if (!media.paused && !media.seeking && (!context || context.state==='running')) { stopClock(); change('playing'); request() }
   })
   // Old queued events may arrive after another activation, especially in WebKit. Reconcile actual media state.
-  listen('pause',()=>{ if (desired && media.paused && !media.ended) pause() })
-  listen('waiting',()=>{ if(desired){change(hasPlayed?'buffering':'loading'); request(); stopClock(); timeout=window.setTimeout(()=>{if(desired && ['loading','buffering'].includes(phase))pause('error')},12000)} })
-  listen('seeking',()=>{ if(desired)change('buffering');request() })
-  listen('seeked',()=>{ if(desired && !media.paused && media.readyState>=3){change('playing');request()}else emit() })
+  listen('pause',()=>{ if (!primer && desired && media.paused && !media.ended) pause() })
+  listen('waiting',()=>{ if(!primer && desired){change(hasPlayed?'buffering':'loading'); request(); stopClock(); timeout=window.setTimeout(()=>{if(desired && ['loading','buffering'].includes(phase))pause('error')},12000)} })
+  listen('seeking',()=>{ if(!primer && desired)change('buffering');request() })
+  listen('seeked',()=>{ if(primer)return; if(desired && !media.paused && media.readyState>=3){change('playing');request()}else emit() })
   listen('ended',()=>pause('ended'))
   listen('error',()=>pause('error'))
   listen('loadedmetadata',emit); listen('timeupdate',emit); listen('durationchange',emit)
@@ -139,9 +161,10 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
     setVisual(visual: SoundVisual, trail: ContactTrail, activity: ContactActivity, violet: ContactViolet, preset: BowPresetName) { engine.configure(visual,trail,activity,violet,preset) },
     toggle() { if(desired || !media.paused)pause();else void play() },
     destroy() {
-      disposed=true; desired=false; intent++; stopClock(); cancelFrame(); observer.disconnect(); mutation.disconnect()
+      disposed=true; desired=false; intent++; alignment?.abort(); alignment=null; stopClock(); cancelFrame(); observer.disconnect(); mutation.disconnect()
       reduced.removeEventListener('change',preference); document.removeEventListener('visibilitychange',unavailableView)
       removers.forEach(fn=>fn()); media.pause()
+      if(primer){media.muted=primer.muted;primer=null}
       const release=()=>{node?.disconnect();analyser?.disconnect();media.removeAttribute('src');media.load()}
       if(context){
         const closingContext=context

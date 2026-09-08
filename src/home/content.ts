@@ -9,7 +9,8 @@ import yeongsanSpine from './assets/yeongsan-spine.webp'
 import pyeongjoFront from './assets/pyeongjo-front.webp'
 import pyeongjoBack from './assets/pyeongjo-back.webp'
 import pyeongjoSpine from './assets/pyeongjo-spine.webp'
-import eraPoster from './assets/era-poster.webp'
+import recitalPoster from './assets/pulgo-yeokda-poster.webp'
+import hanbok from './assets/artist-portrait-hanbok.webp'
 import sanjoPoster from './assets/sanjo-poster.webp'
 import portrait from './assets/artist-portrait.jpg'
 
@@ -30,7 +31,8 @@ export const homeAssets:AssetRecord[]=[
   {id:'asset:home-jyh',kind:'image',lifecycle:'provisional',masterRef:'legacy-public:ji-young-hee-ryu-haegeum-sanjo-2026/front',runtime:{url:jyhFront,mimeType:'image/webp',width:2048,height:1834}},
   {id:'asset:home-yeongsan',kind:'image',lifecycle:'provisional',masterRef:'legacy-public:yeongsan-hoesang-2026/front',runtime:{url:yeongsanFront,mimeType:'image/webp',width:1600,height:1420}},
   {id:'asset:home-pyeongjo',kind:'image',lifecycle:'provisional',masterRef:'legacy-public:pyeongjo-hoesang-2026/front',runtime:{url:pyeongjoFront,mimeType:'image/webp',width:1600,height:1420}},
-  {id:'asset:home-era',kind:'image',lifecycle:'provisional',masterRef:'legacy-public:haegeum-2026-08-02/poster',runtime:{url:eraPoster,mimeType:'image/webp',width:1414,height:2000}},
+  {id:'asset:home-recital',kind:'image',lifecycle:'provisional',masterRef:'legacy-public:haegeum-jeongak-2026-09-22/poster',runtime:{url:recitalPoster,mimeType:'image/webp',width:1555,height:2200}},
+  {id:'asset:home-hanbok',kind:'image',lifecycle:'provisional',masterRef:'user-supplied:portrait-hanbok-20260908',runtime:{url:hanbok,mimeType:'image/webp',width:1022,height:1536}},
   {id:'asset:home-sanjo',kind:'image',lifecycle:'provisional',masterRef:'legacy-public:sanjo-gil-2026-08-16/poster',runtime:{url:sanjoPoster,mimeType:'image/webp',width:1440,height:2036}},
   {id:'asset:home-portrait',kind:'image',lifecycle:'provisional',masterRef:'legacy-public:artist/profile/portrait',runtime:{url:portrait,mimeType:'image/jpeg',width:1800,height:2700}},
 ]
@@ -46,14 +48,12 @@ export const homeAlbums:AlbumPresentation[]=[
 ]
 export const selectedWorks:HomeWork[]=[
   {reference:homeAlbums[0].reference,slug:homeAlbums[0].slug,title:homeAlbums[0].title,shortTitle:'지영희류 해금산조',date:{precision:'year',value:2026},image:image('jyh','지영희류 해금산조 음반 앞면','cover'),sourceRef:'p1c:ji-young-hee-sanjo'},
-  {reference:{kind:'performance',id:'performance:haegeum-2026-08-02'},slug:'haegeum-2026-08-02',title:copy('해금, 시대를 잇다','legacy:performances:haegeum-2026-08-02'),shortTitle:'해금, 시대를 잇다',date:{precision:'day',value:'2026-08-02'},image:image('era','해금, 시대를 잇다 공식 공연 포스터','poster'),sourceRef:'legacy:performances:haegeum-2026-08-02'},
+  {reference:{kind:'performance',id:'performance:haegeum-jeongak-2026-09-22'},slug:'haegeum-jeongak-2026-09-22',title:copy('풀고, 엮다','legacy:performances:haegeum-jeongak-2026-09-22'),shortTitle:'풀고, 엮다',date:{precision:'day',value:'2026-09-22'},image:image('recital','풀고, 엮다 — 2026년 9월 22일 공식 공연 포스터','poster'),sourceRef:'legacy:performances:haegeum-jeongak-2026-09-22'},
   {reference:homeAlbums[1].reference,slug:homeAlbums[1].slug,title:homeAlbums[1].title,shortTitle:'영산회상',date:{precision:'year',value:2026},image:image('yeongsan','영산회상 음반 앞면','cover'),sourceRef:'legacy:albums:yeongsan-hoesang-2026'},
   {reference:homeAlbums[2].reference,slug:homeAlbums[2].slug,title:homeAlbums[2].title,shortTitle:'평조회상',date:{precision:'year',value:2026},image:image('pyeongjo','평조회상 음반 앞면','cover'),sourceRef:'legacy:albums:pyeongjo-hoesang-2026'},
   {reference:{kind:'performance',id:'performance:sanjo-gil-2026-08-16'},slug:'sanjo-gil-2026-08-16',title:copy('산조길, 둘','legacy:performances:sanjo-gil-2026-08-16'),shortTitle:'산조길, 둘',date:{precision:'day',value:'2026-08-16'},image:image('sanjo','산조길, 둘 공식 공연 포스터','poster'),sourceRef:'legacy:performances:sanjo-gil-2026-08-16'},
 ]
-export const stagePerformances=[
-  {reference:selectedWorks[1].reference,slug:selectedWorks[1].slug,title:'해금, 시대를 잇다',subtitle:'해금 창작곡의 변천',date:'2026. 08. 02',venue:'향사아트센터',image:selectedWorks[1].image},
-  {reference:selectedWorks[4].reference,slug:selectedWorks[4].slug,title:'산조길, 둘',subtitle:'한범수류 해금산조',date:'2026. 08. 16',venue:'해운대문화회관 고운홀',image:selectedWorks[4].image},
-]
+export const featuredPerformance={reference:selectedWorks[1].reference,slug:selectedWorks[1].slug,title:'풀고, 엮다',date:'2026. 09. 22',time:'19:30',venue:'국립부산국악원 예지당',image:selectedWorks[1].image}
+export const artistHanbok=image('hanbok','보라색 한복을 입고 옆을 바라보는 해금 연주자 조윤경','portrait')
 export const artistPortrait=image('portrait','검정 정장을 입고 손을 모은 해금 연주자 조윤경의 공식 프로필 사진','portrait')
 export const contentPath=(work:{reference:ContentRef<'album'|'performance'>;slug:string})=>`/${work.reference.kind}/${work.slug}/`

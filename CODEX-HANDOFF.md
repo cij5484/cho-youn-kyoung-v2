@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** Local HOME refinements from baseline `83e80b1` extend the headless pair through 05–08 and include mobile Works orbits; delivery includes these changes plus the current automatic Preview pipeline. Release route fixtures remain neutral.\
-**Revision:** 1.34 / 2026-09-08 — user authorized all local changes for PR/merge without additional validation\
+**Status:** Main `0f7620a` includes all prior local HOME work. Current `codex/home-interaction-pass` refines SOUND alignment, mobile Works/Album and shared 06→07 Aperture/Dual Portrait. Local user visual review pending; no delivery implied.\
+**Revision:** 1.35 / 2026-09-08 — HOME interaction pass; targeted validation and STOP\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 **Latest delivery policy — 2026-09-08:** user stopped Linux WebKit SOUND investigation and authorized pipeline-only
@@ -10,7 +10,7 @@ separation. main push/PR merge automatically deploys development Pages preview a
 public URL smoke follows. `preview/main.tsx` imports the existing HOME Lab unchanged;
 `build:development-preview` emits a separate noindex device-preview artifact. Full stays intact as manual `release.yml`, with no preview dependency. PR #6 merged
 the Navigation/SOUND fixes as `f33a222`; local Full passed but Linux WebKit seek/replay failures in run 34184294697
-remain unresolved Release Gate evidence. No visual or existing HOME changes are authorized by this pipeline task.
+remain unresolved Release Gate evidence. That pipeline task is complete. The subsequent explicit HOME interaction bundle is authorized; its scope is recorded in HOME’s dated revision.
 
 ---
 
@@ -472,7 +472,19 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 
 # 26. CURRENT HANDOFF STATE
 
-## Current continuous closing-pair refinement — 2026-09-08
+## Current HOME interaction pass — 2026-09-08
+
+Main `0f7620a` delivered the prior local work through PR #8. The current branch `codex/home-interaction-pass`
+implements the latest explicitly authorized SOUND alignment, mobile scroll-driven Works, touch Album rotation,
+09/22 Stage Aperture and shared suit/hanbok Artist seam. [Result](HOME-INTERACTION-PASS-RESULT.md) records files,
+validation and asset limits. Type-check/lint/build/Preview build pass; targeted HOME Chromium/WebKit: 57 passed,
+one Chromium-CDP-only test skipped on WebKit. Physical phones/native Safari remain unverified for these changes.
+Current state: **IMPLEMENTED / LOCALLY VERIFIED / REVIEW READY / STOP**. Localhost 4180 is ready for user review.
+No commit/push/merge/deploy in this bundle. Hero/Haegeum and Navigation behavior remain approved and unchanged.
+The latest user instruction permits the specified minimum validation; the completed PR #8 no-validation exception
+does not carry into this task. This section supersedes the historical runtime summaries below.
+
+## Previous continuous closing-pair refinement — 2026-09-08
 
 The latest explicit user request extends the same pair from 04 through the already implemented 05–08 scenes:
 album pointer orbit → poster orbit → profile/name figure-eight → typographic depth and final exit.

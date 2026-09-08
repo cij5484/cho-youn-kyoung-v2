@@ -1054,3 +1054,12 @@ Vertical touch/pinch scrolling, explicit controls and reduced motion remain usab
 owners are cleaned up on unmount, including locale remounts. Composition/content/source limits live in [HOME](04-HOME.md);
 these are current development interactions, not final 3D quality approval or permission to implement other pages.
 No animation library, WebGL dependency, Blender/Tray gate waiver, public integration or deployment was added.
+
+## 2026-09-08 HOME interaction pass
+
+The current user-authorized 06→07 technique is a single shared aperture/seam (`src/home/stage-artist-motion.ts`).
+Native progress owns opening → hold → spatial frame change → suit wipe → hanbok split. Fine-pointer input adds
+only damped depth/light and a bounded split deviation. Touch relies on scroll. No wheel interception or new motion
+library. Motif presence is curated: existing trails yield during 06/07 and return for the 08 resolution.
+LISTEN alignment is a one-shot cancellable native scroll, separate from the approved bow/Janggu response. Full
+contracts and implementation decisions are in HOME's dated interaction-pass revision; old sprint evidence stays historical.

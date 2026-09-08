@@ -1,7 +1,7 @@
 import { useEffect, useRef, type RefObject } from 'react'
 
 export const albumObjectTuning = {
-  initialTurn: -28, initialTilt: -12, dragDegreesPerPixel: .45,
+  initialTurn: -28, initialTilt: -12, dragDegreesPerPixel: .45, touchDegreesPerPixel: .62, touchThreshold: 4,
   pointerTurn: 28, pointerTilt: 20, response: 11, friction: 4.5, maxVelocity: 300,
   exchangeDuration: 920, depthRatio: .057,
 } as const
@@ -16,7 +16,7 @@ export function useAlbumMotion(ref: RefObject<HTMLDivElement | null>) {
     let angle: number = tune.initialTurn, target = angle, tilt: number = tune.initialTilt, tiltTarget = tilt
     let hoverTurn = 0, hoverTarget = 0
     let velocity = 0, frame = 0, last = 0, visible = false, disposed = false
-    let pointer: { id: number; x: number; y: number; lastX: number; time: number; dragging: boolean; rejected: boolean } | null = null
+    let pointer: { id: number; x: number; y: number; lastX: number; time: number; touch: boolean; dragging: boolean; rejected: boolean } | null = null
     function paint(now: number) {
       frame = 0
       const dt = Math.min(.04, Math.max(.001, (now - (last || now - 16)) / 1000)); last = now
@@ -37,8 +37,8 @@ export function useAlbumMotion(ref: RefObject<HTMLDivElement | null>) {
     function request() { if (!disposed && visible && !frame) frame = requestAnimationFrame(paint) }
     turn.current = degrees => { velocity = 0; target = Math.round((target - degrees) / 360) * 360 + degrees; request() }
     function down(event: PointerEvent) {
-      if (event.button !== 0 || reduced.matches) return
-      pointer = { id: event.pointerId, x: event.clientX, y: event.clientY, lastX: event.clientX, time: event.timeStamp, dragging: false, rejected: false }
+      if (event.button !== 0 || !event.isPrimary) return
+      pointer = { id: event.pointerId, x: event.clientX, y: event.clientY, lastX: event.clientX, time: event.timeStamp, touch: event.pointerType === 'touch', dragging: false, rejected: false }
       // Absorb the live hover pose into drag ownership; pointer-down cannot reset the visible angle.
       angle += hoverTurn; target = angle; hoverTurn = 0; hoverTarget = 0; velocity = 0
     }
@@ -46,12 +46,13 @@ export function useAlbumMotion(ref: RefObject<HTMLDivElement | null>) {
       if (pointer?.id === event.pointerId && !pointer.rejected) {
         const dx = event.clientX - pointer.x, dy = event.clientY - pointer.y
         if (!pointer.dragging && Math.abs(dy) > 8 && Math.abs(dy) > Math.abs(dx)) { pointer.rejected = true; return }
-        if (!pointer.dragging && Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+        if (!pointer.dragging && Math.abs(dx) > (pointer.touch ? tune.touchThreshold : 6) && Math.abs(dx) > Math.abs(dy) * 1.15) {
           pointer.dragging = true; element.setPointerCapture(event.pointerId); element.dataset.dragging = 'true'
         }
         if (pointer.dragging) {
-          const delta = (event.clientX - pointer.lastX) * tune.dragDegreesPerPixel
+          const delta = (event.clientX - pointer.lastX) * (pointer.touch ? tune.touchDegreesPerPixel : tune.dragDegreesPerPixel)
           target += delta
+          if (pointer.touch) angle = target
           velocity = Math.max(-tune.maxVelocity, Math.min(tune.maxVelocity, delta / Math.max(.008, (event.timeStamp - pointer.time) / 1000)))
           pointer.lastX = event.clientX; pointer.time = event.timeStamp; request(); return
         }
@@ -67,8 +68,9 @@ export function useAlbumMotion(ref: RefObject<HTMLDivElement | null>) {
     }
     function release(event: PointerEvent) {
       if (pointer?.id !== event.pointerId) return
-      if (event.type !== 'pointerup' || event.timeStamp - pointer.time > 100) velocity = 0
+      if (reduced.matches || event.type !== 'pointerup' || event.timeStamp - pointer.time > 100) velocity = 0
       if (element.hasPointerCapture(event.pointerId)) element.releasePointerCapture(event.pointerId)
+      if(pointer?.touch)velocity *= .35
       pointer = null; element.dataset.dragging = 'false'; request()
     }
     function leave() { hoverTarget = 0; tiltTarget = tune.initialTilt; if (pointer && !pointer.dragging) pointer = null; request() }
