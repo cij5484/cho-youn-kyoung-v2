@@ -8,7 +8,7 @@ import tseslint from 'typescript-eslint'
 export default defineConfig([
   globalIgnores([
     'node_modules/**', 'dist/**', 'dist-pages-preview/**',
-    'build-root/**', 'build-pages-preview/**', '.react-router/**',
+    'build-root/**', 'build-pages-preview/**', 'build-development-preview/**', '.react-router/**',
     '.checkpoints/**', 'test-results/**', 'playwright-report/**',
     'test-results-pages/**', 'playwright-pages-report/**',
   ]),
@@ -17,7 +17,7 @@ export default defineConfig([
     extends: [js.configs.recommended, tseslint.configs.recommended],
   },
   {
-    files: ['src/**/*.{ts,tsx}', 'labs/navigation/**/*.{ts,tsx}', 'labs/hero/**/*.{ts,tsx}', 'labs/haegeum/**/*.{ts,tsx}', 'labs/sound/**/*.{ts,tsx}', 'labs/interaction/**/*.{ts,tsx}'],
+    files: ['src/**/*.{ts,tsx}', 'preview/**/*.{ts,tsx}', 'labs/navigation/**/*.{ts,tsx}', 'labs/hero/**/*.{ts,tsx}', 'labs/haegeum/**/*.{ts,tsx}', 'labs/sound/**/*.{ts,tsx}', 'labs/interaction/**/*.{ts,tsx}'],
     languageOptions: { globals: globals.browser },
     extends: [
       reactHooks.configs.flat.recommended,

@@ -135,11 +135,13 @@ subsystem. Preserve active Lab comparisons and historical evidence; do not broad
 - KO uses unprefixed paths; EN uses `/en/...`; no `/ko`. Route identity, counterpart, missing-translation
   fallback, canonical, reciprocal hreflang/x-default and server/hydrated lang follow the Locale Contract.
   Official English content is authored/reviewed, not automatic translation as production truth.
-- P0E delivery policy is binding: `npm.cmd run gate:fast` for ordinary code, `npm.cmd run gate:full` for
-  routing/metadata/prerender/CI changes; deployment always requires Full and an explicitly approved exact SHA.
-  Push/PR runs Fast; push/merge does not deploy. `deploy=false` is the manual default. Follow README/Protocol
-  for exact commands and task-appropriate validation; documentation-only work checks links, scope and consistency.
-  Do not delete/relax tests, hide failures, or treat commit/push/deploy as interchangeable states.
+- Delivery policy (user revision 2026-09-08): branch push/PR runs Fast. A main push or PR merge automatically
+  runs Fast + preview build and deploys GitHub Pages development preview through `pages.yml`, followed by
+  a minimal public-URL reachability check. Long browser suites do not block this preview. Full remains intact
+  as manual `release.yml` with an exact SHA; it is a Release Gate, not a preview prerequisite. Keep failed
+  Full results visible; preview delivery never implies release/visual quality approval. The current pipeline
+  task requires Fast/build/actionlint, not another Full run. Production domain/legacy remain separately authorized.
+  README/Task Protocol own commands, evidence and failure handling; never delete/relax tests to hide a failure.
 
 Current approval/next-task boundary is in HANDOFF and the latest result. Nothing in this map authorizes a next phase.
 

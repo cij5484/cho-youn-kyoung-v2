@@ -113,7 +113,11 @@ activation (Vite's tiny `?import` URL module is JavaScript, not an audio payload
 
 Offscreen/reverse or hidden-document states pause audio, suspend the context and stop visual work; returning does
 not autoplay. Route departure/source replacement removes media src, aborts loading, disconnects nodes, closes the
-context and removes observers/listeners/SVGs. Missing Web Audio can retain actual playback with an explicit static
+context and removes observers/listeners/SVGs. The 2026-09-08 deployment-blocker fix waits for an in-flight
+`AudioContext.suspend()` before closing the destination and disconnecting/resetting its graph/media. Audio pauses
+and observers/listeners/animation stop immediately on departure; pending suspension cannot race destruction.
+Suspend/close failures are reported rather than silently swallowed. Repeated native-context route returns and
+a deliberately held suspension verify both eventual closure and operation order. Missing Web Audio can retain actual playback with an explicit static
 visual. No new runtime or development dependency was added; macOS afconvert was used only to prepare the excerpt.
 
 ## References

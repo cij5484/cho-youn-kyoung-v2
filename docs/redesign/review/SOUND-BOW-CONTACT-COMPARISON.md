@@ -45,6 +45,9 @@ ellipse axis and a small smoothing time, so reversing direction does not flip a 
 The 2026-09-07 HOME sprint explicitly makes the moving head almost invisible: `marker.opacity=.08`,
 width = selected trail width (LONG 3.2px), height = half that width. The 10×4.2 desktop / 8×3.6 mobile dimensions
 now apply only to the static fallback. Trail, smooth trajectory, LONG and Electric Violet are retained.
+The 2026-09-08 gate repair tests these roles separately: exact moving-cap SVG dimensions/opacity and
+unit screen scale despite rotation, versus the 8×3.6px static fallback with the existing ≥3.5px visibility
+check. The decorative cap is not a touch target; LISTEN retains its ≥44px control check.
 Horizontal range is up to ±34% of shared line width, scaled by
 activity/sustain; the actual excerpt is less than this upper bound. Vertical bounds use shared line geometry:
 `upper=min(92px, lineY×.22)`, `lower=min(30px, lineY×.05)` on desktop;

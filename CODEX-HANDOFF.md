@@ -1,9 +1,16 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** Synced main baseline `83e80b1`; 2026-09-08 local refinements now extend the headless pair continuously through 05–08; visual review pending. Public routes remain neutral.\
-**Revision:** 1.33 / 2026-09-08 — one refinement bundle; STOP after report\
+**Status:** Local HOME refinements from baseline `83e80b1` extend the headless pair through 05–08 and include mobile Works orbits; delivery includes these changes plus the current automatic Preview pipeline. Release route fixtures remain neutral.\
+**Revision:** 1.34 / 2026-09-08 — user authorized all local changes for PR/merge without additional validation\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
+
+**Latest delivery policy — 2026-09-08:** user stopped Linux WebKit SOUND investigation and authorized pipeline-only
+separation. main push/PR merge automatically deploys development Pages preview after Fast/build; only a minimal
+public URL smoke follows. `preview/main.tsx` imports the existing HOME Lab unchanged;
+`build:development-preview` emits a separate noindex device-preview artifact. Full stays intact as manual `release.yml`, with no preview dependency. PR #6 merged
+the Navigation/SOUND fixes as `f33a222`; local Full passed but Linux WebKit seek/replay failures in run 34184294697
+remain unresolved Release Gate evidence. No visual or existing HOME changes are authorized by this pipeline task.
 
 ---
 

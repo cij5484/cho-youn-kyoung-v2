@@ -353,9 +353,62 @@ test(`bold: real-time browser recording preserves opening, hover return, closing
   await page.getByRole('button', { name: '메뉴 닫기' }).hover(); await page.waitForTimeout(300)
   await page.getByRole('button', { name: '메뉴 닫기' }).click(); await expect(page.locator('dialog')).not.toBeVisible()
   await page.waitForTimeout(350)
-  await page.getByRole('button', { name: 'MENU', exact: true }).click(); await page.waitForTimeout(130)
-  await page.keyboard.press('Escape'); await page.waitForTimeout(60)
-  await page.locator('dialog .menu-toggle').click(); await expect(page.locator('dialog')).toHaveAttribute('data-phase', 'open')
+  // Observe and activate in one browser frame. Locator.click() waits for stability, which a closing
+  // trigger cannot promise; the short reverse window could finish before that automation wait resolves.
+  const reversal = page.locator('dialog').evaluate(el => new Promise<{
+    openingAt: number; closingAt: number; reopenedAt: number; duration: number; sameTracks: boolean
+  }>((resolve, reject) => {
+    const dialog = el as HTMLDialogElement
+    let openingAt = 0, closingAt = 0, tracks: Animation[] = []
+    let stage: 'await-opening' | 'await-closing' | 'await-reopening' = 'await-opening'
+    const observe = () => {
+      const current = dialog.getAnimations({ subtree: true }).filter(a => a.id === 'editorial-menu-reveal')
+      const lead = current[0], time = Number(lead?.currentTime ?? 0)
+      const duration = Number(lead?.effect?.getTiming().duration ?? 0)
+      const phase = dialog.dataset.phase
+      const fail = (message: string) => reject(new Error(message))
+      if (stage === 'await-opening' && phase === 'closed') { requestAnimationFrame(observe); return }
+      if (!dialog.open || !lead || !(time >= 0 && time < duration)) { fail(`Missed in-progress ${stage}: ${phase} / ${time}`); return }
+      const activateVisibleToggle = () => {
+        const button = dialog.querySelector<HTMLButtonElement>('.menu-toggle')!, box = button.getBoundingClientRect()
+        const hit = document.elementFromPoint(box.x + box.width / 2, box.y + box.height / 2)
+        if (!button.checkVisibility() || button.disabled || !hit || !button.contains(hit)) throw new Error('Reverse trigger is not visibly hit-testable')
+        // Real DOM activation through the public button handler; no controller call, force click,
+        // paused/seeked animation, playback-rate override or synthetic state mutation.
+        button.click()
+      }
+      try {
+        if (stage === 'await-opening' && phase === 'opening' && lead.playState === 'running' && !lead.pending && time >= duration * .3) {
+          if (lead.playbackRate !== 1) throw new Error('Opening did not run forward')
+          openingAt = time; tracks = current
+          activateVisibleToggle()
+          if (dialog.dataset.phase !== 'closing') throw new Error('Opening was not interrupted by close')
+          stage = 'await-closing'
+        } else if (stage === 'await-closing' && phase === 'closing' && lead.playState === 'running' && !lead.pending && time < openingAt - duration * .04) {
+          if (!(lead.playbackRate < 0 && time > 0)) throw new Error('Close did not genuinely advance in reverse')
+          closingAt = time
+          activateVisibleToggle()
+          const after = dialog.getAnimations({ subtree: true }).filter(a => a.id === 'editorial-menu-reveal')
+          if (dialog.dataset.phase !== 'opening' || after.length !== tracks.length || after.some((track, i) => track !== tracks[i])) throw new Error('Reopen replaced the live timeline')
+          if (Math.abs(Number(after[0].currentTime) - closingAt) > 1) throw new Error('Reopen reset the current pose')
+          stage = 'await-reopening'
+        } else if (stage === 'await-reopening' && phase === 'opening' && !lead.pending && time > closingAt + duration * .04) {
+          if (lead.playbackRate !== 1 || lead.playState !== 'running') throw new Error('Reopen did not advance forward')
+          resolve({ openingAt, closingAt, reopenedAt: time, duration, sameTracks: current.every((track, i) => track === tracks[i]) }); return
+        }
+      } catch (error) { reject(error); return }
+      requestAnimationFrame(observe)
+    }
+    requestAnimationFrame(observe)
+  }))
+  await page.getByRole('button', { name: 'MENU', exact: true }).click()
+  const interruption = await reversal
+  expect(interruption.openingAt).toBeLessThan(interruption.duration)
+  expect(interruption.closingAt).toBeGreaterThan(0)
+  expect(interruption.closingAt).toBeLessThan(interruption.openingAt)
+  expect(interruption.reopenedAt).toBeGreaterThan(interruption.closingAt)
+  expect(interruption.sameTracks).toBe(true)
+  await expect(page.locator('dialog')).toHaveAttribute('data-phase', 'open')
   await page.waitForTimeout(350); await page.keyboard.press('Escape'); await expect(page.locator('dialog')).not.toBeVisible()
   await page.waitForTimeout(350)
   const events: { phase: string; at: number }[] = JSON.parse((await page.locator('dialog').getAttribute('data-observed-timing'))!)
@@ -363,7 +416,7 @@ test(`bold: real-time browser recording preserves opening, hover return, closing
   const closedIn = events.find(event => event.phase === 'closed')!.at - events.find(event => event.phase === 'closing')!.at
   expect(openedIn).toBeGreaterThanOrEqual(450); expect(openedIn).toBeLessThan(800)
   expect(closedIn).toBeGreaterThanOrEqual(370); expect(closedIn).toBeLessThan(700)
-  await info.attach('real-time-events', { body: JSON.stringify({ motion: 'bold', events, openedIn, closedIn, note: 'Native browser playback at normal speed, including real rapid reversal. No paused/retimed animation in the video.' }), contentType: 'application/json' })
+  await info.attach('real-time-events', { body: JSON.stringify({ motion: 'bold', events, openedIn, closedIn, interruption, note: 'Native browser playback at normal speed. In-progress reversals use hit-tested DOM button activation in the observation frame; normal pointer and Escape dismissal remain exercised. No paused/retimed animation in the video.' }), contentType: 'application/json' })
   await context.close()
   await video.saveAs(info.outputPath(`bold-real-time.webm`))
   await info.attach('real-time-motion', { path: info.outputPath(`bold-real-time.webm`), contentType: 'video/webm' })
