@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 03 — MOTION SYSTEM
 
-**Version:** 1.16\
-**Status:** Baseline preserved; opt-in Artist / Scene Magnet prototypes implemented, user selection pending (§50). Validation and delivery are separate HANDOFF states\
+**Version:** 1.17\
+**Status:** Artist Hanji/Profile + Scene Magnet selected Canonical; slow/mobile wet-field implemented (§52). Validation and delivery are separate HANDOFF states\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`  
 **Motion Direction:** Meaningful Motion / Physical Response
 
@@ -1205,3 +1205,22 @@ The preceding Hanji post-reveal scale/crop freeze is preserved. No detached 07�
 
 Current implementation/limitations and source principles: [Outro result](review/HOME-OUTRO-INTERACTION.md).
 This records implementation, not visual QUALITY APPROVED. Fast/Preview delivery is separate from manual Release Gate.
+
+
+# 52. CANONICAL EXPERIENCE / SLOW CHROMA / AUTONOMOUS WET FIELD
+
+2026-09-08 user promotion supersedes §50's opt-in status for Hanji/Profile and 03/06 Magnet. Their timing/input
+contracts and the Hanji completed-photo scale/crop freeze are unchanged; formal owners live in `src/home/experience`.
+Developer overrides never change the repo Canonical or leak into ordinary visits. [Workflow](review/EXPERIENCE-PROMOTION.md).
+
+08 preserves the immutable fiber alpha and one visible surface/frame owner. Dye is time-based: 24s smooth interpolation
+per Violet→Bronze→Lacquer→Violet leg (72s cycle), independent of input velocity/emission count. Existing desktop
+wet envelope/near-glyph tension remains. Mobile reads the existing pair's projected coordinates/direction/speed;
+850ms quiet entry, ≥1.8s interval, ≤3 concurrent 5.2s wet envelopes (.42s arrival). Mobile glyph influence is 28% of
+Desktop. New sources wait for 280ms scroll settlement; existing stains decay. Source observers reuse scene/point
+writes rather than a second global scroll/pointer owner. Optional unmoved blank tap never captures/prevents scrolling.
+Offscreen/hidden/modal/reduced cleanup preserves information and links; reduced disables autonomous/glyph response.
+
+WORKS uses same-DOM portal scale/translation into a controlled 12-column archive, native progress and small WAAPI
+filter reflow from measured outgoing card boxes. POP uses the same query state. Mobile is vertical one-column;
+reduced retains static archive and filters. No new transition framework or next detail transition is implemented.

@@ -2,7 +2,8 @@
 import { createHash } from 'node:crypto'
 import { expect, test, type APIResponse, type Page, type TestInfo } from '@playwright/test'
 import { buildTargets } from '../../config/build.ts'
-import { spikeRoutes, type SpikeRoute } from '../../src/spike/fixtures.ts'
+import type { SpikeRoute } from '../../src/spike/fixtures.ts'
+import { siteRoutes } from '../../src/routing/site-catalog.ts'
 import { expectLocaleMetadata } from '../metadata-assertions.ts'
 
 const target = buildTargets.pagesPreview
@@ -20,13 +21,34 @@ function responseRecord(response: APIResponse) {
 }
 
 async function metadata(page: Page, fixture: SpikeRoute) {
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText(`${fixture.name} (${fixture.lang})`)
-  await expect(page).toHaveTitle(`${fixture.name} (${fixture.lang}) | P0B`)
+  const actualWorks = fixture.key === 'works'
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(actualWorks ? 'Works.' : `${fixture.name} (${fixture.lang})`)
+  await expect(page).toHaveTitle(actualWorks ? 'WORKS — 조윤경' : `${fixture.name} (${fixture.lang}) | P0B`)
   await expect(page.locator('html')).toHaveAttribute('lang', fixture.lang)
-  await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', `Routing spike: ${fixture.path} [${fixture.lang}]. Test metadata only.`)
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', actualWorks ? '조윤경의 음반과 공연 기록.' : `Routing spike: ${fixture.path} [${fixture.lang}]. Test metadata only.`)
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `${target.canonicalOrigin}${atBase(fixture.path)}`)
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, nofollow')
   await expectLocaleMetadata(page, fixture, target.canonicalOrigin, target.base)
+}
+
+async function imagesAndLinks(page: Page, fixture: SpikeRoute) {
+  if (fixture.key === 'works') {
+    await expect(page.locator('.works-card img')).toHaveCount(6)
+    await expect.poll(async () => page.locator('.works-card img').first().evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(1000)
+    await expect(page.locator('.editorial-navigation .nav-signature')).toHaveAttribute('href', target.base)
+    await expect(page.locator('.menu-links a')).toHaveCount(5)
+    await expect(page.locator('a[href*="/en/works"]')).toHaveCount(0)
+    await expect(page.locator('dialog button[aria-label="English — translation unavailable"]')).toBeDisabled()
+    await expect(page.locator('.works-record-link')).toHaveCount(6)
+    for (const href of await page.locator('.works-record-link').evaluateAll(links => links.map(link => link.getAttribute('href')))) {
+      expect(href).toMatch(/^https:\/\/choyounkyoung\.com\/#\/(album|performance)\//)
+    }
+  } else {
+    expect(await page.locator('img').evaluate(image => (image as HTMLImageElement).naturalWidth)).toBe(16)
+    for (const link of siteRoutes) {
+      await expect(page.locator(`[data-route-id="${link.id}"]`)).toHaveAttribute('href', atBase(link.path))
+    }
+  }
 }
 
 test.beforeAll(async ({ request }) => {
@@ -41,7 +63,7 @@ test.beforeAll(async ({ request }) => {
   }, { timeout: 120_000, intervals: [2000, 5000, 10_000] }).toBe(expected)
 })
 
-for (const [index, fixture] of spikeRoutes.entries()) {
+for (const [index, fixture] of siteRoutes.entries()) {
   test(`JS enabled ${fixture.path}: direct, hard refresh, link, back, forward`, async ({ page, context }, info) => {
     const errors: string[] = []
     page.on('pageerror', (error) => errors.push(error.message))
@@ -59,19 +81,36 @@ for (const [index, fixture] of spikeRoutes.entries()) {
     await page.waitForLoadState('networkidle')
     await metadata(page, fixture)
     await page.evaluate(() => { Object.assign(window, { p0cMarker: 'same-document' }) })
-    const neighbor = spikeRoutes[(index + 1) % spikeRoutes.length]
-    await page.locator(`[data-route-id="${neighbor.id}"]`).click()
+    const neighbor = fixture.key === 'works' ? siteRoutes[0] : siteRoutes[(index + 1) % siteRoutes.length]
+    if (fixture.key === 'works') {
+      await page.getByRole('button', { name: 'MENU', exact: true }).click()
+      await expect(page.locator('dialog')).toHaveAttribute('data-phase', 'open')
+      await expect(page.getByRole('button', { name: 'English — translation unavailable' })).toBeDisabled()
+      await page.keyboard.press('Escape')
+      await expect(page.locator('dialog')).not.toBeVisible()
+      await page.getByRole('button', { name: '음반 3건', exact: true }).click()
+      await expect(page.locator('.works-page')).toHaveAttribute('data-filter', 'albums')
+      await expect(page.locator('.works-card[data-kind="album"]')).toHaveCount(3)
+      await expect(page.locator('.works-card[data-kind="performance"]')).toHaveCount(0)
+      expect(new URL(page.url()).searchParams.get('type')).toBe('albums')
+      await page.goBack()
+      await expect(page.locator('.works-page')).toHaveAttribute('data-filter', 'all')
+      await page.goForward()
+      await expect(page.locator('.works-page')).toHaveAttribute('data-filter', 'albums')
+      await page.getByRole('button', { name: '전체 작업 6건', exact: true }).click()
+      await expect(page.locator('.works-card')).toHaveCount(6)
+      await page.locator('.editorial-navigation .nav-signature').click()
+    } else {
+      await page.locator(`[data-route-id="${neighbor.id}"]`).click()
+    }
     await metadata(page, neighbor)
     expect(await page.evaluate(() => Reflect.get(window, 'p0cMarker'))).toBe('same-document')
     await page.goBack()
     await metadata(page, fixture)
     await page.goForward()
     await metadata(page, neighbor)
-    expect(await page.locator('img').evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBe(16)
+    await imagesAndLinks(page, neighbor)
     expect(await page.locator('html').evaluate((element) => getComputedStyle(element).getPropertyValue('--p0b-css-loaded').trim())).toBe('1')
-    for (const link of spikeRoutes) {
-      await expect(page.locator(`[data-route-id="${link.id}"]`)).toHaveAttribute('href', atBase(link.path))
-    }
     await attach(info, 'route-result', { path: fixture.path, directStatus: direct?.status(), hardRefreshStatus: refreshed?.status(),
       finalUrl: page.url(), internalNavigation: true, back: true, forward: true, errors })
     if (fixture.id === 'ko-home') await page.screenshot({ path: info.outputPath('real-pages-neutral.png'), fullPage: true })
@@ -82,7 +121,7 @@ for (const [index, fixture] of spikeRoutes.entries()) {
 
 test.describe('JavaScript disabled', () => {
   test.use({ javaScriptEnabled: false })
-  for (const fixture of spikeRoutes) {
+  for (const fixture of siteRoutes) {
     test(`static ${fixture.path}: direct, refresh, document metadata and image`, async ({ page }, info) => {
       const direct = await page.goto(atBase(fixture.path, false))
       expect(direct?.status()).toBe(200)
@@ -90,7 +129,7 @@ test.describe('JavaScript disabled', () => {
       const refreshed = await page.reload()
       expect(refreshed?.status()).toBe(200)
       await metadata(page, fixture)
-      expect(await page.locator('img').evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBe(16)
+      await imagesAndLinks(page, fixture)
       await attach(info, 'js-disabled', { path: fixture.path, directStatus: direct?.status(), refreshStatus: refreshed?.status(),
         finalUrl: page.url(), title: await page.title(), lang: await page.locator('html').getAttribute('lang') })
     })
@@ -103,7 +142,7 @@ for (const suffix of ['/works', '/works/', '/works?test=1', '/works#test', '/wor
     const first = await request.get(path.split('#')[0], { maxRedirects: 0 })
     expect([200, 301, 302, 307, 308]).toContain(first.status())
     expect((await page.goto(path))?.status()).toBe(200)
-    await metadata(page, spikeRoutes[1])
+    await metadata(page, siteRoutes[1])
     const final = new URL(page.url())
     if (suffix.includes('?')) expect(final.search).toBe('?test=1')
     if (suffix.includes('#')) expect(final.hash).toBe('#test')
@@ -114,7 +153,7 @@ for (const suffix of ['/works', '/works/', '/works?test=1', '/works#test', '/wor
 for (const javaScriptEnabled of [true, false]) {
   test.describe(`Real HTTP 404 with JS ${javaScriptEnabled}`, () => {
     test.use({ javaScriptEnabled })
-    for (const path of ['/not-a-real-page', '/album/not-a-real-album', '/performance/not-a-real-performance', '/en/not-a-real-page']) {
+    for (const path of ['/not-a-real-page', '/album/not-a-real-album', '/performance/not-a-real-performance', '/en/not-a-real-page', '/en/works']) {
       test(path, async ({ page, request }, info) => {
         const response = await request.get(atBase(path, false))
         expect(response.status()).toBe(404)
@@ -140,7 +179,7 @@ test('deployed identity, every artifact hash, MIME and cache headers', async ({ 
   }
   expect(manifest.commit).toBe(process.env.EXPECTED_DEPLOY_SHA)
   expect(manifest.base).toBe(target.base)
-  expect(manifest.routes).toEqual(spikeRoutes.map(({ path }) => path))
+  expect(manifest.routes).toEqual(siteRoutes.map(({ path }) => path))
   const records = [responseRecord(manifestResponse)]
   for (const file of manifest.files) {
     expect(file.path).not.toMatch(/\.map$|__spa-fallback|test-results|playwright|\.vite\/|\.gitkeep/)

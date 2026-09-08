@@ -3,7 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import { dirname, relative, resolve, sep } from 'node:path'
 import { getBuildTarget } from '../config/build.ts'
-import { spikeRoutes } from '../src/spike/fixtures.ts'
+import { siteRoutes } from '../src/routing/site-catalog.ts'
 import { staticLayout } from './static-layout.mjs'
 
 async function filesBelow(directory, prefix = '') {
@@ -29,7 +29,7 @@ export async function packageStatic(targetName) {
   }
 
   const publicFiles = new Set(await filesBelow('public'))
-  const routePaths = spikeRoutes.map(({ path }) => path)
+  const routePaths = siteRoutes.map(({ path }) => path)
   const mapping = staticLayout(await filesBelow(client), { base: target.base, publicFiles, routePaths })
   const commit = process.env.BUILD_SHA ?? execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim()
   if (!/^[a-f0-9]{40}$/.test(commit)) throw new Error('BUILD_SHA must be a full Git commit SHA')

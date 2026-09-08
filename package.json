@@ -44,7 +44,10 @@
     "test:sound": "npm run test:sound:contract && playwright test --config playwright.sound.config.ts",
     "extract:audio": "node scripts/extract-audio-features.mjs",
     "test:home": "playwright test --config playwright.home.config.ts",
-    "build:development-preview": "node scripts/build-development-preview.mjs"
+    "build:development-preview": "node scripts/build-development-preview.mjs",
+    "experience:promote": "node scripts/experience-promote.mjs",
+    "test:experience": "node --test tests/comparison-settings.test.ts tests/experience-promotion.test.ts tests/outro-autonomous.test.ts",
+    "test:works": "node --test tests/works-catalog.test.ts tests/site-catalog.test.ts"
   },
   "dependencies": {
     "@fontsource-variable/cormorant-garamond": "5.3.0",

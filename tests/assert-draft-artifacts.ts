@@ -3,7 +3,7 @@ import { readFile, readdir } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { getBuildTarget, type BuildTargetName } from '../config/build.ts'
 import { contentCatalog } from '../src/content/registry.server.ts'
-import { spikeRoutes } from '../src/spike/fixtures.ts'
+import { siteRoutes } from '../src/routing/site-catalog.ts'
 
 async function filesBelow(directory: string, prefix = ''): Promise<string[]> {
   const entries = await readdir(resolve(directory, prefix), { withFileTypes: true })
@@ -36,9 +36,9 @@ export async function assertDraftArtifactsExcluded(targetName: BuildTargetName) 
     }
   }
   const manifest = JSON.parse(await readFile(resolve(target.directory, 'static/build-info.json'), 'utf8'))
-  assert.deepEqual(manifest.routes, spikeRoutes.map(route => route.path))
-  assert.equal(manifest.routes.length, 18)
+  assert.deepEqual(manifest.routes, siteRoutes.map(route => route.path))
+  assert.ok(!manifest.routes.includes('/en/works'))
   const emitted = (await filesBelow(resolve(target.directory, 'static'))).filter(path => path.endsWith('.html')).sort()
-  assert.deepEqual(emitted, spikeRoutes.map(route => route.path === '/' ? 'index.html' : `${route.path.slice(1)}/index.html`).sort())
+  assert.deepEqual(emitted, siteRoutes.map(route => route.path === '/' ? 'index.html' : `${route.path.slice(1)}/index.html`).sort())
   return { target: targetName, scannedFiles: counts, routes: manifest.routes.length, privateDraftsExcluded: drafts.length }
 }

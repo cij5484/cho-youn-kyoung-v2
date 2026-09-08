@@ -1,5 +1,6 @@
 import { Link, useLocation, type MetaArgs } from 'react-router'
-import { findSpikeRoute, spikeRoutes } from '../spike/fixtures'
+import { findSpikeRoute } from '../spike/fixtures'
+import { siteRoutes } from '../routing/site-catalog'
 import { spikeMetadata } from '../spike/metadata'
 import { logicalPath, publicAsset, routeHref } from '../spike/paths'
 import NotFound from './not-found'
@@ -18,7 +19,7 @@ export default function SpikeRoute() {
       <img src={publicAsset('spike/path-check.svg')} width="16" height="16" alt="Public asset path test" />
       <nav aria-label="Spike routes">
         <ul>
-          {spikeRoutes.map(({ id, path }) => (
+          {siteRoutes.map(({ id, path }) => (
             <li key={id}><Link to={routeHref(path)} data-route-id={id}>{path}</Link></li>
           ))}
         </ul>

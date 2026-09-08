@@ -1,9 +1,34 @@
 const clamp = (value: number) => Math.max(0, Math.min(1, value))
 
-export function wetEnvelope(age: number) {
-  const t = clamp(age / 1.45)
+export function wetEnvelope(age: number, duration = 1.45, attack = 0) {
+  const t = clamp(age / duration), arrival = attack ? clamp(age / attack) : 1
   // An input event can be stamped after this frame's RAF timestamp; that stain is just born.
-  return { opacity: Math.pow(1 - t, 1.7), spread: 1 + Math.sin(t * Math.PI / 2) * .23 }
+  return { opacity: Math.pow(1 - t, 1.7) * arrival * arrival * (3 - 2 * arrival), spread: 1 + Math.sin(t * Math.PI / 2) * .23 }
+}
+
+export const wetFieldTiming = { colorCycle: 72, mobileLife: 5.2, mobileAttack: .42, entryQuiet: 850, scrollQuiet: 280, interval: 1800, regionLimit: 3 } as const
+const wetTones = [[99, 52, 229], [173, 140, 84], [163, 61, 54]] as const
+
+/** A full slow Violet → Bronze → Lacquer cycle is independent of pointer/stain frequency. */
+export function wetColorAt(seconds: number): readonly [number, number, number] {
+  const cycle = ((seconds / wetFieldTiming.colorCycle) % 1 + 1) % 1, phase = cycle * wetTones.length
+  const index = Math.floor(phase), t = phase - index, mix = t * t * (3 - 2 * t)
+  return wetTones[index].map((value, channel) => value + (wetTones[(index + 1) % wetTones.length][channel] - value) * mix) as [number, number, number]
+}
+
+export function autonomousWetReady(input: { now: number; enteredAt: number; lastScroll: number; lastStain: number; regions: number; visible: boolean; reduced: boolean; touching: boolean }) {
+  return input.visible && !input.reduced && !input.touching && input.regions < wetFieldTiming.regionLimit
+    && input.now - input.enteredAt >= wetFieldTiming.entryQuiet
+    && input.now - input.lastScroll >= wetFieldTiming.scrollQuiet
+    && input.now - input.lastStain >= wetFieldTiming.interval
+}
+
+export function blankTapIsWet(duration: number, distance: number, interactive: boolean, contacts = 1) {
+  return !interactive && contacts === 1 && duration >= 0 && duration <= 280 && distance <= 8
+}
+
+export function gentleGlyph(pose: GlyphPose, strength = .28): GlyphPose {
+  return { x: pose.x * strength, y: pose.y * strength, turn: pose.turn * strength, stretch: 1 + (pose.stretch - 1) * strength }
 }
 
 export interface GlyphPose { x: number; y: number; turn: number; stretch: number }

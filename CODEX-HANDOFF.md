@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** HOME Outro interaction / hover / scene revisit implemented from main `d44cf1c`; REVIEW READY, user visual review pending. HOME 04 protected; 07 Hanji post-reveal freeze preserved. Delivery receipt in §26.\
-**Revision:** 1.39 / 2026-09-08 — interactive Outro, entry-origin links and scene revisit\
+**Status:** Canonical Hanji/Profile/Magnet promoted; 06 built overlay fixed; slow/mobile Outro and actual KO WORKS implemented / REVIEW READY. Protected 04 and Hanji no-zoom retained. Delivery receipt in §26.\
+**Revision:** 1.40 / 2026-09-08 — Canonical promotion, HOME fixes and actual WORKS\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 **Latest delivery policy — 2026-09-08:** user stopped Linux WebKit SOUND investigation and authorized pipeline-only
@@ -472,7 +472,38 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 
 # 26. CURRENT HANDOFF STATE
 
-## Current HOME Outro Interaction / Hover Pass — 2026-09-08
+## Current Canonical Experience / HOME Fix / WORKS Pass — 2026-09-08
+
+Baseline `00229d3661aab028c44abb656face602328ea8f1`, clean main/origin; branch `codex/canonical-home-works`.
+User explicitly authorizes the three parallel owned tracks and Fast CI → PR → main → automatic Pages Preview.
+
+- **Selected / Canonical:** Hanji Wet Reveal + Compact Profile and 03/06 Scene Magnet, now formal `src/home/experience`
+  owners independent of DevelopmentTools. Normal URL/dev=0 use repo values; dev=1 uses URL > saved Draft > Canonical.
+  [Promotion workflow](docs/redesign/review/EXPERIENCE-PROMOTION.md) documents versioned options, registry and validated CLI.
+- **06 root cause / fixed:** built CSS order let the equal-specificity `.dark-stage` background paint the full-screen
+  copy overlay above a decoded poster. The overlay is now explicitly transparent within this sequence; only the 06
+  poster gets early low-priority fetch/decode. Content, masks, timing and Revisit destination remain unchanged.
+- **08 implemented / REVIEW READY:** original wet shape, local glyph and inherited pair retained. Color uses an
+  independent 72s continuous Violet/Bronze/Lacquer cycle. Mobile uses actual point coordinates, quiet entry, capped
+  5.2s stains and small glyph response; scrolling/interactive taps do not create tap stains. Reduced motion is static.
+- **WORKS implemented / REVIEW READY:** one `src/works/WorksPage.tsx` for Framework and Preview `/works/`. Asymmetric
+  album/performance portal objects become the archive; native scroll, ALL/ALBUMS/PERFORMANCES query/history reflow
+  and chronological index. Independent legacy audit: 3 albums + 3 performances; the private P1D album remains excluded.
+  Only KO is published. `/en/works/` is unavailable/404; no invented translations or reciprocal EN metadata.
+  Other pages remain fixtures. Global menu can reach original KO WORKS from EN; MENU motion is unchanged.
+- **Lean local evidence:** type-check, changed-scope lint, actual Preview + Framework build, small choice/promotion,
+  wet-field/catalog/locale contracts; root private/Lab artifact exclusions; Chromium 1440/390 built sanity for
+  canonical/dev0/draft/URL precedence, visible poster + Revisit, no-zoom, pointer/actual-point/tap/scroll intent,
+  reduced motion, WORKS filters/history/locale and both route owners. No Full Release Gate or physical-device claim.
+- **Limits:** official posters stand in for unprovided documentary stage photos; native V2 details remain future
+  work (verified external legacy SPA references). Provisional asset status stays separate from verified facts.
+  Prior public SOUND Canvas non-finite-gradient issue was not investigated by this bounded task.
+
+Delivery outcome (PR/SHA/Fast/Pages/public minimum checks) is recorded on this pass's PR and final report.
+Protected 04 ribbon, existing Hero/Haegeum/05, 07 fixed photo scale/crop and removed detached edge remain intact.
+**REPORT → STOP.** No next page/scene is authorized by successful delivery.
+
+## Previous HOME Outro Interaction / Hover Pass — 2026-09-08
 
 Start: `main == origin/main`, **`d44cf1c0df22f92d131a56d7b6b17d55d307f277`**, PR #12 delivered.
 Branch: `codex/outro-interaction-hover`. User authorizes parallel owned tracks, lean checks, existing Fast CI,

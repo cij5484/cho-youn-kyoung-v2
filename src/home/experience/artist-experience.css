@@ -1,4 +1,4 @@
-/* These rules exist only behind the comparison adapter's attribute. Disable restores HOME verbatim. */
+/* Canonical HOME artist composition. The previous composition remains an explicit development override. */
 .stage-artist-sequence[data-artist-experience] {
   --experience-photo:0;
   --experience-profile:0;
@@ -97,7 +97,7 @@
   .stage-artist-sequence[data-artist-experience="hanji"] .artist-portrait-aperture img {
     translate:0 calc((min(var(--portrait), .7) - .5) * 4px * var(--handoff));
   }
-  /* Portrait and profile receive separate vertical space. This changes only the opt-in 07 endpoint;
+  /* Portrait and profile receive separate vertical space. This changes the selected 07 endpoint;
      all 06 stage geometry is the existing value while handoff is zero. */
   .stage-artist-sequence[data-artist-experience] .shared-image-frame {
     height:calc(51% - var(--handoff) * 7%);

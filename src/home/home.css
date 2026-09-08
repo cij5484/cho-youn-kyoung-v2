@@ -211,7 +211,10 @@
 .shared-seam { position:absolute; top:0; bottom:0; width:1px; left:calc(var(--seam) * 1% + var(--surface-x) * var(--portrait) * 5%); background:#e9dfca; box-shadow:0 0 18px #eadbc54d; pointer-events:none; }
 .stage-material-light { position:absolute; inset:-3%; pointer-events:none; background:linear-gradient(108deg,transparent 20%,#e5b97226 45%,transparent 69%); transform:translateX(calc(var(--surface-x) * 12%)); mix-blend-mode:soft-light; opacity:calc(.8 - var(--handoff) * .6); }
 .performance-scene,.artist-scene { position:absolute; inset:0; pointer-events:none; }
-.performance-scene { background:transparent; color:#f4f0e8; clip-path:inset(0 0 calc(var(--stage-copy-exit,0) * 100%) 0); }
+.performance-scene { color:#f4f0e8; clip-path:inset(0 0 calc(var(--stage-copy-exit,0) * 100%) 0); }
+/* This is a copy overlay, not the stage surface. Its dark palette cannot paint over the poster
+   when production CSS places the equal-specificity .dark-stage token rule after HOME. */
+.stage-artist-sequence .performance-scene { background:transparent; }
 .performance-scene>.section-index,.artist-scene>.section-index { position:absolute; left:var(--page-gutter); top:86px; }
 .performance-caption { position:absolute; left:9%; width:29%; top:45.5%; transform:translateY(calc((1 - var(--stage-exposure,0)) * 40px - var(--stage-copy-exit,0) * 60px)); }
 .stage-date { position:absolute; left:9%; top:26%; font-family:var(--font-display); font-weight:400; }

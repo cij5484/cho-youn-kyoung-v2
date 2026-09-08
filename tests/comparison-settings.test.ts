@@ -1,27 +1,50 @@
-import {test} from 'node:test'
+import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import {readComparison,comparisonSearch,resetComparison,comparisonAddress} from '../src/experience-prototype/comparison-settings.ts'
-test('ordinary deployed preview is inert, local has a collapsed launcher, explicit dev gates experiments',()=>{
-  assert.equal(readComparison('',false).available,false)
-  assert.equal(readComparison('',true).open,false)
-  assert.equal(readComparison('?portrait=hanji&magnet=on',false).portrait,'off')
-  assert.equal(readComparison('?dev=1&portrait=hanji&magnet=on',false).portrait,'hanji')
-  assert.equal(readComparison('?dev=1&portrait=hanji&magnet=on',false).magnet,true)
-  const off=readComparison('?dev=0&all=a&portrait=hanji&magnet=on',true)
-  assert.equal(off.portrait,'off');assert.equal(off.magnet,false);assert.equal(off.points,true)
+import { readComparison, comparisonSearch, resetComparison, comparisonAddress } from '../src/experience-prototype/comparison-settings.ts'
+import { experienceCanonical, createDraft } from '../src/home/experience/config.ts'
+
+const saved = JSON.stringify(createDraft({ ...experienceCanonical, portrait: 'straight', magnet: false, color: 'rust' }))
+test('ordinary URL and dev=0 always use canonical, while local only exposes a collapsed launcher', () => {
+  for (const search of ['', '?portrait=off&magnet=off', '?dev=0&all=a&portrait=off&magnet=off']) {
+    const state = readComparison(search, false, saved)
+    assert.equal(state.portrait, 'hanji'); assert.equal(state.magnet, true); assert.equal(state.points, true)
+    assert.equal(state.color, 'lacquer'); assert.equal(state.enabled, false)
+  }
+  assert.equal(readComparison('', false).available, false)
+  assert.equal(readComparison('', true, saved).available, true)
+  assert.equal(readComparison('', true, saved).open, false)
+  assert.equal(readComparison('', true, saved).portrait, 'hanji')
 })
-test('legacy compare/all remains available and a single choice preserves the other legacy choices',()=>{
-  assert.equal(readComparison('?compare',false).available,true)
-  const query=comparisonSearch('?all=a&campaign=hello',{points:true})
-  const state=readComparison(query,false)
-  assert.equal(state.points,true);assert.equal(state.janggu,false);assert.equal(state.type,false)
-  assert.equal(new URLSearchParams(query).get('campaign'),'hello')
+test('explicit development URL overrides saved draft, and missing values fall back to canonical', () => {
+  const draft = readComparison('?dev=1', false, saved)
+  assert.equal(draft.portrait, 'straight'); assert.equal(draft.magnet, false); assert.equal(draft.color, 'rust')
+  const url = readComparison('?dev=1&portrait=hanji&magnet=on', false, saved)
+  assert.equal(url.portrait, 'hanji'); assert.equal(url.magnet, true); assert.equal(url.color, 'rust')
+  const explicitOff = readComparison(comparisonSearch('?dev=1', { portrait: 'off', magnet: false }), false, saved)
+  assert.equal(explicitOff.portrait, 'off'); assert.equal(explicitOff.magnet, false)
+  const fallback = readComparison('?dev=1', false)
+  assert.equal(fallback.portrait, experienceCanonical.portrait); assert.equal(fallback.magnet, experienceCanonical.magnet)
 })
-test('reset/exit removes owned experiments while retaining unrelated query; copied URL keeps locale/base/hash',()=>{
-  const input='?dev=1&portrait=hanji&magnet=on&all=a&campaign=hello'
-  const cleared=resetComparison(input,true),q=new URLSearchParams(cleared)
-  assert.equal(q.get('dev'),'0');assert.equal(q.get('campaign'),'hello');assert.equal(q.has('portrait'),false);assert.equal(q.has('all'),false)
-  const href='https://cij5484.github.io/cho-youn-kyoung-v2/en/?campaign=hello#artist'
-  const shared=new URL(comparisonAddress(href,readComparison(input,true)))
-  assert.equal(shared.pathname,'/cho-youn-kyoung-v2/en/');assert.equal(shared.hash,'#artist');assert.equal(shared.searchParams.get('portrait'),'hanji');assert.equal(shared.searchParams.get('campaign'),'hello');assert.equal(shared.searchParams.get('dev'),'1')
+test('invalid saved schemas and URL values cannot enter runtime options', () => {
+  const invalid = JSON.stringify({ ...JSON.parse(saved), schemaVersion: 100 })
+  const state = readComparison('?dev=1&portrait=fluid&magnet=maybe&color=rainbow', false, invalid)
+  assert.equal(state.draftStatus, 'invalid'); assert.equal(state.portrait, 'hanji'); assert.equal(state.magnet, true)
+  assert.deepEqual(state.ignored, ['portrait', 'color', 'magnet'])
+})
+test('legacy comparisons remain available and preserve other choices and unrelated query', () => {
+  assert.equal(readComparison('?compare', false).available, true)
+  const query = comparisonSearch('?all=a&campaign=hello', { points: true })
+  const state = readComparison(query, false)
+  assert.equal(state.points, true); assert.equal(state.janggu, false); assert.equal(state.type, false)
+  assert.equal(new URLSearchParams(query).get('campaign'), 'hello')
+})
+test('reset/exit preserves unrelated query, and copied preset addresses preserve locale/base/hash', () => {
+  const input = '?dev=1&portrait=off&magnet=off&all=a&campaign=hello'
+  const q = new URLSearchParams(resetComparison(input, true))
+  assert.equal(q.get('dev'), '0'); assert.equal(q.get('campaign'), 'hello'); assert.equal(q.has('portrait'), false); assert.equal(q.has('all'), false)
+  const href = 'https://cij5484.github.io/cho-youn-kyoung-v2/en/?campaign=hello#artist'
+  const shared = new URL(comparisonAddress(href, readComparison(input, true)))
+  assert.equal(shared.pathname, '/cho-youn-kyoung-v2/en/'); assert.equal(shared.hash, '#artist')
+  assert.equal(shared.searchParams.get('portrait'), 'off'); assert.equal(shared.searchParams.get('magnet'), 'off')
+  assert.equal(shared.searchParams.get('campaign'), 'hello'); assert.equal(shared.searchParams.get('dev'), '1')
 })

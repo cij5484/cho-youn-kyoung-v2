@@ -9,7 +9,7 @@
     rotate(var(--outro-glyph-turn,0deg)) scaleX(var(--outro-glyph-stretch,1));
   transform-origin:50% 70%;
 }
-@media (prefers-reduced-motion:reduce), (hover:none) {
+@media (prefers-reduced-motion:reduce) {
   .outro-wet-surface { display:none; }
   .home-outro [data-outro-glyph] { transform:none; }
 }

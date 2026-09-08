@@ -1,0 +1,21 @@
+{
+  "scope": "Independent WORKS public-reference catalog; not HOME selections and not V2 content publication migration",
+  "auditedAt": "2026-09-08",
+  "repository": "https://github.com/cij5484/cho-youn-kyoung",
+  "revision": "3df80573060037f3e1114d7e12fd0f533fe3b528",
+  "sourceFiles": ["src/data/albums.ts", "src/data/performances.ts", "src/App.tsx"],
+  "completeSourceCounts": { "albums": 4, "performances": 3 },
+  "includedCounts": { "albums": 3, "performances": 3 },
+  "excluded": { "count": 1, "reason": "An album conflicts with the V2 P1D private publication contract. Its identity and fields are not imported or republished." },
+  "facts": "KO titles, dates, years, venue, original record URLs and release states are exact minimal source projections. 2026 announced albums have year precision only. No translated records were authored.",
+  "destinations": "The original website uses HashRouter; verified root HTTP 200 and source router /album/:id and /performance/:id. Clean legacy detail URLs return 404, so reference links use the real original /#/ route. No V2 detail fixture links.",
+  "assets": [
+    { "file": "../home/assets/yeongsan-front.webp", "source": "public/assets/albums/yeongsan-hoesang-2026/web/front.webp", "lifecycle": "provisional", "provenance": "official-artwork; existing V2 HOME manifest" },
+    { "file": "../home/assets/pyeongjo-front.webp", "source": "public/assets/albums/pyeongjo-hoesang-2026/web/front.webp", "lifecycle": "provisional", "provenance": "official-artwork; existing V2 HOME manifest" },
+    { "file": "../home/assets/pulgo-yeokda-poster.webp", "source": "public/assets/performances/haegeum-jeongak-2026-09-22/viewer/poster.webp", "lifecycle": "provisional", "provenance": "official-artwork; existing V2 HOME manifest" },
+    { "file": "../home/assets/sanjo-poster.webp", "source": "public/assets/performances/sanjo-gil-2026-08-16/viewer/poster.webp", "lifecycle": "provisional", "provenance": "official-artwork; existing V2 HOME manifest" },
+    { "file": "assets/han-beom-su-front.webp", "source": "public/assets/albums/han-beom-su-haegeum-sanjo-2020/web/display/front.webp", "sha256": "a3a7c73912a1c9d2c22f6cc867a380b374b85197e23220c986ae1e2a543b20d8", "width": 1600, "height": 1420, "lifecycle": "provisional", "provenance": "official-artwork; existing optimized legacy derivative copied without modifying master" },
+    { "file": "assets/haegeum-recital-poster.webp", "source": "public/assets/performances/haegeum-2026-08-02/viewer/poster.webp", "sha256": "706e15162611ff261bacddcbfeba218ae444a88fbb94c11f1533230e50e88e41", "width": 1414, "height": 2000, "lifecycle": "provisional", "provenance": "official-artwork; existing optimized legacy derivative copied without modifying master" }
+  ],
+  "limitations": ["No documentary stage photographs audited for these records: use authentic full posters, not invented stage imagery.", "Original record references are reachable through the external legacy SPA; full native V2 detail pages remain a later bounded task.", "Image lifecycle remains provisional independently of the verified record facts."]
+}
