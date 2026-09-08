@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { EditorialNavigation } from '../../src/navigation/EditorialNavigation.tsx'
 import { siteCatalog, siteRoutes } from '../../src/routing/site-catalog.ts'
-import { WorksPage } from '../../src/works/WorksPage.tsx'
+import { WorksExperience } from '../../src/works/WorksExperience.tsx'
 import { HomeExperience } from '../../src/home/experience/HomeExperience.tsx'
 import { SoundComposition } from '../../src/sound/SoundComposition.tsx'
 import { GlyphLabel } from '../../src/interaction-prototype/GlyphLabel.tsx'
@@ -38,7 +38,7 @@ export function InteractionLab(){
         <p className="type-micro">개발용 비교 · 최종 선택 대기</p>
         <p>두 점 · 장구 · 글자 재조립 비교. 실제 장구 분리 음원이 아닌 혼합 음원의 보수적 타격 추정입니다.</p>
       </section>}
-      </> : location.pathname.replace(/\/$/, '') === '/works' ? <WorksPage locale="ko"/> : <section className="lab-destination page-frame"><p>P2K / route fixture</p><h1>{siteRoutes.some(route=>route.path===location.pathname.replace(/\/$/,'')) ? location.pathname : '404'}</h1><Link to={locale==='ko'?'/':'/en'}>Return to interaction study →</Link></section>}
+      </> : location.pathname.replace(/\/$/, '') === '/works' ? <WorksExperience locale="ko"/> : <section className="lab-destination page-frame"><p>P2K / route fixture</p><h1>{siteRoutes.some(route=>route.path===location.pathname.replace(/\/$/,'')) ? location.pathname : '404'}</h1><Link to={locale==='ko'?'/':'/en'}>Return to interaction study →</Link></section>}
     </main>
     {isHome&&<HomeExperience host={element} locale={locale} options={settings}/>}
     {isHome&&<DevelopmentTools host={element} settings={settings} locale={locale}/>}

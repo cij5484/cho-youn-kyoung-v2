@@ -13,9 +13,9 @@ The user selected Hanji + Compact Profile and 03/06 Scene Magnet. `HomeExperienc
 paths, private data or panel state. Invalid/mismatched/blocked storage falls back safely; normal visits ignore it.
 The panel shows deployed and selected values with differences. A choice auto-saves. Load restores storage;
 reset writes Canonical to Draft; exit disables overrides without deleting the draft or disabling Canonical.
-Comparison URL contains all actual options. Promotion copy contains only the two promotable choices.
+Comparison URL contains all actual options. Promotion copy contains only the three promotable choices.
 
-Registry: `portrait` = off/straight/hanji and `magnet` = boolean are promotable. Existing points/janggu/type/color
+Registry: `portrait` = off/straight/hanji, `magnet` = boolean, and `worksLayout` = current/spatial-helix are promotable. Existing points/janggu/type/color
 comparisons remain non-promotable. debug/study/diagnostics/panel state are not promotion keys. Compact Profile is
 part of portrait mode; no misleading independent control.
 
@@ -29,10 +29,27 @@ npm run experience:promote -- preset.json
 An inline JSON argument is also accepted. Envelope:
 
 ```json
-{"schemaVersion":1,"kind":"experience-promotion","options":{"portrait":"hanji","magnet":true}}
+{"schemaVersion":1,"kind":"experience-promotion","options":{"portrait":"hanji","magnet":true,"worksLayout":"current"}}
 ```
 
 The deterministic CLI rejects unknown/missing keys, version/kind/value errors and non-promotable keys. It prints
 old→new differences and changes only Canonical config. `--check` never writes. Commit/CI/PR/deployment are separate
 explicit operations; no frontend token or direct GitHub write. To deliver a browser selection, provide the copied
 payload or comparison URL (browser-local storage is not synchronized across devices). No need to re-explain options.
+
+
+## WORKS extension — 2026-09-08
+
+Ordinary `/works/` and `?dev=0` retain `worksLayout: current`. The Three.js prototype is opt-in via
+`/works/?dev=1&works=spatial-helix`. Its own page uses the same registry, Draft, URL precedence and promotion CLI.
+The Korean comparison panel shows only WORKS choices on this route. Changing/resetting/exiting a WORKS comparison
+preserves the archive's `type=albums|performances` filter. That filter is distinct from HOME's legacy `type=a|b`.
+
+The additive v1 Draft migration accepts the exact previous six HOME keys and supplies `worksLayout: current`;
+it neither discards saved HOME choices nor mutates the incoming payload. Unknown/missing other keys still fail.
+New promotion payloads include all three promotable keys. Candidate selection/storage/copy does not edit canonical.json.
+No automatic promotion: visual approval and explicit CLI application/delivery remain separate user decisions.
+
+Page-scoped candidate copy includes all required keys, but sets the other page's values to Canonical: copying
+WORKS cannot accidentally promote hidden HOME drafts, and copying HOME cannot promote a hidden WORKS candidate.
+Page-scoped reset preserves the other page's saved choices.

@@ -4,7 +4,7 @@ import { readDraftPayload } from './experience-draft.ts'
 
 export type PortraitExperiment = ExperienceOptions['portrait']
 export type ComparisonPatch = Partial<ExperienceOptions & { dev: boolean }>
-const owned = ['dev', 'portrait', 'magnet', 'compare', 'all', 'points', 'janggu', 'type', 'color', 'study']
+const owned = ['dev', 'works', 'portrait', 'magnet', 'compare', 'all', 'points', 'janggu', 'type', 'color', 'study']
 
 /** Normal URLs never consume a saved draft. Only explicit dev/legacy comparison opts into overrides. */
 export function readComparison(search: string, local: boolean, saved?: string | null) {
@@ -21,6 +21,11 @@ export function readComparison(search: string, local: boolean, saved?: string | 
       if ((experienceRegistry[key].allowedValues as readonly string[]).includes(value)) Object.assign(options, { [key]: value })
       else ignored.push(key)
     }
+    if (q.has('works')) {
+      const value = q.get('works')
+      if (value === 'current' || value === 'spatial-helix') options.worksLayout = value
+      else ignored.push('works')
+    }
     if (q.has('magnet')) {
       const value = q.get('magnet')
       if (value === 'on' || value === 'off') options.magnet = value === 'on'
@@ -28,7 +33,7 @@ export function readComparison(search: string, local: boolean, saved?: string | 
     }
     for (const key of ['points', 'janggu', 'type'] as const) {
       const value = q.get(key)
-      if (value === null) continue
+      if (value === null || (key === 'type' && ['albums', 'performances'].includes(value))) continue
       if (value === 'a' || value === 'b') options[key] = value === 'b'
       else ignored.push(key)
     }
@@ -47,6 +52,7 @@ export function comparisonSearch(search: string, patch: ComparisonPatch) {
   }
   for (const [key, value] of Object.entries(patch)) {
     if (key === 'dev') q.set(key, value ? '1' : '0')
+    else if (key === 'worksLayout') q.set('works', String(value))
     else if (key === 'magnet') q.set(key, value ? 'on' : 'off')
     else if (key === 'portrait' || key === 'color') q.set(key, String(value))
     else q.set(key, value ? 'b' : 'a')
@@ -54,12 +60,20 @@ export function comparisonSearch(search: string, patch: ComparisonPatch) {
   return q.toString()
 }
 export function resetComparison(search: string, exit = false) {
-  const q = new URLSearchParams(search); for (const key of owned) q.delete(key)
+  const q = new URLSearchParams(search)
+  for (const key of owned) {
+    if (key === 'type' && ['albums', 'performances'].includes(q.get(key) ?? '')) continue
+    q.delete(key)
+  }
   q.set('dev', exit ? '0' : '1'); return q.toString()
 }
 export function comparisonAddress(href: string, settings: ComparisonSettings) {
   const url = new URL(href)
-  url.search = comparisonSearch(url.search, { dev: true, portrait: settings.portrait, magnet: settings.magnet,
+  if (url.pathname.replace(/\/$/, '').endsWith('/works')) {
+    url.search = comparisonSearch(url.search, { dev: true, worksLayout: settings.worksLayout })
+    return url.href
+  }
+  url.search = comparisonSearch(url.search, { dev: true, worksLayout: settings.worksLayout, portrait: settings.portrait, magnet: settings.magnet,
     points: settings.points, janggu: settings.janggu, type: settings.type, color: settings.color })
   return url.href
 }

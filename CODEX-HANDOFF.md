@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** 08 source/scroll ownership and slow bloom cadence refined; WORKS rebuilt as Dual Worlds → Convergence → Archive / REVIEW READY. Canonical experience and other HOME scenes preserved. Delivery receipt in §26.\
-**Revision:** 1.41 / 2026-09-08 — Outro response tuning and WORKS visual rebuild\
+**Status:** 08 wet visibility and mobile viewing distance refined; Three.js WORKS Spatial Helix opt-in candidate / REVIEW READY. Ordinary WORKS remains current; HOME composition and Canonical choices preserved. Delivery receipt in §26.\
+**Revision:** 1.42 / 2026-09-08 — Wet visibility, mobile pacing and Three.js WORKS candidate\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 **Latest delivery policy — 2026-09-08:** user stopped Linux WebKit SOUND investigation and authorized pipeline-only
@@ -472,7 +472,40 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 
 # 26. CURRENT HANDOFF STATE
 
-## Current Outro Response / WORKS Visual Rebuild — 2026-09-08
+## Current Wet Visibility / Three.js WORKS Candidate — 2026-09-08
+
+Baseline main/origin `4dfa554884cfdfabf4d16eaecad74334447da1f9`; branch `codex/wet-field-spatial-works`.
+User explicitly authorizes two parallel tracks, direct Three.js prototype integration and lean Preview delivery.
+This approval does not promote the candidate or authorize other 3D/HOME work.
+The subsequent explicit mobile-pacing addition permits only authored viewing distance in 03/04/06/07;
+04 ribbon composition, 05 handling and Desktop scroll behavior remain unchanged.
+
+- **08 Canonical tuning / REVIEW READY:** 2.4× Desktop and 2.7× Mobile base radius, bounded profile variation,
+  stronger fibre wetting, 1.3–1.7s growth/.65s hold/5.1–6.9s life. Existing 72s phase, emission caps, actual scroll
+  quiet, source selection, blank tap, reduced motion and glyph/pair behavior preserved.
+- **WORKS development candidate / NOT PROMOTED:** `worksLayout: spatial-helix`, accessible at
+  `/works/?dev=1&works=spatial-helix`. Default/dev=0 retains `current`. Direct Three.js core, real thin objects,
+  curve-local quaternion frames, focus slerp, native-scroll damping and Compact Archive. No CSS billboard carousel.
+- **Shared choices:** existing registry/Draft/Promotion extended with one real promotable key; strict additive
+  migration preserves older complete HOME drafts. Page-scoped controls preserve filters and other-page settings.
+  Copying a candidate cannot promote it. Dynamic import keeps the Three scene out of ordinary HOME/current WORKS.
+- **Mobile pacing:** original 235svh Hero/Haegeum/SOUND timeline plus a 55svh completed-SOUND hold;
+  LISTEN/Revisit/Magnet share the hold midpoint. 04 section 250→340svh, shared 06/07 section 320→440svh.
+  05 remains natural flow. The CSS opt-in is ≤639px with motion enabled; Desktop and reduced-motion retain
+  their prior geometry. No input delta scaling, touch interception or new snapping controller.
+- **Lean validation:** focused wet profiles/visibility and scene load/textures/quaternion/reverse/raycast/routes/
+  fallback/cleanup at Desktop/Mobile, type/lint and actual Preview build. User decides natural 3D/visual quality.
+  Mobile short/medium/strong/reverse native input, held finger, release and Magnet cancellation are checked
+  separately. No Full Release Gate, broad matrix, mass evidence or unrelated SOUND investigation;
+  physical-device/iOS inertia QA remains separate.
+- **Protected:** HOME04 ribbon composition, all other HOME visuals, existing approved Canonical values, current WORKS DOM version,
+  catalog/private boundaries, navigation and original assets. Official posters/cover derivatives remain source
+  material; neutral backs are intentional since no real back assets are supplied.
+
+Delivery receipt (PR/main SHA/Fast/Pages/focused public checks) lives on the PR and final report.
+**REPORT → STOP.** No automatic promotion or next scene.
+
+## Previous Outro Response / WORKS Visual Rebuild — 2026-09-08
 
 Baseline main/origin `760387ee7b1941dc3004783c7212f2625e4163c9`; branch `codex/outro-works-rebuild`.
 User rejected the previous WORKS visual architecture. Its historical delivery does not mean Quality Approved.

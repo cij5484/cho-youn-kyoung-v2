@@ -20,9 +20,9 @@ test('drafts store only versioned, complete runtime options and reject inspectio
   assert.equal(readDraftPayload(JSON.stringify(draft)).status, 'valid')
 })
 test('promotion registry admits only actual authorized variant keys, never legacy/debug/panel flags', () => {
-  assert.deepEqual(promotableKeys, ['portrait', 'magnet'])
+  assert.deepEqual(promotableKeys, ['portrait', 'magnet', 'worksLayout'])
   const payload = createPromotion({ ...experienceCanonical, points: false, color: 'rust', portrait: 'straight' })
-  assert.deepEqual(Object.keys(payload.options), ['portrait', 'magnet'])
+  assert.deepEqual(Object.keys(payload.options), ['portrait', 'magnet', 'worksLayout'])
   for (const key of ['points', 'janggu', 'type', 'color', 'dev', 'debug', 'panel', 'study', 'diagnostics', 'outro']) {
     assert.throws(() => validatePromotion({ ...payload, options: { ...payload.options, [key]: true } }), key)
   }
