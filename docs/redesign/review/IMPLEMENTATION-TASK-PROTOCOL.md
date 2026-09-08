@@ -1,11 +1,22 @@
 # Implementation Task Protocol — mandatory bounded work
 
-Revision 1.27 · 2026-09-08 · P2I SOUND QUALITY APPROVED / FROZEN; classified QA gaps remain / STOP; enlarged coherent bundle and terminal STOP retained.
+Revision 1.28 · 2026-09-08 · HOME cinematic continuity preview bundle; enlarged coherent scope and terminal STOP retained.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
 
-**Current HOME interaction bundle:** user authorizes the coherent 03/04/05 mobile and 06→07 refinement with type-check, lint, build, targeted HOME tests and desktop/mobile sanity. Minimal evidence; localhost visual review, REPORT → STOP. This is separate from the completed no-validation delivery request.
+**Current cinematic continuity bundle:** after delivering the prior HOME interaction pass through PR #9, the user
+authorizes current-main audit → Works depth/afterimages → Album Light Memory → Performance date/Artist depth →
+two-point resolution, docs and targeted checks → PR/main merge/automatic Pages preview/public-URL smoke → STOP.
+Parallel work is explicitly permitted, with separate file ownership and a final fixed-source integration run.
+Type-check, lint, build, HOME targeted and changed-subsystem checks plus desktop/mobile sanity are required.
+Full Release Gate is explicitly excluded from this visual preview pass. No new scene, detail route, WebGL, asset
+generation, audio-source change or production-domain change is included. Rollback baseline: main `d98aaa6`;
+revert only this bundle's diff and preserve prior approved/current work. Implementation does not self-grant visual approval.
+
+**Previous HOME interaction bundle:** the 03/04/05 mobile and 06→07 refinement completed the requested minimum
+checks and local review report. The next explicit instruction authorized its delivery to main before this pass;
+PR #9 / `d98aaa6` records that completed prerequisite.
 
 **Historical delivery-only exception, 2026-09-08 (completed in PR #8; not inherited):** user explicitly requests committing all accumulated local changes, PR creation and main merge without any additional validation. No tests or builds are run manually for this delivery; existing automatic workflows remain unchanged.
 

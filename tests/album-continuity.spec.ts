@@ -1,0 +1,50 @@
+import { expect, test } from '@playwright/test'
+
+test('album light follows the real pose, settles, and suspends offscreen', async ({ page }) => {
+  await page.goto('/')
+  const scene = page.locator('#album-object'), surface = page.locator('.album-object-surface')
+  await surface.scrollIntoViewIfNeeded()
+  await expect(scene).toHaveAttribute('data-album-threshold', 'settled')
+  await expect(scene).toHaveAttribute('data-album-raf', 'idle')
+  await surface.focus(); await page.keyboard.press('ArrowRight')
+  await expect(scene).toHaveAttribute('data-light-state', 'moving')
+  const lag = await surface.evaluate(element => {
+    const root = element.closest<HTMLElement>('#album-object')!
+    const pose = Number(element.getAttribute('data-turn')) + Number(element.getAttribute('data-pointer-turn'))
+    return Math.abs(Math.sin(pose * Math.PI / 180) - Number(root.style.getPropertyValue('--album-memory-x')))
+  })
+  expect(lag).toBeGreaterThan(.005)
+  await expect(scene).toHaveAttribute('data-album-threshold', 'settled')
+  await expect(scene).toHaveAttribute('data-album-raf', 'idle')
+  await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }))
+  await expect(scene).toHaveAttribute('data-light-state', 'suspended')
+  await expect(scene).toHaveAttribute('data-album-raf', 'idle')
+})
+
+test('album exchange keeps object identity and pose while the retained cover tone changes', async ({ page }) => {
+  await page.goto('/')
+  const scene = page.locator('#album-object'), surface = page.locator('.album-object-surface')
+  await surface.scrollIntoViewIfNeeded()
+  await expect(scene).toHaveAttribute('data-album-threshold', 'settled')
+  const pose = await surface.getAttribute('data-turn')
+  const objects = await page.locator('.paper-album').elementHandles()
+  await page.locator('.album-selector button').nth(1).click()
+  await expect(scene).toHaveAttribute('data-selected-album', 'album:yeongsan-hoesang-2026')
+  await expect(scene).toHaveAttribute('data-light-state', 'moving')
+  await expect(scene).toHaveAttribute('data-album-threshold', 'settled')
+  expect(await surface.getAttribute('data-turn')).toBe(pose)
+  expect(await scene.evaluate(element => element.style.getPropertyValue('--album-memory-rgb'))).toBe('88.00 86.00 87.00')
+  for (const object of objects) expect(await object.evaluate(element => element.isConnected)).toBe(true)
+  await expect(page.locator('.album-exchange-slot[data-active="true"] .album-front')).toHaveAttribute('data-asset-identity', 'album:yeongsan-hoesang-2026:front')
+})
+
+test('reduced album keeps semantic controls and a static asset tint', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' }); await page.goto('/')
+  const scene = page.locator('#album-object')
+  await page.locator('.album-object-surface').scrollIntoViewIfNeeded()
+  await expect(scene).toHaveAttribute('data-light-state', 'static')
+  await page.locator('.album-selector button').nth(2).click()
+  await expect(scene).toHaveAttribute('data-album-raf', 'idle')
+  await expect.poll(() => scene.evaluate(element => element.style.getPropertyValue('--album-memory-rgb'))).toBe('207.00 208.00 213.00')
+  await expect(page.locator('.album-selector button').nth(2)).toHaveAttribute('aria-pressed', 'true')
+})

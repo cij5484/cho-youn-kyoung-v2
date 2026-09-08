@@ -2,7 +2,7 @@
 ## 04 — HOME
 
 **Version:** 2.1\
-**Status:** HOME V2.1 / 2026-09-08 SOUND exit, headless long trails, two-axis album hover and minimal copy refinement on 4180; REVIEW READY, visual judgment and public integration remain separate\
+**Status:** HOME V2.1 / 2026-09-08 cinematic continuity and depth pass implemented in the development HOME; current validation, delivery and user visual approval are recorded separately in HANDOFF\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`  
 **Art Direction:** Contemporary Editorial / Ivory  
 **Narrative Structure:** ARTIST → INSTRUMENT → SOUND → WORK → OBJECT → STAGE → ARTIST → NAME
@@ -43,10 +43,10 @@ V2.1 canonical rhythm and approximate experience budgets:
 | 01 HERO | ARTIST | 5/5 | 100–120vh | First-five-seconds peak; Moving Editorial Poster |
 | 02 HAEGEUM | INSTRUMENT | 4.5/5 | 120–160vh | Continuous transformation from Hero |
 | 03 SOUND | SOUND / LISTEN | 3/5 | 70–90vh | Quiet pause; explicit optional listening |
-| 04 SELECTED WORKS | WORK | 4/5 | Current desktop 190svh / 90svh travel | Five large works on a short curved ribbon; mobile native grid |
+| 04 SELECTED WORKS | WORK | 4/5 | Current desktop 220svh / 120svh travel; mobile 250svh / 150svh travel | Five-work Depth Queue; one foreground composition and a restrained next edge |
 | 05 ALBUM OBJECT | OBJECT | 5/5 | 110–140vh | Second major visual peak; collectible objects |
-| 06 PERFORMANCE | STAGE | 2.5/5 | Content-dependent, about 100–120vh | Dark optical entrance, intact poster and responsive light |
-| 07 ABOUT | ARTIST | 2/5 | Content-dependent, about 100–125vh | Ivory photographic plate, clear identity and typographic column |
+| 06 PERFORMANCE | STAGE | Entry peak → quiet hold | Shares one 330svh sequence with 07; mobile 320svh | Stage Aperture + 09 / 22 Date Geometry; official poster resolves before the handoff |
+| 07 THE ARTIST | ARTIST | Reveal → quiet hold | Same 06→07 sequence, not a second spacer | Suit / Hanbok Split Mask; subtle photo/mask/type depth and a held identity frame |
 | 08 OUTRO | NAME | 3/5 | 80–100vh | Name/two-line resolution; Sou.P signature |
 
 **STRONG → STRONG → QUIET → ACTIVE → PEAK → QUIET → QUIET → RESOLVE**
@@ -79,10 +79,10 @@ between its main image and text. Do not repeat oversized English banners across 
 
 | Scene | Current hierarchy / signature |
 |---|---|
-| Works | Large authentic artwork first; a moderate Korean heading; one desktop title/year/type ledger and five numbered controls. Mobile puts captions beside their own images. |
+| Works | One large authentic artwork first; a moderate Korean heading; one title/year/type ledger and five numbered controls on desktop and mobile. Reduced motion attaches captions to the static images. |
 | Album | A short single-line serif heading gives space to the physical object; one grouped selection/metadata band. Handling instructions and face controls share a baseline. |
-| Performance | Full bright poster, separate title/date/venue column, shallow light/depth response. The giant ON STAGE overlay and detached vertical source label are removed. |
-| Artist | Intact photographic plate and three staggered Korean name glyphs; short introduction; a smaller serif inscription. No repeated REMEMBER THE NAME banner. |
+| Performance | Stage Aperture reveals the 9/22 official poster; separate 09 / 22 geometry aligns with the opening. Title/venue stay readable beside or below the image. No giant ON STAGE overlay. |
+| Artist | One large suit/hanbok composition with a shared split seam; Cho / Youn Kyoung and 조윤경 form a separate identity group. No tilted plate, repeated banner or text across the face. |
 | Outro | The largest three-line English name is the closing graphic event; invitation and signature remain grouped beneath it. |
 
 Reference review was brief and secondary to current-code work. Existing [P2K reference principles](review/P2K-INTERACTION-PROTOTYPES.md)
@@ -468,7 +468,8 @@ Before activation:
 - `LISTEN` is clear
 
 After activation:
-- request actual playback immediately after LISTEN; only successful playback is represented as playing, with truthful pending/error/unavailable states
+- unlock media/Web Audio inside the LISTEN gesture, prime inaudibly, align once to the canonical SOUND frame, then start audible playback; only successful audible playback is represented as playing, with truthful pending/error/unavailable states
+- manual wheel/touch/navigation input cancels alignment; RESUME does not re-snap; reduced motion uses the static panel anchor
 - line movement responds subtly
 - response should feel organic, not like a generic audio visualizer
 - rising energy increases restrained vibration frequency/density; falling energy increases damping/stabilization
@@ -549,7 +550,7 @@ This is an intentional signature transition.
 
 Narrative:
 
-`SOUND strands → rightward contraction → two headless trails → work → cursor → poster → portrait/name → typographic resolution`
+`SOUND strands → rightward contraction → two headless trails → work → album → aperture cue → seam cue → typographic resolution`
 
 Do not reset the visual language between scenes.
 
@@ -563,8 +564,8 @@ Show that the artist has a substantial body of work without turning HOME into an
 
 ## Composition
 
-Current user-authorized Visual Impact direction (replaces the earlier scattered-cluster prototype):
-- five large image planes on a short curved film ribbon, with one work clearly exposed at a time
+Current user-authorized Depth Queue direction (retains the scroll ribbon narrative):
+- five image planes, with one large foreground work and its successor suggested as a cropped edge in depth
 - 4–5 selected works
 - authentic aspect ratios, spatial depth and varied proportions
 - large whitespace
@@ -584,20 +585,24 @@ No summary paragraph on HOME.
 ## Interaction
 
 Desktop:
-- brief sticky composition (190svh scene, 90svh travel); no wheel interception or drag requirement
-- native scroll moves the ribbon; five labelled buttons expose any work, and its central link remains keyboard reachable
+- brief sticky composition (220svh scene, 120svh travel); no wheel interception or drag requirement
+- native scroll moves the current work back while the next plane approaches; each interval has a short composition hold before and after movement
+- five labelled buttons expose any work, and its central link remains keyboard reachable
 - near-pointer/focus gathers the pair around the artwork, with front/back depth and continuous release to free motion
 - pointer also tilts the artwork surface; recent paths use the shared trail resampler, not discrete dots
 - height-aware image sizing keeps the main image clear of the heading and the single caption ledger
 
 Mobile:
-- four-column composition with varied spans and native vertical scroll; no desktop pin on narrow screens
-- direct tap selects that album/stage within HOME; ordinary links continue to the appropriate route fixture
+- independently composed sticky Depth Queue (250svh scene, 150svh travel), with one large image and readable title/year/type
+- shallower depth and a restrained next edge; no hover requirement or small multi-card gallery
+- native vertical scroll and five labelled selectors expose every work; direct tap follows the same content identity
 
 ## Detail Entry
 
-Current HOME selection keeps the selected content identity when entering Album Object or Performance.
-The actual detail pages are outside this sprint. A future strong shared-image transition should connect their approved Heroes.
+Current HOME selection keeps the album content identity when entering Album Object. The featured 9/22 performance
+links to its fixed HOME stage; other performances retain their own existing official-site detail links. Work/image and
+album-face DOM attributes expose stable content/asset identity. Actual HOME→Detail shared transitions remain **FUTURE**;
+these identity hooks do not implement route animation, destination snapshots or new detail pages.
 
 The selected image/artwork should expand/reposition into the detail Hero where possible.
 
@@ -608,8 +613,8 @@ Navigation must remain functional without shared transition support. Match image
 
 ## Accessibility
 
-Keep keyboard-accessible selection buttons and the active work link. Mobile/reduced motion exposes all work links
-in an ordinary readable grid, with captions attached to each image. No drag is required.
+Keep keyboard-accessible selection buttons and the active work link on desktop and mobile. Reduced motion alone exposes
+all work links in an ordinary readable grid, with captions attached to each image. No drag is required.
 
 ## Asset Requirements
 
@@ -645,8 +650,10 @@ Reduce lateral exploration and increase object focus.
 The transition should prepare the visitor for 3D rather than abruptly spawning a WebGL scene.
 
 The point pair leaves the ribbon toward the actual incoming object's measured location and subsides as the album
-takes focus. Selecting a work retains its content identity. This does not claim a cross-route shared-image transition
-or final geometry approval.
+takes focus. A short afterimage uses the actual last work asset as a narrow plane edge, measured between the outgoing
+image and incoming album bounds. It retreats in depth and contracts instead of leaving a long ghost image. Selecting
+a work retains its content identity. This is a within-HOME material handoff, not a cross-route shared transition or
+final geometry approval.
 
 ---
 
@@ -658,6 +665,12 @@ two-axis pointer response (horizontal ±28°, vertical ±20° around the existin
 continue from the browser's current interpolated transforms instead of resetting a timer or pose. Scene selection/pose
 is separate from the `PaperAlbumObject` render adapter. Replacing that adapter with a future GLB does not require rewriting
 the scene. This is presentation geometry, not a manufacturing model or a waiver of Blender/Tray/Album Detail quality gates.
+
+Light Memory now follows the actual rendered turn/tilt with slower direction and color damping than the object.
+Its transient tones are derived from the three retained cover derivatives, not new brand colors. Reflection, ambient
+surface and shadow settle without an independent idle loop. Object exchange adds a depth retreat/approach while
+preserving the existing input owner, pose and interruption behavior. The initial three-quarter pose and explicit
+front/back controls offer composed resting states; drag release does not force a new orientation snap.
 
 ## Purpose
 
@@ -689,9 +702,10 @@ Mobile:
 - touch rotation only if scroll behavior remains reliable
 - adaptive quality mandatory
 
-## Detail Transition
+## Detail Transition — FUTURE / NOT IMPLEMENTED
 
-Selected album moves forward toward the camera and transitions into Album Detail.
+The future selected album should move forward toward the camera and continue into Album Detail. Current HOME
+provides stable object/front/back identities only; it does not implement this route transition.
 
 This is one of the primary “wow” interactions of V2.
 
@@ -819,13 +833,14 @@ Request missing material before compensating with invented geometry or low-quali
 
 # 13. TRANSITION 05 → 06
 
-The site must intentionally reduce motion after the 3D peak.
+After direct object manipulation, let the object settle before the stage opening gains emphasis.
 
 Move from:
-`physical interaction → still stage atmosphere`
+`physical object → residual light → stage opening → settled performance composition`
 
-The dark Performance scene changes the visual language from object manipulation to stage presence. The current
-optical poster entrance and spatial light response should be distinct without adding another required interaction.
+The dark Performance scene changes the visual language from object manipulation to stage presence. A short clipped
+light afterimage inherits the selected album's actual ambient RGB/direction as the dark surface enters. It yields before
+the poster threshold frame; it is not a persistent glow or a new performance color palette. No extra input is required.
 
 ---
 
@@ -846,35 +861,42 @@ Approved:
 
 ## Motion
 
-Current Visual Impact direction:
-- a strong, scroll-driven optical aperture reveals the intact poster
-- pointer position changes the stage light, background planes and shallow poster depth
-- title/date/venue remain in a separate stable reading column; no competing giant ON STAGE lettering
-- the stage/photo remains settled without input; the user-authorized shared pair continues orbiting the poster
+Current Stage Aperture + Date Geometry direction:
+- a central slit opens into the large official poster surface; crop/scale follow the same native-scroll timeline
+- 09 and 22 move from offset positions into a separated date structure; their thin boundary grows with the opening
+- date, title and venue do not cover the poster; mobile places the date above and grouped metadata below the image
+- pointer position shifts contextual stage light and shallow poster depth; touch remains scroll-driven
+- the opened image/date composition holds before exit, without a timer or wheel lock
+- two-point tension cues appear briefly at the aperture edges and yield at the complete composition
 
 Do not add another drag rail or active 3D interaction here.
 
 ## Visual Role
 
-This is HOME’s first major Ivory → Dark Stage tone change and its primary dark contrast moment. At 2.5/5 it must feel quieter after the Album Object peak, even though the tonal contrast is strong.
+This is HOME’s first major Ivory → Dark Stage tone change and its primary dark contrast moment. The opening is a
+signature event, followed by a quiet, readable threshold frame. The older uniform 2.5/5 motion description does not
+limit the user-authorized aperture; impact comes from opening/settlement, not perpetual movement.
 
 It must not become a second permanent color system.
 
 ## Mobile
 
-Use a strong image crop and simple vertical hierarchy.
+Use the independently authored aperture proportions, date above and title/venue below. Retain a legible single image
+and native vertical scroll; do not simulate a mobile pointer spotlight.
 
 ## Reduced Motion
 
-Can be nearly identical to default.
+Expose the fixed event information and intact poster in normal document order. Remove depth, aperture travel and
+decorative cues; readable content does not depend on reaching a scroll progress.
 
 ## Asset Requirements
 
 Use the strongest performance image, not simply the newest or easiest asset.
 
-The current source selection is the official **해금, 시대를 잇다** poster, with **산조길, 둘** selectable from Works.
-Only one performance is shown at a time. It is explicitly labelled official poster art, not documentary performance
-photography. A strong authenticated stage photograph remains a useful future replacement, not invented evidence.
+The current fixed event is **2026-09-22 `<풀고, 엮다>`**, 19:30, 국립부산국악원 예지당. Use its official gold
+poster and existing official-site detail link. Other Works selections cannot replace the featured event. The former
+8/2 feature is superseded; do not relabel its asset. No authenticated 9/22 stage photograph is available in this
+composition, so the present surface is poster artwork, not documentary performance photography.
 
 If the chosen performance lacks a strong hero image, request another source or create a better visual treatment.
 
@@ -883,7 +905,7 @@ If the chosen performance lacks a strong hero image, request another source or c
 - strong contrast after Album 3D
 - atmosphere without interaction fatigue
 - performance feels live/cinematic
-- minimal motion is clearly intentional
+- the opening and quiet threshold are clearly intentional
 
 ---
 
@@ -893,17 +915,11 @@ Move from Dark Stage back to Ivory.
 
 The transition should feel like leaving the performance space and meeting the artist directly.
 
-Do not use a flashy wipe.
-
-Prefer:
-- controlled tonal transition
-- quiet mask reveal
-- large whitespace
-
-The current composition moves from a right-side poster to an offset photographic plate and Korean name column in
-Ivory. The portrait aperture and name reveal are scroll-driven; the header interpolates at the actual stage boundary
-while the menu dialog retains its approved palette. Pointer input shifts the crop, intact photo plane and surface light,
-never warping the face. This is a compositional/tonal handover, not a shared-image morph between different photographs.
+The existing shared image frame moves from the poster composition into the portrait composition. Its aperture's
+right boundary wipes to the suit portrait, then becomes the boundary revealing the hanbok. This is one DOM seam
+and one reversible native-scroll timeline, not two section transitions or a facial morph between different photographs.
+Ivory opens with the same handoff and retains large whitespace. Navigation switches its authored foreground/background
+contrast pair together at the stage boundary; it does not interpolate through illegible middle grays or retune Bold MENU.
 
 ---
 
@@ -921,21 +937,25 @@ Do not continue hiding the face here.
 
 ## Composition
 
-Approved:
-- one strong front-facing or clear 3/4 portrait
-- large scale
-- 2–3 sentence artist introduction
-- role/position only if concise
-- `VIEW FULL PROFILE →`
+Current user-authorized composition:
+- one large suit/hanbok portrait composition, using the two distinct real photographic poses
+- suit initially dominant; hanbok enters through a moving split mask
+- grouped Cho / Youn Kyoung and 조윤경 identity, with a short `연주자 소개` link
+- no tilted photographic plate, CV, scattered introduction or text over the face
 
 No CV timeline on HOME.
 
 ## Motion
 
-Current Visual Impact direction:
-- photographic mount/aperture and three-glyph name composition
-- smooth whole-plane depth, bounded crop movement and light response from the shared pointer input owner
-- different scroll offsets for the name glyphs; readable static/reduced-motion composition
+Current Split Mask + subtle DOM 2.5D direction:
+- the neutral-pointer hanbok split holds at 47.6% over sequence progress .82–.91 before continuing to the retained 68% endpoint
+- intact photo planes and their seam share small translations; the name group moves at a smaller, opposite depth
+- fine-pointer movement adds bounded split/light response; mobile uses only a small scroll-driven crop/depth shift
+- the final frame contracts slightly toward the outgoing seam; reverse scroll follows the same geometry
+
+This is photo/mask/type plane separation, **not** a foreground-subject cutout or face reconstruction. Occlusion
+Typography was considered but is **NOT ADOPTED in this pass**: the retained photographs have no silhouette cutout,
+and placing type across them would compete with the identity. It remains OPTIONAL for a future asset-backed review.
 
 ## Background
 
@@ -943,17 +963,15 @@ Return to Ivory.
 
 ## Mobile
 
-Portrait first or portrait/text interleave based on crop quality.
+Keep a large portrait above the grouped identity, with independent suit/hanbok crop and eye-height tuning.
 
 Do not shrink a desktop two-column block blindly.
 
 ## Asset Requirements
 
-Current assets are sufficient for planning.
-
-Before production, review the front-facing or clear 3/4 portrait quality and its distinction from the earlier partial-face Hero.
-
-If a new portrait would materially improve the final emotional payoff, proactively request it.
+The suit photo and user-supplied purple hanbok photo have separate identities and provenance. The optimized hanbok
+derivative retains the supplied 1023×1537 source's resolution limit; a larger original is still useful for final Retina
+QA. Preserve the distinct frontal/profile poses and source files; no invented documentary detail or facial reconstruction.
 
 ## Acceptance Criteria
 
@@ -974,9 +992,9 @@ If a new portrait would materially improve the final emotional payoff, proactive
 
 # 17. TRANSITION 07 → 08
 
-The About scene should dissolve into closure rather than introduce new information.
-
-The existing headless Violet/Lacquer pair continues into the closing typography; it is not recreated as a new motif.
+The Artist scene resolves into closure without introducing new information. Its actual seam leaves a short narrowing
+edge toward the outgoing name geometry as the portrait retreats slightly. The same headless Violet/Lacquer pair
+returns for the closing typography; neither a second motif engine nor a long portrait ghost is introduced.
 
 ---
 
@@ -1006,11 +1024,13 @@ This scene should breathe.
 
 ## Line Resolution
 
-The pair threads through the oversized name with front/back depth and glyph occlusion. The wide orbit gathers into a diagonal stroke and exits at the page end. Reverse scroll reopens the same sequence. It completes the initial name/line composition without adding another scene.
+The pair threads through the oversized name with front/back depth and glyph occlusion. It gathers toward two authored
+endpoints, holds while its tails settle, then withdraws a short distance and disappears at the page end. Reverse scroll
+reopens the same progress model. This replaces the former long diagonal escape while retaining the closing name.
 
 Narrative:
 
-`haegeum strings → sound lines → works axis → final editorial rule`
+`haegeum strings → sound lines → work/object/edge guidance → two endpoints → quiet name`
 
 The current Outro resolves CHO / YOUN / KYOUNG as three oversized lines, paired editorial rules and one primary
 `모든 작품 보기` link. Sou.P uses an explicit two-tap/keyboard reveal; its short personal sentence is prototype copy.
@@ -1251,7 +1271,10 @@ Keep section identity, artist/work names, year/venue, audio source/state, short 
 provenance. Remove repeated explanatory/poetic paragraphs in SOUND, Works, Album, Performance, Artist and Outro.
 Shorten CTAs to their action. This is a presentation-copy pass, not a content-record migration or automatic EN translation.
 
-## 2026-09-08 continuous closing-pair revision
+## 2026-09-08 continuous closing-pair revision — historical implementation
+
+This records the earlier pair extension. The cinematic continuity revision below supersedes the cursor orbit,
+full-scene Performance/Artist orbits, mobile grid and long diagonal exit described here. Do not restore them.
 
 The user explicitly extends the same pair through the existing 05–08 scenes. Keep Electric Violet/Lacquer,
 headless tapered trails and the preceding rightward SOUND contraction. Do not recreate/reset the pair per scene.
@@ -1270,7 +1293,10 @@ path uses the currently visible board area rather than the center of the whole t
 Mobile 04 excludes image occlusion so its large first image cannot hide one trail for an extended interval.
 No mobile hover/scroll capture is added; headless colors, 2-second trails and reduced-motion suspension remain.
 
-## 2026-09-08 HOME interaction pass — current implementation revision
+## 2026-09-08 HOME interaction pass — preceding baseline
+
+This preceding pass established SOUND alignment, mobile scrolling/touch and the shared frame. The following
+cinematic pass retains those contracts and refines depth, thresholds and selective motif timing.
 
 This later explicit user bundle supersedes the prior mobile gallery, selectable 8/2 stage and tilted Artist plate.
 Scope: SOUND usability, mobile Works/Album input, and one continuous Performance→Artist sequence. Hero/Haegeum
@@ -1294,5 +1320,61 @@ visual tuning and the approved SOUND response remain unchanged. Local review pre
   Native scroll reverses the same geometry. Mobile has its own portrait proportions, date and metadata placement.
 - The supplied hanbok portrait is a separate optimized derivative with original SHA/provenance in the HOME manifest.
   Suit and hanbok eyes/crops are authored separately; the photos' distinct angles are retained, not reconstructed.
-- The existing two-color trail pair yields during 06/07 so it does not obscure the primary technique; it returns in 08.
+- In that revision the existing two-color trail pair yielded throughout 06/07; the later cinematic pass permits only
+  brief aperture/seam cues before returning in 08.
   Reduced motion exposes the event and both portraits as static content. No animation library or 3D renderer added.
+
+## 2026-09-08 HOME cinematic continuity / depth pass — current implementation
+
+**IMPLEMENTED in the development composition; visual approval, validation and delivery are separate HANDOFF states.**
+The current runtime and this revision supersede conflicting earlier sprint descriptions. No new HOME scene,
+Detail page, audio engine, navigation motion or Hero/Haegeum redesign is part of this pass.
+
+### Continuity principles and actual signatures
+
+- **Scene Afterimage:** a brief piece of the outgoing material becomes the next scene's input. `SceneAfterimages.tsx`
+  carries the actual last Works image edge toward the album, the selected album's RGB/light direction into the stage,
+  and the actual portrait seam toward Outro typography. These are clipped edge/light transfers, not long blurred ghosts.
+- **Z-depth Transition:** the Works foreground recedes as the next plane approaches; retained album objects exchange
+  in depth. CSS perspective/transforms provide the spatial relation without a new WebGL renderer. Shared geometry is
+  preferred over a reset; opacity only bounds an edge/light lifetime rather than serving as the complete transition.
+- **Threshold Moment:** movement → complete composition → short settle → handoff. Holds are authored scroll
+  distance or natural motion settlement, never timed scroll locks. Fast input may pass through; reverse remains native.
+- **Persistent Two-Point Narrative:** the same headless Violet/Lacquer trail owner changes its role and may disappear.
+  Works exposes free/work-relative guidance; Album follows the object, not the cursor; 06/07 show short tension cues;
+  complete stage/portrait frames are quiet; Outro settles at two endpoints before withdrawing.
+
+| Scene | Current threshold and continuation |
+|---|---|
+| SOUND | Retained geometry-based LISTEN alignment, immediate gesture unlock and audible playback near alignment; no retuning in this pass |
+| Works | Each interval holds the current composition through its first .13 and after .87; one work is foreground, the successor only a cropped depth edge |
+| Album | Existing three-quarter/front/back pose and bounded release settle; light follows more slowly, then its rAF stops. No new forced orientation snap |
+| Performance | Aperture opens over shared progress 0–.24; date/poster hold before the .43–.64 seam handoff |
+| Artist | Hanbok split reaches 47.6% at .82 and holds to .91, then continues to 68%; the final .955–1 interval gently withdraws the frame |
+| Outro | Gathering over progress .66–.83, authored endpoint hold, brief final .94–1 withdrawal; existing trail opacity falls over .91–1 |
+
+### Type, color and input boundaries
+
+**Large Type ≠ Visual Impact.** 09 / 22 has an aperture-linked alignment role, while Artist's name stays readable
+beside/below the portrait. The image and typography do not compete for the face or poster. Artist's small photo/mask/type
+depth is DOM 2.5D only; no silhouette segmentation or image warping was added. **Occlusion Typography remains OPTIONAL /
+NOT ADOPTED**, and **Scroll Velocity Response is NOT ADOPTED**. Scroll position remains the content-state source.
+
+Permanent palette remains compact. Album Light Memory uses the actual cover-derived RGB means; Performance's warm
+light and Artist's faint violet response remain asset-related, temporary ambience. No neon/bloom or added branded colors.
+
+Mobile preserves native scroll, large work images and the prior horizontal album-drag / vertical page-scroll contract.
+It reduces depth and uses scroll-driven Artist movement instead of a simulated pointer. Reduced motion presents all
+works, fixed poster/date and a stable dual portrait; decorative afterimages/cues are hidden, and album contextual light
+settles immediately. It does not replace the narrative with a sequence of opacity fades.
+
+Motion owners stop after settlement or when their content is offscreen/hidden as applicable. The pair also stops during
+quiet stage/artist thresholds and at Outro completion; afterimages schedule only on relevant geometry/state changes.
+No sustained phone/thermal or native Safari quality claim follows from these implementation rules.
+
+### Future Detail boundary
+
+Stable work content/asset IDs, album object/front/back identities and the featured performance image ID are present.
+**HOME → Album Detail Shared Element** and **HOME → Performance Detail Shared Element remain FUTURE / NOT IMPLEMENTED**.
+No destination snapshot, route-transition handler or new detail route was added. These hooks preserve identity for a
+separately authorized transition, while current links and local selection retain their existing behavior.

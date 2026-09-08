@@ -1,0 +1,28 @@
+/* Light belongs to the space around the object. No bloom, blur or independent idle loop. */
+.album-light-memory {
+  position:absolute; inset:8% 5% 5%; pointer-events:none;
+  background:
+    radial-gradient(ellipse at calc(50% + var(--album-memory-x,0) * 13%) calc(69% + var(--album-memory-y,0) * 10%), rgb(var(--album-memory-rgb,227 219 206) / .22), transparent 64%);
+  transform:translate3d(calc(var(--album-memory-x,0) * 9px),calc(var(--album-memory-y,0) * 5px),0);
+}
+.album-presentation .album-object-shadow {
+  filter:none;
+  background:radial-gradient(ellipse, rgb(49 40 32 / .75), rgb(49 40 32 / .34) 25%, transparent 70%);
+  opacity:calc(.22 + var(--album-memory-energy,0) * .035);
+  transform:translate3d(calc(var(--album-memory-x,0) * 20px),calc(var(--album-memory-y,0) * 7px),0) rotate(calc(-8deg + var(--album-memory-x,0) * 5deg)) scaleX(calc(1 - var(--album-memory-energy,0) * .06));
+}
+.album-object-surface .album-face::after {
+  background:linear-gradient(112deg,#ffffff38,transparent 28%,rgb(0 0 0 / var(--object-shade,.12))),radial-gradient(ellipse at var(--object-light,40%) calc(var(--album-memory-y,0) * 15%),#ffffff38,transparent 65%);
+}
+.album-object-surface .album-exchange-slot {
+  transform:translate(-50%,-50%) translate3d(calc(var(--slot-offset) * 78vw),calc(var(--slot-offset) * -64px),calc(var(--slot-offset) * var(--slot-offset) * -520px)) rotateY(calc(var(--slot-offset) * -54deg)) rotateZ(calc(var(--slot-offset) * 12deg));
+}
+@media(max-width:640px) {
+  .album-light-memory { inset:6% 0 3%; }
+  .album-object-surface .album-exchange-slot {
+    transform:translate(-50%,-50%) translate3d(calc(var(--slot-offset) * 90vw),calc(var(--slot-offset) * -20px),calc(var(--slot-offset) * var(--slot-offset) * -240px)) rotateY(calc(var(--slot-offset) * -35deg)) rotateZ(calc(var(--slot-offset) * 6deg));
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  .album-light-memory,.album-presentation .album-object-shadow { transform:none; }
+}

@@ -1,13 +1,13 @@
 # INTERACTION GLOSSARY — 웹 인터랙션 학습 노트
 
-2026-09-07 · 51 terms · **사용자를 위한 human-readable reference. Agent instruction이 아닙니다.**
+2026-09-08 · 61 terms · **사용자를 위한 human-readable reference. Agent instruction이 아닙니다.**
 
 영어 이름을 알면 레퍼런스를 보고 원하는 효과를 더 정확하게 이야기할 수 있습니다. 일반적인 구현 방법과
 V2의 현재 구현을 구분해 읽어 주세요. **현재 Lab / 미래 후보 / 필수 spike 미실행**은 서로 다른 상태입니다.
 현재 승인은 [HANDOFF](../../CODEX-HANDOFF.md), 철학은 [MASTER §3.1](00-MASTER-PLAN.md#v2-experience-principles),
 SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소유합니다. 이 노트는 새 기능을 승인하지 않습니다.
 아래의 ‘프로젝트 설명’은 이 프로젝트를 위해 정리한 용어이며 공식 API 이름이 아닙니다.
-공식 기술 문서는 2026-09-07 확인했습니다. 특정 해외 사이트를 이번에 새로 분석한 목록은 아닙니다.
+공식 기술 문서 링크의 기존 확인 기록은 2026-09-07입니다. 2026-09-08에는 현재 HOME 코드를 기준으로 V2 설명을 갱신했습니다. 새 해외 사이트/API 검증 목록이나 기능 승인 문서가 아닙니다.
 
 ## 01. Pointer-Reactive Background
 
@@ -15,7 +15,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 마우스가 움직이면 화면 뒤의 빛·이미지·깊이가 조금 달라지는 효과입니다.
 - 일반 구현: pointer 좌표를 영역 안의 0–1 값으로 바꾼 뒤 보간하고 CSS transform 또는 shader 입력으로 전달합니다.
 - 기술/API: Pointer Events, CSS custom properties, rAF, Canvas/WebGL.
-- V2: **현재 개발 HOME에서 구현**. Performance의 빛/배경 면과 Artist 사진의 표면 광량·깊이가 보간된 포인터 입력에 반응합니다. WebGL shader 채택을 뜻하지 않습니다.
+- V2: **현재 개발 HOME에서 구현**. Performance의 contextual light와 Artist의 photo/mask/type plane이 보간된 포인터 입력에 작게 반응합니다. 모바일은 scroll이 주 입력이며, WebGL shader나 얼굴 왜곡을 사용하지 않습니다.
 - 참고: 프로젝트 설명; GPU 방식의 기반은 [MDN WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API).
 
 ## 02. Cursor-Reactive Shader
@@ -33,7 +33,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 앨범 표지가 사라졌다 다시 나타나는 대신, 그 표지가 커져 상세 화면의 표지가 됩니다.
 - 일반 구현: 공통 ID와 시작/도착 상태를 연결하고 실제 요소 또는 snapshot의 위치·크기를 이어갑니다.
 - 기술/API: CSS transforms, FLIP, [View Transition API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API).
-- V2: **현재 Lab**의 Hero→Haegeum은 공유 요소를 유지하는 사례입니다. **미래 후보**인 Works→Detail route 전환과 구분합니다. 현재 native View Transition API 채택을 뜻하지 않습니다.
+- V2: **현재 개발 HOME**의 Hero→Haegeum과 06 Stage Aperture→07 portrait split은 공유 요소를 유지합니다. HOME→Album/Performance Detail은 **FUTURE / 미구현**이며 현재는 stable content/asset identity만 준비했습니다. Native View Transition API나 실제 route animation 채택을 뜻하지 않습니다.
 - 참고: 위 MDN; 프로젝트의 state continuity 계약은 [Motion §42](03-MOTION-SYSTEM.md).
 
 ## 04. Persistent Visual Anchor
@@ -42,7 +42,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 주변이 변해도 같은 선이나 물체가 남아 ‘같은 공간에서 이어지고 있다’고 느끼게 합니다.
 - 일반 구현: 요소를 공통 부모에 두고 재생성하지 않으며 transform과 상태만 연결합니다.
 - 기술/API: 공유 DOM, refs, scene state, CSS mask/transform.
-- V2: **현재 개발 HOME**의 SOUND 선이 두 점으로 수렴한 뒤 Works의 자유 궤도/작품 공전으로 이어지고, Album 위치로 이동하며 잦아듭니다. Outro에서는 정돈된 두 선으로 닫힙니다.
+- V2: **현재 개발 HOME**의 SOUND 선→headless pair→Works→Album 흐름을 유지합니다. Performance/Artist에서는 잠깐 aperture/seam cue로 나타나고 완성 프레임에서 쉬며, Outro에서 두 endpoint로 수렴한 뒤 사라집니다. 항상 노출되는 UI가 아닙니다.
 - 참고: 프로젝트 설명; [Haegeum 가이드](review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md).
 
 ## 05. Adaptive Contrast Navigation
@@ -51,7 +51,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 밝은 배경에서는 검은 메뉴, 어두운 무대에서는 흰 메뉴를 사용합니다.
 - 일반 구현: 장면별로 저자가 검토한 light/dark/imagery theme를 지정합니다. 실시간 픽셀 분석은 필요할 때만 검토합니다.
 - 기술/API: CSS variables, data attributes, scene state, IntersectionObserver.
-- V2: **현재 개발 HOME에서 구현**. 공연 Scene이 헤더 아래를 지나는 위치에 맞춰 밝고 어두운 대비를 보간합니다. 메뉴 dialog의 기존 Bold palette는 유지합니다.
+- V2: **현재 개발 HOME에서 구현**. 실제 무대 경계에서 저자가 정한 foreground/background 대비 쌍을 함께 전환합니다. 읽기 어려운 중간 회색으로 보간하지 않습니다. 메뉴 dialog와 Bold motion 자체는 유지합니다.
 - 참고: 프로젝트 설명; [MASTER의 ADAPTIVE UI](00-MASTER-PLAN.md#v2-experience-principles).
 
 ## 06. Hover Preview
@@ -69,7 +69,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 아래로 읽는 동작이 장면의 확대·분해·전환을 진행시킵니다.
 - 일반 구현: 문서 스크롤을 구간 progress로 바꾸고 장면 상태를 계산합니다. 읽기 순서와 정적 대안을 별도로 보존합니다.
 - 기술/API: scroll, rAF, CSS sticky, masks; GSAP ScrollTrigger 등은 가능한 도구입니다.
-- V2: **현재 개발 HOME의 8장면**. Works만 짧게 고정되고 후반부는 자연스러운 문서 스크롤을 사용합니다. GSAP 사용 중이라는 뜻은 아닙니다.
+- V2: **현재 개발 HOME의 8장면**. Works의 짧은 sticky queue와 06→07의 공유 sticky frame이 native scroll progress를 따릅니다. 사용자 스크롤을 가로채거나 GSAP를 사용한다는 뜻은 아닙니다.
 - 참고: 프로젝트 설명; [HOME](04-HOME.md), [Motion](03-MOTION-SYSTEM.md).
 
 ## 08. Short-form Scrollytelling
@@ -78,7 +78,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 여러 번 계속 내려야만 끝나는 긴 도입부 대신 핵심 변화를 압축합니다.
 - 일반 구현: 메시지와 장면 수를 먼저 정하고 필요한 최소 scroll 거리를 검토합니다. 시간을 억지로 늘리지 않습니다.
 - 기술/API: scrollytelling과 동일; 거리·속도·내용 설계가 핵심입니다.
-- V2: **승인된 원칙**. P2I는 기존 235svh 총 전환을 늘리지 않습니다.
+- V2: **승인된 원칙**. 현재 Works는 desktop 120svh / mobile 150svh travel로 다섯 작품을 전개합니다. 구간별 짧은 정렬은 scroll 거리이며 강제 체류 시간이 아닙니다. P2I의 기존 235svh 전환은 이번 pass에서 늘리지 않았습니다.
 - 참고: 프로젝트 설명; [MASTER §3.1](00-MASTER-PLAN.md#v2-experience-principles).
 
 ## 09. GSAP Flip
@@ -96,7 +96,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 작품들이 흩어져 있다가 같은 작품끼리 정돈된 목록으로 모입니다.
 - 일반 구현: 의미/ID가 같은 항목의 시작·도착 geometry를 연결합니다. 내용 순서와 포커스도 관리합니다.
 - 기술/API: CSS Grid/Flex, FLIP, transform, ResizeObserver.
-- V2: 이전 HOME cluster 재배열은 **대체됨**. 현재는 5개 작품의 짧은 공간 리본이며 모바일은 별도 4-column 배치입니다.
+- V2: 이전 HOME cluster 재배열과 일반 모바일 grid는 **대체됨**. 현재 desktop/mobile 모두 한 작품씩 전개하는 Depth Queue이며, static grid는 reduced-motion 대안으로만 남습니다.
 - 참고: 구현 기법 예시 [GSAP Flip](https://gsap.com/docs/v3/Plugins/Flip/); 이 용어 자체는 프로젝트 설명입니다.
 
 ## 11. Filmstrip Gallery
@@ -105,7 +105,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 개별 카드 격자 대신 사진이 한 줄의 리듬으로 이어집니다.
 - 일반 구현: 크기가 다른 미디어를 strip/ribbon에 배치하고 native scroll 또는 드래그와 명시적 탐색을 제공합니다.
 - 기술/API: CSS flex, scroll-snap, Pointer Events; 필요 시 가상화.
-- V2: **현재 HOME Selected Works에서 구현**. 90svh native travel의 큰 곡선 리본과 번호 탐색, 작품에 모이는 두 점의 앞/뒤 공전. 모바일은 세로 grid로 재구성합니다. MEDIA 적용은 별도 미래 후보입니다.
+- V2: **현재 HOME Selected Works의 출발점**. 현재는 native-scroll ribbon을 Depth Queue로 다듬어 foreground work와 다음 edge를 연결합니다. 모바일도 같은 작품 순서를 큰 이미지로 전개하며, grid 축소판이 아닙니다. MEDIA filmstrip은 별도 미래 후보입니다.
 - 참고: 프로젝트 설명; [MASTER §3.1](00-MASTER-PLAN.md#v2-experience-principles).
 
 ## 12. Shader Distortion
@@ -204,7 +204,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 가까이 보던 악기의 일부에서 전체 악기를 보는 공간으로 이동합니다.
 - 일반 구현: 위치·크기·crop·mask 또는 camera를 일관된 좌표계에서 연결합니다.
 - 기술/API: CSS transform, mask, shared scene coordinates; 3D는 camera/target.
-- V2: **현재 Haegeum Lab**의 부위→전체, **미래 WORKS** 재배치 후보.
+- V2: **현재 Haegeum Lab**의 부위→전체와 개발 HOME의 Works 깊이 교체, Stage Aperture→Artist split에 해당합니다. 전체 WORKS archive 재배치나 Detail route transition은 별도 미래 범위입니다.
 - 참고: 프로젝트 설명; [Haegeum 가이드](review/HOME-HAEGEUM-TRANSITION-PROTOTYPE.md).
 
 ## 23. Selective Rendering
@@ -213,7 +213,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 보이지 않는 장면까지 계속 그려 배터리를 쓰지 않습니다.
 - 일반 구현: 화면 교차·탭 숨김·reduced motion·settlement 상태를 보고 frame scheduling을 멈춥니다. 일반 UI의 읽기 상태는 유지합니다.
 - 기술/API: [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), Page Visibility, request/cancelAnimationFrame.
-- V2: **현재 SOUND Lab**의 offscreen pause / frame cancellation. 지속 thermal QA 완료를 뜻하지 않습니다.
+- V2: **현재 SOUND**의 offscreen pause/frame cancellation에 더해 HOME light/depth owner는 settlement·offscreen·hidden 조건을 관리합니다. Afterimage는 관련 geometry/state가 바뀔 때만 갱신하고, pair는 06/07 quiet frame과 Outro 끝에서 멈춥니다. 지속 thermal QA 완료를 뜻하지 않습니다.
 - 참고: 위 MDN와 [SOUND controller](../../src/sound/controller.ts).
 
 ## 24. Preloading
@@ -267,7 +267,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 쉽게 말하면: 드래그하던 물체를 놓았을 때 처음 자리로 돌아갔다가 다시 출발하지 않습니다.
 - 일반 구현: 위치·속도·방향·opacity·선택·camera 등 필요한 outgoing state를 다음 애니메이션의 입력으로 넘깁니다.
 - 기술/API: refs/state machines, animation interruption; [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API)는 가능한 도구 중 하나입니다.
-- V2: **현재 SOUND**의 pause damping/resume와 공유 두 선, **향후 3D**의 drag→inertia→detail 계약.
+- V2: **현재 SOUND** pause/resume, HOME album의 live hover→drag→bounded release 및 연속 선택, 06→07의 같은 seam이 사례입니다. **향후 Detail**로 outgoing object state를 전달하는 route 계약은 아직 구현하지 않았습니다.
 - 참고: 프로젝트 정본 [Motion §42](03-MOTION-SYSTEM.md). 프레임워크 하나를 채택했다고 자동으로 확보되는 품질은 아닙니다.
 
 ## 30. Feature-Driven Choreography
@@ -379,10 +379,9 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 참고: 프로젝트 모델 설명; [P2J 구현 계약](review/SOUND-BOW-CONTACT-COMPARISON.md#p2j--shared-engine--feature-data--preset-contract).
 
 
-## P2K 용어 추가 — Lab prototype, 시각 승인 전
+## P2K 용어의 출발점 — 원래 Lab 기록과 현재 사용 범위
 
-다음 용어의 현재 구현과 튜닝은 [P2K 소유 문서](review/P2K-INTERACTION-PROTOTYPES.md)에 있습니다.
-앞선 항목의 일반 API 설명과 달리 이번 추가분의 레퍼런스 조사 목록은 해당 문서에 별도 표시합니다.
+다음 용어는 P2K Lab 비교에서 출발했습니다. 그 비교의 정확한 튜닝·조사 기록은 [P2K 소유 문서](review/P2K-INTERACTION-PROTOTYPES.md)에 남습니다. 현재 HOME closing 사용은 각 항목과 [Motion §49](03-MOTION-SYSTEM.md#49-current-home-closing-motion-contract)를 함께 읽어 주세요. 이 제목이 모든 P2K 후보의 현재 승인 상태를 일괄 판정하지는 않습니다.
 
 ## 42. Two Spatial Points
 
@@ -394,7 +393,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 
 - 깊이 안무. 점이 앞쪽으로 오면 커지고 뒤로 들어가면 작아져 평면 화면에 깊이를 만듭니다.
 - 일반 구현: X/Y/Z 경로, camera projection, depth-based scale. 반드시 큰 3D 라이브러리가 필요한 것은 아닙니다.
-- V2: **현재 Canvas 원근 투영 prototype**. WebGL이나 3D 해금 모델을 구현했다는 뜻은 아닙니다.
+- V2: **현재 Canvas pair 원근 투영**과 CSS Works/Album depth에서 사용합니다. WebGL이나 3D 해금 모델을 구현했다는 뜻은 아닙니다.
 
 ## 44. Glyph Occlusion
 
@@ -442,6 +441,98 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 
 - 장면의 동작과 물체를 그리는 방법을 나누는 구조입니다. 앨범을 바꿔도 회전 중이던 위치가 이어집니다.
 - 현재 HOME은 실제 앞면·뒷면·책등을 CSS 입체 면에 배치합니다. 선택·회전은 scene, 외형은 교체 가능한 adapter가 소유합니다.
-- 현재 세 앨범은 920ms 공간 진입/퇴장으로 교체됩니다. 회전 자세와 교체 중간 위치는 이어지고, 연속 선택은 마지막 요청으로 수렴합니다. 깊이는 시각적 근사이며 실물 치수 검증은 아닙니다.
+- 현재 세 앨범은 920ms 공간 진입/퇴장으로 교체되고, outgoing/incoming plane에 Z-depth를 사용합니다. 회전 자세와 교체 중간 위치는 이어지고, 주변 Light Memory는 선택된 표지 색과 실제 자세를 늦게 따라옵니다. 깊이는 시각적 근사이며 실물 치수 검증은 아닙니다.
 - GLB로 바꿀 때 장면 전체를 다시 만들지 않기 위한 경계이며, 최종 Blender/Tray 품질 검증을 통과했다는 뜻은 아닙니다.
 - 구현 계약: [Motion §49](03-MOTION-SYSTEM.md#49-current-home-closing-motion-contract).
+
+
+## HOME cinematic continuity 용어 — 현재 구현 / 미채택 / FUTURE 구분
+
+아래는 2026-09-08 현재 개발 HOME의 구현 설명입니다. 코드에 존재한다는 뜻이며 사용자 시각 승인이나
+실기기 품질 보증은 아닙니다. 정확한 구현 경계는 [HOME의 현재 revision](04-HOME.md),
+[Motion §49](03-MOTION-SYSTEM.md#49-current-home-closing-motion-contract), 검증/전달 상태는 HANDOFF가 소유합니다.
+
+## 52. Scene Afterimage
+
+- 한국어: 이전 장면의 짧은 물질적 잔상.
+- 쉽게 말하면: 작품의 마지막 모서리가 앨범 공간까지 잠시 남아, 같은 공간을 지나간다고 느끼게 합니다.
+- 일반 구현: outgoing geometry/asset/light를 좁은 mask 안에서 다음 anchor로 연결하고 수명을 짧게 제한합니다.
+- V2: **현재 구현**. 실제 마지막 Works image edge→Album, 선택된 album RGB/light→Stage, 실제 Artist seam→Outro를 연결합니다. 긴 ghost나 blur가 아니라 짧은 edge/light이며 입력을 가로채지 않습니다.
+- 코드: [SceneAfterimages.tsx](../../src/home/SceneAfterimages.tsx), [continuity.css](../../src/home/continuity.css).
+
+## 53. Z-depth Transition
+
+- 한국어: 앞뒤 공간을 통해 교체되는 전환.
+- 쉽게 말하면: 화면이 꺼졌다 켜지는 대신 현재 이미지가 뒤로 물러나고 다음 이미지가 앞에 도착합니다.
+- 일반 구현: perspective와 translateZ, scale, crop의 관계를 함께 설계합니다. WebGL은 필수가 아닙니다.
+- V2: **현재 구현**. Works queue와 Album object 교체의 DOM/CSS depth에 사용합니다. 모바일은 깊이를 줄이고 한 작품을 크게 유지합니다. Route-level shared transition과는 구분합니다.
+- 코드: [depth-queue.ts](../../src/home/depth-queue.ts), [album-depth.css](../../src/home/album-depth.css).
+
+## 54. Occlusion Typography
+
+- 한국어: 이미지 일부의 앞뒤로 나뉘는 타이포그래피.
+- 쉽게 말하면: 글자 일부는 인물 뒤에, 일부는 앞에 두어 텍스트와 사진이 같은 공간에 있는 것처럼 보입니다.
+- 일반 구현: 실제 subject mask와 배경/텍스트 layer를 분리하며 얼굴·가독성·정적인 composition을 먼저 검토합니다.
+- V2: **OPTIONAL / 이번 pass 미채택**. 실제 silhouette cutout이 없는 현재 suit/hanbok 사진에는 추가 type overlay를 넣지 않았습니다. Glyph Occlusion(44)의 Canvas trail 가림과 다른 기법입니다.
+- 기준: 큰 글자 자체가 impact는 아닙니다. 얼굴을 가리거나 split composition을 훼손하면 도입하지 않습니다.
+
+## 55. Threshold Moment
+
+- 한국어: 장면이 완성되어 보이는 정렬 순간.
+- 쉽게 말하면: 움직이던 이미지·글자·선이 잠깐 가장 좋은 자리에 모인 뒤 다음 장면으로 넘어갑니다.
+- 일반 구현: scroll 구간에 짧은 hold를 두거나 물체의 자연스러운 settlement를 이용합니다. 시간을 강제로 묶지 않습니다.
+- V2: **현재 구현**. SOUND canonical frame은 이전 LISTEN snap을 유지합니다. Works에는 interval hold, Album에는 pose/light settle, Stage에는 poster/date hold, Artist에는 47.6% split hold, Outro에는 두 endpoint 수렴이 있습니다.
+- 한계: .82–.91 Artist hold 등은 progress 거리이며 0.5–1초 재생을 보장하는 타이머가 아닙니다. 빠른 스크롤을 막지 않습니다.
+
+## 56. Persistent Two-Point Narrative
+
+- 한국어: 장면마다 역할이 달라지는 두 점의 서사.
+- 쉽게 말하면: 같은 두 궤적이 작품을 안내하고, 무대 틈의 장력을 보여 주다가 마지막 이름 주변에서 정리됩니다.
+- 일반 구현: 하나의 phase/history owner가 장면별 anchor와 노출 정도를 연결합니다. 필요 없는 순간에는 쉬게 합니다.
+- V2: **현재 구현**. Headless Violet/Lacquer pair는 Works→object 기준 Album→짧은 aperture/seam cue→Outro endpoint로 이어집니다. Album에서 cursor를 쫓지 않고 06/07 threshold에서는 숨습니다.
+- 모바일/reduced: 모바일에서는 content 앞에 과하게 나타나지 않게 줄입니다. Reduced motion은 장식 궤적을 숨기고 정적 정보와 이름을 유지합니다.
+- 코드: [works-motion.ts](../../src/home/works-motion.ts), [closing-orbit.ts](../../src/home/closing-orbit.ts).
+
+## 57. Works Depth Queue
+
+- 한국어: 다음 작품이 깊이에서 기다리는 작품 열.
+- 쉽게 말하면: 한 작품은 크게 보이고, 다음 작품은 작은 카드가 아닌 먼 모서리로 예고되다가 앞으로 다가옵니다.
+- 일반 구현: 순서가 있는 plane에 relative depth/crop을 계산하고 현재 작품의 짧은 full-composition 구간을 둡니다.
+- V2: **현재 desktop/mobile 구현**. 다섯 작품의 native travel은 desktop 120svh, mobile 150svh이며, 각 interval은 .13/.87 바깥에서 잠시 정렬됩니다. Active image/title/year/type와 번호 탐색을 유지합니다.
+- 정적 대안: reduced motion에서는 전 작품 링크와 caption을 읽을 수 있는 grid로 바뀝니다.
+- 코드: [depth-queue.ts](../../src/home/depth-queue.ts).
+
+## 58. Album Light Memory
+
+- 한국어: 물체보다 조금 늦게 따라오는 빛.
+- 쉽게 말하면: 앨범을 돌려 놓으면 주변 반사와 색이 살짝 뒤따라 안정되는 효과입니다.
+- 일반 구현: 실제 rendered pose와 asset tone을 입력으로, 물체보다 느린 direction/color damping을 사용합니다.
+- V2: **현재 구현**. 세 표지 derivative의 RGB 평균을 transient tone으로 쓰며 실제 turn/tilt를 따라 reflection/ambient/shadow가 settle합니다. 정지 후 독립 idle loop를 돌리지 않습니다.
+- 색 원칙: 새 브랜드 색·neon·bloom이 아닙니다. Reduced motion에서는 선택된 contextual tint를 즉시 정리합니다.
+- 코드: [album-light.ts](../../src/home/album-light.ts), [album-depth.css](../../src/home/album-depth.css).
+
+## 59. Performance Date Geometry
+
+- 한국어: 날짜를 장면 경계와 함께 움직이는 구조로 쓰기.
+- 쉽게 말하면: 09와 22가 단순 작은 날짜가 아니라 무대가 열리는 동작과 함께 제자리를 찾습니다.
+- 일반 구현: 실제 date text를 semantic time 안에 두고 visual spans와 경계선만 같은 progress로 이동시킵니다.
+- V2: **현재 구현**. 2026.09.22 `<풀고, 엮다>`의 09 / 22가 offset에서 정렬되고 중심 경계가 aperture와 함께 성장합니다. 그 다음 공유 frame/seam이 Artist split을 이어받습니다. 날짜 글자 자체가 얼굴 위를 가로질러 이동하는 morph는 아닙니다.
+- 자산: 현재 surface는 해당 공연의 공식 poster이며 실제 공연 촬영 사진으로 설명하지 않습니다.
+- 코드: [PerformanceScene.tsx](../../src/home/PerformanceScene.tsx), [stage-depth.css](../../src/home/stage-depth.css).
+
+## 60. Subtle 2.5D Portrait Depth
+
+- 한국어: 사진·mask·글자 사이의 작은 깊이 차이.
+- 쉽게 말하면: 얼굴을 왜곡하지 않고 사진 면과 글자가 몇 픽셀 다르게 반응해 살아 있는 표면처럼 보입니다.
+- 일반 구현: 독립 plane에 작은 이동 비율을 주고 responsive crop은 별도로 보존합니다. 실제 subject segmentation은 선택 사항입니다.
+- V2: **현재 DOM plane 방식 구현**. Suit/hanbok photo와 seam이 작게 함께 움직이고 이름은 더 작은 반대 depth를 가집니다. 배경은 안정적이며 모바일은 작은 scroll-driven displacement만 사용합니다.
+- 한계: 인물/배경을 새 silhouette로 분리하지 않았고, portrait tilt·3D 얼굴·floating person·강한 parallax를 추가하지 않았습니다.
+- 코드: [stage-depth.css](../../src/home/stage-depth.css).
+
+## 61. Scroll Velocity Response
+
+- 한국어: 스크롤 속도를 작은 물리적 입력으로 쓰기.
+- 쉽게 말하면: 빨리 넘길 때 물체가 살짝 더 늦게 따라오고 멈추면 정리되게 할 수 있습니다.
+- 일반 구현: scroll position과 velocity를 구분하고 bounded response에만 속도를 사용합니다. 핵심 content 위치를 속도에 의존시키지 않습니다.
+- V2: **OPTIONAL / 이번 pass 미채택**. Native position과 시간 기반 settlement를 유지했습니다. 새 velocity inertia를 넣거나 fast scroll에서 작품 선택 기준을 바꾸지 않았습니다.
+- 기준: mobile jank, 위치 불안정, 멀미나 reverse discontinuity가 생기면 사용하지 않는 기법입니다.

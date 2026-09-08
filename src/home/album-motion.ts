@@ -1,4 +1,5 @@
 import { useEffect, useRef, type RefObject } from 'react'
+import { advanceAlbumLight, albumLightTones, createAlbumLight } from './album-light.ts'
 
 export const albumObjectTuning = {
   initialTurn: -28, initialTilt: -12, dragDegreesPerPixel: .45, touchDegreesPerPixel: .62, touchThreshold: 4,
@@ -7,15 +8,19 @@ export const albumObjectTuning = {
 } as const
 
 /** Pose belongs to the scene, not its CSS/GLB renderer. Vertical touch scrolling always wins. */
-export function useAlbumMotion(ref: RefObject<HTMLDivElement | null>) {
+export function useAlbumMotion(ref: RefObject<HTMLDivElement | null>, albumId: string) {
   const turn = useRef<(degrees: number) => void>(() => {})
+  const selectLight = useRef<(id: string) => void>(() => {})
   useEffect(() => {
     const element = ref.current!, reduced = matchMedia('(prefers-reduced-motion: reduce)')
+    const scene = element.closest<HTMLElement>('.album-object-scene')!
     const fine = matchMedia('(hover: hover) and (pointer: fine)')
     const tune = albumObjectTuning
     let angle: number = tune.initialTurn, target = angle, tilt: number = tune.initialTilt, tiltTarget = tilt
     let hoverTurn = 0, hoverTarget = 0
     let velocity = 0, frame = 0, last = 0, visible = false, disposed = false
+    let tone = albumLightTones[scene.dataset.selectedAlbum!] ?? albumLightTones['album:ji-young-hee-ryu-haegeum-sanjo-2026']
+    const light = createAlbumLight(angle, tilt, tone)
     let pointer: { id: number; x: number; y: number; lastX: number; time: number; touch: boolean; dragging: boolean; rejected: boolean } | null = null
     function paint(now: number) {
       frame = 0
@@ -24,17 +29,27 @@ export function useAlbumMotion(ref: RefObject<HTMLDivElement | null>) {
       const settle = reduced.matches ? 1 : 1 - Math.exp(-tune.response * dt)
       angle += (target - angle) * settle; tilt += (tiltTarget - tilt) * settle
       hoverTurn += (hoverTarget - hoverTurn) * settle
+      advanceAlbumLight(light, angle + hoverTurn, tilt, tone, dt, reduced.matches)
       element.style.setProperty('--object-turn', `${(angle + hoverTurn).toFixed(3)}deg`)
       element.style.setProperty('--object-tilt', `${tilt.toFixed(3)}deg`)
-      element.style.setProperty('--object-light', `${(50 + Math.sin((angle + hoverTurn) * Math.PI / 180) * 40).toFixed(2)}%`)
-      element.style.setProperty('--object-shade', `${(.07 + Math.abs(Math.sin((angle + hoverTurn) * Math.PI / 180)) * .16).toFixed(3)}`)
+      element.style.setProperty('--object-light', `${(50 + light.x * 40).toFixed(2)}%`)
+      element.style.setProperty('--object-shade', `${(.07 + Math.abs(light.x) * .16).toFixed(3)}`)
+      scene.style.setProperty('--album-memory-x', light.x.toFixed(4))
+      scene.style.setProperty('--album-memory-y', light.y.toFixed(4))
+      scene.style.setProperty('--album-memory-rgb', light.rgb.map(channel => channel.toFixed(2)).join(' '))
+      scene.style.setProperty('--album-memory-energy', light.energy.toFixed(4))
       element.dataset.turn = angle.toFixed(1)
       element.dataset.pointerTurn = hoverTurn.toFixed(2)
       element.dataset.tilt = tilt.toFixed(2)
-      element.dataset.moving = String(Math.abs(target - angle) > .02 || Math.abs(tiltTarget - tilt) > .02 || Math.abs(hoverTarget - hoverTurn) > .02 || Math.abs(velocity) > .1)
-      if (Math.abs(target - angle) > .02 || Math.abs(tiltTarget - tilt) > .02 || Math.abs(hoverTarget - hoverTurn) > .02 || Math.abs(velocity) > .1) request()
+      const moving = Math.abs(target - angle) > .02 || Math.abs(tiltTarget - tilt) > .02 || Math.abs(hoverTarget - hoverTurn) > .02 || Math.abs(velocity) > .1
+      element.dataset.moving = String(moving)
+      scene.dataset.lightState = reduced.matches ? 'static' : light.moving ? 'moving' : 'settled'
+      scene.dataset.albumThreshold = !moving && !light.moving && !pointer?.dragging ? 'settled' : 'moving'
+      if (moving || light.moving) request()
+      if (!frame) scene.dataset.albumRaf = 'idle'
     }
-    function request() { if (!disposed && visible && !frame) frame = requestAnimationFrame(paint) }
+    function request() { if (!disposed && visible && !document.hidden && !frame) { frame = requestAnimationFrame(paint); scene.dataset.albumRaf = 'running' } }
+    selectLight.current = id => { tone = albumLightTones[id] ?? tone; request() }
     turn.current = degrees => { velocity = 0; target = Math.round((target - degrees) / 360) * 360 + degrees; request() }
     function down(event: PointerEvent) {
       if (event.button !== 0 || !event.isPrimary) return
@@ -78,26 +93,40 @@ export function useAlbumMotion(ref: RefObject<HTMLDivElement | null>) {
       if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return
       event.preventDefault(); target += event.key === 'ArrowLeft' ? -35 : 35; velocity = 0; request()
     }
-    function resetMotion() { velocity = 0; pointer = null; element.dataset.dragging = 'false'; tiltTarget = tune.initialTilt; hoverTarget = 0; if (reduced.matches) target = Math.round(target / 180) * 180; request() }
+    function clearPointer() {
+      const id = pointer?.id; pointer = null
+      if (id !== undefined && element.hasPointerCapture(id)) element.releasePointerCapture(id)
+      element.dataset.dragging = 'false'
+    }
+    function resetMotion() { velocity = 0; clearPointer(); tiltTarget = tune.initialTilt; hoverTarget = 0; if (reduced.matches) target = Math.round(target / 180) * 180; request() }
+    function suspend() {
+      if (frame) cancelAnimationFrame(frame)
+      frame = 0; last = 0; velocity = 0
+      clearPointer(); scene.dataset.lightState = 'suspended'; scene.dataset.albumRaf = 'idle'
+    }
+    function visibility() { if (document.hidden) suspend(); else { last = 0; request() } }
     const size = new ResizeObserver(() => { const pose = element.querySelector<HTMLElement>('.album-object-pose'); if (pose) element.style.setProperty('--album-depth', `${(pose.offsetWidth * tune.depthRatio).toFixed(2)}px`) })
     size.observe(element)
     const observer = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting
-      if (visible) { last = 0; request() } else { if (frame) cancelAnimationFrame(frame); frame = 0; velocity = 0; pointer = null; element.dataset.dragging = 'false' }
+      if (visible) { last = 0; request() } else suspend()
     }, { threshold: .01 })
     observer.observe(element)
     element.addEventListener('pointerdown', down); element.addEventListener('pointermove', move)
     element.addEventListener('pointerup', release); element.addEventListener('pointercancel', release)
     element.addEventListener('lostpointercapture', release); element.addEventListener('pointerleave', leave)
     element.addEventListener('keydown', key); reduced.addEventListener('change', resetMotion)
+    document.addEventListener('visibilitychange', visibility)
     resetMotion()
     return () => {
-      disposed = true; if (frame) cancelAnimationFrame(frame); observer.disconnect(); size.disconnect(); turn.current = () => {}
+      disposed = true; suspend(); observer.disconnect(); size.disconnect(); turn.current = () => {}; selectLight.current = () => {}
       element.removeEventListener('pointerdown', down); element.removeEventListener('pointermove', move)
       element.removeEventListener('pointerup', release); element.removeEventListener('pointercancel', release)
       element.removeEventListener('lostpointercapture', release); element.removeEventListener('pointerleave', leave)
       element.removeEventListener('keydown', key); reduced.removeEventListener('change', resetMotion)
+      document.removeEventListener('visibilitychange', visibility)
     }
   }, [ref])
+  useEffect(() => { selectLight.current(albumId) }, [albumId])
   return turn
 }

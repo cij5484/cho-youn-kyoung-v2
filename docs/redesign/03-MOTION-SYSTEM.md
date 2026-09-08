@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 03 — MOTION SYSTEM
 
-**Version:** 1.14\
-**Status:** Approved Motion Baseline / frozen upstream directions preserved; current HOME closing interactions implemented in the development composition, new visual approval pending\
+**Version:** 1.15\
+**Status:** Approved Motion Baseline / frozen upstream directions preserved; 2026-09-08 cinematic continuity and depth implemented in development HOME; validation, delivery and new visual approval are separate HANDOFF states\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`  
 **Motion Direction:** Meaningful Motion / Physical Response
 
@@ -72,7 +72,11 @@ Stronger motion allowed:
 - 3D Album
 - Works → Detail transition
 
-HOME V2.1 Performance teaser is a quiet contrast zone after the Album Object peak, not another strong-motion zone. Sound is quiet before activation; the approved P2I B2 direction uses a strong bow signature during explicit listening. About retains reading pauses and a future hover-preview candidate. The intensity sequence is 5 / 4.5 / 3 / 4 / 5 / 2.5 / 2 / 3; these are perceptual emphases, not mandatory movement amplitudes. See 04 §2 for experience budgets.
+HOME's current Performance→Artist sequence uses a strong aperture opening and split identity reveal, each followed by
+a quiet composition hold. The former uniformly quiet 06/07 description is superseded by the user-authorized shared
+geometry; it does not justify continuous spectacle. Sound is quiet before activation, while approved P2I B2 uses a strong
+bow signature during explicit listening. About's future archive interaction is separate from HOME's Artist portrait.
+See HOME §2 for current experience budgets and §49 below for implemented motion ownership.
 
 ## READING ZONES
 Minimal motion:
@@ -1025,41 +1029,119 @@ engines, rigging systems, gameplay state or FBX pipelines for that possibility.
 
 # 49. CURRENT HOME CLOSING MOTION CONTRACT
 
-2026-09-07 Visual Impact Sprint: `src/home/motion.ts` coordinates native-scroll entry/exit and actual stage/header contrast.
-The menu dialog retains its approved palette. No wheel interception or per-frame React state.
+2026-09-08 cinematic continuity / depth pass. This section describes the actual development HOME and supersedes the
+prior 90svh ribbon, mobile gallery, album cursor orbit, full-scene poster/Artist orbits and long diagonal Outro escape.
+Historical result reports retain their original tuning and evidence. Implementation is not visual quality approval;
+HANDOFF owns current approval, validation and delivery.
 
-- `works-motion.ts` owns the 90svh-travel ribbon and two-point continuity. SOUND strands contract left-to-right with the right endpoint fixed during the first 60% of the handoff,
-  then release into free motion, gather on a nearby/focused work, orbit behind/in front of its image plane and carry
-  through all existing closing scenes via the shared `closing-orbit.ts` trajectory functions. No circular heads are drawn. Violet `#6334E5` and Lacquer `#A33D36` own the two trails.
-  Two depth canvases share the existing monotone trail resampler; history is bounded to 360 samples/2000ms. rAF positions, age/width taper, capped DPR and offscreen/menu/visibility cleanup remain independent
-  of audio sampling. This owner does not retune SOUND or create another audio source. Mobile Works keeps its native
-  grid and a viewport-sized free path between its images; 05–08 use the same subject-relative orbit with DPR ≤1.25 and ≤180 history samples. Reduced motion removes
-  decorative trajectories. Active-link plus labelled-button navigation covers desktop.
-  The same two canvases sit at HOME closing scope: front depth crosses subjects, back depth masks images and actual
-  name glyphs. Scene weights interpolate targets without resetting phase/history. Album follows the pointer (or object
-  center on touch), Performance follows its poster, Artist uses a layout-aligned figure-eight, Outro gathers and exits.
-  Menu/hidden/offscreen/end states stop the loop; reverse scroll resumes it. No pointer/wheel capture is added.
-- `album-motion.ts` owns drag velocity/inertia/pose and fine-pointer horizontal ±28° / vertical ±20° response.
-  Hover is damped; pointer-down transfers the actual visible turn into drag ownership. Leave settles to the base tilt.
-  Lighting follows the rendered turn; coarse/reduced input retains explicit controls. The paper adapter owns appearance. Three retained CSS volumes
-  exchange through 920ms spatial transforms, with visibility delayed until departure completes and no opacity flattening
-  of 3D descendants. Interrupted selections continue from current CSS transforms; outer pose does not reset. The
-  5.7%-of-cover-width presentation thickness is an artwork-scaled visual approximation, not measured manufacturing data.
-- `surface-response.ts` is the shared pointer/rAF owner for stage light/planes and the intact Artist photo/crop/light.
-  It normalizes and exponentially settles input, suspends offscreen/hidden, and respects coarse/reduced input. The face
-  is not warped. The existing per-portrait event/spacing implementation and scattered Works inversion are removed.
-- Outro alone keeps the closing oversized English name; typography grouping and scene-specific hierarchy live in HOME.
+## 49.1 Ownership and shared material
 
-Vertical touch/pinch scrolling, explicit controls and reduced motion remain usable. Observers/listeners and animation
-owners are cleaned up on unmount, including locale remounts. Composition/content/source limits live in [HOME](04-HOME.md);
-these are current development interactions, not final 3D quality approval or permission to implement other pages.
-No animation library, WebGL dependency, Blender/Tray gate waiver, public integration or deployment was added.
+| Owner | Current responsibility |
+|---|---|
+| `works-motion.ts` / `depth-queue.ts` | Native-scroll work progress, one foreground plane, next depth edge, active-link focus and the same closing trail pair |
+| `album-motion.ts` / `album-light.ts` | Existing input/pose/inertia, selected-cover tone and slower light settlement; presentation adapter remains separate |
+| `stage-artist-motion.ts` / `stage-depth.css` | One reversible aperture→poster→suit→hanbok timeline, date geometry, threshold holds and subtle photo/mask/type depth |
+| `surface-response.ts` | Damped fine-pointer input for stage/portrait light and the small bounded split response; no face distortion |
+| `SceneAfterimages.tsx` / `continuity.css` | Brief actual Works-edge, album-light and Artist-seam transfers between measured outgoing/incoming geometry |
+| `closing-orbit.ts` | Shared spatial math and two authored Outro resolution endpoints; no independent scene loop |
 
-## 2026-09-08 HOME interaction pass
+`motion.ts` retains ordinary closing-scene entry/exit geometry. The shared stage timeline owns actual stage/header
+contrast. It switches the authored foreground/background pair together; an interpolated middle-gray pair is not used.
+The menu dialog and approved Bold navigation motion retain their own contracts.
 
-The current user-authorized 06→07 technique is a single shared aperture/seam (`src/home/stage-artist-motion.ts`).
-Native progress owns opening → hold → spatial frame change → suit wipe → hanbok split. Fine-pointer input adds
-only damped depth/light and a bounded split deviation. Touch relies on scroll. No wheel interception or new motion
-library. Motif presence is curated: existing trails yield during 06/07 and return for the 08 resolution.
-LISTEN alignment is a one-shot cancellable native scroll, separate from the approved bow/Janggu response. Full
-contracts and implementation decisions are in HOME's dated interaction-pass revision; old sprint evidence stays historical.
+**Scene Afterimage** means that a recognizable piece of outgoing material becomes the incoming scene's cue. The actual
+last work image supplies a narrowly clipped plane edge toward the album; selected album RGB/direction supplies a short
+clipped stage light; the actual Artist seam supplies a short edge toward Outro's name. These layers never intercept
+input or own layout. They use event-driven geometry/state updates, not a perpetual loop, broad blur or repeated ghosts.
+SOUND's existing rightward strand contraction and the existing 06→07 shared seam remain the larger continuity anchors.
+
+## 49.2 Works Depth Queue
+
+Desktop uses 220svh total section height / 120svh nominal travel; mobile uses 250svh / 150svh. Progress uses actual
+section minus sticky height. Five works remain sequential: foreground → depth retreat → approaching next plane →
+threshold. A smooth interval mapping holds the composition through fractional progress .13 and after .87. This is
+scroll distance, not a timed pause or wheel interception. Numbered controls seek the same state; only the active
+work link is interactive. Reduced motion restores all links and attached captions in a static grid.
+
+`depthQueuePose` supplies CSS perspective, translateZ, cropped leading/trailing edges and limited Y rotation. Desktop
+uses more depth than mobile; mobile's next work is an edge cue rather than a second small card. Pointer/focus can still
+gather trails and slightly tilt the current work on desktop. Native touch scrolling alone exposes all content.
+No scroll-velocity-dependent content state or new motion library is added.
+
+## 49.3 Album Light Memory and object depth
+
+Preserve the existing 4px horizontal touch-intent threshold, `pan-y pinch-zoom`, primary-pointer capture, bounded
+release, mouse drag and keyboard/front/back controls. Fine-pointer pose response remains horizontal ±28° / vertical
+±20°. Pointer-down inherits the actually rendered hover pose. The selected object is not snapped to a fresh pose
+by a light or album-selection change. Initial three-quarter/front/back states provide authored resting options;
+free drag release settles its existing angle rather than forcing a new threshold orientation.
+
+Light Memory derives RGB means from the three retained front-cover derivatives in `album-light.ts`. Direction uses
+the rendered turn/tilt; exponential response is 3.8/s for direction and 3.1/s for tone, behind the object's 11/s pose
+response. Ambient surface, reflection and shadow settle at different rates. The owner stops rAF when object and light
+are settled and suspends offscreen/hidden; reduced motion settles the tint immediately without light inertia.
+This is an asset-derived contextual response, not additional brand palette, bloom, a neon rim or a physical simulation.
+
+The three retained CSS volumes exchange over the existing 920ms transition with a deeper outgoing/incoming Z path.
+Visibility follows departure; 3D descendants are not flattened by parent opacity. Rapid selection continues from current
+CSS transforms, while outer pose/light identity persists. The 5.7%-of-cover-width thickness remains a visual approximation,
+not measured manufacturing data. This work does not waive Blender, Tray or Album Detail quality gates.
+
+## 49.4 Stage Date Geometry and Artist depth
+
+The fixed feature remains 2026-09-22 `<풀고, 엮다>` using its official poster, not an invented stage photo. `09` and `22`
+align from offset positions as their central boundary grows with the aperture. Date/title/venue remain clear of the image.
+The shared frame and its right boundary then become the suit entry and hanbok split; no second header/motion owner,
+independent section fade or photographic morph is introduced.
+
+| Shared sequence progress | Current composition |
+|---|---|
+| 0–.24 | Aperture opens; date geometry aligns |
+| .24–.39 | Poster/date threshold holds before copy begins leaving |
+| .43–.64 | Existing frame and seam carry stage→suit identity handoff |
+| .67–.82 | Hanbok split approaches 47.6% of the image |
+| .82–.91 | Held suit/hanbok identity composition |
+| .91–.955 | Split continues to its retained 68% endpoint |
+| .955–1 | Small frame retreat prepares outgoing seam afterimage |
+
+The split percentages are neutral-pointer values; the retained fine-pointer deviation remains bounded by the
+existing portrait reveal and ±5% full-reveal range. The hold does not disable that small live surface response.
+
+Thresholds are positions in a single native-scroll timeline. The target and settled progress are observable separately;
+fast or reverse scroll does not start another timed scene animation. The Artist photo and seam translate by a few pixels;
+type moves at a smaller opposite depth. Mobile uses small scroll-driven vertical displacement, no fake cursor. Existing
+responsive crop/scale rules remain independent of these translations. This is **DOM 2.5D photo/mask/type separation**,
+not segmented foreground/background anatomy, a tilted card, face warp or a WebGL portrait.
+
+**Occlusion Typography: OPTIONAL / NOT ADOPTED in this pass.** There is no silhouette cutout asset; the name remains
+beside/below the photos instead of adding a competing overlay. **Scroll Velocity Response: OPTIONAL / NOT ADOPTED.**
+Scroll position remains deterministic; no velocity-dependent content placement or extra inertia layer was added.
+
+## 49.5 Persistent Two-Point Narrative and quiet moments
+
+The same two depth canvases retain Violet `#6334E5` and Lacquer `#A33D36`, headless tapered trails and the monotone
+resampler. SOUND strands first contract left-to-right toward their fixed right endpoints over the first 60% of the
+handoff. The released pair crosses Works and follows the selected album's measured object bounds, **not the cursor**.
+Album activity increases its presence; a settled object keeps it subordinate.
+
+06 shows brief cues at the opening edges; 07 briefly shows tension at the shared seam. Full poster and held identity
+frames clear the pair rather than treating it as always-visible UI. Quiet thresholds stop the trail loop after settlement;
+scroll/state changes wake it. Scene weights connect targets without a new per-scene pair. The 2000ms trail history
+remains bounded to 360 samples (mobile 180), with capped DPR 1.75 (mobile 1.25). Offscreen/hidden/menu states suspend
+rendering. Front/back image and glyph occlusion stays separate from semantic content; mobile Works avoids image
+occlusion that would hide the pair behind its large foreground image.
+
+Outro gathers over .66–.83 toward two authored endpoints, briefly holds, then withdraws over .94–1 as the remaining
+trail fades. It finishes at page end and resumes from the same model on reverse scroll. Decorative trails/afterimages
+are hidden in reduced motion; the normal static content/identity remains complete.
+
+## 49.6 Scope and future route boundary
+
+Stable work content/asset attributes, album object/front/back identities and the fixed featured-performance image ID
+preserve future continuity inputs. **HOME→Album Detail / HOME→Performance Detail shared transitions are FUTURE /
+NOT IMPLEMENTED**. No route snapshots, new detail pages, View Transition API adapter or route animation is included.
+
+All current motion owners clean listeners/observers/frames on unmount. Meaningful native touch scroll, explicit
+controls, readable reduced-motion hierarchy and the earlier one-shot SOUND focus alignment remain intact. Specific
+browser/device/thermal evidence belongs to the task result; implementation rules are not proof of device quality.
+No new animation/WebGL dependency, Blender work, production-domain change or next scene is implied.

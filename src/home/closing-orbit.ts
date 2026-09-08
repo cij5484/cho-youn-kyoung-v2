@@ -12,19 +12,10 @@ export function ellipse(box: OrbitBox, phase: number, radiusX = .6, radiusY = .5
 export function blendPoint(a: OrbitPoint, b: OrbitPoint, p: number): OrbitPoint {
   return { x: mix(a.x,b.x,p), y: mix(a.y,b.y,p), z: mix(a.z,b.z,p) }
 }
-export function artistOrbit(photo: OrbitBox, name: OrbitBox, phase: number): OrbitPoint {
-  // The two opposite points exchange the portrait and the name along a continuous figure-eight.
-  const ax=photo.left+photo.width/2, ay=photo.top+photo.height/2
-  const bx=name.left+name.width/2, by=name.top+name.height/2
-  const distance=Math.max(1,Math.hypot(bx-ax,by-ay)), ux=(bx-ax)/distance, uy=(by-ay)/distance
-  const along=-Math.cos(phase)*(distance/2+(photo.width*Math.abs(ux)+photo.height*Math.abs(uy))*.4)
-  const across=Math.sin(phase*2)*(photo.height*Math.abs(ux)+photo.width*Math.abs(uy))*.53
-  return {x:(ax+bx)/2+ux*along-uy*across,y:(ay+by)/2+uy*along+ux*across,z:Math.cos(phase*2)}
-}
-export function outroOrbit(box: OrbitBox, phase: number, progress: number, width: number): OrbitPoint {
-  const loop=ellipse(box,phase,.43,.42), gather=smooth((progress-.72)/.22), escape=smooth((progress-.9)/.1)
-  // The wide typographic helix tightens into one diagonal signature stroke, then leaves the page.
-  return {x:mix(loop.x,box.left+box.width*.86,gather)+escape*width*.23,
-    y:mix(loop.y,box.top+box.height*.72,gather)-escape*box.height*.3,
+export function outroOrbit(box: OrbitBox, phase: number, progress: number, strand=0): OrbitPoint {
+  const loop=ellipse(box,phase,.43,.42), gather=smooth((progress-.66)/.17), escape=smooth((progress-.94)/.06)
+  // Two authored endpoints hold briefly; their remaining tails resolve before the final withdrawal.
+  return {x:mix(loop.x,box.left+box.width*(.75+strand*.06),gather)+escape*box.width*.04,
+    y:mix(loop.y,box.top+box.height*(.72-strand*.035),gather)-escape*box.height*.06,
     z:mix(Math.sin(phase*2),0,gather)}
 }

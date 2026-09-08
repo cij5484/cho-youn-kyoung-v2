@@ -1,0 +1,69 @@
+/* Date, photo plane and type share the existing aperture timeline. No second motion owner. */
+.stage-artist-sequence {
+  --artist-exit:0;
+  --portrait-depth-x:calc(var(--surface-x) * 2.5px * var(--handoff));
+  --portrait-depth-y:calc(var(--surface-y) * 2px * var(--handoff) + (var(--portrait) - .5) * 3px * var(--handoff));
+}
+.stage-artist-sequence .stage-date {
+  display:grid;
+  grid-template-columns:1fr 1px 1fr;
+  align-items:center;
+  gap:clamp(14px,2.1vw,34px);
+  width:29%;
+  top:27%;
+  font-size:clamp(62px,8.8vw,132px);
+  line-height:.86;
+  letter-spacing:-.055em;
+}
+.stage-date .stage-month {
+  justify-self:start;
+  translate:calc((1 - var(--opening)) * 28px) calc((1 - var(--opening)) * -26px);
+}
+.stage-date .stage-day {
+  justify-self:end;
+  translate:calc((1 - var(--opening)) * -28px) calc((1 - var(--opening)) * 26px);
+}
+.stage-date .stage-date-boundary {
+  width:1px;
+  height:calc(.2em + var(--opening) * .58em);
+  padding:0;
+  background:#bca37b;
+  font-size:1em;
+  transform:scaleY(calc(.4 + var(--opening) * .6));
+  transform-origin:center;
+}
+/* Independent translate leaves the approved responsive crop/scale rules intact. The seam travels
+   with both photographs; the background stays still and type follows at a smaller depth. */
+.stage-artist-sequence .artist-portrait-aperture img,
+.stage-artist-sequence .shared-seam {
+  translate:var(--portrait-depth-x) var(--portrait-depth-y);
+}
+.stage-artist-sequence .artist-copy {
+  translate:calc(var(--surface-x) * -.85px * var(--handoff)) calc(var(--surface-y) * -.6px * var(--handoff));
+}
+.stage-artist-sequence .shared-image-frame {
+  scale:calc(1 - var(--artist-exit) * .012);
+  translate:0 calc(var(--artist-exit) * -5px);
+}
+@media (max-width:1000px) and (min-width:640px) {
+  .stage-artist-sequence .stage-date {left:6%;width:32%;font-size:9.1vw;gap:1.8vw;}
+}
+@media (max-width:639px) {
+  .stage-artist-sequence {
+    --portrait-depth-x:0px;
+    --portrait-depth-y:calc((var(--portrait) - .5) * 4px * var(--handoff));
+  }
+  .stage-artist-sequence .stage-date {width:43%;top:12.4%;font-size:14vw;gap:4vw;}
+  .stage-date .stage-month {translate:calc((1 - var(--opening)) * 12px) calc((1 - var(--opening)) * -8px);}
+  .stage-date .stage-day {translate:calc((1 - var(--opening)) * -12px) calc((1 - var(--opening)) * 8px);}
+  .stage-artist-sequence .artist-copy {translate:0 calc((var(--portrait) - .5) * -1px * var(--handoff));}
+}
+@media (prefers-reduced-motion:reduce) {
+  .stage-artist-sequence .stage-date {display:flex;width:auto;gap:.14em;font-size:70px;}
+  .stage-date .stage-date-boundary {height:.65em;transform:none;}
+  .stage-date .stage-month,.stage-date .stage-day,
+  .stage-artist-sequence .artist-portrait-aperture img,
+  .stage-artist-sequence .shared-seam,
+  .stage-artist-sequence .artist-copy,
+  .stage-artist-sequence .shared-image-frame {translate:none;scale:none;}
+}

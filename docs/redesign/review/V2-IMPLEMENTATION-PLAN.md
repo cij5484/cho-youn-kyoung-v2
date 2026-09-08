@@ -673,3 +673,11 @@ HOME 후반부의 큰 작품 리본/두 점 연결, 앨범 공간 교체, Stage/
 [결과](../../../HOME-INTERACTION-PASS-RESULT.md): **IMPLEMENTED / LOCALLY VERIFIED / REVIEW READY / STOP**.
 새 한복 derivative와 해당 공연 공식 포스터를 사용했고 원본은 보존했다. Localhost 4180에서 시각 검토 대기;
 commit/push/merge/deploy 또는 다음 Scene은 자동 진행하지 않는다. 현재 계약은 HOME의 동일 날짜 revision을 따른다.
+
+2026-09-08 후속 명시 요청: **HOME Cinematic Continuity / Depth Pass**. 선행 interaction pass는 PR #9 /
+`d98aaa6`로 main에 반영하고 최신 main을 pull한 뒤 시작했다. 이번 단위는 현 HOME 감사 → Works Depth Queue /
+짧은 소재 잔상 → Album Light Memory → Date Geometry / Artist 깊이와 완성 프레임 → 선택적 두 점 / 문서·검증 →
+PR/main/자동 Preview 배포와 공개 URL 확인이다. 사용자 병렬 작업 승인에 따라 파일 소유를 나누고 마지막 검증은
+고정 소스에서 통합한다. 기준 SHA로 이 단위만 rollback 가능하게 분리한다. 실제 Detail Shared Element는 FUTURE,
+silhouette Occlusion Typography와 velocity response는 이번에 채택하지 않았다. Full Release Gate는 실행하지 않는다.
+새 Scene 또는 다음 Phase로 진행하지 않고 [결과](../../../HOME-CINEMATIC-CONTINUITY-RESULT.md) 보고 후 STOP한다.
