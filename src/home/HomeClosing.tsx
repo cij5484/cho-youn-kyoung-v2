@@ -16,6 +16,8 @@ export function HomeClosing({ locale }: { locale: 'ko' | 'en' }) {
     else { const index = stagePerformances.findIndex(p => p.reference.id === work.reference.id); if (index >= 0) setPerformance(index) }
   }
   return <div ref={root} className="home-closing" lang="ko" data-prototype="HOME_CLOSING_DEVELOPMENT_ONLY">
+    <canvas className="works-motif works-motif-back" aria-hidden="true"/>
+    <canvas className="works-motif works-motif-front" aria-hidden="true"/>
     <SelectedWorks onSelect={select}/><AlbumObjectStage selected={album} onSelect={setAlbum} locale={locale}/>
     <PerformanceScene selected={performance} locale={locale}/><ArtistScene locale={locale}/><HomeOutro locale={locale}/>
   </div>

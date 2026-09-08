@@ -1,0 +1,183 @@
+[WebServer] (node:89231) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:89243) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/sound.spec.ts:291:1 › eight route returns release every previous context and do not accumulate Sound DOM (16.7s)
+  ✘  2 [chromium] › tests/sound.spec.ts:390:30 › P2I: 320px B has an independent visible mark and no input or scroll trap (2.0s)
+(node:89259) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  3 [chromium] › tests/sound.spec.ts:390:30 › P2I: 390px B has an independent visible mark and no input or scroll trap (2.0s)
+(node:89268) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  4 [webkit] › tests/sound.spec.ts:291:1 › eight route returns release every previous context and do not accumulate Sound DOM (8.3s)
+(node:89283) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  5 [webkit] › tests/sound.spec.ts:390:30 › P2I: 320px B has an independent visible mark and no input or scroll trap (2.5s)
+(node:89295) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  6 [webkit] › tests/sound.spec.ts:390:30 › P2I: 390px B has an independent visible mark and no input or scroll trap (2.8s)
+
+
+  1) [chromium] › tests/sound.spec.ts:390:30 › P2I: 320px B has an independent visible mark and no input or scroll trap 
+
+    Error: expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 3.5
+    Received:    2.9742431640625
+
+      393 |   await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.3)
+      394 |   const mark=(await page.locator('.contact-head').boundingBox())!
+    > 395 |   expect(mark.width).toBeGreaterThanOrEqual(3.5);expect(mark.height).toBeGreaterThanOrEqual(3.5);expect(mark.x).toBeGreaterThan(45);expect(mark.y).toBeGreaterThan(145)
+          |                                                                      ^
+      396 |   await expect(page.locator('.contact-head')).toHaveAttribute('rx','4');await expect(page.locator('.contact-head')).toHaveAttribute('ry','1.8')
+      397 |   const dock=(await page.locator('.sound-comparison').boundingBox())!
+      398 |   for(const element of [page.locator('.sound-caption'),trigger(page)]){
+        at /Users/joon/Documents/choyounkyoung-V2/tests/sound.spec.ts:395:70
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/sound/sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/sound/sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sound/sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/sound/sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests/sound.spec.ts:390:30 › P2I: 390px B has an independent visible mark and no input or scroll trap 
+
+    Error: expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 3.5
+    Received:    3.460845947265625
+
+      393 |   await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.3)
+      394 |   const mark=(await page.locator('.contact-head').boundingBox())!
+    > 395 |   expect(mark.width).toBeGreaterThanOrEqual(3.5);expect(mark.height).toBeGreaterThanOrEqual(3.5);expect(mark.x).toBeGreaterThan(45);expect(mark.y).toBeGreaterThan(145)
+          |                      ^
+      396 |   await expect(page.locator('.contact-head')).toHaveAttribute('rx','4');await expect(page.locator('.contact-head')).toHaveAttribute('ry','1.8')
+      397 |   const dock=(await page.locator('.sound-comparison').boundingBox())!
+      398 |   for(const element of [page.locator('.sound-caption'),trigger(page)]){
+        at /Users/joon/Documents/choyounkyoung-V2/tests/sound.spec.ts:395:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/sound/sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/sound/sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sound/sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/sound/sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [webkit] › tests/sound.spec.ts:291:1 › eight route returns release every previous context and do not accumulate Sound DOM 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      300 |     await expect(page.locator('main')).toBeFocused()
+      301 |     await expect(page.locator('.poster-scene')).toHaveAttribute('data-progress','0.00000')
+    > 302 |     await expect.poll(()=>page.evaluate(()=>window.soundContexts.every(c=>c.state==='closed'))).toBe(true)
+          |                                                                                                 ^
+      303 |     await expect(root(page)).toHaveAttribute('data-audio-context','not-created')
+      304 |   }
+      305 |   await graphCount(page,8)
+        at /Users/joon/Documents/choyounkyoung-V2/tests/sound.spec.ts:302:97
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/sound/sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/sound/sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-webkit/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sound/sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/sound/sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [webkit] › tests/sound.spec.ts:390:30 › P2I: 320px B has an independent visible mark and no input or scroll trap 
+
+    Error: expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 3.5
+    Received:    3.195556640625
+
+      393 |   await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.3)
+      394 |   const mark=(await page.locator('.contact-head').boundingBox())!
+    > 395 |   expect(mark.width).toBeGreaterThanOrEqual(3.5);expect(mark.height).toBeGreaterThanOrEqual(3.5);expect(mark.x).toBeGreaterThan(45);expect(mark.y).toBeGreaterThan(145)
+          |                                                                      ^
+      396 |   await expect(page.locator('.contact-head')).toHaveAttribute('rx','4');await expect(page.locator('.contact-head')).toHaveAttribute('ry','1.8')
+      397 |   const dock=(await page.locator('.sound-comparison').boundingBox())!
+      398 |   for(const element of [page.locator('.sound-caption'),trigger(page)]){
+        at /Users/joon/Documents/choyounkyoung-V2/tests/sound.spec.ts:395:70
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/sound/sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/sound/sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-webkit/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sound/sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/sound/sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [webkit] › tests/sound.spec.ts:390:30 › P2I: 390px B has an independent visible mark and no input or scroll trap 
+
+    Error: expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 3.5
+    Received:    2.3876953125
+
+      393 |   await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.3)
+      394 |   const mark=(await page.locator('.contact-head').boundingBox())!
+    > 395 |   expect(mark.width).toBeGreaterThanOrEqual(3.5);expect(mark.height).toBeGreaterThanOrEqual(3.5);expect(mark.x).toBeGreaterThan(45);expect(mark.y).toBeGreaterThan(145)
+          |                                                                      ^
+      396 |   await expect(page.locator('.contact-head')).toHaveAttribute('rx','4');await expect(page.locator('.contact-head')).toHaveAttribute('ry','1.8')
+      397 |   const dock=(await page.locator('.sound-comparison').boundingBox())!
+      398 |   for(const element of [page.locator('.sound-caption'),trigger(page)]){
+        at /Users/joon/Documents/choyounkyoung-V2/tests/sound.spec.ts:395:70
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/sound/sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/sound/sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-webkit/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sound/sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/sound/sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5 failed
+    [chromium] › tests/sound.spec.ts:390:30 › P2I: 320px B has an independent visible mark and no input or scroll trap 
+    [chromium] › tests/sound.spec.ts:390:30 › P2I: 390px B has an independent visible mark and no input or scroll trap 
+    [webkit] › tests/sound.spec.ts:291:1 › eight route returns release every previous context and do not accumulate Sound DOM 
+    [webkit] › tests/sound.spec.ts:390:30 › P2I: 320px B has an independent visible mark and no input or scroll trap 
+    [webkit] › tests/sound.spec.ts:390:30 › P2I: 390px B has an independent visible mark and no input or scroll trap 
+  1 passed (36.6s)

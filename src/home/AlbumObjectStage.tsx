@@ -21,13 +21,13 @@ export function AlbumObjectStage({ selected, onSelect, locale, renderObject = pr
 }) {
   const album = homeAlbums[selected], surface = useRef<HTMLDivElement>(null), turn = useAlbumMotion(surface)
   return <section id="album-object" className="album-object-scene" data-home-scene="05" aria-labelledby="album-object-heading">
-    <header className="album-scene-title"><div><p className="section-index">05 — THE ALBUM</p><h2 id="album-object-heading" lang="en">Sound, <em>held.</em></h2></div><p>한 장의 음반.<br/>그 안에 머무는 시간.</p></header>
+    <header className="album-scene-title"><div><p className="section-index">05 — THE ALBUM</p><h2 id="album-object-heading" lang="en">Sound, <em>held.</em></h2></div></header>
     <div className="album-presentation" data-selected-album={album.reference.id} style={{'--exchange-duration':`${albumObjectTuning.exchangeDuration}ms`} as CSSProperties}>
       <div className="album-object-shadow" aria-hidden="true"/>
       <div ref={surface} className="album-object-surface" role="group" tabIndex={0} aria-label={`${album.title.ko.value} 입체 표지`} aria-describedby="album-object-hint">
         {homeAlbums.map((item,index)=>{const offset=((index-selected+4)%3)-1;return <div key={item.reference.id} className="album-exchange-slot" data-active={index===selected} style={{'--slot-offset':offset} as CSSProperties}><div className="album-object-pose">{renderObject({album:item})}</div></div>})}
       </div>
-      <div className="album-handling"><p id="album-object-hint" className="album-object-hint">돌려서 살펴보기 <span>드래그 · ← →</span></p><div className="album-side-controls" aria-label="앨범 면 선택"><button type="button" onClick={() => turn.current(0)}>앞면</button><span aria-hidden="true">/</span><button type="button" onClick={() => turn.current(180)}>뒷면</button></div></div>
+      <div className="album-handling"><p id="album-object-hint" className="album-object-hint">드래그 · ← →</p><div className="album-side-controls" aria-label="앨범 면 선택"><button type="button" onClick={() => turn.current(0)}>앞면</button><span aria-hidden="true">/</span><button type="button" onClick={() => turn.current(180)}>뒷면</button></div></div>
     </div>
     <div className="album-selection">
       <div className="album-current" aria-live="polite"><span>{album.number} / 03 — {album.category}</span><h3 lang="ko">{album.title.ko.value}</h3></div>

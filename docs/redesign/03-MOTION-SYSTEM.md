@@ -1,7 +1,7 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 03 — MOTION SYSTEM
 
-**Version:** 1.12\
+**Version:** 1.14\
 **Status:** Approved Motion Baseline / frozen upstream directions preserved; current HOME closing interactions implemented in the development composition, new visual approval pending\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`  
 **Motion Direction:** Meaningful Motion / Physical Response
@@ -1028,13 +1028,20 @@ engines, rigging systems, gameplay state or FBX pipelines for that possibility.
 2026-09-07 Visual Impact Sprint: `src/home/motion.ts` coordinates native-scroll entry/exit and actual stage/header contrast.
 The menu dialog retains its approved palette. No wheel interception or per-frame React state.
 
-- `works-motion.ts` owns the 90svh-travel ribbon and two-point continuity. Actual outgoing SOUND strands converge into
-  free points, gather on a nearby/focused work, orbit behind/in front of its image plane, release continuously, then carry
-  toward the incoming album. Two depth canvases share the existing monotone trail resampler; history is bounded to 72
-  samples/430ms. rAF positions, age/width taper, capped DPR and offscreen/menu/visibility cleanup remain independent
-  of audio sampling. This owner does not retune SOUND or create another audio source. Mobile/reduced motion uses a
-  four-column/native grid without the pinned canvas loop; active-link plus labelled-button navigation covers desktop.
-- `album-motion.ts` owns drag velocity/inertia/pose. The paper adapter owns appearance. Three retained CSS volumes
+- `works-motion.ts` owns the 90svh-travel ribbon and two-point continuity. SOUND strands contract left-to-right with the right endpoint fixed during the first 60% of the handoff,
+  then release into free motion, gather on a nearby/focused work, orbit behind/in front of its image plane and carry
+  through all existing closing scenes via the shared `closing-orbit.ts` trajectory functions. No circular heads are drawn. Violet `#6334E5` and Lacquer `#A33D36` own the two trails.
+  Two depth canvases share the existing monotone trail resampler; history is bounded to 360 samples/2000ms. rAF positions, age/width taper, capped DPR and offscreen/menu/visibility cleanup remain independent
+  of audio sampling. This owner does not retune SOUND or create another audio source. Mobile Works keeps its native
+  grid and a viewport-sized free path between its images; 05–08 use the same subject-relative orbit with DPR ≤1.25 and ≤180 history samples. Reduced motion removes
+  decorative trajectories. Active-link plus labelled-button navigation covers desktop.
+  The same two canvases sit at HOME closing scope: front depth crosses subjects, back depth masks images and actual
+  name glyphs. Scene weights interpolate targets without resetting phase/history. Album follows the pointer (or object
+  center on touch), Performance follows its poster, Artist uses a layout-aligned figure-eight, Outro gathers and exits.
+  Menu/hidden/offscreen/end states stop the loop; reverse scroll resumes it. No pointer/wheel capture is added.
+- `album-motion.ts` owns drag velocity/inertia/pose and fine-pointer horizontal ±28° / vertical ±20° response.
+  Hover is damped; pointer-down transfers the actual visible turn into drag ownership. Leave settles to the base tilt.
+  Lighting follows the rendered turn; coarse/reduced input retains explicit controls. The paper adapter owns appearance. Three retained CSS volumes
   exchange through 920ms spatial transforms, with visibility delayed until departure completes and no opacity flattening
   of 3D descendants. Interrupted selections continue from current CSS transforms; outer pose does not reset. The
   5.7%-of-cover-width presentation thickness is an artwork-scaled visual approximation, not measured manufacturing data.

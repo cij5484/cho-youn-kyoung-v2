@@ -1,0 +1,289 @@
+[WebServer] (node:89390) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:89391) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-117-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] 
+[WebServer] - /Users/joon/Documents/choyounkyoung-V2/.checkpoints/home-refinement-20260908/baseline
+[WebServer] - /Users/joon/Documents/choyounkyoung-V2/node_modules/vite/dist/client
+[WebServer] 
+[WebServer] Refer to docs https://vite.dev/config/server-options.html#server-fs-allow for configurations and more details.
+[WebServer] 
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-latin-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/cormorant-garamond/files/cormorant-garamond-latin-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-116-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-117-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-118-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-119-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-116-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-111-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-98-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-114-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-119-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-118-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-110-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-latin-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-107-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-115-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-104-wght-normal.woff2" is outside of Vite serving allow list.
+  ✓  1 [chromium] › tests/sound.spec.ts:291:1 › eight route returns release every previous context and do not accumulate Sound DOM (16.7s)
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-latin-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/cormorant-garamond/files/cormorant-garamond-latin-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-latin-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-118-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-114-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-98-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-119-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-116-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-117-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-110-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-119-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-117-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-118-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-107-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-115-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-104-wght-normal.woff2" is outside of Vite serving allow list.
+  ✘  2 [chromium] › tests/sound.spec.ts:390:30 › P2I: 320px B has an independent visible mark and no input or scroll trap (2.0s)
+(node:89402) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-latin-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/cormorant-garamond/files/cormorant-garamond-latin-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-latin-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-118-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-114-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-98-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-119-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-116-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-117-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-110-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-119-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-117-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-118-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-107-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-115-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-104-wght-normal.woff2" is outside of Vite serving allow list.
+  ✘  3 [chromium] › tests/sound.spec.ts:390:30 › P2I: 390px B has an independent visible mark and no input or scroll trap (2.1s)
+(node:89408) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-latin-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-119-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/cormorant-garamond/files/cormorant-garamond-latin-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-117-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-118-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-107-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-98-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-latin-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-115-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-110-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-114-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-116-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-111-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-116-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-117-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-119-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-118-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-104-wght-normal.woff2" is outside of Vite serving allow list.
+  ✘  4 [webkit] › tests/sound.spec.ts:291:1 › eight route returns release every previous context and do not accumulate Sound DOM (10.6s)
+(node:89420) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-latin-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-119-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/cormorant-garamond/files/cormorant-garamond-latin-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-latin-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-117-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-118-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-107-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-98-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-115-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-110-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-114-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-116-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-119-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-117-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-118-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-104-wght-normal.woff2" is outside of Vite serving allow list.
+  ✘  5 [webkit] › tests/sound.spec.ts:390:30 › P2I: 320px B has an independent visible mark and no input or scroll trap (2.5s)
+(node:89432) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-latin-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-119-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/cormorant-garamond/files/cormorant-garamond-latin-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-latin-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-117-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-118-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-107-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-98-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-115-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-110-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-114-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-116-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-119-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-117-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-serif-kr/files/noto-serif-kr-118-wght-normal.woff2" is outside of Vite serving allow list.
+[WebServer] The request id "/Users/joon/Documents/choyounkyoung-V2/node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-104-wght-normal.woff2" is outside of Vite serving allow list.
+  ✘  6 [webkit] › tests/sound.spec.ts:390:30 › P2I: 390px B has an independent visible mark and no input or scroll trap (2.5s)
+
+
+  1) [chromium] › tests/sound.spec.ts:390:30 › P2I: 320px B has an independent visible mark and no input or scroll trap 
+
+    Error: expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 3.5
+    Received:    3.115264892578125
+
+      393 |   await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.3)
+      394 |   const mark=(await page.locator('.contact-head').boundingBox())!
+    > 395 |   expect(mark.width).toBeGreaterThanOrEqual(3.5);expect(mark.height).toBeGreaterThanOrEqual(3.5);expect(mark.x).toBeGreaterThan(45);expect(mark.y).toBeGreaterThan(145)
+          |                                                                      ^
+      396 |   await expect(page.locator('.contact-head')).toHaveAttribute('rx','4');await expect(page.locator('.contact-head')).toHaveAttribute('ry','1.8')
+      397 |   const dock=(await page.locator('.sound-comparison').boundingBox())!
+      398 |   for(const element of [page.locator('.sound-caption'),trigger(page)]){
+        at /Users/joon/Documents/choyounkyoung-V2/.checkpoints/home-refinement-20260908/baseline/tests/sound.spec.ts:395:70
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/sound/sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/sound/sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sound/sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/sound/sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests/sound.spec.ts:390:30 › P2I: 390px B has an independent visible mark and no input or scroll trap 
+
+    Error: expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 3.5
+    Received:    3.460845947265625
+
+      393 |   await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.3)
+      394 |   const mark=(await page.locator('.contact-head').boundingBox())!
+    > 395 |   expect(mark.width).toBeGreaterThanOrEqual(3.5);expect(mark.height).toBeGreaterThanOrEqual(3.5);expect(mark.x).toBeGreaterThan(45);expect(mark.y).toBeGreaterThan(145)
+          |                      ^
+      396 |   await expect(page.locator('.contact-head')).toHaveAttribute('rx','4');await expect(page.locator('.contact-head')).toHaveAttribute('ry','1.8')
+      397 |   const dock=(await page.locator('.sound-comparison').boundingBox())!
+      398 |   for(const element of [page.locator('.sound-caption'),trigger(page)]){
+        at /Users/joon/Documents/choyounkyoung-V2/.checkpoints/home-refinement-20260908/baseline/tests/sound.spec.ts:395:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/sound/sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/sound/sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sound/sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/sound/sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [webkit] › tests/sound.spec.ts:291:1 › eight route returns release every previous context and do not accumulate Sound DOM 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      300 |     await expect(page.locator('main')).toBeFocused()
+      301 |     await expect(page.locator('.poster-scene')).toHaveAttribute('data-progress','0.00000')
+    > 302 |     await expect.poll(()=>page.evaluate(()=>window.soundContexts.every(c=>c.state==='closed'))).toBe(true)
+          |                                                                                                 ^
+      303 |     await expect(root(page)).toHaveAttribute('data-audio-context','not-created')
+      304 |   }
+      305 |   await graphCount(page,8)
+        at /Users/joon/Documents/choyounkyoung-V2/.checkpoints/home-refinement-20260908/baseline/tests/sound.spec.ts:302:97
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/sound/sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/sound/sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-webkit/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sound/sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/sound/sound-eight-route-returns--f42c6-do-not-accumulate-Sound-DOM-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [webkit] › tests/sound.spec.ts:390:30 › P2I: 320px B has an independent visible mark and no input or scroll trap 
+
+    Error: expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 3.5
+    Received:    3.2803497314453125
+
+      393 |   await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.3)
+      394 |   const mark=(await page.locator('.contact-head').boundingBox())!
+    > 395 |   expect(mark.width).toBeGreaterThanOrEqual(3.5);expect(mark.height).toBeGreaterThanOrEqual(3.5);expect(mark.x).toBeGreaterThan(45);expect(mark.y).toBeGreaterThan(145)
+          |                      ^
+      396 |   await expect(page.locator('.contact-head')).toHaveAttribute('rx','4');await expect(page.locator('.contact-head')).toHaveAttribute('ry','1.8')
+      397 |   const dock=(await page.locator('.sound-comparison').boundingBox())!
+      398 |   for(const element of [page.locator('.sound-caption'),trigger(page)]){
+        at /Users/joon/Documents/choyounkyoung-V2/.checkpoints/home-refinement-20260908/baseline/tests/sound.spec.ts:395:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/sound/sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/sound/sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-webkit/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sound/sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/sound/sound-P2I-320px-B-has-an-i-2ea78-and-no-input-or-scroll-trap-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [webkit] › tests/sound.spec.ts:390:30 › P2I: 390px B has an independent visible mark and no input or scroll trap 
+
+    Error: expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 3.5
+    Received:    3.39666748046875
+
+      393 |   await expect.poll(()=>page.locator('.bow-contact').evaluate(e=>Number((e as SVGElement).style.opacity))).toBeGreaterThan(.3)
+      394 |   const mark=(await page.locator('.contact-head').boundingBox())!
+    > 395 |   expect(mark.width).toBeGreaterThanOrEqual(3.5);expect(mark.height).toBeGreaterThanOrEqual(3.5);expect(mark.x).toBeGreaterThan(45);expect(mark.y).toBeGreaterThan(145)
+          |                      ^
+      396 |   await expect(page.locator('.contact-head')).toHaveAttribute('rx','4');await expect(page.locator('.contact-head')).toHaveAttribute('ry','1.8')
+      397 |   const dock=(await page.locator('.sound-comparison').boundingBox())!
+      398 |   for(const element of [page.locator('.sound-caption'),trigger(page)]){
+        at /Users/joon/Documents/choyounkyoung-V2/.checkpoints/home-refinement-20260908/baseline/tests/sound.spec.ts:395:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/sound/sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/sound/sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-webkit/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sound/sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/sound/sound-P2I-390px-B-has-an-i-b17f0-and-no-input-or-scroll-trap-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5 failed
+    [chromium] › tests/sound.spec.ts:390:30 › P2I: 320px B has an independent visible mark and no input or scroll trap 
+    [chromium] › tests/sound.spec.ts:390:30 › P2I: 390px B has an independent visible mark and no input or scroll trap 
+    [webkit] › tests/sound.spec.ts:291:1 › eight route returns release every previous context and do not accumulate Sound DOM 
+    [webkit] › tests/sound.spec.ts:390:30 › P2I: 320px B has an independent visible mark and no input or scroll trap 
+    [webkit] › tests/sound.spec.ts:390:30 › P2I: 390px B has an independent visible mark and no input or scroll trap 
+  1 passed (38.7s)

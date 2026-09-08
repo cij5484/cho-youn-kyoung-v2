@@ -193,3 +193,143 @@ test('stage light and intact portrait respond to pointer position and settle on 
     await expect(surface).toHaveAttribute('data-surface','rest')
   }
 })
+
+test('SOUND exit contracts rightward before releasing headless Violet and Lacquer trails', async ({ page }) => {
+  await page.addInitScript(() => {
+    const probe = window as unknown as { worksArcs: number; worksColors: string[] }
+    probe.worksArcs = 0; probe.worksColors = []
+    const arc = CanvasRenderingContext2D.prototype.arc, stroke = CanvasRenderingContext2D.prototype.stroke
+    CanvasRenderingContext2D.prototype.arc = function (...args: Parameters<typeof arc>) {
+      if (this.canvas.classList.contains('works-motif')) probe.worksArcs++
+      return arc.apply(this, args)
+    }
+    CanvasRenderingContext2D.prototype.stroke = function (path?: Path2D) {
+      if (this.canvas.classList.contains('works-motif') && typeof this.strokeStyle === 'string' && !probe.worksColors.includes(this.strokeStyle)) probe.worksColors.push(this.strokeStyle)
+      return Reflect.apply(stroke,this,path ? [path] : [])
+    }
+  })
+  await ready(page)
+  await page.locator('.bold-hero img').evaluateAll(images => Promise.all(images.map(image => (image as HTMLImageElement).decode())))
+  await scene(page, '.bold-hero', 1)
+  await expect(page.locator('.bold-hero')).toHaveAttribute('data-progress', '1.00000')
+  async function handoff(value: number) {
+    await page.locator('.works-scene').evaluate((element, value) => scrollTo({top:scrollY+element.getBoundingClientRect().top-innerHeight*(1-value),behavior:'instant'}),value)
+    await expect(page.locator('.home-closing')).toHaveAttribute('data-line-handoff',value.toFixed(3))
+    return page.locator('.works-axis path').first().evaluate(e=>e.getAttribute('d')!.match(/-?\d+(?:\.\d+)?/g)!.map(Number))
+  }
+  const early = await handoff(.15), middle = await handoff(.3), late = await handoff(.45)
+  expect(early[0]).toBeLessThan(middle[0]); expect(middle[0]).toBeLessThan(late[0])
+  for (const p of [middle,late]) { expect(p[2]).toBeCloseTo(early[2],1); expect(p[1]).toBeCloseTo(early[1],1) }
+  const collapsed = await handoff(.6); expect(collapsed[0]).toBeCloseTo(collapsed[2],1)
+  await expect(page.locator('.works-axis')).toHaveCSS('opacity','0')
+  await handoff(.85)
+  await expect.poll(()=>page.evaluate(()=>(window as unknown as {worksColors:string[]}).worksColors.sort())).toEqual(['#6334e5','#a33d36'])
+  expect(await page.evaluate(()=>(window as unknown as {worksArcs:number}).worksArcs)).toBe(0)
+  const reverse = await handoff(.3); expect(reverse).toEqual(middle)
+  await handoff(0); await expect(page.locator('.poster-lines')).toHaveCSS('opacity','1')
+})
+
+test('album hover spans both axes, retains its rendered pose on drag start and settles on leave',async({page})=>{
+  await ready(page);await scene(page,'.album-object-scene',.55)
+  const surface=page.locator('.album-object-surface');await surface.scrollIntoViewIfNeeded()
+  const box=(await surface.boundingBox())!
+  const pose=()=>surface.evaluate(e=>({turn:parseFloat(e.style.getPropertyValue('--object-turn')),tilt:parseFloat(e.style.getPropertyValue('--object-tilt'))}))
+  await page.mouse.move(box.x+box.width*.1,box.y+box.height*.2)
+  await expect.poll(()=>surface.getAttribute('data-moving')).toBe('false');const left=await pose()
+  await page.mouse.move(box.x+box.width*.9,box.y+box.height*.8)
+  await expect.poll(()=>surface.getAttribute('data-moving')).toBe('false');const right=await pose()
+  expect(right.turn-left.turn).toBeGreaterThan(40);expect(left.tilt-right.tilt).toBeGreaterThan(22)
+  await page.mouse.down();const held=await pose();expect(Math.abs(held.turn-right.turn)).toBeLessThan(.2)
+  await page.mouse.up();await page.mouse.move(1,1)
+  await expect.poll(()=>surface.getAttribute('data-moving')).toBe('false')
+  expect(Number(await surface.getAttribute('data-pointer-turn'))).toBeCloseTo(0,1)
+  expect((await pose()).tilt).toBeCloseTo(-12,1)
+})
+
+async function trailInk(page: Page) {
+  return page.locator('.home-closing > .works-motif').evaluateAll(canvases=>canvases.reduce((sum,element)=>{
+    const canvas=element as HTMLCanvasElement, data=canvas.getContext('2d')!.getImageData(0,0,canvas.width,canvas.height).data
+    for(let i=3;i<data.length;i+=4) if(data[i]>10)sum++
+    return sum
+  },0))
+}
+
+test('one headless pair persists through 05–08, follows the album pointer, ends and returns on reverse',async({page})=>{
+  await page.setViewportSize({width:1440,height:1000});await ready(page)
+  await page.locator('.home-closing > .works-motif').evaluateAll(elements=>{
+    (window as unknown as {closingCanvases:Element[]}).closingCanvases=elements
+  })
+  await page.locator('.album-object-surface').scrollIntoViewIfNeeded()
+  await page.mouse.move(600,450)
+  await expect(page.locator('.home-closing')).toHaveAttribute('data-orbit-scene','5')
+  const center=()=>page.locator('.home-closing').evaluate(e=>({x:(Number(e.dataset.orbit0X)+Number(e.dataset.orbit1X))/2,y:(Number(e.dataset.orbit0Y)+Number(e.dataset.orbit1Y))/2}))
+  await expect.poll(async()=>Math.abs((await center()).x-600)).toBeLessThan(35)
+  await page.mouse.move(950,580)
+  await expect.poll(async()=>Math.abs((await center()).x-950)).toBeLessThan(35)
+  await expect.poll(async()=>Math.abs((await center()).y-580)).toBeLessThan(20)
+  for(const [selector,number] of [['.performance-image-window','6'],['.artist-composition','7'],['.outro-name','8']]){
+    await page.locator(selector).scrollIntoViewIfNeeded()
+    await expect(page.locator('.home-closing')).toHaveAttribute('data-orbit-scene',number)
+    await expect.poll(()=>trailInk(page)).toBeGreaterThan(100)
+    expect(await page.evaluate(()=>(window as unknown as {closingCanvases:Element[]}).closingCanvases.every(e=>e.isConnected))).toBe(true)
+  }
+  await page.evaluate(()=>scrollTo({top:document.documentElement.scrollHeight,behavior:'instant'}))
+  await expect(page.locator('.home-closing')).toHaveAttribute('data-orbit-state','finished')
+  expect(await trailInk(page)).toBe(0)
+  await page.evaluate(()=>scrollBy({top:-innerHeight*.5,behavior:'instant'}))
+  await expect(page.locator('.home-closing')).toHaveAttribute('data-orbit-state','running')
+  await expect.poll(()=>trailInk(page)).toBeGreaterThan(100)
+})
+
+test('closing trails suspend under menu and reduced motion without obstructing keyboard controls',async({page})=>{
+  await ready(page);await page.locator('.performance-image-window').scrollIntoViewIfNeeded()
+  await expect.poll(()=>trailInk(page)).toBeGreaterThan(100)
+  await page.getByRole('button',{name:'MENU',exact:true}).focus()
+  await page.keyboard.press('Enter')
+  await expect(page.locator('.home-closing')).toHaveAttribute('data-orbit-state','suspended')
+  expect(await trailInk(page)).toBe(0)
+  await page.keyboard.press('Escape')
+  await expect(page.getByRole('button',{name:'MENU',exact:true})).toBeFocused()
+  await expect.poll(()=>trailInk(page)).toBeGreaterThan(100)
+  await page.emulateMedia({reducedMotion:'reduce'})
+  await expect(page.locator('.home-closing')).toHaveAttribute('data-orbit-state','suspended')
+  await expect(page.locator('.works-motif-front')).toHaveCSS('display','none')
+  expect(await trailInk(page)).toBe(0)
+})
+
+for(const width of [320,390])test(`closing trails on ${width}px follow scene subjects with native vertical scrolling`,async({page})=>{
+  await page.setViewportSize({width,height:844});await ready(page)
+  for(const selector of ['.work-1 .work-image','.work-4 .work-image','.album-object-surface','.performance-image-window','.artist-portrait-aperture','.outro-name']){
+    await page.locator(selector).scrollIntoViewIfNeeded()
+    await expect(page.locator('.works-motif-front')).toHaveCSS('display','block')
+    await expect.poll(()=>trailInk(page)).toBeGreaterThan(10)
+  }
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true)
+  await expect(page.locator('.works-motif-front')).toHaveCSS('pointer-events','none')
+  await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}))
+  await expect(page.locator('.home-closing')).toHaveAttribute('data-orbit-state','suspended')
+  expect(await trailInk(page)).toBe(0)
+})
+
+
+for(const width of [320,390])test(`mobile Works ${width}: both colored trails move freely through the image grid`,async({page})=>{
+  await page.setViewportSize({width,height:844});await ready(page)
+  for(const selector of ['.work-1 .work-image','.work-4 .work-image']){
+    await page.locator(selector).scrollIntoViewIfNeeded()
+    await expect(page.locator('.home-closing')).toHaveAttribute('data-orbit-scene','4')
+    await expect.poll(()=>page.locator('.home-closing > .works-motif').evaluateAll(elements=>{
+      const counts=[0,0]
+      for(const element of elements){
+        const canvas=element as HTMLCanvasElement, data=canvas.getContext('2d')!.getImageData(0,0,canvas.width,canvas.height).data
+        for(let i=0;i<data.length;i+=4)if(data[i+3]>12){
+          if(data[i+2]>data[i]*1.5 && data[i]>50)counts[0]++
+          if(data[i]>data[i+2]*1.5 && data[i]>70)counts[1]++
+        }
+      }
+      return Math.min(...counts)
+    })).toBeGreaterThan(10)
+    const before=await page.locator('.home-closing').getAttribute('data-orbit0-x')
+    await expect.poll(()=>page.locator('.home-closing').getAttribute('data-orbit0-x')).not.toBe(before)
+    await expect(page.locator(selector).locator('..')).toHaveAttribute('href',/#album-object$/)
+  }
+})
