@@ -283,8 +283,9 @@ test('one headless pair follows the album object, yields at stage/artist thresho
     expect(await page.evaluate(()=>(window as unknown as {closingCanvases:Element[]}).closingCanvases.every(e=>e.isConnected))).toBe(true)
   }
   await page.evaluate(()=>scrollTo({top:document.documentElement.scrollHeight,behavior:'instant'}))
-  await expect(page.locator('.home-closing')).toHaveAttribute('data-orbit-state','finished')
-  expect(await trailInk(page)).toBe(0)
+  // The approved 08 direction keeps the inherited pair alive at the end of the page.
+  await expect(page.locator('.home-closing')).toHaveAttribute('data-orbit-state','running')
+  await expect.poll(()=>trailInk(page)).toBeGreaterThan(100)
   await page.evaluate(()=>scrollBy({top:-innerHeight*.5,behavior:'instant'}))
   await expect(page.locator('.home-closing')).toHaveAttribute('data-orbit-state','running')
   await expect.poll(()=>trailInk(page)).toBeGreaterThan(100)

@@ -1,0 +1,51 @@
+.scene-revisit { position:relative; z-index:14; max-width:1020px; margin:0 0 72px auto; color:var(--home-ink,#171715); }
+.scene-revisit-heading { font:400 11px/1.7 var(--font-ui); letter-spacing:.035em; margin-bottom:26px!important; }
+.scene-revisit-trigger { display:none; }
+.scene-revisit-panel { display:grid; grid-template-columns:minmax(320px,1fr) 180px; align-items:center; gap:clamp(44px,9vw,150px); }
+.scene-revisit-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:34px; row-gap:8px; align-self:center; }
+.home-closing .scene-revisit-list button { display:flex; align-items:baseline; gap:13px; position:relative; min-height:52px; padding:10px 0; border:0; background:none; text-align:left; color:inherit; }
+.scene-revisit-number { font:400 11px/1 var(--font-ui); color:var(--text-secondary); font-variant-numeric:tabular-nums; transition:color 220ms; }
+.scene-revisit-label { font:400 clamp(21px,2.25vw,34px)/1.2 var(--font-display-ko); letter-spacing:-.055em; transition:transform 260ms cubic-bezier(.2,.7,.2,1); }
+.scene-revisit-arrow { font:400 18px/1 var(--font-display); margin-left:auto; opacity:0; transform:translate(-5px,3px); transition:opacity 220ms,transform 260ms; }
+.scene-revisit-list button:focus-visible,.scene-revisit-trigger:focus-visible { outline:1px solid currentColor; outline-offset:6px; }
+.scene-revisit-list button:focus-visible .scene-revisit-label { transform:translateX(3px); }
+.scene-revisit-list button:focus-visible .scene-revisit-arrow { opacity:1; transform:none; }
+.scene-revisit-preview { width:180px; align-self:center; }
+.scene-revisit-preview-plane { position:relative; aspect-ratio:4/5; overflow:hidden; background:color-mix(in srgb,var(--color-canvas) 91%,#97806a); }
+.scene-revisit-preview img { width:100%; height:100%; object-fit:cover; }
+.scene-revisit-preview[data-preview="hero"] img { object-position:50% 37%; }
+.scene-revisit-preview[data-preview="haegeum"] img { object-position:55% 59%; transform:scale(1.75); }
+.scene-revisit-preview[data-preview="works"] img,.scene-revisit-preview[data-preview="performance"] img { object-fit:contain; padding:8px; }
+.scene-revisit-preview[data-preview="album"] img { object-fit:contain; padding:20px 10px; }
+.scene-revisit-preview figcaption { font:400 10px/1.7 var(--font-ui); color:var(--text-secondary); margin-top:11px; }
+.scene-revisit-sound { position:absolute; inset:46% 14% auto; }
+.scene-revisit-sound span { position:relative; display:block; height:1px; background:#948677; margin:0 0 12px; }
+.scene-revisit-sound span::after { content:''; position:absolute; width:5px; height:5px; left:64%; top:-2px; border-radius:50%; background:#6334e5; }
+.scene-revisit-sound span+span::after { left:28%; background:#a33d36; }
+.scene-revisit-fallback { display:grid; place-items:center; height:100%; font:400 60px/1 var(--font-display); }
+@media (hover:hover) and (pointer:fine) {
+  .scene-revisit-list button:hover .scene-revisit-label { transform:translateX(3px); }
+  .scene-revisit-list button:hover .scene-revisit-number { color:var(--home-ink); }
+  .scene-revisit-list button:hover .scene-revisit-arrow { opacity:1; transform:none; }
+}
+@media (min-width:640px) and (max-width:850px) {
+  .scene-revisit-panel { grid-template-columns:minmax(270px,1fr) 140px; gap:32px; }
+  .scene-revisit-preview { width:140px; }
+  .scene-revisit-list { column-gap:24px; }
+}
+@media (max-width:639px) {
+  .scene-revisit { margin:0 0 38px; }
+  .scene-revisit-heading,.scene-revisit-preview { display:none; }
+  .home-closing .scene-revisit-trigger { display:flex; width:100%; min-height:52px; align-items:center; justify-content:space-between; border:0; padding:12px 0; background:none; color:inherit; text-align:left; font:400 14px/1.7 var(--font-ui); }
+  .scene-revisit-trigger>span:last-child { font:400 23px/1 var(--font-display); }
+  .scene-revisit-panel { display:block; padding:16px 0 8px; }
+  .scene-revisit[data-open="false"] .scene-revisit-panel { display:none; }
+  .scene-revisit-list { gap:8px 28px; }
+  .home-closing .scene-revisit-list button { min-height:50px; gap:12px; }
+  .scene-revisit-label { font-size:22px; }
+  .scene-revisit-arrow { opacity:.45; transform:none; font-size:16px; }
+  .scene-revisit-list button:active .scene-revisit-label { transform:translateX(2px); }
+}
+@media (prefers-reduced-motion:reduce) {
+  .scene-revisit-number,.scene-revisit-label,.scene-revisit-arrow { transition:none; transform:none!important; }
+}

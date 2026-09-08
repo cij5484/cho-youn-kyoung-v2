@@ -28,6 +28,17 @@
   mask-position:center;
   mask-repeat:no-repeat;
 }
+/* Hanji completion is the final photographic composition, not a second camera cue.
+   Keep the existing crop; settle pointer depth into the .825 endpoint and let native
+   sticky release carry the unchanged photograph into the next scene. */
+.stage-artist-sequence[data-artist-experience="hanji"] .shared-image-frame {
+  scale:1;
+  translate:none;
+}
+.stage-artist-sequence[data-artist-experience="hanji"] .artist-portrait-aperture img {
+  translate:calc(var(--surface-x) * 2.5px * var(--handoff) * (1 - var(--experience-photo)))
+    calc(var(--surface-y) * 2px * var(--handoff) * (1 - var(--experience-photo)) + (min(var(--portrait), .7) - .5) * 3px * var(--handoff));
+}
 .stage-artist-sequence[data-artist-experience] .shared-seam {
   left:calc((1 - var(--handoff)) * var(--seam) * 1% + var(--handoff) * var(--experience-photo) * 100%);
   box-shadow:none;
@@ -83,6 +94,9 @@
   .artist-experience-credentials { font-size:13px; line-height:1.85; margin-top:22px; }
 }
 @media (max-width:639px) {
+  .stage-artist-sequence[data-artist-experience="hanji"] .artist-portrait-aperture img {
+    translate:0 calc((min(var(--portrait), .7) - .5) * 4px * var(--handoff));
+  }
   /* Portrait and profile receive separate vertical space. This changes only the opt-in 07 endpoint;
      all 06 stage geometry is the existing value while handoff is zero. */
   .stage-artist-sequence[data-artist-experience] .shared-image-frame {
@@ -115,6 +129,7 @@
   .artist-experience-profile .editorial-link { margin-top:5px; }
 }
 @media (prefers-reduced-motion:reduce) {
+  .stage-artist-sequence[data-artist-experience="hanji"] .artist-portrait-aperture img { translate:none; }
   .stage-artist-sequence[data-artist-experience] .artist-copy { display:none; }
   .stage-artist-sequence[data-artist-experience] .artist-hanbok { mask:none; clip-path:none; }
   .stage-artist-sequence[data-artist-experience] .shared-image-frame { height:auto; }

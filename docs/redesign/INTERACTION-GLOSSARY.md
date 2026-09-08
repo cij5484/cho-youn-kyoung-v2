@@ -457,7 +457,7 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 한국어: 이전 장면의 짧은 물질적 잔상.
 - 쉽게 말하면: 앨범 주변의 빛이 다음 무대 입구에 잠시 남아, 같은 공간을 지나간다고 느끼게 합니다.
 - 일반 구현: outgoing geometry/asset/light를 좁은 mask 안에서 다음 anchor로 연결하고 수명을 짧게 제한합니다.
-- V2: **현재 구현**. 선택된 album RGB/light→Stage와 실제 Artist seam→Outro를 연결합니다. 새 Works image edge→Album transfer는 04 선택적 되돌림과 함께 제거했습니다. 남은 잔상은 짧은 edge/light이며 입력을 가로채지 않습니다.
+- V2: **현재 구현**. 선택된 album RGB/light→Stage만 연결합니다. Artist seam→Outro 독립선은 제거됐고, Works image edge→Album transfer도 04 선택적 되돌림과 함께 제거했습니다. 남은 빛 잔상은 입력을 가로채지 않습니다.
 - 코드: [SceneAfterimages.tsx](../../src/home/SceneAfterimages.tsx), [continuity.css](../../src/home/continuity.css).
 
 ## 53. Z-depth Transition
@@ -481,15 +481,15 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 - 한국어: 장면이 완성되어 보이는 정렬 순간.
 - 쉽게 말하면: 움직이던 이미지·글자·선이 잠깐 가장 좋은 자리에 모인 뒤 다음 장면으로 넘어갑니다.
 - 일반 구현: scroll 구간에 짧은 hold를 두거나 물체의 자연스러운 settlement를 이용합니다. 시간을 강제로 묶지 않습니다.
-- V2: **현재 구현**. SOUND canonical frame은 이전 LISTEN snap을 유지합니다. Album에는 pose/light settle, Stage에는 poster/date hold, Artist에는 47.6% split hold, Outro에는 두 endpoint 수렴이 있습니다. Works의 새 interval hold는 04 선택적 되돌림으로 제거했습니다.
+- V2: **현재 구현**. SOUND canonical frame은 이전 LISTEN snap을 유지합니다. Album에는 pose/light settle, Stage에는 poster/date hold, Artist에는 split hold가 있습니다. Hanji 비교안은 한복 완성 뒤 scale/crop이 고정된 감상 구간을 둡니다. Outro endpoint 수렴과 Works의 새 interval hold는 제거됐습니다.
 - 한계: .82–.91 Artist hold 등은 progress 거리이며 0.5–1초 재생을 보장하는 타이머가 아닙니다. 빠른 스크롤을 막지 않습니다.
 
 ## 56. Persistent Two-Point Narrative
 
 - 한국어: 장면마다 역할이 달라지는 두 점의 서사.
-- 쉽게 말하면: 같은 두 궤적이 작품을 안내하고, 무대 틈의 장력을 보여 주다가 마지막 이름 주변에서 정리됩니다.
+- 쉽게 말하면: 같은 두 궤적이 작품을 안내하고, 무대 틈의 장력을 보여 주다가 마지막 이름 주변에서 계속 살아 움직입니다.
 - 일반 구현: 하나의 phase/history owner가 장면별 anchor와 노출 정도를 연결합니다. 필요 없는 순간에는 쉬게 합니다.
-- V2: **현재 구현**. Headless Violet/Lacquer pair는 Works→object 기준 Album→짧은 aperture/seam cue→Outro endpoint로 이어집니다. Album에서 cursor를 쫓지 않고 06/07 threshold에서는 숨습니다.
+- V2: **현재 구현**. Headless Violet/Lacquer pair는 Works→object 기준 Album→짧은 aperture/seam cue→Outro의 자유로운 경로로 이어집니다. Album에서 cursor를 쫓지 않고 06/07 threshold에서는 숨습니다. 08에서는 종료 지점 없이 현재 보이는 종이 영역을 움직입니다.
 - 모바일/reduced: 모바일에서는 content 앞에 과하게 나타나지 않게 줄입니다. Reduced motion은 장식 궤적을 숨기고 정적 정보와 이름을 유지합니다.
 - 코드: [works-motion.ts](../../src/home/works-motion.ts), [closing-orbit.ts](../../src/home/closing-orbit.ts).
 
@@ -573,3 +573,33 @@ SOUND 수치는 [비교 계약](review/SOUND-BOW-CONTACT-COMPARISON.md)이 소�
 현재 Preview의 임시 상세 경로는 이 기능의 완성이 아닙니다.
 
 새 후보의 기술 선택과 제한: [통합 연구](review/EXPERIENCE-PROTOTYPE-RESEARCH.md).
+
+## 68. 08 Persistent Two-Point Life — 끝에서 계속 살아 있는 두 점
+
+07의 phase와 최근 위치를 받아 현재 보이는 Outro 영역을 계속 움직입니다. 마지막 수렴·퇴장이나
+새 점 생성은 없으며, 포인터를 쫓지도 않습니다. 화면 밖·숨김·메뉴에서는 쉬고 모션 축소에서는 숨깁니다.
+
+## 69. Interactive Closing Surface — 반응하는 마지막 종이 표면
+
+큰 이름·링크·장면 목록을 읽는 동안 국소 입력에만 반응하는 08 공간입니다. 화면 전체가 출렁이지 않으며,
+이름 근처의 일부 글자와 종이만 하나의 pointer/frame owner로 반응합니다.
+
+## 70. Chromatic Wet Field — 잠깐 젖었다 마르는 색 영역
+
+포인터가 지난 작은 자리에 불규칙한 섬유 경계로 Violet/Lacquer/Bronze가 드러났다 Ivory로 돌아갑니다.
+작은 Canvas stamp의 확산·감쇠이며 실제 유체 시뮬레이션이나 영구 브랜드 색상 추가가 아닙니다.
+Touch/reduced-motion에는 장식 효과가 없어도 이름과 링크가 그대로 남습니다.
+
+## 71. Entry-Origin Tension Wave — 들어온 자리에서 퍼지는 글자 장력
+
+독립 CTA의 실제 pointer 진입점에 가까운 글자부터 작은 반응이 전달되고 화살표가 뒤따릅니다.
+왼쪽에서만 시작하는 반복 animation이 아닙니다. 떠나면 짧게 정착하며 키보드는 일정한 시작점,
+터치는 한 번 탭 이동, 모션 축소는 정적 초점 표시를 사용합니다. 본문 링크와 MENU는 대상이 아닙니다.
+
+## 72. Scene Revisit Index — 이미 본 장면으로 돌아가는 목록
+
+08에서 HOME 01–07의 기준 구도로 돌아갑니다. Desktop은 고정 preview 영역, Mobile은 작은 펼침 목록입니다.
+SOUND 이동은 소리를 재생하지 않습니다. 명시적 이동이 Scene Magnet보다 우선하고 새 입력은 이동을 취소합니다.
+
+68–72는 **IMPLEMENTED / REVIEW READY, 사용자 시각 검토 대기**입니다.
+현재 결과와 제한: [HOME Outro Interaction](review/HOME-OUTRO-INTERACTION.md).

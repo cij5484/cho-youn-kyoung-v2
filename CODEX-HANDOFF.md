@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** Experience Prototype / Subpage Research implemented as opt-in only from delivered main `150529b`; HOME 04 protected. User comparison/selection pending; delivery receipt in §26.\
-**Revision:** 1.38 / 2026-09-08 — opt-in experience prototypes / lean research and Preview delivery\
+**Status:** HOME Outro interaction / hover / scene revisit implemented from main `d44cf1c`; REVIEW READY, user visual review pending. HOME 04 protected; 07 Hanji post-reveal freeze preserved. Delivery receipt in §26.\
+**Revision:** 1.39 / 2026-09-08 — interactive Outro, entry-origin links and scene revisit\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 **Latest delivery policy — 2026-09-08:** user stopped Linux WebKit SOUND investigation and authorized pipeline-only
@@ -472,7 +472,30 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 
 # 26. CURRENT HANDOFF STATE
 
-## Current Experience Prototype / Subpage Research — 2026-09-08
+## Current HOME Outro Interaction / Hover Pass — 2026-09-08
+
+Start: `main == origin/main`, **`d44cf1c0df22f92d131a56d7b6b17d55d307f277`**, PR #12 delivered.
+Branch: `codex/outro-interaction-hover`. User authorizes parallel owned tracks, lean checks, existing Fast CI,
+PR → main merge → automatic Pages Preview and normal/comparison URL smoke. Full Release Gate is excluded.
+
+- **08 implemented / REVIEW READY:** inherited Violet/Lacquer pair never gathers or disappears at the page end;
+  irregular local wet-color field and nearby large-glyph response share one bounded Canvas/input owner.
+- **Standalone HOME links:** Entry-Origin Tension Wave, coordinated arrow, prompt leave settlement, static
+  reduced-motion/focus fallback and single-tap navigation. Frozen MENU/global navigation remains unchanged.
+- **Scene Revisit Index:** seven current scenes, fixed desktop asset cue, mobile disclosure; shared geometry-based
+  jumps also serve the development panel. SOUND jump never starts audio; new input cancels explicit smooth travel.
+- **Protected:** exact 04 ribbon; existing 03/05/06/07 choreography; prior Hanji-only completed-photo scale/crop
+  freeze and compact-profile viewing window. Removed the remaining detached Artist→Outro edge code, retaining
+  Album→Stage light. No new page, asset, permanent palette, dependency or route system.
+- **Preview review pending:** paper/color strength, local type response, link feel and index composition are user
+  visual decisions. This implementation is not QUALITY APPROVED. Existing Hanji/straight and magnet choices
+  remain opt-in; physical phones/native Safari are not newly verified.
+
+Single current result and local checks: [HOME Outro Interaction](docs/redesign/review/HOME-OUTRO-INTERACTION.md).
+Delivery receipt (PR/merged SHA/Fast/Pages/public smoke) is recorded on the delivering PR. **REPORT → STOP**;
+no next HOME/subpage task is authorized by a green CI result.
+
+## Previous Experience Prototype / Subpage Research — 2026-09-08 (PR #12 delivered)
 
 Start: clean `main == origin/main`, **`150529b4c1b9a7e1c4fa306ebe0abdbf51246cdb`**, after PR #11.
 Branch: `codex/experience-prototype-research`. The explicit user bundle authorizes opt-in HOME prototypes,
