@@ -1433,3 +1433,19 @@ Violet→Bronze→Lacquer를 연속 보간한다. Mobile은 별도 cursor 없이
 850ms quiet entry, 280ms scroll settlement, 최소 1.8초 생성 간격, 동시 최대 3개, 5.2초 decay. 빈 공간의
 280ms/8px 이내 tap만 보조 반응하고 scroll/link/multitouch를 가로채지 않는다. Reduced motion에서는 번짐과
 근처 glyph 반응을 끄고 이름·링크·Index를 유지한다. 새 08 strength/cadence는 REVIEW READY이며 기기 QA와 구별한다.
+
+
+## 2026-09-08 Outro response tuning — REVIEW READY
+
+08 surface owner만 변경한다. 640px 미만 mobile composition은 fine pointer가 있어도 실제 두 점을 source로
+사용한다. 390px fine-pointer baseline에서 points가 움직여도 pointer source 때문에 자동 번짐이 0인 문제를
+재현했다. Touch emulation baseline에서는 생성됐으므로 실제 휴대폰 전체 원인 검증으로 확대하지 않는다.
+
+Root style mutation은 geometry 갱신, 실제 point 좌표 갱신은 scheduler wake만 담당한다. Quiet time은 visible
+surface의 passive native scroll listener가 실제 scrollY 이동에만 갱신한다. 스크롤하지 않는 동안 지속적인
+style 변경이 있어도 자동 번짐이 생성됨을 확인한다. 입력 종료/숨김/reduced/unmount에서 owner를 정리한다.
+
+Desktop pointer 추적과 stain 생성 clock을 분리한다. 580ms / 56px을 기준으로 한 호흡의 대표 위치 하나만
+채택하며 동시 최대 4개, 3.4초 wet/dry, .38초 arrival로 넓게 퍼질 시간을 준다. 72초 색 phase, fibre shape,
+Ivory 회복, glyph와 두 점 동작은 그대로다. Mobile의 최대 3개 / 5.2초 life / 1.8초 interval, blank tap과
+native scroll 우선권도 유지한다. 다른 HOME scene과 Canonical/Draft 시스템은 이번 범위에서 변경하지 않는다.

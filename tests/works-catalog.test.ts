@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { chronologicalWorks, filterWorks, readWorksFilter, workDate, worksCatalog } from '../src/works/catalog.ts'
-import { portalProgress, reflowTransform } from '../src/works/motion.ts'
+import { convergenceProgress, reflowTransform, worldTransform } from '../src/works/motion.ts'
 
 test('whole audited source projects three eligible albums and all three performances without HOME/private imports', () => {
   const manifest = JSON.parse(readFileSync(new URL('../src/works/source-manifest.json', import.meta.url), 'utf8'))
@@ -42,11 +42,17 @@ test('query filters are bounded, reversible, and chronological order does not in
   assert.equal(worksCatalog[0].image, 'yeongsan')
 })
 
-test('portal motion is geometry-based, bounded and exactly reversible', () => {
-  assert.equal(portalProgress(0, 40, 800), 0)
-  assert.equal(portalProgress(8000, 40, 800), 1)
-  assert.equal(portalProgress(296, 40, 800), .5)
-  assert.equal(portalProgress(424, 40, 1200), .5)
-  assert.equal(portalProgress(40, 40, 0), 0)
+test('convergence uses actual opening/destination geometry and lands the same image exactly', () => {
+  assert.equal(convergenceProgress(0, 400, 1200), 0)
+  assert.equal(convergenceProgress(8000, 400, 1200), 1)
+  assert.equal(convergenceProgress(800, 400, 1200), .5)
+  assert.equal(convergenceProgress(400, 400, 400), 0)
+  const opening = { left: 100, top: 600, width: 600, height: 530 }
+  const destination = { left: 180, top: 1500, width: 400, height: 353.33 }
+  assert.equal(worldTransform(opening, destination, 0), 'translate3d(-80px, -900px, 0) scale(1.5)')
+  assert.equal(worldTransform(opening, destination, .5), 'translate3d(-40px, -450px, 0) scale(1.25)')
+  assert.equal(worldTransform(opening, destination, 1), 'translate3d(0px, 0px, 0) scale(1)')
+  assert.equal(worldTransform(opening, destination, -3), worldTransform(opening, destination, 0))
+  assert.equal(worldTransform(opening, destination, 4), worldTransform(opening, destination, 1))
   assert.equal(reflowTransform({ left: 120, top: 600, width: 200, height: 300 }, { left: 20, top: 400, width: 400, height: 600 }), 'translate(100px, 200px) scale(0.5, 0.5)')
 })

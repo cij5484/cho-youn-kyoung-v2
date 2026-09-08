@@ -1,17 +1,32 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 05 — WORKS
 
-**Version:** 1.3\
-**Status:** First real KO WORKS implemented / REVIEW READY; baseline preserved\
+**Version:** 1.4\
+**Status:** Dual Worlds → Convergence → Archive rebuilt / REVIEW READY; previous visual direction rejected\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`  
 **Page Role:** Visual Archive + Functional Archive
 
-## 2026-09-08 실제 구현 — REVIEW READY
+## 2026-09-08 실제 구현 — Visual Rebuild / REVIEW READY
 
-`src/works/WorksPage.tsx` 하나를 Framework와 Pages Preview `/works/`에서 사용한다. Album/package와
-Performance/poster 비대칭 portal 두 개가 동일 DOM으로 이동·축소되며 12열 editorial archive로 이어진다.
-모바일은 큰 세로 portal/1열 archive. ALL/ALBUMS/PERFORMANCES는 query 기반 reflow와 Back/Forward를 보존하며,
-Chronological Index는 별도의 정확한 탐색층이다. Reduced motion은 정적 기록/필터를 유지한다.
+이전 큰 neutral frame/card 중심 결과는 사용자가 시각적으로 거절했다. 아래가 현재 실제 구조이며 과거
+RESULT는 해당 revision의 기록으로 보존한다. WORKS 상단 main title 위치는 변경하지 않는다.
+
+`src/works/WorksPage.tsx` 하나를 Framework와 Pages Preview `/works/`에서 사용한다.
+**DUAL WORLDS → CONVERGENCE → ARCHIVE** 세 구간을 분리한다. Opening은 grid의 큰 카드가 아니라
+독립 `.works-worlds` 구도다. Album은 native cover/package의 edge·light·얕은 depth, Performance는
+세로 poster plane과 09/22 date anchor로 서로 다른 성격을 갖는다. 큰 beige frame을 사용하지 않는다.
+
+대표 visual마다 실제 이미지 DOM은 하나뿐이다. `useWorksChoreography.ts`가 opening anchor와 archive slot의
+문서 좌표를 측정해 XY/scale을 이동시킨다. 필터·header clearance를 포함한 착지 frame에서 archive로 정리된다.
+같은 대상의 연속성을 유지하며 새 image clone fade-in이나 heavy transition framework를 사용하지 않는다.
+Native scroll을 역으로 움직이면 같은 geometry를 되짚는다. Archive는 native ratio, controlled presentation
+metadata와 간결한 title/date/affordance로 구성한다. 자세한 사실은 Chronological Index가 담당한다.
+
+Mobile은 Album → Performance 세로 world 후 짧은 convergence, 첫 두 slot의 제한적 paired accent,
+이후 큰 1열 archive다. Hover/drag 없이 모두 탐색 가능하다. Desktop hover는 album surface/light와
+performance plane/date 반응을 구분한다. ALL/ALBUMS/PERFORMANCES query/history reflow를 유지하며 필터 변경 시
+toolbar의 viewport 위치를 보존한다. Keyboard는 landing과 focus outline을 제공하고 reduced motion/no-JS는
+빈 opening scroll 공간 없이 정적 native archive와 필터/Index를 유지한다.
 
 독립 `catalog.ts`/`source-manifest.json`은 legacy main `3df8057`의 전체 음반 4건·공연 3건을 감사했다.
 P1D 비공개 충돌 1건을 제외한 **음반 3건 + 공연 3건**만 최소 사실로 포함한다. HOME selection을 전체 기록으로
