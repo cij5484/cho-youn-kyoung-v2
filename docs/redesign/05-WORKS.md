@@ -12,6 +12,9 @@
 구성과 상단 title 위치는 그대로다. `worksLayout: spatial-helix`는 검토·저장·승격 가능한 후보이며 자동 적용하지 않는다.
 개발 URL: `/works/?dev=1&works=spatial-helix`; 종료/`dev=0`는 current Canonical로 복귀한다.
 [공유 선택·승격 계약](review/EXPERIENCE-PROMOTION.md#works-extension--2026-09-08).
+이 선택은 HOME와 동일한 development Pages Preview/Interaction Lab에서 제공한다. 정식 Framework root
+빌드는 기존 `WorksPage`만 참조하며 Three 후보와 HOME 개발 도구를 포함하지 않는다. 향후 정식 사이트
+통합은 별도 승인 범위이며, Preview에서의 Draft/Canonical 선택과 구별한다.
 
 후보는 direct Three.js core의 Scene / PerspectiveCamera / 실제 얇은 입체 object / quaternion / Raycaster를
 사용한다. Album과 Performance를 두 strand에 배치하고 실제 Z·perspective·occlusion과 curve-local orientation으로

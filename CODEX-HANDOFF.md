@@ -489,6 +489,9 @@ The subsequent explicit mobile-pacing addition permits only authored viewing dis
 - **Shared choices:** existing registry/Draft/Promotion extended with one real promotable key; strict additive
   migration preserves older complete HOME drafts. Page-scoped controls preserve filters and other-page settings.
   Copying a candidate cannot promote it. Dynamic import keeps the Three scene out of ordinary HOME/current WORKS.
+  Development choices mount in the Pages Preview/Lab consumer only; Framework production WORKS keeps its
+  existing `WorksPage` owner. The unchanged artifact gate caught an initial shared-UI import into root;
+  restoring that route boundary excludes all HOME Lab dependencies from the production artifact.
 - **Mobile pacing:** original 235svh Hero/Haegeum/SOUND timeline plus a 55svh completed-SOUND hold;
   LISTEN/Revisit/Magnet share the hold midpoint. 04 section 250→340svh, shared 06/07 section 320→440svh.
   05 remains natural flow. The CSS opt-in is ≤639px with motion enabled; Desktop and reduced-motion retain
