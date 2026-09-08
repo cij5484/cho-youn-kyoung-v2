@@ -1,10 +1,27 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 09 — PERFORMANCE DETAIL
 
-**Version:** 1.1\
+**Version:** 1.2\
 **Status:** Approved PERFORMANCE DETAIL Baseline  
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`, `05-WORKS.md`, `08-PERFORMANCES.md`  
 **Page Role:** Performance Record + Editorial Storytelling
+
+## 2026-09-08 연구 반영 — 다음 구현 후보
+
+Common Semantic Structure + Visual Variant를 유지한다. 현재 상세 URL은 **neutral fixture**이며,
+실제 공연 record 공개와 아래 template 구현은 아직 별도 작업이다.
+
+- **목적 / 첫 화면:** 목록에서 선택한 실제 poster/photo와 title/date/venue를 이어받아 공연 기록을 읽는다.
+  poster의 인쇄 비율·글자를 보존하며 다른 사진으로 갑자기 교체하지 않는다.
+- **대표 기법:** program 순서의 번호·선이 다음 note/photo를 정렬하는 **editorial score**가 된다.
+  Joffrey Spitzer의 shared image와 Lesse의 명확한 정보 경로를 참고한다. HOME의 무대 개방은 반복하지 않는다.
+- **우선순위 / 모바일:** artist note→program→cast→실제 archive→related. 없는 내용은 블록을 생략한다.
+  모바일 caption/program은 사진 바깥의 DOM으로 읽고 poster는 tap viewer에서 확대한다.
+- **다음 단위:** 실제 승인 공연 1건의 poster-led common template와 목록→detail identity.
+  정확한 program/cast/note·이미지 권한·영상/자막이 입력이다. event별 React page나 CSS 분기를 만들지 않는다.
+
+자료 부족 시 대안·back 복원·정보 순서와 적용 원리는 [연구 §4.5](review/EXPERIENCE-PROTOTYPE-RESEARCH.md#45-performance-detail--공연의-프로그램이-편집된-기록이-됨)를 참조한다.
+기법 채택은 구현·시각 승인·가상의 공연 자료 제작을 허용하지 않는다.
 
 ---
 

@@ -36,12 +36,12 @@ recorded revision; current status lives in HANDOFF, delivery policy in Task Prot
 
 ## One bounded task, then STOP
 
-**PLAN → 4–6 TIGHTLY RELATED SUBTASKS → FULL VALIDATION → REPORT → STOP → USER APPROVAL.**
+**PLAN → RELATED SUBTASKS (PARALLEL WHEN INDEPENDENT) → TASK-APPROPRIATE CHECKS → REPORT → STOP → USER APPROVAL.**
 
 Latest user revision 2026-09-06: size a bounded task about 2× the previous enlarged bundle.
 Bundle 4–6 strongly related subtasks under one coherent objective, aiming for a reviewable, fully validated
-result in roughly 120–180 minutes. This is a sizing target, not a requirement to fill time or skip validation at
-a deadline. State the subtask sequence, files, inputs, validation and rollback before edits. One approval of
+result in roughly 120–180 minutes. This is a sizing target, not a requirement to fill time or skip applicable checks at
+a deadline. Visual R&D follows the lean checks below, not an automatic whole-site validation cycle. State the subtask sequence, files, inputs, validation and rollback before edits. One approval of
 that concrete bundle covers its authorized subtasks; do not pause for a new approval between its authorized subtasks.
 Do not combine unrelated pages/subsystems, or mix visual design, 3D and content migration to inflate a bundle.
 Architecture changes retain separate approval; major 3D subsystems remain smaller units. Unexpected complexity
@@ -51,7 +51,7 @@ Before edits identify one objective, limited file/behavior scope, required input
 Preserve user changes and existing planning/review evidence. Never execute several phases, multiple pages,
 the whole HOME, or multiple 3D owner subsystems as one automatic run. A green gate or recommendation does
 not authorize the next task. Use the user's requested report fields (otherwise Task Protocol's seven fields).
-Full validation means all checks appropriate to the bundle; the Fast/Full delivery gates below still apply.
+Validation is selected for the task: lean technical checks for visual R&D, and the unchanged Release Gate for an explicitly authorized release. Fast CI remains required for delivery.
 Stop after reporting and wait for explicit approval of the next bundle. Existing task-specific authorization remains valid;
 do not invent an additional approval loop for already-authorized work.
 
@@ -60,6 +60,28 @@ OPTIONAL and BLOCKING with their scope. The definitions and current matrix are i
 **Functional Complete != Quality Approved**, especially for HOME Hero, major motion, 3D, Album Detail
 and responsive composition. Follow visual, state, interaction, real-device and performance gates; never
 claim product quality approval from a successful build or neutral fixture.
+
+## Parallel-first and lean visual iteration
+
+For an authorized bundle, actively delegate independent modules/research to available agents. The main agent owns
+shared CSS/timeline/router/package/lockfile and common MD integration. Assign file ownership before edits; never
+have agents operate the same browser session or competing build outputs. Do not install orchestration tooling.
+
+Visual R&D checks types, changed-area lint, the actual Preview build, critical runtime errors, opt-in/reset cleanup,
+exact endpoints and input cancellation. Prefer small model tests and one necessary desktop/mobile sanity pass.
+Inspect command inclusion first; do not repeat already-passing checks, whole HOME/E2E, Full Release Gate, 64-frame
+baseline comparisons, screenshot/video collections or broad device matrices by habit. Technical success is not a
+judgment of elegance, crop, typography, motion feel or A/B preference: the user decides those in the live Preview.
+Fix errors introduced by the current change; report unrelated failures separately. Keep existing Fast CI and the
+manual Release Gate intact; never weaken tests, claim unperformed device QA or promote a prototype automatically.
+
+**Current protection:** HOME 04 stays exactly on the restored `d98aaa6` ribbon within latest main `150529b`.
+Do not touch its JSX/CSS/choreography, or reintroduce Depth Queue, clips, holds, afterimages or Scene Magnet indirectly.
+New 07 photo/profile and 03/06 alignment candidates are opt-in experiments; ordinary deployed Preview keeps its
+existing HOME. `?dev=1` is an explicit comparison switch, not authentication. Legacy `?compare`/`?all` remain aliases;
+`?dev=0`/exit removes experiments. Never put private originals, local source paths or secrets into comparison UI.
+Classic remains a separate operating repository/build. Edition Gate and any Classic path/deployment integration are
+FUTURE work after the complete V2, not part of this prototype or subpage research pass.
 
 ## Current implementation and cleanup
 

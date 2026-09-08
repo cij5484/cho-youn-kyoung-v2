@@ -1,10 +1,26 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 05 — WORKS
 
-**Version:** 1.1\
+**Version:** 1.2\
 **Status:** Approved WORKS Baseline  
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`  
 **Page Role:** Visual Archive + Functional Archive
+
+## 2026-09-08 연구 반영 — 다음 구현 후보
+
+기존 Dual Archive + Unified Timeline baseline을 유지한다. 현재 `/works/`는 **route fixture**이며
+아래 후보는 구현·공개 콘텐츠·시각 승인이 아니다. HOME 04의 복원된 Desktop/Mobile ribbon은 고정한다.
+
+- **목적 / 첫 화면:** album 1개와 performance 1개의 비대칭 입구로 작업의 두 성격을 보여주고,
+  전체 Index에는 즉시 접근하게 한다. 실제 공개 승인 record만 수량과 목록에 포함한다.
+- **대표 기법:** 입구의 두 대상이 자리의 연속성을 유지하며 archive의 기준 칸이 된다.
+  PHOTOYOSHI의 overview→focus, Joffrey Spitzer의 동일 대상 재배치를 참고한다. Depth Queue와 HOME 잔상은 적용하지 않는다.
+- **모바일:** 세로 dual intro, 큰 1열 작품과 필요한 보조 2열, 짧은 text filter. 탐색에 hover/drag를 요구하지 않는다.
+- **다음 단위:** WORKS 단일 페이지의 dual intro→archive, filter/back 복원과 명시된 detail fixture 1개 연결.
+  상세 이동은 향후 Framework route에서 Native shared-image를 우선 검토하며 범용 transition framework를 선행 제작하지 않는다.
+
+자산·원리·정보 우선순위와 범위는 [연구 §4.1](review/EXPERIENCE-PROTOTYPE-RESEARCH.md#41-works--두-작업-세계가-하나의-색인으로-펼쳐짐),
+라우터·실패 처리 기준은 [§5](review/EXPERIENCE-PROTOTYPE-RESEARCH.md#5-페이지-이동-연구--native-우선-현재-preview에-framework를-만들지-않음)를 따른다.
 
 ---
 

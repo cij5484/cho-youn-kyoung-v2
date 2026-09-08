@@ -1,10 +1,36 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 10 — ABOUT / MEDIA / CONTACT
 
-**Version:** 1.1  
+**Version:** 1.2\
 **Status:** Approved Baseline  
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`  
 **Page Roles:** Editorial Biography / Visual Media Archive / Official Contact Endpoint
+
+## 2026-09-08 연구 반영 — 정보 우선의 세 페이지
+
+현재 `/about/`, `/media/`, `/contact/`는 **route fixture**다. HOME의 프로필 링크나 새 opt-in 구성이
+이 페이지들의 구현 완료를 뜻하지 않는다. 세부 적용·자산·다음 단위는
+[연구 §4.6](review/EXPERIENCE-PROTOTYPE-RESEARCH.md#46-media--about--contact--기본-방향)을 참조한다.
+
+| 페이지 | 목적·대표 기법 | 모바일 / 다음 구현 단위 |
+|---|---|---|
+| ABOUT | 인물과 예술적 위치를 읽는다. 실제 portrait의 여백과 중요한 연도가 같은 축으로 이어지는 editorial biography. Lesse의 역할→근거→연락 원리를 적용하며 HOME 번짐을 반복하지 않는다. | 초상 다음에 읽는 문장·선택 이력·전체 CV. 정확한 사실/KO·EN 상태·portrait 원본 확인 후 ABOUT 1페이지 prototype. |
+| MEDIA | 영상·사진·press를 발견한다. 선택한 실제 poster가 같은 자리의 player 공간으로 펼쳐진다. PHOTOYOSHI의 overview→focus를 영상에 맞게 변형한다. | 세로 feed와 큰 inline player. 승인 영상 1개·poster/자막 상태로 시작; 명시적 Play 때만 player 로드. |
+| CONTACT | 공식 연락을 빠르게 마친다. 실제 email이 복사 완료 문구로 잠깐 재조판되는 작은 응답. | 긴 주소 줄바꿈·44px actions·focus/live status. 검증된 email의 Mailto/Copy와 실패 fallback 1단위. form/server는 추가하지 않는다. |
+
+**사용자 제공 최신 ABOUT 프로필 — 2026-09-08 사실 기준:**
+
+- 조윤경 / **Cho Youn Kyoung** · 해금 연주자
+- **현재:** 국립부산국악원 기악단 **단원**. 현직에 해금 수석/Principal/Chief를 쓰지 않는다.
+- 한양대학교 음악학박사(D.M.A.)
+- 국가무형유산 「종묘제례악」 이수자
+- 제27회 온나라국악경연대회 해금부문 금상
+- ABOUT 경력에 우리음악앙상블 새.생(new.生) 동인 포함
+- **과거 경력:** 前 국립부산국악원 기악단 수석 역임
+
+현재 역할→핵심 약력→biography→전체 CV의 위계를 만든다. HOME compact profile은 핵심만 사용하고
+ABOUT에서는 과거 직책과 동인 경력을 구분한다. 공식 EN은 별도 검토하며 사실 기반 문장을 임의 창작하지 않는다.
+연구 제안은 후속 시각 후보이고, 이전 승인 baseline·콘텐츠 보호 규칙은 유지한다.
 
 ---
 

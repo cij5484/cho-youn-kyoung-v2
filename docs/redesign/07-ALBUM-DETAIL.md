@@ -1,10 +1,28 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 07 — ALBUM DETAIL
 
-**Version:** 1.2\
+**Version:** 1.3\
 **Status:** Approved ALBUM DETAIL Baseline  
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`, `06-ALBUMS.md`  
 **Page Role:** Physical Album Experience + Editorial Listening Archive
+
+## 2026-09-08 연구 반영 — 다음 구현 후보
+
+Hybrid Object Narrative + Editorial Detail을 유지한다. 현재 상세 URL은 **neutral fixture**이며
+아래 내용은 완성된 player·reader·3D 또는 공개 음원 승인이 아니다.
+
+- **목적 / 첫 화면:** 닫힌 package와 title/type/year, 명확한 OPEN action. 읽기·트랙으로 가는 DOM
+  경로는 3D 로딩과 무관하게 제공한다.
+- **대표 기법:** 사용자가 남긴 실제 pose에서 물건을 열고 booklet/disc를 DOM reader/player로 이어간다.
+  shared geometry 원리를 package에 맞게 해석하며 새 route에 임의 기본 pose로 reset하지 않는다.
+- **자산 / 모바일:** 치수·tray/disc·booklet·공개 track source·credits가 필요하다. 모바일은 horizontal
+  object intent와 vertical page scroll을 분리하고 static cover+DOM 정보도 완결되게 한다.
+- **다음 단위:** 실제 album 1개의 DOM editorial detail와 source-availability 검토를 먼저 수행한다.
+  Blender capability, Tray Lab, geometry/material/interaction owner gate를 변경하거나 생략하지 않는다.
+  live 3D handoff는 해당 source가 증명된 후 별도 통합한다.
+
+정보·오디오 수명·이동·자료 요구의 세부 후보는 [연구 §4.4](review/EXPERIENCE-PROTOTYPE-RESEARCH.md#44-album-detail--물건을-열고-음악을-읽음)를 참조한다.
+이번 연구로 정식 상세 구현이나 package QUALITY APPROVED를 부여하지 않는다.
 
 ---
 

@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 03 — MOTION SYSTEM
 
-**Version:** 1.15\
-**Status:** Approved Motion Baseline / frozen upstream directions preserved; 2026-09-08 cinematic continuity and depth implemented in development HOME; validation, delivery and new visual approval are separate HANDOFF states\
+**Version:** 1.16\
+**Status:** Baseline preserved; opt-in Artist / Scene Magnet prototypes implemented, user selection pending (§50). Validation and delivery are separate HANDOFF states\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`  
 **Motion Direction:** Meaningful Motion / Physical Response
 
@@ -1095,7 +1095,7 @@ align from offset positions as their central boundary grows with the aperture. D
 The shared frame and its right boundary then become the suit entry and hanbok split; no second header/motion owner,
 independent section fade or photographic morph is introduced.
 
-| Shared sequence progress | Current composition |
+| Shared sequence progress | Default composition (opt-in comparison overrides in §50) |
 |---|---|
 | 0–.24 | Aperture opens; date geometry aligns |
 | .24–.39 | Poster/date threshold holds before copy begins leaving |
@@ -1146,3 +1146,36 @@ All current motion owners clean listeners/observers/frames on unmount. Meaningfu
 controls, readable reduced-motion hierarchy and the earlier one-shot SOUND focus alignment remain intact. Specific
 browser/device/thermal evidence belongs to the task result; implementation rules are not proof of device quality.
 No new animation/WebGL dependency, Blender work, production-domain change or next scene is implied.
+
+# 50. OPT-IN EXPERIENCE PROTOTYPES — USER SELECTION PENDING
+
+2026-09-08. The ordinary HOME remains §49; the comparison adapter alone owns the following changes.
+No shared timeline, HOME 04, album input, navigation or audio owner is replaced.
+[Research and implementation result](review/EXPERIENCE-PROTOTYPE-RESEARCH.md#7-home-비교-실험-결과) owns the comparison and delivery evidence.
+
+- **Threshold Frame / 완성 구도:** a canonical scroll position. SOUND reuses its existing geometry-based
+  `soundFocusTarget`; Performance uses .315 of the existing stage/artist travel.
+- **Viewing Window / 감상 구간:** distance over which a completed composition remains understandable;
+  not mandatory viewing time. SOUND already has its ready/release window; Performance retains .24–.39.
+  Neither core choreography is shortened or padded to manufacture a snap target.
+- **Scene Magnet / 약한 자동 정렬:** opt-in only for 03/06, within .16/.14 viewport height. It waits for
+  input and actual movement to quiet, ignores fast crossings, cancels on fresh input and consumes that visit
+  until the user leaves the neighborhood. Native wheel/touch remains passive; held touch, pinch, selection,
+  keyboard reading, menus, comparison-panel scroll and hidden pages never arm it. LISTEN, explicit scene jumps,
+  links and history restoration take priority. Reduced motion disables it. No 04/05/07 magnet.
+- **07 exact photo endpoints:** both straight and Hanji comparisons map shared progress .655–.825 to
+  0%→100% hanbok. .825–.955 holds the complete photograph and grouped DOM profile before the existing exit.
+  Pointer split deviation cannot alter these endpoints. Reverse evaluates the same immutable progress field.
+- **Hanji Wet Reveal:** connected capillary paths and anisotropic noise form an immutable 192×288 arrival
+  map. A small Canvas creates the alpha mask; CSS masks the existing photo without displacing faces or clothes.
+  Work occurs only on changed visible progress, never a continuous fluid simulation. The stage edge becomes the
+  wet front's origin; its old seam disappears during handoff. Straight CSS clipping is the graphics fallback;
+  reduced motion shows the complete hanbok/photo and profile statically. Disable cleans mask/attributes/portal,
+  observers, listeners and pending frames. No new graphics dependency.
+
+**Future route transition recommendation:** use the existing Framework router's native View Transition for
+one real list/detail pair when that page exists, with static navigation fallback. The development Preview's
+Declarative BrowserRouter does not gain this behavior by adding a Link flag. Keep image identity, decode failure,
+POP restoration, latest navigation and focus/reduced contracts explicit; DOM shared geometry is a conditional
+fallback and persistent graphics is limited to a future already-live 3D object. No unused transition framework
+was added. See [research §5](review/EXPERIENCE-PROTOTYPE-RESEARCH.md#5-페이지-이동-연구--native-우선-현재-preview에-framework를-만들지-않음).

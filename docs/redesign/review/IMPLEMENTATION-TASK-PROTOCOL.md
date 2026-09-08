@@ -1,11 +1,24 @@
 # Implementation Task Protocol — mandatory bounded work
 
-Revision 1.29 · 2026-09-08 · selective Works restoration within the authorized continuity preview bundle.
+Revision 1.30 · 2026-09-08 · opt-in experience prototypes / subpage research; lean visual validation.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
 
-**Current cinematic continuity bundle:** after delivering the prior HOME interaction pass through PR #9, the user
+**Current Experience Prototype / Subpage Research pass:** start from clean main/origin `150529b`, preserve 04 and
+all approved default HOME owners. Parallel tracks own opt-in 07 photo/profile, opt-in 03/06 Scene Magnet and one
+reference/subpage research report. Main owns the reused development comparison UI, query/lazy-load integration,
+common MD, minimal checks and PR/main/automatic Preview delivery. Research does not authorize full subpage code.
+New effects stay OFF at the ordinary deployed URL. No Edition Gate, Classic integration, domain/SEO changes or
+Full Release Gate. Report the real compare URL and user choices, then STOP. Rollback only this branch's opt-in diff.
+
+**Lean Visual Validation:** type/compile, changed-area lint, actual Preview build and focused critical runtime checks;
+small endpoint/cancellation models and the minimum desktop/mobile interaction sanity. Read command inclusion first.
+Do not repeat a passing check or automatically run the HOME/E2E suite, Full, 64 baseline frames, large viewport/browser
+matrices or screenshot/video packs. User visual selection owns feel/crop/typography/WOW. Build success is not approval.
+Keep Fast CI and the manual Release Gate unchanged; no hidden failures or fabricated native-device evidence.
+
+**Previous cinematic continuity bundle (delivered, historical):** after delivering the prior HOME interaction pass through PR #9, the user
 authorizes current-main audit → Works depth/afterimages → Album Light Memory → Performance date/Artist depth →
 two-point resolution, docs and targeted checks → PR/main merge/automatic Pages preview/public-URL smoke → STOP.
 User correction after PR #10: restore only 04 JSX/CSS/ribbon behavior to the pre-pass `d98aaa6` baseline; remove
@@ -37,13 +50,13 @@ no screenshot/video evidence, and final PR/CI/merge.
 Its absolute stop is 21:30 KST. This authorization covers only the current 4180 HOME composition and delivery;
 the general bounded-work rule below resumes after the sprint. Current state lives in [HANDOFF §26](../../../CODEX-HANDOFF.md#26-current-handoff-state).
 
-**PLAN → 4–6 TIGHTLY RELATED SUBTASKS → FULL VALIDATION → REPORT → STOP → USER APPROVAL**
+**PLAN → RELATED SUBTASKS (PARALLEL WHEN INDEPENDENT) → TASK-APPROPRIATE CHECKS → REPORT → STOP → USER APPROVAL**
 
 The latest user revision on 2026-09-06 enlarges the previous bundle about 2×. A coherent bundle contains 4–6
 strongly related subtasks, aiming for a fully verifiable result in roughly 120–180 minutes.
 Do not fill time artificially or drop checks to fit a deadline. Approval of the concrete bundle authorizes its stated subtasks;
 do not introduce intermediate approval pauses. Plan their sequence, file/behavior scope, inputs, acceptance checks,
-full validation and rollback before edits. FULL VALIDATION covers all applicable checks, including Fast/Full below.
+validation and rollback before edits. Visual R&D uses the lean checks above; an explicitly authorized release uses the separate Full Release Gate. Existing Fast CI remains mandatory for branch/PR and preview delivery.
 Do not mix unrelated subsystems, or combine visual design, 3D and content migration to increase volume.
 Existing small queue entries can be bundled only under these constraints. Cross-Phase automation, whole HOME,
 multiple unrelated pages, cross-owner 3D edits and skipping quality/freeze gates remain prohibited. Architecture
