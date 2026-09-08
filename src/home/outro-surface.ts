@@ -1,12 +1,13 @@
 import { useEffect, type RefObject } from 'react'
 import { createHanjiField } from '../experience-prototype/hanji-mask.ts'
-import { autonomousWetReady, blankTapIsWet, gentleGlyph, outroCanvasScale, outroGlyphTarget, restingGlyph,
-  wetColorAt, wetEnvelope, wetFieldTiming, type GlyphPose } from './outro-surface-model.ts'
+import { autonomousWetBlock, blankTapIsWet, desktopWetReady, desktopWetTiming, gentleGlyph, outroCanvasScale, outroGlyphTarget, outroInputSource, restingGlyph,
+  wetColorAt, wetEnvelope, wetFieldTiming, wetScrollActivity, type GlyphPose } from './outro-surface-model.ts'
 import './outro-surface.css'
 
 type Stain = { x: number; y: number; birth: number; radius: number; angle: number; strength: number; life: number; attack: number }
 type Letter = { element: HTMLElement; x: number; y: number; pose: GlyphPose }
 type PaperPoint = { x: number; y: number; clientX: number; clientY: number; speed: number; angle: number; strand: number }
+type BloomSample = { x: number; y: number; sampledAt: number; travel: number; speed: number; angle: number }
 
 /** The existing fibre shape stays unchanged. Dye is separate from this immutable alpha. */
 function paperStamp() {
@@ -34,7 +35,7 @@ export function useOutroSurface(ref: RefObject<HTMLElement | null>) {
   useEffect(() => {
     const root = ref.current
     if (!root) return
-    const fine = matchMedia('(hover:hover) and (pointer:fine)'), reduced = matchMedia('(prefers-reduced-motion: reduce)')
+    const fine = matchMedia('(hover:hover) and (pointer:fine)'), small = matchMedia('(max-width:639px)'), reduced = matchMedia('(prefers-reduced-motion: reduce)')
     const dialog = document.querySelector<HTMLDialogElement>('.navigation-menu'), pointOwner = root.closest<HTMLElement>('.home-closing')
     const canvas = document.createElement('canvas')
     canvas.className = 'outro-wet-surface'; canvas.setAttribute('aria-hidden', 'true'); root.prepend(canvas)
@@ -46,13 +47,17 @@ export function useOutroSurface(ref: RefObject<HTMLElement | null>) {
     const previousPoints = new Map<number, { x: number; y: number; time: number }>()
     const colorOrigin = performance.now()
     let frame = 0, last = 0, width = 0, height = 0, disposed = false, visible = false, modalOpen = Boolean(dialog?.open)
-    let pointer: { x: number; y: number } | null = null, emitted: { x: number; y: number; time: number } | null = null, stampIndex = 0
+    let pointer: { x: number; y: number } | null = null, emitted: { x: number; y: number } | null = null, stampIndex = 0
     let pointerClient: { x: number; y: number } | null = null, geometryDirty = true
-    let enteredAt = colorOrigin, lastScroll = colorOrigin, lastAutonomous = -Infinity, nextStrand = 0, autonomousCount = 0, tapCount = 0
+    let enteredAt = colorOrigin, lastAutonomous = -Infinity, nextStrand = 0, autonomousCount = 0, tapCount = 0, desktopCount = 0
+    let scrollActivity = { position: scrollY, at: colorOrigin }, scrollListening = false
+    let bloom: BloomSample | null = null, pointerSample: { x: number; y: number; time: number } | null = null, lastDesktopAt = -Infinity
     let tap: { id: number; x: number; y: number; started: number; distance: number } | null = null
     const interactive = (target: EventTarget | null) => target instanceof Element && !!target.closest('a,button,input,select,textarea,[role="button"],[contenteditable="true"]')
 
-    function sourceState() { root!.dataset.outroSource = reduced.matches ? 'static' : fine.matches ? 'pointer' : 'points' }
+    // The 390px authored composition stays autonomous even in a resized desktop/fine-pointer browser.
+    function pointerSource() { return outroInputSource(fine.matches, small.matches, reduced.matches) === 'pointer' }
+    function sourceState() { root!.dataset.outroSource = outroInputSource(fine.matches, small.matches, reduced.matches) }
     function setGlyph(letter: Letter) {
       const p = letter.pose
       letter.element.style.setProperty('--outro-glyph-x', `${p.x.toFixed(3)}px`)
@@ -106,8 +111,11 @@ export function useOutroSurface(ref: RefObject<HTMLElement | null>) {
       return points
     }
     function autonomous(points: PaperPoint[], now: number) {
-      if (!autonomousWetReady({ now, enteredAt, lastScroll, lastStain: lastAutonomous, regions: stains.length,
-        visible, reduced: reduced.matches, touching: contacts.size > 0 }) || !context) return
+      const blocked = autonomousWetBlock({ now, enteredAt, lastScroll: scrollActivity.at, lastStain: lastAutonomous, regions: stains.length,
+        visible, reduced: reduced.matches, touching: contacts.size > 0 })
+      root!.dataset.outroWetBlock = !context ? 'canvas' : blocked
+      if (blocked !== 'ready' || !context) return
+      if (!points.length) { root!.dataset.outroWetBlock = 'points'; return }
       const radius = Math.max(72, Math.min(125, width * .3))
       const candidates = points.filter(point => {
         const nearName = letters.some(letter => Math.hypot(point.x - letter.x, point.y - letter.y) < radius * 1.35)
@@ -115,11 +123,25 @@ export function useOutroSurface(ref: RefObject<HTMLElement | null>) {
         return (nearName || quietPaper) && !interactive(document.elementFromPoint(point.clientX, point.clientY))
       })
       const point = candidates.find(point => point.strand === nextStrand) ?? candidates[0]
-      if (!point || !prepareStamp()) return
+      if (!point) { root!.dataset.outroWetBlock = 'candidate'; return }
+      if (!prepareStamp()) { root!.dataset.outroWetBlock = 'canvas'; return }
       stains.push({ x: point.x, y: point.y, birth: now, radius: 47 + Math.min(1, point.speed / .18) * 15,
         angle: point.angle, strength: .135, life: wetFieldTiming.mobileLife, attack: wetFieldTiming.mobileAttack })
       nextStrand = 1 - point.strand; lastAutonomous = now; autonomousCount++
       root!.dataset.outroAutonomousStamps = String(autonomousCount)
+    }
+    function desktopBloom(now: number) {
+      if (!bloom) return
+      if (now - bloom.sampledAt > desktopWetTiming.pendingLife || stains.length >= desktopWetTiming.regionLimit) { bloom = null; return }
+      if (!desktopWetReady({ now, lastStain: lastDesktopAt, travel: bloom.travel, sampledAt: bloom.sampledAt, regions: stains.length })) return
+      if (prepareStamp()) {
+        stains.push({ x: bloom.x, y: bloom.y, birth: now, radius: 96 + bloom.speed * 30,
+          angle: bloom.angle + Math.sin(stampIndex * 1.71) * .6, strength: .12 + bloom.speed * .025,
+          life: desktopWetTiming.life, attack: desktopWetTiming.attack })
+        emitted = { x: bloom.x, y: bloom.y }; lastDesktopAt = now; stampIndex++; desktopCount++
+        root!.dataset.outroDesktopStamps = String(desktopCount)
+      }
+      bloom = null
     }
     function paint(now: number) {
       frame = 0
@@ -127,8 +149,9 @@ export function useOutroSurface(ref: RefObject<HTMLElement | null>) {
       const dt = Math.min(.04, (now - (last || now - 16)) / 1000); last = now
       if (pointerClient || geometryDirty) glyphGeometry()
       for (let i = stains.length - 1; i >= 0; i--) if (now - stains[i].birth >= stains[i].life * 1000) stains.splice(i, 1)
-      const points = fine.matches ? [] : mobilePoints(now)
-      if (!fine.matches) autonomous(points, now)
+      const desktop = pointerSource(), points = desktop ? [] : mobilePoints(now)
+      if (desktop) desktopBloom(now)
+      else autonomous(points, now)
       context?.clearRect(0, 0, width, height)
       if (stains.length) colorStamp(now)
       for (const stain of stains) {
@@ -142,10 +165,10 @@ export function useOutroSurface(ref: RefObject<HTMLElement | null>) {
       }
       let settling = false
       const radius = Math.max(90, Math.min(205, width * .17)), response = 1 - Math.exp(-dt * 12)
-      const mobileSettled = now - enteredAt >= wetFieldTiming.entryQuiet && now - lastScroll >= wetFieldTiming.scrollQuiet && !contacts.size
+      const mobileSettled = now - enteredAt >= wetFieldTiming.entryQuiet && now - scrollActivity.at >= wetFieldTiming.scrollQuiet && !contacts.size
       for (const letter of letters) {
         let target = pointer ? outroGlyphTarget(pointer.x - letter.x, pointer.y - letter.y, radius) : restingGlyph
-        if (!fine.matches && mobileSettled) {
+        if (!desktop && mobileSettled) {
           const nearest = points.reduce<PaperPoint | null>((best, point) => !best || Math.hypot(point.x - letter.x, point.y - letter.y) < Math.hypot(best.x - letter.x, best.y - letter.y) ? point : best, null)
           if (nearest) target = gentleGlyph(outroGlyphTarget(nearest.x - letter.x, nearest.y - letter.y, Math.min(115, radius)))
         }
@@ -158,11 +181,11 @@ export function useOutroSurface(ref: RefObject<HTMLElement | null>) {
       }
       root!.dataset.outroStains = String(stains.length)
       root!.dataset.outroSurface = context ? stains.length || settling ? 'active' : 'idle' : 'unavailable'
-      if (stains.length || settling) request()
+      if (stains.length || settling || bloom) request()
       else last = 0
     }
     function suspend() {
-      cancelAnimationFrame(frame); frame = 0; last = 0; pointer = null; pointerClient = null; emitted = null; stains.length = 0; tap = null; contacts.clear(); previousPoints.clear()
+      cancelAnimationFrame(frame); frame = 0; last = 0; pointer = null; pointerClient = null; emitted = null; bloom = null; pointerSample = null; stains.length = 0; tap = null; contacts.clear(); previousPoints.clear()
       context?.clearRect(0, 0, width, height)
       for (const letter of letters) { letter.pose = { ...restingGlyph }; setGlyph(letter) }
       root!.dataset.outroSurface = reduced.matches ? 'static' : context ? 'suspended' : 'unavailable'; root!.dataset.outroStains = '0'
@@ -178,30 +201,29 @@ export function useOutroSurface(ref: RefObject<HTMLElement | null>) {
         if (tap?.id === event.pointerId) tap.distance = Math.max(tap.distance, Math.hypot(event.clientX - tap.x, event.clientY - tap.y))
         return
       }
-      if (!fine.matches || reduced.matches || modalOpen || !visible) return
+      if (!pointerSource() || reduced.matches || modalOpen || !visible) return
       const box = root!.getBoundingClientRect(), now = performance.now()
       pointerClient = { x: event.clientX, y: event.clientY }; glyphGeometry(box)
       if (!pointer) return
-      const distance = emitted ? Math.hypot(pointer.x - emitted.x, pointer.y - emitted.y) : Infinity
-      if (distance > 9 || emitted && now - emitted.time > 65) {
-        const speed = emitted ? Math.min(1, distance / Math.max(1, now - emitted.time) / 1.4) : .25
-        const angle = emitted ? Math.atan2(pointer.y - emitted.y, pointer.x - emitted.x) : -.4
-        if (prepareStamp()) stains.push({ ...pointer, birth: now, radius: 68 + speed * 58,
-          angle: angle + Math.sin(stampIndex * 1.71) * .6, strength: .105 + speed * .04, life: 1.45, attack: 0 })
-        if (stains.length > 26) stains.shift()
-        stampIndex++; emitted = { ...pointer, time: now }
+      const travel = emitted ? Math.hypot(pointer.x - emitted.x, pointer.y - emitted.y) : Infinity
+      const speed = pointerSample ? Math.min(1, Math.hypot(pointer.x - pointerSample.x, pointer.y - pointerSample.y) / Math.max(1, now - pointerSample.time) / 1.4) : .25
+      const angle = pointerSample ? Math.atan2(pointer.y - pointerSample.y, pointer.x - pointerSample.x) : -.4
+      // Retain one representative farthest sample per breath, not one stamp per pointer event.
+      if (travel >= desktopWetTiming.travel && (!bloom || travel >= bloom.travel)) {
+        bloom = { ...pointer, sampledAt: now, travel, speed, angle }
       }
+      pointerSample = { ...pointer, time: now }
       request()
     }
     function touchDown(event: PointerEvent) {
-      if (event.pointerType !== 'touch' || fine.matches || reduced.matches || modalOpen || !visible) return
+      if (event.pointerType !== 'touch' || pointerSource() || reduced.matches || modalOpen || !visible) return
       contacts.add(event.pointerId)
       tap = contacts.size === 1 && !interactive(event.target) ? { id: event.pointerId, x: event.clientX, y: event.clientY, started: performance.now(), distance: 0 } : null
     }
     function touchUp(event: PointerEvent) {
       const now = performance.now(), candidate = tap, contactCount = contacts.size
       contacts.delete(event.pointerId); tap = null
-      if (!candidate || candidate.id !== event.pointerId || fine.matches || reduced.matches || modalOpen || !visible) return
+      if (!candidate || candidate.id !== event.pointerId || pointerSource() || reduced.matches || modalOpen || !visible) return
       const distance = Math.max(candidate.distance, Math.hypot(event.clientX - candidate.x, event.clientY - candidate.y))
       if (blankTapIsWet(now - candidate.started, distance, interactive(event.target), contactCount) && stains.length < wetFieldTiming.regionLimit && prepareStamp()) {
         const box = root!.getBoundingClientRect()
@@ -211,43 +233,60 @@ export function useOutroSurface(ref: RefObject<HTMLElement | null>) {
       }
     }
     function touchCancel(event: PointerEvent) { contacts.delete(event.pointerId); tap = null }
-    function leave() { pointer = null; pointerClient = null; emitted = null; request() }
-    function visibility() { if (document.hidden) suspend(); else { enteredAt = performance.now(); request() } }
-    function preferences() { suspend(); enteredAt = performance.now(); sourceState(); measure() }
+    function leave() { pointer = null; pointerClient = null; emitted = null; bloom = null; pointerSample = null; request() }
+    function nativeScroll() {
+      const next = wetScrollActivity(scrollActivity, scrollY, performance.now())
+      if (next === scrollActivity) return
+      scrollActivity = next; root!.dataset.outroScrollAt = next.at.toFixed(1); geometryDirty = true; request()
+    }
+    function syncScrollListener() {
+      const enabled = visible && !disposed && !document.hidden && !modalOpen && !reduced.matches
+      if (enabled === scrollListening) return
+      scrollListening = enabled
+      if (enabled) {
+        scrollActivity = wetScrollActivity(scrollActivity, scrollY, performance.now())
+        root!.dataset.outroScrollAt = scrollActivity.at.toFixed(1)
+        window.addEventListener('scroll', nativeScroll, { passive: true })
+      } else window.removeEventListener('scroll', nativeScroll)
+    }
+    function visibility() { if (document.hidden) suspend(); else { enteredAt = performance.now(); request() }; syncScrollListener() }
+    function preferences() { suspend(); enteredAt = performance.now(); sourceState(); syncScrollListener(); measure() }
     const observer = new IntersectionObserver(entries => {
       const next = entries.some(entry => entry.isIntersecting)
       if (next && !visible) enteredAt = performance.now()
       visible = next
+      syncScrollListener()
       if (visible) { measure(); request() } else suspend()
     })
     const size = new ResizeObserver(measure); size.observe(root); observer.observe(root)
     const modal = new MutationObserver(() => {
       modalOpen = Boolean(dialog?.open)
+      syncScrollListener()
       if (modalOpen) suspend(); else { enteredAt = performance.now(); request() }
     })
     if (dialog) modal.observe(dialog, { attributes: true, attributeFilter: ['open'] })
-    // Scene writes identify native scrolling; point writes supply real coordinates. Neither
-    // observer changes the source timeline or adds a global scroll/pointer owner.
-    const choreography = new MutationObserver(() => { lastScroll = performance.now(); geometryDirty = true; request() })
+    // Style changes invalidate geometry only. Actual native movement owns the quiet clock;
+    // inherited point writes independently wake the autonomous source scheduler.
+    const choreography = new MutationObserver(() => { geometryDirty = true; request() })
     choreography.observe(root, { attributes: true, attributeFilter: ['style'] })
-    const pointMotion = new MutationObserver(() => { if (!fine.matches) request() })
+    const pointMotion = new MutationObserver(() => { if (!pointerSource()) request() })
     if (pointOwner) pointMotion.observe(pointOwner, { attributes: true, attributeFilter: ['data-orbit0-x','data-orbit0-y','data-orbit1-x','data-orbit1-y'] })
     root.addEventListener('pointermove', move, { passive: true }); root.addEventListener('pointerleave', leave)
-    root.addEventListener('pointerdown', touchDown, { passive: true }); root.addEventListener('pointerup', touchUp, { passive: true }); root.addEventListener('pointercancel', touchCancel, { passive: true })
-    document.addEventListener('visibilitychange', visibility); reduced.addEventListener('change', preferences); fine.addEventListener('change', preferences)
+    root.addEventListener('pointerdown', touchDown, { passive: true }); root.addEventListener('pointerup', touchUp, { passive: true }); root.addEventListener('pointercancel', touchCancel, { passive: true }); root.addEventListener('lostpointercapture', touchCancel, { passive: true })
+    document.addEventListener('visibilitychange', visibility); reduced.addEventListener('change', preferences); fine.addEventListener('change', preferences); small.addEventListener('change', preferences)
     const box = root.getBoundingClientRect(); visible = box.bottom > 0 && box.top < innerHeight
-    root.dataset.outroAutonomousStamps = '0'; root.dataset.outroTapStamps = '0'; root.dataset.outroStains = '0'
-    root.dataset.outroSurface = reduced.matches ? 'static' : context ? 'idle' : 'unavailable'; sourceState(); measure()
+    root.dataset.outroAutonomousStamps = '0'; root.dataset.outroTapStamps = '0'; root.dataset.outroDesktopStamps = '0'; root.dataset.outroStains = '0'; root.dataset.outroScrollAt = scrollActivity.at.toFixed(1)
+    root.dataset.outroSurface = reduced.matches ? 'static' : context ? 'idle' : 'unavailable'; sourceState(); syncScrollListener(); measure()
     if (modalOpen) suspend()
     return () => {
-      disposed = true; suspend(); observer.disconnect(); size.disconnect(); modal.disconnect(); choreography.disconnect(); pointMotion.disconnect()
+      disposed = true; suspend(); syncScrollListener(); observer.disconnect(); size.disconnect(); modal.disconnect(); choreography.disconnect(); pointMotion.disconnect()
       root.removeEventListener('pointermove', move); root.removeEventListener('pointerleave', leave)
-      root.removeEventListener('pointerdown', touchDown); root.removeEventListener('pointerup', touchUp); root.removeEventListener('pointercancel', touchCancel)
-      document.removeEventListener('visibilitychange', visibility); reduced.removeEventListener('change', preferences); fine.removeEventListener('change', preferences)
+      root.removeEventListener('pointerdown', touchDown); root.removeEventListener('pointerup', touchUp); root.removeEventListener('pointercancel', touchCancel); root.removeEventListener('lostpointercapture', touchCancel)
+      document.removeEventListener('visibilitychange', visibility); reduced.removeEventListener('change', preferences); fine.removeEventListener('change', preferences); small.removeEventListener('change', preferences)
       for (const letter of letters) for (const property of ['--outro-glyph-x', '--outro-glyph-y', '--outro-glyph-turn', '--outro-glyph-stretch']) letter.element.style.removeProperty(property)
       for (const resource of [stamp, dyed, canvas]) if (resource) { resource.width = 0; resource.height = 0 }
       stamp = null; dyed = null; dye = null; canvas.remove(); context = null
-      for (const key of ['outroSurface','outroSource','outroStains','outroColor','outroAutonomousStamps','outroTapStamps']) delete root.dataset[key]
+      for (const key of ['outroSurface','outroSource','outroStains','outroColor','outroAutonomousStamps','outroTapStamps','outroDesktopStamps','outroScrollAt','outroWetBlock']) delete root.dataset[key]
     }
   }, [ref])
 }

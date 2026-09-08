@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** Canonical Hanji/Profile/Magnet promoted; 06 built overlay fixed; slow/mobile Outro and actual KO WORKS implemented / REVIEW READY. Protected 04 and Hanji no-zoom retained. Delivery receipt in §26.\
-**Revision:** 1.40 / 2026-09-08 — Canonical promotion, HOME fixes and actual WORKS\
+**Status:** 08 source/scroll ownership and slow bloom cadence refined; WORKS rebuilt as Dual Worlds → Convergence → Archive / REVIEW READY. Canonical experience and other HOME scenes preserved. Delivery receipt in §26.\
+**Revision:** 1.41 / 2026-09-08 — Outro response tuning and WORKS visual rebuild\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 **Latest delivery policy — 2026-09-08:** user stopped Linux WebKit SOUND investigation and authorized pipeline-only
@@ -472,7 +472,37 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 
 # 26. CURRENT HANDOFF STATE
 
-## Current Canonical Experience / HOME Fix / WORKS Pass — 2026-09-08
+## Current Outro Response / WORKS Visual Rebuild — 2026-09-08
+
+Baseline main/origin `760387ee7b1941dc3004783c7212f2625e4163c9`; branch `codex/outro-works-rebuild`.
+User rejected the previous WORKS visual architecture. Its historical delivery does not mean Quality Approved.
+Two explicitly authorized parallel owners: 08 surface and WORKS; shared integration/documentation by main owner.
+
+- **08 reproduced defect:** at 390px with a fine pointer the mobile composition selected `pointer`, so the
+  running scene-8 pair generated no autonomous stains. Touch emulation already generated stains at baseline;
+  this is not a claim to have reproduced every physical-phone failure. Mobile layout now selects `points`.
+- **Scroll ownership:** root style changes invalidate geometry and point coordinate writes wake the scheduler;
+  only an actual native scroll-position change updates quiet time. The passive listener exists only while
+  the surface is active/visible. Unrelated continuous style writes no longer delay autonomous generation.
+- **Desktop:** independent representative-sample emission, 580ms interval / 56px travel, maximum four live
+  blooms, 3.4s lifetime / .38s arrival. Pointer/glyph response remains continuous; 72s color/fibre/palette unchanged.
+  Mobile retains 850ms entry, 280ms real-scroll quiet, 1.8s interval, maximum three / 5.2s lifetime and blank tap.
+- **WORKS rebuilt / REVIEW READY:** independent album object and vertical performance worlds converge through
+  measured DOM geometry into archive slots. Each representative image exists once. Native ratios, simplified
+  captions and distinct album-material/performance-plane hover replace the neutral card frame. Mobile has
+  sequential worlds, a compact paired landing and then large one-column records. Filters/history, six verified
+  records, links, index, KO-only routing and reduced-motion static access remain intact. Main WORKS title unchanged.
+- **Lean evidence:** source-selection and quiet ownership checked at 390px both fine pointer and touch emulation;
+  actual autonomous generation despite unrelated style writes, blank tap, native vertical gesture, reduced/offscreen
+  cleanup and bounded desktop sweep. Focused WORKS route/convergence/filter/link/focus/mobile checks plus type,
+  changed-scope lint and actual Pages build. No Full Release Gate, broad browser matrix or physical-device claim.
+- **Protected:** other HOME scenes (especially 04), Canonical/Draft/Promotion, navigation and SOUND Canvas issue.
+  No new assets or framework dependencies. Visual quality remains for user review.
+
+Delivery outcome (PR, merged SHA, Fast CI, Pages and minimal public checks) is recorded on the PR and final report.
+**REPORT → STOP.** No further visual pass or page is authorized by delivery.
+
+## Previous Canonical Experience / HOME Fix / WORKS Pass — 2026-09-08
 
 Baseline `00229d3661aab028c44abb656face602328ea8f1`, clean main/origin; branch `codex/canonical-home-works`.
 User explicitly authorizes the three parallel owned tracks and Fast CI → PR → main → automatic Pages Preview.

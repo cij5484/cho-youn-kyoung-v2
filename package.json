@@ -46,7 +46,7 @@
     "test:home": "playwright test --config playwright.home.config.ts",
     "build:development-preview": "node scripts/build-development-preview.mjs",
     "experience:promote": "node scripts/experience-promote.mjs",
-    "test:experience": "node --test tests/comparison-settings.test.ts tests/experience-promotion.test.ts tests/outro-autonomous.test.ts",
+    "test:experience": "node --test tests/comparison-settings.test.ts tests/experience-promotion.test.ts tests/outro-autonomous.test.ts tests/outro-cadence.test.ts",
     "test:works": "node --test tests/works-catalog.test.ts tests/site-catalog.test.ts"
   },
   "dependencies": {

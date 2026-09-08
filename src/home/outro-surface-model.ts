@@ -7,7 +7,12 @@ export function wetEnvelope(age: number, duration = 1.45, attack = 0) {
 }
 
 export const wetFieldTiming = { colorCycle: 72, mobileLife: 5.2, mobileAttack: .42, entryQuiet: 850, scrollQuiet: 280, interval: 1800, regionLimit: 3 } as const
+export const desktopWetTiming = { interval: 580, travel: 56, regionLimit: 4, life: 3.4, attack: .38, pendingLife: 1100 } as const
 const wetTones = [[99, 52, 229], [173, 140, 84], [163, 61, 54]] as const
+
+export function outroInputSource(finePointer: boolean, mobileLayout: boolean, reduced: boolean) {
+  return reduced ? 'static' : finePointer && !mobileLayout ? 'pointer' : 'points'
+}
 
 /** A full slow Violet → Bronze → Lacquer cycle is independent of pointer/stain frequency. */
 export function wetColorAt(seconds: number): readonly [number, number, number] {
@@ -16,11 +21,30 @@ export function wetColorAt(seconds: number): readonly [number, number, number] {
   return wetTones[index].map((value, channel) => value + (wetTones[(index + 1) % wetTones.length][channel] - value) * mix) as [number, number, number]
 }
 
-export function autonomousWetReady(input: { now: number; enteredAt: number; lastScroll: number; lastStain: number; regions: number; visible: boolean; reduced: boolean; touching: boolean }) {
-  return input.visible && !input.reduced && !input.touching && input.regions < wetFieldTiming.regionLimit
-    && input.now - input.enteredAt >= wetFieldTiming.entryQuiet
-    && input.now - input.lastScroll >= wetFieldTiming.scrollQuiet
-    && input.now - input.lastStain >= wetFieldTiming.interval
+type AutonomousWetInput = { now: number; enteredAt: number; lastScroll: number; lastStain: number; regions: number; visible: boolean; reduced: boolean; touching: boolean }
+export function autonomousWetBlock(input: AutonomousWetInput) {
+  if (!input.visible) return 'hidden'
+  if (input.reduced) return 'reduced'
+  if (input.touching) return 'touch'
+  if (input.now - input.enteredAt < wetFieldTiming.entryQuiet) return 'entry'
+  if (input.now - input.lastScroll < wetFieldTiming.scrollQuiet) return 'scroll'
+  if (input.regions >= wetFieldTiming.regionLimit) return 'regions'
+  if (input.now - input.lastStain < wetFieldTiming.interval) return 'interval'
+  return 'ready'
+}
+export function autonomousWetReady(input: AutonomousWetInput) {
+  return autonomousWetBlock(input) === 'ready'
+}
+
+/** Only a changed native scroll position advances the quiet clock. Style writes are not input. */
+export function wetScrollActivity(previous: { position: number; at: number }, position: number, now: number) {
+  return Math.abs(position - previous.position) > .25 ? { position, at: now } : previous
+}
+
+/** Pointer samples can arrive at any frequency; one retained representative blooms on this clock. */
+export function desktopWetReady(input: { now: number; lastStain: number; travel: number; sampledAt: number; regions: number }) {
+  return input.now - input.lastStain >= desktopWetTiming.interval && input.travel >= desktopWetTiming.travel
+    && input.now - input.sampledAt <= desktopWetTiming.pendingLife && input.regions < desktopWetTiming.regionLimit
 }
 
 export function blankTapIsWet(duration: number, distance: number, interactive: boolean, contacts = 1) {
