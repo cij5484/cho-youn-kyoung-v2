@@ -1,6 +1,6 @@
 import {Component,Suspense,lazy,useState,type ReactNode} from 'react'
 import {useLocation,useNavigate} from 'react-router'
-import {soundFocusTarget} from '../sound/focus-frame.ts'
+import {jumpToScene} from '../home/scene-destinations.ts'
 import {comparisonSearch,resetComparison,type ComparisonSettings,type ComparisonPatch} from './comparison-settings.ts'
 import './development-launcher.css'
 const Panel=lazy(()=>import('./DevelopmentComparison.tsx').then(m=>({default:m.DevelopmentComparison})))
@@ -20,17 +20,9 @@ export function DevelopmentTools({host,settings,locale}:{host:HTMLElement|null;s
   function exit(){update(resetComparison(location.search,true));setOpen(false);document.getElementById('interaction-main')?.focus({preventScroll:true})}
   function launch(){if(!settings.enabled)reset();setOpen(true)}
   function jump(scene:'sound'|'performance'|'artist'){
-    window.dispatchEvent(new CustomEvent('home:explicit-scroll'))
-    let top:number
-    if(scene==='sound'){
-      const sound=host?.querySelector<HTMLElement>('.sound-experience');if(!sound)return
-      top=soundFocusTarget(sound).top
-    }else{
-      const root=host?.querySelector<HTMLElement>('.stage-artist-sequence'),sticky=root?.querySelector<HTMLElement>('.stage-artist-sticky');if(!root||!sticky)return
-      top=scrollY+root.getBoundingClientRect().top+(root.offsetHeight-sticky.offsetHeight)*(scene==='performance'?.315:.88)
-    }
+    if(!host)return
     setOpen(false);document.getElementById('interaction-main')?.focus({preventScroll:true})
-    scrollTo({top,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth'})
+    jumpToScene(scene,{host})
   }
   return <>
     {settings.available&&!open&&<button type="button" id="development-launcher" className="development-launcher" aria-expanded="false" aria-controls="development-comparison" onClick={launch}>개발 비교 +</button>}

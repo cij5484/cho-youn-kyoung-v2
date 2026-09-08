@@ -1,4 +1,5 @@
 import { featuredPerformance } from './content.ts'
+import { EditorialLink } from './EditorialLink.tsx'
 
 /** Event identity is stable; browsing another selected work cannot replace HOME's featured recital. */
 export function PerformanceScene() {
@@ -9,7 +10,7 @@ export function PerformanceScene() {
     <div className="performance-caption">
       <h2 id="performance-heading">풀고, <em>엮다</em></h2>
       <p>{performance.venue}<br/>2026. 09. 22 · {performance.time}</p>
-      <a className="editorial-link" href={`https://choyounkyoung.com/performance/${performance.slug}/`}>공연 보기 <span aria-hidden="true">↗</span></a>
+      <EditorialLink href={`https://choyounkyoung.com/performance/${performance.slug}/`}>공연 보기</EditorialLink>
     </div>
   </section>
 }

@@ -1043,18 +1043,17 @@ HANDOFF owns current approval, validation and delivery.
 | `album-motion.ts` / `album-light.ts` | Existing input/pose/inertia, selected-cover tone and slower light settlement; presentation adapter remains separate |
 | `stage-artist-motion.ts` / `stage-depth.css` | One reversible aperture→poster→suit→hanbok timeline, date geometry, threshold holds and subtle photo/mask/type depth |
 | `surface-response.ts` | Damped fine-pointer input for stage/portrait light and the small bounded split response; no face distortion |
-| `SceneAfterimages.tsx` / `continuity.css` | Brief album-light and Artist-seam transfers; the new Works-edge transfer is removed |
-| `closing-orbit.ts` | Shared spatial math and two authored Outro resolution endpoints; no independent scene loop |
+| `SceneAfterimages.tsx` / `continuity.css` | Brief album-light transfer; Works-edge and detached Artist-seam transfers are removed |
+| `closing-orbit.ts` | Shared spatial math and the ongoing Outro flight path; no independent scene loop |
 
 `motion.ts` retains ordinary closing-scene entry/exit geometry. The shared stage timeline owns actual stage/header
 contrast. It switches the authored foreground/background pair together; an interpolated middle-gray pair is not used.
 The menu dialog and approved Bold navigation motion retain their own contracts.
 
 **Scene Afterimage** means that a recognizable piece of outgoing material becomes the incoming scene's cue. Selected
-album RGB/direction supplies a short clipped stage light; the actual Artist seam supplies a short edge toward Outro's
-name. The added last-work plane edge is removed by the 04 selective revert. Retained layers never intercept
+album RGB/direction supplies a short clipped stage light. Detached Artist-seam and last-work plane transfers are removed. Retained layers never intercept
 input or own layout. They use event-driven geometry/state updates, not a perpetual loop, broad blur or repeated ghosts.
-SOUND's existing rightward strand contraction and the existing 06→07 shared seam remain the larger continuity anchors.
+SOUND's existing rightward strand contraction and the existing 06→07 shared seam remain the larger continuity anchors. The detached 07→08 line is removed.
 
 ## 49.2 Works ribbon — baseline restored
 
@@ -1132,9 +1131,10 @@ remains bounded to 360 samples (mobile 180), with capped DPR 1.75 (mobile 1.25).
 rendering. Front/back image and glyph occlusion stays separate from semantic content; mobile Works avoids image
 occlusion that would hide the pair behind its large foreground image.
 
-Outro gathers over .66–.83 toward two authored endpoints, briefly holds, then withdraws over .94–1 as the remaining
-trail fades. It finishes at page end and resumes from the same model on reverse scroll. Decorative trails/afterimages
-are hidden in reduced motion; the normal static content/identity remains complete.
+Outro keeps the inherited pair moving through a bounded, non-short-repeating path while 08 is visible. There is no
+end gather, withdrawal or terminal finished state. Phase is inherited, not spawned at the scene boundary; glyph
+occlusion keeps the pair subordinate to the name. Offscreen/hidden/menu suspend it; reduced motion hides decorative
+motion while all semantic content remains. See §51 for the interactive surface and explicit scene revisit contract.
 
 ## 49.6 Scope and future route boundary
 
@@ -1179,3 +1179,29 @@ Declarative BrowserRouter does not gain this behavior by adding a Link flag. Kee
 POP restoration, latest navigation and focus/reduced contracts explicit; DOM shared geometry is a conditional
 fallback and persistent graphics is limited to a future already-live 3D object. No unused transition framework
 was added. See [research §5](review/EXPERIENCE-PROTOTYPE-RESEARCH.md#5-페이지-이동-연구--native-우선-현재-preview에-framework를-만들지-않음).
+
+**2026-09-08 Hanji follow-up:** after full reveal, hold photographic scale/crop through the existing viewing window
+and native sticky departure. The Hanji-only adapter disables the later frame rescale/retreat and freezes photo depth
+at its completion value; pointer depth settles to zero during reveal. No second camera emphasis. Straight/default
+HOME and 04 remain unchanged. This follow-up is included in the authorized Outro Preview delivery; it does not select a new default.
+
+# 51. OUTRO INTERACTION / HOVER PASS — REVIEW READY
+
+2026-09-08. **08 persistent two-point life** replaces the final gather/withdraw model without changing 04 ribbon,
+03/05/06/07 choreography. The existing two-depth trail owner retains phase/history; only the 08 branch changes.
+The preceding Hanji post-reveal scale/crop freeze is preserved. No detached 07→08 line.
+
+- **Chromatic Wet Field:** local pointer trail, irregular fiber edge, small spread and time-based decay to Ivory.
+  Lightweight capped Canvas, no live fluid solver/WebGL dependency. Failure leaves semantic names/links/pair intact.
+- **Local name response:** nearby glyphs only, bounded translation/tilt and graceful settlement without layout shift.
+  Surface and name share one Outro input/frame owner. Link entries use their local events, not duplicate global RAFs.
+- **Entry-Origin Tension Wave:** glyph delay/strength follows distance from entry; arrow joins the same tension path.
+  Leave settles promptly; keyboard focus uses a stable origin. Touch navigates on the first tap. Reduced motion keeps
+  static type and visible focus. Permanent CTA underline removed while the full hit area remains.
+- **Scene Revisit Index:** real scene geometry/canonical frame; native smooth scroll is owned by one cancellable jump.
+  Explicit `home:explicit-scroll` takes priority over Scene Magnet. SOUND jump never invokes LISTEN/audio play.
+  Wheel/touch/key stops the jump; browser back/anchor semantics remain available. Desktop fixed asset cue, mobile
+  disclosure. No new route transition or navigation design.
+
+Current implementation/limitations and source principles: [Outro result](review/HOME-OUTRO-INTERACTION.md).
+This records implementation, not visual QUALITY APPROVED. Fast/Preview delivery is separate from manual Release Gate.

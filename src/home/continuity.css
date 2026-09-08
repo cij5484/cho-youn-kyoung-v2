@@ -1,7 +1,6 @@
 /* Outgoing material survives only the short handoff. These layers never own input or layout. */
 .scene-afterimages { position:relative; z-index:7; pointer-events:none; }
-.album-stage-afterimage,.artist-edge-memory { position:fixed; opacity:0; pointer-events:none; }
+.album-stage-afterimage { position:fixed; opacity:0; pointer-events:none; }
 .album-stage-afterimage { left:0; right:0; height:65svh; background:linear-gradient(calc(112deg + var(--memory-y,0) * 10deg),transparent 28%,rgb(var(--memory-rgb,163 148 125) / .6) 52%,transparent 75%); clip-path:polygon(0 0,calc(100% - var(--transfer,0) * 50%) 0,calc(70% - var(--transfer,0) * 50%) 100%,0 100%); transform:translateX(calc(var(--memory-x,0) * 3vw + var(--transfer,0) * 9vw)); }
-.artist-edge-memory { width:1px; transform-origin:top; background:linear-gradient(transparent,#a38b65 18%,#6334e55e 82%,transparent); }
 @media(max-width:639px) { .album-stage-afterimage { height:48svh; } }
 @media(prefers-reduced-motion:reduce) { .scene-afterimages { display:none; } }

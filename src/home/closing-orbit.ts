@@ -12,10 +12,11 @@ export function ellipse(box: OrbitBox, phase: number, radiusX = .6, radiusY = .5
 export function blendPoint(a: OrbitPoint, b: OrbitPoint, p: number): OrbitPoint {
   return { x: mix(a.x,b.x,p), y: mix(a.y,b.y,p), z: mix(a.z,b.z,p) }
 }
-export function outroOrbit(box: OrbitBox, phase: number, progress: number, strand=0): OrbitPoint {
-  const loop=ellipse(box,phase,.43,.42), gather=smooth((progress-.66)/.17), escape=smooth((progress-.94)/.06)
-  // Two authored endpoints hold briefly; their remaining tails resolve before the final withdrawal.
-  return {x:mix(loop.x,box.left+box.width*(.75+strand*.06),gather)+escape*box.width*.04,
-    y:mix(loop.y,box.top+box.height*(.72-strand*.035),gather)-escape*box.height*.06,
-    z:mix(Math.sin(phase*2),0,gather)}
+export function outroOrbit(box: OrbitBox, phase: number, _progress: number, strand=0): OrbitPoint {
+  // Incommensurate drifts keep the inherited pair alive even at the page's final scroll position.
+  // They are independent of the pointer, with no final destination or short looping ellipse.
+  const drift=phase+strand*.63
+  return {x:box.left+box.width*(.5+Math.cos(drift*.913)*.31+Math.sin(drift*1.617+.8)*.075),
+    y:box.top+box.height*(.5+Math.sin(drift*.687)*.34+Math.cos(drift*1.313+.3)*.075),
+    z:Math.sin(drift*1.123)*.72+Math.cos(drift*.479)*.28}
 }

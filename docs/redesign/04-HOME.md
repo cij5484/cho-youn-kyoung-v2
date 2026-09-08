@@ -991,9 +991,10 @@ QA. Preserve the distinct frontal/profile poses and source files; no invented do
 
 # 17. TRANSITION 07 → 08
 
-The Artist scene resolves into closure without introducing new information. Its actual seam leaves a short narrowing
-edge toward the outgoing name geometry as the portrait retreats slightly. The same headless Violet/Lacquer pair
-returns for the closing typography; neither a second motif engine nor a long portrait ghost is introduced.
+The Artist scene reaches the closing surface through the existing native sequence. No detached seam/line follows
+the portrait into 08. The same headless Violet/Lacquer pair continues from its retained position and phase;
+neither a second motif engine nor a portrait ghost is introduced. Hanji's completed photograph keeps its scale/crop
+through its short viewing window, without a second camera emphasis.
 
 ---
 
@@ -1001,7 +1002,7 @@ returns for the closing typography; neither a second motif engine nor a long por
 
 ## Purpose
 
-Close the HOME narrative and provide one clear continuation path.
+Close the HOME narrative with a living interactive surface, one primary continuation CTA and a secondary internal scene revisit index.
 
 ## Composition
 
@@ -1017,25 +1018,30 @@ Approved:
 
 The final artist name may complete slowly as the user reaches the bottom.
 
-Do not use aggressive pointer-driven typography here.
+Only nearby glyphs respond subtly to pointer tension; do not move, tilt or distort the whole name.
 
 This scene should breathe.
 
-## Line Resolution
+## Persistent two-point life / Interactive Closing Surface
 
-The pair threads through the oversized name with front/back depth and glyph occlusion. It gathers toward two authored
-endpoints, holds while its tails settle, then withdraws a short distance and disappears at the page end. Reverse scroll
-reopens the same progress model. This replaces the former long diagonal escape while retaining the closing name.
+2026-09-08 사용자 요청: **08에서도 두 점은 끝나지 않는다.** 07의 현재 위치와 phase를 이어받아
+자유롭게 움직인다. 마지막 gather/withdrawal/spawn을 제거하고 Violet/Lacquer의 headless trail과
+글자 앞뒤 관계를 유지한다. Cursor follower가 아니며 offscreen/hidden/menu에서 멈추고 reduced-motion은
+정적으로 단순화한다. 과거 endpoint로 모여 사라지는 기록은 현재 계약이 아니다.
 
-Narrative:
+**Interactive Closing Surface:** Ivory 종이 아래의 transient Violet/Lacquer/Bronze가 pointer 주변에서만
+불규칙한 섬유 경계와 짧은 흔적으로 나타나고 다시 마른다. 전체 화면 tint/무작위 rainbow/원형 spotlight가
+아니다. 사진이나 글자 자체를 흘리는 fluid도 아니다. 큰 이름은 가까운 glyph만 미세하게 반응하고
+정보/CTA/Scene Index는 변형하지 않는다. Surface와 큰 이름은 같은 Outro input owner를 사용한다.
 
-`haegeum strings → sound lines → work/object/edge guidance → two endpoints → quiet name`
+**Scene Revisit Index:** 01 처음 / 02 해금 / 03 소리 / 04 작품 / 05 음반 / 06 공연 / 07 연주자.
+Desktop typography list와 고정 preview zone, 모바일 `장면 다시 보기` disclosure. 한 번의 클릭/tap으로
+기존 canonical frame으로 돌아간다. SOUND는 자동재생하지 않고, 명시 이동이 Scene Magnet보다 우선한다.
+새 입력이 오면 smooth jump를 취소한다. Global MENU와 구분하고 04 ribbon 동작은 바꾸지 않는다.
 
-The current Outro resolves CHO / YOUN / KYOUNG as three oversized lines, paired editorial rules and one primary
-`모든 작품 보기` link. Sou.P uses an explicit two-tap/keyboard reveal; its short personal sentence is prototype copy.
-HOME text/assets remain review candidates in the development composition; this does not publish new archive records
-or turn Korean source titles into reviewed English translations. Provenance and lifecycle live in `src/home/content.ts`
-and `src/home/assets/manifest.json`; final content approval and public route integration remain separate.
+기존 큰 이름·한 개의 주 CTA·Sou.P 명시적 reveal·저작권을 유지한다. 새 동작은 IMPLEMENTED /
+REVIEW READY이며 사용자 시각 승인과 별개다. [이번 결과](review/HOME-OUTRO-INTERACTION.md)가
+실제 파일·검증·참고 원리·전달 상태를 기록한다. 새 콘텐츠/자산/정식 페이지 등록은 없다.
 
 ## Sou.P Credit
 
@@ -1064,7 +1070,7 @@ Other links remain secondary.
 
 ## Mobile
 
-Keep the Easter Egg discoverable without turning it into a large feature.
+Keep the Easter Egg discoverable without turning it into a large feature. Scene revisit uses a compact vertical disclosure with 44px targets and one-tap navigation; hover imagery is supplementary.
 
 ## Reduced Motion
 
@@ -1245,7 +1251,7 @@ review; compare Refined/Bold when useful. Adopt reference interaction principles
 translated through the V2 identity; do not copy exact layouts, compositions, timing values, assets, branding or code.
 MASTER §6 and Motion §§1/3/37/38 own the policy. This update is documentation only during P2B and authorizes no HOME implementation.
 
-The pair is structural, not decoration: Hero composition → Haegeum guides → Sound response → Selected Works axis → Outro resolution. A strand can change emphasis without losing the two-string/bow identity. Do not force it to animate or appear prominently in every scene; Performance and About retain their quiet roles.
+The pair is structural, not decoration: Hero composition → Haegeum guides → Sound response → Selected Works axis → Outro persistent life. A strand can change emphasis without losing the two-string/bow identity. Do not force it to animate or appear prominently in every scene; Performance and About retain their quiet roles.
 
 Haegeum is a bowed-string instrument. Preserve micro vibration, vibration density, tension, damping, sustained friction and subtle resonance; lines remain mostly straight. No large waveform, equalizer bounce, sine-wave animation or exaggerated vertical oscillation. Scroll-only visual changes are not evidence of playing audio.
 
@@ -1337,8 +1343,8 @@ cinematic refinements below. Historical pass results describe their recorded rev
 ### Continuity principles and actual signatures
 
 - **Scene Afterimage:** a brief piece of the outgoing material becomes the next scene's input. `SceneAfterimages.tsx`
-  carries the selected album's RGB/light direction into the stage and the actual portrait seam toward Outro typography.
-  These are clipped edge/light transfers, not long blurred ghosts. The new Works plane transfer is removed.
+  carries the selected album's RGB/light direction into the stage. The detached Artist→Outro edge and the new
+  Works plane transfer are removed. The retained light is short and clipped, not a blurred ghost.
 - **Z-depth Transition:** retained album objects exchange in depth; Works retains its pre-pass ribbon transforms.
   CSS perspective/transforms provide the spatial relation without a new WebGL renderer. Shared geometry is
   preferred over a reset; opacity only bounds an edge/light lifetime rather than serving as the complete transition.
@@ -1346,7 +1352,7 @@ cinematic refinements below. Historical pass results describe their recorded rev
   distance or natural motion settlement, never timed scroll locks. Fast input may pass through; reverse remains native.
 - **Persistent Two-Point Narrative:** the same headless Violet/Lacquer trail owner changes its role and may disappear.
   Works exposes free/work-relative guidance; Album follows the object, not the cursor; 06/07 show short tension cues;
-  complete stage/portrait frames are quiet; Outro settles at two endpoints before withdrawing.
+  complete stage/portrait frames are quiet; Outro keeps the pair alive without final gathering or withdrawal.
 
 | Scene | Current threshold and continuation |
 |---|---|
@@ -1355,7 +1361,7 @@ cinematic refinements below. Historical pass results describe their recorded rev
 | Album | Existing three-quarter/front/back pose and bounded release settle; light follows more slowly, then its rAF stops. No new forced orientation snap |
 | Performance | Aperture opens over shared progress 0–.24; date/poster hold before the .43–.64 seam handoff |
 | Artist | Hanbok split reaches 47.6% at .82 and holds to .91, then continues to 68%; the final .955–1 interval gently withdraws the frame |
-| Outro | Gathering over progress .66–.83, authored endpoint hold, brief final .94–1 withdrawal; existing trail opacity falls over .91–1 |
+| Outro | Inherited phase/position and ongoing bounded flight through the visible paper area; no finite endpoint or withdrawal |
 
 ### Type, color and input boundaries
 

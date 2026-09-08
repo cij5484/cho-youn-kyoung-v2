@@ -309,3 +309,12 @@ Retina 한계와 공식 공연 poster(실제 공연 사진 아님)를 유지한�
 
 **전달 / STOP:** 한 논리적 PR로 main merge 후 기존 자동 Preview 배포. 새 시각안을 기본 승인으로
 기록하지 않는다. 사용자의 사진 후보·프로필·자석 선택 후 다음 단위를 별도 승인받는다.
+
+### 07 Hanji follow-up — 2026-09-08 / local Preview
+
+사용자 수정: 한복100% 이후 사진 scale/crop을 고정하고 기존 짧은 감상 구간 뒤 자연스럽게 퇴장한다.
+한지 전용 CSS에서 기존 .955 이후 frame scale/translate와 .91 이후 portrait-depth 재진행을 제거했다.
+포인터 depth는 reveal 완료까지 연속적으로 0으로 settle한다. 사진 크기/원래 object-position과
+프로필/Threshold Moment는 유지하며 새 강조 연출은 추가하지 않는다. 04·공용 HOME·직선 후보는 불변.
+변경 CSS의 desktop/mobile 완료→감상→퇴장/역방향 및 reduced 동작만 최소 확인한다.
+Full/build/전체 suite·PR/공개 배포는 이 후속 작업에 포함하지 않는다. 로컬 Preview에서 사용자 확인 후 STOP.

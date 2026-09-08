@@ -294,7 +294,7 @@ border-width: 1px;
 
 Special fine lines can be visually around `0.5–1px`.
 
-HOME V2.1의 두 extremely thin lines는 decoration이 아니라 structural motif다: Hero → Haegeum guide → Sound → Selected Works axis → Outro resolve. 한 strand가 axis를 맡을 수 있지만 pair의 정체성은 유지한다. 대부분 straight하며 tension/micro vibration/density/damping/sustained friction/subtle resonance를 표현한다. Generic curve/resonance-circle 허용은 이 pair를 큰 waveform/equalizer/sine-wave로 바꾸는 허가가 아니다. 03 §45와 04 §26을 따른다.
+HOME V2.1의 두 extremely thin lines는 decoration이 아니라 structural motif다: Hero → Haegeum guide → Sound → Selected Works axis → Outro persistent life. 한 strand가 axis를 맡을 수 있지만 pair의 정체성은 유지한다. 대부분 straight하며 tension/micro vibration/density/damping/sustained friction/subtle resonance를 표현한다. Generic curve/resonance-circle 허용은 이 pair를 큰 waveform/equalizer/sine-wave로 바꾸는 허가가 아니다. 03 §45와 04 §26을 따른다.
 
 ---
 
@@ -305,7 +305,13 @@ Avoid filled SaaS-style buttons by default.
 Preferred:
 `VIEW WORK →`
 
-or text + underline expansion.
+HOME standalone EditorialLink uses **Entry-Origin Tension Wave**: pointer entry location determines which
+letters respond first and how strongly; the arrow joins that same wave. No distant permanent underline. Preserve
+44px+ hit area, visible keyboard focus, quick leave settlement and one-tap navigation. Inline prose links and frozen
+Bold Navigation are outside this change. New hover quality is a major HOME criterion, not a reason to hide link affordance.
+
+**08 material:** transient Violet / Lacquer / warm Bronze may appear locally in the Ivory paper surface and then dry.
+This Chromatic Wet Field does not add permanent palette tokens, tint the whole viewport or distort readable content.
 
 No pill UI by default.
 

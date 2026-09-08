@@ -31,7 +31,7 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
     const tune = worksRibbonTuning, sampler = createTrailSampler(2048)
     const histories: TrailSample[][] = [[], []]
     const tilts = cards.map(() => ({ x: 0, y: 0 }))
-    let endMotion = 0
+    const artistOutgoing: Array<TrailSample | undefined> = [undefined, undefined]
     let frame = 0, last = 0, phase = 0, width = 0, height = 0, visible = false, disposed = false, position = 0, target = 0, active = -1
     let pointer: { x: number; y: number } | null = null, focus = -1, orbit = 0, cx = 0, cy = 0, rx = 0, ry = 0
     function request() { if (!frame && !disposed && !document.hidden) frame = requestAnimationFrame(paint) }
@@ -54,11 +54,8 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
       weights[1]=smooth((height*.85-sequenceBox.top)/(height*.7))
       weights[2]=smooth((sequenceP-.53)/.14)*weights[1]
       const ending = clamp((height*.7-laterBoxes[3].top)/Math.max(1,laterBoxes[3].height-height*.3))
-      endMotion += (ending-endMotion)*(1-Math.exp(-dt*7))
-      if(Math.abs(ending-endMotion)<.0005)endMotion=ending
       owner.dataset.orbitScene = String(4 + weights.filter(weight => weight > .5).length)
       owner.dataset.orbitEnding = ending.toFixed(3)
-      if (endMotion === 1) { contexts.forEach(ctx=>ctx?.clearRect(0,0,width,height)); histories.forEach(h=>{h.length=0}); owner.dataset.orbitState='finished'; last=0; return }
       owner.dataset.orbitState='running'
       target = clamp(-section.top / Math.max(1, section.height - sticky.offsetHeight)) * (cards.length - 1)
       position += (target - position) * (1 - Math.exp(-tune.response * dt))
@@ -129,11 +126,17 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
       const artistCue=smooth((sequenceP-.69)/.045)*(1-smooth((sequenceP-.81)/.05))
       const albumMoving=album.dataset.moving==='true'||album.dataset.dragging==='true'
       const albumPresence=(1-weights[0])+weights[0]*(albumMoving?.8:.28)
-      const motifPresence=(1-stagePresence)*albumPresence+stagePresence*Math.max(stageCue,artistCue)*.65
+      const stageMotifPresence=(1-stagePresence)*albumPresence+stagePresence*Math.max(stageCue,artistCue)*.65
+      const motifPresence=stageMotifPresence+(.78-stageMotifPresence)*weights[3]
       owner.dataset.motifPresence=motifPresence.toFixed(4)
-      const alpha = motifPresence * smooth((handoff - .45) / .15) * (1-smooth((endMotion-.91)/.09))
+      const alpha = motifPresence * smooth((handoff - .45) / .15)
       const albumBox = album.getBoundingClientRect(), posterBox = poster.getBoundingClientRect()
       const photoBox = portrait.getBoundingClientRect(), outroBox = outro.getBoundingClientRect()
+      // The revisit index can make 08 taller than its name. Keep the living pair in the visible
+      // paper area at the very bottom, rather than orbiting a heading that has scrolled away.
+      const paperBox=outro.closest<HTMLElement>('.home-outro')!.getBoundingClientRect()
+      const paperTop=Math.max(30,paperBox.top+40),paperBottom=Math.min(height-26,paperBox.bottom-20)
+      const outroFlightBox={left:Math.max(20,outroBox.left),top:paperTop,width:Math.min(width-40,outroBox.width),height:Math.max(60,paperBottom-paperTop)}
       const objectBox=incoming??albumBox, seamBox=seam.getBoundingClientRect()
       for (let i = 0; i < 2; i++) {
         const angle = phase + i * Math.PI, z = Math.sin(angle)
@@ -149,13 +152,15 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
         const edgeX=frameBox.left+frameBox.width*(.5+(i?1:-1)*opening*.5)
         point=blendPoint(point,{x:edgeX+Math.sin(phase*1.7)*3,y:frameBox.top+frameBox.height*(i?.78:.22),z:i?1:-1},weights[1])
         point=blendPoint(point,{x:seamBox.left+Math.sin(phase*1.7)*3,y:seamBox.top+seamBox.height*(i?.8:.2),z:i?1:-1},weights[2])
-        point=blendPoint(point,outroOrbit(outroBox,angle,endMotion,i),weights[3])
+        point=blendPoint(point,outroOrbit(outroFlightBox,angle,ending,i),weights[3])
         const history = histories[i]
-        const previous=history.at(-1), settle=1-Math.exp(-dt*9)
+        // The artist's quiet hold may clear an invisible trail; keep its actual last position for 08.
+        const previous=history.at(-1)??(weights[3]>0?artistOutgoing[i]:undefined), settle=1-Math.exp(-dt*9)
         if(previous && (touchLayout || weights[0]>0)) point=blendPoint(previous,point,settle)
         x=point.x;y=point.y
         owner.dataset[`orbit${i}X`]=x.toFixed(2);owner.dataset[`orbit${i}Y`]=y.toFixed(2)
         history.push({ x, y, z:point.z, time: now })
+        if(weights[2]>0)artistOutgoing[i]={x,y,z:point.z,time:now}
         while (history.length > 2 && (now - history[0].time > tune.trailMs || history.length > (mobile.matches ? 180 : tune.historyLimit))) history.shift()
         sampler.resample(history, 2)
         for (let j = 1; j < sampler.count; j++) {
@@ -189,7 +194,7 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
           back.restore()
         }
       }
-      if(alpha>.005||position!==target||Math.abs(ending-endMotion)>.0005)request()
+      if(alpha>.005||position!==target)request()
       else {owner.dataset.orbitState='quiet';last=0;histories.forEach(h=>{h.length=0})}
     }
     function scroll() {
