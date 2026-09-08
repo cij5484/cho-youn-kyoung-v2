@@ -666,3 +666,10 @@ HOME 후반부의 큰 작품 리본/두 점 연결, 앨범 공간 교체, Stage/
 2026-09-08 후속 명시 요청: 동일한 두 궤적을 기존 05–08에 연속 유지한다. 공통 수명/깊이 레이어 →
 앨범/포스터/사진·이름 궤도 → Outro 글자 사이 깊이/소멸 → 모바일·접근성·회귀 검증 한 묶음이다.
 [결과](../../../HOME-CLOSING-ORBITS-RESULT.md) 보고 후 STOP. 이전 미커밋 작업을 보존하고 새 Scene/자산/공개 통합은 하지 않는다.
+
+2026-09-08 최신 명시 요청: **HOME Interaction / Scene Refinement**. 이전 로컬 작업은 PR #8 / `0f7620a`로
+전달됐다. 이번에는 현재 코드 감사 → SOUND 기준 프레임/재생 → 모바일 Works/Album → 9/22 Stage Aperture →
+공유 seam/정장·한복 Artist → 최소 검증/문서의 한 묶음을 수행했다.
+[결과](../../../HOME-INTERACTION-PASS-RESULT.md): **IMPLEMENTED / LOCALLY VERIFIED / REVIEW READY / STOP**.
+새 한복 derivative와 해당 공연 공식 포스터를 사용했고 원본은 보존했다. Localhost 4180에서 시각 검토 대기;
+commit/push/merge/deploy 또는 다음 Scene은 자동 진행하지 않는다. 현재 계약은 HOME의 동일 날짜 revision을 따른다.

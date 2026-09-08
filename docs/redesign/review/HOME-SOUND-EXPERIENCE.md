@@ -186,3 +186,12 @@ timestamp choreography is added. The [existing SOUND contract](SOUND-BOW-CONTACT
 owns extraction, mapping, preset values and future Album-track adapter boundaries; it is not duplicated here.
 [P2J result](../../../P2J-RESULT.md) owns current validation/response comparison. New responsiveness awaits visual
 review; the prior SOUND quality approval is preserved. Public HOME and the next scene remain outside this task.
+
+## 2026-09-08 one-shot listening frame
+
+Latest user instruction revises the historical “immediate audible playback” sequence: gesture unlock first, alignment,
+then audible playback. `focus-frame.ts` lands just before the shared stage unpins, using its actual scroll denominator
+and header clearance. Native media is briefly primed muted and restored to its starting time before audible play;
+this preserves Safari's media activation requirement and the complete excerpt. Loading is truthful, no fake playing
+clock. Abort/destroy cancels alignment; direct wheel/touch/key input wins. Pause/resume and offscreen lifecycle stay
+route-scoped. Reduced motion performs an instant static-panel alignment. No other SOUND visual tuning changes.

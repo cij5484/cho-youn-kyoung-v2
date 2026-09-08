@@ -5,7 +5,9 @@ Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 
 ## Binding workflow
 
-**Current delivery-only exception, 2026-09-08:** user explicitly requests committing all accumulated local changes, PR creation and main merge without any additional validation. No tests or builds are run manually for this delivery; existing automatic workflows remain unchanged.
+**Current HOME interaction bundle:** user authorizes the coherent 03/04/05 mobile and 06→07 refinement with type-check, lint, build, targeted HOME tests and desktop/mobile sanity. Minimal evidence; localhost visual review, REPORT → STOP. This is separate from the completed no-validation delivery request.
+
+**Historical delivery-only exception, 2026-09-08 (completed in PR #8; not inherited):** user explicitly requests committing all accumulated local changes, PR creation and main merge without any additional validation. No tests or builds are run manually for this delivery; existing automatic workflows remain unchanged.
 
 **Current delivery revision, user authorized 2026-09-08:** development Pages preview automatically deploys
 on main push/merge after Fast + preview build. Full browser validation remains a separate manual Release Gate. The existing HOME/InteractionLab is mounted

@@ -1,20 +1,15 @@
-import { useRef } from 'react'
-import { stagePerformances, homeImage, contentPath } from './content.ts'
-import { EditorialLink } from './EditorialLink.tsx'
-import { useSurfaceResponse } from './surface-response.ts'
+import { featuredPerformance } from './content.ts'
 
-export function PerformanceScene({ selected, locale }: { selected: number; locale: 'ko' | 'en' }) {
-  const performance = stagePerformances[selected], image = homeImage(performance.image)
-  const surface = useRef<HTMLElement>(null)
-  useSurfaceResponse(surface)
-  return <section ref={surface} id="performance" className="performance-scene dark-stage" data-home-scene="06" aria-labelledby="performance-heading">
-    <div className="performance-atmosphere" aria-hidden="true"><span/><span/><span/></div>
-    <header className="performance-title"><p className="section-index">06 — LIVE PERFORMANCE</p><h2 id="performance-heading">지금, <em>이 무대.</em></h2></header>
-    <div className="performance-composition">
-      <figure className="performance-image-window"><img key={image.url} className="performance-poster" src={image.url} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async"/><figcaption>공식 공연 포스터 · {performance.date.slice(0,4)}</figcaption></figure>
-      <div className="performance-caption"><p>{performance.date}<span>{performance.venue}</span></p><h3 lang="ko">{performance.title}</h3><EditorialLink to={contentPath(performance)} locale={locale}>공연 보기</EditorialLink></div>
-      <span className="performance-margin-word" lang="en" aria-hidden="true">In the <em>presence</em><br/>of sound.</span>
+/** Event identity is stable; browsing another selected work cannot replace HOME's featured recital. */
+export function PerformanceScene() {
+  const performance = featuredPerformance
+  return <section className="performance-scene dark-stage" data-home-scene="06" aria-labelledby="performance-heading">
+    <p className="section-index">06 — LIVE PERFORMANCE</p>
+    <time className="stage-date" dateTime="2026-09-22T19:30:00+09:00"><span>09</span><i>/</i><span>22</span></time>
+    <div className="performance-caption">
+      <h2 id="performance-heading">풀고, <em>엮다</em></h2>
+      <p>{performance.venue}<br/>2026. 09. 22 · {performance.time}</p>
+      <a className="editorial-link" href={`https://choyounkyoung.com/performance/${performance.slug}/`}>공연 보기 <span aria-hidden="true">↗</span></a>
     </div>
-    <div className="performance-exit" aria-hidden="true"><span>조윤경 ↓</span></div>
   </section>
 }
