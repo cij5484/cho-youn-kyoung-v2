@@ -19,8 +19,8 @@ export function WorksExperience({ locale = 'ko' }: { locale?: Language }) {
   const location = useLocation()
   const settings = useComparisonSettings(location.search, import.meta.env.DEV)
   return <div data-works-layout={settings.worksLayout}>
-    {settings.worksLayout === 'spatial-helix' ? <SpatialLoadBoundary key="spatial" locale={locale}>
-      <Suspense fallback={<p className="page-frame" role="status">공간 아카이브 준비 중…</p>}><Spatial locale={locale}/></Suspense>
+    {settings.worksLayout !== 'current' ? <SpatialLoadBoundary key="spatial" locale={locale}>
+      <Suspense fallback={<p className="page-frame" role="status">공간 아카이브 준비 중…</p>}><Spatial locale={locale} variant={settings.worksLayout}/></Suspense>
     </SpatialLoadBoundary> : <WorksPage locale={locale}/>}
     <DevelopmentTools scope="works" host={null} settings={settings} locale={locale}/>
   </div>

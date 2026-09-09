@@ -5,9 +5,11 @@ import {
 } from 'three'
 import type { Texture } from 'three'
 import type { WorkRecord } from '../catalog.ts'
-import { clamp01, dampValue, focusedPlacement, spatialCursor, spatialPlacements, spatialPose, spatialTimeline, spatialTuning } from './model.ts'
+import { clamp01, dampValue, spatialTuning } from './model.ts'
+import type { WorksLayout } from './variant.ts'
 
 export interface SpatialSceneOptions {
+  layout: WorksLayout
   canvas: HTMLCanvasElement
   stage: HTMLElement
   region: HTMLElement
@@ -19,7 +21,7 @@ export interface SpatialSceneOptions {
 
 export interface SpatialSnapshot {
   progress: number
-  angle: number
+  variant: string
   resolution: number
   focused: number
   hovered: number
@@ -32,7 +34,7 @@ export interface SpatialSnapshot {
 export interface SpatialSceneController { dispose: () => void; snapshot: () => SpatialSnapshot }
 
 export function createSpatialScene(options: SpatialSceneOptions): SpatialSceneController | null {
-  const { canvas, stage, region, records, images } = options
+  const { canvas, stage, region, records, images, layout } = options
   let context: WebGL2RenderingContext | null
   try { context = canvas.getContext('webgl2', { alpha: true, antialias: true, powerPreference: 'low-power' }) }
   catch { context = null }
@@ -57,7 +59,6 @@ export function createSpatialScene(options: SpatialSceneOptions): SpatialSceneCo
   rim.position.set(2, 5, -5)
   scene.add(rim)
 
-  const placements = spatialPlacements(records.map(record => record.type))
   const textures = new Set<Texture>()
   const loader = new TextureLoader()
   let disposed = false
@@ -71,7 +72,6 @@ export function createSpatialScene(options: SpatialSceneOptions): SpatialSceneCo
   let scrollRange = 1
   let targetProgress = 0
   let progress = 0
-  let currentAngle = 0
   let hovered = -1
   let focus = -1
   let resolving = false
@@ -84,7 +84,7 @@ export function createSpatialScene(options: SpatialSceneOptions): SpatialSceneCo
   const projected = new Vector3()
   const meshes = records.map(record => {
     const image = images[record.image]
-    const geometry = new BoxGeometry(1, image.height / image.width, record.type === 'album' ? .034 : .006)
+    const geometry = new BoxGeometry(1, image.height / image.width, record.type === 'album' ? .009 : .003)
     const edge = new MeshStandardMaterial({ color: 0xcfc5b4, roughness: .8, metalness: 0, transparent: true })
     const back = new MeshStandardMaterial({ color: 0xd9d2c5, roughness: .93, metalness: 0, transparent: true })
     const front = new MeshStandardMaterial({ color: 0xffffff, roughness: .9, metalness: 0, emissive: 0xfff1d8, emissiveIntensity: 0, transparent: true })
@@ -110,9 +110,9 @@ export function createSpatialScene(options: SpatialSceneOptions): SpatialSceneCo
 
   function snapshot(): SpatialSnapshot {
     const rect = canvas.getBoundingClientRect()
-    const timeline = spatialTimeline(progress, placements)
+    const sampled = layout.sample(progress, mobile, 0)
     return {
-      progress, angle: currentAngle, resolution: timeline.resolution, focused: focus, hovered, frames, textures: loaded, mobile,
+      progress, variant: layout.id, resolution: sampled.resolution, focused: focus, hovered, frames, textures: loaded, mobile,
       objects: meshes.map(({ mesh, front }, index) => {
         projected.copy(mesh.position).project(camera)
         return { id: records[index].id, position: mesh.position.toArray(), quaternion: mesh.quaternion.toArray(),
@@ -131,15 +131,14 @@ export function createSpatialScene(options: SpatialSceneOptions): SpatialSceneCo
     if (disposed || !visible || document.hidden) { setRenderState('offscreen'); return }
     const elapsed = lastTime ? Math.min(.05, (time - lastTime) / 1000) : 1 / 60
     lastTime = time
-    const oldAngle = currentAngle
+    const oldProgress = progress
     progress = dampValue(progress, targetProgress, elapsed, 10.5)
     if (Math.abs(progress - targetProgress) < .00001) progress = targetProgress
-    const timeline = spatialTimeline(progress, placements)
-    currentAngle = timeline.angle
-    const velocity = (currentAngle - oldAngle) / Math.max(.001, elapsed)
-    const cursor = spatialCursor(currentAngle, placements)
-    const focusIndex = focusedPlacement(currentAngle, placements)
-    const resolutionState = timeline.resolution > .35
+    const velocity = (progress - oldProgress) / Math.max(.001, elapsed)
+    const sampled = layout.sample(progress, mobile, velocity)
+    const focusIndex = sampled.focus
+    const resolutionState = sampled.resolution > .35
+    stage.style.setProperty('--works-ambient', sampled.ambient.map(value => Math.round(value * 255)).join(','))
     if (focusIndex !== focus || resolutionState !== resolving) {
       focus = focusIndex; resolving = resolutionState
       stage.setAttribute('data-focus', records[focus].id)
@@ -147,14 +146,14 @@ export function createSpatialScene(options: SpatialSceneOptions): SpatialSceneCo
     }
     let moving = Math.abs(progress - targetProgress) > .00001
     for (const [index, object] of meshes.entries()) {
-      const pose = spatialPose(placements[index], currentAngle, timeline.resolution, mobile, velocity, cursor)
+      const pose = sampled.poses[index]
       const targetHover = hovered === index ? 1 : 0
       object.hover = dampValue(object.hover, targetHover, elapsed, 14)
       if (Math.abs(object.hover - targetHover) > .001) moving = true
-      pose.position.z += object.hover * .18
-      object.mesh.visible = pose.visibility > .005
-      object.front.opacity = object.back.opacity = object.edge.opacity = pose.visibility
-      hoverQuaternion.setFromEuler(new Euler(object.hover * -.018, object.hover * (records[index].type === 'album' ? .038 : -.018), 0))
+      pose.position.z += object.hover * layout.hover.depth
+      object.mesh.visible = pose.opacity > .005
+      object.front.opacity = object.back.opacity = object.edge.opacity = pose.opacity
+      hoverQuaternion.setFromEuler(new Euler(object.hover * layout.hover.pitch, object.hover * layout.hover.yaw, 0))
       pose.quaternion.multiply(hoverQuaternion)
       object.mesh.position.copy(pose.position)
       object.mesh.scale.setScalar(pose.scale * mobileScale)
@@ -167,7 +166,7 @@ export function createSpatialScene(options: SpatialSceneOptions): SpatialSceneCo
     renderer.render(scene, camera)
     frames += 1
     stage.setAttribute('data-progress', progress.toFixed(5))
-    stage.setAttribute('data-resolution', timeline.resolution.toFixed(5))
+    stage.setAttribute('data-resolution', sampled.resolution.toFixed(5))
     stage.setAttribute('data-frames', String(frames))
     setRenderState(moving ? 'running' : 'settled')
     if (moving) frame = requestAnimationFrame(render)
@@ -294,7 +293,9 @@ export function createSpatialScene(options: SpatialSceneOptions): SpatialSceneCo
   canvas.addEventListener('pointercancel', pointerCancel, { passive: true })
   canvas.addEventListener('webglcontextlost', contextLost)
   Object.defineProperty(stage, '__spatialWorksSnapshot', { configurable: true, value: snapshot })
+  stage.dataset.variant = layout.id
   resize()
+  progress = targetProgress
   wake()
   return { dispose, snapshot }
 }

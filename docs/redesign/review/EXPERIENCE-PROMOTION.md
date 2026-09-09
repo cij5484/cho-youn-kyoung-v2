@@ -15,7 +15,7 @@ The panel shows deployed and selected values with differences. A choice auto-sav
 reset writes Canonical to Draft; exit disables overrides without deleting the draft or disabling Canonical.
 Comparison URL contains all actual options. Promotion copy contains only the three promotable choices.
 
-Registry: `portrait` = off/straight/hanji, `magnet` = boolean, and `worksLayout` = current/spatial-helix are promotable. Existing points/janggu/type/color
+Registry: `portrait` = off/straight/hanji, `magnet` = boolean, and `worksLayout` = current/z-depth/wave-path/stack-flow are promotable. Existing points/janggu/type/color
 comparisons remain non-promotable. debug/study/diagnostics/panel state are not promotion keys. Compact Profile is
 part of portrait mode; no misleading independent control.
 
@@ -38,10 +38,10 @@ explicit operations; no frontend token or direct GitHub write. To deliver a brow
 payload or comparison URL (browser-local storage is not synchronized across devices). No need to re-explain options.
 
 
-## WORKS extension — 2026-09-08
+## WORKS extension — 2026-09-09
 
-Ordinary `/works/` and `?dev=0` retain `worksLayout: current`. The Three.js prototype is opt-in via
-`/works/?dev=1&works=spatial-helix`. Its own page uses the same registry, Draft, URL precedence and promotion CLI.
+Ordinary `/works/` and `?dev=0` retain `worksLayout: current`. The three Three.js prototypes are opt-in via
+`/works/?dev=1&worksExperience=z-depth|wave-path|stack-flow` (choose one literal value). Their shared page uses the same registry, Draft, URL precedence and promotion CLI.
 The Korean comparison panel shows only WORKS choices on this route. Changing/resetting/exiting a WORKS comparison
 preserves the archive's `type=albums|performances` filter. That filter is distinct from HOME's legacy `type=a|b`.
 
@@ -53,3 +53,10 @@ No automatic promotion: visual approval and explicit CLI application/delivery re
 Page-scoped candidate copy includes all required keys, but sets the other page's values to Canonical: copying
 WORKS cannot accidentally promote hidden HOME drafts, and copying HOME cannot promote a hidden WORKS candidate.
 Page-scoped reset preserves the other page's saved choices.
+
+The retired `spatial-helix` Draft value migrates to `current`, preserving every HOME choice. It is no longer a
+valid URL/promotion value. Internal registry key remains `worksLayout`; public query key is `worksExperience`.
+The legacy `works` query alias accepts valid current values only. Serialization uses the preferred key; exit
+removes both. Candidate switching keeps native scrollY and loads only the selected layout module; the shared
+shell disposes old GPU ownership and starts the new layout at the current region progress. Ordinary visits
+still ignore saved Draft and explicit candidate query values. No candidate is automatically promoted.

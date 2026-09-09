@@ -4,7 +4,7 @@ import { readDraftPayload } from './experience-draft.ts'
 
 export type PortraitExperiment = ExperienceOptions['portrait']
 export type ComparisonPatch = Partial<ExperienceOptions & { dev: boolean }>
-const owned = ['dev', 'works', 'portrait', 'magnet', 'compare', 'all', 'points', 'janggu', 'type', 'color', 'study']
+const owned = ['dev', 'worksExperience', 'works', 'portrait', 'magnet', 'compare', 'all', 'points', 'janggu', 'type', 'color', 'study']
 
 /** Normal URLs never consume a saved draft. Only explicit dev/legacy comparison opts into overrides. */
 export function readComparison(search: string, local: boolean, saved?: string | null) {
@@ -21,10 +21,11 @@ export function readComparison(search: string, local: boolean, saved?: string | 
       if ((experienceRegistry[key].allowedValues as readonly string[]).includes(value)) Object.assign(options, { [key]: value })
       else ignored.push(key)
     }
-    if (q.has('works')) {
-      const value = q.get('works')
-      if (value === 'current' || value === 'spatial-helix') options.worksLayout = value
-      else ignored.push('works')
+    const worksKey = q.has('worksExperience') ? 'worksExperience' : 'works'
+    if (q.has(worksKey)) {
+      const value = q.get(worksKey)
+      if (value === 'current' || value === 'z-depth' || value === 'wave-path' || value === 'stack-flow') options.worksLayout = value
+      else ignored.push(worksKey)
     }
     if (q.has('magnet')) {
       const value = q.get('magnet')
@@ -52,7 +53,7 @@ export function comparisonSearch(search: string, patch: ComparisonPatch) {
   }
   for (const [key, value] of Object.entries(patch)) {
     if (key === 'dev') q.set(key, value ? '1' : '0')
-    else if (key === 'worksLayout') q.set('works', String(value))
+    else if (key === 'worksLayout') { q.delete('works'); q.set('worksExperience', String(value)) }
     else if (key === 'magnet') q.set(key, value ? 'on' : 'off')
     else if (key === 'portrait' || key === 'color') q.set(key, String(value))
     else q.set(key, value ? 'b' : 'a')

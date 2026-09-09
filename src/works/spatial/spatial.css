@@ -1,6 +1,7 @@
 .spatial-works { --spatial-gutter: var(--page-gutter); background: var(--color-canvas); color: var(--color-ink); }
-.spatial-scroll { block-size: 390svh; position: relative; }
+.spatial-scroll { block-size: 350svh; position: relative; }
 .spatial-stage { block-size: 100svh; position: sticky; top: 0; isolation: isolate; }
+.spatial-atmosphere { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 62% 46%, rgba(var(--works-ambient, 150, 136, 118), .13), transparent 70%); }
 .works-spatial-canvas { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; touch-action: pan-y; }
 .spatial-heading { position: absolute; top: 104px; left: var(--spatial-gutter); pointer-events: none; }
 .spatial-heading > p:first-child { font-size: 10px; letter-spacing: .06em; }
@@ -52,7 +53,7 @@
   .spatial-record-kind { display: none; }
 }
 @media (max-width: 700px) {
-  .spatial-scroll { block-size: 430svh; }
+  .spatial-scroll { block-size: 350svh; }
   .spatial-heading { top: 98px; }
   .spatial-heading > p:first-child { font-size: 8px; }
   .spatial-heading h1 { font-size: 74px; margin-top: 10px; }

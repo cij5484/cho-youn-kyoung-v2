@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** 08 wet visibility and mobile viewing distance refined; Three.js WORKS Spatial Helix opt-in candidate / REVIEW READY. Ordinary WORKS remains current; HOME composition and Canonical choices preserved. Delivery receipt in §26.\
-**Revision:** 1.42 / 2026-09-08 — Wet visibility, mobile pacing and Three.js WORKS candidate\
+**Status:** WORKS A/B/C spatial candidates / REVIEW READY / NOT PROMOTED. Canonical WORKS and HOME preserved; Spatial Helix superseded. Delivery receipt in §26.\
+**Revision:** 1.43 / 2026-09-09 — WORKS three-way spatial experience\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 **Latest delivery policy — 2026-09-08:** user stopped Linux WebKit SOUND investigation and authorized pipeline-only
@@ -472,7 +472,32 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 
 # 26. CURRENT HANDOFF STATE
 
-## Current Wet Visibility / Three.js WORKS Candidate — 2026-09-08
+## Current WORKS Three-way Spatial Experience — 2026-09-09
+
+Baseline origin/main `65eea3510ee6843a6d6410f059c87db0055a6f56`; branch `codex/works-three-way`.
+User authorized three parallel layout modules, one shared shell, lean checks and PR→main→automatic Pages Preview.
+
+- **A / z-depth:** authored XYZ corridor with contextual Ivory temperature; depth approach and side/back exit.
+- **B / wave-path:** two open category curves, tangent quaternion/readable slerp and separated crossing depth.
+- **C / stack-flow:** irregular material cluster, Bezier peel/focus and open outgoing flow.
+- **Common contract:** same six assets/records, DOM focus metadata, navigation, Canvas, 250svh core travel,
+  final20% common archive alignment. Separate mobile corridor/partial arc/vertical unpacking.
+- **Choices:** `worksExperience` URL, `worksLayout` registry/Draft/Promotion. Korean A/B/C controls; current Canonical
+  remains unchanged. Retired Helix Draft→current preserves HOME choices. No active Helix or automatic promotion.
+- **Ownership:** selected module only loads; shared renderer has explicit teardown/restart and current-scroll
+  initialization. DPR1.5/1.25, settled/offscreen/hidden stop, RM/context-loss/unsupported compact actual-record fallback.
+- **Lean validation:** candidate models/settings, type/lint/Preview build and 1440/390 Chromium software-WebGL
+  load/texture/reverse/selection/resource/fallback/archive/link checks. Actual device/Safari GPU QA remains separate.
+  Full Release Gate, whole HOME E2E, broad matrix and additional research were not run.
+- **Protected:** all HOME scene files, current `WorksPage`/choreography, canonical.json, original assets and catalog.
+  Framework production route still imports `WorksPage`; development Preview owns candidate selection.
+- **Recommendation / not selection:** C provides the clearest sculptural first impression and mobile unpacking.
+  User comparison decides; A/B/C remain review candidates. Details in WORKS owner and Experience Promotion contract.
+
+Delivery receipt (PR/main SHA/Fast/Pages/public A/B/C checks) lives on the PR and final report.
+**REPORT → STOP.** No automatic promotion or next scene.
+
+## Previous Wet Visibility / Three.js WORKS Candidate — 2026-09-08 (Helix superseded)
 
 Baseline main/origin `4dfa554884cfdfabf4d16eaecad74334447da1f9`; branch `codex/wet-field-spatial-works`.
 User explicitly authorizes two parallel tracks, direct Three.js prototype integration and lean Preview delivery.

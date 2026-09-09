@@ -5,6 +5,8 @@ import { workImages } from '../assets.ts'
 import { chronologicalWorks, filterWorks, readWorksFilter, workDate, worksCatalog } from '../catalog.ts'
 import type { WorksFilter } from '../catalog.ts'
 import type { SpatialSceneController } from './scene.ts'
+import type { WorksVariant } from './variant.ts'
+import { loadWorksVariant } from './load-variant.ts'
 import './spatial.css'
 
 const filters: { value: WorksFilter; label: string; accessible: string }[] = [
@@ -14,7 +16,7 @@ const filters: { value: WorksFilter; label: string; accessible: string }[] = [
 ]
 
 /** Opt-in development candidate. Canonical WorksPage and its catalog are untouched. */
-export function SpatialWorksPage({ locale = 'ko' }: { locale?: Language }) {
+export function SpatialWorksPage({ locale = 'ko', variant }: { locale?: Language; variant: WorksVariant }) {
   const stage = useRef<HTMLDivElement>(null)
   const region = useRef<HTMLDivElement>(null)
   const canvasHost = useRef<HTMLDivElement>(null)
@@ -46,7 +48,12 @@ export function SpatialWorksPage({ locale = 'ko' }: { locale?: Language }) {
       setState('loading')
       setReason('')
       let createSpatialScene: typeof import('./scene.ts')['createSpatialScene']
-      try { ({ createSpatialScene } = await import('./scene.ts')) }
+      let layout: Awaited<ReturnType<typeof loadWorksVariant>>
+      try {
+        const [sceneModule, selectedLayout] = await Promise.all([import('./scene.ts'), loadWorksVariant(variant)])
+        createSpatialScene = sceneModule.createSpatialScene
+        layout = selectedLayout
+      }
       catch {
         if (!disposed && current === generation) { setState('fallback'); setReason('scene-unavailable') }
         return
@@ -59,7 +66,7 @@ export function SpatialWorksPage({ locale = 'ko' }: { locale?: Language }) {
       currentCanvas.setAttribute('aria-hidden', 'true')
       canvasHost.current.append(currentCanvas)
       controller = createSpatialScene({
-        canvas: currentCanvas, stage: stage.current, region: region.current, records: worksCatalog, images: workImages,
+        layout, canvas: currentCanvas, stage: stage.current, region: region.current, records: worksCatalog, images: workImages,
         onFocus: (index, resolution) => { if (!disposed && current === generation) { setFocus(index); setResolving(resolution) } },
         onStatus: (status, failure) => { if (!disposed && current === generation) { setState(status); setReason(failure ?? '') } },
       })
@@ -68,7 +75,7 @@ export function SpatialWorksPage({ locale = 'ko' }: { locale?: Language }) {
     void start()
     reduced.addEventListener('change', change)
     return () => { disposed = true; generation += 1; reduced.removeEventListener('change', change); release() }
-  }, [])
+  }, [variant])
 
   const changeFilter = (next: WorksFilter) => {
     const query = new URLSearchParams(search)
@@ -77,10 +84,11 @@ export function SpatialWorksPage({ locale = 'ko' }: { locale?: Language }) {
     setSearch(query, { preventScrollReset: true })
   }
 
-  return <section className="spatial-works" data-works-layout="spatial-helix" data-state={state} data-fallback-reason={reason} lang="ko" aria-labelledby="spatial-works-title">
+  return <section className="spatial-works" data-works-layout={variant} data-state={state} data-fallback-reason={reason} lang="ko" aria-labelledby="spatial-works-title">
     <noscript><style>{`.spatial-works[data-state] .spatial-scroll{block-size:320px}.spatial-works[data-state] .spatial-stage{position:relative;block-size:320px}.spatial-works .spatial-index-jump{visibility:hidden}`}</style></noscript>
     <div className="spatial-scroll" ref={region}>
       <div className="spatial-stage" ref={stage} data-state={state} data-render-state="loading" data-focus={active.id}>
+        <div className="spatial-atmosphere" aria-hidden="true"/>
         <div ref={canvasHost} className="works-spatial-canvas-host" aria-hidden="true" />
         <header className="spatial-heading">
           <p lang="en">CHO YOUN KYOUNG / WORKS</p>
