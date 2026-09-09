@@ -41,7 +41,7 @@ export function validateDraft(value: unknown): ExperienceDraft {
     options = { ...options, worksLayout: 'current' }
   }
   // Superseded WORKS selection retires safely without losing unrelated HOME choices.
-  if (options.worksLayout === 'spatial-helix') options = { ...options, worksLayout: 'current' }
+  if (['spatial-helix', 'z-depth', 'wave-path', 'stack-flow'].includes(String(options.worksLayout))) options = { ...options, worksLayout: 'current' }
   return { schemaVersion: 1, kind: 'experience-draft', options: validateExperienceOptions(options) }
 }
 export function validatePromotion(value: unknown): PromotionCandidate {

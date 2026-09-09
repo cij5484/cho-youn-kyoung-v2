@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** WORKS A/B/C spatial candidates / REVIEW READY / NOT PROMOTED. Canonical WORKS and HOME preserved; Spatial Helix superseded. Delivery receipt in §26.\
-**Revision:** 1.43 / 2026-09-09 — WORKS three-way spatial experience\
+**Status:** WORKS Reference Fidelity R&D / three independent engine candidates REVIEW READY / NOT PROMOTED; Canonical WORKS and HOME preserved. Prior Helix and PR #17 candidates are visually REJECTED / SUPERSEDED.\
+**Revision:** 1.44 / 2026-09-09 — Reference research and three distinct WORKS engines\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 **Latest delivery policy — 2026-09-08:** user stopped Linux WebKit SOUND investigation and authorized pipeline-only
@@ -472,7 +472,35 @@ Then STOP and wait for explicit user approval. See Master §43 and [bounded task
 
 # 26. CURRENT HANDOFF STATE
 
-## Current WORKS Three-way Spatial Experience — 2026-09-09
+## Current WORKS Reference Fidelity R&D — 2026-09-09
+
+Baseline origin/main `1cbc2744c47c81bbec9b41ac09fffd6abe2306d8`; branch `codex/works-reference-fidelity`.
+User rejected Helix and PR #17 A/B/C visually. Their active engines/UI are retired, not tuned again.
+
+- **Research before implementation:** independent live demo scroll/pointer/resize plus maker article/source review.
+  [Fidelity checklist](docs/redesign/review/WORKS-REFERENCE-FIDELITY.md) distinguishes OBSERVED / VERIFIED / ADAPTATION,
+  essential ingredients, mobile and lifecycle risks. Source principles only; no source/asset/layout copying.
+- **Independent candidates:** A `atmospheric-depth` = perspective corridor + GLSL mood + velocity/parallax;
+  B `image-rotations` = DOM CSS3D expressive entrance/exit; C `webgl-editorial` = DOM geometry + material reveal overlay.
+  Separate visual engines, camera/motion/shader/composition. Shared verified6 records/assets, CompactArchive and choices.
+- **State:** new opt-in candidates / user visual selection pending / NOT PROMOTED. Ordinary and dev=0 remain current.
+  Rejected saved selections migrate only WORKS to current, preserving every HOME option. URLs remain worksExperience.
+- **Lifecycle:** outgoing engine unmount precedes selected module mount. No inactive renderer/RAF/shader animation.
+  Native vertical scroll, mobile composition, reduced/static and context-loss fallback are required in each engine.
+- **Protected:** all HOME scene code/mobile performance, canonical.json, `WorksPage`, catalog/assets, production
+  Framework route, navigation and other pages. No new detail route; selected identity is a future handoff adapter.
+- **Validation/delivery boundary:** lean candidate/settings/type/lint/actual Preview build and focused Desktop/Mobile
+  runtime/cleanup/archive/link checks, then existing Fast CI→PR→main→automatic Pages→actual public verification.
+  No Full Release Gate, whole HOME E2E, broad matrix or mass evidence. Physical-device/Safari GPU QA stays separate.
+- **Local result:** type/lint, WORKS26, comparison/promotion17 and actual Preview build PASS. Desktop1440/Mobile390
+  reverse/touch/static/archive pass; A320 composition additionally checked. C shader fault/context loss immediately
+  frees renderer/textures and restores DOM; selected-engine switches dispose contexts and preserve scroll position.
+  [Post-implementation fidelity review](docs/redesign/review/WORKS-REFERENCE-FIDELITY.md#implementation-review--review-ready--not-promoted)
+  records visible ingredients separately from code-only future Detail adapter and physical-device limitations.
+
+Delivery receipt lives on the PR and final report. **REPORT → STOP**; visual selection precedes any promotion.
+
+## Previous WORKS Three-way Spatial Experience — 2026-09-09 (visually REJECTED)
 
 Baseline origin/main `65eea3510ee6843a6d6410f059c87db0055a6f56`; branch `codex/works-three-way`.
 User authorized three parallel layout modules, one shared shell, lean checks and PR→main→automatic Pages Preview.

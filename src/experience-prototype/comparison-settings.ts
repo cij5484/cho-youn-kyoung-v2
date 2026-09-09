@@ -24,7 +24,7 @@ export function readComparison(search: string, local: boolean, saved?: string | 
     const worksKey = q.has('worksExperience') ? 'worksExperience' : 'works'
     if (q.has(worksKey)) {
       const value = q.get(worksKey)
-      if (value === 'current' || value === 'z-depth' || value === 'wave-path' || value === 'stack-flow') options.worksLayout = value
+      if (value === 'current' || value === 'atmospheric-depth' || value === 'image-rotations' || value === 'webgl-editorial') options.worksLayout = value
       else ignored.push(worksKey)
     }
     if (q.has('magnet')) {

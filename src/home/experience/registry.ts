@@ -2,7 +2,7 @@
 export const experienceRegistry = {
   portrait: { label: '07 사진과 소개', allowedValues: ['off', 'straight', 'hanji'], promotable: true },
   magnet: { label: '03·06 장면 자동 정렬', allowedValues: [false, true], promotable: true },
-  worksLayout: { label: 'WORKS 공간 연출', allowedValues: ['current', 'z-depth', 'wave-path', 'stack-flow'], promotable: true },
+  worksLayout: { label: 'WORKS 공간 연출', allowedValues: ['current', 'atmospheric-depth', 'image-rotations', 'webgl-editorial'], promotable: true },
   points: { label: '홈의 두 점', allowedValues: [false, true], promotable: false },
   janggu: { label: '소리의 응답', allowedValues: [false, true], promotable: false },
   type: { label: '재생 버튼 글자', allowedValues: [false, true], promotable: false },
@@ -18,7 +18,7 @@ export const promotableKeys = experienceKeys.filter(key => experienceRegistry[ke
 
 export function experienceLabel(key: ExperienceKey, value: ExperienceOptions[ExperienceKey]) {
   if (key === 'portrait') return value === 'hanji' ? '한지 번짐 + 간략 프로필' : value === 'straight' ? '직선 전환 + 간략 프로필' : '이전 분할 구성'
-  if (key === 'worksLayout') return value === 'z-depth' ? 'A · 깊이 공간' : value === 'wave-path' ? 'B · 두 개의 곡선' : value === 'stack-flow' ? 'C · 유기적 스택' : '현재 배포 구성'
+  if (key === 'worksLayout') return value === 'atmospheric-depth' ? 'A · 공간 깊이' : value === 'image-rotations' ? 'B · 이미지 회전' : value === 'webgl-editorial' ? 'C · WebGL 에디토리얼' : '현재 배포 구성'
   if (key === 'color') return value === 'lacquer' ? '옻빛 붉은색' : value === 'burnt' ? '구운 주홍색' : '짙은 적갈색'
   if (key === 'points') return value ? '공간을 흐르는 두 점' : '고정된 두 선'
   if (key === 'janggu') return value ? '해금과 장구' : '해금만'
