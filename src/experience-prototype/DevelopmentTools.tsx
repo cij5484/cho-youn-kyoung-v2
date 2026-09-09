@@ -39,7 +39,7 @@ export function DevelopmentTools({ host, settings, scope = 'home' }: { host: HTM
   }
   function exit() {
     const query = new URLSearchParams(location.search)
-    query.delete('works'); query.set('dev', '0')
+    query.delete('works'); query.delete('worksExperience'); query.set('dev', '0')
     update(scope === 'works' ? query.toString() : resetComparison(location.search, true)); setOpen(false); mainFocus()
   }
   function launch() { if (!settings.enabled) update(comparisonSearch(location.search, { dev: true })); setOpen(true) }

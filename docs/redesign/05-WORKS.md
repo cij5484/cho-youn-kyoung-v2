@@ -1,50 +1,53 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 05 — WORKS
 
-**Version:** 1.5\
-**Status:** Current DOM archive preserved; Three.js Spatial Helix development candidate / REVIEW READY (not promoted)\
+**Version:** 1.6\
+**Status:** Canonical DOM archive preserved; three opt-in spatial candidates / REVIEW READY (not promoted)\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`  
 **Page Role:** Visual Archive + Functional Archive
 
-## 2026-09-08 Three.js Spatial Archive — development candidate
+## 2026-09-09 Three-way Spatial Experience — development comparison
 
-사용자가 새 **Dual Helix Spatial Archive** prototype을 명시적으로 요청했다. 일반 `/works/`의 현재 DOM
-구성과 상단 title 위치는 그대로다. `worksLayout: spatial-helix`는 검토·저장·승격 가능한 후보이며 자동 적용하지 않는다.
-개발 URL: `/works/?dev=1&works=spatial-helix`; 종료/`dev=0`는 current Canonical로 복귀한다.
-[공유 선택·승격 계약](review/EXPERIENCE-PROMOTION.md#works-extension--2026-09-08).
-이 선택은 HOME와 동일한 development Pages Preview/Interaction Lab에서 제공한다. 정식 Framework root
-빌드는 기존 `WorksPage`만 참조하며 Three 후보와 HOME 개발 도구를 포함하지 않는다. 향후 정식 사이트
-통합은 별도 승인 범위이며, Preview에서의 Draft/Canonical 선택과 구별한다.
+사용자는 Spatial Helix를 폐기하고 동일한 6개 작품으로 세 가지 다른 경험을 비교하도록 요청했다.
+Helix 구현은 active runtime에서 제거했다. 이전 revision과 검증 기록은 Git history에 남는다.
+일반 `/works/`와 `dev=0`는 기존 `WorksPage` / `worksLayout: current`를 유지한다. HOME 변경 없음.
+아래 후보는 **REVIEW READY / NOT PROMOTED**이며 사용자의 시각 선택을 기다린다.
 
-후보는 direct Three.js core의 Scene / PerspectiveCamera / 실제 얇은 입체 object / quaternion / Raycaster를
-사용한다. Album과 Performance를 두 strand에 배치하고 실제 Z·perspective·occlusion과 curve-local orientation으로
-이동한다. 항상 정면인 billboard carousel이나 CSS 3D가 아니다. Focus arc에서만 slerp로 읽기 좋게 정렬한다.
-표지와 포스터의 native 비율, 실제 texture와 중립 뒷면을 유지하고 그림/글자를 변형하지 않는다.
+| 후보 | 직접 개발 URL | 핵심 구조 |
+|---|---|---|
+| A · 깊이 공간 | `/works/?dev=1&worksExperience=z-depth` | 비대칭 XYZ 통로; 앞 작품이 옆·뒤로 물러나며 깊은 작품이 focus로 접근. 미리 정한 작품별 Ivory light tone. |
+| B · 두 개의 곡선 | `/works/?dev=1&worksExperience=wave-path` | Albums/Performances 각각 열린 CatmullRomCurve3. Tangent frame → readable quaternion slerp. 교차 지점은 물리적 깊이 통로 분리. |
+| C · 유기적 스택 | `/works/?dev=1&worksExperience=stack-flow` | 불균일 회전·깊이의 조형적 cluster. Cubic Bezier로 개별 작품 분리 → focus → 열린 흐름. |
 
-Native vertical scroll이 입력을 소유하고 damped motion이 멈추면 render도 쉰다. Mobile은 같은 수학의 별도
-반경·camera·강조 범위를 사용한다. 마지막에는 depth와 회전을 줄여 작은 thumbnail/제목/날짜/필터의
-Compact Archive로 정리한다. 거대한 이미지 grid를 다시 만들지 않는다. 활성 제목과 링크는 DOM에 남는다.
-WebGL unsupported/context lost/reduced motion은 실제 6개 이미지와 링크가 있는 compact 탐색으로 이어진다.
+모두 같은 navigation, typography, Canvas 영역, 검증된 texture 6개, DOM metadata, Compact Archive를
+사용한다. 350svh region / 100svh sticky로 핵심 travel은250svh다. 마지막20%는 각자의 공간을 같은 작은
+category 두 열로 정리하고 실제 thumbnail/title/date/filter/chronological 링크에 이어진다.
+Focus album은 Desktop3.3–3.7 world width 범위에서 시작한다. 실제 perspective, depth, orientation,
+occlusion이 크기와 역할을 만든다. 이미지 비율은 원본 그대로이며 front가 항상 billboard가 되지 않는다.
+얇은 geometry는 native width 대비 album .009 / poster .003; 원본에 없는 가짜 box/back artwork를 만들지 않는다.
 
-후보 owner는 `src/works/spatial/{model,scene,SpatialWorksPage,spatial.css}`다. Perspective FOV는
-Desktop38° / Mobile40°, DPR cap은1.5/1.25다. 두 strand의 phase는π이며 tangent/radial/binormal basis에서
-quaternion을 만든다. 불균등 focus 간격은 연속 ordinal 좌표로 보정하며 focus 부근에서만 readable pose로
-slerp한다. Mobile은 실제 heading/caption 사이에 viewing band를 잡고 이전/현재/다음 작품을 위·아래
-partial arc로 분리한다. 먼 작품은 작은 파편으로 축소하지 않고 깊이와 opacity로 물러난다.
+Mobile은 세 후보 모두 별도 배치다. A는 얕은 previous/current/next corridor, B는 두 전체 곡선 대신
+현재 주변 partial arc, C는 아래 대기 작품이 중앙을 거쳐 위로 풀린다. 실제 heading/caption 사이의
+viewing band로 이미지를 보호하고 현재 작품은 읽을 크기로 유지한다. Native vertical scroll이 입력을
+소유하며 touch delta 제어/scroll interception은 없다. Desktop hover는 각 layout의 depth/pitch/yaw를
+기본 pose 위에 제한적으로 더한다. Scroll과 quaternion은 연속 damping이며 역방향도 동일 좌표를 되짚는다.
 
-마지막20%에서 두 strand가 작은 두 열로 풀리며 Compact Archive에 이어진다. Geometry는6개 thin box,
-texture도6개만 공유한다. Loading 중 최종 scroll geometry를 예약해 늦은 texture 로드가 page height를
-바꾸지 않는다. Reduced-motion을 다시 해제할 때는 새 canvas/context를 만들며 pending texture와 늦은
-callback까지 generation/dispose 경계에서 정리한다. WORKS 전용 canvas class는 HOME Canvas와 분리한다.
+공용 owner: `src/works/spatial/{scene,SpatialWorksPage,spatial.css,variant,load-variant}`.
+각 choreography는 `variants/{z-depth,wave-path,stack-flow}.ts`의 같은 `WorksLayout.sample` 계약이다.
+선택한 모듈만 dynamic import하고 전환 시 기존 renderer/context/geometry/material/textures/listeners/RAF를
+dispose한다. 새 renderer는 유지된 scroll geometry의 현재 progress에서 시작한다. 비선택 후보는 렌더러와
+texture, RAF가 없다. Perspective FOV38°/40°, DPR cap1.5/1.25; settled/offscreen/document.hidden render 중단.
+Reduced motion, context loss, unsupported는 같은 실제6개 이미지·링크의 Compact Archive로 접근한다.
 
-1440/390 Chromium에서 texture6개, 순·역방향 orientation, Raycaster의 동일 실제 링크, mobile native scroll,
-settled/offscreen render 중단, reduced on→off 재시작, context loss/unsupported fallback을 확인했다.
-이는 자동화 Chromium/소프트웨어 WebGL 검증이며 물리 GPU·휴대폰·Safari QA를 의미하지 않는다.
-별도 Three scene chunk는 약530KB minified /134KB gzip이며 일반HOME/currentWORKS 초기 요청에는 없다.
-Vite의500KB chunk advisory는 숨기지 않는다. 후보 진입의 초기 전송 비용은 남아 있는 성능 검토 항목이다.
+[공유 Draft/Promotion 계약](review/EXPERIENCE-PROMOTION.md#works-extension--2026-09-09).
+기존 Helix Draft만 current로 이관하며 저장된 HOME 옵션은 보존한다. 후보 선택은 자동 저장되지만
+Canonical은 변경하지 않는다. Preview/Lab만 `WorksExperience`를 mount한다. 정식 Framework root는 기존
+`WorksPage`만 참조하므로 Three 후보와 HOME 개발 도구를 production artifact에 끌어오지 않는다.
 
-6개 검증 record, KO route, 원문 legacy detail destination과 자산 provenance를 재사용한다. 새 Three 후보에
-3D physics, Blender, R3F, postprocessing을 추가하지 않는다. 기술 검증은 자연스러운 3D의 시각 승인을 대신하지 않는다.
+검증 범위는 Desktop1440 / Mobile390의 Chromium 자동화·software WebGL, 해당 모델·상태 테스트,
+type/lint와 실제 Preview build다. 이는 실제 휴대폰 GPU·Safari 품질 인증이 아니다. Three.js 공용 chunk의
+초기 전송 비용과 실제 기기 QA는 후보 선택 이후 검토 항목이다. Full Release Gate/전체 HOME E2E는 실행하지 않는다.
+자산·catalog·원본 legacy 상세 링크·KO/EN 계약은 변경하지 않는다. 별도 신규 리서치나 콘텐츠 이동 없음.
 
 ## 2026-09-08 실제 구현 — Visual Rebuild / REVIEW READY
 
