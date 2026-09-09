@@ -1,53 +1,44 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 05 — WORKS
 
-**Version:** 1.6\
-**Status:** Canonical DOM archive preserved; three opt-in spatial candidates / REVIEW READY (not promoted)\
+**Version:** 1.7\
+**Status:** Canonical DOM archive preserved; Reference Fidelity R&D / independent A-B-C candidates (not promoted)\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`  
 **Page Role:** Visual Archive + Functional Archive
 
-## 2026-09-09 Three-way Spatial Experience — development comparison
+## 2026-09-09 Reference Fidelity R&D — current comparison
 
-사용자는 Spatial Helix를 폐기하고 동일한 6개 작품으로 세 가지 다른 경험을 비교하도록 요청했다.
-Helix 구현은 active runtime에서 제거했다. 이전 revision과 검증 기록은 Git history에 남는다.
-일반 `/works/`와 `dev=0`는 기존 `WorksPage` / `worksLayout: current`를 유지한다. HOME 변경 없음.
-아래 후보는 **REVIEW READY / NOT PROMOTED**이며 사용자의 시각 선택을 기다린다.
+사용자는 Helix와 PR #17의 z-depth/wave-path/stack-flow를 시각적으로 **REJECTED / SUPERSEDED**로 판정했다.
+같은 renderer/material/camera에서 pose만 바꾸는 접근은 폐기했다. 기존 scene/layout/test는 active runtime에서
+제거하고 Git history에 보존한다. 일반 `/works/`와 `dev=0`의 `WorksPage` / Canonical `current`는 그대로다.
 
-| 후보 | 직접 개발 URL | 핵심 구조 |
+구현 전에 지정 reference의 글·demo·공개 source를 조사했다. 실제 관찰과 source 검증, V2 판단을 구분한
+[WORKS Reference Fidelity](review/WORKS-REFERENCE-FIDELITY.md)가 구현 체크리스트다. 새 후보의 선택은 사용자에게 있다.
+
+| 후보 | URL value (`?dev=1&worksExperience=`) | 독립 시각 엔진 |
 |---|---|---|
-| A · 깊이 공간 | `/works/?dev=1&worksExperience=z-depth` | 비대칭 XYZ 통로; 앞 작품이 옆·뒤로 물러나며 깊은 작품이 focus로 접근. 미리 정한 작품별 Ivory light tone. |
-| B · 두 개의 곡선 | `/works/?dev=1&worksExperience=wave-path` | Albums/Performances 각각 열린 CatmullRomCurve3. Tangent frame → readable quaternion slerp. 교차 지점은 물리적 깊이 통로 분리. |
-| C · 유기적 스택 | `/works/?dev=1&worksExperience=stack-flow` | 불균일 회전·깊이의 조형적 cluster. Cubic Bezier로 개별 작품 분리 → focus → 열린 흐름. |
+| A · 공간 깊이 | `atmospheric-depth` | Three perspective camera corridor + 별도 GLSL 분위기. 작품별 mood, velocity drift/breath, pointer parallax. |
+| B · 이미지 회전 | `image-rotations` | DOM/CSS 3D. 작품별 비선형 XYZ 입·퇴장, readable focus와 속도 cue. |
+| C · WebGL 에디토리얼 | `webgl-editorial` | 실제 DOM editorial layout에 orthographic image plane을 동기화하는 material reveal. |
 
-모두 같은 navigation, typography, Canvas 영역, 검증된 texture 6개, DOM metadata, Compact Archive를
-사용한다. 350svh region / 100svh sticky로 핵심 travel은250svh다. 마지막20%는 각자의 공간을 같은 작은
-category 두 열로 정리하고 실제 thumbnail/title/date/filter/chronological 링크에 이어진다.
-Focus album은 Desktop3.3–3.7 world width 범위에서 시작한다. 실제 perspective, depth, orientation,
-occlusion이 크기와 역할을 만든다. 이미지 비율은 원본 그대로이며 front가 항상 billboard가 되지 않는다.
-얇은 geometry는 native width 대비 album .009 / poster .003; 원본에 없는 가짜 box/back artwork를 만들지 않는다.
+`src/works/candidates`의 각 engine/component/CSS는 독립이다. 공통은 `worksCatalog`, 실제 web derivatives,
+`CompactArchive`, navigation과 Draft/Promotion뿐이다. 공유 visual sample/renderer/camera/lighting은 없다.
+`WorksPrototype`은 선택 engine을 지연 로드하고 이전 component를 먼저 unmount한다. 비선택 engine은
+renderer/RAF/shader animation을 소유하지 않는다. A/B는260svh core travel, C는 자연 DOM gallery 흐름이다.
+모두 compact thumbnail/title/date/type/filter/chronological archive에 접근한다. 새 detail page나 콘텐츠 없음.
 
-Mobile은 세 후보 모두 별도 배치다. A는 얕은 previous/current/next corridor, B는 두 전체 곡선 대신
-현재 주변 partial arc, C는 아래 대기 작품이 중앙을 거쳐 위로 풀린다. 실제 heading/caption 사이의
-viewing band로 이미지를 보호하고 현재 작품은 읽을 크기로 유지한다. Native vertical scroll이 입력을
-소유하며 touch delta 제어/scroll interception은 없다. Desktop hover는 각 layout의 depth/pitch/yaw를
-기본 pose 위에 제한적으로 더한다. Scroll과 quaternion은 연속 damping이며 역방향도 동일 좌표를 되짚는다.
+Mobile은 A의 얕은 corridor, B의 한 작품 중심 entrance/exit, C의 읽을 크기 vertical flow로 별도 구성한다.
+Native vertical scroll을 유지하며 horizontal gesture를 요구하지 않는다. Reduced motion은 실제 DOM image/link를
+보존한다. WebGL shader/texture/context 실패도 DOM/compact archive에 접근 가능해야 한다.
+선택 image identity는 실제 record ID와 원본 image에 묶으며 미래 Detail adapter 상태와 현재 legacy link를 구분한다.
 
-공용 owner: `src/works/spatial/{scene,SpatialWorksPage,spatial.css,variant,load-variant}`.
-각 choreography는 `variants/{z-depth,wave-path,stack-flow}.ts`의 같은 `WorksLayout.sample` 계약이다.
-선택한 모듈만 dynamic import하고 전환 시 기존 renderer/context/geometry/material/textures/listeners/RAF를
-dispose한다. 새 renderer는 유지된 scroll geometry의 현재 progress에서 시작한다. 비선택 후보는 렌더러와
-texture, RAF가 없다. Perspective FOV38°/40°, DPR cap1.5/1.25; settled/offscreen/document.hidden render 중단.
-Reduced motion, context loss, unsupported는 같은 실제6개 이미지·링크의 Compact Archive로 접근한다.
+기존 rejected Draft값은 current로 이관하고 HOME 값은 유지한다. 새 값만 선택·저장·승격 후보로 유효하다.
+후보 선택이나 Preview 배포는 Canonical 승격이 아니다. Framework root route는 기존 `WorksPage`만 참조한다.
+HOME scene, 원본 assets, private content, 기존 public catalog와 navigation은 변경하지 않는다.
 
-[공유 Draft/Promotion 계약](review/EXPERIENCE-PROMOTION.md#works-extension--2026-09-09).
-기존 Helix Draft만 current로 이관하며 저장된 HOME 옵션은 보존한다. 후보 선택은 자동 저장되지만
-Canonical은 변경하지 않는다. Preview/Lab만 `WorksExperience`를 mount한다. 정식 Framework root는 기존
-`WorksPage`만 참조하므로 Three 후보와 HOME 개발 도구를 production artifact에 끌어오지 않는다.
-
-검증 범위는 Desktop1440 / Mobile390의 Chromium 자동화·software WebGL, 해당 모델·상태 테스트,
-type/lint와 실제 Preview build다. 이는 실제 휴대폰 GPU·Safari 품질 인증이 아니다. Three.js 공용 chunk의
-초기 전송 비용과 실제 기기 QA는 후보 선택 이후 검토 항목이다. Full Release Gate/전체 HOME E2E는 실행하지 않는다.
-자산·catalog·원본 legacy 상세 링크·KO/EN 계약은 변경하지 않는다. 별도 신규 리서치나 콘텐츠 이동 없음.
+Lean 범위: 해당 모델/설정, type/lint/actual Preview build, 작은 Desktop/Mobile load/scroll/reverse/fallback/
+switch-cleanup/archive/route 검증. 사용자 시각 선택 이전에 QUALITY APPROVED를 선언하지 않는다.
+Full Release Gate, 전체 HOME E2E, broad device matrix, HOME 성능 조사와 새 페이지는 범위 밖이다.
 
 ## 2026-09-08 실제 구현 — Visual Rebuild / REVIEW READY
 

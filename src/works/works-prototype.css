@@ -1,0 +1,11 @@
+.works-prototype-host { block-size:360svh; position:relative; background:var(--color-canvas); overflow-anchor:none; }
+.works-prototype-host[data-works-prototype="webgl-editorial"][data-engine-state="mounted"],
+.works-prototype-host[data-engine-state="failed"],
+.works-prototype-host:has([data-static="true"]),
+.works-prototype-host:has(.works-prototype-failed) { block-size:auto; }
+.works-prototype-loading { position:sticky; top:110px; padding:var(--page-gutter); font-size:12px; color:var(--color-muted-text); }
+.works-prototype-failed { padding:110px var(--page-gutter) 40px; }
+.works-prototype-failed h1 { font:450 clamp(64px,7vw,122px)/1 var(--font-display); letter-spacing:-.06em; }
+.works-prototype-failed p { margin-block:28px; font-size:12px; }
+.works-prototype-failed a { display:inline-flex; align-items:center; min-height:44px; }
+@media (prefers-reduced-motion:reduce) { .works-prototype-host { block-size:auto; } }
