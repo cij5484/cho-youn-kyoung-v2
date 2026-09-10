@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { EditorialNavigation } from '../../src/navigation/EditorialNavigation.tsx'
 import { siteCatalog, siteRoutes } from '../../src/routing/site-catalog.ts'
@@ -12,6 +12,10 @@ import { useComparisonSettings } from '../../src/experience-prototype/use-compar
 import { DevelopmentTools } from '../../src/experience-prototype/DevelopmentTools.tsx'
 import { HomeClosing } from '../../src/home/HomeClosing.tsx'
 import { usePathnameScroll } from '../../src/routing/use-pathname-scroll.ts'
+import { AlbumRouteTransition } from '../../src/album-detail/AlbumRouteTransition.tsx'
+import { localAlbumStudy } from '../../src/album-detail/album-navigation.ts'
+import { GlobalAudioPlayer } from '../../src/audio/GlobalAudioPlayer.tsx'
+const AlbumDetail = lazy(() => import('../../src/album-detail/AlbumDetail.tsx'))
 const cascade=(word:string)=><GlyphLabel word={word}/>
 export function InteractionLab(){
   usePathnameScroll()
@@ -23,11 +27,14 @@ export function InteractionLab(){
   const [word,setWord]=useState('PLAY')
   const locale=location.pathname.startsWith('/en')?'en':'ko'
   const isHome=['/','/en','/en/'].includes(location.pathname)
+  const albumSlug = localAlbumStudy() ? location.pathname.match(/^\/album\/([^/]+)\/?$/)?.[1] : undefined
   useEffect(()=>{document.documentElement.lang=locale},[locale])
   useEffect(()=>{if(!isHome)return;renderer.current=createInteractionRenderer(host.current!,{points:false,janggu:false,color:'lacquer'});return()=>{renderer.current?.destroy();renderer.current=null}},[location.pathname,isHome])
   useEffect(()=>{renderer.current?.configure({points,janggu,color})},[points,janggu,color,location.pathname])
   return <div ref={attach} className="hero-shell hero-lab interaction-lab" data-prototype="P2K_INTERACTION_LAB_ONLY">
     <EditorialNavigation catalog={siteCatalog} mainId="interaction-main"/>
+    <AlbumRouteTransition/>
+    {localAlbumStudy() && <GlobalAudioPlayer/>}
     <main id="interaction-main" tabIndex={-1}>
       {isHome ? <>
       <SoundComposition key={location.pathname} locale={locale} visual="bow-contact" trail="long" activity="bold" violet="electric" preset="HOME_SIGNATURE" renderActionLabel={type?cascade:undefined} continuation={points?spatialContinuation:undefined} analysisFallback={janggu?(locale==='ko'?'해금은 정적 표시 · 장구는 사전 타격 추정값으로 표시합니다.':'Static Haegeum · Janggu uses precomputed percussion candidates.'):undefined}/>
@@ -40,7 +47,7 @@ export function InteractionLab(){
         <p className="type-micro">개발용 비교 · 최종 선택 대기</p>
         <p>두 점 · 장구 · 글자 재조립 비교. 실제 장구 분리 음원이 아닌 혼합 음원의 보수적 타격 추정입니다.</p>
       </section>}
-      </> : location.pathname.replace(/\/$/, '') === '/works' ? <WorksExperience locale="ko"/> : <section className="lab-destination page-frame"><p>P2K / route fixture</p><h1>{siteRoutes.some(route=>route.path===location.pathname.replace(/\/$/,'')) ? location.pathname : '404'}</h1><Link to={locale==='ko'?'/':'/en'}>Return to interaction study →</Link></section>}
+      </> : location.pathname.replace(/\/$/, '') === '/works' ? <WorksExperience locale="ko"/> : albumSlug ? <Suspense fallback={<section className="lab-destination page-frame" aria-busy="true">앨범을 준비하고 있습니다.</section>}><AlbumDetail key={albumSlug} slug={albumSlug}/></Suspense> : <section className="lab-destination page-frame"><p>P2K / route fixture</p><h1>{siteRoutes.some(route=>route.path===location.pathname.replace(/\/$/,'')) ? location.pathname : '404'}</h1><Link to={locale==='ko'?'/':'/en'}>Return to interaction study →</Link></section>}
     </main>
     {isHome&&<HomeExperience host={element} locale={locale} options={settings}/>}
     {isHome&&<DevelopmentTools host={element} settings={settings} locale={locale}/>}

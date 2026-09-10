@@ -6,6 +6,7 @@ import { useLocation } from 'react-router'
 import { AtmosphericArchive } from './AtmosphericArchive.tsx'
 import { WorksSignaturePair } from './WorksSignaturePair.tsx'
 import './atmospheric.css'
+import { albumStudyHref } from '../../album-detail/album-navigation.ts'
 
 /** A owns camera, shader, input response and lifecycle independently. */
 export function AtmosphericDepth() {
@@ -68,13 +69,14 @@ export function AtmosphericDepth() {
         <h1 id="atmospheric-title" lang="en">Works<span aria-hidden="true">.</span></h1>
       </header>
       {state === 'fallback' ? <div className="atmospheric-static">
-        <img src={workImages.yeongsan.src} width={workImages.yeongsan.width} height={workImages.yeongsan.height} alt="조윤경 해금정악 — 영산회상 음반 표지" />
+        <img src={workImages.yeongsan.src} srcSet={`${workImages.yeongsan.mobileSrc} 1024w, ${workImages.yeongsan.src} 1600w`}
+          sizes="(max-width: 700px) 340px, 1600px" width={workImages.yeongsan.width} height={workImages.yeongsan.height} alt="조윤경 해금정악 — 영산회상 음반 표지" />
         <p>음반과 무대의 기록</p>
       </div> : <div className="atmospheric-caption" data-archive={archive}>
         <p className="atmospheric-type" lang="en">{archive ? 'RECORDINGS / PERFORMANCES' : active.type === 'album' ? 'RECORDING' : 'PERFORMANCE'}</p>
         <h2>{archive ? '음반과 무대의 기록' : active.title}</h2>
         {!archive && <p className="atmospheric-date">{workDate(active)}</p>}
-        {!archive && <a className="atmospheric-record" href={active.referenceUrl} aria-label={`${active.title} — 기존 사이트에서 기록 보기`}>기록 보기 <span aria-hidden="true">↗</span></a>}
+        {!archive && <a className="atmospheric-record" href={albumStudyHref(active)} aria-label={`${active.title} — 기록 보기`}>기록 보기 <span aria-hidden="true">↗</span></a>}
       </div>}
       <span className="atmospheric-count" aria-hidden="true">{String(focus + 1).padStart(2, '0')}<span>/</span>{String(worksCatalog.length).padStart(2, '0')}</span>
       <a className="atmospheric-index" href="#works-compact-archive" onClick={event => {

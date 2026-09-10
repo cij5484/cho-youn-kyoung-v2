@@ -1,0 +1,11 @@
+.album-signature-pair { position:fixed; inset:0; z-index:12; pointer-events:none; overflow:clip; contain:strict; }
+.album-signature-pair > canvas { position:absolute; inset:0; inline-size:100%; block-size:100%; }
+.album-signature-pair > i { position:absolute; top:var(--album-pair-static-y, 60vh); inline-size:var(--album-pair-width); block-size:var(--album-pair-height); border-radius:50%; opacity:var(--album-pair-opacity); visibility:hidden; }
+.album-signature-pair > [data-signature-point="haegeum"] { left:18px; background:var(--album-pair-violet); }
+.album-signature-pair > [data-signature-point="janggu"] { right:18px; background:var(--album-pair-lacquer); }
+.album-signature-pair[data-static="true"] > canvas { visibility:hidden; }
+.album-signature-pair[data-static="true"] > i { visibility:visible; }
+.album-signature-pair[data-visible="false"] > * { visibility:hidden; }
+@media (max-width:700px) {
+  .album-signature-pair > i { inline-size:var(--album-pair-mobile-width); block-size:var(--album-pair-mobile-height); }
+}

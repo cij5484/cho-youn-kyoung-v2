@@ -6,6 +6,65 @@
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`, `06-ALBUMS.md`  
 **Page Role:** Physical Album Experience + Editorial Listening Archive
 
+## 2026-09-10 — LOCAL autonomous exhibition study / REVIEW READY
+
+User authorized a new concept and implementation, independent of legacy layout/function order.
+Owner: `src/album-detail`; localhost routes `/album/:slug/` in the existing 4180 development shell.
+Concept: “한 장의 종이에서, 한 줄의 소리로.” Oversized type and one paper object → explicit OPEN →
+printed editorial layers/reader → dark listening scene → people → another record → WORKS.
+Native scroll/CSS perspective/WAAPI retain a selected cover across DOM route slots; this is a shared-image
+handoff, not a persistent WebGPU renderer. No new dependencies or Blender execution in this pass.
+HOME is unchanged. WORKS links use the study only on localhost; public-reference destinations remain elsewhere.
+Haegeum/Janggu identity reuses the two-point contract; chapter paths are Album-owned, with static reduced motion.
+Four albums now connect authentic CD labels, 40 booklet pages and 29 user-controlled audio tracks from the
+legacy public sources (asset manifest). Han Beom-su has no dedicated interior photograph in that source;
+its booklet artwork supplies the interior, rather than claiming documentary package accuracy.
+The user-supplied repeat-02 tray GLB loads only on OPEN, rendered on demand inside the existing CSS-folding
+package; its neutral disc is hidden under the authentic DOM CD label. This is a local prototype, not Tray Lab approval.
+Desktop composition is bounded to 1440–1640px; booklet mouse tilt/lift is stronger, with mobile layout retained.
+The server draft, public audio approval and production record publication remain unchanged. Editorial lines are V2 study copy.
+Sources investigated: supplied Codrops persistent transitions (2026-06-30), cinematic scroll (2025-11-19),
+Santamaria world (2026-04-28), shader reveal (2025-10-08), Palmer/Flip (2025-09-01), layered zoom (2025-10-29),
+mood gallery (2026-03-09), and actual scene/lifecycle sources in biazo/codrops-animate-shaders-with-gsap,
+VishankSharma/iphone-cinematic-showcase, jawadhaider0024/jawad-portfolio-v2 and Mayanshh/portfolio.
+Only principles were reinterpreted; no reference branding, layout, assets or source code was copied.
+Validation: type/lint/development Preview build and focused fatal-runtime inspection. No release/visual-quality approval,
+PR, push, merge or deployment. Rollback only this study folder and its explicit development/WORKS entry diff.
+
+### 2026-09-10 user revision — global album audio / LOCAL implementation
+
+The user explicitly superseded the route-scoped audio policy below: Album playback and its mini player now
+belong to the persistent local application shell (`src/audio/global-playback.ts`, `GlobalAudioPlayer.tsx`).
+Internal navigation preserves the same media element, position and volume. New track selection replaces the source;
+close/ended/error releases the signature, while pause retains quiet motion near the player's separate progress track.
+`src/signature/audio-handoff.ts` borrows actual page point positions, velocities and available trail history;
+the page paths keep running as return targets. `AudioSignature.tsx` steers those states without a coordinate reset.
+Reduced motion uses stable markers. HOME04 layout, ribbon and choreography remain unchanged.
+`instrument-response.ts` reuses the existing feature binding and percussion pulse: live harmonic/sustained bands
+drive Haegeum, bass/body attack plus broadband flux drives Janggu. This estimates characteristics from the mixed
+recording; it does not isolate instrument stems. Existing precomputed HOME data is blended only for the matched
+Han Beom-su Jungjungmori original's 166–184 second interval, never reused across unrelated tracks.
+The source R2 response lacks CORS permission. A restricted localhost Vite audio proxy enables live analysis;
+no remote CORS configuration, bulk audio migration, production routing or deployment is part of this change.
+Selecting the separate HOME preview pauses the global record to avoid overlapping recordings.
+
+User refinement: the player pair now reuses HOME's free bow path, Janggu activity clock and perspective projection
+across most of the progress-bar width, with a wider vertical/depth orbit and depth-weighted trails.
+This supersedes the near-straight/subtle-motion restriction in §27 for this local player signature only.
+Sustained harmonic changes drive bow speed/range and fine vibration; low/body transients can trigger weighted
+Janggu strikes without a treble edge. These remain mixed-recording estimates. Pause eases into a small idle orbit;
+handoff, return, headless progress controls, reduced motion and the HOME choreography are preserved.
+Follow-up correction: the projected orbit is centered on the progress track and smoothly bounded by the actual
+mini-player frame; docked trails are clipped to that frame, including after resize. Violet remains the Haegeum
+signature; progress and volume fills use warm grey `#746b5d` to keep the musical trace distinct from controls.
+Both control tracks are 4px with their 44px input targets preserved. Speaker activation toggles mute/restores
+the previous audible volume; hover/focus or touch activation exposes the vertical control. Haegeum articulation
+now reads positive harmonic flux at 500–4000Hz with HOME's 18/180ms response; Janggu detection is unchanged.
+The visible response is separately damped (bow 180/400ms, drum 55/220ms), with slower travel and restrained
+micro-vibration: sensitivity identifies musical changes without turning every change into a twitch.
+The user subsequently authorized PR/merge for Mac continuation. The localhost-only study and audio proxy remain
+available through `npm run dev:interaction`; merging does not enable the study on the static Pages site.
+
 ## 2026-09-08 연구 반영 — 다음 구현 후보
 
 Hybrid Object Narrative + Editorial Detail을 유지한다. 현재 상세 URL은 **neutral fixture**이며
@@ -624,13 +683,14 @@ Avoid:
 
 Approved.
 
-When audio continues outside the Track section **within the same Album Detail route**, show a compact persistent player.
+User revision 2026-09-10: maintain a site-wide persistent mini player for Album playback, including internal
+route changes to another album, WORKS, HOME, MEDIA, ABOUT or the locale counterpart. Tracks, reader and editorial
+views read the shared playback state; page teardown must not pause or dispose its media element.
 
-Scope includes Tracks, Booklet Reader, Credits, editorial scrolling and internal 3D/DOM transitions. The audio session is owned by the Album Detail route and survives internal view changes.
-
-When navigating to any different route (another album, WORKS, HOME, MEDIA, ABOUT, and other paths), end playback and release the old route's audio resources. An optional short fade-out must not block navigation or let playback continue on the destination. Cancelled navigation does not end the current session; committed departure does. A locale pathname change is a route departure; in-page anchors/reader state are internal.
-
-No site-wide global audio player. Going back to this route does not automatically resume playback. Hide/unmount its mini player on departure. A mini player may be rendered in an overlay portal for layout, but its lifecycle remains route-scoped.
+The selected recording continues until explicit pause, replacement, close, completion or a playback error.
+Pause retains quiet two-point motion around the progress bar; close/completion returns the pair to the current page.
+Full document reloads, external-site navigation and tab closure are outside this in-app persistence contract.
+Implementation remains local-only until a separately authorized delivery task supplies production audio transport.
 
 Desktop:
 - thin bottom bar

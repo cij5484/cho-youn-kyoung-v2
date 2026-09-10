@@ -130,5 +130,29 @@
     "bytes": 93206,
     "lifecycle": "provisional",
     "provenance": "official-artwork"
+  },
+  {
+    "file": "artist-portrait-960.webp",
+    "source": "home-runtime:artist-portrait.jpg",
+    "sourceSha256": "0a83b329f6ee07cb52cefe54057c6a047ad797099adf179ac0a8a0e6e3d99fdf",
+    "sha256": "9a37c30ff96d1f304eb9149ef4a141597e883f65d1893f32474788b0aa5e6631",
+    "width": 960,
+    "height": 1440,
+    "bytes": 46272,
+    "lifecycle": "provisional",
+    "provenance": "authentic-portrait",
+    "derivation": "Full-frame Lanczos resize; WebP quality 88; original ICC profile retained; no crop or retouch."
+  },
+  {
+    "file": "artist-portrait-1440.webp",
+    "source": "home-runtime:artist-portrait.jpg",
+    "sourceSha256": "0a83b329f6ee07cb52cefe54057c6a047ad797099adf179ac0a8a0e6e3d99fdf",
+    "sha256": "42ccc9c746643c9a00efbc42faa16f56747918ef33c791df0a40c56f08569e77",
+    "width": 1440,
+    "height": 2160,
+    "bytes": 88282,
+    "lifecycle": "provisional",
+    "provenance": "authentic-portrait",
+    "derivation": "Full-frame Lanczos resize; WebP quality 88; original ICC profile retained; no crop or retouch."
   }
 ]

@@ -61,6 +61,7 @@
 .atmospheric-archive-name { min-inline-size: 0; }
 /* Keep authored Korean spacing intact. Active/hover moves one typeset line, never word fragments. */
 .atmospheric-archive-title {
+  white-space: nowrap;
   display: block; font-family: var(--font-display-ko); font-size: calc(15px + (clamp(18px, 1.65vw, 24px) - 15px) * var(--aa-expansion));
   font-weight: 450; line-height: 1.5; letter-spacing: -.025em; word-break: keep-all;
   transform: translateX(calc(var(--aa-hover) * -4px)); transition: transform 300ms cubic-bezier(.2,.75,.2,1), color 300ms ease;

@@ -5,6 +5,7 @@ import {
 } from 'three'
 import { atmosphericCatalog as worksCatalog } from './atmospheric-catalog.ts'
 import type { AtmosphericImage as WorkImage } from './atmospheric-catalog.ts'
+import { albumStudyHref, requestAlbumEntry } from '../../album-detail/album-navigation.ts'
 
 const clamp = (n: number, low = 0, high = 1) => Math.max(low, Math.min(high, n))
 const smooth = (n: number) => { const t = clamp(n); return t * t * (3 - 2 * t) }
@@ -116,7 +117,7 @@ interface AtmosphericOptions {
   root: HTMLElement
   stage: HTMLElement
   region: HTMLElement
-  images: Record<WorkImage, { src: string; width: number; height: number }>
+  images: Record<WorkImage, { src: string; mobileSrc: string; width: number; height: number }>
   mobile: boolean
   onReady: () => void
   onFocus: (index: number, archive: boolean) => void
@@ -356,7 +357,18 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
     const start = press; press = null
     if (!start || performance.now() - start.time > 650 || Math.hypot(event.clientX - start.x, event.clientY - start.y) > 10 || Math.abs(scrollY - start.scroll) > 5) return
     const index = hit(event.clientX, event.clientY)
-    if (index >= 0) window.location.assign(worksCatalog[index].referenceUrl)
+    if (index >= 0) {
+      const record = worksCatalog[index], href = albumStudyHref(record)
+      if (href.startsWith('/album/')) {
+        const object = objects[index], bounds = canvas.getBoundingClientRect()
+        projection.copy(object.mesh.position).project(camera)
+        const span = 2 * (camera.position.z - object.mesh.position.z) * Math.tan(camera.fov * Math.PI / 360)
+        const w = object.mesh.scale.x / span * height, h = object.mesh.scale.y / span * height
+        if (requestAlbumEntry(href, mobile ? options.images[record.image].mobileSrc : options.images[record.image].src,
+          { x: bounds.left + (projection.x + 1) * width / 2 - w / 2, y: bounds.top + (1 - projection.y) * height / 2 - h / 2, width: w, height: h })) return
+      }
+      window.location.assign(href)
+    }
   }
   function pointerCancel() { press = null }
   function visibility() { if (document.hidden) sleep(); else { lastTime = 0; scroll() } }
@@ -451,7 +463,7 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
       wake()
     }
     image.onerror = () => { pending.delete(image); fail('texture-unavailable') }
-    image.src = options.images[record.image].src
+    image.src = mobile ? options.images[record.image].mobileSrc : options.images[record.image].src
   })
   return { dispose }
 }

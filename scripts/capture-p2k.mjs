@@ -24,7 +24,7 @@ try {
       new PerformanceObserver(list=>{for(const e of list.getEntries())if(!e.hadRecentInput)window.p2kMetrics.cls+=e.value}).observe({type:'layout-shift',buffered:true})
       window.p2kReset=()=>{window.p2kMetrics={callbacks:[],intervals:[],prior:0,longTasks:[],cls:0,points:[]}}
     })
-    await page.goto(`http://127.0.0.1:4195/?all=${variant}`);await page.waitForLoadState('networkidle')
+    await page.goto(`http://127.0.0.1:4195/?all=${variant}&diagnostics=1`);await page.waitForLoadState('networkidle')
     await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));window.p2kReset()})
     const samples=[]
     const record=async name=>{const raw=await page.evaluate(()=>window.p2kMetrics),p95=a=>a.length?[...a].sort((a,b)=>a-b)[Math.floor(a.length*.95)]:0

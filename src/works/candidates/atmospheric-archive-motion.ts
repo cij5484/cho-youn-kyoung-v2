@@ -10,6 +10,10 @@ export function mountAtmosphericArchive(root: HTMLElement): () => void {
   const owner = root.closest('.atmospheric-experience')!
   const spatial = owner.querySelector<HTMLElement>('.atmospheric-depth')!
   const rows = [...root.querySelectorAll<HTMLElement>('[data-archive-row]')]
+  const links = rows.map(row => row.querySelector<HTMLAnchorElement>('a')!)
+  const titles = links.map(link => link.querySelector('.atmospheric-archive-title')?.getAttribute('aria-label'))
+  const heading = spatial.querySelector<HTMLElement>('.atmospheric-heading')
+  const header = root.querySelector<HTMLElement>('.atmospheric-archive-heading')!
   const reduced = matchMedia('(prefers-reduced-motion: reduce)')
   let frame = 0, disposed = false
   const request = () => { if (!disposed && !document.hidden && !frame) frame = requestAnimationFrame(update) }
@@ -26,41 +30,43 @@ export function mountAtmosphericArchive(root: HTMLElement): () => void {
     const gutter = mobile ? 24 : Math.min(64, innerWidth * .04)
     const railWidth = mobile ? Math.min(126, contentWidth * .33) : Math.min(340, contentWidth * .26)
     const railX = (document.documentElement.clientWidth + contentWidth) / 2 - gutter - railWidth
-    const heading = spatial.querySelector<HTMLElement>('.atmospheric-heading')
     const headingBottom = heading ? heading.offsetTop + heading.offsetHeight : 200
     const step = 44
     const railTop = Math.max(headingBottom + 40, viewport * .29)
     const active = Number(spatial.dataset.focus ?? 0)
-    root.dataset.indexExpansion = String(expansion)
-    root.dataset.indexView = String(expansion < .999)
-    root.style.setProperty('--aa-expansion', String(expansion))
-    root.style.setProperty('--aa-rail-width', `${railWidth}px`)
-    spatial.dataset.indexExpansion = String(expansion)
-    const header = root.querySelector<HTMLElement>('.atmospheric-archive-heading')!
-    header.inert = expansion < .95
-    const endSettle = phase(viewport * 1.18 - root.getBoundingClientRect().bottom, 0, viewport * .18)
+    if (root.dataset.indexExpansion !== String(expansion)) {
+      root.dataset.indexExpansion = String(expansion)
+      root.dataset.indexView = String(expansion < .999)
+      root.style.setProperty('--aa-expansion', String(expansion))
+      spatial.dataset.indexExpansion = String(expansion)
+    }
+    if (root.style.getPropertyValue('--aa-rail-width') !== `${railWidth}px`) root.style.setProperty('--aa-rail-width', `${railWidth}px`)
+    if (header.inert !== (expansion < .95)) header.inert = expansion < .95
+    // Expansion changes layout: apply it first, then measure every row before writing row styles.
+    const rects = rows.map(row => row.getBoundingClientRect())
+    const gathered = phase(expansion, 0, 1)
+    // Every row reveals on the same assembly clock, including rows below the viewport.
+    const progress = expansion
+    const values = [phase(progress, .06, .52), phase(progress, .24, .85),
+      phase(progress, .32, .90), phase(progress, .55, 1)]
     rows.forEach((row, index) => {
-      const link = row.querySelector<HTMLAnchorElement>('a')!
-      const rect = row.getBoundingClientRect()
-      const gathered = phase(expansion, 0, 1)
+      const link = links[index], rect = rects[index]
       const x = (railX - rect.left) * (1 - gathered)
       const y = (railTop + index * step + (row.dataset.kind !== rows[0].dataset.kind ? 12 : 0) - rect.top) * (1 - gathered)
-      link.style.setProperty('--aa-project-x', `${x}px`)
-      link.style.setProperty('--aa-project-y', `${y}px`)
-      row.dataset.current = String(active === index)
-      if (active === index && expansion < .95) link.setAttribute('aria-current', 'true')
-      else link.removeAttribute('aria-current')
-      link.setAttribute('aria-label', expansion < .999
-        ? `${link.querySelector('.atmospheric-archive-title')?.getAttribute('aria-label')} — 작품으로 이동`
-        : `${link.querySelector('.atmospheric-archive-title')?.getAttribute('aria-label')} — 기존 사이트에서 기록 보기`)
-      const arrival = Math.max(endSettle, clamp((viewport * .99 - rect.top) / (viewport * .3 + rect.height * .35)))
-      const progress = staticMode || (expansion >= .999 && row.contains(document.activeElement)) ? 1 : Math.min(arrival, expansion)
-      // All thumbnails share the assembly clock, independent of their row height in the viewport.
-      const values = [phase(progress, .06, .52), phase(expansion, .24, .85),
-        phase(progress, .32, .90), phase(progress, .55, 1)]
-      values.forEach((value, i) => row.style.setProperty(properties[i], value.toFixed(4)))
-      row.dataset.formation = expansion < .001 ? 'project-index' : progress >= .999 ? 'settled' : 'forming'
-      row.dataset.archiveProgress = String(progress)
+      if (link.style.getPropertyValue('--aa-project-x') !== `${x}px`) link.style.setProperty('--aa-project-x', `${x}px`)
+      if (link.style.getPropertyValue('--aa-project-y') !== `${y}px`) link.style.setProperty('--aa-project-y', `${y}px`)
+      if (row.dataset.current !== String(active === index)) row.dataset.current = String(active === index)
+      const current = active === index && expansion < .95
+      if (current && !link.hasAttribute('aria-current')) link.setAttribute('aria-current', 'true')
+      else if (!current && link.hasAttribute('aria-current')) link.removeAttribute('aria-current')
+      const label = `${titles[index]} — ${expansion < .999 ? '작품으로 이동' : link.getAttribute('href')?.startsWith('/album/') ? '앨범 전시 보기' : '기존 사이트에서 기록 보기'}`
+      if (link.getAttribute('aria-label') !== label) link.setAttribute('aria-label', label)
+      values.forEach((value, i) => {
+        if (row.style.getPropertyValue(properties[i]) !== value.toFixed(4)) row.style.setProperty(properties[i], value.toFixed(4))
+      })
+      const formation = expansion < .001 ? 'project-index' : progress >= .999 ? 'settled' : 'forming'
+      if (row.dataset.formation !== formation) row.dataset.formation = formation
+      if (row.dataset.archiveProgress !== String(progress)) row.dataset.archiveProgress = String(progress)
       if (active === index) {
         spatial.dataset.indexX = String(rect.left + x + railWidth / 2)
         spatial.dataset.indexY = String(rect.top + y + step / 2)
@@ -83,10 +89,10 @@ export function mountAtmosphericArchive(root: HTMLElement): () => void {
     window.removeEventListener('scroll', request); window.removeEventListener('resize', request)
     root.removeEventListener('focusin', request); root.removeEventListener('focusout', request)
     document.removeEventListener('visibilitychange', visibility); reduced.removeEventListener('change', request)
-    root.querySelector<HTMLElement>('.atmospheric-archive-heading')!.inert = false
-    rows.forEach(row => {
+    header.inert = false
+    rows.forEach((row, index) => {
       properties.forEach(property => row.style.removeProperty(property))
-      const link = row.querySelector<HTMLElement>('a')!
+      const link = links[index]
       link.style.removeProperty('--aa-project-x'); link.style.removeProperty('--aa-project-y')
     })
   }
