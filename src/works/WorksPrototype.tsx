@@ -11,18 +11,16 @@ async function loadCandidate(id: WorksPrototypeId): Promise<ComponentType> {
   // Independent visual engines. Importing one never activates another.
   switch (id) {
     case 'atmospheric-depth': return (await import('./candidates/AtmosphericDepth.tsx')).AtmosphericDepth
-    case 'image-rotations': return (await import('./candidates/ImageRotations.tsx')).ImageRotations
-    case 'webgl-editorial': return (await import('./candidates/WebglEditorial.tsx')).WebglEditorial
   }
 }
 
 function FailedCandidate() {
   return <header className="works-prototype-failed"><h1>Works.</h1><p role="status">연출을 불러오지 못했습니다. 아래 작업 목록에서 모든 기록을 볼 수 있습니다.</p><a href="#works-compact-archive">Archive ↘</a></header>
 }
-class EngineBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
+class EngineBoundary extends Component<{ children: ReactNode; fallbackArchive?: ReactNode }, { failed: boolean }> {
   state = { failed: false }
   static getDerivedStateFromError() { return { failed: true } }
-  render() { return this.state.failed ? <FailedCandidate/> : this.props.children }
+  render() { return this.state.failed ? <><FailedCandidate/>{this.props.fallbackArchive}</> : this.props.children }
 }
 
 export function WorksPrototype({ id, locale }: { id: WorksPrototypeId; locale: Language }) {
@@ -39,8 +37,8 @@ export function WorksPrototype({ id, locale }: { id: WorksPrototypeId; locale: L
   const Content = current?.Content
   return <>
     <div className="works-prototype-host" data-works-prototype={id} data-engine-state={current?.failed ? 'failed' : Content ? 'mounted' : 'loading'}>
-      <EngineBoundary key={id}>{current?.failed ? <FailedCandidate/> : Content ? <Content/> : <div className="works-prototype-loading" role="status">WORKS 연출을 불러오는 중…</div>}</EngineBoundary>
+      <EngineBoundary key={id} fallbackArchive={id === 'atmospheric-depth' && Content ? <CompactArchive locale={locale}/> : undefined}>{current?.failed ? <FailedCandidate/> : Content ? <Content/> : <div className="works-prototype-loading" role="status">WORKS 연출을 불러오는 중…</div>}</EngineBoundary>
     </div>
-    <CompactArchive locale={locale}/>
+    {!(id === 'atmospheric-depth' && Content) && <CompactArchive locale={locale}/>}
   </>
 }

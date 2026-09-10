@@ -4,7 +4,7 @@
   "options": {
     "portrait": "hanji",
     "magnet": true,
-    "worksLayout": "current",
+    "worksLayout": "atmospheric-depth",
     "points": true,
     "janggu": true,
     "type": true,
