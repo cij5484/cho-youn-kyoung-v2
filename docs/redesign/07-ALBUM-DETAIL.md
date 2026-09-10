@@ -60,6 +60,8 @@ signature; progress and volume fills use warm grey `#746b5d` to keep the musical
 Both control tracks are 4px with their 44px input targets preserved. Speaker activation toggles mute/restores
 the previous audible volume; hover/focus or touch activation exposes the vertical control. Haegeum articulation
 now reads positive harmonic flux at 500–4000Hz with HOME's 18/180ms response; Janggu detection is unchanged.
+The visible response is separately damped (bow 180/400ms, drum 55/220ms), with slower travel and restrained
+micro-vibration: sensitivity identifies musical changes without turning every change into a twitch.
 The user subsequently authorized PR/merge for Mac continuation. The localhost-only study and audio proxy remain
 available through `npm run dev:interaction`; merging does not enable the study on the static Pages site.
 

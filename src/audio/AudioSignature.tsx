@@ -23,6 +23,7 @@ export function AudioSignature() {
     let player: HTMLElement | null = null, playerBox: DOMRect | null = null
     const histories: Record<'haegeum' | 'janggu', DepthSample[]> = { haegeum: [], janggu: [] }
     const depth = { haegeum: 0, janggu: 0 }, orbit = createJangguOrbit()
+    const response = { haegeum: 0, janggu: 0, texture: 0 }
     let bowTime = .7
     let lastTargets: DepthPair | null = null
     const request = () => { if (!frame && !document.hidden) frame = requestAnimationFrame(paint) }
@@ -55,27 +56,34 @@ export function AudioSignature() {
     }
     function playerTargets(now: number, dt: number): DepthPair {
       const signal = globalPlayback.sample(dt), bounds = box!
-      const { phase: beatPhase, activity } = orbit.advance(dt, globalPlayback.snapshot().playing)
-      bowTime += dt * (.22 + activity * .5 + signal.haegeum * 1.65 + signal.texture * .8)
+      // Musical detection stays sensitive; the visible gesture carries weight instead of following every spike.
+      for (const id of ['haegeum', 'janggu', 'texture'] as const) {
+        const rising = signal[id] > response[id]
+        const seconds = id === 'janggu' ? rising ? .055 : .22 : rising ? .18 : .4
+        response[id] += (signal[id] - response[id]) * (1 - Math.exp(-dt / seconds))
+      }
+      const { phase: orbitPhase, activity } = orbit.advance(dt, globalPlayback.snapshot().playing)
+      const beatPhase = orbitPhase * .72
+      bowTime += dt * (.22 + activity * .42 + response.haegeum * .9 + response.texture * .15)
       const cx = bounds.left + bounds.width / 2, cy = bounds.top + bounds.height / 2
       const frame = playerBox ?? bounds
       const halfWidth = Math.max(2, Math.min(bounds.width * .55, cx - frame.left - 8, frame.right - cx - 8))
       const halfHeight = Math.max(2, Math.min(cy - frame.top, frame.bottom - cy) - 8)
-      const bow = freePoint(bowTime, 0), range = .42 + activity * .38 + signal.haegeum * .48
+      const bow = freePoint(bowTime, 0), range = .42 + activity * .38 + response.haegeum * .38
       // HOME's perspective and free bow path, recomposed around the progress bar's horizontal axis.
       // Keep independent musical phases: neither point follows playback percentage.
       const local = {
-        haegeum: { x: .5 + (bow.x - .5) * range + Math.cos(bowTime * interactionTuning.home.speed) * signal.texture * .07,
-          y: .5 + (bow.y - .49) * (1.15 + signal.haegeum * .8) * (.2 + activity * .8),
-          z: bow.z * (1 + signal.haegeum * .5) },
+        haegeum: { x: .5 + (bow.x - .5) * range + Math.cos(bowTime * interactionTuning.home.speed) * response.texture * .025,
+          y: .5 + (bow.y - .49) * (1.15 + response.haegeum * .65) * (.2 + activity * .8),
+          z: bow.z * (1 + response.haegeum * .4) },
         janggu: { x: .5 + Math.sin(beatPhase) * (.15 + activity * .28),
-          y: .5 + Math.cos(beatPhase * 3) * (.025 + activity * .10) - signal.janggu * .33,
+          y: .5 + Math.cos(beatPhase * 3) * (.025 + activity * .10) - response.janggu * .24,
           z: Math.sin(beatPhase * 3) * interactionTuning.janggu.depth * 2.8 },
       }
       const targets = {} as DepthPair
       for (const id of twoPointContract.order) {
         const projected = project(local[id], 1, 1)
-        const vibration = id === 'haegeum' ? Math.sin(now * .029) * signal.texture * .16 : 0
+        const vibration = id === 'haegeum' ? Math.sin(now * .017) * response.texture * .04 : 0
         // Compress toward the actual player edges smoothly; preserve depth without leaving its frame.
         const x = cx + Math.tanh((projected.x - .5) * 2.4) * halfWidth
         const y = cy + Math.tanh((projected.y - .5) * 3 + vibration) * halfHeight
@@ -165,7 +173,7 @@ export function AudioSignature() {
         let distance = 0, velocityGap = 0
         for (const id of twoPointContract.order) {
           const point = points[id], target = targets[id]
-          const rate = mode === 'docked' ? id === 'janggu' ? 24 : 14 : id === 'haegeum' ? 10 : 11
+          const rate = mode === 'docked' ? id === 'janggu' ? 15 : 8 : id === 'haegeum' ? 10 : 11
           // Let the outgoing tangent carry the first part of a new flight before steering inward.
           const steering = mode === 'enter' || mode === 'return' ? Math.min(1, .04 + (now - modeSince) / 550) : 1
           follow(point, target, dt, rate * steering)
