@@ -1,0 +1,14 @@
+.works-signature-pair { position: fixed; inset: 0; z-index: 12; pointer-events: none; overflow: clip; contain: strict; }
+.works-signature-pair[data-visible="false"] { visibility: hidden; }
+.works-signature-pair > canvas { position: absolute; inset: 0; display: block; inline-size: 100%; block-size: 100%; pointer-events: none; }
+.works-signature-pair > [data-signature-point] { position: absolute; top: var(--signature-static-y, 61vh); inline-size: var(--signature-static-width); block-size: var(--signature-static-height); border-radius: 50%; opacity: var(--signature-static-opacity); visibility: hidden; }
+.works-signature-pair > [data-signature-point="haegeum"] { left: max(18px, calc((100vw - 1856px) / 2)); background: var(--signature-haegeum); }
+.works-signature-pair > [data-signature-point="janggu"] { right: max(18px, calc((100vw - 1856px) / 2)); top: calc(var(--signature-static-y, 61vh) + 24px); background: var(--signature-janggu); }
+.works-signature-pair[data-static="true"] > canvas { visibility: hidden; }
+.works-signature-pair[data-static="true"] > [data-signature-point] { visibility: visible; }
+.works-signature-pair[data-visible="false"] > * { visibility: hidden; }
+@media (max-width: 700px) {
+  .works-signature-pair > [data-signature-point] { inline-size: var(--signature-static-mobile-width); block-size: var(--signature-static-mobile-height); }
+  .works-signature-pair > [data-signature-point="haegeum"] { left: 12px; }
+  .works-signature-pair > [data-signature-point="janggu"] { right: 12px; }
+}

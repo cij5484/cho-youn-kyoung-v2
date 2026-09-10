@@ -76,6 +76,6 @@ export function chronologicalWorks(records: readonly WorkRecord[]): WorkRecord[]
   return [...records].sort((a, b) => b.year - a.year || (b.date ?? '').localeCompare(a.date ?? '') || a.title.localeCompare(b.title, 'ko'))
 }
 
-export function workDate(record: WorkRecord): string {
+export function workDate(record: Pick<WorkRecord, 'date' | 'year'>): string {
   return record.date?.replaceAll('-', '.') ?? String(record.year)
 }

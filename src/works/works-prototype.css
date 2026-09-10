@@ -1,5 +1,5 @@
 .works-prototype-host { block-size:360svh; position:relative; background:var(--color-canvas); overflow-anchor:none; }
-.works-prototype-host[data-works-prototype="webgl-editorial"][data-engine-state="mounted"],
+.works-prototype-host[data-works-prototype="atmospheric-depth"][data-engine-state="mounted"],
 .works-prototype-host[data-engine-state="failed"],
 .works-prototype-host:has([data-static="true"]),
 .works-prototype-host:has(.works-prototype-failed) { block-size:auto; }

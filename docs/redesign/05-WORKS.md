@@ -1,12 +1,63 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 05 — WORKS
 
-**Version:** 1.7\
-**Status:** Canonical DOM archive preserved; Reference Fidelity R&D / independent A-B-C candidates (not promoted)\
+**Version:** 1.10\
+**Status:** Atmospheric Depth APPROVED / DEFAULT; B/C retired; delivery authorized\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`  
 **Page Role:** Visual Archive + Functional Archive
 
-## 2026-09-09 Reference Fidelity R&D — current comparison
+## 2026-09-10 — approved default and delivery
+
+User approved the current Atmospheric Depth experience as the normal WORKS page and requested removal
+of B/C rather than retaining comparison versions. WORKS no longer mounts comparison controls or consumes
+saved/query renderer choices. HOME selections remain unchanged. `/works/` shows the approved experience
+without `dev` or `worksExperience` parameters. The server content draft remains private; the approved
+seven-record public-reference projection includes Ji Young-hee and links to the existing site.
+
+Current motion: forward enlargement with earlier fade and limited incoming overlap; the final large image
+clears before archive formation. Performances precede albums, newest known dates within each group.
+A native sticky title rail expands in place into compact archive rows; all thumbnails share one formation
+clock. No word-fragment spacing, Project Index label, or scroll-cancelled rail positioning remains.
+
+Local checks explicitly omitted for this delivery. Existing automatic Pages pipeline remains intact.
+Earlier local-only notes below describe historical approval boundaries and are superseded by this section.
+
+## 2026-09-09 A Atmospheric Depth refinement — local only
+
+사용자 범위는 **A만**. 기준 `aa0a1ed`, 로컬 `codex/works-atmospheric-signature`.
+B/C, Canonical `current`, HOME scene와 자산은 유지한다. PR/push/merge/Pages 배포 및 Canonical 승격은 금지된 상태다.
+
+- 각 실제 작품에 approach → focus → viewing hold → departure를 둔다. Hold에서는 camera와 mood가 멈추고
+  다음 작품 opacity는 0이다. Departure에서 다음 온도로 이동하며 역스크롤은 같은 progress를 역으로 계산한다.
+  7개 작품의 Spatial section 670svh desktop / 720svh mobile: sticky travel은 각각 570/620svh, native scroll만 사용한다.
+- Pigment field의 면적·밀도·warm/cool 분리를 강화한다. Ivory 전체 배경을 다른 단색으로 바꾸지 않는다.
+- Shader는 viewport full bleed, image camera viewport와 DOM content frame은 **1880px** 중앙 cap.
+  실제 navigation/heading/caption 사이 공간의 94% 높이 안에 native-aspect image가 들어간다.
+  짧은 desktop도 같은 height fit을 사용한다. Camera approach와 retreat는 이 focus fit을 기준으로 깊이를 만든다.
+- 기존 2×3 mini-grid와 후속 strip 재등장 방식을 모두 제거했다. 마지막 실제 이미지의 표면이 유지된 채
+  측정된 자기 Archive slot으로 연속 이동한다. Archive를 더 일찍 같은 공간으로 들여와 이미지가 사라진 뒤
+  별도 목록을 여는 간격을 없앤다. 실제 DOM image는 부드러운 mask와 얕은 depth settle로 목록에 스며든다.
+  Archive는 spatial catalog 순서 01→07, filter query, 확인된 임시 legacy reference link를 유지한다.
+  Row의 실제 viewport 진입이 rule → image aperture → title 2–3 fragments → date/type → index 순서를 만든다.
+  페이지 끝에서는 마지막 행도 완성되며 focus/reduced-motion은 즉시 읽을 수 있는 DOM을 제공한다.
+- Hover는 rule tension / thumbnail aperture / title counter-motion으로 통일한다. 두 점은 약한 주변 경로 반응을 하고
+  목록 끝까지 ambient 상태로 유지한다. 두 점은 24/30Hz timer 제한 대신 native rAF로 갱신한다.
+  각진 max-normalized 경로/hard clamp를 smooth harmonic 곡선과 연속 중심/반경 변화로 대체했다.
+  HOME 엔진을 복사하거나 재작성하지 않았다.
+  Sitewide identity와 미래 페이지 역할은 [Two-point Signature Contract](review/TWO-POINT-SIGNATURE-CONTRACT.md)가 소유한다.
+- `usePathnameScroll`은 실제 pathname 변경 후 한 번만 top/focus를 정렬한다. 최초 mount/hash와 동일 pathname
+  query/filter/candidate 변경에는 개입하지 않는다. InteractionLab과 Framework Root가 사용하며 Navigation은 수정하지 않는다.
+
+지영희류 누락은 공유 public-reference projection이 과거 P1D private 계약을 따라 제외했기 때문이다.
+최신 사용자 요청에 따라 **A 전용 local presentation catalog 7건(음반4/공연3)**으로 추가했다.
+기존 HOME official derivative 2048×1834, 확인된 제목/날짜/legacy reference만 사용한다.
+서버 private draft, 공통 public catalog6, B/C, metadata/prerender publication 상태는 유지한다.
+
+최소 기술 확인: type-check, 변경 범위 ESLint, A model 5건, 실제 development-preview build.
+내부 브라우저는 desktop/390/3440의 A 기본 구도·역스크롤·Archive/두 점만 짧게 확인한다.
+Full/E2E/multi-browser/기기 QA와 배포는 하지 않는다. 시각 판단은 사용자 검토를 기다린다.
+
+## 2026-09-09 Reference Fidelity R&D — preserved comparison baseline
 
 사용자는 Helix와 PR #17의 z-depth/wave-path/stack-flow를 시각적으로 **REJECTED / SUPERSEDED**로 판정했다.
 같은 renderer/material/camera에서 pose만 바꾸는 접근은 폐기했다. 기존 scene/layout/test는 active runtime에서
@@ -24,7 +75,7 @@
 `src/works/candidates`의 각 engine/component/CSS는 독립이다. 공통은 `worksCatalog`, 실제 web derivatives,
 `CompactArchive`, navigation과 Draft/Promotion뿐이다. 공유 visual sample/renderer/camera/lighting은 없다.
 `WorksPrototype`은 선택 engine을 지연 로드하고 이전 component를 먼저 unmount한다. 비선택 engine은
-renderer/RAF/shader animation을 소유하지 않는다. A/B는260svh core travel, C는 자연 DOM gallery 흐름이다.
+renderer/RAF/shader animation을 소유하지 않는다. 비교 baseline의 A/B는260svh core travel, C는 자연 DOM gallery 흐름이다. A의 최신 변경은 위 refinement가 우선한다.
 모두 compact thumbnail/title/date/type/filter/chronological archive에 접근한다. 새 detail page나 콘텐츠 없음.
 
 Mobile은 A의 얕은 corridor, B의 한 작품 중심 entrance/exit, C의 읽을 크기 vertical flow로 별도 구성한다.

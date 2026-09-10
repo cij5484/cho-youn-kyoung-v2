@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { Links, Meta, Outlet, Scripts, useLocation } from 'react-router'
 import { logicalPath } from './spike/paths'
 import { languageOfPath } from './routing/locale-contract'
+import { usePathnameScroll } from './routing/use-pathname-scroll'
 import './styles/foundation.css'
 import './styles/spike.css'
 
@@ -27,5 +28,6 @@ export function Layout({ children }: { children: ReactNode }) {
 }
 
 export default function Root() {
+  usePathnameScroll()
   return <Outlet />
 }

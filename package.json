@@ -47,7 +47,7 @@
     "build:development-preview": "node scripts/build-development-preview.mjs",
     "experience:promote": "node scripts/experience-promote.mjs",
     "test:experience": "node --test tests/comparison-settings.test.ts tests/experience-promotion.test.ts tests/outro-autonomous.test.ts tests/outro-cadence.test.ts tests/outro-visibility.test.ts",
-    "test:works": "node --test tests/works-catalog.test.ts tests/site-catalog.test.ts tests/works-experience.test.ts tests/works-atmospheric.test.ts tests/works-rotations.test.ts tests/works-editorial.test.ts"
+    "test:works": "node --test tests/works-catalog.test.ts tests/site-catalog.test.ts tests/works-experience.test.ts tests/works-atmospheric.test.ts"
   },
   "dependencies": {
     "@fontsource-variable/cormorant-garamond": "5.3.0",

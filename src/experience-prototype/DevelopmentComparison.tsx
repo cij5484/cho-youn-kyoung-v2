@@ -21,7 +21,7 @@ export function DevelopmentComparison({ scope = 'home', settings, onChange, onJu
       <th scope="row">{experienceRegistry[key].label}<small>{experienceRegistry[key].promotable ? '승격 가능' : '비교 전용'}</small></th>
       <td>{experienceLabel(key, experienceCanonical[key])}</td><td>{experienceLabel(key, settings[key])}{settings[key] !== experienceCanonical[key] && <strong>다름</strong>}</td>
     </tr>)}</tbody></table>
-    {scope === 'works' ? <fieldset><legend>WORKS 공간 연출</legend><div className="development-choices">{(['atmospheric-depth', 'image-rotations', 'webgl-editorial'] as const).map(value => <label key={value}><input type="radio" name="works-layout" checked={settings.worksLayout === value} onChange={() => onChange({ worksLayout: value })}/><span>{experienceLabel('worksLayout', value)}</span></label>)}</div><p>같은 6개 작품·같은 탐색 목록으로 비교합니다. 초기화하면 현재 배포 구성으로 돌아갑니다.</p></fieldset> : <>
+    {scope === 'works' ? null : <>
     <fieldset><legend>07 사진 전환</legend><div className="development-choices development-portrait-choices">{([['off', '이전 분할'], ['straight', '직선 방식'], ['hanji', '한지 번짐']] as const).map(([mode, label]) => <label key={mode}><input type="radio" name="portrait-experiment" checked={settings.portrait === mode} onChange={() => onChange({ portrait: mode })}/><span>{label}</span></label>)}</div>
       <p>한지·직선 방식은 한복 100%와 동일한 간략 프로필로 마무리됩니다.</p>
     </fieldset>

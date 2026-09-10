@@ -11,8 +11,10 @@ import { spatialContinuation } from '../../src/interaction-prototype/continuatio
 import { useComparisonSettings } from '../../src/experience-prototype/use-comparison-settings.ts'
 import { DevelopmentTools } from '../../src/experience-prototype/DevelopmentTools.tsx'
 import { HomeClosing } from '../../src/home/HomeClosing.tsx'
+import { usePathnameScroll } from '../../src/routing/use-pathname-scroll.ts'
 const cascade=(word:string)=><GlyphLabel word={word}/>
 export function InteractionLab(){
+  usePathnameScroll()
   const location=useLocation(),host=useRef<HTMLDivElement>(null),renderer=useRef<ReturnType<typeof createInteractionRenderer>|null>(null)
   const settings=useComparisonSettings(location.search,import.meta.env.DEV)
   const {points,janggu,type,color,study}=settings
@@ -21,7 +23,7 @@ export function InteractionLab(){
   const [word,setWord]=useState('PLAY')
   const locale=location.pathname.startsWith('/en')?'en':'ko'
   const isHome=['/','/en','/en/'].includes(location.pathname)
-  useEffect(()=>{document.documentElement.lang=locale;window.scrollTo({top:0,behavior:'instant'})},[locale])
+  useEffect(()=>{document.documentElement.lang=locale},[locale])
   useEffect(()=>{if(!isHome)return;renderer.current=createInteractionRenderer(host.current!,{points:false,janggu:false,color:'lacquer'});return()=>{renderer.current?.destroy();renderer.current=null}},[location.pathname,isHome])
   useEffect(()=>{renderer.current?.configure({points,janggu,color})},[points,janggu,color,location.pathname])
   return <div ref={attach} className="hero-shell hero-lab interaction-lab" data-prototype="P2K_INTERACTION_LAB_ONLY">

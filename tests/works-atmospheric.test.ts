@@ -1,48 +1,53 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { atmosphericDepth, atmosphericMobileFit, atmosphericTextureSize, atmosphericTimeline } from '../src/works/candidates/atmospheric-engine.ts'
+import { atmosphericDepth, atmosphericFit, atmosphericTextureSize, atmosphericTimeline } from '../src/works/candidates/atmospheric-engine.ts'
 
-test('camera travels through fixed depth layers and every real work has a clear focus', () => {
+import { atmosphericCatalog, filterAtmosphericWorks } from '../src/works/candidates/atmospheric-catalog.ts'
+import { worksCatalog } from '../src/works/catalog.ts'
+const count = atmosphericCatalog.length
+
+const atWork = (index: number, local: number) => (index + local - .18) / (count - .54) * .86
+
+test('each work has a short readable hold, stable atmosphere and subtle continuous camera travel', () => {
   for (const mobile of [false, true]) {
-    const first = atmosphericTimeline(0, mobile)
-    let previous = first.cameraZ
-    for (let i = 0; i <= 5; i++) {
-      const state = atmosphericTimeline(i / 5 * .82, mobile)
-      assert.equal(state.focus, i)
-      assert.ok(state.cameraZ <= previous)
-      assert.ok(Math.abs(state.cameraZ - (-i * state.gap) - state.viewingDistance) < 1e-9)
-      assert.equal(atmosphericDepth(i, state.cursor, mobile).opacity, 1)
-      previous = state.cameraZ
+    for (let index = 0; index < count; index++) {
+      const first = atmosphericTimeline(atWork(index, .34), mobile)
+      const last = atmosphericTimeline(atWork(index, .41), mobile)
+      assert.equal(first.focus, index)
+      assert.equal(first.phase, 'hold')
+      assert.equal(last.phase, 'hold')
+      const travel = first.cameraZ - last.cameraZ
+      assert.ok(travel >= 0 && travel < first.gap * .02)
+      if (index < count - 1) assert.ok(travel > 0)
+      assert.equal(atmosphericTimeline(atWork(index, .44), mobile).phase, 'departure')
+      assert.equal(first.mood, index)
+      assert.equal(last.mood, index)
+      assert.equal(atmosphericDepth(index, first.cursor).opacity, 1)
+      if (index < count - 1) assert.equal(atmosphericDepth(index + 1, last.cursor).opacity, 0)
     }
+    assert.equal(atmosphericTimeline(.86, mobile).resolution, 0)
     assert.equal(atmosphericTimeline(1, mobile).resolution, 1)
-    assert.equal(atmosphericTimeline(.82, mobile).resolution, 0)
   }
-  assert.ok(atmosphericTimeline(0, true).gap < atmosphericTimeline(0, false).gap)
 })
 
-test('depth overlap stays continuous on reverse and passed works leave before crossing the camera', () => {
-  for (const mobile of [false, true]) {
-    const { viewingDistance, gap } = atmosphericTimeline(0, mobile)
-    for (let index = 0; index < 6; index++) {
-      let previous = atmosphericDepth(index, 0, mobile)
-      for (let tick = 1; tick <= 2000; tick++) {
-        const cursor = tick / 400
-        const current = atmosphericDepth(index, cursor, mobile)
-        assert.ok(current.opacity >= 0 && current.opacity <= 1)
-        assert.ok(Math.abs(current.opacity - previous.opacity) < .006)
-        if (current.opacity > .004) assert.ok(viewingDistance + current.delta * gap > 2)
-        assert.deepEqual(current, atmosphericDepth(index, cursor, mobile))
-        previous = current
-      }
+test('approach/departure are continuous and reversible without two competing main images', () => {
+  for (let tick = 1; tick <= count * 1000; tick++) {
+    const cursor = tick / 1000
+    let main = 0
+    for (let index = 0; index < count; index++) {
+      const current = atmosphericDepth(index, cursor)
+      const previous = atmosphericDepth(index, cursor - .001)
+      assert.ok(current.opacity >= 0 && current.opacity <= 1)
+      assert.ok(Math.abs(current.opacity - previous.opacity) < .006)
+      assert.deepEqual(current, atmosphericDepth(index, cursor))
+      if (current.opacity > .55) main++
     }
-    const incoming = atmosphericDepth(2, 1.5, mobile)
-    const departing = atmosphericDepth(1, 1.5, mobile)
-    assert.ok(incoming.opacity > .9 && departing.opacity > .9)
-    assert.equal(atmosphericDepth(0, 2, mobile).opacity, 0)
+    assert.ok(main <= 1)
   }
+  assert.equal(atmosphericDepth(0, 2).opacity, 0)
 })
 
-test('texture upload budgets preserve actual aspect and never upscale', () => {
+test('texture budgets preserve actual aspect and never upscale', () => {
   for (const mobile of [false, true]) {
     for (const [width, height] of [[1600, 1420], [1555, 2200], [1440, 2036], [1414, 2000], [300, 400]]) {
       const result = atmosphericTextureSize(width, height, mobile)
@@ -53,20 +58,36 @@ test('texture upload budgets preserve actual aspect and never upscale', () => {
   }
 })
 
-test('mobile perspective keeps whole album/poster inside measured heading and caption bounds', () => {
-  for (const [width, height, top, bottom] of [[375, 776, 138, 553], [305, 632, 123, 409]]) {
+test('focus fits all four edges inside measured mobile, laptop and ultrawide safe areas', () => {
+  for (const [viewportWidth, height, top, bottom] of [[390, 776, 138, 553], [320, 632, 123, 409], [1366, 700, 175, 480], [3440, 1360, 190, 1140], [5120, 1360, 190, 1140]]) {
+    const mobile = viewportWidth <= 700
+    const width = Math.min(viewportWidth, 1880)
+    const distance = mobile ? 7.7 : 10.4
+    const span = 2 * distance * Math.tan((mobile ? 43 : 42) * Math.PI / 360)
     for (const ratio of [.888, 1.414, 1.426]) {
-      for (let distance = 3.8; distance <= 12; distance += .2) {
-        const span = 2 * distance * Math.tan(43 * Math.PI / 360)
-        for (const desiredY of [-.5, 0, .5]) {
-          const fit = atmosphericMobileFit(1.82, ratio, desiredY, distance, width, height, top, bottom)
-          const center = (1 - 2 * (fit.y - .03) / span) * height / 2
-          const halfHeight = fit.width * ratio / span * height / 2
-          assert.ok(center - halfHeight >= top - 1e-8)
-          assert.ok(center + halfHeight <= bottom + 1e-8)
-          assert.ok(fit.width / span * height <= width * .88 + 1e-8)
-        }
-      }
+      const fit = atmosphericFit(ratio, distance, width, height, top, bottom, mobile)
+      const center = (1 - 2 * fit.y / span) * height / 2
+      const halfHeight = fit.width * ratio / span * height / 2
+      assert.ok(center - halfHeight >= top)
+      assert.ok(center + halfHeight <= bottom)
+      assert.ok(fit.width / span * height <= width * .85)
     }
   }
+})
+
+
+test('local A includes Ji Young-hee without promoting the shared public-reference catalog', () => {
+  assert.equal(count, 7)
+  assert.equal(filterAtmosphericWorks('albums').length, 4)
+  assert.equal(filterAtmosphericWorks('performances').length, 3)
+  assert.ok(atmosphericCatalog.some(record => record.id === 'album:ji-young-hee-ryu-haegeum-sanjo-2026'))
+  assert.equal(worksCatalog.length, 6)
+})
+
+
+test('A groups performances before albums, newest known dates first within each group', () => {
+  assert.deepEqual(atmosphericCatalog.map(record => record.type), ['performance', 'performance', 'performance', 'album', 'album', 'album', 'album'])
+  assert.deepEqual(filterAtmosphericWorks('performances').map(record => record.date), ['2026-09-22', '2026-08-16', '2026-08-02'])
+  assert.equal(filterAtmosphericWorks('albums')[0].image, 'jiYoungHee')
+  assert.equal(filterAtmosphericWorks('albums').at(-1)?.image, 'hanBeomSu')
 })

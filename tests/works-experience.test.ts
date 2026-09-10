@@ -116,14 +116,14 @@ test('every visually rejected draft retires without losing HOME choices or reviv
   }
 })
 
-test('all three candidates round-trip through URL, Draft and promotion with identical canonical isolation', () => {
-  for (const worksLayout of ['atmospheric-depth', 'image-rotations', 'webgl-editorial'] as const) {
+test('approved depth experience round-trips through URL, Draft and promotion', () => {
+  for (const worksLayout of ['atmospheric-depth'] as const) {
     const options = { ...experienceCanonical, worksLayout }
     const url = comparisonSearch('?type=albums&works=spatial-helix', { worksLayout, dev: true })
     assert.equal(new URLSearchParams(url).has('works'), false)
     assert.equal(readComparison(url, false).worksLayout, worksLayout)
     assert.equal(readComparison('?dev=1', false, JSON.stringify(createDraft(options))).worksLayout, worksLayout)
     assert.equal(createPromotion(options).options.worksLayout, worksLayout)
-    assert.equal(readComparison('?dev=0', false, JSON.stringify(createDraft(options))).worksLayout, 'current')
+    assert.equal(readComparison('?dev=0', false, JSON.stringify(createDraft(options))).worksLayout, 'atmospheric-depth')
   }
 })

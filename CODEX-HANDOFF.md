@@ -1,8 +1,8 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-**Status:** WORKS Reference Fidelity R&D / three independent engine candidates REVIEW READY / NOT PROMOTED; Canonical WORKS and HOME preserved. Prior Helix and PR #17 candidates are visually REJECTED / SUPERSEDED.\
-**Revision:** 1.44 / 2026-09-09 — Reference research and three distinct WORKS engines\
+**Status:** WORKS Atmospheric Depth APPROVED as default; B/C engines and WORKS comparison UI retired. PR / main / Pages delivery authorized 2026-09-10; no local validation requested.\
+**Revision:** 1.47 / 2026-09-10 — approved WORKS promotion and comparison cleanup\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
 **Latest delivery policy — 2026-09-08:** user stopped Linux WebKit SOUND investigation and authorized pipeline-only
@@ -471,6 +471,24 @@ Use the user's requested report fields; otherwise report:
 Then STOP and wait for explicit user approval. See Master §43 and [bounded task catalog](docs/redesign/review/IMPLEMENTATION-TASK-PROTOCOL.md).
 
 # 26. CURRENT HANDOFF STATE
+
+## Current A Atmospheric Depth refinement — 2026-09-09 / LOCAL ONLY
+
+User authorized A refinement and the shared semantic two-point contract only. Baseline main `aa0a1ed`,
+local branch `codex/works-atmospheric-signature`. **No PR/push/merge/deploy or Canonical promotion.**
+A now has per-work hold/departure/mood, 1880px content cap + measured four-edge fit, page-owned signature pair,
+and real Archive rule/material/type formation. The rejected transient strips are removed; the last actual image
+continues toward its measured archive slot. Pair animation uses native rAF and round continuous paths.
+A-only local catalog now includes the user-requested Ji Young-hee album (7 records); the P1D draft and shared
+public projection/B/C stay unchanged. Pathname-only top restoration
+is shared by Lab/Framework; same-path query state preserves scroll. Navigation, HOME, B/C and source assets stay intact.
+
+Owners: [WORKS dated revision](docs/redesign/05-WORKS.md),
+[Signature Contract](docs/redesign/review/TWO-POINT-SIGNATURE-CONTRACT.md).
+Minimum check: type-check / scoped lint / A model 5 / actual development Preview build passed.
+Short internal browser review covers desktop/390/3440 load/fit/reverse/Archive and persistent pair. No Full/E2E/device matrix.
+Visual approval remains with the user. Local review then **STOP**; previous delivery policy does not authorize this pass to ship.
+
 
 ## Current WORKS Reference Fidelity R&D — 2026-09-09
 

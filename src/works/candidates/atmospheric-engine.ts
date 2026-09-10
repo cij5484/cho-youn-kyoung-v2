@@ -3,41 +3,51 @@ import {
   PlaneGeometry, Raycaster, Scene, ShaderMaterial, SRGBColorSpace, Texture,
   Vector2, Vector3, WebGLRenderer,
 } from 'three'
-import { worksCatalog } from '../catalog.ts'
-import type { WorkImage } from '../catalog.ts'
+import { atmosphericCatalog as worksCatalog } from './atmospheric-catalog.ts'
+import type { AtmosphericImage as WorkImage } from './atmospheric-catalog.ts'
 
 const clamp = (n: number, low = 0, high = 1) => Math.max(low, Math.min(high, n))
 const smooth = (n: number) => { const t = clamp(n); return t * t * (3 - 2 * t) }
 const damp = (a: number, b: number, dt: number, rate: number) => a + (b - a) * (1 - Math.exp(-rate * dt))
 const ivory = new Color('#f4f0e8')
 const placements = [
-  [-1.15, .22, -.025], [1.08, .18, .018], [-.96, .12, -.018],
+  [.82, .18, .018], [-1.15, .22, -.025], [1.08, .18, .018], [-.96, .12, -.018],
   [.85, .32, .022], [-.72, .20, -.02], [.91, .12, .02],
 ] as const
 const moods: Record<WorkImage, readonly [string, string]> = {
-  yeongsan: ['#60758b', '#b5a182'], pulgo: ['#bd965d', '#a47253'],
+  jiYoungHee: ['#846f64', '#b8a182'], yeongsan: ['#60758b', '#b5a182'], pulgo: ['#bd965d', '#a47253'],
   sanjo: ['#375778', '#a7bfc4'], pyeongjo: ['#baabc9', '#8ab3b0'],
   hanBeomSu: ['#76a591', '#aaa87e'], recital: ['#b79061', '#817885'],
 }
 const palette = worksCatalog.map(record => moods[record.image].map(value => new Color(value)))
 
+/** A work keeps its own room: the camera pauses while the viewer reads. */
 export function atmosphericTimeline(progress: number, mobile: boolean) {
-  const travel = clamp(progress / .82)
-  const cursor = travel * (worksCatalog.length - 1)
+  const cursor = .18 + clamp(progress / .86) * (worksCatalog.length - .54)
+  const focus = Math.min(worksCatalog.length - 1, Math.floor(cursor))
+  const local = cursor - focus
   const gap = mobile ? 2.9 : 4.7
   const viewingDistance = mobile ? 7.7 : 10.4
-  return { cursor, gap, viewingDistance, cameraZ: viewingDistance - cursor * gap,
-    focus: Math.min(worksCatalog.length - 1, Math.round(cursor)), resolution: smooth((progress - .82) / .18) }
+  const passage = Math.min(worksCatalog.length - 1, focus + .04 * smooth(local / .43) + .96 * smooth((local - .43) / .57))
+  const resolution = smooth((progress - .86) / .14)
+  const phase = resolution > 0 ? 'archive' : local < .24 ? 'approach' : local < .32 ? 'focus'
+    : local < .43 ? 'hold' : 'departure'
+  // Never borrow the next work's color during this work's focus/hold.
+  const mood = Math.min(worksCatalog.length - 1, focus + smooth((local - .46) / .54))
+  return { cursor, gap, viewingDistance, cameraZ: viewingDistance - passage * gap,
+    focus, resolution, phase, mood }
 }
 
-/** Distance controls prominence; the camera, not card scaling, owns passage. */
-export function atmosphericDepth(index: number, cursor: number, mobile: boolean) {
-  const delta = index - cursor
-  const forward = Math.max(0, delta)
-  const behind = Math.max(0, -delta)
-  const approach = 1 - smooth((forward - .44) / (mobile ? 1.55 : 2.1))
-  const departure = 1 - smooth((behind - .42) / (mobile ? .92 : 1.04))
-  return { delta, opacity: approach * departure, departure: smooth(behind / 1.45) }
+export function atmosphericDepth(index: number, cursor: number) {
+  const local = cursor - index
+  const approach = smooth(local / .24)
+  const departure = smooth((local - .22) / .78)
+  // A distant next surface enters only after the outgoing image has grown and softened.
+  const incoming = local < 0 ? .28 * smooth((local + .40) / .40) : .28 + .72 * approach
+  const finalWork = index === worksCatalog.length - 1
+  // Clear the final large surface before archive assembly; its real row thumbnail reveals with the list.
+  const fade = finalWork ? smooth((local - .40) / .22) : smooth((local - .52) / .44)
+  return { delta: index - cursor, approach, departure, opacity: incoming * (1 - fade) }
 }
 
 export function atmosphericTextureSize(width: number, height: number, mobile: boolean) {
@@ -45,16 +55,14 @@ export function atmosphericTextureSize(width: number, height: number, mobile: bo
   return { width: Math.max(1, Math.round(width * factor)), height: Math.max(1, Math.round(height * factor)) }
 }
 
-/** Fit a real-aspect image between measured mobile type, retaining perspective until it fills the band. */
-export function atmosphericMobileFit(objectWidth: number, ratio: number, desiredY: number,
-  distance: number, viewportWidth: number, viewportHeight: number, top: number, bottom: number) {
-  const span = 2 * distance * Math.tan(43 * Math.PI / 360)
+/** All four edges fit the actual type-free band, including short desktop windows. */
+export function atmosphericFit(ratio: number, distance: number, viewportWidth: number,
+  viewportHeight: number, top: number, bottom: number, mobile: boolean) {
+  const span = 2 * distance * Math.tan((mobile ? 43 : 42) * Math.PI / 360)
   const available = Math.max(1, bottom - top)
-  const width = Math.min(objectWidth, available * .92 * span / viewportHeight / ratio, viewportWidth * .88 * span / viewportHeight)
-  const high = .03 + (1 - 2 * top / viewportHeight) * span / 2
-  const low = .03 + (1 - 2 * bottom / viewportHeight) * span / 2
-  const half = width * ratio / 2
-  return { width, y: clamp((high + low) / 2 + desiredY, low + half, high - half) }
+  const width = Math.min(available * .94 / ratio, viewportWidth * (mobile ? .84 : .61)) * span / viewportHeight
+  const y = (1 - (top + bottom) / viewportHeight) * span / 2
+  return { width, y }
 }
 
 const atmosphereVertex = `
@@ -90,12 +98,12 @@ void main() {
   p.x += fold;
   vec2 pointer = uPointer * vec2(.075, .045);
   float passage = sin(uDepth * .66) * .24;
-  float cool = field(p, vec2(-.29 + passage, .11) + pointer, vec2(.65, .62));
-  float warm = field(p, vec2(.39 - passage * .48, -.17) - pointer, vec2(.70, .46));
+  float cool = field(p, vec2(-.41 + passage, .11) + pointer, vec2(.92, .75));
+  float warm = field(p, vec2(.39 - passage * .48, -.17) - pointer, vec2(.85, .58));
   float halo = field(p, vec2(.07, .31 + passage * .23), vec2(.42, .91));
-  float presence = (1.0 - uResolve) * (.48 + uBreath * .055);
+  float presence = (1.0 - uResolve) * (.72 + uBreath * .04);
   vec3 color = mix(uPaper, uCool, cool * presence);
-  color = mix(color, uWarm, warm * presence * .83);
+  color = mix(color, uWarm, warm * presence * .90);
   color = mix(color, uPaper, halo * (.12 + uBreath * .06));
   color += (grain(gl_FragCoord.xy) - .5) * .009;
   gl_FragColor = vec4(clamp(color, 0.0, 1.0), 1.0);
@@ -169,7 +177,6 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
   let velocity = 0
   let drift = 0
   let breath = 0
-  let moodCursor = 0
   let phase = 0
   let focus = -1
   let archive = false
@@ -179,8 +186,9 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
   let scrollRange = 1
   let width = 1
   let height = 1
-  let mobileTop = 0
-  let mobileBottom = 1
+  let safeTop = 0
+  let safeBottom = 1
+  let contentWidth = 1
   let visible = stage.getBoundingClientRect().bottom > 0 && stage.getBoundingClientRect().top < innerHeight
   let modal = Boolean(document.querySelector('dialog[open]'))
   let press: { x: number; y: number; scroll: number; time: number } | null = null
@@ -210,65 +218,76 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
     phase += dt
     const timeline = atmosphericTimeline(progress, mobile)
     const { cursor, gap, viewingDistance, resolution } = timeline
-    moodCursor = damp(moodCursor, cursor, dt, 2.4)
-    camera.position.set(pointer.x * (mobile ? 0 : .055), mobile ? .03 : .10, timeline.cameraZ)
+    camera.position.set(pointer.x * (mobile ? 0 : .025), 0, timeline.cameraZ)
     camera.updateMatrixWorld()
-    if (focus !== timeline.focus || archive !== (resolution > .5)) {
-      focus = timeline.focus; archive = resolution > .5
+    if (focus !== timeline.focus || archive !== (resolution > .1)) {
+      focus = timeline.focus; archive = resolution > .1
       options.onFocus(focus, archive)
     }
     objects.forEach(({ mesh, material, ratio }, index) => {
-      const depth = atmosphericDepth(index, cursor, mobile)
-      const [baseX, baseY, tilt] = placements[index]
-      const clarity = Math.exp(-Math.pow(depth.delta / .8, 4))
-      const x = mobile ? baseX * .075 + Math.tanh(depth.delta) * .20
-        : baseX + Math.sign(baseX) * depth.departure * 1.65
-      const y = mobile ? -Math.tanh(depth.delta * .83) * .34 : baseY + depth.departure * .25
-      const influence = depth.opacity * (1 + Math.max(0, depth.delta) * .14)
-      mesh.position.set(
-        x + pointer.x * (mobile ? .02 : .22) * influence,
-        y + pointer.y * (mobile ? .01 : .12) * influence + drift * (mobile ? .085 : .19),
-        -index * gap,
-      )
+      const depth = atmosphericDepth(index, cursor)
+      const [baseX, , tilt] = placements[index]
+      const imageAreaWidth = contentWidth * (mobile ? .60 : .68)
+      const fit = atmosphericFit(ratio, viewingDistance, imageAreaWidth, height, safeTop, safeBottom, mobile)
+      const viewSpan = 2 * viewingDistance * Math.tan(camera.fov * Math.PI / 360)
+      const imageCenterX = (imageAreaWidth - contentWidth) * .5 * viewSpan / height
+      const nextDistance = Math.max(0, depth.delta) * gap
+      // Travel through the image plane: readable approach grows continuously into full-frame cover.
+      // Derive the near distance from the real aspect ratio, so even a narrow poster covers the viewport.
+      const coverDistance = Math.min(fit.width * height / width, fit.width * ratio) / (2 * Math.tan(camera.fov * Math.PI / 360))
+      const distance = viewingDistance * Math.pow(coverDistance * .58 / viewingDistance, depth.departure)
+        + (1 - depth.approach) * gap * 1.6 + nextDistance
+      const centering = smooth(depth.departure)
+      const x = (imageCenterX + baseX * (mobile ? .06 : .23)) * (1 - centering)
+      const y = (fit.y + drift * .04) * (1 - centering)
+      mesh.position.set(x + pointer.x * .025, y + pointer.y * .015, camera.position.z - distance)
+      mesh.rotation.set(-drift * .025 * (1 - centering), tilt * (1 - depth.approach), 0)
       const activeHover = hovered === index ? hoverAmount : 0
-      mesh.position.z += activeHover * .13
-      mesh.rotation.set(
-        -pointer.y * breath * .09 - drift * .035,
-        tilt * (1 - clarity * .8) + pointer.x * breath * .13,
-        -drift * tilt * .65,
-      )
-      // Only velocity contributes a small pulse. Camera passage carries scale.
-      const baseWidth = mobile ? (worksCatalog[index].type === 'album' ? 1.82 : 1.62)
-        : (worksCatalog[index].type === 'album' ? 4.25 : 3.26)
-      let objectWidth = baseWidth * (1 + breath * .044 * depth.opacity + activeHover * .012)
-      if (mobile) {
-        const fit = atmosphericMobileFit(objectWidth, ratio, mesh.position.y,
-          Math.max(.1, camera.position.z - mesh.position.z), width, height, mobileTop, mobileBottom)
-        objectWidth = fit.width; mesh.position.y = fit.y
-      }
-      const destination = new Vector3((index % 3 - 1) * (mobile ? .86 : 2.15), (index < 3 ? .75 : -.75), timeline.cameraZ - viewingDistance)
-      mesh.position.lerp(destination, resolution)
-      mesh.rotation.x *= 1 - resolution; mesh.rotation.y *= 1 - resolution; mesh.rotation.z *= 1 - resolution
-      objectWidth += ((mobile ? .56 : 1.25) - objectWidth) * resolution
+      let objectWidth = fit.width * (1 + activeHover * .008)
+      // The persistent titles now own the archive transformation. The final surface
+      // retreats gently behind their widening field; no separate image-to-list flight.
+      mesh.position.z -= resolution * gap * .6
+      mesh.position.x -= resolution * .18
+      objectWidth *= 1 - resolution * .12
       mesh.scale.set(objectWidth, objectWidth * ratio, 1)
-      material.opacity = depth.opacity + (1 - depth.opacity) * resolution
+      material.opacity = depth.opacity * (1 - smooth((resolution - .15) / .70))
       material.depthWrite = material.opacity > .995
       mesh.visible = ready && material.opacity > .004
     })
-    const mood = clamp(moodCursor, 0, worksCatalog.length - 1)
+    const mood = timeline.mood
     const first = Math.floor(mood), next = Math.min(first + 1, worksCatalog.length - 1)
-    const blend = smooth(mood - first)
+    const blend = mood - first
     paper.uniforms.uCool.value.copy(palette[first][0]).lerp(palette[next][0], blend)
     paper.uniforms.uWarm.value.copy(palette[first][1]).lerp(palette[next][1], blend)
     paper.uniforms.uPointer.value.copy(pointer)
-    paper.uniforms.uDepth.value = moodCursor
+    paper.uniforms.uDepth.value = mood
     paper.uniforms.uPhase.value = phase
     paper.uniforms.uBreath.value = breath
     paper.uniforms.uResolve.value = resolution
+    renderer.setViewport(0, 0, width, height)
+    renderer.setScissorTest(false)
     renderer.clear()
     renderer.render(backdrop, backdropCamera)
     renderer.clearDepth()
+    renderer.setViewport(0, 0, width, height)
     renderer.render(scene, camera)
+    renderer.setScissorTest(false)
+    const bounds = canvas.getBoundingClientRect()
+    const describe = (index: number, prefix: string) => {
+      const object = objects[index]
+      projection.copy(object.mesh.position).project(camera)
+      const distance = camera.position.z - object.mesh.position.z
+      const span = 2 * distance * Math.tan(camera.fov * Math.PI / 360)
+      root.dataset[`${prefix}X`] = String(bounds.left + (projection.x + 1) * width / 2)
+      root.dataset[`${prefix}Y`] = String(bounds.top + (1 - projection.y) * height / 2)
+      root.dataset[`${prefix}Width`] = String(object.mesh.scale.x / span * height)
+      root.dataset[`${prefix}Height`] = String(object.mesh.scale.y / span * height)
+    }
+    describe(focus, 'focus'); describe(Math.min(worksCatalog.length - 1, focus + 1), 'next')
+    root.dataset.resolution = resolution.toFixed(5)
+    root.dataset.segmentPhase = timeline.phase
+    root.dataset.mood = mood.toFixed(4)
+    root.style.setProperty('--atmospheric-resolution', resolution.toFixed(4))
     frames++
     root.dataset.progress = progress.toFixed(5)
     root.dataset.focus = String(focus)
@@ -277,7 +296,7 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
     root.dataset.drift = drift.toFixed(4)
     const moving = Math.abs(progress - targetProgress) > .000015 || Math.abs(velocity) > .0003
       || Math.abs(drift) > .001 || breath > .001 || pointer.distanceTo(pointerTarget) > .001
-      || Math.abs(moodCursor - cursor) > .001 || Math.abs(hoverAmount - (hovered >= 0 ? 1 : 0)) > .001
+      || Math.abs(hoverAmount - (hovered >= 0 ? 1 : 0)) > .001
     root.dataset.renderState = moving ? 'running' : 'settled'
     if (moving) frame = requestAnimationFrame(render)
   }
@@ -298,9 +317,11 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
     width = Math.max(1, bounds.width); height = Math.max(1, bounds.height)
     const heading = root.querySelector<HTMLElement>('.atmospheric-heading')?.getBoundingClientRect()
     const caption = root.querySelector<HTMLElement>('.atmospheric-caption')?.getBoundingClientRect()
-    mobileTop = clamp((heading?.bottom ?? bounds.top) - bounds.top + 24, 0, height)
-    mobileBottom = clamp((caption?.top ?? bounds.bottom) - bounds.top - 24, mobileTop + 1, height)
+    safeTop = clamp((heading?.bottom ?? bounds.top) - bounds.top + 24, 0, height)
+    safeBottom = clamp((caption?.top ?? bounds.bottom) - bounds.top - 24, safeTop + 1, height)
     renderer.setSize(width, height, false)
+    contentWidth = Math.min(width, 1880)
+    root.dataset.contentWidth = String(contentWidth)
     camera.aspect = width / height
     camera.updateProjectionMatrix()
     paper.uniforms.uAspect.value = width / height
@@ -314,7 +335,7 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
   }
   function hit(x: number, y: number) {
     const rect = canvas.getBoundingClientRect()
-    hitPointer.set((x - rect.left) / rect.width * 2 - 1, 1 - (y - rect.top) / rect.height * 2)
+    hitPointer.set((x - rect.left) / width * 2 - 1, 1 - (y - rect.top) / rect.height * 2)
     raycaster.setFromCamera(hitPointer, camera)
     const match = raycaster.intersectObjects(objects.filter(object => object.mesh.visible && object.material.opacity > .4).map(object => object.mesh), false)[0]
     return match ? match.object.userData.index as number : -1
@@ -341,8 +362,13 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
   function visibility() { if (document.hidden) sleep(); else { lastTime = 0; scroll() } }
   function lost(event: Event) { event.preventDefault(); fail('context-lost') }
   const observer = new IntersectionObserver(entries => {
+    const wasVisible = visible
     visible = entries.some(entry => entry.isIntersecting)
-    if (visible) { lastTime = 0; scroll() } else sleep()
+    if (visible) {
+      lastTime = 0; scroll()
+      // Resume at the actual location after an offscreen jump, not a stale earlier work.
+      if (!wasVisible) { progress = targetProgress; velocity = 0; drift = 0; breath = 0 }
+    } else sleep()
   })
   const sizing = new ResizeObserver(resize)
   const dialogs = new MutationObserver(() => {
@@ -385,7 +411,7 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
   canvas.addEventListener('pointerdown', pointerDown, { passive: true }); canvas.addEventListener('pointerup', pointerUp, { passive: true })
   canvas.addEventListener('pointercancel', pointerCancel); canvas.addEventListener('webglcontextlost', lost)
   Object.defineProperty(root, '__worksSnapshot', { configurable: true, value: () => ({
-    progress, targetProgress, velocity, drift, breath, pointer: pointer.toArray(), moodCursor, frames,
+    progress, targetProgress, velocity, drift, breath, pointer: pointer.toArray(), mood: atmosphericTimeline(progress, mobile).mood, frames,
     camera: camera.position.toArray(), textures: textures.size, pending: pending.size,
     mobile, state: root.dataset.renderState, textureSizes: [...textures].map(texture => {
       const source = texture.image
@@ -395,7 +421,7 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
     objects: objects.map(({ mesh, material }, index) => {
       projection.copy(mesh.position).project(camera)
       const bounds = canvas.getBoundingClientRect()
-      return { id: worksCatalog[index].id, position: mesh.position.toArray(), rotation: mesh.rotation.toArray(), opacity: material.opacity,
+      return { id: worksCatalog[index].id, position: mesh.position.toArray(), rotation: mesh.rotation.toArray(), opacity: material.opacity, scale: mesh.scale.toArray(),
         projected: [bounds.left + (projection.x + 1) * width / 2, bounds.top + (1 - projection.y) * height / 2] }
     }),
   }) })

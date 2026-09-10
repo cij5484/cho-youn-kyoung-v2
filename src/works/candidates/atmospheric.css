@@ -1,41 +1,50 @@
-.atmospheric-depth { position: relative; block-size: 100%; min-block-size: 100svh; color: var(--color-ink); background: var(--color-canvas); }
+.atmospheric-experience { position: relative; background: var(--color-canvas); }
+.atmospheric-depth { position: relative; block-size: 590svh; min-block-size: 100svh; color: var(--color-ink); background: var(--color-canvas); }
 .atmospheric-stage { position: sticky; top: 0; block-size: 100svh; overflow: clip; isolation: isolate; }
 .atmospheric-canvas-host, .atmospheric-canvas { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; }
 /* The opaque GPU surface owns the visible area below the existing fixed navigation. */
 .atmospheric-canvas-host { inset-block-start: var(--atmospheric-obstruction, 0px); block-size: calc(100% - var(--atmospheric-obstruction, 0px)); }
 .atmospheric-canvas { display: block; touch-action: pan-y; }
-.atmospheric-heading { position: absolute; top: clamp(102px, 13svh, 142px); left: var(--page-gutter); pointer-events: none; }
+.atmospheric-content-frame { position: absolute; inset: 0; inline-size: min(100%, 1880px); margin-inline: auto; pointer-events: none; --atmospheric-gutter: clamp(24px, 4vw, 64px); }
+.atmospheric-content-frame a { pointer-events: auto; }
+.atmospheric-heading { position: absolute; top: clamp(102px, 13svh, 142px); left: var(--atmospheric-gutter); pointer-events: none; }
+.atmospheric-heading { opacity: calc(1 - var(--atmospheric-resolution, 0) * 3); transform: translateY(calc(var(--atmospheric-resolution, 0) * -20px)); }
+.atmospheric-caption, .atmospheric-count, .atmospheric-index { opacity: calc(1 - var(--atmospheric-resolution, 0) * 3); }
 .atmospheric-heading > p { font: 9px var(--font-ui); letter-spacing: .12em; }
 .atmospheric-heading h1 { margin: 12px 0 0 -.025em; font-family: var(--font-display); font-size: clamp(67px, 7vw, 102px); font-weight: 450; line-height: .88; letter-spacing: -.055em; }
 .atmospheric-heading h1 > span { color: var(--color-accent); }
-.atmospheric-caption { position: absolute; bottom: clamp(45px, 6svh, 68px); left: var(--page-gutter); max-inline-size: min(51vw, 700px); }
+.atmospheric-caption { position: absolute; bottom: clamp(45px, 6svh, 68px); left: var(--atmospheric-gutter); max-inline-size: min(65%, 820px); }
 .atmospheric-type { margin-bottom: 11px; font-size: 9px; letter-spacing: .10em; }
 .atmospheric-caption h2 { margin: 0; font-family: var(--font-display-ko); font-size: clamp(20px, 2.1vw, 30px); font-weight: 450; letter-spacing: -.04em; line-height: 1.5; word-break: keep-all; }
 .atmospheric-date { margin-top: 7px; font-size: 11px; color: var(--color-muted-text); }
 .atmospheric-record { display: inline-flex; gap: 35px; align-items: center; min-block-size: 44px; margin-top: 5px; font-size: 11px; text-decoration: none; }
 .atmospheric-record > span { font-size: 17px; }
-.atmospheric-count { position: absolute; right: var(--page-gutter); top: clamp(114px, 14svh, 157px); display: flex; gap: 12px; font: 11px var(--font-ui); }
+.atmospheric-count { position: absolute; right: var(--atmospheric-gutter); top: clamp(114px, 14svh, 157px); display: flex; gap: 12px; font: 11px var(--font-ui); }
 .atmospheric-count > span { opacity: .35; }
-.atmospheric-index { position: absolute; bottom: clamp(45px, 6svh, 68px); right: var(--page-gutter); display: flex; align-items: center; gap: 32px; min-block-size: 44px; font-size: 11px; text-decoration: none; }
+.atmospheric-index { position: absolute; bottom: clamp(82px, 9svh, 100px); right: var(--atmospheric-gutter); display: flex; align-items: center; gap: 32px; min-block-size: 44px; font-size: 11px; text-decoration: none; }
 .atmospheric-index > span:last-child { font-size: 22px; }
 .atmospheric-depth :is(a:focus-visible) { outline: 2px solid var(--color-ink); outline-offset: 6px; }
+.atmospheric-index:focus-visible { opacity: 1; }
 .atmospheric-depth[data-static="true"] { min-block-size: auto; block-size: auto; }
+.atmospheric-depth[data-static="true"] .atmospheric-content-frame { position: static; }
 .atmospheric-depth[data-static="true"] .atmospheric-stage { position: relative; block-size: auto; min-block-size: 530px; padding: 225px var(--page-gutter) 90px; }
 .atmospheric-depth[data-static="true"] .atmospheric-canvas-host { display: none; }
 .atmospheric-static { inline-size: min(340px, 75vw); margin-inline: auto; }
 .atmospheric-static img { display: block; inline-size: 100%; block-size: auto; }
 .atmospheric-static p { margin-top: 18px; font-family: var(--font-display-ko); font-size: 17px; text-align: center; }
 @media (max-width: 700px) {
+  .atmospheric-depth { block-size: 620svh; }
+  .atmospheric-content-frame { --atmospheric-gutter: max(20px, var(--page-gutter)); }
   .atmospheric-heading { top: 108px; }
   .atmospheric-heading > p { font-size: 8px; }
   .atmospheric-heading h1 { margin-top: 11px; font-size: 65px; }
   .atmospheric-count { top: 124px; font-size: 10px; gap: 9px; }
-  .atmospheric-caption { left: var(--page-gutter); right: var(--page-gutter); bottom: 70px; max-inline-size: 340px; }
+  .atmospheric-caption { left: var(--atmospheric-gutter); right: var(--atmospheric-gutter); bottom: 70px; max-inline-size: 340px; }
   .atmospheric-type { font-size: 8px; margin-bottom: 8px; }
   .atmospheric-caption h2 { font-size: clamp(19px, 5.2vw, 22px); line-height: 1.5; }
   .atmospheric-date { font-size: 10px; margin-top: 5px; }
   .atmospheric-record { margin-top: 2px; }
-  .atmospheric-index { bottom: 20px; font-size: 10px; }
+  .atmospheric-index { bottom: 20px; left: var(--atmospheric-gutter); right: auto; font-size: 10px; }
   .atmospheric-depth[data-static="true"] .atmospheric-stage { padding-top: 220px; }
 }
 @media (max-width: 359px) {
