@@ -1,6 +1,6 @@
 import { useEffect, useEffectEvent } from 'react'
 import { useNavigate } from 'react-router'
-import { localAlbumStudy } from './album-navigation.ts'
+import { localAlbumStudy, appRoute } from './album-navigation.ts'
 
 type Entry = { href: string; src: string; bounds: { x: number; y: number; width: number; height: number } }
 
@@ -14,10 +14,12 @@ export function AlbumRouteTransition() {
     let generation = 0, origin = { y: 0, slug: '', href: '/works/' }
     const clear = () => { animation?.cancel(); animation = null; overlay?.remove(); overlay = null }
     async function enter({ href, src, bounds }: Entry) {
+      const route = appRoute(href)
+      if (!route) return
       const attempt = ++generation
       clear()
-      const returning = href.startsWith('/works')
-      if (location.pathname.replace(/\/$/, '') === '/works') origin = { y: scrollY, slug: href.split('/')[2], href: location.pathname + location.search }
+      const returning = route.startsWith('/works')
+      if (appRoute(location.pathname)?.replace(/\/$/, '') === '/works') origin = { y: scrollY, slug: route.split('/')[2], href: appRoute(location.pathname + location.search)! }
       const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches
       if (!reduced && (!returning || origin.slug) && src && bounds.width > 0 && bounds.y < innerHeight && bounds.y + bounds.height > 0) {
         overlay = document.createElement('img')
@@ -26,7 +28,7 @@ export function AlbumRouteTransition() {
           left: `${bounds.x}px`, top: `${bounds.y}px`, width: `${bounds.width}px`, height: `${bounds.height}px`, margin: '0' })
         document.body.append(overlay)
       }
-      go(returning ? origin.href : href)
+      go(returning ? origin.href : route)
       if (returning && !origin.slug) return
       // Destination may be lazy: keep the actual selected image while its slot mounts.
       let destination: DOMRect | null = null
@@ -68,10 +70,10 @@ export function AlbumRouteTransition() {
     const request = (event: Event) => { event.preventDefault(); void enter((event as CustomEvent<Entry>).detail) }
     const click = (event: MouseEvent) => {
       if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
-      const link = (event.target as Element).closest<HTMLAnchorElement>('a[data-album-link], a[data-album-return], a[href^="/album/"]')
-      if (!link || link.target === '_blank') return
+      const link = (event.target as Element).closest<HTMLAnchorElement>('a[href]')
+      if (!link || link.hasAttribute('download') || link.target && link.target !== '_self') return
       const href = link.getAttribute('href')!
-      if (!href.startsWith('/album/') && !link.hasAttribute('data-album-return')) return
+      if (!appRoute(href)?.startsWith('/album/') && !link.hasAttribute('data-album-return')) return
       event.preventDefault()
       const image = link.querySelector<HTMLImageElement>('img') ?? document.querySelector<HTMLImageElement>('[data-album-cover]')
       const spatial = link.closest<HTMLElement>('.atmospheric-depth')

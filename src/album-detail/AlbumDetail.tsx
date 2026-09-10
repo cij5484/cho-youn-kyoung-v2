@@ -1,3 +1,4 @@
+import { appHref } from './album-navigation.ts'
 import { lazy, Suspense, useEffect, useRef, useState, type PointerEvent } from 'react'
 import { albums, type AlbumExhibit } from './album-data.ts'
 import { globalPlayback, useGlobalPlayback } from '../audio/global-playback.ts'
@@ -11,7 +12,7 @@ const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches
 
 export default function AlbumDetail({ slug }: { slug: string }) {
   const album = albums.find(item => item.slug === slug)
-  return album ? <Exhibition album={album}/> : <section className="lab-destination page-frame"><h1>앨범을 찾을 수 없습니다.</h1><a href="/works/">WORKS로 돌아가기 ↗</a></section>
+  return album ? <Exhibition album={album}/> : <section className="lab-destination page-frame"><h1>앨범을 찾을 수 없습니다.</h1><a href={appHref('/works/')}>WORKS로 돌아가기 ↗</a></section>
 }
 
 function Exhibition({ album }: { album: AlbumExhibit }) {
@@ -83,7 +84,7 @@ function Exhibition({ album }: { album: AlbumExhibit }) {
       <div className="album-opening-stage">
         <div className="album-air" aria-hidden="true"/>
         <div className="album-opening-composition">
-        <div className="album-opening-top"><a href="/works/" data-album-return>↖ WORKS</a><span>RECORDING / {album.year}</span></div>
+        <div className="album-opening-top"><a href={appHref('/works/')} data-album-return>↖ WORKS</a><span>RECORDING / {album.year}</span></div>
         <div className="album-display-word" aria-hidden="true">{sanjo ? 'Sanjo' : 'Resonance'}<i>.</i></div>
         <div className="album-hero-copy">
           <p className="album-eyebrow">CHO YOUN KYOUNG — {sanjo ? 'HAEGEUM SANJO' : 'HAEGEUM JEONGAK'}</p>
@@ -176,8 +177,8 @@ function Exhibition({ album }: { album: AlbumExhibit }) {
 
     <section className="album-related" data-exhibit-scene="related" data-album-anchor="related" aria-labelledby="album-related-title">
       <div className="album-related-heading"><p className="album-eyebrow">THE EXHIBITION CONTINUES</p><h2 id="album-related-title">Another resonance<span>.</span></h2></div>
-      <div className="album-related-grid">{others.map((item, index) => <a href={`/album/${item.slug}/`} data-album-link key={item.slug}><span>{two(index + 1)} / {item.year}</span><div><img src={item.front} alt={item.title} loading="lazy"/></div><h3>{item.subtitle}<span>↗</span></h3></a>)}</div>
-      <a className="album-return" href="/works/" data-album-return><img src={album.front} alt=""/><span>BACK TO <em>WORKS</em></span><span aria-hidden="true">↗</span></a>
+      <div className="album-related-grid">{others.map((item, index) => <a href={appHref(`/album/${item.slug}/`)} data-album-link key={item.slug}><span>{two(index + 1)} / {item.year}</span><div><img src={item.front} alt={item.title} loading="lazy"/></div><h3>{item.subtitle}<span>↗</span></h3></a>)}</div>
+      <a className="album-return" href={appHref('/works/')} data-album-return><img src={album.front} alt=""/><span>BACK TO <em>WORKS</em></span><span aria-hidden="true">↗</span></a>
       <p className="album-colophon">CHO YOUN KYOUNG<span>{album.subtitle} — END OF RECORD</span></p>
     </section>
 

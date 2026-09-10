@@ -62,6 +62,14 @@ the previous audible volume; hover/focus or touch activation exposes the vertica
 now reads positive harmonic flux at 500–4000Hz with HOME's 18/180ms response; Janggu detection is unchanged.
 The visible response is separately damped (bow 180/400ms, drum 55/220ms), with slower travel and restrained
 micro-vibration: sensitivity identifies musical changes without turning every change into a twitch.
+Vertical-flow refinement: retain HOME's curved bow path and unchanged horizontal travel, but map vertical depth
+across the player's full inner height rather than limiting both directions to the smaller space below the bar.
+The progress bar remains the zero-displacement anchor. Haegeum receives the larger vertical range; Janggu's
+ambient vertical arc grows without increasing its strike amplitude, phase speed or micro-vibration.
+Pitch refinement: confidence-gated live fundamental estimation drives Haegeum's vertical position (higher notes
+up, lower notes down), while its sustained level scales the excursion. A short pitch follower and confidence
+crossfade preserve flow through ornaments/uncertain input; the HOME curve supplies the unvoiced fallback.
+This estimates the dominant pitched source in the mixed recording, not an isolated Haegeum stem.
 The user subsequently authorized PR/merge for Mac continuation. The localhost-only study and audio proxy remain
 available through `npm run dev:interaction`; merging does not enable the study on the static Pages site.
 
@@ -1085,3 +1093,18 @@ The visitor should feel:
 **“I can hold the album, open it, listen to it, read it, and understand it.”**
 
 without feeling trapped inside a 3D demo.
+
+
+### 2026-09-10 — Same-state development Pages publication (user-authorized)
+
+The user's “이 상태 그대로 배포가 되야 한다” supersedes the local-only boundary for the
+GitHub Pages development preview. Keep the current exhibition, assets, global player and pitch-driven
+signature motion. The preview build enables the same components and emits the four real KO album
+entries. Native links respect the Pages base; Router navigation keeps playback alive.
+
+The 29 existing public recordings are pinned by byte size/SHA-256 in `src/audio/recordings.json`.
+The preview build verifies/downloads them into the static same-origin audio directory; MP3 cache
+and build outputs are ignored, not committed. This removes the production dependency on Vite's
+local proxy and permits live Web Audio analysis. Root release fixtures and the legacy domain remain
+unchanged. Essential validation: types, lint, preview build, Fast CI and deployed runtime/reachability.
+This publication is not a release/visual-quality approval.
