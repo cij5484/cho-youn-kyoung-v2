@@ -3,6 +3,39 @@ import { test } from 'node:test'
 import { freePoint, project, pointAt, hitDisplacement, createJangguOrbit, jangguPoint, PathHistory, sharedGlyphs } from '../src/interaction-prototype/model.ts'
 import { interactionTuning as tuning } from '../src/interaction-prototype/tuning.ts'
 import { createTrailSampler, trailNormal, trailEdge } from '../src/motion/trail-geometry.ts'
+import { alignedTargets, stringAlignment } from '../src/interaction-prototype/alignment.ts'
+
+test('both string targets share three measurements per frame and preserve the original coordinates', t=>{
+  let reads=0,styles=0,shift=0
+  const configurations=[
+    {left:100,top:50,width:600,height:800,naturalWidth:1000,naturalHeight:1500,objectFit:'cover',objectPosition:'50% 82%'},
+    {left:-20,top:80,width:900,height:500,naturalWidth:1200,naturalHeight:900,objectFit:'contain',objectPosition:'25% 75%'},
+    {left:50,top:-40,width:430,height:670,naturalWidth:600,naturalHeight:900,objectFit:'fill',objectPosition:'50% 50%'},
+  ]
+  const images=configurations.map(c=>({...c,getBoundingClientRect:()=>{reads++;return {...c,left:c.left+shift}}}))
+  const selectors=Object.values(stringAlignment).map(c=>c.selector)
+  const root={querySelector:(selector:string)=>images[selectors.indexOf(selector as typeof selectors[number])]} as unknown as HTMLElement
+  const previous=Object.getOwnPropertyDescriptor(globalThis,'getComputedStyle')
+  Object.defineProperty(globalThis,'getComputedStyle',{configurable:true,value:(img:unknown)=>{styles++;return img}})
+  t.after(()=>{if(previous)Object.defineProperty(globalThis,'getComputedStyle',previous);else Reflect.deleteProperty(globalThis,'getComputedStyle')})
+  // Recorded from the unmodified implementation: cover, contain and fill, including reverse travel.
+  const cases=[
+    {p:0,xy:[[308.31947517601157,289.3531361434392],[312.58158689862285,323.4004849549527]]},
+    {p:.5,xy:[[395.6432920566564,311.8304923304491],[397.8921548251718,331.426232846273]]},
+    {p:.88,xy:[[355.92071201177004,342.4805664885988],[357.2767916570981,365.1788803775485]]},
+    {p:1,xy:[[215.3223315351599,354.5884063274255],[217.78285286262098,396.4532441170618]]},
+  ]
+  for(const sample of [...cases,...cases.toReversed()]){
+    reads=styles=0
+    const points=alignedTargets(root,{left:11,top:17} as DOMRect,sample.p,2.75)
+    assert.equal(reads,3);assert.equal(styles,3)
+    points.forEach((point,i)=>{
+      assert.ok(Math.abs(point.x-sample.xy[i][0]-shift)<1e-9)
+      assert.ok(Math.abs(point.y-sample.xy[i][1])<1e-9);assert.equal(point.z,0)
+    })
+    shift+=7 // The next frame must observe moving photographs, rather than reuse stale rectangles.
+  }
+})
 test('two projected trajectories stay bounded, change depth and preserve frame-independent position',()=>{
   for(const width of [320,390,1440])for(let i=0;i<2;i++){
     const points=Array.from({length:1200},(_,n)=>project(freePoint(n/60,i),width,1000))

@@ -1,5 +1,6 @@
 import {test,expect,type Page} from '@playwright/test'
 async function ready(page:Page,path='/'){
+  path += `${path.includes('?')?'&':'?'}diagnostics=1`
   await page.goto(path);await page.locator('.spatial-canvas').first().waitFor({state:'attached'})
   // Only this suite's imagery is readiness-critical. Later HOME lazy assets should not be forced at the Hero.
   await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.querySelectorAll<HTMLImageElement>('.sound-experience img')].map(i=>i.decode().catch(()=>{})))})
@@ -27,6 +28,25 @@ test('free trajectories have depth and bounded history, lock precisely to author
   expect(Number(await root.getAttribute('data-p2k-history'))).toBeLessThanOrEqual(320)
   await seek(page,0);await expect(root).toHaveAttribute('data-p2k-stage','FREE MOTION')
   await expect(page.locator('.poster-lines')).toHaveCSS('visibility','hidden')
+})
+
+test('detailed diagnostics require explicit opt-in while normal motion and reduced motion still work',async({page})=>{
+  await page.goto('/?dev=1') // Development controls alone must not enable detailed frame diagnostics.
+  const root=page.locator('.sound-experience'),bow=page.locator('.bow-contact')
+  await expect(root).toHaveAttribute('data-p2k-active','true')
+  await expect(root).not.toHaveAttribute('data-p2k-point0',/.+/)
+  await expect(root).not.toHaveAttribute('data-p2k-cost',/.+/)
+  await page.getByRole('button',{name:'개발 비교 접기',exact:true}).click()
+  await seek(page,1)
+  await expect(root).not.toHaveAttribute('data-janggu-point',/.+/)
+  await page.locator('.sound-surface .listen-trigger').click()
+  await expect(root).toHaveAttribute('data-audio-state','playing')
+  await expect.poll(()=>page.locator('audio').evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeGreaterThan(.1)
+  await expect(bow).not.toHaveAttribute('data-trail-span',/.+/)
+  await expect(bow).not.toHaveAttribute('data-x',/.+/)
+  await page.emulateMedia({reducedMotion:'reduce'})
+  await expect(root).toHaveAttribute('data-p2k-active','false')
+  await expect(bow).toHaveCSS('opacity','0')
 })
 test('SOUND sweep establishes horizontal lines; idle Janggu moves without fake playback',async({page})=>{
   await ready(page);await seek(page,.88)

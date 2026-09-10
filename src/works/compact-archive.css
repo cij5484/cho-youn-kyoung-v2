@@ -12,8 +12,8 @@
 .works-compact-thumb { display:flex; align-items:center; justify-content:center; inline-size:58px; block-size:70px; }
 .works-compact-thumb img { max-inline-size:100%; max-block-size:100%; object-fit:contain; inline-size:auto; block-size:auto; }
 .works-compact time { font-size:11px; color:var(--color-muted-text); }
-.works-compact-name { font-family:var(--font-display-ko); font-size:clamp(16px,1.45vw,22px); letter-spacing:-.03em; word-break:keep-all; line-height:1.6; }
-.works-compact-name small { display:block; margin-top:4px; font-family:var(--font-ui); font-size:10px; color:var(--color-muted-text); letter-spacing:0; }
+.works-compact-name { font-family:var(--font-display-ko); font-size:clamp(16px,1.45vw,22px); letter-spacing:-.03em; white-space:nowrap; line-height:1.6; }
+.works-compact-name small { display:block; margin-top:4px; font-family:var(--font-ui); font-size:10px; color:var(--color-muted-text); letter-spacing:0; white-space:normal; }
 .works-compact-kind { font-size:9px; letter-spacing:.04em; color:var(--color-muted-text); }
 .works-compact-arrow { font-size:19px; }
 .works-compact-note { font-size:11px; margin-top:24px; color:var(--color-muted-text); }

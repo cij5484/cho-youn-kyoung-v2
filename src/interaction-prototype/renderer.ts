@@ -1,13 +1,15 @@
 import { HAEGEUM_SHARE } from '../sound/continuation.ts'
 import { homeSoundSource } from '../sound/source.ts'
-import { alignedTarget } from './alignment.ts'
+import { alignedTargets } from './alignment.ts'
 import { createJangguOrbit, hitDisplacement, jangguPoint, narrative, PathHistory, pointAt, type ProjectedPoint } from './model.ts'
 import { clamp, interactionTuning as tuning, mix, smooth, type JangguColor } from './tuning.ts'
 import percussion from './percussion.json'
 import { createTrailSampler, trailNormal, trailEdge, type TrailSample } from '../motion/trail-geometry.ts'
+import { signatureAudioHandoff, type SignatureAudioSample } from '../signature/audio-handoff.ts'
 
 export type Comparison = {points:boolean;janggu:boolean;color:JangguColor}
 export function createInteractionRenderer(host:HTMLElement, initial:Comparison) {
+  const diagnostics=new URLSearchParams(window.location.search).get('diagnostics')==='1'
   const root=host.querySelector<HTMLElement>('.sound-experience')!,scene=root.querySelector<HTMLElement>('.poster-scene')!
   const stage=scene.querySelector<HTMLElement>('.poster-stage')!,media=root.querySelector<HTMLAudioElement>('audio')!
   const dialog=host.querySelector<HTMLDialogElement>('dialog'),reduced=matchMedia('(prefers-reduced-motion: reduce)')
@@ -20,6 +22,11 @@ export function createInteractionRenderer(host:HTMLElement, initial:Comparison) 
   const jangguOrbit=createJangguOrbit(),ribbon=createTrailSampler(),sourceTrail:TrailSample[]=[]
   const validFeatures=percussion.sourceSha256===homeSoundSource.sourceSha256&&percussion.trackId===homeSoundSource.trackId&&Math.abs(percussion.duration-homeSoundSource.duration)<.1
   const color=getComputedStyle(root).getPropertyValue('--color-accent').trim()
+  const audioPositions: Array<SignatureAudioSample | undefined> = []
+  let audioBounds = stage.getBoundingClientRect(), audioTime = 0, audioRelease = 0
+  function audioOwnership(){canvases.forEach(canvas=>{canvas.style.visibility=signatureAudioHandoff.isActive()?'hidden':''});request()}
+  const unsubscribeAudio=signatureAudioHandoff.subscribe(audioOwnership)
+  audioOwnership()
   function size(){
     width=stage.clientWidth;height=stage.clientHeight
     const small=width<640,dpr=Math.min(devicePixelRatio,small?1.5:2)
@@ -48,6 +55,13 @@ export function createInteractionRenderer(host:HTMLElement, initial:Comparison) 
     sourceTrail.length=0
     h.each(sample=>{if(time-sample.time<=style.trailMs/1000+.1)sourceTrail.push(sample)})
     if(sourceTrail.at(-1)?.time!==time)sourceTrail.push({...point,time})
+    if (index === 2 || audioRelease < .94) {
+      const sample={x:audioBounds.left+point.x,y:audioBounds.top+point.y,time:audioTime}, previous=audioPositions[index]
+      const elapsed=previous?Math.max(.001,(audioTime-previous.time)/1000):1
+      signatureAudioHandoff.publish('home-spatial',index===0?'haegeum':'janggu',{...sample,vx:previous?(sample.x-previous.x)/elapsed:0,vy:previous?(sample.y-previous.y)/elapsed:0})
+      audioPositions[index]=sample
+    }
+    if(signatureAudioHandoff.isActive())return
     ribbon.resample(sourceTrail,width<640?2.5:2)
     const points=ribbon.points,count=ribbon.count,rgb=ink.replace('#','').match(/../g)!.map(c=>parseInt(c,16)).join(',')
     const appearance=(sample:TrailSample)=>{
@@ -73,14 +87,14 @@ export function createInteractionRenderer(host:HTMLElement, initial:Comparison) 
       ctx.closePath();ctx.fill();start=end
     }
     const ctx=contexts[point.z<0?0:1];ctx.fillStyle=ink;ctx.globalAlpha=opacity*style.headOpacity;ctx.beginPath();ctx.arc(point.x,point.y,point.radius,0,Math.PI*2);ctx.fill()
-    if(index===2){root.dataset.jangguSamples=String(h.count);root.dataset.jangguRibbonPoints=String(count)}
+    if(diagnostics&&index===2){root.dataset.jangguSamples=String(h.count);root.dataset.jangguRibbonPoints=String(count)}
   }
   function request(){if(!frame&&!disposed&&!document.hidden)frame=requestAnimationFrame(paint)}
   function paint(now:number){
-    frame=0;const start=performance.now(),rect=scene.getBoundingClientRect()
+    frame=0;const start=diagnostics?performance.now():0,rect=scene.getBoundingClientRect()
     const still=reduced.matches||root.dataset.soundStatic==='true', blocked=!visible||rect.bottom<=0||rect.top>=innerHeight||dialog?.open||document.hidden
     root.dataset.p2kActive=String(!still&&!blocked)
-    if(still||blocked){last=0;lastMedia=media.currentTime;hitAges.fill(10);clear();root.style.setProperty('--p2k-line-reveal','1');return}
+    if(still||blocked){signatureAudioHandoff.remove('home-spatial');last=0;lastMedia=media.currentTime;hitAges.fill(10);clear();root.style.setProperty('--p2k-line-reveal','1');return}
     const dt=last?Math.min((now-last)/1000,.05):0;last=now;time+=dt
     const p=Number(scene.dataset.progress||0),hp=clamp(p/HAEGEUM_SHARE),release=clamp((p-HAEGEUM_SHARE)/(1-HAEGEUM_SHARE))
     contexts.forEach(c=>c.clearRect(0,0,width,height))
@@ -88,16 +102,19 @@ export function createInteractionRenderer(host:HTMLElement, initial:Comparison) 
     const sweep=smooth(release,.25,.94),opacity=1-smooth(release,.94,1)
     root.style.setProperty('--p2k-line-reveal',settings.points?String(sweep):'1')
     const bounds=stage.getBoundingClientRect()
+    audioBounds=bounds;audioTime=now;audioRelease=release
+    if(release>=.94)signatureAudioHandoff.remove('home-spatial','haegeum')
     if(settings.points&&opacity>0){
+      const targets=alignedTargets(scene,bounds,hp,time)
       for(let i=0;i<2;i++){
-        const target=alignedTarget(scene,bounds,hp,i,time),point=pointAt(time,i,hp,target,width,height)
+        const target=targets[i],point=pointAt(time,i,hp,target,width,height)
         if(release>0){
           const y=height*(width<640?.37:.425)+i*(width<640?13:19),left=width*(width<640?.075:.065),right=width-left
           const approach=smooth(release,0,.25)
           point.x=mix(point.x,mix(left,right,sweep),approach);point.y=mix(point.y,y,approach);point.z*=1-approach
         }
         draw(point,i,color,opacity,tuning.home)
-        root.dataset[`p2kPoint${i}`]=JSON.stringify(point);root.dataset[`p2kTarget${i}`]=JSON.stringify(target)
+        if(diagnostics){root.dataset[`p2kPoint${i}`]=JSON.stringify(point);root.dataset[`p2kTarget${i}`]=JSON.stringify(target)}
       }
       if(hp<.36)glyphOcclusion()
     }
@@ -112,19 +129,23 @@ export function createInteractionRenderer(host:HTMLElement, initial:Comparison) 
       // Overlapping hits superpose from zero position/velocity; never restart a returning marker at the axis.
       for(let i=0;i<hitAges.length;i++){hitAges[i]+=dt;point.y+=hitDisplacement(hitAges[i])*(width<640?.7:1)}
       draw(point,2,tuning.janggu.colors[settings.color],presence,tuning.janggu)
-      root.dataset.jangguPoint=JSON.stringify(point);root.dataset.jangguHits=String(hitCount);root.dataset.jangguHitAge=String(hitAge)
-      root.dataset.jangguActivity=orbit.activity.toFixed(3);root.dataset.jangguPhase=orbit.phase.toFixed(4)
+      if(diagnostics){
+        root.dataset.jangguPoint=JSON.stringify(point);root.dataset.jangguHits=String(hitCount);root.dataset.jangguHitAge=String(hitAge)
+        root.dataset.jangguActivity=orbit.activity.toFixed(3);root.dataset.jangguPhase=orbit.phase.toFixed(4)
+      }
     } else {lastMedia=media.currentTime;hitAge=10;hitAges.fill(10);history[2].clear()}
-    root.dataset.p2kFrames=String(++paintCount);root.dataset.p2kCost=(performance.now()-start).toFixed(3)
-    root.dataset.p2kHistory=String(history.reduce((a,h)=>a+h.count,0))
+    if(diagnostics){
+      root.dataset.p2kFrames=String(++paintCount);root.dataset.p2kCost=(performance.now()-start).toFixed(3)
+      root.dataset.p2kHistory=String(history.reduce((a,h)=>a+h.count,0))
+    }
     if((settings.points&&release<1)||settings.janggu&&release>=.94)request();else last=0
   }
-  function configure(value:Comparison){settings=value;root.dataset.spatialPoints=String(value.points);root.dataset.janggu=String(value.janggu);root.dataset.jangguColor=value.color;history.forEach(h=>h.clear());request()}
+  function configure(value:Comparison){signatureAudioHandoff.remove('home-spatial');settings=value;root.dataset.spatialPoints=String(value.points);root.dataset.janggu=String(value.janggu);root.dataset.jangguColor=value.color;history.forEach(h=>h.clear());request()}
   const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;request()});observer.observe(scene)
   const menuObserver=new MutationObserver(request);if(dialog)menuObserver.observe(dialog,{attributes:true,attributeFilter:['open']})
   const resize=new ResizeObserver(()=>{size();request()});resize.observe(stage)
   const stop=()=>{if(frame)cancelAnimationFrame(frame);frame=0;last=0;request()}
   window.addEventListener('scroll',request,{passive:true});document.addEventListener('visibilitychange',stop);reduced.addEventListener('change',stop)
   size();configure(initial)
-  return {configure,destroy(){disposed=true;if(frame)cancelAnimationFrame(frame);observer.disconnect();menuObserver.disconnect();resize.disconnect();window.removeEventListener('scroll',request);document.removeEventListener('visibilitychange',stop);reduced.removeEventListener('change',stop);canvases.forEach(c=>c.remove());delete root.dataset.spatialPoints}}
+  return {configure,destroy(){disposed=true;unsubscribeAudio();signatureAudioHandoff.remove('home-spatial');if(frame)cancelAnimationFrame(frame);observer.disconnect();menuObserver.disconnect();resize.disconnect();window.removeEventListener('scroll',request);document.removeEventListener('visibilitychange',stop);reduced.removeEventListener('change',stop);canvases.forEach(c=>c.remove());delete root.dataset.spatialPoints}}
 }

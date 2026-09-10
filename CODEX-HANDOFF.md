@@ -5,6 +5,13 @@
 **Revision:** 1.47 / 2026-09-10 — approved WORKS promotion and comparison cleanup\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
+**Latest user-authorized continuation — 2026-09-10:** deliver accumulated local HOME/WORKS refinements, Album
+exhibition/assets and persistent audio through PR/merge so work can continue on Mac. The player orbit now stays
+inside its frame around the progress bar; control fills are warm grey, leaving violet for Haegeum. Owning study:
+`docs/redesign/07-ALBUM-DETAIL.md` dated local revision. Mac: Node 24/npm 11, `npm ci`, then
+`npm run dev:interaction` at `http://127.0.0.1:4180/`. Album study/audio proxy remain localhost-only; static Pages
+does not activate these local features. Essential local checks plus existing Fast CI; no Full/release-quality claim.
+
 **Latest delivery policy — 2026-09-08:** user stopped Linux WebKit SOUND investigation and authorized pipeline-only
 separation. main push/PR merge automatically deploys development Pages preview after Fast/build; only a minimal
 public URL smoke follows. `preview/main.tsx` imports the existing HOME Lab unchanged;

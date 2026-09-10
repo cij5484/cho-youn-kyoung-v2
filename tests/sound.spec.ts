@@ -7,6 +7,7 @@ const trigger = (page: Page) => page.locator('.listen-trigger')
 // Preserve the original line-only regression baseline explicitly; canonical B2 is checked separately.
 async function ready(page: Page, path='/?compare=a', reference=true) {
   if(reference)path += `${path.includes('?')?'&':'?'}response=b2`
+  path += `${path.includes('?')?'&':'?'}diagnostics=1`
   await page.goto(path); await page.locator('.sound-surface').waitFor(); await page.waitForLoadState('networkidle')
   await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(im=>im.decode().catch(()=>{})))})
 }

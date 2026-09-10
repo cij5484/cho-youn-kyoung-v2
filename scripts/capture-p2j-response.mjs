@@ -25,7 +25,7 @@ try {
       new PerformanceObserver(list=>window.responseCost.longTasks.push(...list.getEntries().map(e=>e.duration))).observe({type:'longtask',buffered:true})
       new PerformanceObserver(list=>{for(const e of list.getEntries())if(!e.hadRecentInput)window.responseCost.shifts+=e.value}).observe({type:'layout-shift',buffered:true})
     })
-    await page.goto(`http://127.0.0.1:4193/?compare=b&response=${variant}`);await page.locator('.sound-surface').waitFor();await page.waitForLoadState('networkidle')
+    await page.goto(`http://127.0.0.1:4193/?compare=b&response=${variant}&diagnostics=1`);await page.locator('.sound-surface').waitFor();await page.waitForLoadState('networkidle')
     await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})))})
     await page.evaluate(()=>{const s=document.querySelector('.poster-scene');scrollTo(0,s.offsetTop+s.offsetHeight-s.querySelector('.poster-stage').offsetHeight)})
     const root=page.locator('.sound-experience'),stages=[]

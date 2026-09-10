@@ -25,7 +25,7 @@ try {
         new PerformanceObserver(list => window.p2iCost.longTasks.push(...list.getEntries().map(e => e.duration))).observe({ type: 'longtask', buffered: true })
         new PerformanceObserver(list => { for (const e of list.getEntries()) if (!e.hadRecentInput) window.p2iCost.shifts += e.value }).observe({ type: 'layout-shift', buffered: true })
       })
-      await page.goto(`/?compare=${variant}`); await page.waitForLoadState('networkidle')
+      await page.goto(`/?compare=${variant}&diagnostics=1`); await page.waitForLoadState('networkidle')
       await page.evaluate(async () => { await document.fonts.ready; await Promise.all([...document.images].map(i => i.decode().catch(() => {}))) })
       await page.locator('.sound-comparison').evaluate(el => { el.style.visibility = 'hidden' })
       await page.screenshot({ path: `${directory}/${id}-hero.png` })
@@ -74,7 +74,7 @@ try {
     const viewport = { width: fixture.width, height: fixture.height }
     const context = await browser.newContext({ viewport, baseURL, reducedMotion: fixture.reduced ? 'reduce' : 'no-preference', ...(fixture.video ? { recordVideo: { dir: '.checkpoints/p2i/videos', size: viewport } } : {}) })
     const page = await context.newPage()
-    await page.goto(fixture.path); await page.waitForLoadState('networkidle')
+    await page.goto(`${fixture.path}&diagnostics=1`); await page.waitForLoadState('networkidle')
     await page.evaluate(async () => { await document.fonts.ready; await Promise.all([...document.images].map(i => i.decode().catch(() => {}))) })
     if (fixture.reduced) await page.locator('.listen-trigger').scrollIntoViewIfNeeded()
     else {

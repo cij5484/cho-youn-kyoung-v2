@@ -1,10 +1,28 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## 05 — WORKS
 
-**Version:** 1.10\
+**Version:** 1.11\
 **Status:** Atmospheric Depth APPROVED / DEFAULT; B/C retired; delivery authorized\
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`  
 **Page Role:** Visual Archive + Functional Archive
+
+## 2026-09-10 — local efficiency refinement / review ready
+
+User follow-up: all seven Archive rows reveal on the shared expansion clock, including 06/07.
+The right-hand list and lower Archive show single-line titles without the leading `조윤경`;
+the large scene caption and full accessible record names retain the original artist name.
+
+The approved Atmospheric scene keeps its camera, timing, two-point paths and reduced-motion behavior.
+Its single lazy loader and loading/error archive now use the same seven public-reference records.
+Mobile uses seven 1024-long-edge derivatives (1,290,320 bytes total); DOM thumbnails reuse the same
+mobile sources and desktop reuses its original sources. Archive expansion is applied before one batched
+row measurement pass; unchanged row attributes/styles are not rewritten. Retired WORKS panel branches
+are removed without changing HOME choices or Draft compatibility. Framework WorksPage remains separate.
+Type/lint/actual Preview build and the focused built-browser check passed. Of 19 selected existing contracts,
+18 passed; the unchanged final-image opacity function still fails its pre-existing delta threshold.
+The existing desktop mid-expansion overflow (1463px at a 1440px viewport) remains unchanged.
+No delivery or new visual quality approval is implied. Check: `node --test tests/works-efficiency.test.mjs`
+after `npm run build:development-preview`.
 
 ## 2026-09-10 — approved default and delivery
 

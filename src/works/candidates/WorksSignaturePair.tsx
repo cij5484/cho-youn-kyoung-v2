@@ -1,6 +1,7 @@
 import { useEffect, useRef, useSyncExternalStore, type CSSProperties, type RefObject } from 'react'
 import { createPortal } from 'react-dom'
 import { signatureEase, twoPointContract } from '../../signature/two-point-contract.ts'
+import { signatureAudioHandoff } from '../../signature/audio-handoff.ts'
 import './works-signature-pair.css'
 
 type Point = { x: number; y: number }
@@ -34,6 +35,12 @@ export function WorksSignaturePair({ scope }: { scope: RefObject<HTMLElement | n
     let selectedBox: DOMRect | undefined
     const flight = { x: 0, y: 0, rx: 1, ry: 1 }
     const bridge = { x: 0, y: 0, ax: 0, ay: 0, bx: 0, by: 0 }
+    function audioOwnership() {
+      element!.style.opacity = signatureAudioHandoff.isActive() ? '0' : ''
+      if (!signatureAudioHandoff.isActive()) histories.forEach(history => { history.length = 0 })
+    }
+    const unsubscribeAudio = signatureAudioHandoff.subscribe(audioOwnership)
+    audioOwnership()
 
     function stop() {
       cancelAnimationFrame(frame); frame = 0; last = 0
@@ -45,6 +52,14 @@ export function WorksSignaturePair({ scope }: { scope: RefObject<HTMLElement | n
       const shown = visible && !document.hidden && !modal
       element!.dataset.visible = String(shown)
       element!.dataset.static = String(reduced.matches || !context)
+      if (!shown) signatureAudioHandoff.remove('works')
+      else if (reduced.matches || !context) {
+        const now = performance.now()
+        twoPointContract.order.forEach(id => {
+          const marker = element!.querySelector<HTMLElement>(`[data-signature-point="${id}"]`)!.getBoundingClientRect()
+          signatureAudioHandoff.publish('works', id, { x: marker.x + marker.width / 2, y: marker.y + marker.height / 2, vx: 0, vy: 0, time: now })
+        })
+      }
       if (!shown || reduced.matches || !context) stop()
       return shown && !reduced.matches && Boolean(context)
     }
@@ -171,6 +186,7 @@ export function WorksSignaturePair({ scope }: { scope: RefObject<HTMLElement | n
           y: mix(y, ambientY, archiveMix),
         }
         const point = positions[index]
+        const previousX = point.x, previousY = point.y
         if (!initialized) { point.x = wanted.x; point.y = wanted.y }
         else {
           point.x = signatureEase(point.x, wanted.x, dt, definition.response)
@@ -181,6 +197,8 @@ export function WorksSignaturePair({ scope }: { scope: RefObject<HTMLElement | n
         // still drawn on every rAF, including 120 Hz screens, with the full two-second tail.
         if (!history.length || now - history[history.length - 1].time >= 1000 / 60) history.push({ ...point, time: now })
         while (history.length > 2 && (now - history[0].time > twoPointContract.moving.trailMs || history.length > 144)) history.shift()
+        signatureAudioHandoff.publish('works', id, { ...point, time: now, vx: initialized ? (point.x - previousX) / dt : 0, vy: initialized ? (point.y - previousY) / dt : 0, trail: history })
+        if (signatureAudioHandoff.isActive()) return
         context.strokeStyle = definition.color; context.lineCap = 'round'
         for (let i = 1; i <= history.length; i++) {
           const from = history[i - 1], to = history[i] ?? point
@@ -229,6 +247,7 @@ export function WorksSignaturePair({ scope }: { scope: RefObject<HTMLElement | n
     resize()
     return () => {
       disposed = true; stop(); intersection.disconnect(); sizing.disconnect(); dialogs.disconnect()
+      unsubscribeAudio(); signatureAudioHandoff.remove('works')
       window.removeEventListener('resize', resize); window.removeEventListener('scroll', changed)
       document.removeEventListener('visibilitychange', changed)
       owner.removeEventListener('pointerover', over); owner.removeEventListener('pointerout', out)

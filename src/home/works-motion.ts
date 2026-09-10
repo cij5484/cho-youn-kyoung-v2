@@ -1,6 +1,7 @@
 import { useEffect, useRef, type RefObject } from 'react'
 import { blendPoint, clamp, smooth, ellipse, outroOrbit } from './closing-orbit.ts'
 import { createTrailSampler, type TrailSample } from '../motion/trail-geometry.ts'
+import { signatureAudioHandoff } from '../signature/audio-handoff.ts'
 
 export const worksRibbonTuning = {
   spacing: .46, depth: 210, turn: 48, response: 11,
@@ -34,6 +35,13 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
     const artistOutgoing: Array<TrailSample | undefined> = [undefined, undefined]
     let frame = 0, last = 0, phase = 0, width = 0, height = 0, visible = false, disposed = false, position = 0, target = 0, active = -1
     let pointer: { x: number; y: number } | null = null, focus = -1, orbit = 0, cx = 0, cy = 0, rx = 0, ry = 0
+    function audioOwnership() {
+      canvases.forEach(canvas => { canvas.style.visibility = signatureAudioHandoff.isActive() ? 'hidden' : '' })
+      if (!signatureAudioHandoff.isActive()) histories.forEach(history => { history.splice(0, Math.max(0, history.length - 1)) })
+      request()
+    }
+    const unsubscribeAudio = signatureAudioHandoff.subscribe(audioOwnership)
+    audioOwnership()
     function request() { if (!frame && !disposed && !document.hidden) frame = requestAnimationFrame(paint) }
     function resize() {
       width = innerWidth; height = innerHeight
@@ -45,7 +53,7 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
       frame = 0
       const section = root.getBoundingClientRect()
       visible = section.top < innerHeight && owner.getBoundingClientRect().bottom > 0
-      if (!visible || reduced.matches || document.hidden || document.querySelector('dialog[open]')) { owner.dataset.orbitState='suspended'; last = 0; contexts.forEach(context=>context?.clearRect(0,0,width,height)); histories.forEach(history => { history.length = 0 }); axis.style.opacity='0'; return }
+      if (!visible || reduced.matches || document.hidden || document.querySelector('dialog[open]')) { signatureAudioHandoff.remove('home-closing'); owner.dataset.orbitState='suspended'; last = 0; contexts.forEach(context=>context?.clearRect(0,0,width,height)); histories.forEach(history => { history.length = 0 }); axis.style.opacity='0'; return }
       const dt = Math.min(.04, (now - (last || now - 16)) / 1000); last = now; phase += dt * tune.orbitSpeed
       const touchLayout = mobile.matches
       const laterBoxes = later.map(scene => scene.getBoundingClientRect())
@@ -162,6 +170,9 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
         history.push({ x, y, z:point.z, time: now })
         if(weights[2]>0)artistOutgoing[i]={x,y,z:point.z,time:now}
         while (history.length > 2 && (now - history[0].time > tune.trailMs || history.length > (mobile.matches ? 180 : tune.historyLimit))) history.shift()
+        if (handoff > .6) signatureAudioHandoff.publish('home-closing', i ? 'janggu' : 'haegeum', { x, y, time: now, vx: previous ? (x - previous.x) / dt : 0, vy: previous ? (y - previous.y) / dt : 0, trail: history })
+        else signatureAudioHandoff.remove('home-closing')
+        if (signatureAudioHandoff.isActive()) continue
         sampler.resample(history, 2)
         for (let j = 1; j < sampler.count; j++) {
           const a = sampler.points[j - 1], b = sampler.points[j], context = contexts[b.z >= 0 ? 1 : 0]
@@ -220,7 +231,7 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
     owner.addEventListener('pointermove', move); owner.addEventListener('pointerleave', leave); board.addEventListener('focusin', focused); board.addEventListener('focusout', blurred)
     window.addEventListener('scroll', scroll, { passive: true }); reduced.addEventListener('change', change); mobile.addEventListener('change', change); document.addEventListener('visibilitychange', change)
     resize()
-    return () => { disposed = true; if (frame) cancelAnimationFrame(frame); observer.disconnect(); choreography.disconnect(); window.removeEventListener('resize',resize); modal.disconnect(); seek.current = () => {}; owner.removeEventListener('pointermove', move); owner.removeEventListener('pointerleave', leave); board.removeEventListener('focusin', focused); board.removeEventListener('focusout', blurred); window.removeEventListener('scroll', scroll); reduced.removeEventListener('change', change); mobile.removeEventListener('change', change); document.removeEventListener('visibilitychange', change); sound?.style.removeProperty('--home-line-handoff') }
+    return () => { disposed = true; unsubscribeAudio(); signatureAudioHandoff.remove('home-closing'); if (frame) cancelAnimationFrame(frame); observer.disconnect(); choreography.disconnect(); window.removeEventListener('resize',resize); modal.disconnect(); seek.current = () => {}; owner.removeEventListener('pointermove', move); owner.removeEventListener('pointerleave', leave); board.removeEventListener('focusin', focused); board.removeEventListener('focusout', blurred); window.removeEventListener('scroll', scroll); reduced.removeEventListener('change', change); mobile.removeEventListener('change', change); document.removeEventListener('visibilitychange', change); sound?.style.removeProperty('--home-line-handoff') }
   }, [ref, onActive])
   return seek
 }
