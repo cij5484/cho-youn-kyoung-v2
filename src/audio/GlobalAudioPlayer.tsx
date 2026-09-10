@@ -1,3 +1,4 @@
+import { appRoute } from '../album-detail/album-navigation.ts'
 import { useEffect, useEffectEvent, useRef, useState, type CSSProperties } from 'react'
 import { createPortal } from 'react-dom'
 import { Link, useNavigate } from 'react-router'
@@ -22,7 +23,9 @@ export function GlobalAudioPlayer() {
       if (!link || link.hasAttribute('download') || link.target && link.target !== '_self') return
       const url = new URL(link.href)
       if (url.origin !== location.origin || url.pathname === location.pathname) return
-      event.preventDefault(); go(url.pathname + url.search + url.hash)
+      const route = appRoute(url.href)
+      if (!route) return
+      event.preventDefault(); go(route)
     }
     document.addEventListener('click', click)
     return () => document.removeEventListener('click', click)

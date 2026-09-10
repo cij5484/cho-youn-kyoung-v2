@@ -1093,3 +1093,18 @@ The visitor should feel:
 **“I can hold the album, open it, listen to it, read it, and understand it.”**
 
 without feeling trapped inside a 3D demo.
+
+
+### 2026-09-10 — Same-state development Pages publication (user-authorized)
+
+The user's “이 상태 그대로 배포가 되야 한다” supersedes the local-only boundary for the
+GitHub Pages development preview. Keep the current exhibition, assets, global player and pitch-driven
+signature motion. The preview build enables the same components and emits the four real KO album
+entries. Native links respect the Pages base; Router navigation keeps playback alive.
+
+The 29 existing public recordings are pinned by byte size/SHA-256 in `src/audio/recordings.json`.
+The preview build verifies/downloads them into the static same-origin audio directory; MP3 cache
+and build outputs are ignored, not committed. This removes the production dependency on Vite's
+local proxy and permits live Web Audio analysis. Root release fixtures and the legacy domain remain
+unchanged. Essential validation: types, lint, preview build, Fast CI and deployed runtime/reachability.
+This publication is not a release/visual-quality approval.

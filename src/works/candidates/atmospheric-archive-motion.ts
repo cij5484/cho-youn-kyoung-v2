@@ -1,3 +1,4 @@
+import { appRoute } from '../../album-detail/album-navigation.ts'
 const clamp = (value: number) => Math.max(0, Math.min(1, value))
 const phase = (value: number, from: number, to: number) => {
   const progress = clamp((value - from) / (to - from))
@@ -59,7 +60,7 @@ export function mountAtmosphericArchive(root: HTMLElement): () => void {
       const current = active === index && expansion < .95
       if (current && !link.hasAttribute('aria-current')) link.setAttribute('aria-current', 'true')
       else if (!current && link.hasAttribute('aria-current')) link.removeAttribute('aria-current')
-      const label = `${titles[index]} — ${expansion < .999 ? '작품으로 이동' : link.getAttribute('href')?.startsWith('/album/') ? '앨범 전시 보기' : '기존 사이트에서 기록 보기'}`
+      const label = `${titles[index]} — ${expansion < .999 ? '작품으로 이동' : appRoute(link.href)?.startsWith('/album/') ? '앨범 전시 보기' : '기존 사이트에서 기록 보기'}`
       if (link.getAttribute('aria-label') !== label) link.setAttribute('aria-label', label)
       values.forEach((value, i) => {
         if (row.style.getPropertyValue(properties[i]) !== value.toFixed(4)) row.style.setProperty(properties[i], value.toFixed(4))

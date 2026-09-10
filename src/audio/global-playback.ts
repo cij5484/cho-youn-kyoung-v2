@@ -56,7 +56,8 @@ async function play(album: AlbumExhibit, index: number) {
     sound.pause(); response?.reset(); sound.dataset.sourceUrl = source
     // Restricted same-origin dev proxy: the public R2 origin has no CORS analysis permission.
     const url = new URL(source)
-    sound.src = `/__album_audio__${url.pathname}`
+    sound.src = import.meta.env.MODE === 'development-preview'
+      ? `${import.meta.env.BASE_URL}audio${url.pathname}` : `/__album_audio__${url.pathname}`
     emit({ album, index, seconds: 0, duration: 0, playing: false, error: '' })
   } else if (sound.ended) { sound.currentTime = 0; response?.reset() }
   else if (sound.error) sound.load()

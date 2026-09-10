@@ -5,7 +5,7 @@ import {
 } from 'three'
 import { atmosphericCatalog as worksCatalog } from './atmospheric-catalog.ts'
 import type { AtmosphericImage as WorkImage } from './atmospheric-catalog.ts'
-import { albumStudyHref, requestAlbumEntry } from '../../album-detail/album-navigation.ts'
+import { albumStudyHref, appRoute, requestAlbumEntry } from '../../album-detail/album-navigation.ts'
 
 const clamp = (n: number, low = 0, high = 1) => Math.max(low, Math.min(high, n))
 const smooth = (n: number) => { const t = clamp(n); return t * t * (3 - 2 * t) }
@@ -359,7 +359,7 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
     const index = hit(event.clientX, event.clientY)
     if (index >= 0) {
       const record = worksCatalog[index], href = albumStudyHref(record)
-      if (href.startsWith('/album/')) {
+      if (appRoute(href)?.startsWith('/album/')) {
         const object = objects[index], bounds = canvas.getBoundingClientRect()
         projection.copy(object.mesh.position).project(camera)
         const span = 2 * (camera.position.z - object.mesh.position.z) * Math.tan(camera.fov * Math.PI / 360)
