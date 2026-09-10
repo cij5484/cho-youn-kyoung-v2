@@ -40,7 +40,7 @@ export function GlobalAudioPlayer() {
       <div className="album-mini-seek">
       <div ref={volumeControl} className="album-volume" onPointerEnter={event => { if (event.pointerType === 'mouse') setVolumeOpen(true) }}
         onPointerLeave={event => { if (event.pointerType === 'mouse' && !event.buttons) setVolumeOpen(false) }}
-        onFocus={() => setVolumeOpen(true)}
+        onFocus={event => { if (!event.currentTarget.contains(event.relatedTarget)) setVolumeOpen(true) }}
         onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setVolumeOpen(false) }}
         onKeyDown={event => { if (event.key === 'Escape') { event.stopPropagation(); setVolumeOpen(false); volumeControl.current?.querySelector('button')?.focus() } }}>
         <button aria-label={volume === 0 ? '음소거 해제' : `음소거, 현재 음량 ${Math.round(volume * 100)}%`} aria-expanded={volumeOpen} aria-controls="album-volume-panel" onClick={() => { globalPlayback.toggleMute(); setVolumeOpen(true) }}>

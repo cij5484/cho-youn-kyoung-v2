@@ -20,10 +20,10 @@ export function createInstrumentResponse(media: HTMLAudioElement) {
   let haegeum = 0, janggu = 0, texture = 0, liveBow = 0, liveTexture = 0
   let bassScale = .003, bodyScale = .003, highScale = .006, hitAge = 10, hitStrength = 0
   let bassMemory = 0, bodyMemory = 0, primed = false
-  const frequencies = new Float32Array(1024), prior = new Float32Array(1024)
+  const frequencies = new Float32Array(1024), prior = new Float32Array(1024), priorTone = new Float32Array(1024)
 
   function reset() {
-    prior.fill(0); elapsed = 0; primed = false; lastTime = -1
+    prior.fill(0); priorTone.fill(0); elapsed = 0; primed = false; lastTime = -1
     bassScale = .003; bodyScale = .003; highScale = .006; bassMemory = 0; bodyMemory = 0
     hitAge = 10; hitStrength = 0; liveBow = 0; liveTexture = 0
     // Preserve the outgoing visual envelope on seek/source changes; it eases into the new signal.
@@ -41,7 +41,7 @@ export function createInstrumentResponse(media: HTMLAudioElement) {
     if (!analyser || !context) return
     analyser.getFloatFrequencyData(frequencies)
     let low = 0, body = 0, middle = 0, high = 0, lowFlux = 0, bodyFlux = 0, highFlux = 0
-    let middlePower = 0, middleLog = 0, middleCount = 0, bowSum = 0, bowFlux = 0, highLog = 0, highCount = 0, thudLog = 0, thudCount = 0
+    let middlePower = 0, middleLog = 0, middleCount = 0, bowPower = 0, bowSum = 0, bowFlux = 0, highLog = 0, highCount = 0, thudLog = 0, thudCount = 0
     // Same bass/body/attack bands as scripts/audio/percussion-features.mjs. High-only bow noise cannot trigger a strike.
     for (let k = 1; k < frequencies.length; k++) {
       const hz = k * context.sampleRate / analyser.fftSize, magnitude = 10 ** (frequencies[k] / 20)
@@ -52,7 +52,13 @@ export function createInstrumentResponse(media: HTMLAudioElement) {
         if (hz < 700) { body += magnitude; bodyFlux += flux }
       } else if (hz >= 2000 && hz < 7000) { high += magnitude; highFlux += flux; highLog += Math.log(magnitude + 1e-10); highCount++ }
       if (hz >= 60 && hz < 700) { thudLog += Math.log(magnitude + 1e-10); thudCount++ }
-      if (hz >= 500 && hz < 4000) { middlePower += magnitude * magnitude; middleLog += Math.log(magnitude + 1e-10); middleCount++; bowSum += magnitude; bowFlux += flux }
+      if (hz >= 500 && hz < 4000) {
+        middlePower += magnitude * magnitude; middleLog += Math.log(magnitude + 1e-10); middleCount++
+        // Local peak prominence rejects a drum's broad spectral floor, including beneath an existing bow harmonic.
+        const shoulder = Math.max(10 ** (frequencies[k - 2] / 20), 10 ** (frequencies[k + 2] / 20))
+        const tone = Math.max(0, magnitude - shoulder)
+        bowPower += tone * tone; bowSum += tone; bowFlux += Math.max(0, tone - priorTone[k]); priorTone[k] = tone
+      }
     }
     const flatness = Math.exp(highLog / Math.max(1, highCount)) / (high / Math.max(1, highCount) + 1e-10)
     const harmonic = clamp(1 - Math.exp(middleLog / Math.max(1, middleCount)) / (Math.sqrt(middlePower / Math.max(1, middleCount)) + 1e-10))
@@ -75,10 +81,12 @@ export function createInstrumentResponse(media: HTMLAudioElement) {
     const strike = primed ? Math.max(sharp, thud) : 0
     if (strike > .55 && hitAge > .18) { hitAge = 0; hitStrength = strike }
     // Soft compression lifts quiet bow phrases without pinning louder ones at 1 (the old fixed gain clipped).
-    const bowEnergy = Math.sqrt(middlePower)
-    liveBow = Math.sqrt(bowEnergy / (bowEnergy + .055)) * (.2 + .8 * harmonic) * (1 - .4 * strike)
-    // Follow movement of the bow harmonics themselves: vibrato/articulation remains visible even without bright treble noise.
-    liveTexture = clamp(4 * bowFlux / (bowSum + .005)) * harmonic * (1 - .5 * strike)
+    const bowEnergy = Math.sqrt(bowPower)
+    // Briefly retain the bow phrase through a detected drum onset instead of giving both identities the same jolt.
+    if (hitAge >= .1) {
+      liveBow = Math.sqrt(bowEnergy / (bowEnergy + .055)) * (.2 + .8 * harmonic)
+      liveTexture = clamp(4 * bowFlux / (bowSum + .005)) * harmonic
+    } else liveTexture *= Math.exp(-dt / .12)
     primed = true
   }
 

@@ -59,6 +59,15 @@ test('mixed-source response distinguishes sustained harmonics, bass/body thuds a
     vibrato = Math.max(vibrato, step().texture)
   }
   assert.ok(still.texture < .01 && vibrato > .15, 'quiet pitch vibration drives texture while an unchanged harmonic stays calm')
+  spectrum = harmonic(.018)
+  const beforeDrum = settle(45).at(-1)!
+  spectrum = hz => harmonic(.018)(hz) + (hz >= 60 && hz < 4000 ? .04 * Math.exp(-(hz - 60) / 900) : 0)
+  const mixedAttack = step()
+  spectrum = harmonic(.018)
+  const mixedTail = settle(9)
+  assert.ok(Math.max(mixedAttack.janggu, ...mixedTail.map(frame => frame.janggu)) > .65, 'drum attack remains visible over a sustained bowed phrase')
+  assert.ok(Math.max(mixedAttack.texture, ...mixedTail.map(frame => frame.texture)) < .12, 'broad drum energy does not become a purple articulation jolt')
+  assert.ok(Math.max(...[mixedAttack, ...mixedTail].map(frame => Math.abs(frame.haegeum - beforeDrum.haegeum))) < .08, 'bow phrase remains continuous through the drum onset')
   spectrum = () => .000001; settle(60)
   spectrum = hz => hz >= 60 && hz < 700 ? .022 * Math.exp(-(hz - 60) / 500) : .000001
   const thud = step()
