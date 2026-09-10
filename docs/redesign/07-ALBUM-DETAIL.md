@@ -62,6 +62,14 @@ the previous audible volume; hover/focus or touch activation exposes the vertica
 now reads positive harmonic flux at 500–4000Hz with HOME's 18/180ms response; Janggu detection is unchanged.
 The visible response is separately damped (bow 180/400ms, drum 55/220ms), with slower travel and restrained
 micro-vibration: sensitivity identifies musical changes without turning every change into a twitch.
+Vertical-flow refinement: retain HOME's curved bow path and unchanged horizontal travel, but map vertical depth
+across the player's full inner height rather than limiting both directions to the smaller space below the bar.
+The progress bar remains the zero-displacement anchor. Haegeum receives the larger vertical range; Janggu's
+ambient vertical arc grows without increasing its strike amplitude, phase speed or micro-vibration.
+Pitch refinement: confidence-gated live fundamental estimation drives Haegeum's vertical position (higher notes
+up, lower notes down), while its sustained level scales the excursion. A short pitch follower and confidence
+crossfade preserve flow through ornaments/uncertain input; the HOME curve supplies the unvoiced fallback.
+This estimates the dominant pitched source in the mixed recording, not an isolated Haegeum stem.
 The user subsequently authorized PR/merge for Mac continuation. The localhost-only study and audio proxy remain
 available through `npm run dev:interaction`; merging does not enable the study on the static Pages site.
 

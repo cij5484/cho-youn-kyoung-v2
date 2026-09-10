@@ -79,6 +79,6 @@ export const globalPlayback = {
     else { audibleVolume = media.volume; media.muted = true }
   },
   close() { intent++; media?.pause(); if (media) { media.removeAttribute('src'); media.load() }; response?.reset(); emit({ ...initial, volume: state.volume }) },
-  sample(dt: number) { return response?.sample(dt) ?? { haegeum: 0, janggu: 0, texture: 0 } },
+  sample(dt: number) { return response?.sample(dt) ?? { haegeum: 0, janggu: 0, texture: 0, pitchMidi: null, pitchConfidence: 0 } },
 }
 export const useGlobalPlayback = () => useSyncExternalStore(subscribe, snapshot, () => initial)
