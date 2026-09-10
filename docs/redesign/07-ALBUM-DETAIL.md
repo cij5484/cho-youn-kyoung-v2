@@ -57,6 +57,9 @@ handoff, return, headless progress controls, reduced motion and the HOME choreog
 Follow-up correction: the projected orbit is centered on the progress track and smoothly bounded by the actual
 mini-player frame; docked trails are clipped to that frame, including after resize. Violet remains the Haegeum
 signature; progress and volume fills use warm grey `#746b5d` to keep the musical trace distinct from controls.
+Both control tracks are 4px with their 44px input targets preserved. Speaker activation toggles mute/restores
+the previous audible volume; hover/focus or touch activation exposes the vertical control. Haegeum articulation
+now reads positive harmonic flux at 500–4000Hz with HOME's 18/180ms response; Janggu detection is unchanged.
 The user subsequently authorized PR/merge for Mac continuation. The localhost-only study and audio proxy remain
 available through `npm run dev:interaction`; merging does not enable the study on the static Pages site.
 

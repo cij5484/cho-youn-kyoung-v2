@@ -45,6 +45,20 @@ test('mixed-source response distinguishes sustained harmonics, bass/body thuds a
   spectrum = harmonic(.075)
   const loudBow = settle(60).at(-1)!.haegeum
   assert.ok(loudBow > quietBow + .15 && loudBow < .98, 'bow phrases retain dynamics instead of clipping at full response')
+  spectrum = hz => hz < 2000 ? harmonic(.008)(hz) : .000001
+  const soft = settle(30).at(-1)!
+  spectrum = hz => hz < 2000 ? harmonic(.05)(hz) : .000001
+  const articulated = step()
+  assert.ok(articulated.haegeum > soft.haegeum + .2, 'a quiet bow phrase reacts within one analyser frame')
+  assert.ok(articulated.texture > .5, 'harmonic articulation works without any treble noise')
+  const still = settle(45).at(-1)!
+  let vibrato = 0
+  for (let i = 0; i < 60; i++) {
+    const fundamental = 375 + 1.5 * Math.sin(i * .85)
+    spectrum = hz => hz < 2000 ? .008 * Math.exp(-Math.pow((hz - Math.round(hz / fundamental) * fundamental) / 15, 2)) + .000001 : .000001
+    vibrato = Math.max(vibrato, step().texture)
+  }
+  assert.ok(still.texture < .01 && vibrato > .15, 'quiet pitch vibration drives texture while an unchanged harmonic stays calm')
   spectrum = () => .000001; settle(60)
   spectrum = hz => hz >= 60 && hz < 700 ? .022 * Math.exp(-(hz - 60) / 500) : .000001
   const thud = step()

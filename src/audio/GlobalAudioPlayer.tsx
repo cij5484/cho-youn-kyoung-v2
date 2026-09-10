@@ -40,9 +40,10 @@ export function GlobalAudioPlayer() {
       <div className="album-mini-seek">
       <div ref={volumeControl} className="album-volume" onPointerEnter={event => { if (event.pointerType === 'mouse') setVolumeOpen(true) }}
         onPointerLeave={event => { if (event.pointerType === 'mouse' && !event.buttons) setVolumeOpen(false) }}
+        onFocus={() => setVolumeOpen(true)}
         onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setVolumeOpen(false) }}
         onKeyDown={event => { if (event.key === 'Escape') { event.stopPropagation(); setVolumeOpen(false); volumeControl.current?.querySelector('button')?.focus() } }}>
-        <button aria-label={`음량 조절, ${Math.round(volume * 100)}%`} aria-expanded={volumeOpen} aria-controls="album-volume-panel" onClick={event => setVolumeOpen(event.detail > 0 && matchMedia('(hover:hover) and (pointer:fine)').matches ? true : !volumeOpen)}>
+        <button aria-label={volume === 0 ? '음소거 해제' : `음소거, 현재 음량 ${Math.round(volume * 100)}%`} aria-expanded={volumeOpen} aria-controls="album-volume-panel" onClick={() => { globalPlayback.toggleMute(); setVolumeOpen(true) }}>
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M11 5 6 9H3v6h3l5 4Z"/>
             {volume === 0 ? <path d="m16 9 5 6m0-6-5 6"/> : <><path d="M15 8a6 6 0 0 1 0 8"/>{volume > .5 && <path d="M18 5a10 10 0 0 1 0 14"/>}</>}

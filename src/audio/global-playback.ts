@@ -8,6 +8,7 @@ type Playback = {
 }
 const initial: Playback = { album: null, index: 0, playing: false, active: false, seconds: 0, duration: 0, volume: 1, error: '' }
 let state = initial, media: HTMLAudioElement | null = null
+let audibleVolume = 1
 let response: ReturnType<typeof createInstrumentResponse> | null = null, intent = 0
 const listeners = new Set<() => void>()
 const emit = (patch: Partial<Playback>) => { state = { ...state, ...patch }; listeners.forEach(listener => listener()) }
@@ -23,7 +24,10 @@ function mount() {
   const paused = () => { if (sound.paused) emit({ playing: false }) }
   const ended = () => emit({ playing: false, active: false })
   const failed = () => { if (state.album && sound.error) emit({ playing: false, active: false, error: '음원을 불러오지 못했습니다. 다시 재생해주세요.' }) }
-  const volume = () => emit({ volume: sound.muted ? 0 : sound.volume })
+  const volume = () => {
+    if (!sound.muted && sound.volume > 0) audibleVolume = sound.volume
+    emit({ volume: sound.muted ? 0 : sound.volume })
+  }
   // A deliberate HOME preview activation pauses this record; never mix two recordings.
   const exclusive = (event: Event) => {
     if (!(event.target instanceof HTMLMediaElement)) return
@@ -69,6 +73,11 @@ export const globalPlayback = {
   next() { if (state.album) void play(state.album, (state.index + 1) % state.album.tracks.length) },
   seek(value: number) { if (media && state.duration) { media.currentTime = Math.max(0, Math.min(value, state.duration)); response?.reset(); emit({ seconds: media.currentTime }) } },
   volume(value: number) { if (media) { media.muted = false; media.volume = Math.max(0, Math.min(1, value)); emit({ volume: media.volume }) } },
+  toggleMute() {
+    if (!media) return
+    if (media.muted || media.volume === 0) { media.volume = audibleVolume; media.muted = false }
+    else { audibleVolume = media.volume; media.muted = true }
+  },
   close() { intent++; media?.pause(); if (media) { media.removeAttribute('src'); media.load() }; response?.reset(); emit({ ...initial, volume: state.volume }) },
   sample(dt: number) { return response?.sample(dt) ?? { haegeum: 0, janggu: 0, texture: 0 } },
 }

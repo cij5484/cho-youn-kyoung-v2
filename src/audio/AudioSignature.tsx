@@ -56,7 +56,7 @@ export function AudioSignature() {
     function playerTargets(now: number, dt: number): DepthPair {
       const signal = globalPlayback.sample(dt), bounds = box!
       const { phase: beatPhase, activity } = orbit.advance(dt, globalPlayback.snapshot().playing)
-      bowTime += dt * (.22 + activity * .5 + signal.haegeum * 1.65 + signal.texture * .3)
+      bowTime += dt * (.22 + activity * .5 + signal.haegeum * 1.65 + signal.texture * .8)
       const cx = bounds.left + bounds.width / 2, cy = bounds.top + bounds.height / 2
       const frame = playerBox ?? bounds
       const halfWidth = Math.max(2, Math.min(bounds.width * .55, cx - frame.left - 8, frame.right - cx - 8))
@@ -65,7 +65,7 @@ export function AudioSignature() {
       // HOME's perspective and free bow path, recomposed around the progress bar's horizontal axis.
       // Keep independent musical phases: neither point follows playback percentage.
       const local = {
-        haegeum: { x: .5 + (bow.x - .5) * range,
+        haegeum: { x: .5 + (bow.x - .5) * range + Math.cos(bowTime * interactionTuning.home.speed) * signal.texture * .07,
           y: .5 + (bow.y - .49) * (1.15 + signal.haegeum * .8) * (.2 + activity * .8),
           z: bow.z * (1 + signal.haegeum * .5) },
         janggu: { x: .5 + Math.sin(beatPhase) * (.15 + activity * .28),
@@ -75,7 +75,7 @@ export function AudioSignature() {
       const targets = {} as DepthPair
       for (const id of twoPointContract.order) {
         const projected = project(local[id], 1, 1)
-        const vibration = id === 'haegeum' ? Math.sin(now * .029) * signal.texture * .08 : 0
+        const vibration = id === 'haegeum' ? Math.sin(now * .029) * signal.texture * .16 : 0
         // Compress toward the actual player edges smoothly; preserve depth without leaving its frame.
         const x = cx + Math.tanh((projected.x - .5) * 2.4) * halfWidth
         const y = cy + Math.tanh((projected.y - .5) * 3 + vibration) * halfHeight
@@ -115,7 +115,7 @@ export function AudioSignature() {
           context!.save()
           if (far && box) {
             context!.beginPath(); context!.rect(0, 0, width, height)
-            context!.rect(box.left - 1, box.top + box.height / 2 - 5, box.width + 2, 10)
+            context!.rect(box.left - 1, box.top + box.height / 2 - 3, box.width + 2, 6)
             context!.clip('evenodd')
           }
           for (let i = 1; i < history.length; i++) {
@@ -165,7 +165,7 @@ export function AudioSignature() {
         let distance = 0, velocityGap = 0
         for (const id of twoPointContract.order) {
           const point = points[id], target = targets[id]
-          const rate = mode === 'docked' && id === 'janggu' ? 24 : id === 'haegeum' ? 10 : 11
+          const rate = mode === 'docked' ? id === 'janggu' ? 24 : 14 : id === 'haegeum' ? 10 : 11
           // Let the outgoing tangent carry the first part of a new flight before steering inward.
           const steering = mode === 'enter' || mode === 'return' ? Math.min(1, .04 + (now - modeSince) / 550) : 1
           follow(point, target, dt, rate * steering)
