@@ -228,7 +228,7 @@ export function useOutroSurface(ref: RefObject<HTMLElement | null>) {
       contacts.delete(event.pointerId); tap = null
       if (!candidate || candidate.id !== event.pointerId || pointerSource() || reduced.matches || modalOpen || !visible) return
       const distance = Math.max(candidate.distance, Math.hypot(event.clientX - candidate.x, event.clientY - candidate.y))
-      if (blankTapIsWet(now - candidate.started, distance, interactive(event.target), contactCount) && stains.length < wetFieldTiming.regionLimit && prepareStamp()) {
+      if (blankTapIsWet(now - candidate.started, distance, interactive(event.target), contactCount) && now - lastAutonomous >= wetFieldTiming.interval && stains.length < wetFieldTiming.regionLimit && prepareStamp()) {
         const box = root!.getBoundingClientRect()
         addStain(event.clientX - box.left, event.clientY - box.top, now, 'tap', 0, -.4)
         lastAutonomous = now; tapCount++; root!.dataset.outroTapStamps = String(tapCount); request()

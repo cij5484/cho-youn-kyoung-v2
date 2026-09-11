@@ -33,7 +33,7 @@ test('each stain retains deterministic bounded size, life, strength and angle va
     const profile = wetStainProfile(source, speed, seed)
     assert.deepEqual(profile, wetStainProfile(source, speed, seed))
     const desktop = source === 'pointer'
-    const baseRadius = desktop ? (96 + speed * 30) * 2.4 : (source === 'tap' ? 42 : 47 + speed * 15) * 2.7
+    const baseRadius = desktop ? (96 + speed * 30) * .6 : (source === 'tap' ? 42 : 47 + speed * 15) * .675
     const baseStrength = desktop ? (.12 + speed * .025) * 1.9 : (source === 'tap' ? .15 : .135) * 2
     assert.ok(profile.radius >= baseRadius * .8 && profile.radius <= baseRadius * 1.2)
     assert.ok(profile.strength >= baseStrength * .88 && profile.strength <= baseStrength * 1.12)
@@ -45,14 +45,14 @@ test('each stain retains deterministic bounded size, life, strength and angle va
   assert.ok(seen.size > 1000)
 })
 
-test('small warm/cool biases follow the same continuous 72-second phase, never a random palette choice', () => {
-  for (let time = 0; time <= 72; time += .4) for (const warmth of [-1, -.25, 0, .7, 1]) {
+test('small warm/cool biases follow the same continuous 36-second phase, never a random palette choice', () => {
+  for (let time = 0; time <= 36; time += .4) for (const warmth of [-1, -.25, 0, .7, 1]) {
     const base = wetColorAt(time), color = wetStainColor(time, warmth), next = wetStainColor(time + .0167, warmth)
     for (const [channel, bound] of [10, 4, 7].entries()) {
       assert.ok(Math.abs(color[channel] - base[channel]) <= bound + 1e-9)
-      assert.ok(Math.abs(next[channel] - color[channel]) < .19)
+      assert.ok(Math.abs(next[channel] - color[channel]) < .37)
     }
   }
-  assert.deepEqual(wetStainColor(72, .8), wetStainColor(0, .8))
+  assert.deepEqual(wetStainColor(36, .8), wetStainColor(0, .8))
   assert.deepEqual(wetStainColor(0, 0), wetColorAt(0))
 })

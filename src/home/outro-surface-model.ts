@@ -11,8 +11,8 @@ export function wetEnvelope(age: number, duration = 6, expansion = 1.5) {
     spread: .18 + growth * .82 + smooth((elapsed - growthTime) / Math.max(.001, life - growthTime)) * .055 }
 }
 
-export const wetFieldTiming = { colorCycle: 72, mobileLife: 6, entryQuiet: 850, scrollQuiet: 280, interval: 1800, regionLimit: 3 } as const
-export const desktopWetTiming = { interval: 580, travel: 56, regionLimit: 4, life: 6, pendingLife: 1100 } as const
+export const wetFieldTiming = { colorCycle: 36, mobileLife: 6, entryQuiet: 850, scrollQuiet: 280, interval: 6000, regionLimit: 1 } as const
+export const desktopWetTiming = { interval: 2400, travel: 56, regionLimit: 2, life: 6, pendingLife: 1100 } as const
 const wetTones = [[99, 52, 229], [173, 140, 84], [163, 61, 54]] as const
 
 export type WetSource = 'pointer' | 'points' | 'tap'
@@ -27,7 +27,7 @@ function stainVariation(seed: number, channel: number) {
 
 export function wetStainProfile(source: WetSource, speed: number, seed: number): WetStainProfile {
   const desktop = source === 'pointer', energy = clamp(speed)
-  const radius = desktop ? (96 + energy * 30) * 2.4 : (source === 'tap' ? 42 : 47 + energy * 15) * 2.7
+  const radius = desktop ? (96 + energy * 30) * .6 : (source === 'tap' ? 42 : 47 + energy * 15) * .675
   const strength = desktop ? (.12 + energy * .025) * 1.9 : (source === 'tap' ? .15 : .135) * 2
   return { radius: radius * (1 + stainVariation(seed, 0) * .2), strength: strength * (1 + stainVariation(seed, 1) * .12),
     life: (desktop ? desktopWetTiming.life : wetFieldTiming.mobileLife) * (1 + stainVariation(seed, 2) * .15),

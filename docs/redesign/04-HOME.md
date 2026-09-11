@@ -1497,3 +1497,13 @@ native compositor 이동을 입력을 가로채서 없애려 하지 않는다. �
 새 touch 즉시 취소를 유지한다. 충분히 조용하고 Threshold Frame 가까울 때만 작은 settle을 허용한다.
 `touchmove.preventDefault`, delta scaling, hard snap, mandatory hold, 새 scroll engine은 추가하지 않는다.
 Reduced motion에는 새 height/hold가 적용되지 않고 기존 정적인 구조를 유지한다.
+
+
+## 2026-09-11 — 08 refined wet field (user-authorized)
+
+08 한지 번짐 반경을 모든 입력에서 이전의 25%로 축소한다 (사용자 추가 요청: 더 확실히 작게). Desktop 발생 간격은 580→2400ms,
+Mobile autonomous는 1800→6000ms, 동시 영역 상한은 각각 4→2 / 3→1로 줄인다.
+Mobile tap에도 같은 6초 간격을 적용해 연속 입력으로 빈도 제한을 우회하지 않는다.
+색상 전체 순환은 72→36초로 단축하되 기존 smoothstep 보간과 Violet/Bronze/Lacquer를 유지한다.
+번짐 성장·건조·농도, glyph 반응, 두 점 궤적과 reduced motion은 유지한다.
+PR/merge 및 자동 development Pages 배포는 사용자 요청 범위. 시각적 우아함의 최종 판단은 사용자 확인이다.
