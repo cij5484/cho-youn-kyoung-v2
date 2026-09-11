@@ -16,7 +16,8 @@ export default function TraySurface({ artwork }: { artwork: string }) {
       renderer.setPixelRatio(Math.min(devicePixelRatio || 1, innerWidth <= 700 ? 1 : 1.5))
       renderer.setClearColor(0x000000, 0); renderer.toneMapping = THREE.ACESFilmicToneMapping
       renderer.toneMappingExposure = 1
-      const scene = new THREE.Scene(), camera = new THREE.OrthographicCamera(-.075, .075, .075, -.075, .001, 2)
+      // Transmission uses camera-to-surface rays; use perspective and retain the original slot framing.
+      const scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(28, 1, .001, 2)
       camera.position.set(0, .3, 0); camera.up.set(0, 0, -1); camera.lookAt(0, 0, 0)
       const pmrem = new THREE.PMREMGenerator(renderer), room = new RoomEnvironment()
       const environment = pmrem.fromScene(room, .04); scene.environment = environment.texture; scene.environmentIntensity = .7
@@ -32,7 +33,7 @@ export default function TraySurface({ artwork }: { artwork: string }) {
         if (disposed || !element.clientWidth || !element.clientHeight || document.hidden) return
         const width = element.clientWidth, height = element.clientHeight, aspect = width / height
         const halfHeight = Math.max(.069, .071 / aspect)
-        camera.left = -halfHeight * aspect; camera.right = halfHeight * aspect; camera.top = halfHeight; camera.bottom = -halfHeight
+        camera.aspect = aspect; camera.fov = THREE.MathUtils.radToDeg(2 * Math.atan(halfHeight / camera.position.y))
         camera.updateProjectionMatrix(); renderer.setSize(width, height, false); renderer.render(scene, camera)
       }
       const resize = new ResizeObserver(draw)
