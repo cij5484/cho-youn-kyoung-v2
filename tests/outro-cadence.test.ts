@@ -23,7 +23,7 @@ test('unchanged position cannot reset the native quiet clock, while actual scrol
   assert.equal(autonomousWetBlock({ ...ready, now: 5300, lastScroll: activity.at }), 'ready')
 })
 
-test('hundreds of desktop samples produce only representative clocked blooms, capped at two', () => {
+test('hundreds of desktop samples produce only representative clocked blooms, capped at three', () => {
   let last = -Infinity, anchor = -1000, count = 0
   for (let now = 0; now <= 3500; now += 5) {
     const x = now * .65
@@ -31,10 +31,10 @@ test('hundreds of desktop samples produce only representative clocked blooms, ca
       last = now; anchor = x; count++
     }
   }
-  assert.equal(count, 2)
-  assert.equal(desktopWetReady({ now: 10000, lastStain: last, travel: 500, sampledAt: 10000, regions: 2 }), false)
+  assert.equal(count, 3)
+  assert.equal(desktopWetReady({ now: 10000, lastStain: last, travel: 500, sampledAt: 10000, regions: 3 }), false)
   assert.equal(desktopWetReady({ now: 10000, lastStain: last, travel: 30, sampledAt: 10000, regions: 1 }), false)
   assert.equal(desktopWetReady({ now: 10000, lastStain: last, travel: 500, sampledAt: 8000, regions: 1 }), false)
-  assert.ok(desktopWetTiming.interval >= 2300 && desktopWetTiming.interval <= 2500)
+  assert.ok(desktopWetTiming.interval >= 1300 && desktopWetTiming.interval <= 1500)
   assert.ok(desktopWetTiming.life > 3)
 })

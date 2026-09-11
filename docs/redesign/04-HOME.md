@@ -1507,3 +1507,10 @@ Mobile tap에도 같은 6초 간격을 적용해 연속 입력으로 빈도 제�
 색상 전체 순환은 72→36초로 단축하되 기존 smoothstep 보간과 Violet/Bronze/Lacquer를 유지한다.
 번짐 성장·건조·농도, glyph 반응, 두 점 궤적과 reduced motion은 유지한다.
 PR/merge 및 자동 development Pages 배포는 사용자 요청 범위. 시각적 우아함의 최종 판단은 사용자 확인이다.
+
+
+### 2026-09-11 — live-preview frequency revision
+
+사용자가 실제 로컬 화면 확인 후 빈도를 다시 올리도록 요청했다. 최종 발생 간격은 Desktop 1400ms,
+Mobile 자동/탭 3500ms, 동시 상한은 각각 3 / 2. 이전 원본 대비 반경 25%, 색상 순환 36초 및
+성장·건조 동작은 그대로 유지한다. 위의 2400/6000ms 조정은 이 값으로 대체한다.
