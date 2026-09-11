@@ -1,0 +1,167 @@
+[
+  {
+    "file": "assets/leaflet-outer.webp",
+    "source": "legacy-public:performances/haegeum-jeongak-2026-09-22/viewer/leaflet-outer.webp",
+    "width": 4000,
+    "height": 1419,
+    "bytes": 1249328,
+    "sourceSha256": "5c1a526f98520c72c8f7a227af6fb3dc64919b96813ff60da9b4c9a3f5a6107e",
+    "sha256": "3d38b49b4c247d5d9ad6bd8f0a7735fe512cc08ee60e8014a4beaef2dfa4e9cd",
+    "provenance": "official printed artwork; full frame WebP optimization; no crop or retouch",
+    "lifecycle": "provisional"
+  },
+  {
+    "file": "assets/leaflet-inner.webp",
+    "source": "legacy-public:performances/haegeum-jeongak-2026-09-22/viewer/leaflet-inner.webp",
+    "width": 4000,
+    "height": 1419,
+    "bytes": 1037560,
+    "sourceSha256": "185e8e5ded86bfcf0e74def12ff1978519f951be2e042bfffd73f73555dde711",
+    "sha256": "176ebad76e163e055c878691038448dae2d1bdd359c48d549312146a8a4758f2",
+    "provenance": "official printed artwork; full frame WebP optimization; no crop or retouch",
+    "lifecycle": "provisional"
+  },
+  {
+    "file": "assets/kim-seong-jun.webp",
+    "source": "legacy-public:people/kim-seong-jun/portrait.jpg",
+    "width": 640,
+    "height": 896,
+    "bytes": 18946,
+    "sourceSha256": "aebbc20c5e3dc63632f1c11f21a0edd6131c4cc3cfceb1ef003c3816161f6dd7",
+    "sha256": "b1c9324414b1e2acb3c5b45e993c0ef4e85ae749de2a914d0b13eccf08133955",
+    "provenance": "performer identity verified in exact event legacy data; full-frame WebP derivative; no retouch",
+    "lifecycle": "provisional"
+  },
+  {
+    "file": "assets/heo-yu-jin.webp",
+    "source": "legacy-public:people/heo-yu-jin/portrait.jpg",
+    "width": 640,
+    "height": 960,
+    "bytes": 15916,
+    "sourceSha256": "72d22c79937b74eac9d396fc76aeca625b99c911fa690ded8944d403c2ce898a",
+    "sha256": "33a21d6fbc8015cd0ab78b23a40922d56d4bdee74483aa1fbc6513b7f22ffbd7",
+    "provenance": "performer identity verified in exact event legacy data; full-frame WebP derivative; no retouch",
+    "lifecycle": "provisional"
+  },
+  {
+    "file": "assets/yoon-seung-hwan.webp",
+    "source": "legacy-public:people/yoon-seung-hwan/portrait.jpg",
+    "width": 602,
+    "height": 903,
+    "bytes": 23246,
+    "sourceSha256": "765d1d19f632b8a379c1443e6d2ba53eed2a34e06a7a1766d5ddcf83f414ae68",
+    "sha256": "92989faaa30efe80ff1d536e376c8fd6192cda1f60c0a6b7b0ec2fd16c3fc616",
+    "provenance": "performer identity verified in exact event legacy data; full-frame WebP derivative; no retouch",
+    "lifecycle": "provisional"
+  },
+  {
+    "file": "assets/hong-se-a.webp",
+    "source": "legacy-public:people/hong-se-a/portrait.jpg",
+    "width": 640,
+    "height": 853,
+    "bytes": 26800,
+    "sourceSha256": "d8640fc8cb86615ea1e61bf39b7671557aed4597b58735304bb26fcc80307ef9",
+    "sha256": "6bba965f8ba0d75b2b891e2c47360564cf94e85b210c9ff76e1338b3274300a8",
+    "provenance": "performer identity verified in exact event legacy data; full-frame WebP derivative; no retouch",
+    "lifecycle": "provisional"
+  },
+  {
+    "file": "assets/lee-young-seop.webp",
+    "source": "legacy-public:people/lee-young-seop/portrait.jpg",
+    "width": 602,
+    "height": 901,
+    "bytes": 23252,
+    "sourceSha256": "1cda658d8a91a5ed664c8dd3d483ee9037610a3704993b3dc51a08a0cb70c6a4",
+    "sha256": "cfa58ec5cae71559689a5efbc831d72aee8f6d4771f9292e26f45b8d75131115",
+    "provenance": "performer identity verified in exact event legacy data; full-frame WebP derivative; no retouch",
+    "lifecycle": "provisional"
+  },
+  {
+    "file": "assets/kim-na-young.webp",
+    "source": "legacy-public:people/kim-na-young/portrait.jpg",
+    "width": 602,
+    "height": 903,
+    "bytes": 59274,
+    "sourceSha256": "7a25750472c493549044a397de537be861ff6be5afa1b95014244740381b8051",
+    "sha256": "534c4219fc5ffe05d177f996d284b553da0b876797c42a84df7942f27facbaaa",
+    "provenance": "performer identity verified in exact event legacy data; full-frame WebP derivative; no retouch",
+    "lifecycle": "provisional"
+  },
+  {
+    "file": "assets/yang-seung-hwan.webp",
+    "source": "legacy-public:people/yang-seung-hwan/portrait.jpg",
+    "width": 700,
+    "height": 1050,
+    "bytes": 22730,
+    "sourceSha256": "f863bf5587412ae941a95f0122b1c86ddf8ad51d3fa1c609229f6a47f83d212e",
+    "sha256": "8787cfd47ca5c9749d8be9e46d7a0e289bf17ef13dcb4989d9b2d30801d8f101",
+    "provenance": "performer identity verified in exact event legacy data; full-frame WebP derivative; no retouch",
+    "lifecycle": "provisional"
+  },
+  {
+    "file": "assets/jin-min-jin.webp",
+    "source": "legacy-public:people/jin-min-jin/portrait.jpg",
+    "width": 602,
+    "height": 903,
+    "bytes": 15020,
+    "sourceSha256": "5f1184c17b989bacf90b8a46948d694f4e647172771ba4d3f3099748e28571c5",
+    "sha256": "3b7d67a6059e6d797847f362f32d7c9bf1265dccf43bebb479606ab97e15bd17",
+    "provenance": "performer identity verified in exact event legacy data; full-frame WebP derivative; no retouch",
+    "lifecycle": "provisional"
+  },
+  {
+    "file": "assets/eo-yoon-seok.webp",
+    "source": "legacy-public:people/eo-yoon-seok/portrait.jpg",
+    "width": 602,
+    "height": 903,
+    "bytes": 10456,
+    "sourceSha256": "32f2b492731e5bfd418098ffee85ef05a467a3c725c44f12b55dc2b4b1a6f2ae",
+    "sha256": "579c7dfed7b6f81794d72c88332cd5c1888c442bd00062b87084c6d195ffda71",
+    "provenance": "performer identity verified in exact event legacy data; full-frame WebP derivative; no retouch",
+    "lifecycle": "provisional"
+  },
+  {
+    "file": "assets/sanjo-outer.webp",
+    "source": "legacy-public:performances/sanjo-gil-2026-08-16/viewer/leaflet-outer.webp",
+    "width": 2048,
+    "height": 957,
+    "bytes": 312686,
+    "sourceSha256": "05f32bdda3a4697b650055239b64fdc226dcd70e9d7269fbea90f7d33c3835ea",
+    "sha256": "5dbd748feb0947b131e62ebec42cbd4eb484de3bf0d62ba6a898ff4bafe8b513",
+    "provenance": "official printed artwork; full frame WebP optimization; no crop or retouch",
+    "lifecycle": "provisional"
+  },
+  {
+    "file": "assets/sanjo-inner.webp",
+    "source": "legacy-public:performances/sanjo-gil-2026-08-16/viewer/leaflet-inner.webp",
+    "width": 2048,
+    "height": 957,
+    "bytes": 454022,
+    "sourceSha256": "9046b9929b1edb69763d4b8c6cc0cbdf33264b53b44d5f53db557b60599fc436",
+    "sha256": "13bf53035157007831a686c2e1e260b4d62255f8738b38644badc04de5f383e0",
+    "provenance": "official printed artwork; full frame WebP optimization; no crop or retouch",
+    "lifecycle": "provisional"
+  },
+  {
+    "file": "assets/recital-outer.webp",
+    "source": "legacy-public:performances/haegeum-2026-08-02/viewer/leaflet-outer.webp",
+    "width": 3000,
+    "height": 1402,
+    "bytes": 442416,
+    "sourceSha256": "7e9f5a5c0492b4096ad58c199b017ca0de25b3946e8d9407c7385c0973a21a0e",
+    "sha256": "b85a3546e268ee7dafea5c41c843c4a33a8436007450be263cab4297da7666b1",
+    "provenance": "official printed artwork; full frame WebP optimization; no crop or retouch",
+    "lifecycle": "provisional"
+  },
+  {
+    "file": "assets/recital-inner.webp",
+    "source": "legacy-public:performances/haegeum-2026-08-02/viewer/leaflet-inner.webp",
+    "width": 3000,
+    "height": 1402,
+    "bytes": 215142,
+    "sourceSha256": "8f1a2c8f31c692572e116250645cb1fa7d0082a0ac6f40c8591bf1d0bbb2d35b",
+    "sha256": "2d4c05d937a2df124551dec6dbd6750632ec525fd5dd38d71b894fe827d545e6",
+    "provenance": "official printed artwork; full frame WebP optimization; no crop or retouch",
+    "lifecycle": "provisional"
+  }
+]

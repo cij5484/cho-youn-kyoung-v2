@@ -1,25 +1,37 @@
-import { bindAudioFeatures, sampleAudioFeatures } from './features.ts'
-import { homeSoundSource } from '../sound/source.ts'
+import { sampleAudioFeatures } from './features.ts'
 import { tuningPresets } from '../sound/tuning-presets.ts'
 import { hitDisplacement } from '../interaction-prototype/model.ts'
 import { interactionTuning } from '../interaction-prototype/tuning.ts'
-import percussion from '../interaction-prototype/percussion.json'
+import { validateAnalysisPair, type AnalysisIdentity, type AnalysisPair } from './analysis-catalog.ts'
 
-const original = 'https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/hanbeomsu/04_long-sanjo_jungjungmori.mp3'
 const clamp = (value: number) => Math.max(0, Math.min(1, value))
 const ease = (value: number, target: number, dt: number, seconds: number) => value + (target - value) * (1 - Math.exp(-dt / seconds))
-const knownFeatures = percussion.trackId === homeSoundSource.trackId && percussion.sourceSha256 === homeSoundSource.sourceSha256 &&
-  Math.abs(percussion.duration - homeSoundSource.duration) < .1 ? bindAudioFeatures(homeSoundSource.features, homeSoundSource) : null
-
-/** One analyser for the permanent media element. No clock/RAF or playback ownership here.
- * Mixed spectra estimate sustained bow and percussive attacks; they do NOT isolate instruments.
- * The authored HOME excerpt is also a mixed-source estimate, only valid at its original timecode. */
-export function createInstrumentResponse(media: HTMLAudioElement) {
+/** One analyser for the permanent media element. Native media time owns all catalog events.
+ * Live spectra only supplement bow texture; percussion motion uses verified offline candidates. */
+export function createInstrumentResponse(media: HTMLAudioElement,
+  load: (identity: AnalysisIdentity) => Promise<AnalysisPair> = identity => import('./analysis-loader.ts').then(module => module.loadAnalysis(identity))) {
+  let identity: AnalysisIdentity | null = null, pair: AnalysisPair | null = null, generation = 0
+  async function setTrack(next: AnalysisIdentity | null) {
+    const token = ++generation
+    identity = next; pair = null; reset()
+    media.dataset.analysisTrack = ''; media.dataset.analysisState = next ? 'loading' : 'none'
+    if (!next) return
+    try {
+      const loaded = await load(next)
+      if (disposed || token !== generation) return
+      pair = validateAnalysisPair(loaded.features, loaded.percussion, next)
+      if (!pair) throw new Error('Analysis identity mismatch')
+      media.dataset.analysisTrack = next.trackId; media.dataset.analysisState = 'ready'
+    } catch {
+      if (disposed || token !== generation) return
+      pair = null; media.dataset.analysisTrack = ''; media.dataset.analysisState = 'error'
+    }
+  }
   let context: AudioContext | null = null, source: MediaElementAudioSourceNode | null = null, analyser: AnalyserNode | null = null
   let disposed = false, attempted = false, lastSource = '', lastTime = -1, elapsed = 0
   let haegeum = 0, janggu = 0, texture = 0, liveBow = 0, liveTexture = 0
   let pitchMidi: number | null = null, pitchConfidence = 0, pitchAge = 1, pendingPitch: number | null = null, pendingFrames = 0
-  let bassScale = .003, bodyScale = .003, highScale = .006, hitAge = 10, hitStrength = 0
+  let bassScale = .003, bodyScale = .003, highScale = .006, hitAge = 10
   let bassMemory = 0, bodyMemory = 0, primed = false
   const frequencies = new Float32Array(1024), prior = new Float32Array(1024), priorTone = new Float32Array(1024)
   const waveform = new Float32Array(2048), pitchSamples = new Float32Array(2048), differences = new Float32Array(256)
@@ -27,17 +39,9 @@ export function createInstrumentResponse(media: HTMLAudioElement) {
   function reset() {
     prior.fill(0); priorTone.fill(0); elapsed = 0; primed = false; lastTime = -1
     bassScale = .003; bodyScale = .003; highScale = .006; bassMemory = 0; bodyMemory = 0
-    hitAge = 10; hitStrength = 0; liveBow = 0; liveTexture = 0
+    hitAge = 10; janggu = 0; liveBow = 0; liveTexture = 0
     pitchMidi = null; pitchConfidence = 0; pitchAge = 1; pendingPitch = null; pendingFrames = 0
     // Preserve the outgoing visual envelope on seek/source changes; it eases into the new signal.
-  }
-
-  function featureTime() {
-    if (!knownFeatures) return -1
-    const identity = media.dataset.sourceUrl || media.currentSrc || media.src
-    if (identity === original && Math.abs(media.duration - 278.756) < .5) return media.currentTime - 166
-    if (homeSoundSource.src && identity === new URL(homeSoundSource.src, document.baseURI).href && Math.abs(media.duration - 18) < .1) return media.currentTime
-    return -1
   }
 
   function analysePitch() {
@@ -121,7 +125,7 @@ export function createInstrumentResponse(media: HTMLAudioElement) {
       lowFlux / (low + 1e-9) > .24 && bodyFlux / (body + 1e-9) > .18
       ? clamp((Math.min(bassMemory, 1.6) * .6 + Math.min(bodyMemory, 1.6) * .4) * Math.min(1, thudFlatness / .5)) : 0
     const strike = primed ? Math.max(sharp, thud) : 0
-    if (strike > .55 && hitAge > .18) { hitAge = 0; hitStrength = strike }
+    if (strike > .55 && hitAge > .18) hitAge = 0
     // Soft compression lifts quiet bow phrases without pinning louder ones at 1 (the old fixed gain clipped).
     const bowEnergy = Math.sqrt(bowPower)
     // Briefly retain the bow phrase through a detected drum onset instead of giving both identities the same jolt.
@@ -155,10 +159,10 @@ export function createInstrumentResponse(media: HTMLAudioElement) {
     },
     sample(dtSeconds: number) {
       const dt = Number.isFinite(dtSeconds) ? Math.max(0, Math.min(.08, dtSeconds)) : 0
-      const identity = media.dataset.sourceUrl || media.currentSrc || media.src
+      const mediaIdentity = media.dataset.sourceUrl || media.currentSrc || media.src
       const jumped = lastTime >= 0 && (media.currentTime < lastTime - .05 || media.currentTime - lastTime > .25)
-      if (identity !== lastSource || jumped || media.seeking) { reset(); lastSource = identity }
-      const previousTime = lastTime; lastTime = media.currentTime
+      if (mediaIdentity !== lastSource || jumped || media.seeking) { reset(); lastSource = mediaIdentity }
+      lastTime = media.currentTime
       const playing = !media.paused && !media.ended && !media.seeking && media.readyState >= 3
       const live = playing && context?.state === 'running' && !!analyser
       hitAge += dt; pitchAge += dt; elapsed += dt
@@ -167,27 +171,36 @@ export function createInstrumentResponse(media: HTMLAudioElement) {
       // Keep a very brief contour through an unvoiced frame; pauses/seeks never retain a claimed pitch.
       if (!live || pitchAge > .18) { pitchMidi = null; pitchConfidence = 0; pendingPitch = null; pendingFrames = 0 }
 
-      let bowTarget = liveBow, textureTarget = liveTexture
-      const seconds = playing ? featureTime() : -1
-      if (knownFeatures && seconds >= 0 && seconds < knownFeatures.duration) {
-        const frame = sampleAudioFeatures(knownFeatures, seconds), blend = live ? .22 : 0
-        bowTarget = frame.phrase * (1 - blend) + bowTarget * blend
-        textureTarget = frame.spectralFlux * (1 - blend) + textureTarget * blend
-        if (previousTime >= 0 && !jumped) {
-          const step = media.currentTime - previousTime
-          const hit = percussion.hits.find(hit => hit.time > seconds - step && hit.time <= seconds && hit.score >= interactionTuning.janggu.sensitivity)
-          if (hit) { hitAge = Math.max(0, seconds - hit.time); hitStrength = hit.score }
+      // Loading, missing or mismatched analysis can never borrow another track's events.
+      const valid = pair && identity && lastSource === identity.source && Number.isFinite(media.duration)
+        && Math.abs(media.duration - pair.features.duration) <= .25
+      if (pair) media.dataset.analysisState = valid ? 'ready' : 'mismatch'
+      const seconds = media.currentTime
+      let bowTarget = liveBow * .12, textureTarget = liveTexture * .12, pulse = 0
+      if (valid && pair && playing && seconds >= 0 && seconds < pair.features.duration) {
+        const frame = sampleAudioFeatures(pair.features, seconds), preset = tuningPresets.HOME_SIGNATURE
+        const blend = live ? preset.liveEnergyBlend : 0
+        bowTarget = clamp(frame.phrase * .65 + frame.energy * .35) * (1 - blend) + liveBow * blend
+        textureTarget = clamp(frame.spectralFlux * preset.spectralFluxSensitivity + frame.onset * preset.onsetSensitivity) * (1 - blend) + liveTexture * blend
+        // Binary search absolute media time: seek/resume never replays a backlog or advances a second clock.
+        const hits = pair.percussion.hits
+        let low = 0, high = hits.length
+        while (low < high) { const middle = (low + high) >>> 1; if (hits[middle].time <= seconds) low = middle + 1; else high = middle }
+        for (let i = low - 1; i >= 0 && seconds - hits[i].time <= 1.6; i--) {
+          if (hits[i].score >= interactionTuning.janggu.sensitivity) {
+            pulse = -hitDisplacement(seconds - hits[i].time) / interactionTuning.janggu.jumpHeight * hits[i].score
+            break
+          }
         }
       }
       haegeum = ease(haegeum, playing ? bowTarget : 0, dt, (bowTarget > haegeum && playing ? tuningPresets.HOME_SIGNATURE.attack : tuningPresets.HOME_SIGNATURE.release) / 1000)
-      const pulse = playing ? -hitDisplacement(hitAge) / interactionTuning.janggu.jumpHeight * hitStrength : 0
       janggu = ease(janggu, clamp(pulse), dt, pulse > janggu ? .015 : .055)
       texture = ease(texture, playing ? textureTarget : 0, dt, (textureTarget > texture && playing ? tuningPresets.HOME_SIGNATURE.attack : tuningPresets.HOME_SIGNATURE.release) / 1000)
       return { haegeum, janggu, texture, pitchMidi, pitchConfidence }
     },
-    reset,
+    reset, setTrack,
     destroy() {
-      disposed = true; source?.disconnect(); analyser?.disconnect()
+      disposed = true; generation++; pair = null; identity = null; source?.disconnect(); analyser?.disconnect()
       if (context && context.state !== 'closed') void context.close().catch(() => {})
       context = null; source = null; analyser = null
     },

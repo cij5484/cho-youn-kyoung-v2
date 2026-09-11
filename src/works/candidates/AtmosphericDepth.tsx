@@ -74,7 +74,7 @@ export function AtmosphericDepth() {
         <p>음반과 무대의 기록</p>
       </div> : <div className="atmospheric-caption" data-archive={archive}>
         <p className="atmospheric-type" lang="en">{archive ? 'RECORDINGS / PERFORMANCES' : active.type === 'album' ? 'RECORDING' : 'PERFORMANCE'}</p>
-        <h2>{archive ? '음반과 무대의 기록' : active.title}</h2>
+        <h2><span className="atmospheric-title-reveal" key={archive ? 'archive' : active.id}>{archive ? '음반과 무대의 기록' : active.title}</span></h2>
         {!archive && <p className="atmospheric-date">{workDate(active)}</p>}
         {!archive && <a className="atmospheric-record" href={albumStudyHref(active)} aria-label={`${active.title} — 기록 보기`}>기록 보기 <span aria-hidden="true">↗</span></a>}
       </div>}

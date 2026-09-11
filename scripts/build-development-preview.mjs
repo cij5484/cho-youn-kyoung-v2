@@ -7,6 +7,7 @@ import { build } from 'vite'
 import { buildTargets } from '../config/build.ts'
 import { siteRoutes } from '../src/routing/site-catalog.ts'
 import { atmosphericCatalog } from '../src/works/candidates/atmospheric-catalog.ts'
+import { performanceStudySlugs } from '../src/performance-detail/performance-navigation.ts'
 
 const repository = fileURLToPath(new URL('..', import.meta.url))
 const inputRoot = resolve(repository, '.checkpoints/development-preview-input')
@@ -14,7 +15,8 @@ const output = resolve(repository, 'build-development-preview')
 const entry = resolve(repository, 'preview/main.tsx')
 const input = {}
 const albumRoutes = atmosphericCatalog.filter(record => record.type === 'album').map(record => ({ id: record.id, path: `/album/${record.id.slice(6)}`, lang: 'ko' }))
-for (const route of [...siteRoutes, ...albumRoutes]) {
+const performanceRoutes = performanceStudySlugs.map(slug => ({ id: `performance:${slug}`, path: `/performance/${slug}`, lang: 'ko' }))
+for (const route of [...siteRoutes, ...albumRoutes, ...performanceRoutes]) {
   const html = resolve(inputRoot, route.path === '/' ? 'index.html' : `${route.path.slice(1)}/index.html`)
   await mkdir(dirname(html), { recursive: true })
   const script = relative(dirname(html), entry).replaceAll('\\', '/')

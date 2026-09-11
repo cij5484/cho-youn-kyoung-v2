@@ -1,6 +1,6 @@
 import { useEffect, useEffectEvent } from 'react'
 import { useNavigate } from 'react-router'
-import { localAlbumStudy, appRoute } from './album-navigation.ts'
+import { localAlbumStudy, appRoute, isLocalDetailRoute } from './album-navigation.ts'
 
 type Entry = { href: string; src: string; bounds: { x: number; y: number; width: number; height: number } }
 
@@ -11,15 +11,26 @@ export function AlbumRouteTransition() {
   useEffect(() => {
     if (!localAlbumStudy()) return
     let overlay: HTMLImageElement | null = null, animation: Animation | null = null
-    let generation = 0, origin = { y: 0, slug: '', href: '/works/' }
-    const clear = () => { animation?.cancel(); animation = null; overlay?.remove(); overlay = null }
+    let sheet: HTMLDivElement | null = null, hiddenPoster: HTMLImageElement | null = null, posterVisibility = ''
+    const entryAnimations: Animation[] = []
+    let generation = 0, origin = { y: 0, slug: '', kind: 'album', href: '/works/' }
+    const clear = () => {
+      animation?.cancel(); animation = null; overlay?.remove(); overlay = null
+      entryAnimations.splice(0).forEach(item => item.cancel())
+      sheet?.remove(); sheet = null
+      if (hiddenPoster) hiddenPoster.style.visibility = posterVisibility
+      hiddenPoster = null
+    }
     async function enter({ href, src, bounds }: Entry) {
       const route = appRoute(href)
       if (!route) return
       const attempt = ++generation
       clear()
       const returning = route.startsWith('/works')
-      if (appRoute(location.pathname)?.replace(/\/$/, '') === '/works') origin = { y: scrollY, slug: route.split('/')[2], href: appRoute(location.pathname + location.search)! }
+      const archiveReturn = route === '/works/#works-compact-archive'
+      const performanceEntry = route.startsWith('/performance/')
+      let start = bounds
+      if (appRoute(location.pathname)?.replace(/\/$/, '') === '/works') origin = { y: scrollY, slug: route.split('/')[2], kind: route.split('/')[1], href: appRoute(location.pathname + location.search)! }
       const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches
       if (!reduced && (!returning || origin.slug) && src && bounds.width > 0 && bounds.y < innerHeight && bounds.y + bounds.height > 0) {
         overlay = document.createElement('img')
@@ -28,8 +39,30 @@ export function AlbumRouteTransition() {
           left: `${bounds.x}px`, top: `${bounds.y}px`, width: `${bounds.width}px`, height: `${bounds.height}px`, margin: '0' })
         document.body.append(overlay)
       }
-      go(returning ? origin.href : route)
-      if (returning && !origin.slug) return
+      if (performanceEntry && overlay) {
+        // ImageToGrid's large-image-to-measured-slot staging: preserve the poster ratio throughout.
+        const ratio = bounds.width / bounds.height
+        const width = Math.min(innerWidth - 40, innerHeight * .8 * ratio), height = width / ratio
+        start = { x: (innerWidth - width) / 2, y: (innerHeight - height) / 2, width, height }
+        sheet = document.createElement('div')
+        sheet.setAttribute('aria-hidden', 'true')
+        Object.assign(sheet.style, { position: 'fixed', inset: '0', zIndex: '899', background: 'var(--color-canvas, #f4f0e8)', pointerEvents: 'auto' })
+        document.body.append(sheet)
+        entryAnimations.push(sheet.animate([
+          { clipPath: 'polygon(0 100%,100% 85%,100% 100%,0 100%)' },
+          { clipPath: 'polygon(0 0,100% 0,100% 100%,0 100%)' },
+        ], { duration: 360, easing: 'cubic-bezier(.65,0,.25,1)', fill: 'forwards' }))
+        animation = overlay.animate([
+          { transform: 'translate(0,0) scale(1)', transformOrigin: 'top left' },
+          { transform: `translate(${start.x - bounds.x}px,${start.y - bounds.y}px) scale(${width / bounds.width})`, transformOrigin: 'top left' },
+        ], { duration: 360, easing: 'cubic-bezier(.65,0,.25,1)', fill: 'forwards' })
+        await animation.finished.catch(() => {})
+        if (attempt !== generation) return
+        Object.assign(overlay.style, { left: `${start.x}px`, top: `${start.y}px`, width: `${width}px`, height: `${height}px` })
+        animation.cancel(); animation = null
+      }
+      go(returning && !archiveReturn ? origin.href : route)
+      if (returning && !origin.slug && !archiveReturn) return
       // Destination may be lazy: keep the actual selected image while its slot mounts.
       let destination: DOMRect | null = null
       const deadline = performance.now() + 2400
@@ -38,9 +71,21 @@ export function AlbumRouteTransition() {
         if (returning) {
           const spatial = document.querySelector<HTMLElement>('.atmospheric-depth')
           if (!spatial || !['ready', 'fallback'].includes(spatial.dataset.state ?? '')) continue
+          if (archiveReturn) {
+            const archive = spatial.querySelector<HTMLElement>('#works-compact-archive')
+            if (!archive) continue
+            const fallback = spatial.dataset.state === 'fallback'
+            const top = fallback ? archive.getBoundingClientRect().top + scrollY
+              : Number(spatial.dataset.scrollStart) + Number(spatial.dataset.scrollRange) * .985
+            if (!Number.isFinite(top)) continue
+            scrollTo({ top, behavior: 'instant' })
+            if (!fallback && Number(archive.dataset.indexExpansion ?? 0) < .999) continue
+            archive.focus({ preventScroll: true })
+            break
+          }
           scrollTo({ top: origin.y, behavior: 'instant' })
           await new Promise(requestAnimationFrame)
-          const row = document.querySelector(`[data-work-id="album:${origin.slug}"] img`)
+          const row = document.querySelector(`[data-work-id="${origin.kind}:${origin.slug}"] img`)
           if (Number(spatial.dataset.resolution ?? 0) > .9 && row) destination = row.getBoundingClientRect()
           else {
             if (origin.slug && row?.closest<HTMLElement>('[data-sequence]')?.dataset.sequence !== spatial.dataset.focus) continue
@@ -48,21 +93,29 @@ export function AlbumRouteTransition() {
             if (focusWidth) destination = new DOMRect(Number(focusX) - Number(focusWidth) / 2, Number(focusY) - Number(focusHeight) / 2, Number(focusWidth), Number(focusHeight))
           }
         } else {
-          const image = document.querySelector<HTMLImageElement>('[data-album-cover]')
+          const image = document.querySelector<HTMLImageElement>('[data-album-cover], [data-performance-poster]')
           if (!image) continue
           if (!image.complete) continue
           scrollTo({ top: 0, behavior: 'instant' })
           destination = image.getBoundingClientRect()
+          if (performanceEntry && overlay) {
+            hiddenPoster = image; posterVisibility = image.style.visibility; image.style.visibility = 'hidden'
+            document.querySelectorAll('.performance-hero-copy, .performance-visit').forEach(copy => entryAnimations.push(copy.animate([
+              { clipPath: 'inset(0 0 100% 0)', transform: 'translateY(24px)' },
+              { clipPath: 'inset(0 0 0% 0)', transform: 'translateY(0)' },
+            ], { duration: 600, easing: 'cubic-bezier(.16,1,.3,1)' })))
+          }
         }
         if (destination) break
       }
       if (attempt !== generation) return
       if (overlay && destination) {
+        if (sheet) entryAnimations.push(sheet.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 420, fill: 'forwards' }))
         animation = overlay.animate([
-          { left: `${bounds.x}px`, top: `${bounds.y}px`, width: `${bounds.width}px`, height: `${bounds.height}px`, opacity: 1 },
+          { left: `${start.x}px`, top: `${start.y}px`, width: `${start.width}px`, height: `${start.height}px`, opacity: 1 },
           { left: `${destination.x}px`, top: `${destination.y}px`, width: `${destination.width}px`, height: `${destination.height}px`, opacity: 1, offset: .88 },
-          { left: `${destination.x}px`, top: `${destination.y}px`, width: `${destination.width}px`, height: `${destination.height}px`, opacity: 0 },
-        ], { duration: 950, easing: 'cubic-bezier(.22,.75,.16,1)', fill: 'forwards' })
+          { left: `${destination.x}px`, top: `${destination.y}px`, width: `${destination.width}px`, height: `${destination.height}px`, opacity: performanceEntry ? 1 : 0 },
+        ], { duration: performanceEntry ? 620 : 950, easing: 'cubic-bezier(.22,.75,.16,1)', fill: 'forwards' })
         await animation.finished.catch(() => {})
       }
       if (attempt === generation) clear()
@@ -73,9 +126,9 @@ export function AlbumRouteTransition() {
       const link = (event.target as Element).closest<HTMLAnchorElement>('a[href]')
       if (!link || link.hasAttribute('download') || link.target && link.target !== '_self') return
       const href = link.getAttribute('href')!
-      if (!appRoute(href)?.startsWith('/album/') && !link.hasAttribute('data-album-return')) return
+      if (!isLocalDetailRoute(appRoute(href)) && !link.hasAttribute('data-album-return') && !link.hasAttribute('data-performance-archive-return')) return
       event.preventDefault()
-      const image = link.querySelector<HTMLImageElement>('img') ?? document.querySelector<HTMLImageElement>('[data-album-cover]')
+      const image = link.querySelector<HTMLImageElement>('img') ?? document.querySelector<HTMLImageElement>('[data-album-cover], [data-performance-poster]')
       const spatial = link.closest<HTMLElement>('.atmospheric-depth')
       let bounds = image?.getBoundingClientRect() ?? new DOMRect()
       let src = image?.currentSrc ?? ''
@@ -89,9 +142,11 @@ export function AlbumRouteTransition() {
       void enter({ href, src, bounds })
     }
     const cancel = () => { generation++; clear() }
+    const escape = (event: KeyboardEvent) => { if (event.key === 'Escape' && sheet) cancel() }
     document.addEventListener('click', click)
     window.addEventListener('album-entry', request); window.addEventListener('popstate', cancel)
-    return () => { cancel(); document.removeEventListener('click', click); window.removeEventListener('album-entry', request); window.removeEventListener('popstate', cancel) }
+    window.addEventListener('keydown', escape)
+    return () => { cancel(); document.removeEventListener('click', click); window.removeEventListener('album-entry', request); window.removeEventListener('popstate', cancel); window.removeEventListener('keydown', escape) }
   }, [])
   return null
 }

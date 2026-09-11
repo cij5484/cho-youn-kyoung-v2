@@ -14,6 +14,8 @@ export function mountAtmosphericArchive(root: HTMLElement): () => void {
   const links = rows.map(row => row.querySelector<HTMLAnchorElement>('a')!)
   const titles = links.map(link => link.querySelector('.atmospheric-archive-title')?.getAttribute('aria-label'))
   const heading = spatial.querySelector<HTMLElement>('.atmospheric-heading')
+  const contentFrame = spatial.querySelector<HTMLElement>('.atmospheric-content-frame')
+  const indexLink = spatial.querySelector<HTMLElement>('.atmospheric-index')
   const header = root.querySelector<HTMLElement>('.atmospheric-archive-heading')!
   const reduced = matchMedia('(prefers-reduced-motion: reduce)')
   let frame = 0, disposed = false
@@ -27,13 +29,17 @@ export function mountAtmosphericArchive(root: HTMLElement): () => void {
     // Finish the paper assembly before the native INDEX anchor settles.
     const expansion = staticMode ? 1 : phase(Number(spatial.dataset.resolution ?? 0), 0, .88)
     const mobile = innerWidth <= 700
-    const contentWidth = Math.min(document.documentElement.clientWidth, 1880)
-    const gutter = mobile ? 24 : Math.min(64, innerWidth * .04)
-    const railWidth = mobile ? Math.min(126, contentWidth * .33) : Math.min(340, contentWidth * .26)
-    const railX = (document.documentElement.clientWidth + contentWidth) / 2 - gutter - railWidth
+    const desktopColumns = innerWidth >= 1000
+    const frameBounds = desktopColumns ? contentFrame?.getBoundingClientRect() : null
+    const contentWidth = frameBounds?.width ?? Math.min(document.documentElement.clientWidth, 1880)
+    const gutter = mobile ? 16 : Math.min(64, innerWidth * .04)
+    const railWidth = mobile ? Math.min(122, contentWidth * .32) : Math.min(340, contentWidth * (desktopColumns ? .31 : .26))
+    const railX = frameBounds && indexLink ? indexLink.getBoundingClientRect().left
+      : (document.documentElement.clientWidth + contentWidth) / 2 - gutter - railWidth
     const headingBottom = heading ? heading.offsetTop + heading.offsetHeight : 200
-    const step = 44
-    const railTop = Math.max(headingBottom + 40, viewport * .29)
+    const step = mobile ? 32 : 36
+    const railTop = Math.max(headingBottom + 24, viewport * .31)
+    if (root.style.getPropertyValue('--aa-rail-step') !== `${step}px`) root.style.setProperty('--aa-rail-step', `${step}px`)
     const active = Number(spatial.dataset.focus ?? 0)
     if (root.dataset.indexExpansion !== String(expansion)) {
       root.dataset.indexExpansion = String(expansion)
@@ -53,14 +59,14 @@ export function mountAtmosphericArchive(root: HTMLElement): () => void {
     rows.forEach((row, index) => {
       const link = links[index], rect = rects[index]
       const x = (railX - rect.left) * (1 - gathered)
-      const y = (railTop + index * step + (row.dataset.kind !== rows[0].dataset.kind ? 12 : 0) - rect.top) * (1 - gathered)
+      const y = (railTop + index * step + (row.dataset.kind !== rows[0].dataset.kind ? 6 : 0) - rect.top) * (1 - gathered)
       if (link.style.getPropertyValue('--aa-project-x') !== `${x}px`) link.style.setProperty('--aa-project-x', `${x}px`)
       if (link.style.getPropertyValue('--aa-project-y') !== `${y}px`) link.style.setProperty('--aa-project-y', `${y}px`)
       if (row.dataset.current !== String(active === index)) row.dataset.current = String(active === index)
       const current = active === index && expansion < .95
       if (current && !link.hasAttribute('aria-current')) link.setAttribute('aria-current', 'true')
       else if (!current && link.hasAttribute('aria-current')) link.removeAttribute('aria-current')
-      const label = `${titles[index]} — ${expansion < .999 ? '작품으로 이동' : appRoute(link.href)?.startsWith('/album/') ? '앨범 전시 보기' : '기존 사이트에서 기록 보기'}`
+      const label = `${titles[index]} — ${expansion < .999 ? '작품으로 이동' : appRoute(link.href)?.startsWith('/performance/') ? '공연 기록 보기' : appRoute(link.href)?.startsWith('/album/') ? '앨범 전시 보기' : '기존 사이트에서 기록 보기'}`
       if (link.getAttribute('aria-label') !== label) link.setAttribute('aria-label', label)
       values.forEach((value, i) => {
         if (row.style.getPropertyValue(properties[i]) !== value.toFixed(4)) row.style.setProperty(properties[i], value.toFixed(4))
@@ -91,6 +97,7 @@ export function mountAtmosphericArchive(root: HTMLElement): () => void {
     root.removeEventListener('focusin', request); root.removeEventListener('focusout', request)
     document.removeEventListener('visibilitychange', visibility); reduced.removeEventListener('change', request)
     header.inert = false
+    root.style.removeProperty('--aa-rail-step')
     rows.forEach((row, index) => {
       properties.forEach(property => row.style.removeProperty(property))
       const link = links[index]

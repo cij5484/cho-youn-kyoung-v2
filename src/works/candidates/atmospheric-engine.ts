@@ -5,7 +5,7 @@ import {
 } from 'three'
 import { atmosphericCatalog as worksCatalog } from './atmospheric-catalog.ts'
 import type { AtmosphericImage as WorkImage } from './atmospheric-catalog.ts'
-import { albumStudyHref, appRoute, requestAlbumEntry } from '../../album-detail/album-navigation.ts'
+import { albumStudyHref, isLocalDetailRoute, appRoute, requestAlbumEntry } from '../../album-detail/album-navigation.ts'
 
 const clamp = (n: number, low = 0, high = 1) => Math.max(low, Math.min(high, n))
 const smooth = (n: number) => { const t = clamp(n); return t * t * (3 - 2 * t) }
@@ -102,7 +102,7 @@ void main() {
   float cool = field(p, vec2(-.41 + passage, .11) + pointer, vec2(.92, .75));
   float warm = field(p, vec2(.39 - passage * .48, -.17) - pointer, vec2(.85, .58));
   float halo = field(p, vec2(.07, .31 + passage * .23), vec2(.42, .91));
-  float presence = (1.0 - uResolve) * (.72 + uBreath * .04);
+  float presence = (1.0 - uResolve) * (.48 + uBreath * .04);
   vec3 color = mix(uPaper, uCool, cool * presence);
   color = mix(color, uWarm, warm * presence * .90);
   color = mix(color, uPaper, halo * (.12 + uBreath * .06));
@@ -134,6 +134,7 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
   } catch { options.onFailure('webgl-unavailable'); return null }
   renderer.outputColorSpace = SRGBColorSpace
   renderer.autoClear = false
+  renderer.setClearColor(ivory, 1)
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, mobile ? 1.25 : 1.5))
 
   const scene = new Scene()
@@ -170,6 +171,7 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
   const projection = new Vector3()
   let disposed = false
   let ready = false
+  let entrance = 0
   let frame = 0
   let frames = 0
   let lastTime = 0
@@ -191,7 +193,9 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
   let safeBottom = 1
   let contentWidth = 1
   let visible = stage.getBoundingClientRect().bottom > 0 && stage.getBoundingClientRect().top < innerHeight
-  let modal = Boolean(document.querySelector('dialog[open]'))
+  // The route curtain reveals this canvas while still open; render underneath it.
+  const blockingDialog = () => Boolean(document.querySelector('dialog[open]:not(.global-page-transition)'))
+  let modal = blockingDialog()
   let press: { x: number; y: number; scroll: number; time: number } | null = null
 
   function wake() {
@@ -206,6 +210,7 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
     if (disposed || !visible || document.hidden || modal) return
     const dt = lastTime ? Math.min(.045, (time - lastTime) / 1000) : 1 / 60
     lastTime = time
+    if (ready) { entrance = damp(entrance, 1, dt, 6); if (entrance > .999) entrance = 1 }
     const oldProgress = progress
     progress = damp(progress, targetProgress, dt, 8.4)
     if (Math.abs(progress - targetProgress) < .000015) progress = targetProgress
@@ -228,10 +233,10 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
     objects.forEach(({ mesh, material, ratio }, index) => {
       const depth = atmosphericDepth(index, cursor)
       const [baseX, , tilt] = placements[index]
-      const imageAreaWidth = contentWidth * (mobile ? .60 : .68)
+      const imageAreaWidth = contentWidth * (mobile ? .70 : .68)
       const fit = atmosphericFit(ratio, viewingDistance, imageAreaWidth, height, safeTop, safeBottom, mobile)
       const viewSpan = 2 * viewingDistance * Math.tan(camera.fov * Math.PI / 360)
-      const imageCenterX = (imageAreaWidth - contentWidth) * .5 * viewSpan / height
+      const imageCenterX = (contentWidth * (mobile ? .62 : .68) - contentWidth) * .5 * viewSpan / height
       const nextDistance = Math.max(0, depth.delta) * gap
       // Travel through the image plane: readable approach grows continuously into full-frame cover.
       // Derive the near distance from the real aspect ratio, so even a narrow poster covers the viewport.
@@ -241,7 +246,9 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
       const centering = smooth(depth.departure)
       const x = (imageCenterX + baseX * (mobile ? .06 : .23)) * (1 - centering)
       const y = (fit.y + drift * .04) * (1 - centering)
-      mesh.position.set(x + pointer.x * .025, y + pointer.y * .015, camera.position.z - distance)
+      // LayerMotion: bounded image parallax must differ from camera motion to remain visible.
+      const parallax = mobile ? 0 : viewSpan / height * (1 - centering)
+      mesh.position.set(x + pointer.x * parallax * 16, y + pointer.y * parallax * 10, camera.position.z - distance)
       mesh.rotation.set(-drift * .025 * (1 - centering), tilt * (1 - depth.approach), 0)
       const activeHover = hovered === index ? hoverAmount : 0
       let objectWidth = fit.width * (1 + activeHover * .008)
@@ -249,9 +256,9 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
       // retreats gently behind their widening field; no separate image-to-list flight.
       mesh.position.z -= resolution * gap * .6
       mesh.position.x -= resolution * .18
-      objectWidth *= 1 - resolution * .12
+      objectWidth *= (1 - resolution * .12) * (.92 + .08 * entrance)
       mesh.scale.set(objectWidth, objectWidth * ratio, 1)
-      material.opacity = depth.opacity * (1 - smooth((resolution - .15) / .70))
+      material.opacity = depth.opacity * (1 - smooth((resolution - .15) / .70)) * entrance
       material.depthWrite = material.opacity > .995
       mesh.visible = ready && material.opacity > .004
     })
@@ -295,7 +302,7 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
     root.dataset.frames = String(frames)
     root.dataset.breath = breath.toFixed(4)
     root.dataset.drift = drift.toFixed(4)
-    const moving = Math.abs(progress - targetProgress) > .000015 || Math.abs(velocity) > .0003
+    const moving = (ready && entrance < 1) || Math.abs(progress - targetProgress) > .000015 || Math.abs(velocity) > .0003
       || Math.abs(drift) > .001 || breath > .001 || pointer.distanceTo(pointerTarget) > .001
       || Math.abs(hoverAmount - (hovered >= 0 ? 1 : 0)) > .001
     root.dataset.renderState = moving ? 'running' : 'settled'
@@ -318,10 +325,16 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
     width = Math.max(1, bounds.width); height = Math.max(1, bounds.height)
     const heading = root.querySelector<HTMLElement>('.atmospheric-heading')?.getBoundingClientRect()
     const caption = root.querySelector<HTMLElement>('.atmospheric-caption')?.getBoundingClientRect()
-    safeTop = clamp((heading?.bottom ?? bounds.top) - bounds.top + 24, 0, height)
-    safeBottom = clamp((caption?.top ?? bounds.bottom) - bounds.top - 24, safeTop + 1, height)
+    const desktopColumns = !mobile && matchMedia('(min-width: 1000px) and (min-height: 820px)').matches
+    safeTop = clamp((heading?.bottom ?? bounds.top) - bounds.top + (desktopColumns ? 12 : 24), 0, height)
+    // Desktop metadata shares the title rail, leaving the poster column open to
+    // the bottom of the frame. Mobile retains its original stacked safe band.
+    safeBottom = desktopColumns ? Math.max(safeTop + 1, height - 36)
+      : clamp((caption?.top ?? bounds.bottom) - bounds.top - 24, safeTop + 1, height)
     renderer.setSize(width, height, false)
-    contentWidth = Math.min(width, 1880)
+    // Resizing clears an opaque drawing buffer to black, even while rendering is asleep.
+    renderer.clear()
+    contentWidth = root.querySelector<HTMLElement>('.atmospheric-content-frame')?.getBoundingClientRect().width ?? Math.min(width, 1880)
     root.dataset.contentWidth = String(contentWidth)
     camera.aspect = width / height
     camera.updateProjectionMatrix()
@@ -359,7 +372,7 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
     const index = hit(event.clientX, event.clientY)
     if (index >= 0) {
       const record = worksCatalog[index], href = albumStudyHref(record)
-      if (appRoute(href)?.startsWith('/album/')) {
+      if (isLocalDetailRoute(appRoute(href))) {
         const object = objects[index], bounds = canvas.getBoundingClientRect()
         projection.copy(object.mesh.position).project(camera)
         const span = 2 * (camera.position.z - object.mesh.position.z) * Math.tan(camera.fov * Math.PI / 360)
@@ -384,7 +397,7 @@ export function createAtmosphericEngine(options: AtmosphericOptions): { dispose:
   })
   const sizing = new ResizeObserver(resize)
   const dialogs = new MutationObserver(() => {
-    const open = Boolean(document.querySelector('dialog[open]'))
+    const open = blockingDialog()
     if (modal === open) return
     modal = open
     if (modal) sleep(); else { lastTime = 0; wake() }

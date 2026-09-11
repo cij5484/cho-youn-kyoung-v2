@@ -34,7 +34,7 @@
 .atmospheric-archive-link {
   display: grid; align-items: center; position: relative; pointer-events: auto;
   inline-size: calc(var(--aa-rail-width, 100%) * (1 - var(--aa-expansion)) + 100% * var(--aa-expansion));
-  min-block-size: calc(44px + (var(--aa-row-height) - 44px) * var(--aa-expansion));
+  min-block-size: calc(var(--aa-rail-step, 44px) + (var(--aa-row-height) - var(--aa-rail-step, 44px)) * var(--aa-expansion));
   padding-block: calc(12px * var(--aa-expansion));
   transform: translate(var(--aa-project-x, 0px), var(--aa-project-y, 0px));
   grid-template-columns: calc(var(--aa-cell-index) * var(--aa-expansion)) calc(var(--aa-cell-image) * var(--aa-expansion)) calc(var(--aa-cell-date) * var(--aa-expansion)) minmax(0, 1fr) calc(var(--aa-cell-type) * var(--aa-expansion)) calc(var(--aa-cell-arrow) * var(--aa-expansion));

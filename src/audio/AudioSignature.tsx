@@ -2,12 +2,11 @@ import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { signatureAudioHandoff, type SignatureAudioPair, type SignatureAudioPoint, type SignatureAudioSample } from '../signature/audio-handoff.ts'
 import { twoPointContract } from '../signature/two-point-contract.ts'
-import { createJangguOrbit, freePoint, project } from '../interaction-prototype/model.ts'
+import { createJangguOrbit, project } from '../interaction-prototype/model.ts'
 import { interactionTuning } from '../interaction-prototype/tuning.ts'
 import { tuningPresets } from '../sound/tuning-presets.ts'
 import { globalPlayback } from './global-playback.ts'
 
-const tuningPitch = tuningPresets.HOME_SIGNATURE
 type DepthSample = SignatureAudioSample & { z?: number }
 type DepthPair = Record<'haegeum' | 'janggu', SignatureAudioPoint & { z?: number }>
 
@@ -25,9 +24,9 @@ export function AudioSignature() {
     let player: HTMLElement | null = null, playerBox: DOMRect | null = null
     const histories: Record<'haegeum' | 'janggu', DepthSample[]> = { haegeum: [], janggu: [] }
     const depth = { haegeum: 0, janggu: 0 }, orbit = createJangguOrbit()
-    const response = { haegeum: 0, janggu: 0, texture: 0 }
-    let bowTime = .7
-    let pitch: number | null = null, pitchWeight = 0
+    const response = { haegeum: 0, texture: 0 }
+    const bowPreset = tuningPresets.HOME_SIGNATURE
+    let bowSweep = .16, bowPhrase = -.16, bowRate = .08, bowRange = .2
     let lastTargets: DepthPair | null = null
     const request = () => { if (!frame && !document.hidden) frame = requestAnimationFrame(paint) }
     const invalidate = () => { dirty = true; request() }
@@ -59,37 +58,42 @@ export function AudioSignature() {
     }
     function playerTargets(now: number, dt: number): DepthPair {
       const signal = globalPlayback.sample(dt), bounds = box!
-      // Musical detection stays sensitive; the visible gesture carries weight instead of following every spike.
-      for (const id of ['haegeum', 'janggu', 'texture'] as const) {
-        const rising = signal[id] > response[id]
-        const seconds = id === 'janggu' ? rising ? .055 : .22 : rising ? .18 : .4
+      // The audio owner already combines energy/phrase and onset/flux, with HOME's live blend.
+      for (const id of ['haegeum', 'texture'] as const) {
+        const seconds = (signal[id] > response[id] ? bowPreset.attack : bowPreset.release) / 1000
         response[id] += (signal[id] - response[id]) * (1 - Math.exp(-dt / seconds))
       }
-      const reliablePitch = signal.pitchMidi !== null && signal.pitchConfidence >= .8
-      if (reliablePitch) pitch = pitch === null ? signal.pitchMidi : pitch + (signal.pitchMidi! - pitch) * (1 - Math.exp(-dt / .1))
-      pitchWeight += ((reliablePitch ? 1 : 0) - pitchWeight) * (1 - Math.exp(-dt / .25))
-      const pitchCenter = (tuningPitch.pitchMinMidi + tuningPitch.pitchMaxMidi) / 2
-      const pitchHeight = Math.tanh(((pitch ?? pitchCenter) - pitchCenter) / 9)
-      const { phase: orbitPhase, activity } = orbit.advance(dt, globalPlayback.snapshot().playing)
-      const beatPhase = orbitPhase * .72
-      bowTime += dt * (.22 + activity * .42 + response.haegeum * .9 + response.texture * .15)
+      // Bow Contact semantics: integrated reciprocal strokes plus a slower lateral phrase.
+      const wantedRate = Math.min(bowPreset.maxSpeed,
+        (.35 + bowPreset.activityGain * response.haegeum + response.texture) * bowPreset.reversalResponse)
+      const active = Math.min(1, response.haegeum / .015)
+      const nextRate = bowRate + (.08 + active * (wantedRate - .08) - bowRate)
+        * (1 - Math.exp(-dt / (bowPreset.acceleration / 1000)))
+      const travel = (bowRate + nextRate) * .5 * dt * .6
+      bowSweep += travel
+      bowPhrase += travel * (bowPreset.horizontalActivity + .04 * response.haegeum)
+      bowRate = nextRate
+      const wantedRange = .2 + active * Math.min(.8, .18 + .62 * Math.sqrt(response.haegeum) + .12 * response.texture)
+      bowRange += (wantedRange - bowRange) * (1 - Math.exp(-dt / (bowPreset.rangeResponse / 1000)))
+      // Janggu always uses HOME's idle orbit clock; playback alone adds no activity.
+      const { phase: beatPhase } = orbit.advance(dt * 1.5, false)
       const cx = bounds.left + bounds.width / 2, cy = bounds.top + bounds.height / 2
       const frame = playerBox ?? bounds
       const halfWidth = Math.max(2, Math.min(bounds.width * .55, cx - frame.left - 8, frame.right - cx - 8))
       const centerY = (frame.top + frame.bottom) / 2, halfHeight = Math.max(2, frame.height / 2 - 8)
       // Anchor at the progress bar while using the full upper/lower space, including the taller mobile player.
       const verticalBias = Math.atanh(Math.max(-.95, Math.min(.95, (cy - centerY) / halfHeight)))
-      const bow = freePoint(bowTime, 0), range = .42 + activity * .38 + response.haegeum * .38
-      // HOME's perspective and free bow path, recomposed around the progress bar's horizontal axis.
-      // Keep independent musical phases: neither point follows playback percentage.
+      const sweep = bowSweep * Math.PI * 2, phrase = bowPhrase * Math.PI * 2
+      // Separate musical phases around the bar, never playback percentage or note height.
       const local = {
-        haegeum: { x: .5 + (bow.x - .5) * range + Math.cos(bowTime * interactionTuning.home.speed) * response.texture * .025,
-          y: .5 + (bow.y - .49) * (1.15 + response.haegeum * .65) * (.2 + activity * .8) * (1 - pitchWeight * .75)
-            - pitchHeight * (.24 + response.haegeum * .22) * pitchWeight,
-          z: bow.z * (1 + response.haegeum * .4) },
-        janggu: { x: .5 + Math.sin(beatPhase) * (.15 + activity * .28),
-          y: .5 + Math.cos(beatPhase * 3) * (.025 + activity * .16) - response.janggu * .24,
-          z: Math.sin(beatPhase * 3) * interactionTuning.janggu.depth * 2.8 },
+        haegeum: { x: .5 + Math.sin(phrase) * .34 * bowPreset.horizontalRange * bowRange,
+          y: .5 - Math.cos(sweep) * .2 * bowPreset.verticalRange * bowRange,
+          z: Math.sin(sweep) * interactionTuning.home.depth * bowRange },
+        janggu: { x: .5 + Math.sin(beatPhase) * interactionTuning.janggu.idleRange,
+          // signal.janggu is already HOME hitDisplacement sampled at media.currentTime.
+          y: .5 + (Math.cos(beatPhase * 3) * interactionTuning.janggu.radius * (width <= 600 ? 2 : 1)
+            - signal.janggu * interactionTuning.janggu.jumpHeight) / (halfHeight * 3),
+          z: Math.sin(beatPhase * 3) * interactionTuning.janggu.depth },
       }
       const targets = {} as DepthPair
       for (const id of twoPointContract.order) {
@@ -97,8 +101,10 @@ export function AudioSignature() {
         const vibration = id === 'haegeum' ? Math.sin(now * .017) * response.texture * .04 : 0
         // Compress toward the actual player edges smoothly; preserve depth without leaving its frame.
         const x = cx + Math.tanh((projected.x - .5) * 2.4) * halfWidth
-        const verticalRange = 3 + activity * (id === 'haegeum' ? 2.5 : 1.8)
-        const y = centerY + Math.tanh(verticalBias + (projected.y - .5) * verticalRange + vibration) * halfHeight
+        const verticalRange = id === 'haegeum' ? 5.5 : 3
+        const projectedY = centerY + Math.tanh(verticalBias + (projected.y - .5) * verticalRange + vibration) * halfHeight
+        // Scale the complete mobile gesture around the bar, without flattening or cutting its upper arc.
+        const y = cy + (projectedY - cy) * (width <= 600 ? .28 : 1)
         // Actual projected target velocity includes musical changes and perspective, not just its phase.
         const prior = lastTargets?.[id], elapsed = prior ? (now - prior.time) / 1000 : 0
         targets[id] = { x, y, z: projected.z, time: now,

@@ -9,7 +9,7 @@ const owned = ['dev', 'worksExperience', 'works', 'portrait', 'magnet', 'compare
 /** Normal URLs never consume a saved draft. Only explicit dev/legacy comparison opts into overrides. */
 export function readComparison(search: string, local: boolean, saved?: string | null) {
   const q = new URLSearchParams(search), disabled = q.get('dev') === '0'
-  const legacy = q.has('compare') || q.has('all'), enabled = !disabled && (q.get('dev') === '1' || legacy)
+  const legacy = q.has('compare') || q.has('all'), enabled = local && !disabled && (q.get('dev') === '1' || legacy)
   const draft = readDraftPayload(saved), options: ExperienceOptions = { ...experienceCanonical, ...(enabled ? draft.options : {}) }
   const ignored: string[] = []
   if (enabled) {
@@ -39,7 +39,7 @@ export function readComparison(search: string, local: boolean, saved?: string | 
       else ignored.push(key)
     }
   }
-  return { ...options, enabled, available: local || enabled, open: enabled, legacy,
+  return { ...options, enabled, available: local, open: enabled, legacy,
     study: enabled && q.get('study') === 'type', draftStatus: draft.status, ignored }
 }
 export type ComparisonSettings = ReturnType<typeof readComparison>
