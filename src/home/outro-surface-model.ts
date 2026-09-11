@@ -27,7 +27,7 @@ function stainVariation(seed: number, channel: number) {
 
 export function wetStainProfile(source: WetSource, speed: number, seed: number): WetStainProfile {
   const desktop = source === 'pointer', energy = clamp(speed)
-  const radius = desktop ? (96 + energy * 30) * 1.2 : (source === 'tap' ? 42 : 47 + energy * 15) * 1.35
+  const radius = desktop ? (96 + energy * 30) * .6 : (source === 'tap' ? 42 : 47 + energy * 15) * .675
   const strength = desktop ? (.12 + energy * .025) * 1.9 : (source === 'tap' ? .15 : .135) * 2
   return { radius: radius * (1 + stainVariation(seed, 0) * .2), strength: strength * (1 + stainVariation(seed, 1) * .12),
     life: (desktop ? desktopWetTiming.life : wetFieldTiming.mobileLife) * (1 + stainVariation(seed, 2) * .15),

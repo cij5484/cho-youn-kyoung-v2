@@ -33,7 +33,7 @@ test('each stain retains deterministic bounded size, life, strength and angle va
     const profile = wetStainProfile(source, speed, seed)
     assert.deepEqual(profile, wetStainProfile(source, speed, seed))
     const desktop = source === 'pointer'
-    const baseRadius = desktop ? (96 + speed * 30) * 1.2 : (source === 'tap' ? 42 : 47 + speed * 15) * 1.35
+    const baseRadius = desktop ? (96 + speed * 30) * .6 : (source === 'tap' ? 42 : 47 + speed * 15) * .675
     const baseStrength = desktop ? (.12 + speed * .025) * 1.9 : (source === 'tap' ? .15 : .135) * 2
     assert.ok(profile.radius >= baseRadius * .8 && profile.radius <= baseRadius * 1.2)
     assert.ok(profile.strength >= baseStrength * .88 && profile.strength <= baseStrength * 1.12)
