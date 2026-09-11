@@ -4,21 +4,21 @@ import { autonomousWetReady, blankTapIsWet, gentleGlyph, outroGlyphTarget, wetCo
 
 test('color follows a continuous slow clock, independent of stain or input count', () => {
   assert.deepEqual(wetColorAt(0), [99, 52, 229])
-  assert.deepEqual(wetColorAt(24), [173, 140, 84])
-  assert.deepEqual(wetColorAt(48), [163, 61, 54])
-  assert.deepEqual(wetColorAt(72), wetColorAt(0))
+  assert.deepEqual(wetColorAt(12), [173, 140, 84])
+  assert.deepEqual(wetColorAt(24), [163, 61, 54])
+  assert.deepEqual(wetColorAt(36), wetColorAt(0))
   for (let time = 0; time < 73; time += .1) {
     const a = wetColorAt(time), b = wetColorAt(time + .0167)
-    // Largest channel span is 175; smoothstep's maximum slope is 1.5 per 24s segment.
+    // Largest channel span is 175; smoothstep's maximum slope is 1.5 per 12s segment.
     const maximumFrameDelta = 175 * 1.5 / (wetFieldTiming.colorCycle / 3) * .0167
     assert.ok(a.every((value, channel) => Math.abs(value - b[channel]) <= maximumFrameDelta + 1e-9))
   }
 })
 
-test('mobile waits for entry and native scroll, then caps sparse regions at three', () => {
-  const ready = { now: 10000, enteredAt: 8000, lastScroll: 9000, lastStain: 8000, regions: 2, visible: true, reduced: false, touching: false }
+test('mobile waits for entry and native scroll, then caps sparse regions at two', () => {
+  const ready = { now: 10000, enteredAt: 8000, lastScroll: 9000, lastStain: 6500, regions: 1, visible: true, reduced: false, touching: false }
   assert.equal(autonomousWetReady(ready), true)
-  for (const patch of [{ enteredAt: 9600 }, { lastScroll: 9900 }, { lastStain: 9900 }, { regions: 3 }, { touching: true }, { reduced: true }, { visible: false }]) {
+  for (const patch of [{ enteredAt: 9600 }, { lastScroll: 9900 }, { lastStain: 9900 }, { regions: 2 }, { touching: true }, { reduced: true }, { visible: false }]) {
     assert.equal(autonomousWetReady({ ...ready, ...patch }), false)
   }
 })
