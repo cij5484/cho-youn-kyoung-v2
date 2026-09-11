@@ -15,10 +15,10 @@ test('color follows a continuous slow clock, independent of stain or input count
   }
 })
 
-test('mobile waits for entry and native scroll, then caps sparse regions at two', () => {
-  const ready = { now: 10000, enteredAt: 8000, lastScroll: 9000, lastStain: 6500, regions: 1, visible: true, reduced: false, touching: false }
+test('mobile waits for entry and native scroll, then caps sparse regions at one', () => {
+  const ready = { now: 10000, enteredAt: 8000, lastScroll: 9000, lastStain: 3000, regions: 0, visible: true, reduced: false, touching: false }
   assert.equal(autonomousWetReady(ready), true)
-  for (const patch of [{ enteredAt: 9600 }, { lastScroll: 9900 }, { lastStain: 9900 }, { regions: 2 }, { touching: true }, { reduced: true }, { visible: false }]) {
+  for (const patch of [{ enteredAt: 9600 }, { lastScroll: 9900 }, { lastStain: 9900 }, { regions: 1 }, { touching: true }, { reduced: true }, { visible: false }]) {
     assert.equal(autonomousWetReady({ ...ready, ...patch }), false)
   }
 })
