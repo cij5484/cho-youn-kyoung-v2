@@ -5,7 +5,44 @@
 **Revision:** 1.47 / 2026-09-10 — approved WORKS promotion and comparison cleanup\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
-**Latest user-authorized continuation — 2026-09-10:** deliver accumulated local HOME/WORKS refinements, Album
+**Delivery authorization — 2026-09-11:** user requests PR + merge of the current development screen unchanged.
+This supersedes LOCAL ONLY for the accumulated local bundle below. Development-preview mode now enables all
+three Performance routes, the curved global transition and WORKS archive preview, with explicit build inputs for
+direct Performance URLs. Existing authored visuals/data are preserved. Production domain/legacy remain separate.
+Fast CI and Pages preview build/deploy apply; no Full Release Gate or additional visual redesign in this delivery.
+User clarification: only authored screens/interactions ship. Developer comparison/launcher/tuning UI is excluded
+from the published build; `?dev=1`, `?compare`, `?all` and saved drafts cannot override published canonical visuals.
+
+**Current reference interaction study — 2026-09-11:** localhost R&D on main `98aab89` plus preserved local work:
+four SVG-mask Performance chapters for `풀고, 엮다`, one fast curved-paper Global Transition family for the five main
+pages, and the WORKS desktop archive's persistent diagonal-shader preview. Mechanics and exact source links:
+[study](docs/redesign/review/REFERENCE-INTERACTION-RD.md). Performance remains a common data-driven template.
+No HOME/Audio or Album playback/layout changes, PR/push/merge/deploy or visual approval in this pass.
+Feedback enlarges desktop posters and tightens WORKS spacing, shortens Performance scroll transitions,
+removes decorative copy, and adds four verified collaborator profiles with measured portrait expansion.
+Chapter navigation follows the actual scene background. Lean type/lint, four focused checks and the actual
+development-preview build passed. User visual review remains open; local smoke evidence lives in the study.
+Latest feedback adds mobile poster/visit-information fitting, removes Performance arrows, explicitly returns
+its footer to WORKS Archive, and stages Performance poster entry. Global transitions now use one light curved
+sheet rather than the rejected dark layered sweep. Shared transition changes are limited to Performance;
+existing Album motion and Audio/HOME owners remain unchanged.
+WORKS opening feedback tightens the title rail to 32px mobile / 36px desktop, enlarges title/poster hierarchy,
+and adds a brief poster settling entrance with bounded desktop pointer depth. Ivory atmosphere stays lighter;
+the lower Archive and HOME/Audio remain unchanged. Type/lint, four focused checks and preview build pass.
+The latest local continuation adds `산조길, 둘` (DUAL FLOW) and `해금, 시대를 잇다` (TIME PATH) through one
+Performance schema/template, while preserving `풀고, 엮다` SVG MASK. All three are linked from local WORKS
+and Related. Actual notes/programs, nine optimized authentic assets and the exact six-year chronology are included.
+Type/lint, five targeted checks and development-preview build pass; desktop/mobile local review is recorded in
+the study. LOCAL ONLY; no HOME/Audio/Album runtime changes or visual quality approval.
+
+**Current audio continuation — 2026-09-11:** catalog-matched, lazy feature/percussion runtime integration is
+**IMPLEMENTED / LOCALLY VERIFIED (lean) / LOCAL ONLY**. No PR/push/merge/deploy in this pass. Exact album
+slug/index/source matching, stale-load cancellation and native media-time sampling replace the excerpt-only
+binding; direct pitch-to-Y is removed and percussion uses accepted precomputed candidates only. Detector
+formulas and 58 generated track JSONs remain unchanged. [Audio owner](docs/redesign/15-AUDIO-SYSTEM.md) §5
+owns runtime status; the already published development preview is a separate revision.
+
+**Historical delivery continuation — 2026-09-10:** deliver accumulated local HOME/WORKS refinements, Album
 exhibition/assets and persistent audio through PR/merge so work can continue on Mac. The player orbit now stays
 inside its frame around the progress bar; control fills are warm grey, leaving violet for Haegeum. Owning study:
 `docs/redesign/07-ALBUM-DETAIL.md` dated local revision. Mac: Node 24/npm 11, `npm ci`, then

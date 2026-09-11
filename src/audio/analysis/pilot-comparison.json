@@ -1,0 +1,28 @@
+{
+  "detectorChanged": false,
+  "note": "Same source hashes; different decode sample rates. Counts alone do not establish detector accuracy. No verified instrument labels or per-song thresholds.",
+  "tracks": [
+    {
+      "trackId": "album:jiyounghee:06_short-sanjo",
+      "sourceSha256": "80b21a6cae4e3d6af0270de4d6ddca53cdf72c480ce5909470b49db305e2f864",
+      "pilotSampleRate": 44100,
+      "batchSampleRate": 22050,
+      "pilotCandidates": 636,
+      "batchCandidates": 550,
+      "pilotPerMinute": 52.59,
+      "batchPerMinute": 45.47,
+      "batchLongestCandidateGapSeconds": 14.984
+    },
+    {
+      "trackId": "album:yeongsan:02_jungnyeongsan",
+      "sourceSha256": "6dd73cadfa3a98075eda18d46b5c2cf719611abc6a34d750fbcd65ce85749fde",
+      "pilotSampleRate": 44100,
+      "batchSampleRate": 22050,
+      "pilotCandidates": 139,
+      "batchCandidates": 124,
+      "pilotPerMinute": 13.3,
+      "batchPerMinute": 11.87,
+      "batchLongestCandidateGapSeconds": 16.898
+    }
+  ]
+}

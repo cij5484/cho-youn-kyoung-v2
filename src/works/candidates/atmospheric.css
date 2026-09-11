@@ -11,11 +11,14 @@
 .atmospheric-heading { opacity: calc(1 - var(--atmospheric-resolution, 0) * 3); transform: translateY(calc(var(--atmospheric-resolution, 0) * -20px)); }
 .atmospheric-caption, .atmospheric-count, .atmospheric-index { opacity: calc(1 - var(--atmospheric-resolution, 0) * 3); }
 .atmospheric-heading > p { font: 9px var(--font-ui); letter-spacing: .12em; }
-.atmospheric-heading h1 { margin: 12px 0 0 -.025em; font-family: var(--font-display); font-size: clamp(67px, 7vw, 102px); font-weight: 450; line-height: .88; letter-spacing: -.055em; }
+.atmospheric-heading h1 { margin: 12px 0 0 -.045em; font-family: var(--font-display); font-size: clamp(90px, 11vw, 158px); font-weight: 450; line-height: .88; letter-spacing: -.065em; }
 .atmospheric-heading h1 > span { color: var(--color-accent); }
 .atmospheric-caption { position: absolute; bottom: clamp(45px, 6svh, 68px); left: var(--atmospheric-gutter); max-inline-size: min(65%, 820px); }
 .atmospheric-type { margin-bottom: 11px; font-size: 9px; letter-spacing: .10em; }
-.atmospheric-caption h2 { margin: 0; font-family: var(--font-display-ko); font-size: clamp(20px, 2.1vw, 30px); font-weight: 450; letter-spacing: -.04em; line-height: 1.5; word-break: keep-all; }
+.atmospheric-caption h2 { margin: 0; overflow:clip; font-family: var(--font-display-ko); font-size: clamp(26px, 2.7vw, 40px); font-weight: 450; letter-spacing: -.05em; line-height: 1.4; word-break: keep-all; }
+.atmospheric-title-reveal { display:block; animation:atmospheric-title-in 700ms cubic-bezier(.16,1,.3,1) both; }
+@keyframes atmospheric-title-in { from { transform:translateY(105%); } to { transform:translateY(0); } }
+@media (prefers-reduced-motion:reduce) { .atmospheric-title-reveal { animation:none; } }
 .atmospheric-date { margin-top: 7px; font-size: 11px; color: var(--color-muted-text); }
 .atmospheric-record { display: inline-flex; gap: 35px; align-items: center; min-block-size: 44px; margin-top: 5px; font-size: 11px; text-decoration: none; }
 .atmospheric-record > span { font-size: 17px; }
@@ -32,16 +35,29 @@
 .atmospheric-static { inline-size: min(340px, 75vw); margin-inline: auto; }
 .atmospheric-static img { display: block; inline-size: 100%; block-size: auto; }
 .atmospheric-static p { margin-top: 18px; font-family: var(--font-display-ko); font-size: 17px; text-align: center; }
+@media (min-width: 1000px) {
+  /* The GPU measures this same frame. Metadata and INDEX share the right rail,
+     so poster scale is no longer squeezed by a caption below the image. */
+  .atmospheric-content-frame { inline-size: min(100%, 1120px); --atmospheric-gutter: 32px; }
+  .atmospheric-caption {
+    left: 63%; bottom: clamp(140px, 18svh, 220px); max-inline-size: calc(37% - 32px);
+  }
+  .atmospheric-index { left: 63%; right: auto; bottom: clamp(76px, 10svh, 124px); }
+}
+@media (min-width: 1000px) and (max-height: 819px) {
+  .atmospheric-caption { left: var(--atmospheric-gutter); bottom: 45px; max-inline-size: 62%; }
+  .atmospheric-index { bottom: 82px; }
+}
 @media (max-width: 700px) {
   .atmospheric-depth { block-size: 620svh; }
   .atmospheric-content-frame { --atmospheric-gutter: max(20px, var(--page-gutter)); }
   .atmospheric-heading { top: 108px; }
   .atmospheric-heading > p { font-size: 8px; }
-  .atmospheric-heading h1 { margin-top: 11px; font-size: 65px; }
-  .atmospheric-count { top: 124px; font-size: 10px; gap: 9px; }
+  .atmospheric-heading h1 { margin-top: 15px; font-size: clamp(88px,26vw,128px); }
+  .atmospheric-count { top: 108px; font-size: 10px; gap: 9px; }
   .atmospheric-caption { left: var(--atmospheric-gutter); right: var(--atmospheric-gutter); bottom: 70px; max-inline-size: 340px; }
   .atmospheric-type { font-size: 8px; margin-bottom: 8px; }
-  .atmospheric-caption h2 { font-size: clamp(19px, 5.2vw, 22px); line-height: 1.5; }
+  .atmospheric-caption h2 { font-size: clamp(27px,8vw,36px); line-height: 1.35; }
   .atmospheric-date { font-size: 10px; margin-top: 5px; }
   .atmospheric-record { margin-top: 2px; }
   .atmospheric-index { bottom: 20px; left: var(--atmospheric-gutter); right: auto; font-size: 10px; }
@@ -49,7 +65,7 @@
 }
 @media (max-width: 359px) {
   .atmospheric-heading { top: 99px; }
-  .atmospheric-heading h1 { font-size: 57px; }
+  .atmospheric-heading h1 { font-size: 84px; }
   .atmospheric-caption { bottom: 61px; }
-  .atmospheric-caption h2 { font-size: 18px; }
+  .atmospheric-caption h2 { font-size: 25px; }
 }

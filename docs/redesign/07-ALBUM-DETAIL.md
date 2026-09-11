@@ -6,7 +6,19 @@
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`, `06-ALBUMS.md`  
 **Page Role:** Physical Album Experience + Editorial Listening Archive
 
-## 2026-09-10 — LOCAL autonomous exhibition study / REVIEW READY
+## Current audio contract — 2026-09-11
+
+[15-AUDIO-SYSTEM.md](15-AUDIO-SYSTEM.md) owns registration, catalog matching, lazy analysis loading,
+media-time sampling and Haegeum/Janggu response. Current runtime integration is **IMPLEMENTED / lean
+validation pending / LOCAL ONLY**: no direct pitch-to-Y mapping; percussion impulses use accepted
+precomputed candidates only. The earlier development Pages publication remains available, but this new
+analysis integration has no PR/push/merge/deploy authorization. Player persistence and frame bounds remain.
+
+## Historical 2026-09-10 — LOCAL autonomous exhibition study / REVIEW READY
+
+The following dated study and refinements record their original implementation scope. Their local-only
+publication boundary was superseded by the Pages revision below; their analysis behavior is superseded
+by the current audio owner above.
 
 User authorized a new concept and implementation, independent of legacy layout/function order.
 Owner: `src/album-detail`; localhost routes `/album/:slug/` in the existing 4180 development shell.
@@ -31,7 +43,7 @@ Only principles were reinterpreted; no reference branding, layout, assets or sou
 Validation: type/lint/development Preview build and focused fatal-runtime inspection. No release/visual-quality approval,
 PR, push, merge or deployment. Rollback only this study folder and its explicit development/WORKS entry diff.
 
-### 2026-09-10 user revision — global album audio / LOCAL implementation
+### Historical 2026-09-10 user revision — global album audio / LOCAL implementation
 
 The user explicitly superseded the route-scoped audio policy below: Album playback and its mini player now
 belong to the persistent local application shell (`src/audio/global-playback.ts`, `GlobalAudioPlayer.tsx`).
@@ -630,45 +642,21 @@ Mobile volume is required but must be capability-tested in P0 or a bounded Audio
 
 # 27. AUDIO-REACTIVE TWO-LINE SYSTEM
 
-The player reuses the HOME sound language in a more functional form.
+The current Haegeum/Janggu signature follows [15-AUDIO-SYSTEM.md](15-AUDIO-SYSTEM.md) §4.
+Retain HOME's free spatial path, depth, sustained bow response and smooth baseline drum orbit within
+the mini-player frame. Haegeum pitch is not a Y coordinate; Janggu impulses require accepted precomputed
+percussion candidates. Keep the progress fill visually distinct from the two-point choreography.
 
-Two lines may react to the currently playing audio.
-
-Important:
-
-**The haegeum is a bowed-string instrument.**
-
-Avoid:
-- large vertical movement
-- bounce
-- percussive impact
-- exaggerated waveform shapes
-
-Prioritize:
-- micro-vibration
-- tension
-- damping
-- vibration density
-- subtle shimmer
-- sustained friction/resonance
-
-The lines should remain visually close to straight.
+Historical baseline: the original near-straight/subtle-line restriction was superseded by the
+user-authorized HOME-style player signature on 2026-09-10. It is not a current motion limit.
 
 ---
 
 # 28. AUDIO ANALYSIS STRATEGY
 
-Preferred:
-
-## Precomputed Motion Envelope + Live Audio Response Hybrid
-
-Possible use:
-- precomputed dynamic envelope for stable/repeatable macro behavior
-- Web Audio live analysis for subtle micro-response
-
-This approach is preferred if it improves consistency and performance.
-
-Do not over-engineer if live analysis alone already produces the required subtle result.
+Canonical workflow and implementation status are in [15-AUDIO-SYSTEM.md](15-AUDIO-SYSTEM.md).
+Use the current recording's validated precomputed pair at media time, with restrained live bow texture.
+Missing or invalid analysis falls back to live bow/quiet idle, never a replacement live percussion detector.
 
 ---
 
@@ -698,7 +686,8 @@ views read the shared playback state; page teardown must not pause or dispose it
 The selected recording continues until explicit pause, replacement, close, completion or a playback error.
 Pause retains quiet two-point motion around the progress bar; close/completion returns the pair to the current page.
 Full document reloads, external-site navigation and tab closure are outside this in-app persistence contract.
-Implementation remains local-only until a separately authorized delivery task supplies production audio transport.
+The development Pages preview already supplies same-origin recording transport. The new 2026-09-11
+analysis integration remains local-only until separately authorized delivery; persistence itself is unchanged.
 
 Desktop:
 - thin bottom bar
@@ -1095,16 +1084,23 @@ The visitor should feel:
 without feeling trapped inside a 3D demo.
 
 
-### 2026-09-10 — Same-state development Pages publication (user-authorized)
+### Historical 2026-09-10 — Same-state development Pages publication (user-authorized)
 
 The user's “이 상태 그대로 배포가 되야 한다” supersedes the local-only boundary for the
-GitHub Pages development preview. Keep the current exhibition, assets, global player and pitch-driven
-signature motion. The preview build enables the same components and emits the four real KO album
+GitHub Pages development preview. That publication preserved the exhibition, assets, global player and
+then-current pitch-driven signature motion (superseded by the 2026-09-11 audio contract).
+The preview build enables the same components and emits the four real KO album
 entries. Native links respect the Pages base; Router navigation keeps playback alive.
 
-The 29 existing public recordings are pinned by byte size/SHA-256 in `src/audio/recordings.json`.
-The preview build verifies/downloads them into the static same-origin audio directory; MP3 cache
-and build outputs are ignored, not committed. This removes the production dependency on Vite's
-local proxy and permits live Web Audio analysis. Root release fixtures and the legacy domain remain
-unchanged. Essential validation: types, lint, preview build, Fast CI and deployed runtime/reachability.
-This publication is not a release/visual-quality approval.
+Audio registration, analysis and signature-data contracts are owned by
+[15-AUDIO-SYSTEM.md](15-AUDIO-SYSTEM.md). Root release fixtures and the legacy domain remain
+unchanged. This development-preview publication is not a release/visual-quality approval.
+
+
+### 2026-09-11 — Canonical audio owner
+
+공개 음원 등록·SHA 검증·전곡 batch 분석·Haegeum/Janggu 데이터 사용 원칙은
+[15-AUDIO-SYSTEM.md](15-AUDIO-SYSTEM.md)를 따른다. 해당 owner가 위의 역사적 pitch-driven
+방향을 대체한다. 현재 선택 곡의 두 분석 파일만 지연 로드하고 재생 시간으로 샘플링하는 런타임은
+**IMPLEMENTED / 최소 검증 대기 / LOCAL ONLY**이며, 실제 상태와 책임은 owner §5에서 관리한다.
+상세 절차는 중복하지 않는다.

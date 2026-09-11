@@ -7,6 +7,7 @@ import { atmosphericCatalog as worksCatalog, filterAtmosphericWorks as filterWor
 import { mountAtmosphericArchive } from './atmospheric-archive-motion.ts'
 import './atmospheric-archive.css'
 import { albumStudyHref, localAlbumStudy } from '../../album-detail/album-navigation.ts'
+import { AtmosphericArchivePreview } from './AtmosphericArchive-preview.tsx'
 
 const filters = [ ['all', 'ALL', '전체 작업'], ['albums', 'ALBUMS', '음반'], ['performances', 'PERFORMANCES', '공연'] ] as const
 
@@ -16,6 +17,7 @@ export function AtmosphericArchive({ locale = 'ko' }: { locale?: Language }) {
   const [search, setSearch] = useSearchParams()
   const filter = readWorksFilter(search.get('type'))
   const records = worksCatalog
+  const preview = import.meta.env.MODE === 'development-preview' || import.meta.env.DEV && typeof window !== 'undefined' && /^(localhost|127\.0\.0\.1|\[::1\])$/.test(window.location.hostname)
 
   useEffect(() => {
     if (root.current) return mountAtmosphericArchive(root.current)
@@ -29,7 +31,7 @@ export function AtmosphericArchive({ locale = 'ko' }: { locale?: Language }) {
     setSearch(query, { preventScrollReset: true })
   }
 
-  return <section ref={root} id="works-compact-archive" className="atmospheric-archive"
+  return <section ref={root} id="works-compact-archive" className="atmospheric-archive" data-archive-preview={preview || undefined}
     aria-labelledby="atmospheric-archive-title" tabIndex={-1} lang="ko">
     <div className="atmospheric-archive-inner">
       <header className="atmospheric-archive-heading">
@@ -42,6 +44,7 @@ export function AtmosphericArchive({ locale = 'ko' }: { locale?: Language }) {
       </header>
       {locale === 'en' && <p className="atmospheric-archive-note" lang="en">English translation is unavailable. Showing the original Korean records.</p>}
       <p className="atmospheric-archive-status" role="status">{filterWorks(filter).length}개의 기록</p>
+      <div className="atmospheric-archive-body">
       <ol className="atmospheric-archive-records">{records.map((record, index) => {
         const image = workImages[record.image]
         return <li key={record.id} className="atmospheric-archive-row" data-archive-row=""
@@ -79,7 +82,9 @@ export function AtmosphericArchive({ locale = 'ko' }: { locale?: Language }) {
           </a>
         </li>
       })}</ol>
-      <p className="atmospheric-archive-note">{localAlbumStudy() ? '음반은 전시로, 공연은 기존 기록으로 이어집니다.' : '상세 기록은 기존 사이트에서 열립니다.'}</p>
+      {preview && <AtmosphericArchivePreview filter={filter} />}
+      </div>
+      <p className="atmospheric-archive-note">{localAlbumStudy() ? '각 작품의 상세 기록으로 이어집니다.' : '상세 기록은 기존 사이트에서 열립니다.'}</p>
     </div>
   </section>
 }

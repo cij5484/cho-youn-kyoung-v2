@@ -1,10 +1,19 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
 import { atmosphericDepth, atmosphericFit, atmosphericTextureSize, atmosphericTimeline } from '../src/works/candidates/atmospheric-engine.ts'
 
 import { atmosphericCatalog, filterAtmosphericWorks } from '../src/works/candidates/atmospheric-catalog.ts'
 import { worksCatalog } from '../src/works/catalog.ts'
 const count = atmosphericCatalog.length
+
+test('route curtain cannot suspend the first WORKS frame or expose a black resized buffer', () => {
+  const source = readFileSync(new URL('../src/works/candidates/atmospheric-engine.ts', import.meta.url), 'utf8')
+  assert.ok(source.includes("dialog[open]:not(.global-page-transition)"))
+  assert.equal((source.match(/= blockingDialog\(\)/g) ?? []).length, 2, 'initial state and observer use the same rule')
+  assert.match(source, /renderer\.setClearColor\(ivory, 1\)/)
+  assert.match(source, /renderer\.setSize\(width, height, false\)[\s\S]*?renderer\.clear\(\)/)
+})
 
 const atWork = (index: number, local: number) => (index + local - .18) / (count - .54) * .86
 

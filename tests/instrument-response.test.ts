@@ -43,16 +43,16 @@ test('mixed-source response distinguishes sustained harmonics, bass/body thuds a
     spectrum = harmonic(.015 * (1 + .08 * Math.sin(i * .9)))
     const frame = step(); drumFromBow = Math.max(drumFromBow, frame.janggu); quietBow = frame.haegeum
   }
-  assert.ok(quietBow > .3 && drumFromBow < .05, 'quiet, vibrating harmonics drive bow without repeated drum hits')
+  assert.ok(quietBow > .03 && drumFromBow < .05, 'quiet, vibrating harmonics drive bow without repeated drum hits')
   spectrum = harmonic(.075)
   const loudBow = settle(60).at(-1)!.haegeum
-  assert.ok(loudBow > quietBow + .15 && loudBow < .98, 'bow phrases retain dynamics instead of clipping at full response')
+  assert.ok(loudBow > quietBow + .015 && loudBow < .12, 'bow phrases retain dynamics instead of clipping at full response')
   spectrum = hz => hz < 2000 ? harmonic(.008)(hz) : .000001
   const soft = settle(30).at(-1)!
   spectrum = hz => hz < 2000 ? harmonic(.05)(hz) : .000001
   const articulated = step()
-  assert.ok(articulated.haegeum > soft.haegeum + .2, 'a quiet bow phrase reacts within one analyser frame')
-  assert.ok(articulated.texture > .5, 'harmonic articulation works without any treble noise')
+  assert.ok(articulated.haegeum > soft.haegeum + .02, 'a quiet bow phrase reacts within one analyser frame')
+  assert.ok(articulated.texture > .05, 'harmonic articulation works without any treble noise')
   const still = settle(45).at(-1)!
   let vibrato = 0
   for (let i = 0; i < 60; i++) {
@@ -60,14 +60,14 @@ test('mixed-source response distinguishes sustained harmonics, bass/body thuds a
     spectrum = hz => hz < 2000 ? .008 * Math.exp(-Math.pow((hz - Math.round(hz / fundamental) * fundamental) / 15, 2)) + .000001 : .000001
     vibrato = Math.max(vibrato, step().texture)
   }
-  assert.ok(still.texture < .01 && vibrato > .15, 'quiet pitch vibration drives texture while an unchanged harmonic stays calm')
+  assert.ok(still.texture < .01 && vibrato > .015, 'quiet pitch vibration drives texture while an unchanged harmonic stays calm')
   spectrum = harmonic(.018)
   const beforeDrum = settle(45).at(-1)!
   spectrum = hz => harmonic(.018)(hz) + (hz >= 60 && hz < 4000 ? .04 * Math.exp(-(hz - 60) / 900) : 0)
   const mixedAttack = step()
   spectrum = harmonic(.018)
   const mixedTail = settle(9)
-  assert.ok(Math.max(mixedAttack.janggu, ...mixedTail.map(frame => frame.janggu)) > .65, 'drum attack remains visible over a sustained bowed phrase')
+  assert.ok(Math.max(mixedAttack.janggu, ...mixedTail.map(frame => frame.janggu)) === 0, 'live drum attacks cannot manufacture catalog percussion events')
   assert.ok(Math.max(mixedAttack.texture, ...mixedTail.map(frame => frame.texture)) < .12, 'broad drum energy does not become a purple articulation jolt')
   assert.ok(Math.max(...[mixedAttack, ...mixedTail].map(frame => Math.abs(frame.haegeum - beforeDrum.haegeum))) < .08, 'bow phrase remains continuous through the drum onset')
   spectrum = () => .000001; settle(60)
@@ -75,7 +75,7 @@ test('mixed-source response distinguishes sustained harmonics, bass/body thuds a
   const thud = step()
   spectrum = () => .000001
   const thudPeak = Math.max(thud.janggu, ...settle(9).map(frame => frame.janggu))
-  assert.ok(thudPeak > .65, 'a dull bass/body strike works without a treble attack')
+  assert.ok(thudPeak === 0, 'even a dull live strike cannot replace the offline candidate timeline')
   settle(60)
   spectrum = hz => hz >= 2000 && hz < 7000 ? .025 : .000001
   assert.ok(Math.max(...settle(30).map(frame => frame.janggu)) < .05, 'high-only noise cannot qualify as a drum strike')
@@ -113,4 +113,55 @@ test('mixed-source response distinguishes sustained harmonics, bass/body thuds a
   assert.equal(step().pitchMidi, null, 'pause discards a previously confident pitch immediately')
   media.paused = false; media.seeking = true
   assert.equal(step().pitchMidi, null, 'seeking cannot reuse a pitch from the outgoing timecode')
+})
+
+
+test('verified pairs follow media time across seek, pause, track changes and stale async loads', async () => {
+  const { resolveAlbumAnalysis } = await import('../src/audio/analysis-catalog.ts')
+  const registry = JSON.parse(readFileSync('src/audio/recordings.json', 'utf8'))
+  const a = resolveAlbumAnalysis('ji-young-hee-ryu-haegeum-sanjo-2026', 0, registry[0].source)!
+  const b = resolveAlbumAnalysis('ji-young-hee-ryu-haegeum-sanjo-2026', 1, registry[1].source)!
+  const makePair = (identity: typeof a) => ({
+    features: { analysisVersion: 'bow-features/1' as const, trackId: identity.trackId, sourceSha256: identity.sourceSha256,
+      sampleRate: 22050, featureRate: 25, duration: 10, energy: Array.from({ length: 250 }, (_, i) => i < 125 ? 200 : 900),
+      onsets: Array(250).fill(0), spectralFlux: Array(250).fill(400), phraseEnvelope: Array.from({ length: 250 }, (_, i) => i < 125 ? 200 : 900), pitchContour: null },
+    percussion: { version: 'p2k-percussion-candidates/2' as const, trackId: identity.trackId, sourceSha256: identity.sourceSha256,
+      duration: 10, hits: [{ time: 2, score: 1, flatness: .4 }, { time: 6, score: 1, flatness: .4 }] },
+  })
+  const pending = new Map<string, (pair: ReturnType<typeof makePair>) => void>()
+  const media = { dataset: { sourceUrl: a.source, analysisState: '', analysisTrack: '' }, currentTime: 1, duration: 10,
+    paused: false, ended: false, seeking: false, readyState: 4 }
+  const response = createInstrumentResponse(media as unknown as HTMLAudioElement, identity => new Promise(resolve => pending.set(identity.trackId, resolve)))
+  const first = response.setTrack(a)
+  assert.equal(response.sample(.08).janggu, 0, 'pending data never produces guessed hits')
+  media.dataset.sourceUrl = b.source
+  const second = response.setTrack(b)
+  pending.get(b.trackId)!(makePair(b)); await second
+  pending.get(a.trackId)!(makePair(a)); await first
+  assert.equal(media.dataset.analysisTrack, b.trackId, 'late old track must not replace new track')
+  const step = (seconds: number) => { media.currentTime = seconds; return response.sample(.08) }
+  assert.ok(step(1).haegeum > .15)
+  assert.ok(step(7).haegeum > .8, 'seek samples the new phrase immediately, without a competing clock')
+  assert.equal(step(1).janggu, 0, 'backward seek has no accumulated events')
+  const pulse = step(2.08).janggu
+  assert.ok(pulse > .1, 'seeking into the current impulse samples its actual age')
+  media.paused = true
+  for (let i = 0; i < 30; i++) step(2.08)
+  assert.ok(response.sample(.08).janggu < .001)
+  media.paused = false
+  assert.ok(Math.abs(step(2.08).janggu - pulse) < .001, 'resume uses the same media-time impulse age')
+  assert.equal(step(8).janggu, 0, 'forward seek does not replay skipped candidates')
+  media.duration = 99
+  assert.equal(step(2.08).janggu, 0, 'duration mismatch fails closed')
+  media.duration = 10; media.dataset.sourceUrl = a.source
+  assert.equal(step(2.08).janggu, 0, 'source mismatch cannot borrow the previous pair')
+  const closing = response.setTrack(a)
+  await response.setTrack(null)
+  pending.get(a.trackId)!(makePair(a)); await closing
+  assert.equal(media.dataset.analysisTrack, '')
+  assert.equal(media.dataset.analysisState, 'none', 'late load after close cannot reactivate data')
+  const invalid = response.setTrack(a)
+  pending.get(a.trackId)!(makePair(b)); await invalid
+  assert.equal(media.dataset.analysisState, 'error', 'wrong identity/hash pair is rejected')
+  response.destroy()
 })

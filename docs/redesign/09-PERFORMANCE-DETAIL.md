@@ -6,6 +6,55 @@
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`, `05-WORKS.md`, `08-PERFORMANCES.md`  
 **Page Role:** Performance Record + Editorial Storytelling
 
+## 2026-09-11 — three local signature variants
+
+Subsequent user authorization promotes these three variants unchanged to the GitHub Pages development preview
+through PR/merge. `development-preview` enables the same runtime and emits all three direct route HTML inputs.
+The local-only statements below describe the implementation pass before that delivery authorization.
+
+The latest authorized local study adds two records to the same `PerformanceRecord` schema and common
+`PerformanceRecordPage` template. `variant` selects a reusable motion owner, never a performance-specific page:
+
+- `svg-mask`: 풀고, 엮다 — existing paired-band fullscreen chapters remain unchanged.
+- `dual-flow`: 산조길, 둘 — two opposing phase-offset text flows and circular poster motifs surround the
+  synchronized central chapters, then resolve to a stable paired composition at the printed archive.
+- `time-path`: 해금, 시대를 잇다 — native scrolling moves an object along a responsive cubic SVG through the
+  actual six program years; the final interval opens the entire connected chronology.
+
+Hero → Artist Note → Program → Performers → Archive → Related stays shared. The two added records use
+verified legacy facts/notes and actual optimized portraits/leaflets in `performance-variants.json`; asset provenance
+is in `source-manifest.json`. Local WORKS and Related links resolve all three studies. The shared link helper changes
+only Performance eligibility; Album runtime, HOME and Audio are unchanged. No deployment or production promotion.
+Source mechanics and lean evidence: [reference study](review/REFERENCE-INTERACTION-RD.md#two-additional-performance-signatures).
+
+## 2026-09-11 — 풀고, 엮다 local prototype
+
+One local study uses the common `src/performance-detail/PerformanceDetail.tsx` template and
+`performance-record.json` data at `/performance/haegeum-jeongak-2026-09-22/` on localhost in dev mode.
+Published preview and the neutral production routes remain unchanged. This is IMPLEMENTED / LOCAL PROTOTYPE,
+not visual quality approval. Existing uncommitted audio work is preserved separately.
+
+- WORKS uses its existing official full-frame poster and the existing shared image transition owner, extended
+  to the one local performance record. Original poster proportions are preserved.
+- Latest authorized R&D replaces the ordinary section flow with four fullscreen chapters: official poster/facts →
+  Artist Note + numbered Program → real performer portraits → authentic printed Archive. Missing record fields omit
+  their sections. No invented live photos/video, generated images, or event-specific CSS.
+- Text is selected from the legacy performance data for this exact event; no legacy layout or styling is inherited.
+  The collaborator chapter excludes the recital artist and opens each of the four collaborators' verified profiles
+  from their portrait. Decorative CTA/caption copy is removed; chapter labels state their content directly.
+  Mobile assigns the remaining first-screen height to the poster and uses readable 12px visit information.
+  Decorative arrows are removed. The footer explicitly returns to the expanded WORKS Archive, including when
+  the detail was opened directly. The selected poster's entry staging is owned by the shared transition's
+  Performance branch; the existing Album entry behavior is unchanged.
+  Archive uses two full-frame leaflet derivatives with provenance in `src/performance-detail/source-manifest.json`.
+  The unrelated historical background paragraph for the solo work is omitted rather than reconciled by invention.
+- Existing navigation and `AlbumSignaturePair` anchor/handoff contract are reused. Native dialog provides full-size
+  printed material viewing, keyboard navigation and zoom, plus complete text reading on compact screens.
+  Native scroll drives the sticky scene sequence; reduced motion retains ordinary readable sections.
+- Current motion reference is the actual SVGMaskScrollTransition source, with GSAP explicitly authorized.
+  [Reference interaction study](review/REFERENCE-INTERACTION-RD.md) records source mechanics, local boundaries and
+  the related global/WORKS studies. Earlier shared-element/editorial references remain historical inputs.
+
 ## 2026-09-08 연구 반영 — 다음 구현 후보
 
 Common Semantic Structure + Visual Variant를 유지한다. 현재 상세 URL은 **neutral fixture**이며,

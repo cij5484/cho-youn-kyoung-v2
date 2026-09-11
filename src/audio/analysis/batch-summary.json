@@ -1,0 +1,498 @@
+{
+  "decoder": "Chromium 153.0.8010.12",
+  "tracks": [
+    {
+      "trackId": "album:jiyounghee:01_jinyang",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/jiyounghee/01_jinyang.mp3",
+      "sourceSha256": "724e45177ad108509d261a8c84d6fc14d69ed55401bbd0171f976d0f950b9a1f",
+      "shaVerified": true,
+      "duration": 771.1777777777778,
+      "featureFrames": 19280,
+      "onsets": 2636,
+      "percussionCandidates": 386,
+      "candidatesPerMinute": 30.03,
+      "outputs": [
+        "jiyounghee/01_jinyang.features.json",
+        "jiyounghee/01_jinyang.percussion.json"
+      ],
+      "elapsedMs": 17256,
+      "warnings": []
+    },
+    {
+      "trackId": "album:jiyounghee:02_jungmori",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/jiyounghee/02_jungmori.mp3",
+      "sourceSha256": "7465f3e549afedbee94a3e66c738892ee8ebe5da77438f0d070899855e176ce1",
+      "shaVerified": true,
+      "duration": 588.890022675737,
+      "featureFrames": 14723,
+      "onsets": 2270,
+      "percussionCandidates": 393,
+      "candidatesPerMinute": 40.04,
+      "outputs": [
+        "jiyounghee/02_jungmori.features.json",
+        "jiyounghee/02_jungmori.percussion.json"
+      ],
+      "elapsedMs": 12527,
+      "warnings": []
+    },
+    {
+      "trackId": "album:jiyounghee:03_jungjungmori",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/jiyounghee/03_jungjungmori.mp3",
+      "sourceSha256": "8ff9cbf4b31a6668f1908c2b9cd47cbcc60bcd066a733f8b4456b0f89c0d1cee",
+      "shaVerified": true,
+      "duration": 186.33256235827665,
+      "featureFrames": 4659,
+      "onsets": 731,
+      "percussionCandidates": 157,
+      "candidatesPerMinute": 50.55,
+      "outputs": [
+        "jiyounghee/03_jungjungmori.features.json",
+        "jiyounghee/03_jungjungmori.percussion.json"
+      ],
+      "elapsedMs": 3778,
+      "warnings": []
+    },
+    {
+      "trackId": "album:jiyounghee:04_gutgeori",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/jiyounghee/04_gutgeori.mp3",
+      "sourceSha256": "deffc01fb9d4d0fa078911eeed1cc2ccdaea9374e067f6bea141f3642aee2a12",
+      "shaVerified": true,
+      "duration": 139.7898866213152,
+      "featureFrames": 3495,
+      "onsets": 558,
+      "percussionCandidates": 129,
+      "candidatesPerMinute": 55.37,
+      "outputs": [
+        "jiyounghee/04_gutgeori.features.json",
+        "jiyounghee/04_gutgeori.percussion.json"
+      ],
+      "elapsedMs": 2943,
+      "warnings": []
+    },
+    {
+      "trackId": "album:jiyounghee:05_jajinmori",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/jiyounghee/05_jajinmori.mp3",
+      "sourceSha256": "d1b5e586aee846117792e3f5e97650c4663c2cb3915fd2b1802160140bb96ac1",
+      "shaVerified": true,
+      "duration": 162.62507936507936,
+      "featureFrames": 4066,
+      "onsets": 680,
+      "percussionCandidates": 151,
+      "candidatesPerMinute": 55.71,
+      "outputs": [
+        "jiyounghee/05_jajinmori.features.json",
+        "jiyounghee/05_jajinmori.percussion.json"
+      ],
+      "elapsedMs": 3148,
+      "warnings": []
+    },
+    {
+      "trackId": "album:jiyounghee:06_short-sanjo",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/jiyounghee/06_short-sanjo.mp3",
+      "sourceSha256": "80b21a6cae4e3d6af0270de4d6ddca53cdf72c480ce5909470b49db305e2f864",
+      "shaVerified": true,
+      "duration": 725.6796371882086,
+      "featureFrames": 18142,
+      "onsets": 2756,
+      "percussionCandidates": 550,
+      "candidatesPerMinute": 45.47,
+      "outputs": [
+        "jiyounghee/06_short-sanjo.features.json",
+        "jiyounghee/06_short-sanjo.percussion.json"
+      ],
+      "elapsedMs": 17370,
+      "warnings": []
+    },
+    {
+      "trackId": "album:yeongsan:01_sangryeongsan",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/yeongsan/01_sangryeongsan.mp3",
+      "sourceSha256": "9adda79f4ad185ebfefd25cd4fc9ff39eca9cc9b19a233ef3ab14c3a68286647",
+      "shaVerified": true,
+      "duration": 809.4302040816326,
+      "featureFrames": 20236,
+      "onsets": 2776,
+      "percussionCandidates": 138,
+      "candidatesPerMinute": 10.23,
+      "outputs": [
+        "yeongsan/01_sangryeongsan.features.json",
+        "yeongsan/01_sangryeongsan.percussion.json"
+      ],
+      "elapsedMs": 16470,
+      "warnings": []
+    },
+    {
+      "trackId": "album:yeongsan:02_jungnyeongsan",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/yeongsan/02_jungnyeongsan.mp3",
+      "sourceSha256": "6dd73cadfa3a98075eda18d46b5c2cf719611abc6a34d750fbcd65ce85749fde",
+      "shaVerified": true,
+      "duration": 626.8865306122449,
+      "featureFrames": 15673,
+      "onsets": 2184,
+      "percussionCandidates": 124,
+      "candidatesPerMinute": 11.87,
+      "outputs": [
+        "yeongsan/02_jungnyeongsan.features.json",
+        "yeongsan/02_jungnyeongsan.percussion.json"
+      ],
+      "elapsedMs": 12438,
+      "warnings": []
+    },
+    {
+      "trackId": "album:yeongsan:03_seryongsan",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/yeongsan/03_seryongsan.mp3",
+      "sourceSha256": "7bd3ae9e922098978749b26098614757c5c60f32a91ce2ed078e490f003d86d8",
+      "shaVerified": true,
+      "duration": 222.14530612244897,
+      "featureFrames": 5554,
+      "onsets": 767,
+      "percussionCandidates": 89,
+      "candidatesPerMinute": 24.04,
+      "outputs": [
+        "yeongsan/03_seryongsan.features.json",
+        "yeongsan/03_seryongsan.percussion.json"
+      ],
+      "elapsedMs": 4310,
+      "warnings": []
+    },
+    {
+      "trackId": "album:yeongsan:04_garakdeori",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/yeongsan/04_garakdeori.mp3",
+      "sourceSha256": "247dc8d059e1da5080a2d32f955441801aea6bf9a6fcebcfc7f49cda747f1654",
+      "shaVerified": true,
+      "duration": 148.11428571428573,
+      "featureFrames": 3703,
+      "onsets": 547,
+      "percussionCandidates": 68,
+      "candidatesPerMinute": 27.55,
+      "outputs": [
+        "yeongsan/04_garakdeori.features.json",
+        "yeongsan/04_garakdeori.percussion.json"
+      ],
+      "elapsedMs": 3214,
+      "warnings": []
+    },
+    {
+      "trackId": "album:yeongsan:05_sanghyeondodeuri",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/yeongsan/05_sanghyeondodeuri.mp3",
+      "sourceSha256": "9345e905222b8f231f9030f1b219fccc6c41c7c379bf86b59a130e3301f3dd13",
+      "shaVerified": true,
+      "duration": 259.5004081632653,
+      "featureFrames": 6488,
+      "onsets": 887,
+      "percussionCandidates": 153,
+      "candidatesPerMinute": 35.38,
+      "outputs": [
+        "yeongsan/05_sanghyeondodeuri.features.json",
+        "yeongsan/05_sanghyeondodeuri.percussion.json"
+      ],
+      "elapsedMs": 4978,
+      "warnings": []
+    },
+    {
+      "trackId": "album:yeongsan:06_hahyeondodeuri",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/yeongsan/06_hahyeondodeuri.mp3",
+      "sourceSha256": "130c7058dc24395462188cfde7716d48945d689503bb6999ef567bd9afdbf7e3",
+      "shaVerified": true,
+      "duration": 178.9126530612245,
+      "featureFrames": 4473,
+      "onsets": 642,
+      "percussionCandidates": 110,
+      "candidatesPerMinute": 36.89,
+      "outputs": [
+        "yeongsan/06_hahyeondodeuri.features.json",
+        "yeongsan/06_hahyeondodeuri.percussion.json"
+      ],
+      "elapsedMs": 3511,
+      "warnings": []
+    },
+    {
+      "trackId": "album:yeongsan:07_yeombuldodeuri",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/yeongsan/07_yeombuldodeuri.mp3",
+      "sourceSha256": "c38c2a5ee420b6e7ae8905b6d7575dac28507fc4a1fa4c4be2efe86deaf15dff",
+      "shaVerified": true,
+      "duration": 250.46204081632652,
+      "featureFrames": 6262,
+      "onsets": 919,
+      "percussionCandidates": 207,
+      "candidatesPerMinute": 49.59,
+      "outputs": [
+        "yeongsan/07_yeombuldodeuri.features.json",
+        "yeongsan/07_yeombuldodeuri.percussion.json"
+      ],
+      "elapsedMs": 5031,
+      "warnings": []
+    },
+    {
+      "trackId": "album:yeongsan:08_taryeong",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/yeongsan/08_taryeong.mp3",
+      "sourceSha256": "2e47797e455cd89b5b8dd147a13896d1f47d1bc333e5f48a3b3edc10750b9144",
+      "shaVerified": true,
+      "duration": 186.8277551020408,
+      "featureFrames": 4671,
+      "onsets": 708,
+      "percussionCandidates": 125,
+      "candidatesPerMinute": 40.14,
+      "outputs": [
+        "yeongsan/08_taryeong.features.json",
+        "yeongsan/08_taryeong.percussion.json"
+      ],
+      "elapsedMs": 3929,
+      "warnings": []
+    },
+    {
+      "trackId": "album:yeongsan:09_gunak",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/yeongsan/09_gunak.mp3",
+      "sourceSha256": "70a08a2f19a0fab222655b5124d3191873a6c2d4a5d8c6af0189298d37478a73",
+      "shaVerified": true,
+      "duration": 244.06204081632654,
+      "featureFrames": 6102,
+      "onsets": 840,
+      "percussionCandidates": 230,
+      "candidatesPerMinute": 56.54,
+      "outputs": [
+        "yeongsan/09_gunak.features.json",
+        "yeongsan/09_gunak.percussion.json"
+      ],
+      "elapsedMs": 4918,
+      "warnings": []
+    },
+    {
+      "trackId": "album:pyeongjo:01_sangryeongsan",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/pyeongjo/01_sangryeongsan.mp3",
+      "sourceSha256": "3ab66902012411f52393c84d88fa843d46afc8777b5850ff8c49fc765419b43f",
+      "shaVerified": true,
+      "duration": 816.9012244897959,
+      "featureFrames": 20423,
+      "onsets": 2736,
+      "percussionCandidates": 81,
+      "candidatesPerMinute": 5.95,
+      "outputs": [
+        "pyeongjo/01_sangryeongsan.features.json",
+        "pyeongjo/01_sangryeongsan.percussion.json"
+      ],
+      "elapsedMs": 16682,
+      "warnings": []
+    },
+    {
+      "trackId": "album:pyeongjo:02_jungnyeongsan",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/pyeongjo/02_jungnyeongsan.mp3",
+      "sourceSha256": "a34336815db8c03a009454d062c7d4aadd0af11d88b2b1d92562a4f853e1fed1",
+      "shaVerified": true,
+      "duration": 702.6938775510204,
+      "featureFrames": 17568,
+      "onsets": 2403,
+      "percussionCandidates": 116,
+      "candidatesPerMinute": 9.9,
+      "outputs": [
+        "pyeongjo/02_jungnyeongsan.features.json",
+        "pyeongjo/02_jungnyeongsan.percussion.json"
+      ],
+      "elapsedMs": 14122,
+      "warnings": []
+    },
+    {
+      "trackId": "album:pyeongjo:03_seryongsan",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/pyeongjo/03_seryongsan.mp3",
+      "sourceSha256": "a973f78646938805aea104baec6858a388c691758fc43d82b58ebc03b5de571c",
+      "shaVerified": true,
+      "duration": 241.345306122449,
+      "featureFrames": 6034,
+      "onsets": 842,
+      "percussionCandidates": 66,
+      "candidatesPerMinute": 16.41,
+      "outputs": [
+        "pyeongjo/03_seryongsan.features.json",
+        "pyeongjo/03_seryongsan.percussion.json"
+      ],
+      "elapsedMs": 5284,
+      "warnings": []
+    },
+    {
+      "trackId": "album:pyeongjo:04_garakdeori",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/pyeongjo/04_garakdeori.mp3",
+      "sourceSha256": "41fac6dedf72d8e7f93bf63e897b8304481fd11b22d355cc52fd65ee03872f7d",
+      "shaVerified": true,
+      "duration": 152.11102040816326,
+      "featureFrames": 3803,
+      "onsets": 526,
+      "percussionCandidates": 52,
+      "candidatesPerMinute": 20.51,
+      "outputs": [
+        "pyeongjo/04_garakdeori.features.json",
+        "pyeongjo/04_garakdeori.percussion.json"
+      ],
+      "elapsedMs": 3250,
+      "warnings": []
+    },
+    {
+      "trackId": "album:pyeongjo:05_sanghyeondodeuri",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/pyeongjo/05_sanghyeondodeuri.mp3",
+      "sourceSha256": "28ee3e8f0c88d4d700bbda3864f905086851f9ec9468c078015908f1d5ca21e5",
+      "shaVerified": true,
+      "duration": 262.53061224489795,
+      "featureFrames": 6564,
+      "onsets": 892,
+      "percussionCandidates": 131,
+      "candidatesPerMinute": 29.94,
+      "outputs": [
+        "pyeongjo/05_sanghyeondodeuri.features.json",
+        "pyeongjo/05_sanghyeondodeuri.percussion.json"
+      ],
+      "elapsedMs": 5157,
+      "warnings": []
+    },
+    {
+      "trackId": "album:pyeongjo:06_yeombuldodeuri",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/pyeongjo/06_yeombuldodeuri.mp3",
+      "sourceSha256": "d7e0791fbb5f543e5eed30b74742f82a4b85e22ae7c9d300102ad5ebf9296dc6",
+      "shaVerified": true,
+      "duration": 258.8212244897959,
+      "featureFrames": 6471,
+      "onsets": 975,
+      "percussionCandidates": 173,
+      "candidatesPerMinute": 40.1,
+      "outputs": [
+        "pyeongjo/06_yeombuldodeuri.features.json",
+        "pyeongjo/06_yeombuldodeuri.percussion.json"
+      ],
+      "elapsedMs": 5127,
+      "warnings": []
+    },
+    {
+      "trackId": "album:pyeongjo:07_taryeong",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/pyeongjo/07_taryeong.mp3",
+      "sourceSha256": "bd2bf4144ff9ec8b790c2e6ea4795c2cb3822a358989a7c17680df6484aa1e46",
+      "shaVerified": true,
+      "duration": 194.63836734693876,
+      "featureFrames": 4866,
+      "onsets": 751,
+      "percussionCandidates": 132,
+      "candidatesPerMinute": 40.69,
+      "outputs": [
+        "pyeongjo/07_taryeong.features.json",
+        "pyeongjo/07_taryeong.percussion.json"
+      ],
+      "elapsedMs": 3953,
+      "warnings": []
+    },
+    {
+      "trackId": "album:pyeongjo:08_gunak",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/pyeongjo/08_gunak.mp3",
+      "sourceSha256": "fcb76508c47535d4d824b88c53c1dc8690a33b3733f4677943d874a640b4bd8d",
+      "shaVerified": true,
+      "duration": 253.93632653061223,
+      "featureFrames": 6349,
+      "onsets": 920,
+      "percussionCandidates": 199,
+      "candidatesPerMinute": 47.02,
+      "outputs": [
+        "pyeongjo/08_gunak.features.json",
+        "pyeongjo/08_gunak.percussion.json"
+      ],
+      "elapsedMs": 4872,
+      "warnings": []
+    },
+    {
+      "trackId": "album:hanbeomsu:01_daseureum",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/hanbeomsu/01_daseureum.mp3",
+      "sourceSha256": "36bedb4885e9adee34b41def8678fd6ae5f9be96008e1352c055131aa4c0bd56",
+      "shaVerified": true,
+      "duration": 86.15501133786849,
+      "featureFrames": 2154,
+      "onsets": 259,
+      "percussionCandidates": 1,
+      "candidatesPerMinute": 0.7,
+      "outputs": [
+        "hanbeomsu/01_daseureum.features.json",
+        "hanbeomsu/01_daseureum.percussion.json"
+      ],
+      "elapsedMs": 1842,
+      "warnings": []
+    },
+    {
+      "trackId": "album:hanbeomsu:02_long-sanjo_jinyang",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/hanbeomsu/02_long-sanjo_jinyang.mp3",
+      "sourceSha256": "6bd94f098ccef129a650397a6f92344da706d4b598556453e88c3bb344423f8e",
+      "shaVerified": true,
+      "duration": 641.0399546485261,
+      "featureFrames": 16026,
+      "onsets": 2016,
+      "percussionCandidates": 224,
+      "candidatesPerMinute": 20.97,
+      "outputs": [
+        "hanbeomsu/02_long-sanjo_jinyang.features.json",
+        "hanbeomsu/02_long-sanjo_jinyang.percussion.json"
+      ],
+      "elapsedMs": 13044,
+      "warnings": []
+    },
+    {
+      "trackId": "album:hanbeomsu:03_long-sanjo_jungmori",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/hanbeomsu/03_long-sanjo_jungmori.mp3",
+      "sourceSha256": "aac3039131694d01a46194ba5171d67ec1baf73c1dc1128064c16b024bcf0eb7",
+      "shaVerified": true,
+      "duration": 310.9199546485261,
+      "featureFrames": 7773,
+      "onsets": 1168,
+      "percussionCandidates": 136,
+      "candidatesPerMinute": 26.24,
+      "outputs": [
+        "hanbeomsu/03_long-sanjo_jungmori.features.json",
+        "hanbeomsu/03_long-sanjo_jungmori.percussion.json"
+      ],
+      "elapsedMs": 6149,
+      "warnings": []
+    },
+    {
+      "trackId": "album:hanbeomsu:04_long-sanjo_jungjungmori",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/hanbeomsu/04_long-sanjo_jungjungmori.mp3",
+      "sourceSha256": "2f5fd7df98bd431164708d33e8a6e15108e5abfd6642831b346c342d4e83b546",
+      "shaVerified": true,
+      "duration": 278.7558276643991,
+      "featureFrames": 6969,
+      "onsets": 1071,
+      "percussionCandidates": 212,
+      "candidatesPerMinute": 45.63,
+      "outputs": [
+        "hanbeomsu/04_long-sanjo_jungjungmori.features.json",
+        "hanbeomsu/04_long-sanjo_jungjungmori.percussion.json"
+      ],
+      "elapsedMs": 5660,
+      "warnings": []
+    },
+    {
+      "trackId": "album:hanbeomsu:05_long-sanjo_jajinmori",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/hanbeomsu/05_long-sanjo_jajinmori.mp3",
+      "sourceSha256": "70745e8f5658e232f3dfd9e35343c737f03779e23ca414dd10d62189116ec89c",
+      "shaVerified": true,
+      "duration": 311.71197278911563,
+      "featureFrames": 7793,
+      "onsets": 1207,
+      "percussionCandidates": 234,
+      "candidatesPerMinute": 45.04,
+      "outputs": [
+        "hanbeomsu/05_long-sanjo_jajinmori.features.json",
+        "hanbeomsu/05_long-sanjo_jajinmori.percussion.json"
+      ],
+      "elapsedMs": 6053,
+      "warnings": []
+    },
+    {
+      "trackId": "album:hanbeomsu:06_short-sanjo",
+      "source": "https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/hanbeomsu/06_short-sanjo.mp3",
+      "sourceSha256": "6fc364f160f8645be7445281790fe03b2de9b6e44e73ca4e79d543bce324bb04",
+      "shaVerified": true,
+      "duration": 837.4105215419501,
+      "featureFrames": 20936,
+      "onsets": 2967,
+      "percussionCandidates": 497,
+      "candidatesPerMinute": 35.61,
+      "outputs": [
+        "hanbeomsu/06_short-sanjo.features.json",
+        "hanbeomsu/06_short-sanjo.percussion.json"
+      ],
+      "elapsedMs": 17233,
+      "warnings": []
+    }
+  ]
+}
