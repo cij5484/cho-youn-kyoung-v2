@@ -8,6 +8,7 @@
 .editorial-navigation.adaptive-navigation { background: transparent !important; color: #fff !important; mix-blend-mode: difference; }
 .editorial-navigation.adaptive-navigation :is(.nav-signature,.menu-toggle) { color: inherit !important; }
 .editorial-navigation.adaptive-navigation :focus-visible { outline-color: currentColor; }
+.editorial-navigation[data-menu-active="true"] .menu-trigger { visibility: hidden; }
 .editorial-navigation a, .navigation-menu a { text-decoration: none; }
 .nav-signature { display: inline-flex; align-items: center; min-inline-size: 0; overflow-wrap: anywhere; min-block-size: var(--touch-target); font-size: var(--micro); letter-spacing: .04em; font-weight: 500; }
 .menu-toggle {
@@ -30,8 +31,9 @@
 .menu-toggle:focus-visible .symbol-lines::after { transform: translateY(-1px) scaleY(.72); }
 .editorial-navigation a, .editorial-navigation button, .navigation-menu a, .navigation-menu button { -webkit-tap-highlight-color: transparent; }
 .navigation-menu {
-  position: fixed; inset: 0 0 auto auto; margin: 0; inline-size: min(400px, calc(100% - 24px)); max-inline-size: none;
-  block-size: auto; max-block-size: var(--viewport-live); overflow-x: hidden; overflow-y: auto; overscroll-behavior-y: contain; scrollbar-width: none;
+  --menu-header-height: calc(max(var(--space-2), env(safe-area-inset-top, 0px)) + var(--touch-target) + var(--space-2));
+  position: fixed; inset: var(--menu-header-height) 0 auto auto; margin: 0; inline-size: min(400px, calc(100% - 24px)); max-inline-size: none;
+  block-size: auto; max-block-size: calc(var(--viewport-live) - var(--menu-header-height)); overflow-x: hidden; overflow-y: auto; overscroll-behavior-y: contain; scrollbar-width: none;
   padding: 0 0 1px; border: 0; color: var(--text-primary); background: transparent;
   --text-primary: #171715; --text-secondary: #4c4a44;
 }
@@ -44,7 +46,8 @@
   .menu-key { background: rgb(249 247 242 / .82); -webkit-backdrop-filter: blur(12px) saturate(.65); backdrop-filter: blur(12px) saturate(.65); }
 }
 @media (prefers-reduced-transparency: reduce) { .menu-key { background: var(--color-surface); -webkit-backdrop-filter: none; backdrop-filter: none; } }
-.menu-top { position: relative; justify-content: flex-end; padding-left: 24px; }
+.menu-top { position: fixed; inset: 0 0 auto; justify-content: flex-end; background: transparent; color: #fff; mix-blend-mode: difference; pointer-events: none; }
+.menu-top .menu-toggle { color: inherit; pointer-events: auto; }
 .navigation-menu .trigger-switch { transform: translateY(-50%); }
 .navigation-menu .symbol-lines { transform: rotate(45deg); }
 .menu-content { display: flex; flex-direction: column; }

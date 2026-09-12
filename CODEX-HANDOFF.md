@@ -1,6 +1,22 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
+## Current handoff — 2026-09-12 / Mac continuation
+
+Latest user request authorizes PR/merge of the header-toggle follow-up. Earlier HOME/WORKS, mobile
+pacing/image-fit, ABOUT, detail returns and visual polish were delivered through PR31; menu shape trials
+ended with rectangular keys in PR34 (`544a971`). Historical LOCAL labels below record earlier checkpoints.
+
+Current navigation keeps the header-position MENU/CLOSE control separate from the paper panel, with
+462ms text/plus-to-cross motion and six independently timed rectangular keys below it. Native dialog
+focus, Escape, route cleanup and reduced motion remain. Source and validation detail:
+[navigation owner](docs/redesign/review/EDITORIAL-NAVIGATION-PROTOTYPE.md#header-toggle-separation--2026-09-12-local-follow-up).
+No known uncommitted implementation is intentionally left on Windows after this delivery. Continue from
+latest main on Mac; preserve any Mac changes before pulling. Use the package-pinned Node/npm and README
+setup. Remaining visual feedback/physical-device QA is user-directed; no further redesign is authorized.
+The latest local types/lint, six model checks, preview build and desktop/mobile browser sanity passed;
+the full browser suite and physical-phone checks were not run. Green checks are not visual approval.
+
 **Status:** WORKS Atmospheric Depth APPROVED as default; B/C engines and WORKS comparison UI retired. PR / main / Pages delivery authorized 2026-09-10; no local validation requested.\
 **Revision:** 1.47 / 2026-09-10 — approved WORKS promotion and comparison cleanup\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
