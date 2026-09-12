@@ -5,6 +5,12 @@
 **Revision:** 1.47 / 2026-09-10 — approved WORKS promotion and comparison cleanup\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
+**Phase 2B / ABOUT delivery authorized, 2026-09-12:** user authorized PR, merge and Pages delivery of the
+mobile performance pass and revised gallery. Column selection opens only the helix; a second selection inside
+the helix aligns and expands the photo, using the thumbnail during original decode and returning to the same
+slot on close. Idle rotation and drag/focus/visibility cancellation remain. Profiling reduced unused HOME geometry
+reads, portrait decode budgets and nonvisual live-pitch work. [Measurements and limitations](docs/redesign/review/MOBILE-PERFORMANCE-PASS.md).
+
 **Phase 2A / editorial signature delivery authorized — 2026-09-12:** user requests PR and merge of the accumulated
 confirmed fixes, Classic menu mode switch, Open styling and editorial signatures. This supersedes the local-only
 boundary below. ABOUT gallery ribbons weave through the portraits' shared 3D cylinder, follow drag rotation,

@@ -14,7 +14,13 @@ One authentic portrait with an Open button unfolds twelve portraits into CSS 3D 
 them into a fixed right column. Biography, newest-first milestones, recitals, albums and readable career sections
 scroll independently. Existing optimized portraits are Vite imports, with no private source paths or generated imagery.
 
-Every column photo reopens the helix and enlarges that exact photo. Closing the photo leaves the helix available;
+Every column photo reopens only the helix. A photo selected inside the helix turns frontward by the shortest
+rotation, then expands from that card's projected bounds. The thumbnail carries the transition while the
+original decodes; the backdrop fades with the shared photo frame. Closing returns the frame to the same card.
+The idle helix slowly rotates; dragging, alignment and focused photos interrupt rotation. Closing the photo resumes
+the helix, while document visibility and reduced motion suspend automatic rotation. These 2026-09-12 additions
+and the mobile performance pass are authorized for PR / merge / Pages delivery by the latest user request.
+Closing the photo leaves the helix available;
 outer Close gathers it back to the column. Native dialogs preserve scroll lock and restore focus. Horizontal Pointer
 Events drag/swipe rotates the helix with bounded GSAP deceleration; a 6px threshold distinguishes drag from selection.
 The drag hit surface sits behind the rear photos. Arrow keys also rotate. Reduced motion omits inertia and entrance

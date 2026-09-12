@@ -21,7 +21,7 @@ export default function EntrySculpture({ active, ref }: { active: boolean; ref: 
       const element = document.createElement('div'), image = document.createElement('img')
       element.className = 'entry-sculpture-card'; element.style.width = `${150 * Math.sqrt(portrait.aspect)}px`
       element.style.height = `${150 / Math.sqrt(portrait.aspect)}px`
-      image.src = portrait.src; image.alt = ''; image.draggable = false; image.decoding = 'async'
+      image.src = portrait.thumbnail; image.alt = ''; image.draggable = false; image.decoding = 'async'
       element.append(image)
       const object = new CSS3DObject(element); group.add(object)
       return { object, index, amount: 0 }

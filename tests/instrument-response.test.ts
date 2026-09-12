@@ -16,6 +16,7 @@ hooks.deregister()
 test('mixed-source response distinguishes sustained harmonics, bass/body thuds and treble noise, then decays on pause', async t => {
   let spectrum: (hz: number) => number = () => .000001
   let signal: (seconds: number) => number = () => 0
+  let timeDomainCalls = 0
   const prior = Object.getOwnPropertyDescriptor(globalThis, 'AudioContext')
   const priorDocument = Object.getOwnPropertyDescriptor(globalThis, 'document')
   Object.defineProperty(globalThis, 'document', { configurable: true, value: { baseURI: 'http://localhost/' } })
@@ -24,17 +25,27 @@ test('mixed-source response distinguishes sustained harmonics, bass/body thuds a
     state = 'running'; sampleRate = 48000; destination = {}
     createMediaElementSource() { return { connect() {}, disconnect() {} } }
     createAnalyser() { return { fftSize: 2048, smoothingTimeConstant: 0, disconnect() {},
-      getFloatTimeDomainData(data: Float32Array) { data.forEach((_, i) => { data[i] = signal(media.currentTime + i / 48000) }) },
+      getFloatTimeDomainData(data: Float32Array) { timeDomainCalls++; data.forEach((_, i) => { data[i] = signal(media.currentTime + i / 48000) }) },
       getFloatFrequencyData(data: Float32Array) { data.forEach((_, i) => { data[i] = 20 * Math.log10(spectrum(i * 48000 / 2048)) }) } } }
     async close() { this.state = 'closed' }
   }
   Object.defineProperty(globalThis, 'AudioContext', { configurable: true, value: MockAudioContext })
   t.after(() => { if (prior) Object.defineProperty(globalThis, 'AudioContext', prior); else Reflect.deleteProperty(globalThis, 'AudioContext') })
   const media = { dataset: { sourceUrl: 'https://example.com/mixed.mp3' }, currentTime: 0, duration: 100, paused: false, ended: false, seeking: false, readyState: 4 }
-  const response = createInstrumentResponse(media as unknown as HTMLAudioElement)
-  t.after(() => response.destroy())
+  const response = createInstrumentResponse(media as unknown as HTMLAudioElement, undefined, true)
+  const production = createInstrumentResponse(media as unknown as HTMLAudioElement)
+  t.after(() => { response.destroy(); production.destroy() })
   await response.activate()
-  const step = () => { media.currentTime += 1 / 30; return response.sample(1 / 30) }
+  await production.activate()
+  const step = () => {
+    media.currentTime += 1 / 30
+    const calls = timeDomainCalls, actual = production.sample(1 / 30)
+    assert.equal(timeDomainCalls, calls, 'normal playback never samples time-domain data for unused pitch')
+    assert.equal(actual.pitchMidi, null); assert.equal(actual.pitchConfidence, 0)
+    const diagnostic = response.sample(1 / 30)
+    for (const key of ['haegeum', 'janggu', 'texture'] as const) assert.equal(actual[key], diagnostic[key], `${key} is unchanged by pitch diagnostics`)
+    return diagnostic
+  }
   const settle = (frames: number) => Array.from({ length: frames }, step)
   settle(3)
   const harmonic = (gain: number) => (hz: number) => gain * Math.exp(-Math.pow((hz - Math.round(hz / 375) * 375) / 15, 2)) + .000001
@@ -86,12 +97,12 @@ test('mixed-source response distinguishes sustained harmonics, bass/body thuds a
   assert.equal(paused.pitchMidi, null); assert.equal(paused.pitchConfidence, 0)
   media.paused = false
   for (const hz of [110, 220, 440, 880, 1318.51]) {
-    response.reset(); signal = seconds => .16 * Math.sin(2 * Math.PI * hz * seconds)
+    response.reset(); production.reset(); signal = seconds => .16 * Math.sin(2 * Math.PI * hz * seconds)
     const pitch = settle(8).at(-1)!
     assert.ok(pitch.pitchMidi !== null && Math.abs(pitch.pitchMidi - (69 + 12 * Math.log2(hz / 440))) < .15, `fundamental ${hz} Hz remains accurate across the pitch range`)
     assert.ok(pitch.pitchConfidence >= .9)
   }
-  response.reset()
+  response.reset(); production.reset()
   signal = seconds => .12 * Math.sin(2 * Math.PI * 220 * seconds) + .35 * Math.sin(2 * Math.PI * 440 * seconds) + .22 * Math.sin(2 * Math.PI * 660 * seconds)
   const rich = settle(8).at(-1)!
   assert.ok(rich.pitchMidi !== null && Math.abs(rich.pitchMidi - 57) < .15, 'a louder second harmonic does not replace the true fundamental')
@@ -102,7 +113,7 @@ test('mixed-source response distinguishes sustained harmonics, bass/body thuds a
   signal = () => { seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0; return (seed / 2 ** 32 - .5) * .4 }
   const unvoiced = settle(12).at(-1)!
   assert.equal(unvoiced.pitchMidi, null); assert.equal(unvoiced.pitchConfidence, 0, 'noise loses pitch confidence after the brief hold')
-  response.reset(); spectrum = () => .000001; signal = () => 0; settle(3)
+  response.reset(); production.reset(); spectrum = () => .000001; signal = () => 0; settle(3)
   spectrum = hz => hz >= 60 && hz < 700 ? .022 * Math.exp(-(hz - 60) / 500) : .000001
   signal = seconds => .25 * Math.sin(2 * Math.PI * 150 * seconds)
   assert.equal(step().pitchMidi, null, 'a detected drum onset does not acquire a tonal pitch from its ringing body')
@@ -113,6 +124,7 @@ test('mixed-source response distinguishes sustained harmonics, bass/body thuds a
   assert.equal(step().pitchMidi, null, 'pause discards a previously confident pitch immediately')
   media.paused = false; media.seeking = true
   assert.equal(step().pitchMidi, null, 'seeking cannot reuse a pitch from the outgoing timecode')
+  assert.ok(timeDomainCalls > 0, 'explicit diagnostics retain live pitch analysis')
 })
 
 

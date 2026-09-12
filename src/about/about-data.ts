@@ -1,3 +1,16 @@
+import bowPortraitThumbnail from './assets/thumbnails/portrait-08.webp'
+import monochromePortraitThumbnail from './assets/thumbnails/portrait-16.webp'
+import closePortraitThumbnail from './assets/thumbnails/portrait-25.webp'
+import yellowPortraitThumbnail from './assets/thumbnails/portrait-32.webp'
+import violetPortraitThumbnail from './assets/thumbnails/portrait-35.webp'
+import standingPortraitThumbnail from './assets/thumbnails/portrait-11.webp'
+import lightHanbokPortraitThumbnail from './assets/thumbnails/portrait-14.webp'
+import traditionalPortraitThumbnail from './assets/thumbnails/portrait-20.webp'
+import blackHanbokPortraitThumbnail from './assets/thumbnails/portrait-31.webp'
+import seatedVioletPortraitThumbnail from './assets/thumbnails/portrait-36.webp'
+import backVioletPortraitThumbnail from './assets/thumbnails/portrait-39.webp'
+import formalPortraitThumbnail from './assets/thumbnails/artist-portrait-960.webp'
+export { default as mobilePortraitHero } from './assets/portrait-hero-mobile.webp'
 import bowPortrait from './assets/portrait-08.webp'
 import monochromePortrait from './assets/portrait-16.webp'
 import closePortrait from './assets/portrait-25.webp'
@@ -16,18 +29,18 @@ import { atmosphericCatalog } from '../works/candidates/atmospheric-catalog.ts'
 // src/data/profile.ts / public/assets/artist/gallery. Capture dates are unknown;
 // the image order does not assert a photographic chronology.
 export const portraits = [
-  { src: violetPortrait, alt: '보라색 한복을 입고 해금을 든 조윤경', label: '해금', aspect: 1023 / 1537 },
-  { src: closePortrait, alt: '해금과 활 너머로 아래를 바라보는 조윤경의 얼굴', label: 'Portrait', aspect: 3 / 2 },
-  { src: monochromePortrait, alt: '한복을 입고 해금과 활을 든 조윤경의 흑백 사진', label: '해금과 활', aspect: 2 / 3 },
-  { src: yellowPortrait, alt: '노란 한복을 입은 조윤경의 얼굴을 가까이 담은 사진', label: 'Portrait', aspect: 3 / 2 },
-  { src: bowPortrait, alt: '검은 의상을 입고 바닥에 앉아 활을 가로로 든 조윤경', label: '해금과 활', aspect: 2 / 3 },
-  { src: formalPortrait, alt: '검정 정장을 입고 손을 모은 조윤경의 공식 프로필 사진', label: 'Portrait', aspect: 2 / 3 },
-  { src: standingPortrait, alt: '검은 의상을 입고 해금과 활을 든 채 서 있는 조윤경의 측면 사진', label: '해금과 활', aspect: 1600 / 2400 },
-  { src: lightHanbokPortrait, alt: '밝은 한복을 입고 해금을 들고 서 있는 조윤경의 전신 사진', label: '해금', aspect: 1569 / 2400 },
-  { src: traditionalPortrait, alt: '연두빛 한복을 입고 전통 머리장식을 한 조윤경', label: 'Portrait', aspect: 1600 / 2400 },
-  { src: blackHanbokPortrait, alt: '검은 한복을 입고 붉은 띠를 두른 조윤경', label: 'Portrait', aspect: 1591 / 2400 },
-  { src: seatedVioletPortrait, alt: '보라색 한복을 입고 앉아 해금과 활을 든 조윤경의 전신 사진', label: '해금과 활', aspect: 1024 / 1536 },
-  { src: backVioletPortrait, alt: '보라색 한복을 입고 해금과 함께 뒷모습을 보이는 조윤경의 전신 사진', label: '해금', aspect: 1023 / 1537 },
+  { src: violetPortrait, thumbnail: violetPortraitThumbnail, alt: '보라색 한복을 입고 해금을 든 조윤경', label: '해금', aspect: 1023 / 1537 },
+  { src: closePortrait, thumbnail: closePortraitThumbnail, alt: '해금과 활 너머로 아래를 바라보는 조윤경의 얼굴', label: 'Portrait', aspect: 3 / 2 },
+  { src: monochromePortrait, thumbnail: monochromePortraitThumbnail, alt: '한복을 입고 해금과 활을 든 조윤경의 흑백 사진', label: '해금과 활', aspect: 2 / 3 },
+  { src: yellowPortrait, thumbnail: yellowPortraitThumbnail, alt: '노란 한복을 입은 조윤경의 얼굴을 가까이 담은 사진', label: 'Portrait', aspect: 3 / 2 },
+  { src: bowPortrait, thumbnail: bowPortraitThumbnail, alt: '검은 의상을 입고 바닥에 앉아 활을 가로로 든 조윤경', label: '해금과 활', aspect: 2 / 3 },
+  { src: formalPortrait, thumbnail: formalPortraitThumbnail, alt: '검정 정장을 입고 손을 모은 조윤경의 공식 프로필 사진', label: 'Portrait', aspect: 2 / 3 },
+  { src: standingPortrait, thumbnail: standingPortraitThumbnail, alt: '검은 의상을 입고 해금과 활을 든 채 서 있는 조윤경의 측면 사진', label: '해금과 활', aspect: 1600 / 2400 },
+  { src: lightHanbokPortrait, thumbnail: lightHanbokPortraitThumbnail, alt: '밝은 한복을 입고 해금을 들고 서 있는 조윤경의 전신 사진', label: '해금', aspect: 1569 / 2400 },
+  { src: traditionalPortrait, thumbnail: traditionalPortraitThumbnail, alt: '연두빛 한복을 입고 전통 머리장식을 한 조윤경', label: 'Portrait', aspect: 1600 / 2400 },
+  { src: blackHanbokPortrait, thumbnail: blackHanbokPortraitThumbnail, alt: '검은 한복을 입고 붉은 띠를 두른 조윤경', label: 'Portrait', aspect: 1591 / 2400 },
+  { src: seatedVioletPortrait, thumbnail: seatedVioletPortraitThumbnail, alt: '보라색 한복을 입고 앉아 해금과 활을 든 조윤경의 전신 사진', label: '해금과 활', aspect: 1024 / 1536 },
+  { src: backVioletPortrait, thumbnail: backVioletPortraitThumbnail, alt: '보라색 한복을 입고 해금과 함께 뒷모습을 보이는 조윤경의 전신 사진', label: '해금', aspect: 1023 / 1537 },
 ] as const
 
 // Facts: legacy src/data/profile.ts; current role and former principal role:
