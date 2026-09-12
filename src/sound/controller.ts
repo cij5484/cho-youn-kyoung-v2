@@ -16,7 +16,7 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
   let context: AudioContext | null = null, analyser: AnalyserNode | null = null, node: MediaElementAudioSourceNode | null = null
   let suspension: Promise<void> | null = null
   let alignment: AbortController | null = null
-  let primer: { token: number; muted: boolean } | null = null
+  let primer: { token: number; muted: boolean; position: number } | null = null
   const src=playableSource(source)
   let phase: PlaybackPhase = src ? 'idle' : 'unavailable', hasPlayed=false
   let desired = false, disposed = false, visible = false, intent = 0, frame = 0, previous = 0, lastDraw = 0
@@ -53,7 +53,7 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
     else { previous=0; lastDraw=0 }
   }
   function pause(next: PlaybackPhase = 'paused') {
-    const position=media.currentTime
+    const position=primer?.position ?? media.currentTime
     desired=false; intent++; alignment?.abort(); alignment=null; stopClock(); media.pause()
     if(primer){media.muted=primer.muted;primer=null}
     // Commit the native media position before suspending its Web Audio destination.
@@ -112,22 +112,33 @@ export function createSoundController(root: HTMLElement, media: HTMLAudioElement
     timeout=window.setTimeout(()=>{ if(token===intent && desired && ['loading','buffering'].includes(phase)) pause('error') },12000)
     try {
       // Unlock BOTH native media and Web Audio in the original gesture. The inaudible
-      // primer is paused/rewound; no part of the excerpt is consumed during alignment.
+      // primer is rewound before unmuting; alignment consumes no audible excerpt.
       if (focus) {
         const abort = new AbortController(); alignment=abort
-        const prime={token,muted:media.muted}, position=media.currentTime; primer=prime
+        const position=media.currentTime, prime={token,muted:media.muted,position}; primer=prime
         media.muted=true
         const landing=alignSoundFrame(root,abort.signal)
         void landing.then(aligned=>{if(!aligned&&!disposed&&token===intent)pause()})
         try {
           await Promise.all([context?.resume(),media.play()])
           if (disposed || token!==intent) return
-          media.pause(); media.currentTime=position
           const aligned=await landing
           if (disposed || token!==intent) return
           if (!aligned) { pause(); return }
+          // Keep the unlocked media running silently while aligning, then rewind it.
+          // Pausing and immediately replaying this WebKit destination can stall its clock.
+          media.currentTime=position
+          if (media.seeking) await new Promise<void>(resolve=>{
+            const finish=()=>{
+              media.removeEventListener('seeked',finish)
+              abort.signal.removeEventListener('abort',finish)
+              resolve()
+            }
+            media.addEventListener('seeked',finish,{once:true})
+            abort.signal.addEventListener('abort',finish,{once:true})
+            if (abort.signal.aborted || !media.seeking) finish()
+          })
         } finally { abort.abort(); if(primer===prime){primer=null;media.muted=prime.muted} if(alignment===abort)alignment=null }
-        await media.play()
       } else await Promise.all([context?.resume(),media.play()])
       if (disposed || token!==intent) return
       if (!eligible()) { pause(); return }

@@ -72,6 +72,23 @@ component regression, while preserving the normal development command and user's
 Local interaction passed26/26 across Chromium/WebKit. A Vite module-request cancellation warning on
 immediate page navigation is recorded separately; this suite is not a general page-error audit.
 
+## Native media regression exposed after the earlier gates passed
+
+Run34706965191 passed routing80, Design System11, Navigation26, Hero44 and Haegeum32, then
+reported SOUND60/90:30 Linux WebKit cases stalled at the common initial playback prerequisite.
+The audio URL returned HTTP200 with the expected m4a body. Mac WebKit independently reproduced
+seven initial cases: AudioContext remained running, but native media time stayed near zero.
+Event capture showed the muted primer's pause→rewind→second play racing the native destination.
+Waiting only for seeked, and avoiding redundant no-op seeks, still failed repeated checks and were discarded.
+
+The final controller keeps gesture-unlocked media running muted through the existing alignment,
+rewinds to its original position, waits for native seek completion, then unmutes. This removes the
+unnecessary pause/replay cycle while preserving the original audible excerpt, user gesture, alignment,
+state controls and visual choreography. Cancellation restores the primer's starting position; abort
+and seek listeners are cleaned up. No fixed delay, retry, swallowed exception or test change.
+Original failing WebKit widths passed6/6 repeated cases; unchanged full SOUND passed90/90
+(Chromium45/WebKit45), plus21 contract tests and changed-file lint.
+
 ## Validation and boundary
 
 Actual production WORKS passed all12 local cases (four browser/viewport projects repeated three times).
