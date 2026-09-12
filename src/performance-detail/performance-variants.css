@@ -32,6 +32,12 @@
 .performance-variant-time-path .performance-note-excerpt { max-width:none; }
 .performance-variant-time-path .performance-chapters { border-bottom:1px solid var(--record-rule); }
 .performance-time-path { position:relative; background:#e9e4da; scroll-margin-top:70px; }
+.performance-time-select { font:inherit; letter-spacing:inherit; text-align:inherit; color:inherit; }
+.performance-time-path[data-overview=true] .performance-time-select::after { content:''; position:absolute; inset:0; }
+.performance-time-landmark { cursor:pointer; }
+.performance-time-landmark:focus-visible { outline:none; }
+.performance-time-landmark:focus-visible .performance-time-hit { stroke:currentColor; stroke-width:1; }
+.performance-time-select:focus-visible { outline:1px solid currentColor; outline-offset:5px; }
 .performance-time-stage { padding:38px max(40px,calc((100vw - 1340px)/2)) 30px; }
 .performance-time-header { display:flex; align-items:baseline; justify-content:space-between; gap:20px; }
 .performance-time-header h2 { font:400 42px/1.5 var(--font-display-ko); letter-spacing:-.06em; }

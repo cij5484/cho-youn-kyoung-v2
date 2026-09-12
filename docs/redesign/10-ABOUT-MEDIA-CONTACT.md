@@ -6,6 +6,11 @@
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`  
 **Page Roles:** Editorial Biography / Visual Media Archive / Official Contact Endpoint
 
+**2026-09-12 current Pages scope:** the user explicitly authorizes all completed MEDIA, ABOUT and CONTACT screens
+for PR/main/Pages delivery. All three use their existing authored runtime through lazy routes; developer comparisons
+remain DEV-only. Earlier local-only and Pages fixture statements below record earlier stages and are superseded.
+Release/official EN approval boundaries remain separate. See [delivery record](review/PAGE-DELIVERY-RECONCILIATION.md).
+
 ## 2026-09-08 연구 반영 — 정보 우선의 세 페이지
 
 2026-09-12 사용자 PR/merge 승인으로 Pages development preview의 ABOUT은 실제 portrait biography와
@@ -13,7 +18,7 @@
 [현재 ABOUT owner](review/ABOUT-PORTRAIT-GALLERY.md)를 참조한다. 아래 fixture 설명은 release/EN 및
 아직 승격하지 않은 MEDIA/CONTACT에 해당한다.
 
-현재 `/about/`, `/media/`, `/contact/`는 **route fixture**다. HOME의 프로필 링크나 새 opt-in 구성이
+공개 `/about/`, `/media/`, `/contact/`는 **route fixture**다. 아래 세 페이지의 localhost prototype은 공개 승격되지 않았다. HOME의 프로필 링크나 새 opt-in 구성이
 이 페이지들의 구현 완료를 뜻하지 않는다. 세부 적용·자산·다음 단위는
 [연구 §4.6](review/EXPERIENCE-PROTOTYPE-RESEARCH.md#46-media--about--contact--기본-방향)을 참조한다.
 
@@ -22,6 +27,33 @@
 | ABOUT | 인물과 예술적 위치를 읽는다. 실제 portrait의 여백과 중요한 연도가 같은 축으로 이어지는 editorial biography. Lesse의 역할→근거→연락 원리를 적용하며 HOME 번짐을 반복하지 않는다. | 초상 다음에 읽는 문장·선택 이력·전체 CV. 정확한 사실/KO·EN 상태·portrait 원본 확인 후 ABOUT 1페이지 prototype. |
 | MEDIA | 영상·사진·press를 발견한다. 선택한 실제 poster가 같은 자리의 player 공간으로 펼쳐진다. PHOTOYOSHI의 overview→focus를 영상에 맞게 변형한다. | 세로 feed와 큰 inline player. 승인 영상 1개·poster/자막 상태로 시작; 명시적 Play 때만 player 로드. |
 | CONTACT | 공식 연락을 빠르게 마친다. 실제 email이 복사 완료 문구로 잠깐 재조판되는 작은 응답. | 긴 주소 줄바꿈·44px actions·focus/live status. 검증된 email의 Mailto/Copy와 실패 fallback 1단위. form/server는 추가하지 않는다. |
+
+## 2026-09-12 MEDIA full-page local prototype
+
+현재 사용자 지시로 localhost `/media/` 전체를 구현했다. Hero → 통합 Films → Special Archive →
+Press Index 순서이며 실제 영상 4편(공연 3 + Special Archive 1), 기사 12건만 사용한다. Unwoven의 독립 수평
+리본이 scroll에 따라 풀리고 재결합하며, GridToFullPreview의 교차 마스크 원리를 같은 still의 확대
+focus에 적용한다. 위 표의 MEDIA 다음 구현 단위는 이 로컬 연구에서 대체된다. 공개 fixture는 유지한다.
+
+데이터·출처·한계·검증 및 LOCAL ONLY 경계는 [MEDIA prototype](review/MEDIA-PROTOTYPE.md)이 소유한다.
+새 영상은 `src/media/media-records.json`의 비아카이브 항목에 추가해 통합 Films 선택 목록만 확장한다. 허구의 연도,
+사진, 기사 이미지는 넣지 않는다. 상세 보기만으로 iframe을 로드하지 않고 명시적 재생 때만 로드한다.
+
+## 2026-09-12 ABOUT / CONTACT reference-driven local prototypes
+
+ABOUT 최신 사용자 수정은 대표 portrait 1장 → 클릭/터치 → 실제 초상 12장의 3D helix 확산/짧은 회전
+→ 오른쪽 세로 1열 정렬이다. 정렬된 사진의 위치는 이후 스크롤로 바뀌지 않고 chapter별 active opacity만 변한다.
+사진열의 모든 사진은 클릭/터치로 나선을 다시 펼친 후 선택 사진을 확대한다. ‘사진 닫기’는 나선을 유지해 다른 사진을
+고를 수 있게 하고, 나선의 ‘Close’는 원래 사진열로 모아 닫는다. 두 단계는 각각 Escape와 포커스 복귀를 지원한다.
+열린 나선은 좌우 마우스 드래그/터치 스와이프로 회전하며 놓으면 감속한다. 드래그와 사진 선택은 구분하고,
+reduced motion에서는 관성 없이 직접 조작만 반영한다.
+글은 Biography → 최신순 Selected Milestones(2026.09.22부터) → Recitals → Albums → Career/Education/Awards 순서다.
+기존 scroll-driven 사진 이동과 마지막 Flip grid는 대체되었다. 사진 촬영일은 미확인이라 사진과 이력 연도를 연결하지 않는다.
+CONTACT는 큰 PERFORMANCE / COLLABORATION / INQUIRIES 반복 행과 여백을 사용한다. Pointer / scroll은
+조용한 반대 방향 움직임을 만들고, 실제 이메일 복사 성공 때 INQUIRIES가 잠시 COPIED로 재조판된다.
+
+위 연구 표의 ABOUT / CONTACT 다음 구현 단위는 이 로컬 연구에서 대체된다. 공개 fixture / EN 승인 경계는 유지한다.
+소스 참조, 실제 자산, 구현·검증·rollback은 [ABOUT / CONTACT prototype](review/ABOUT-CONTACT-PROTOTYPES.md)에 기록한다.
 
 **사용자 제공 최신 ABOUT 프로필 — 2026-09-08 사실 기준:**
 

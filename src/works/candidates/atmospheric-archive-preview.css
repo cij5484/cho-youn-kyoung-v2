@@ -6,12 +6,15 @@
   .atmospheric-archive[data-archive-preview="true"] .atmospheric-archive-body { display: grid; }
   .atmospheric-archive[data-archive-preview="true"] .atmospheric-archive-records,
   .atmospheric-archive-preview { grid-area: 1 / 1; }
+  .atmospheric-archive[data-archive-preview="true"] .atmospheric-archive-records { opacity: var(--aa-rail-opacity, 0); }
   .atmospheric-archive[data-archive-preview="true"][data-index-view="false"] .atmospheric-archive-records { visibility: hidden; }
   .atmospheric-archive-preview {
     display: grid; grid-template-columns: minmax(460px, 1.03fr) minmax(0, 1fr);
-    align-items: start; gap: clamp(36px, 5vw, 96px); visibility: hidden; pointer-events: none;
+    align-items: start; gap: clamp(36px, 5vw, 96px); pointer-events: none;
+    opacity: var(--aa-preview-opacity, 1);
+    transform: translateY(calc((1 - var(--aa-preview-opacity, 1)) * 16px));
   }
-  .atmospheric-archive[data-index-view="false"] .atmospheric-archive-preview { visibility: visible; pointer-events: auto; }
+  .atmospheric-archive-preview:not([inert]) { pointer-events: auto; }
   .archive-preview-list { list-style: none; margin: 0; padding: 0; }
   .archive-preview-list li { position: relative; overflow: hidden; transition: opacity 250ms linear, filter 250ms linear; }
   .archive-preview-list li::before {

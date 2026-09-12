@@ -5,9 +5,31 @@
 **Revision:** 1.47 / 2026-09-10 — approved WORKS promotion and comparison cleanup\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
+**Full authored-screen delivery — 2026-09-12, user correction:** MEDIA and CONTACT are now also authorized for
+PR/main/Pages delivery together with all accumulated authored screens. Developer comparison/tuning UI remains excluded.
+Desktop WORKS skips the expanded thumbnail archive and transitions directly into list + persistent preview; mobile stays
+unchanged. Time Path overview works/graph years return to their exact reading, and related detail transitions wait for
+the incoming route owner before moving the selected poster/cover. [Current delivery record](docs/redesign/review/PAGE-DELIVERY-RECONCILIATION.md).
+Earlier LOCAL ONLY / ABOUT-only delivery notes below are historical and superseded by this explicit instruction.
+
 **ABOUT delivery authorized — 2026-09-12:** current portrait biography and interactive 3D helix gallery are
 promoted to the Pages development preview with the reviewed Sou.P greeting. MEDIA/CONTACT local prototypes
 and developer comparisons are excluded. [Owner and checks](docs/redesign/review/ABOUT-PORTRAIT-GALLERY.md).
+PR #26 merged as `c1e0cd9`; the following ABOUT local-only notes record the pre-delivery state. MEDIA/CONTACT remain local.
+
+**Current local ABOUT / CONTACT prototypes — 2026-09-12:** main `c603782` 기준, 기존 MEDIA 변경을 보존했다.
+localhost `/about/`는 대표 초상 클릭 → 실제 초상 12장의 CSS 3D helix → 오른쪽 고정 세로 strip을 사용한다.
+사진열 클릭은 나선 재개와 선택 사진 확대로 이어진다. 사진만 닫으면 나선 유지, 나선의 Close는 원래 사진열 복귀다.
+정렬 이후 Biography → 최신순 Milestones → Recitals → Albums → Career/Education/Awards의 글만 스크롤된다. `/contact/`는 반복 타이포의 조용한 교차 이동, 실제 이메일과 COPIED 반응이다.
+두 페이지 모두 DEV + localhost에서만 연결되며 공개 fixture는 유지한다. 이번 ABOUT 수정과 함께 HOME Sou.P 인사만
+“사랑하는 소울이와 하울이 아빠”로 바꿨으며 기존 서명·동작은 유지했다. 다른 page/audio runtime 변경 없음.
+[ABOUT / CONTACT 연구·검증](docs/redesign/review/ABOUT-CONTACT-PROTOTYPES.md). LOCAL ONLY / visual approval pending.
+
+**Current local MEDIA prototype — 2026-09-12:** main `c603782` 기준, localhost `/media/`에 실제 영상 4편과
+기사 12건의 전체 페이지를 추가했다. 공연 3편을 고르는 통합 Films + Unwoven 리본 전환 → 동일 still의 focus 확장 →
+Special Archive(자유를 잃은 새) → text Press Index. `import.meta.env.DEV` + localhost guard로 공개 프리뷰에서 제외한다.
+MEDIA 전용 구현과 로컬 route 연결 외 다른 page/audio runtime은 수정하지 않았다.
+[MEDIA 연구 및 검증](docs/redesign/review/MEDIA-PROTOTYPE.md). LOCAL ONLY / visual approval pending.
 
 **Delivery authorization — 2026-09-11:** user requests PR + merge of the current development screen unchanged.
 This supersedes LOCAL ONLY for the accumulated local bundle below. Development-preview mode now enables all

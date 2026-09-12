@@ -11,6 +11,12 @@ export function albumStudyHref(record: { id: string; type: string; referenceUrl:
 export const isLocalDetailRoute = (route: string | null) => Boolean(route?.startsWith('/album/')
   || isPerformanceStudyRoute(route))
 
+/** A URL commit alone does not mean the old detail DOM has been replaced. */
+export function detailDestinationMatches(requested: string, current: string | null, owner: string | undefined) {
+  const path = (value: string | null | undefined) => value?.split(/[?#]/)[0].replace(/\/$/, '')
+  return path(requested) === path(current) && path(requested) === path(owner)
+}
+
 export function requestAlbumEntry(href: string, src: string, bounds: { x: number; y: number; width: number; height: number }) {
   return !window.dispatchEvent(new CustomEvent('album-entry', { cancelable: true, detail: { href, src, bounds } }))
 }

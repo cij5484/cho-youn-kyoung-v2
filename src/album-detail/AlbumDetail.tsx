@@ -74,7 +74,7 @@ function Exhibition({ album }: { album: AlbumExhibit }) {
     for (const key of ['turn', 'lean', 'x', 'y', 'light']) event.currentTarget.style.removeProperty(`--paper-${key}`)
   }
 
-  return <article ref={root} className="album-exhibition" data-mood={album.mood} data-open={open} data-playing={playing} lang="ko">
+  return <article ref={root} data-detail-route={`/album/${album.slug}`} className="album-exhibition" data-mood={album.mood} data-open={open} data-playing={playing} lang="ko">
     <nav className="album-chapters" aria-label="앨범 장면">
       <a href="#album-opening">01 <span>OBJECT</span></a><a href="#album-story">02 <span>STORY</span></a>
       <a href="#album-listen">03 <span>LISTEN</span></a><a href="#album-credits">04 <span>PEOPLE</span></a>

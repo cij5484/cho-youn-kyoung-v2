@@ -7,6 +7,15 @@ const phase = (value: number, from: number, to: number) => {
 
 const properties = ['--aa-rule', '--aa-image', '--aa-meta', '--aa-index']
 
+/** Desktop goes straight from the compact title rail to the persistent preview. */
+export function archiveAssembly(expansion: number, desktopPreview: boolean) {
+  return {
+    rowExpansion: desktopPreview ? 0 : expansion,
+    railOpacity: desktopPreview ? 1 - phase(expansion, 0, .45) : 1,
+    previewOpacity: phase(expansion, .12, .9),
+  }
+}
+
 export function mountAtmosphericArchive(root: HTMLElement): () => void {
   const owner = root.closest('.atmospheric-experience')!
   const spatial = owner.querySelector<HTMLElement>('.atmospheric-depth')!
@@ -17,6 +26,9 @@ export function mountAtmosphericArchive(root: HTMLElement): () => void {
   const contentFrame = spatial.querySelector<HTMLElement>('.atmospheric-content-frame')
   const indexLink = spatial.querySelector<HTMLElement>('.atmospheric-index')
   const header = root.querySelector<HTMLElement>('.atmospheric-archive-heading')!
+  const records = root.querySelector<HTMLElement>('.atmospheric-archive-records')!
+  const preview = root.querySelector<HTMLElement>('.atmospheric-archive-preview')
+  const desktop = matchMedia('(min-width: 1000px) and (hover: hover) and (pointer: fine)')
   const reduced = matchMedia('(prefers-reduced-motion: reduce)')
   let frame = 0, disposed = false
   const request = () => { if (!disposed && !document.hidden && !frame) frame = requestAnimationFrame(update) }
@@ -28,6 +40,13 @@ export function mountAtmosphericArchive(root: HTMLElement): () => void {
     const staticMode = reduced.matches || spatial.dataset.static === 'true'
     // Finish the paper assembly before the native INDEX anchor settles.
     const expansion = staticMode ? 1 : phase(Number(spatial.dataset.resolution ?? 0), 0, .88)
+    const desktopPreview = !!preview && desktop.matches
+    const assembly = archiveAssembly(expansion, desktopPreview)
+    records.style.setProperty('--aa-expansion', String(assembly.rowExpansion))
+    root.style.setProperty('--aa-rail-opacity', String(assembly.railOpacity))
+    root.style.setProperty('--aa-preview-opacity', String(assembly.previewOpacity))
+    records.inert = desktopPreview && expansion >= .45
+    if (preview) preview.inert = !desktopPreview || expansion < .9
     const mobile = innerWidth <= 700
     const desktopColumns = innerWidth >= 1000
     const frameBounds = desktopColumns ? contentFrame?.getBoundingClientRect() : null
@@ -51,9 +70,9 @@ export function mountAtmosphericArchive(root: HTMLElement): () => void {
     if (header.inert !== (expansion < .95)) header.inert = expansion < .95
     // Expansion changes layout: apply it first, then measure every row before writing row styles.
     const rects = rows.map(row => row.getBoundingClientRect())
-    const gathered = phase(expansion, 0, 1)
+    const gathered = phase(assembly.rowExpansion, 0, 1)
     // Every row reveals on the same assembly clock, including rows below the viewport.
-    const progress = expansion
+    const progress = assembly.rowExpansion
     const values = [phase(progress, .06, .52), phase(progress, .24, .85),
       phase(progress, .32, .90), phase(progress, .55, 1)]
     rows.forEach((row, index) => {
@@ -90,13 +109,19 @@ export function mountAtmosphericArchive(root: HTMLElement): () => void {
   root.addEventListener('focusin', request); root.addEventListener('focusout', request)
   document.addEventListener('visibilitychange', visibility)
   reduced.addEventListener('change', request)
+  desktop.addEventListener('change', request)
   update()
   return () => {
     disposed = true; stop(); resize.disconnect(); mutations.disconnect()
     window.removeEventListener('scroll', request); window.removeEventListener('resize', request)
     root.removeEventListener('focusin', request); root.removeEventListener('focusout', request)
     document.removeEventListener('visibilitychange', visibility); reduced.removeEventListener('change', request)
+    desktop.removeEventListener('change', request)
     header.inert = false
+    records.inert = false
+    if (preview) preview.inert = false
+    records.style.removeProperty('--aa-expansion')
+    root.style.removeProperty('--aa-rail-opacity'); root.style.removeProperty('--aa-preview-opacity')
     root.style.removeProperty('--aa-rail-step')
     rows.forEach((row, index) => {
       properties.forEach(property => row.style.removeProperty(property))

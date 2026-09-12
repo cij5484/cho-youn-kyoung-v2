@@ -1,0 +1,45 @@
+.contact-page { min-height: 100svh; padding: clamp(96px, 12svh, 120px) var(--page-gutter) 20px; color: var(--color-ink); background: var(--color-canvas); display: flex; flex-direction: column; overflow: clip; }
+.contact-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding-bottom: 23px; border-bottom: 1px solid var(--color-hairline); }
+.contact-heading h1, .contact-heading p { margin: 0; font: 11px/1.6 var(--font-body); letter-spacing: .12em; text-transform: uppercase; }
+.contact-type { margin: auto calc(-1 * var(--page-gutter)); padding: clamp(32px, 5svh, 70px) 0; user-select: none; }
+.contact-type-window { overflow: hidden; padding: .055em 0 .13em; font: 400 clamp(56px, min(9.5vw, 12svh), 182px)/.91 var(--font-display); letter-spacing: -.045em; }
+.contact-type-motion { display: flex; justify-content: center; }
+.contact-type-track { flex: 0 0 auto; display: flex; align-items: baseline; gap: .4em; white-space: nowrap; }
+.contact-type-window:nth-child(2) .contact-type-track { padding-left: 5vw; }
+.contact-type-window:nth-child(3) .contact-type-track { padding-right: 8vw; }
+.contact-type-word { position: relative; }
+.contact-type-echo { color: transparent; -webkit-text-stroke: .7px var(--color-accent); opacity: .26; }
+.contact-word-original { display: block; transition: transform .48s cubic-bezier(.22,.61,.36,1), opacity .3s; }
+.contact-word-copied { position: absolute; inset: 0; text-align: center; color: var(--color-muted-text); opacity: 0; transform: translateY(90%); transition: transform .48s cubic-bezier(.22,.61,.36,1), opacity .3s; }
+.contact-page[data-copy="copied"] .contact-type-window:nth-child(3) .contact-word-original { opacity: 0; transform: translateY(-90%); }
+.contact-page[data-copy="copied"] .contact-word-copied { opacity: 1; transform: translateY(0); }
+.contact-details { width: min(850px, 100%); margin: 0 auto 24px; text-align: center; }
+.contact-inquiry-label { margin: 0 0 18px; font: 13px/1.8 var(--font-body); color: var(--text-secondary); }
+.contact-details address { font-style: normal; }
+.contact-email { display: inline-block; max-width: 100%; font: 400 clamp(35px, 4.8vw, 72px)/1.25 var(--font-display); letter-spacing: -.025em; text-decoration: none; overflow-wrap: anywhere; user-select: text; }
+.contact-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 36px; margin-top: 22px; }
+.contact-actions a, .contact-actions button { padding: 11px 0; min-height: 44px; border: 0; border-bottom: 1px solid var(--color-ink); background: none; color: inherit; font: 13px/1.6 var(--font-body); text-decoration: none; cursor: pointer; }
+.contact-actions button:disabled { cursor: wait; opacity: .6; }
+.contact-page a:hover, .contact-actions button:hover { color: var(--color-muted-text); }
+.contact-page :is(a,button):focus-visible { outline: 2px solid var(--color-ink); outline-offset: 6px; }
+.contact-copy-status { min-height: 24px; margin: 18px 0 0; font: 12px/1.8 var(--font-body); color: var(--text-secondary); }
+.contact-footer { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 16px; border-top: 1px solid var(--color-hairline); font: 11px/1.8 var(--font-body); letter-spacing: .06em; }
+.contact-footer a { display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+@media (max-width: 700px) {
+  .contact-page { padding-top: 108px; padding-bottom: 20px; }
+  .contact-heading { padding-bottom: 18px; }
+  .contact-heading h1, .contact-heading p { font-size: 10px; }
+  .contact-type { padding: 72px 0 66px; }
+  .contact-type-window { font-size: 12vw; line-height: 1.2; letter-spacing: -.055em; }
+  .contact-type-window:nth-child(2) .contact-type-track { padding-left: 0; }
+  .contact-type-window:nth-child(3) .contact-type-track { padding-right: 8vw; }
+  .contact-type-echo { opacity: .15; }
+  .contact-inquiry-label { font-size: 12px; }
+  .contact-email { font-size: clamp(32px, 8.8vw, 52px); }
+  .contact-actions { margin-top: 20px; gap: 28px; }
+  .contact-details { margin-bottom: 30px; }
+  .contact-copy-status { min-height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-word-original, .contact-word-copied { transition: none; }
+}

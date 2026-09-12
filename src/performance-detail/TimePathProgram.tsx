@@ -8,8 +8,14 @@ type TimeProgram = { year?: number; title: string; composer?: string; note?: str
 /** One native scroll clock moves the object, drawn line, year navigation and editorial reading. */
 export function TimePathProgram({ program }: { program: TimeProgram[] }) {
   const root = useRef<HTMLElement>(null)
+  const navigateMotion = useRef<((index: number) => void) | null>(null)
   const uid = useId().replaceAll(':', '')
   const initial = timePathGeometry(1000, 600, program.length, false)
+
+  function navigate(index: number) {
+    if (navigateMotion.current) navigateMotion.current(index)
+    else root.current?.querySelectorAll('.performance-time-entry')[index]?.scrollIntoView({ block: 'center', behavior: 'instant' })
+  }
 
   useEffect(() => {
     if (!root.current || program.length < 2) return
@@ -72,17 +78,17 @@ export function TimePathProgram({ program }: { program: TimeProgram[] }) {
       const trigger = ScrollTrigger.create({ trigger: owner, start: 'top 70px', end: 'bottom bottom', invalidateOnRefresh: true,
         onUpdate: self => render(self.progress), onRefresh: self => { progress = self.progress; measure() },
       })
-      function navigate(event: Event) {
-        const index = Number((event.currentTarget as HTMLButtonElement).dataset.timeYear)
-        window.scrollTo({ top: trigger.start + (trigger.end - trigger.start) * timePathCheckpoint(index, program.length), behavior: 'instant' })
-        render(timePathCheckpoint(index, program.length))
+      navigateMotion.current = index => {
+        const checkpoint = timePathCheckpoint(index, program.length)
+        window.scrollTo({ top: trigger.start + (trigger.end - trigger.start) * checkpoint, behavior: 'instant' })
+        render(checkpoint)
       }
-      buttons.forEach(button => button.addEventListener('click', navigate))
       const observer = new ResizeObserver(measure)
       observer.observe(svg)
       return () => {
         observer.disconnect(); trigger.kill()
-        buttons.forEach(button => { button.removeEventListener('click', navigate); button.removeAttribute('aria-current') })
+        navigateMotion.current = null
+        buttons.forEach(button => button.removeAttribute('aria-current'))
         owner.dataset.motion = 'static'; delete owner.dataset.overview
         owner.style.removeProperty('--time-overview')
         entries.forEach(entry => { delete entry.dataset.active; entry.removeAttribute('aria-hidden') })
@@ -97,20 +103,22 @@ export function TimePathProgram({ program }: { program: TimeProgram[] }) {
   return <section ref={root} id="performance-program" className="performance-time-path" data-motion="static" style={{ '--time-count': program.length } as CSSProperties} aria-labelledby={`${uid}-title`}>
     <div className="performance-time-stage">
       <header className="performance-time-header"><p className="performance-kicker">PROGRAM</p><h2 id={`${uid}-title`}>곡목</h2></header>
-      <nav className="performance-time-nav" aria-label="프로그램 연도">{program.map((work, index) => <button key={`${work.year}-${work.title}`} type="button" data-time-year={index} onClick={() => {
-        if (root.current?.dataset.motion !== 'active') root.current?.querySelectorAll('.performance-time-entry')[index]?.scrollIntoView({ block: 'center', behavior: 'instant' })
-      }}>{work.year ?? String(index + 1).padStart(2, '0')}</button>)}</nav>
-      <svg className="performance-time-map" viewBox="0 0 1000 600" aria-hidden="true">
+      <nav className="performance-time-nav" aria-label="프로그램 연도">{program.map((work, index) => <button key={`${work.year}-${work.title}`} type="button" data-time-year={index} onClick={() => navigate(index)}>{work.year ?? String(index + 1).padStart(2, '0')}</button>)}</nav>
+      <svg className="performance-time-map" viewBox="0 0 1000 600" role="group" aria-label="연도별 곡 해설 선택">
         <defs>{initial.segments.map((d, index) => <path key={index} d={d} data-time-segment/>)}</defs>
         <path className="performance-time-line" d={initial.path} fill="none" vectorEffect="non-scaling-stroke"/>
         <path className="performance-time-ink" d={initial.path} fill="none" vectorEffect="non-scaling-stroke"/>
-        {program.map((work, index) => <g key={`${work.year}-${work.title}`} className="performance-time-landmark" transform={`translate(${initial.anchors[index].x} ${initial.anchors[index].y})`}>
+        {program.map((work, index) => <g key={`${work.year}-${work.title}`} className="performance-time-landmark" transform={`translate(${initial.anchors[index].x} ${initial.anchors[index].y})`}
+          role="button" tabIndex={0} aria-label={`${work.year} ${work.title} 해설 보기`} onClick={() => navigate(index)} onKeyDown={event => {
+            if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); navigate(index) }
+          }}>
+          <rect className="performance-time-hit" x="-32" y="-40" width="64" height="56" fill="transparent"/>
           <circle r="3"/><text x="0" y="-18" textAnchor="middle">{work.year}</text>
         </g>)}
-        <g className="performance-time-object" transform={`translate(${initial.anchors[0]?.x ?? 0} ${initial.anchors[0]?.y ?? 0})`}><circle r="9"/><path d="M -20 0 H 20" fill="none" vectorEffect="non-scaling-stroke"/></g>
+        <g className="performance-time-object" aria-hidden="true" pointerEvents="none" transform={`translate(${initial.anchors[0]?.x ?? 0} ${initial.anchors[0]?.y ?? 0})`}><circle r="9"/><path d="M -20 0 H 20" fill="none" vectorEffect="non-scaling-stroke"/></g>
       </svg>
-      <div className="performance-time-readings">{program.map(work => <article className="performance-time-entry" key={`${work.year}-${work.title}`}>
-        <p className="performance-time-year">{work.year}</p><h3>{work.title}</h3>
+      <div className="performance-time-readings">{program.map((work, index) => <article className="performance-time-entry" key={`${work.year}-${work.title}`}>
+        <p className="performance-time-year">{work.year}</p><h3><button type="button" className="performance-time-select" aria-label={`${work.year} ${work.title} 해설 보기`} onClick={() => navigate(index)}>{work.title}</button></h3>
         {work.composer && <p className="performance-time-composer">작곡 {work.composer}</p>}
         {(work.shortNote ?? work.note) && <p className="performance-time-note">{work.shortNote ?? work.note}</p>}
         {work.instrumentation && <p className="performance-time-instrumentation">{work.instrumentation}</p>}
