@@ -184,3 +184,11 @@
   .performance-chapter-inner { padding-block:50px; }
   .performance-chapter+.performance-chapter { border-top:1px solid var(--record-rule); }
 }
+
+/* Native source downloads reuse the existing reading-link treatment. */
+.performance-downloads { display:flex; flex-wrap:wrap; gap:8px 24px; margin-inline-start:auto; }
+.performance-downloads .performance-text-link { width:auto; min-height:44px; }
+.performance-date a { color:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; }
+
+.performance-composer-read { font:inherit; color:inherit; text-align:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:.2em; }
+.performance-composer-read:focus-visible { outline:1px solid currentColor; outline-offset:5px; }

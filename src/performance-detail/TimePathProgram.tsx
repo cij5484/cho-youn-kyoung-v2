@@ -6,7 +6,7 @@ import { timePathCheckpoint, timePathFrame, timePathGeometry } from './time-path
 type TimeProgram = { year?: number; title: string; composer?: string; note?: string; shortNote?: string; instrumentation?: string }
 
 /** One native scroll clock moves the object, drawn line, year navigation and editorial reading. */
-export function TimePathProgram({ program }: { program: TimeProgram[] }) {
+export function TimePathProgram({ program, onRead }: { program: TimeProgram[]; onRead?: (index: number) => void }) {
   const root = useRef<HTMLElement>(null)
   const navigateMotion = useRef<((index: number) => void) | null>(null)
   const uid = useId().replaceAll(':', '')
@@ -119,7 +119,7 @@ export function TimePathProgram({ program }: { program: TimeProgram[] }) {
       </svg>
       <div className="performance-time-readings">{program.map((work, index) => <article className="performance-time-entry" key={`${work.year}-${work.title}`}>
         <p className="performance-time-year">{work.year}</p><h3><button type="button" className="performance-time-select" aria-label={`${work.year} ${work.title} 해설 보기`} onClick={() => navigate(index)}>{work.title}</button></h3>
-        {work.composer && <p className="performance-time-composer">작곡 {work.composer}</p>}
+        {work.composer && <p className="performance-time-composer">작곡 {onRead ? <button type="button" className="performance-composer-read" onClick={() => onRead(index)} aria-label={`${work.title} 작품 해설과 ${work.composer} 소개 읽기`}>{work.composer}</button> : work.composer}</p>}
         {(work.shortNote ?? work.note) && <p className="performance-time-note">{work.shortNote ?? work.note}</p>}
         {work.instrumentation && <p className="performance-time-instrumentation">{work.instrumentation}</p>}
       </article>)}</div>

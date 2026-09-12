@@ -47,7 +47,7 @@ not visual quality approval. Existing uncommitted audio work is preserved separa
   the detail was opened directly. The selected poster's entry staging is owned by the shared transition's
   Performance branch; the existing Album entry behavior is unchanged.
   Archive uses two full-frame leaflet derivatives with provenance in `src/performance-detail/source-manifest.json`.
-  The unrelated historical background paragraph for the solo work is omitted rather than reconciled by invention.
+  Phase 4 (2026-09-12) restores the V1 full program notes in the existing text reader, including the solo work’s historical paragraph. Its source context remains distinct from the artist note; no invented reconciliation. See [restoration audit](review/V1-CONTENT-RESTORATION.md).
 - Existing navigation and `AlbumSignaturePair` anchor/handoff contract are reused. Native dialog provides full-size
   printed material viewing, keyboard navigation and zoom, plus complete text reading on compact screens.
   Native scroll drives the sticky scene sequence; reduced motion retains ordinary readable sections.
