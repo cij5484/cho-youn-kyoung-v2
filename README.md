@@ -3,7 +3,7 @@
 P0E에서 승인된 KO/EN routing·metadata 계약을 CI와 명시적 delivery 절차에 연결했습니다. React + TypeScript + Vite 기반의
 18개 neutral test route에 P2A production CSS foundation을 적용했습니다. **현재 개발 HOME 전체는 `npm run dev:interaction` → [4180](http://127.0.0.1:4180/)에서 확인합니다.**
 Hero → Haegeum → SOUND → Works → Album Object → Performance → Artist → Name이 연결됐습니다.
-공개 build는 아직 18개 neutral route이며, 새 HOME의 production route 편입·공식 번역·콘텐츠 공개 승인은 별도입니다.
+현재 Pages는 ENTRY / Classic / Immersive와 실제 상세 페이지를 개발 Preview로 제공합니다. 아래 P0 기록의 18개 neutral route는 별도 검증 artifact입니다.
 **React Router + Static Prerender APPROVE / HOME V2.1 문서 승인 / P0F documentation / AGENTS canonical APPROVED.**
 
 [P0D 결과](P0D-RESULT.md), [언어·metadata 계약](docs/redesign/review/LOCALE-METADATA-CONTRACT.md),
@@ -25,6 +25,25 @@ Preview: [GitHub Pages](https://cij5484.github.io/cho-youn-kyoung-v2/). 최신 �
 P1A는 content schema/neutral fixture/route adapter를 검증했습니다. P1C 매핑 승인 후 P1D에서 지영희류 KO record
 한 건을 실제 content layer의 비공개 draft로 등록했습니다. [Content Schema Contract](docs/redesign/review/CONTENT-SCHEMA-CONTRACT.md)와
 [P1D 결과](P1D-RESULT.md)를 따릅니다. 현재 페이지·18개 prerender route는 그대로이며 실제 template 연결은 미구현입니다.
+
+## 정식 도메인 빌드 준비 — Phase 5A
+
+`config/public-site.ts`가 `https://choyounkyoung.com` / root base를 정의합니다.
+현재 운영 도메인 설정은 변경하지 않았습니다. [정책·검증·수동 전환 순서](docs/redesign/review/PRODUCTION-SEO-DOMAIN-READINESS.md).
+
+```sh
+# 기존 ENTRY 가이드의 pinned Classic checkout 경로를 지정합니다.
+CLASSIC_REPOSITORY=/absolute/path/to/classic-checkout npm run build:production
+npm run test:production-artifact
+npm run preview:production
+```
+
+산출물은 `build-production/`, 로컬 확인은 [4185](http://127.0.0.1:4185/)입니다.
+`test:seo`는 Fast에 포함됩니다. `production-readiness.yml`은 exact SHA로 빌드/검증 artifact만 만들며 배포하지 않습니다.
+기존 `build:development-preview`와 Pages 자동 배포는 기본적으로 noindex Preview를 유지합니다.
+향후 별도 승인된 도메인 전환 때만 Pages 설정과 repository variable `PAGES_SITE_MODE=production`을 함께 변경합니다.
+두 설정이 맞지 않으면 배포 전 중단합니다. CNAME 파일 추가로 도메인을 전환하지 않습니다.
+기존 수동 Full Release Gate는 그대로 유지됩니다.
 
 ## 프로젝트 문서 시작점
 

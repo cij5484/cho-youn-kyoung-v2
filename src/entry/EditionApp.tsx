@@ -1,3 +1,5 @@
+import { updateSiteMetadata } from '../seo/browser.ts'
+import { legacyHashPath } from '../seo/metadata.ts'
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { BrowserRouter } from 'react-router'
 import EntryScreen from './EntryScreen.tsx'
@@ -12,7 +14,10 @@ const classicOrigin = new URL(classicUrl).origin
 const readRoute = () => editionRoute(location.pathname, entryBase)
 const modeHref = (mode: Edition, path = '/') => editionHref(mode, path, entryBase)
 // Normalize existing direct bookmarks before BrowserRouter reads the initial location.
+const legacy = location.pathname === entryBase ? legacyHashPath(location.hash) : undefined
+if (legacy) history.replaceState(null, '', `${entryBase}${legacy.slice(1)}${location.search}`)
 const initialRoute = readRoute()
+if (initialRoute.path.replace(/\/$/, '') === '/performance') initialRoute.path = '/works/'
 if (initialRoute.mode === 'immersive' && !location.pathname.startsWith(modeHref('immersive'))) {
   history.replaceState(null, '', modeHref('immersive', initialRoute.path) + location.search + location.hash)
 }
@@ -29,6 +34,7 @@ function Classic({ path, onReady }: { path: string; onReady: (timedOut: boolean)
       if (typeof next !== 'string' || !next.startsWith('/') || next.startsWith('//')) return
       if (location.pathname + location.search !== modeHref('classic', next)) {
         history[event.data.replace ? 'replaceState' : 'pushState'](null, '', modeHref('classic', next))
+        updateSiteMetadata()
       }
     }
     window.addEventListener('message', receive)
@@ -50,6 +56,7 @@ export default function EditionApp() {
     window.addEventListener('popstate', restore)
     return () => window.removeEventListener('popstate', restore)
   }, [route.mode, route.path])
+  useEffect(() => { updateSiteMetadata() }, [route, entry])
   const prepare = async (mode: Edition, signal: AbortSignal) => {
     if (mode === 'immersive') {
       const [, image] = await Promise.all([loadImmersive(), import('../hero/assets/portrait-initial.webp')])
@@ -58,7 +65,6 @@ export default function EditionApp() {
     else await fetch(classicUrl, { mode: 'cors', signal }).then(response => { if (!response.ok) throw new Error('Classic preview unavailable') })
     signal.throwIfAborted()
     history.pushState(null, '', modeHref(mode))
-    document.title = `CHO YOUN KYOUNG — ${mode === 'classic' ? 'Classic' : 'Immersive'}`
     const ready = mode === 'classic' ? new Promise<void>((resolve, reject) => {
       const timeout = window.setTimeout(() => classicReady.current?.(true), 16000)
       const cancel = () => { clearTimeout(timeout); classicReady.current = null; reject(signal.reason) }

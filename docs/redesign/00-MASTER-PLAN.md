@@ -25,7 +25,10 @@ V2 전체 개발 완료 후 `choyounkyoung.com` 단일 도메인에서 두 Editi
 **2026-09-12 사용자 승인:** `/` ENTRY, `/classic/...`, `/immersive/...` 선택 화면과 mode routing을 구현하고
 현재 화면을 Pages 개발 프리뷰에 PR/머지/배포한다. [ENTRY owner](review/ENTRY-CLASSIC-IMMERSIVE.md).
 Classic은 기존 독립 저장소·코드·CSS·의존성·빌드를 유지하며 고정 revision의 정적 산출물만 별도 경로로 제공한다.
-운영 도메인 통합, 검색 정책과 방문자 선택 기억은 여전히 별도 작업이다.
+**2026-09-13 Phase 5A:** 실제 공개 페이지의 SEO·검색 정책과 root-base 배포 artifact 준비만 승인됐다.
+ENTRY 자체 canonical, Immersive primary, Classic semantic counterpart canonical을 적용한다.
+[SEO/domain readiness owner](review/PRODUCTION-SEO-DOMAIN-READINESS.md).
+실제 운영 도메인 이전·DNS·외부 검색 등록은 아직 실행하지 않으며 별도 승인 후 진행한다.
 
 ---
 

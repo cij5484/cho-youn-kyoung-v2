@@ -28,7 +28,7 @@
     "test:locale": "node --test tests/locale-contract.test.ts",
     "test:pages": "playwright test --config playwright.pages.config.ts",
     "check": "npm run type-check && npm run lint && npm run build",
-    "gate:fast": "npm run type-check && npm run lint && npm run test:locale && npm run test:navigation:contract && npm run test:content && npm run test:sound:contract && npm run test:interaction:contract && npm run test:placement && npm run build && npm run test:content:visibility && npm run test:design-system:artifacts",
+    "gate:fast": "npm run type-check && npm run lint && npm run test:seo && npm run test:locale && npm run test:navigation:contract && npm run test:content && npm run test:sound:contract && npm run test:interaction:contract && npm run test:placement && npm run build && npm run test:content:visibility && npm run test:design-system:artifacts",
     "gate:full": "npm run gate:fast && npm run build:pages-preview && npm run test:spike && npm run test:design-system && npm run test:navigation && npm run test:hero && npm run test:haegeum && npm run test:sound && npm run test:interaction",
     "test:content": "node --test tests/content-contract.test.ts tests/draft-content.test.ts",
     "test:content:visibility": "node --test tests/content-visibility.test.ts",
@@ -47,7 +47,11 @@
     "build:development-preview": "node scripts/build-development-preview.mjs",
     "experience:promote": "node scripts/experience-promote.mjs",
     "test:experience": "node --test tests/comparison-settings.test.ts tests/experience-promotion.test.ts tests/outro-autonomous.test.ts tests/outro-cadence.test.ts tests/outro-visibility.test.ts",
-    "test:works": "node --test tests/works-catalog.test.ts tests/site-catalog.test.ts tests/works-experience.test.ts tests/works-atmospheric.test.ts"
+    "test:works": "node --test tests/works-catalog.test.ts tests/site-catalog.test.ts tests/works-experience.test.ts tests/works-atmospheric.test.ts",
+    "build:production": "node scripts/build-development-preview.mjs --production",
+    "test:seo": "node --test tests/production-seo.test.ts",
+    "preview:production": "node scripts/static-spike-server.mjs production",
+    "test:production-artifact": "node --test tests/production-artifact.test.ts"
   },
   "dependencies": {
     "@fontsource-variable/cormorant-garamond": "5.3.0",

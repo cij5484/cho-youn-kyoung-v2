@@ -10,7 +10,7 @@ export function GlobalPageTransition() {
   const go = useEffectEvent((path: string) => navigate(path))
   const current = useEffectEvent(() => location.pathname)
   useEffect(() => {
-    if (import.meta.env.MODE !== 'development-preview' && (!import.meta.env.DEV || !/^(localhost|127\.0\.0\.1|\[::1\])$/.test(window.location.hostname))) return
+    if (import.meta.env.MODE !== 'development-preview' && import.meta.env.MODE !== 'public-site' && (!import.meta.env.DEV || !/^(localhost|127\.0\.0\.1|\[::1\])$/.test(window.location.hostname))) return
     controller.current = mountPageTransition(dialog.current!, go, current)
     return () => { controller.current?.destroy(); controller.current = null }
   }, [])

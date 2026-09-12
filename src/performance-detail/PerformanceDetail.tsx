@@ -41,8 +41,7 @@ export function PerformanceRecordPage({ record }: { record: PerformanceRecord })
   useEffect(() => {
     const dispose = record.variant === 'dual-flow' ? mountPerformanceDualFlow(root.current!)
       : record.variant === 'svg-mask' ? mountPerformanceMask(root.current!) : () => {}
-    const previousTitle = document.title; document.title = `${record.title} — 조윤경`
-    return () => { dispose(); document.title = previousTitle }
+    return () => { dispose() }
   }, [record])
 
   function showText(index?: number) {

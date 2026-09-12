@@ -76,8 +76,6 @@ export default function MediaPrototype() {
   const [active, setActive] = useState(featured)
   const [selection, select] = useState<Selection | null>(null)
   useEffect(() => {
-    const title = document.title
-    document.title = 'Media — 조윤경'
     renderer.current = mountMediaLoom({ host: loom.current!, source: featured.poster, aspect: featured.aspect, sources: films.map(film => film.poster) })
     gsap.registerPlugin(ScrollTrigger)
     let current = 0
@@ -92,7 +90,7 @@ export default function MediaPrototype() {
         } })
       return () => { scroll.current = null }
     })
-    return () => { media.revert(); renderer.current?.dispose(); renderer.current = null; document.title = title }
+    return () => { media.revert(); renderer.current?.dispose(); renderer.current = null }
   }, [])
   return <article className="media-page">
     <header className="media-hero"><div><p className="media-eyebrow">CHO YOUN KYOUNG</p><h1>Media<span>.</span></h1></div><p className="media-hero-index">{String(records.videos.length).padStart(2, '0')} FILMS<br/>{String(records.press.length).padStart(2, '0')} PRESS</p></header>

@@ -1,14 +1,21 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
-## Current local task — 2026-09-12 / Phase 4 content restoration
+## Current local task — 2026-09-13 / Phase 5A production SEO readiness
 
-Implemented locally from main `b403531`. User approved PR/merge/Preview delivery on 2026-09-13.
-V1 missing full program notes, composer introductions/years, concert introduction, six PDF links,
-two verified venue links and two albums’ performer credits restored in existing V2 reading/data surfaces.
-Current signatures, short scene copy, image readers, Phase 2 performance work and SEO remain unchanged.
-Source comparison, retained facts, exclusions and checks: [Phase 4 audit](docs/redesign/review/V1-CONTENT-RESTORATION.md).
-User next authorized Phase 5A production SEO/domain readiness after this delivery; no DNS or external search registration.
+Phase 4 content restoration delivered through [PR36](https://github.com/cij5484/cho-youn-kyoung-v2/pull/36),
+main `ceeaa711b59b9e6d416cf35e646f7d90bdaf2186`; Fast and automatic Pages build/deploy/public verification
+passed ([run34702442974](https://github.com/cij5484/cho-youn-kyoung-v2/actions/runs/34702442974)).
+[Phase 4 audit](docs/redesign/review/V1-CONTENT-RESTORATION.md) records restored/retained/excluded facts.
+
+Phase 5A is USER APPROVED FOR DELIVERY on 2026-09-13, based on that baseline: production static metadata, 13 actual
+primary URLs, semantic Classic→Immersive canonical, sitemap/robots/JSON-LD, known V1 hash bookmarks,
+six preserved PDF paths and a separate root-base artifact. Default Pages Preview stays noindex.
+[SEO/domain readiness owner](docs/redesign/review/PRODUCTION-SEO-DOMAIN-READINESS.md) owns implementation,
+checks, legacy limitations and human cutover steps. No DNS, Pages custom-domain setting, repository variable,
+external search registration or Phase 5A deployment was performed. No design/content/motion changes.
+Phase 5B now explicitly authorizes delivery first in Preview mode, then audited domain transfer and live SEO checks.
+Do not set the persistent production mode until the custom domain is verified serving V2. No external search registration.
 
 ## Current handoff — 2026-09-12 / Mac continuation
 

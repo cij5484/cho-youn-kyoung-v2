@@ -68,7 +68,7 @@ export default function EntryScreen({ prepare, finish }: { prepare: (mode: Editi
   const root = useRef<HTMLDivElement>(null), sculpture = useRef<SculptureHandle>(null)
   const running = useRef(false), alive = useRef(true), animations = useRef<Animation[]>([])
   const request = useRef<AbortController | null>(null)
-  useEffect(() => { alive.current = true; const pending = animations.current; document.title = 'CHO YOUN KYOUNG — Classic / Immersive'; return () => { alive.current = false; request.current?.abort(); pending.forEach(animation => animation.cancel()) } }, [])
+  useEffect(() => { alive.current = true; const pending = animations.current; return () => { alive.current = false; request.current?.abort(); pending.forEach(animation => animation.cancel()) } }, [])
   const preview = (mode: Edition) => { if (running.current) return; setActive(mode); if (mode === 'immersive') setLoaded(true) }
   const enter = async (mode: Edition) => {
     if (running.current) return
