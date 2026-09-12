@@ -12,7 +12,7 @@ export function createMenuReveal(dialog: HTMLDialogElement, notify: (phase: Menu
   let wantedOpen = false
   let previousOverflow: string | undefined
   let returnFocus: HTMLElement | null = null
-  let focusFrame = 0
+  let pendingFocus: HTMLElement | null = null
   let disposed = false
 
   function phase(value: MenuPhase) {
@@ -32,18 +32,17 @@ export function createMenuReveal(dialog: HTMLDialogElement, notify: (phase: Menu
     cancelAnimations()
     if (dialog.open) dialog.close()
     release()
-    phase('closed')
-    const opener = returnFocus
+    pendingFocus = restoreFocus ? returnFocus : null
     returnFocus = null
-    if (restoreFocus && !disposed && opener?.isConnected) {
-      // React first unhides the external trigger when it commits the closed phase.
-      focusFrame = requestAnimationFrame(() => {
-        focusFrame = 0
-        if (!disposed && !wantedOpen && !dialog.open && opener.isConnected
-          && (document.activeElement === document.body || document.activeElement === opener || dialog.contains(document.activeElement))) {
-          opener.focus({ preventScroll: true })
-        }
-      })
+    phase('closed')
+  }
+  function restoreFocus() {
+    const opener = pendingFocus
+    pendingFocus = null
+    // The owning React layout effect calls this only after unhiding the trigger.
+    if (!disposed && !wantedOpen && !dialog.open && opener?.isConnected
+      && (document.activeElement === document.body || document.activeElement === opener || dialog.contains(document.activeElement))) {
+      opener.focus({ preventScroll: true })
     }
   }
   function finish() {
@@ -81,7 +80,7 @@ export function createMenuReveal(dialog: HTMLDialogElement, notify: (phase: Menu
   }
   function move(open: boolean) {
     if (!open && !dialog.open) return
-    cancelAnimationFrame(focusFrame); focusFrame = 0
+    pendingFocus = null
     wantedOpen = open
     if (open && !dialog.open) {
       // Native pointer focus differs by browser; retain the external menu control explicitly.
@@ -111,7 +110,7 @@ export function createMenuReveal(dialog: HTMLDialogElement, notify: (phase: Menu
   const preferenceChanged = () => { if (reduced.matches && dialog.open) finish() }
   reduced.addEventListener('change', preferenceChanged)
   return {
-    open: () => move(true), close: () => move(false), toggle: () => move(!wantedOpen), closeImmediately,
-    destroy: () => { disposed = true; cancelAnimationFrame(focusFrame); reduced.removeEventListener('change', preferenceChanged); closeImmediately() },
+    open: () => move(true), close: () => move(false), toggle: () => move(!wantedOpen), closeImmediately, restoreFocus,
+    destroy: () => { disposed = true; reduced.removeEventListener('change', preferenceChanged); closeImmediately() },
   }
 }

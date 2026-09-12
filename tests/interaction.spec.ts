@@ -1,7 +1,7 @@
 import {test,expect,type Page} from '@playwright/test'
 async function ready(page:Page,path='/'){
   path += `${path.includes('?')?'&':'?'}diagnostics=1`
-  await page.goto(path);await page.locator('.spatial-canvas').first().waitFor({state:'attached'})
+  await page.goto(`/immersive${path}`);await page.locator('.spatial-canvas').first().waitFor({state:'attached'})
   // Only this suite's imagery is readiness-critical. Later HOME lazy assets should not be forced at the Hero.
   await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.querySelectorAll<HTMLImageElement>('.sound-experience img')].map(i=>i.decode().catch(()=>{})))})
 }
@@ -14,11 +14,11 @@ async function seek(page:Page,p:number){
 test('A retains frozen line/word presentation; comparison changes do not remount native audio',async({page})=>{
   await ready(page,'/?all=a');const root=page.locator('.sound-experience');await expect(root).toHaveAttribute('data-spatial-points','false')
   await expect(page.locator('.sound-surface .listen-mask')).toHaveCount(1);await expect(page.locator('.sound-surface .glyph-label')).toHaveCount(0)
-  await seek(page,1);await page.locator('audio').evaluate(e=>e.dataset.identity='same-element')
+  await seek(page,1);await page.locator('.sound-experience audio').evaluate(e=>e.dataset.identity='same-element')
   await page.locator('.p2k-comparison summary').click()
   // URL-backed controlled inputs commit with the router transition; observe the settled choice.
   for(const label of ['공간을 흐르는 두 점','해금과 장구','글자 재조립']){const choice=page.getByLabel(label,{exact:true});await choice.click();await expect(choice).toBeChecked()}
-  await expect(page.locator('audio')).toHaveAttribute('data-identity','same-element');await expect(page.locator('.spatial-canvas')).toHaveCount(2)
+  await expect(page.locator('.sound-experience audio')).toHaveAttribute('data-identity','same-element');await expect(page.locator('.spatial-canvas')).toHaveCount(2)
 })
 test('free trajectories have depth and bounded history, lock precisely to authored imagery, reverse cleanly',async({page})=>{
   await ready(page);const root=page.locator('.sound-experience'),one=await root.getAttribute('data-p2k-point0');await page.waitForTimeout(500)
@@ -31,7 +31,7 @@ test('free trajectories have depth and bounded history, lock precisely to author
 })
 
 test('detailed diagnostics require explicit opt-in while normal motion and reduced motion still work',async({page})=>{
-  await page.goto('/?dev=1') // Development controls alone must not enable detailed frame diagnostics.
+  await page.goto('/immersive/?dev=1') // Development controls alone must not enable detailed frame diagnostics.
   const root=page.locator('.sound-experience'),bow=page.locator('.bow-contact')
   await expect(root).toHaveAttribute('data-p2k-active','true')
   await expect(root).not.toHaveAttribute('data-p2k-point0',/.+/)
@@ -41,7 +41,7 @@ test('detailed diagnostics require explicit opt-in while normal motion and reduc
   await expect(root).not.toHaveAttribute('data-janggu-point',/.+/)
   await page.locator('.sound-surface .listen-trigger').click()
   await expect(root).toHaveAttribute('data-audio-state','playing')
-  await expect.poll(()=>page.locator('audio').evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeGreaterThan(.1)
+  await expect.poll(()=>page.locator('.sound-experience audio').evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeGreaterThan(.1)
   await expect(bow).not.toHaveAttribute('data-trail-span',/.+/)
   await expect(bow).not.toHaveAttribute('data-x',/.+/)
   await page.emulateMedia({reducedMotion:'reduce'})
@@ -53,7 +53,7 @@ test('SOUND sweep establishes horizontal lines; idle Janggu moves without fake p
   const root=page.locator('.sound-experience');const first=JSON.parse((await root.getAttribute('data-p2k-point0'))!)
   await expect(page.locator('.line-one')).toHaveCSS('transform','matrix(1, 0, 0, 1, 0, 0)')
   await seek(page,.96);const next=JSON.parse((await root.getAttribute('data-p2k-point0'))!);expect(next.x).toBeGreaterThan(first.x);expect(next.y).toBeCloseTo(first.y,0)
-  await seek(page,1);await expect(root).toHaveAttribute('data-janggu-hits','0');expect(await page.locator('audio').evaluate(e=>(e as HTMLAudioElement).paused)).toBe(true)
+  await seek(page,1);await expect(root).toHaveAttribute('data-janggu-hits','0');expect(await page.locator('.sound-experience audio').evaluate(e=>(e as HTMLAudioElement).paused)).toBe(true)
   const before=await root.getAttribute('data-janggu-point');await page.waitForTimeout(350);expect(await root.getAttribute('data-janggu-point')).not.toBe(before)
 })
 test('native playback drives conservative accents, no accents during pause and seek does not replay missed events',async({page})=>{
@@ -64,7 +64,7 @@ test('native playback drives conservative accents, no accents during pause and s
   await button.click();await expect(root).toHaveAttribute('data-audio-state','paused');const hits=await root.getAttribute('data-janggu-hits')
   await page.waitForTimeout(300);expect(await root.getAttribute('data-janggu-hits')).toBe(hits)
   await expect.poll(async()=>Number(await root.getAttribute('data-janggu-activity'))).toBeLessThan(.1)
-  await page.locator('audio').evaluate(e=>{(e as HTMLAudioElement).currentTime=14});await page.waitForTimeout(200);expect(await root.getAttribute('data-janggu-hits')).toBe(hits)
+  await page.locator('.sound-experience audio').evaluate(e=>{(e as HTMLAudioElement).currentTime=14});await page.waitForTimeout(200);expect(await root.getAttribute('data-janggu-hits')).toBe(hits)
   await expect(page.locator('.sound-surface .glyph-label')).toHaveAttribute('data-word','RESUME')
   await expect(button).toHaveAccessibleName('미리듣기 계속 듣기')
 })
@@ -91,7 +91,7 @@ test('menu and offscreen suspend the experimental loop, resume without resource 
   await seek(page,0);await expect(root).toHaveAttribute('data-p2k-active','true');await expect(page.locator('.spatial-canvas')).toHaveCount(2)
 })
 test('shared glyph DOM identity survives PAUSE/RESUME and rapid interrupted transitions settle',async({page})=>{
-  await ready(page,'/?study=type');await page.locator('.type-study').scrollIntoViewIfNeeded();const label=page.locator('.type-study .glyph-label')
+  await ready(page,'/?dev=1&study=type');await page.getByRole('button',{name:'개발 비교 접기',exact:true}).click();await page.locator('.type-study').scrollIntoViewIfNeeded();const label=page.locator('.type-study .glyph-label')
   await page.getByRole('button',{name:'PAUSE',exact:true}).click();await expect(label).toHaveAttribute('data-word','PAUSE');await page.waitForTimeout(480)
   await label.locator('[data-char="E"]').evaluate(e=>e.dataset.preserved='yes')
   await page.getByRole('button',{name:'RESUME',exact:true}).click();await expect(label.locator('[data-char="E"][data-preserved="yes"]')).toHaveCount(1)
@@ -123,11 +123,13 @@ test('no Web Audio: declared static Haegeum and offline Janggu candidates follow
   await expect(page.locator('.sound-visual-fallback')).toHaveText('Static Haegeum · Janggu uses precomputed percussion candidates.')
   await expect.poll(async()=>Number(await root.getAttribute('data-janggu-hits'))).toBeGreaterThan(0)
   await expect(root).toHaveAttribute('data-analysis-frames','0');await expect(page.locator('.bow-contact')).toHaveCSS('opacity','0')
-  expect(await page.locator('audio').evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeGreaterThan(0)
+  expect(await page.locator('.sound-experience audio').evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeGreaterThan(0)
 })
-test('leaving HOME unmounts the experiments and native media; route fixture is not a new page',async({page})=>{
-  await ready(page);await page.getByRole('button',{name:'MENU',exact:true}).click()
-  await page.locator('dialog a[href="/works/"]').click();await expect(page).toHaveURL(/\/works\/$/)
-  await expect(page.locator('audio')).toHaveCount(0);await expect(page.locator('.spatial-canvas')).toHaveCount(0)
-  await page.getByText('Return to interaction study →').click();await expect(page.locator('.spatial-canvas')).toHaveCount(2)
+test('leaving HOME for current WORKS unmounts the experiments and native media',async({page})=>{
+  await ready(page);const outgoingAudio=await page.locator('.sound-experience audio').elementHandle();await page.getByRole('button',{name:'MENU',exact:true}).click()
+  await expect(page.locator('#navigation-menu')).toHaveAttribute('data-phase','open')
+  await page.locator('dialog a[href="/immersive/works/"]').click();await expect(page).toHaveURL(/\/immersive\/works\/$/)
+  await expect(page.locator('.sound-experience audio')).toHaveCount(0);await expect(page.locator('.spatial-canvas')).toHaveCount(0)
+  expect(await outgoingAudio!.evaluate(el=>({connected:el.isConnected,paused:(el as HTMLAudioElement).paused}))).toEqual({connected:false,paused:true})
+  await page.locator('.editorial-navigation .nav-signature').click();await expect(page).toHaveURL(/\/immersive\/$/);await expect(page.locator('.spatial-canvas')).toHaveCount(2)
 })

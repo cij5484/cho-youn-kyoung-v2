@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from 'react'
 import { Link, useLocation } from 'react-router'
 import type { SemanticRoute } from '../routing/locale-contract.ts'
 import { routeHref } from '../spike/paths.ts'
@@ -26,6 +26,10 @@ export function EditorialNavigation({ catalog, mainId }: Props) {
     // Route activation/history must not wait for an exit animation or leave a modal over the new page.
     reveal.current?.closeImmediately()
   }, [location.key])
+
+  useLayoutEffect(() => {
+    if (phase === 'closed') reveal.current?.restoreFocus()
+  }, [phase])
 
   const triggerGraphic = <>
     <span className="trigger-copy" aria-hidden="true"><span className="trigger-window"><span className="trigger-switch">
@@ -62,7 +66,7 @@ export function EditorialNavigation({ catalog, mainId }: Props) {
         if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus() }
         else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus() }
       }}
-      onClose={() => { if (dialog.current?.open === false) reveal.current?.closeImmediately() }}
+      onClose={() => { if (dialog.current?.open === false && dialog.current.dataset.phase !== 'closed') reveal.current?.closeImmediately() }}
       onCancel={event => { event.preventDefault(); reveal.current?.close() }}>
       <div className="menu-top">
         <button className="menu-toggle" onClick={() => reveal.current?.toggle()}

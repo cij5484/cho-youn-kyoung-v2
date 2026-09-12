@@ -39,6 +39,8 @@
     "vite.sound.config.ts",
     "playwright.sound.config.ts",
     "vite.interaction.config.ts",
+    "vite.interaction-test.config.ts",
+    "playwright.production-works.config.ts",
     "playwright.interaction.config.ts",
     "playwright.home.config.ts"
   ]

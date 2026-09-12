@@ -50,12 +50,27 @@ which the original failed run had never reached. Its six failures had two causes
 (CLOSE no longer belongs to an ivory menu-key; the modal intentionally hides the retained external
 trigger from accessible role queries), and an actual focus-restoration race. Native dialog.close()
 tries restoring focus before React unhides the external MENU. The controller now retains its opener
-and restores focus in a cancellable next-frame callback after closed state commits. Reopening and
-disposal cancel it; deliberate focus elsewhere is preserved and route dismissal does not request it.
+and restores focus from the owning React layout effect after closed state commits. A next-frame
+attempt proved insufficient in WebKit: the callback still preceded React visibility changes.
+Pending restoration is consumed only on the committed closed frame; reopening/disposal clear it,
+deliberate focus elsewhere is preserved and route dismissal does not request it.
 No navigation style, animation timing or reversal changes. Contrast thresholds remain unchanged;
 the test now calculates CLOSE against the neutral Lab canvas and its actual difference blend mode.
 The retained DOM trigger's expanded state is checked separately from its modal visibility.
 Local Navigation26/26 passes, including interruption, reduced motion, route focus and dismissal focus.
+WebKit Hero dismissal cases passed6/6 (both widths repeated three times); Haegeum passed32/32.
+
+The existing interaction suite also predated EditionApp: root now renders ENTRY, HOME lives at
+/immersive/, and unqualified audio/dialog selectors collide with the global player/transition overlay.
+Tests now target the same actual Immersive renderer, scope HOME audio/navigation owners, explicitly
+opt into the glyph study, and use real WORKS→HOME navigation instead of a retired neutral-return link.
+All prior assertions remain, plus disconnected/paused verification of the outgoing HOME media.
+Its Vite test configuration inherits current interaction configuration and excludes only the independent
+Classic server plugin; this suite never enters Classic. Actual Classic build/delivery remains covered
+by the pinned production artifact checks. This avoids starting a second application just for Immersive
+component regression, while preserving the normal development command and user's running servers.
+Local interaction passed26/26 across Chromium/WebKit. A Vite module-request cancellation warning on
+immediate page navigation is recorded separately; this suite is not a general page-error audit.
 
 ## Validation and boundary
 
