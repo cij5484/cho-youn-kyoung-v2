@@ -38,7 +38,10 @@
 .navigation-menu::-webkit-scrollbar { display: none; }
 .navigation-menu::backdrop { background: transparent; }
 .navigation-menu[open] { display: block; }
-.menu-key { background: var(--color-surface); border-radius: 999px 0 0 999px; }
+.menu-key { background: var(--color-surface); clip-path: polygon(18px 0,100% 0,100% 100%,0 100%); }
+.menu-preferences, .menu-links li:nth-child(even) { clip-path: polygon(0 0,100% 0,100% 100%,22px 100%); }
+.menu-links li:nth-child(3) { clip-path: polygon(12px 0,100% 0,100% 100%,0 100%); }
+.menu-links li:nth-child(5) { clip-path: polygon(24px 0,100% 0,100% 100%,0 100%); }
 @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   /* The ivory floor keeps ink legible even over black, while the remaining tint comes from the actual scene. */
   .menu-key { background: rgb(249 247 242 / .82); -webkit-backdrop-filter: blur(12px) saturate(.65); backdrop-filter: blur(12px) saturate(.65); }

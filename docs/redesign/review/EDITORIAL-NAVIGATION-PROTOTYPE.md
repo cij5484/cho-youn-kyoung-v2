@@ -205,3 +205,5 @@ not deployment. The final delivery report and GitHub run identify the delivered 
 2026-09-12 delivery refinement: user requested rounded left ends; each existing menu key now has28px left corner radii, preserving square right attachment and the same material/timing.
 
 User correction: left ends must be semicircles, not28px rounded corners. Large equal radii use CSS radius normalization to resolve to half each key's height; right corners stay square.
+
+Final user revision replaces semicircles with alternating diagonal left cuts (12–24px), preserving rectangular right attachment, legibility, material and existing row travel.
