@@ -6,6 +6,13 @@ export function portraitHelix(index: number, count: number, width: number, heigh
     z: Math.cos(theta) * radius, rotationY: ((theta * 180 / Math.PI + 180) % 360) - 180 }
 }
 
+/** Two continuous ribbons wind through the same cylinder as the portraits. */
+export function portraitSignature(time: number, instrument: number, width: number, height: number, turn = 0) {
+  const phase = time * (instrument ? .94 : 1.2) + instrument * Math.PI
+  const position = .5 + .43 * Math.sin(phase * .57)
+  return portraitHelix(position, 2, width, height, turn + phase - position * Math.PI * 3)
+}
+
 /** Settled coordinates depend on viewport and identity, never scroll. */
 export function portraitStrip(index: number, count: number, width: number, height: number, aspect: number) {
   const slot = height * .76 / Math.max(1, count)

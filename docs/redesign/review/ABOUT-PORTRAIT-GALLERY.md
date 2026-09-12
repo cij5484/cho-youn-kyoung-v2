@@ -1,5 +1,11 @@
 # ABOUT portrait gallery — 2026-09-12 delivery
 
+Current refinement: the gallery's Violet/Lacquer trails use the same cylindrical XYZ coordinates as the portraits,
+with independent continuous travel and shared drag rotation. Native 3D depth puts them between the photos rather
+than above the dialog. Focused photos/hidden tabs pause the trails; reduced motion retains two static markers.
+The shared signature colors and two-second tapered tail remain. This refinement and accumulated Phase 2A fixes
+are authorized for PR/main/Pages delivery; previous scope notes below record the earlier ABOUT-only delivery.
+
 User authorized PR and merge of the reviewed ABOUT revision. Baseline `c603782`.
 The Pages development preview now serves this same ABOUT owner. MEDIA/CONTACT local prototypes and
 development comparison tools are not part of this delivery. Release fixtures and official EN remain separate.

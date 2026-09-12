@@ -1,7 +1,8 @@
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { EditorialNavigation } from '../../src/navigation/EditorialNavigation.tsx'
-import { siteCatalog, siteRoutes } from '../../src/routing/site-catalog.ts'
+import { immersiveNavigationCatalog, siteRoutes } from '../../src/routing/site-catalog.ts'
+import { normalizePath, resolveLanguageSwitch } from '../../src/routing/locale-contract.ts'
 import { WorksExperience } from '../../src/works/WorksExperience.tsx'
 import { HomeExperience } from '../../src/home/experience/HomeExperience.tsx'
 import { SoundComposition } from '../../src/sound/SoundComposition.tsx'
@@ -15,6 +16,7 @@ import { AlbumRouteTransition } from '../../src/album-detail/AlbumRouteTransitio
 import { localAlbumStudy } from '../../src/album-detail/album-navigation.ts'
 import { isPerformanceStudyRoute } from '../../src/performance-detail/performance-navigation.ts'
 import { GlobalAudioPlayer } from '../../src/audio/GlobalAudioPlayer.tsx'
+import { AlbumSignaturePair } from '../../src/album-detail/AlbumSignaturePair.tsx'
 const AlbumDetail = lazy(() => import('../../src/album-detail/AlbumDetail.tsx'))
 const MediaPrototype = lazy(() => import('../../src/media/MediaPrototype.tsx'))
 const AboutPrototype = lazy(() => import('../../src/about/AboutPrototype.tsx'))
@@ -32,18 +34,22 @@ export function InteractionLab(){
   const attach=useCallback((node:HTMLDivElement|null)=>{host.current=node;setElement(node)},[])
   const [word,setWord]=useState('PLAY')
   const locale=location.pathname.startsWith('/en')?'en':'ko'
+  const koreanPath = normalizePath(location.pathname).replace(/^\/en(?=\/|$)/, '') || '/'
+  const untranslated = locale === 'en' && resolveLanguageSwitch(koreanPath, 'en', immersiveNavigationCatalog).status === 'unavailable'
   const isHome=['/','/en','/en/'].includes(location.pathname)
+  const quietSignature = ['/media', '/about', '/contact'].includes(normalizePath(location.pathname))
   const albumSlug = localAlbumStudy() ? location.pathname.match(/^\/album\/([^/]+)\/?$/)?.[1] : undefined
   useEffect(()=>{document.documentElement.lang=locale},[locale])
   useEffect(()=>{if(!isHome)return;renderer.current=createInteractionRenderer(host.current!,{points:false,janggu:false,color:'lacquer'});return()=>{renderer.current?.destroy();renderer.current=null}},[location.pathname,isHome])
   useEffect(()=>{renderer.current?.configure({points,janggu,color})},[points,janggu,color,location.pathname])
   return <div ref={attach} className="hero-shell hero-lab interaction-lab" data-prototype="P2K_INTERACTION_LAB_ONLY">
-    <EditorialNavigation catalog={siteCatalog} mainId="interaction-main"/>
+    <EditorialNavigation catalog={immersiveNavigationCatalog} mainId="interaction-main"/>
     {GlobalPageTransition && <Suspense fallback={null}><GlobalPageTransition/></Suspense>}
     <AlbumRouteTransition/>
     {localAlbumStudy() && <GlobalAudioPlayer/>}
+    {quietSignature && <AlbumSignaturePair scope={host} quiet/>}
     <main id="interaction-main" tabIndex={-1}>
-      {isHome ? <>
+      {untranslated ? <section className="lab-destination page-frame"><h1>English translation unavailable.</h1><Link to={koreanPath} lang="ko">한국어 페이지 보기 →</Link></section> : isHome ? <>
       <SoundComposition key={location.pathname} locale={locale} visual="bow-contact" trail="long" activity="bold" violet="electric" preset="HOME_SIGNATURE" renderActionLabel={type?cascade:undefined} continuation={points?spatialContinuation:undefined} analysisFallback={janggu?(locale==='ko'?'해금은 정적 표시 · 장구는 사전 타격 추정값으로 표시합니다.':'Static Haegeum · Janggu uses precomputed percussion candidates.'):undefined}/>
       <HomeClosing key={`closing:${location.pathname}`} locale={locale}/>
       {import.meta.env.DEV&&study&&<section className="type-study page-frame" aria-label="글자 전환 비교">

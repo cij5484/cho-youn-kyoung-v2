@@ -4,6 +4,7 @@ import type { SemanticRoute } from '../routing/locale-contract.ts'
 import { routeHref } from '../spike/paths.ts'
 import { navigationModel } from './model.ts'
 import { createMenuReveal, type MenuPhase } from './menu-reveal.ts'
+import { ModeSwitch } from '../entry/ModeSwitch.tsx'
 
 interface Props { catalog: readonly SemanticRoute[]; mainId: string }
 
@@ -55,7 +56,7 @@ export function EditorialNavigation({ catalog, mainId }: Props) {
         if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); reveal.current?.close(); return }
         if (event.key !== 'Tab') return
         const controls = [...event.currentTarget.querySelectorAll<HTMLElement>('a[href], button:not(:disabled)')]
-          .filter(element => !element.closest('[inert]'))
+          .filter(element => !element.closest('[inert]') && element.getClientRects().length > 0)
         const first = controls[0], last = controls.at(-1)
         if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus() }
         else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus() }
@@ -86,6 +87,7 @@ export function EditorialNavigation({ catalog, mainId }: Props) {
           </ul>
         </nav>
         <div className="menu-bottom"><p className="type-micro" lang="en">CHO YOUN KYOUNG</p>{languageLinks}</div>
+        <ModeSwitch mode="immersive" path={location.pathname} placement="menu"/>
         {model.languages.some(item => item.status === 'unavailable') && <p className="type-metadata">English translation unavailable.</p>}
       </div>
     </dialog>

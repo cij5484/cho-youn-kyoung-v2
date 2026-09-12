@@ -5,6 +5,21 @@
 **Revision:** 1.47 / 2026-09-10 — approved WORKS promotion and comparison cleanup\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
+**Phase 2A / editorial signature delivery authorized — 2026-09-12:** user requests PR and merge of the accumulated
+confirmed fixes, Classic menu mode switch, Open styling and editorial signatures. This supersedes the local-only
+boundary below. ABOUT gallery ribbons weave through the portraits' shared 3D cylinder, follow drag rotation,
+pause behind the focused photo, and use stable markers for reduced motion. HOME choreography is unchanged.
+
+**Editorial page signature — 2026-09-12:** MEDIA, ABOUT and CONTACT reuse `AlbumSignaturePair` with
+quiet margin paths and reduced opacity. Both colors and the shared tapered tails remain; dialogs hide the pair,
+reduced motion uses static markers, and the existing audio handoff owns playback. HOME/WORKS/album paths are unchanged.
+
+**Phase 2A confirmed bug fixes — LOCAL, 2026-09-12:** HOME performance links now use the existing V2 base-aware
+helper. Unimplemented Immersive EN sections are unavailable in navigation and direct links show a KO fallback,
+while implemented EN HOME remains unchanged. Mobile mode controls live in the common MENU; Classic uses its own
+menu via the embedded-build bridge, with no separate iframe top bar. ABOUT idle input is limited to the enabled portrait. Player volume opening and mute have separate
+controls; playback and choreography are unchanged. Delivery is now authorized as recorded above.
+
 **Current ENTRY delivery — 2026-09-12:** user authorized the current ENTRY screen and the HOME-matched
 Immersive pair correction for PR/main/Pages. `/` selects Classic / Immersive; direct mode URLs and old deep
 bookmarks bypass ENTRY. The pair uses the shared HOME identity: 2-second headless tapered/faded tails and

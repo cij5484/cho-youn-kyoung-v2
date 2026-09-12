@@ -9,12 +9,13 @@ const subscribe = () => () => {}
 const clamp = (n: number, low: number, high: number) => Math.max(low, Math.min(high, n))
 
 /** Album-owned paths follow the exhibition's real objects; typography keeps its quiet centre. */
-export function AlbumSignaturePair({ scope }: { scope: RefObject<HTMLElement | null> }) {
+export function AlbumSignaturePair({ scope, quiet = false }: { scope: RefObject<HTMLElement | null>; quiet?: boolean }) {
   const mounted = useSyncExternalStore(subscribe, () => true, () => false)
   const layer = useRef<HTMLDivElement>(null), surface = useRef<HTMLCanvasElement>(null)
   useEffect(() => {
     const owner = scope.current, element = layer.current, canvas = surface.current
     if (!mounted || !owner || !element || !canvas) return
+    const ownerId = quiet ? 'editorial' : 'album'
     const context = canvas.getContext('2d'), reduced = matchMedia('(prefers-reduced-motion: reduce)')
     const mobile = matchMedia('(max-width: 700px)'), histories: Sample[][] = [[], []]
     const points = [{ x: 0, y: 0 }, { x: 0, y: 0 }]
@@ -34,12 +35,12 @@ export function AlbumSignaturePair({ scope }: { scope: RefObject<HTMLElement | n
     function request() {
       const shown = visible && !document.hidden && !modal
       element!.dataset.visible = String(shown); element!.dataset.static = String(reduced.matches || !context)
-      if (!shown) signatureAudioHandoff.remove('album')
+      if (!shown) signatureAudioHandoff.remove(ownerId)
       else if (reduced.matches || !context) {
         const now = performance.now()
         twoPointContract.order.forEach(id => {
           const marker = element!.querySelector<HTMLElement>(`[data-signature-point="${id}"]`)!.getBoundingClientRect()
-          signatureAudioHandoff.publish('album', id, { x: marker.x + marker.width / 2, y: marker.y + marker.height / 2, vx: 0, vy: 0, time: now })
+          signatureAudioHandoff.publish(ownerId, id, { x: marker.x + marker.width / 2, y: marker.y + marker.height / 2, vx: 0, vy: 0, time: now })
         })
       }
       if (!shown || reduced.matches || !context) { stop(); return }
@@ -76,8 +77,9 @@ export function AlbumSignaturePair({ scope }: { scope: RefObject<HTMLElement | n
       last = now; phase += dt * .32; context.clearRect(0, 0, width, height)
       twoPointContract.order.forEach((id, index) => {
         const identity = twoPointContract.points[id], angle = phase * (index ? .83 : 1) + index * 2.7
-        const text = chapter === 'story' || chapter === 'related'
-        const x = text ? (index ? width - 22 : 22) + Math.sin(angle) * 7
+        const text = quiet || chapter === 'story' || chapter === 'related'
+        const margin = quiet ? mobile.matches ? 19 : 36 : 22
+        const x = text ? (index ? width - margin : margin) + Math.sin(angle) * (quiet ? mobile.matches ? 9 : 18 : 7)
           : cx + rx * (.9 * Math.cos(angle) + .06 * Math.sin(angle * 2))
         const y = cy + ry * (.86 * Math.sin(angle) + .07 * Math.sin(angle * (index ? 2 : 1.7)))
         const point = points[index]
@@ -87,13 +89,13 @@ export function AlbumSignaturePair({ scope }: { scope: RefObject<HTMLElement | n
         const history = histories[index]
         if (!history.length || now - history[history.length - 1].time >= 1000 / 60) history.push({ ...point, time: now })
         while (history.length > 2 && (now - history[0].time > twoPointContract.moving.trailMs || history.length > 144)) history.shift()
-        signatureAudioHandoff.publish('album', id, { ...point, time: now, vx: initialized ? (point.x - previousX) / dt : 0, vy: initialized ? (point.y - previousY) / dt : 0, trail: history })
+        signatureAudioHandoff.publish(ownerId, id, { ...point, time: now, vx: initialized ? (point.x - previousX) / dt : 0, vy: initialized ? (point.y - previousY) / dt : 0, trail: history })
         if (signatureAudioHandoff.isActive()) return
         context.strokeStyle = identity.color; context.lineCap = 'round'
         for (let i = 1; i <= history.length; i++) {
           const from = history[i - 1], to = history[i] ?? { ...point, time: now }
           const fresh = clamp(1 - (now - (from.time + to.time) / 2) / twoPointContract.moving.trailMs, 0, 1)
-          context.globalAlpha = fresh ** twoPointContract.moving.fadeExponent * twoPointContract.moving.opacity
+          context.globalAlpha = fresh ** twoPointContract.moving.fadeExponent * twoPointContract.moving.opacity * (quiet ? .62 : 1)
           context.lineWidth = Math.max(twoPointContract.moving.widthRange[0], twoPointContract.moving.trailWidth * fresh)
           context.beginPath(); context.moveTo(from.x, from.y); context.lineTo(to.x, to.y); context.stroke()
         }
@@ -109,20 +111,20 @@ export function AlbumSignaturePair({ scope }: { scope: RefObject<HTMLElement | n
     modal = Boolean(document.querySelector('dialog[open]')); resize()
     return () => {
       disposed = true; stop(); intersection.disconnect(); sizing.disconnect(); dialogs.disconnect()
-      unsubscribeAudio(); signatureAudioHandoff.remove('album')
+      unsubscribeAudio(); signatureAudioHandoff.remove(ownerId)
       window.removeEventListener('scroll', measure); window.removeEventListener('resize', resize)
       document.removeEventListener('visibilitychange', measure); reduced.removeEventListener('change', measure); mobile.removeEventListener('change', resize)
       canvas.width = 0; canvas.height = 0
     }
-  }, [mounted, scope])
+  }, [mounted, scope, quiet])
   if (!mounted) return null
   const colors = {
     '--album-pair-violet': twoPointContract.points.haegeum.color, '--album-pair-lacquer': twoPointContract.points.janggu.color,
     '--album-pair-width': `${twoPointContract.static.desktop.width}px`, '--album-pair-height': `${twoPointContract.static.desktop.height}px`,
     '--album-pair-mobile-width': `${twoPointContract.static.mobile.width}px`, '--album-pair-mobile-height': `${twoPointContract.static.mobile.height}px`,
-    '--album-pair-opacity': twoPointContract.static.opacity,
+    '--album-pair-opacity': twoPointContract.static.opacity * (quiet ? .62 : 1),
   } as CSSProperties
-  return createPortal(<div ref={layer} className="album-signature-pair" aria-hidden="true" data-visible="false" data-static="true" style={colors}>
+  return createPortal(<div ref={layer} className="album-signature-pair" data-presence={quiet ? 'quiet' : 'object'} aria-hidden="true" data-visible="false" data-static="true" style={colors}>
     <canvas ref={surface}/><i data-signature-point="haegeum"/><i data-signature-point="janggu"/>
   </div>, document.body)
 }
