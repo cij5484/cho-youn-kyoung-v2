@@ -5,6 +5,10 @@
 **Revision:** 1.47 / 2026-09-10 — approved WORKS promotion and comparison cleanup\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
+**ABOUT delivery authorized — 2026-09-12:** current portrait biography and interactive 3D helix gallery are
+promoted to the Pages development preview with the reviewed Sou.P greeting. MEDIA/CONTACT local prototypes
+and developer comparisons are excluded. [Owner and checks](docs/redesign/review/ABOUT-PORTRAIT-GALLERY.md).
+
 **Delivery authorization — 2026-09-11:** user requests PR + merge of the current development screen unchanged.
 This supersedes LOCAL ONLY for the accumulated local bundle below. Development-preview mode now enables all
 three Performance routes, the curved global transition and WORKS archive preview, with explicit build inputs for

@@ -15,6 +15,7 @@ import { AlbumRouteTransition } from '../../src/album-detail/AlbumRouteTransitio
 import { localAlbumStudy } from '../../src/album-detail/album-navigation.ts'
 import { isPerformanceStudyRoute } from '../../src/performance-detail/performance-navigation.ts'
 import { GlobalAudioPlayer } from '../../src/audio/GlobalAudioPlayer.tsx'
+const AboutPrototype = lazy(() => import('../../src/about/AboutPrototype.tsx'))
 const AlbumDetail = lazy(() => import('../../src/album-detail/AlbumDetail.tsx'))
 const PerformanceDetail = lazy(() => import('../../src/performance-detail/PerformanceDetail.tsx'))
 const DevelopmentTools = import.meta.env.DEV ? lazy(() => import('../../src/experience-prototype/DevelopmentTools.tsx').then(module => ({ default: module.DevelopmentTools }))) : null
@@ -51,7 +52,7 @@ export function InteractionLab(){
         <p className="type-micro">개발용 비교 · 최종 선택 대기</p>
         <p>두 점 · 장구 · 글자 재조립 비교. 실제 장구 분리 음원이 아닌 혼합 음원의 보수적 타격 추정입니다.</p>
       </section>}
-      </> : location.pathname.replace(/\/$/, '') === '/works' ? <WorksExperience locale="ko"/> : isPerformanceStudyRoute(location.pathname) ? <Suspense fallback={<section className="lab-destination page-frame" aria-busy="true">공연 기록을 준비하고 있습니다.</section>}><PerformanceDetail/></Suspense> : albumSlug ? <Suspense fallback={<section className="lab-destination page-frame" aria-busy="true">앨범을 준비하고 있습니다.</section>}><AlbumDetail key={albumSlug} slug={albumSlug}/></Suspense> : <section className="lab-destination page-frame"><p>P2K / route fixture</p><h1>{siteRoutes.some(route=>route.path===location.pathname.replace(/\/$/,'')) ? location.pathname : '404'}</h1><Link to={locale==='ko'?'/':'/en'}>Return to interaction study →</Link></section>}
+      </> : location.pathname.replace(/\/$/, '') === '/works' ? <WorksExperience locale="ko"/> : location.pathname.replace(/\/$/, '') === '/about' ? <Suspense fallback={<section className="lab-destination page-frame" aria-busy="true">프로필을 준비하고 있습니다.</section>}><AboutPrototype/></Suspense> : isPerformanceStudyRoute(location.pathname) ? <Suspense fallback={<section className="lab-destination page-frame" aria-busy="true">공연 기록을 준비하고 있습니다.</section>}><PerformanceDetail/></Suspense> : albumSlug ? <Suspense fallback={<section className="lab-destination page-frame" aria-busy="true">앨범을 준비하고 있습니다.</section>}><AlbumDetail key={albumSlug} slug={albumSlug}/></Suspense> : <section className="lab-destination page-frame"><p>P2K / route fixture</p><h1>{siteRoutes.some(route=>route.path===location.pathname.replace(/\/$/,'')) ? location.pathname : '404'}</h1><Link to={locale==='ko'?'/':'/en'}>Return to interaction study →</Link></section>}
     </main>
     {isHome&&<HomeExperience host={element} locale={locale} options={settings}/>}
     {isHome&&DevelopmentTools&&<Suspense fallback={null}><DevelopmentTools host={element} settings={settings} locale={locale}/></Suspense>}
