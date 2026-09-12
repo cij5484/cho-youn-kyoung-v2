@@ -79,7 +79,7 @@ jobs:
             build-pages-preview/static/build-info.json
           retention-days: 14
       - name: Checkout pinned independent Classic for the entry destination
-        if: inputs.preview_artifact || inputs.production_artifact
+        if: inputs.full || inputs.preview_artifact || inputs.production_artifact
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           repository: cij5484/cho-youn-kyoung
@@ -87,18 +87,28 @@ jobs:
           path: .checkpoints/entry-classic-source
           persist-credentials: false
       - name: Install independent Classic lockfile
-        if: inputs.preview_artifact || inputs.production_artifact
+        if: inputs.full || inputs.preview_artifact || inputs.production_artifact
         run: npm ci --include=dev --prefix .checkpoints/entry-classic-source
       - name: Build entry and both modes for the selected origin
-        if: inputs.preview_artifact || inputs.production_artifact
+        if: inputs.full || inputs.preview_artifact || inputs.production_artifact
         env:
           CLASSIC_REPOSITORY: .checkpoints/entry-classic-source
-          PRODUCTION: ${{ inputs.production_artifact }}
+          PRODUCTION: ${{ inputs.full || inputs.production_artifact }}
         run: |
           if [ "$PRODUCTION" = true ]; then npm run build:production; else npm run build:development-preview; fi
       - name: Check production HTML, metadata and legacy document placement
-        if: inputs.production_artifact
+        if: inputs.full || inputs.production_artifact
         run: npm run test:production-artifact
+      - name: Full gate - actual built WORKS filtering on desktop and mobile
+        if: inputs.full
+        run: npm run test:works:production
+      - name: Retain production WORKS failure evidence
+        if: failure() && inputs.full
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: production-works-${{ github.sha }}
+          path: test-results/production-works/
+          retention-days: 14
       - name: Upload Fast-validated Pages artifact
         if: success() && inputs.preview_artifact
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4

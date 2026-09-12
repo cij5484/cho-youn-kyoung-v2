@@ -29,7 +29,7 @@
     "test:pages": "playwright test --config playwright.pages.config.ts",
     "check": "npm run type-check && npm run lint && npm run build",
     "gate:fast": "npm run type-check && npm run lint && npm run test:seo && npm run test:locale && npm run test:navigation:contract && npm run test:content && npm run test:sound:contract && npm run test:interaction:contract && npm run test:placement && npm run build && npm run test:content:visibility && npm run test:design-system:artifacts",
-    "gate:full": "npm run gate:fast && npm run build:pages-preview && npm run test:spike && npm run test:design-system && npm run test:navigation && npm run test:hero && npm run test:haegeum && npm run test:sound && npm run test:interaction",
+    "gate:full": "npm run gate:fast && npm run build:pages-preview && npm run test:spike && npm run test:design-system && npm run test:navigation && npm run test:hero && npm run test:haegeum && npm run test:sound && npm run test:interaction && npm run build:production && npm run test:production-artifact && npm run test:works:production",
     "test:content": "node --test tests/content-contract.test.ts tests/draft-content.test.ts",
     "test:content:visibility": "node --test tests/content-visibility.test.ts",
     "dev:navigation": "vite --config vite.navigation.config.ts",
@@ -51,7 +51,8 @@
     "build:production": "node scripts/build-development-preview.mjs --production",
     "test:seo": "node --test tests/production-seo.test.ts",
     "preview:production": "node scripts/static-spike-server.mjs production",
-    "test:production-artifact": "node --test tests/production-artifact.test.ts"
+    "test:production-artifact": "node --test tests/production-artifact.test.ts",
+    "test:works:production": "playwright test --config playwright.production-works.config.ts"
   },
   "dependencies": {
     "@fontsource-variable/cormorant-garamond": "5.3.0",

@@ -1,5 +1,16 @@
 # Implementation Task Protocol — mandatory bounded work
 
+## Phase 5B-1 — Release Gate scope correction, 2026-09-13
+
+[WORKS failure resolution](RELEASE-GATE-WORKS-RESOLUTION.md): neutral Framework WORKS remains an
+infrastructure fixture, not current product UX. Preserve its metadata/hydration/history contracts;
+actual product album/performance filtering is tested in the built root EditionApp on Chromium/WebKit,
+desktop/mobile. Full additionally builds production (with the existing pinned independent Classic
+checkout), runs production artifact tests and `test:works:production`. No suite is skipped, retries
+added or failure suppressed. Local Full needs CLASSIC_REPOSITORY pointing to that pinned checkout.
+No SEO/domain/DNS/production variable changes or cutover are authorized in this resolution task.
+
+
 ## Phase 5A preparation — user authorization 2026-09-13
 
 Deliver approved Phase 4 first (PR36 / main `ceeaa711`, Fast and Preview successful), then prepare

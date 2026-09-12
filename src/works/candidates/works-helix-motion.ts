@@ -16,7 +16,7 @@ export function mountWorksHelix(root: HTMLElement) {
   const chrome = [...stage.querySelectorAll<HTMLElement>('.atmospheric-heading,.works-helix-steps,.atmospheric-index')]
   const reduced = matchMedia('(prefers-reduced-motion: reduce)')
   const desktop = matchMedia('(min-width: 1000px) and (hover: hover) and (pointer: fine)')
-  let width = 1, height = 1, start = 0, range = 1, frame = 0, visible = true, disposed = false
+  let width = 1, height = 1, start = 0, range = 1, frame = 0, measureFrame = 0, visible = true, disposed = false
   let animation: { from: number; to: number; began: number } | undefined
   let stop = 0, wheelTime = 0, wheelDistance = 0, wheelConsumed = false, settleTimer = 0
   let drag: { id: number; x: number; y: number } | undefined
@@ -31,8 +31,9 @@ export function mountWorksHelix(root: HTMLElement) {
   let targets: { x: number; y: number; scaleX: number; scaleY: number; opacity: number }[] = []
   const target = (work: AtmosphericRecord, i: number) => {
     const preview = desktop.matches && paper.querySelector<HTMLElement>('.archive-preview-image')
+    // Desktop preview owns work IDs; original slots retain their stable catalog sequence.
     const row = (preview && paper.querySelector<HTMLElement>(`.archive-preview-list [data-work-id="${work.id}"]`))
-      || paper.querySelector<HTMLElement>(`.atmospheric-archive-row[data-work-id="${work.id}"] .atmospheric-archive-slot`)!
+      || paper.querySelector<HTMLElement>(`.atmospheric-archive-row[data-sequence="${i}"] .atmospheric-archive-slot`)!
     const box = (preview && i === 0 ? preview : row).getBoundingClientRect()
     if (!box.width && targets[i]) return targets[i]
     const paperBox = paper.getBoundingClientRect()
@@ -164,7 +165,11 @@ export function mountWorksHelix(root: HTMLElement) {
     if (inOpening()) settleTimer = window.setTimeout(() => go(nearestWorksHelixStop(progressAtScroll(),cards.length)), 160)
   }
   const visibility = () => { cancelAnimationFrame(frame); frame=0; request() }
-  const resize = new ResizeObserver(measure); resize.observe(paper)
+  // Measuring updates the ancestor's height; defer that write outside ResizeObserver delivery.
+  const resize = new ResizeObserver(() => {
+    if (disposed || measureFrame) return
+    measureFrame = requestAnimationFrame(() => { measureFrame = 0; if (!disposed) measure() })
+  }); resize.observe(paper)
   const intersection = new IntersectionObserver(entries => { visible = entries[0].isIntersecting; visibility() })
   intersection.observe(root)
   window.addEventListener('scroll',scroll,{passive:true}); window.addEventListener('resize',measure)
@@ -177,7 +182,7 @@ export function mountWorksHelix(root: HTMLElement) {
   measure(); anchor(); update()
   void document.fonts.ready.then(() => { if (!disposed) { measure(); anchor() } })
   return () => {
-    disposed=true; cancelAnimationFrame(frame); clearTimeout(settleTimer); resize.disconnect(); intersection.disconnect()
+    disposed=true; cancelAnimationFrame(frame); cancelAnimationFrame(measureFrame); clearTimeout(settleTimer); resize.disconnect(); intersection.disconnect()
     window.removeEventListener('scroll',scroll); window.removeEventListener('resize',measure)
     window.removeEventListener('wheel',wheel)
     stage.removeEventListener('pointerdown',pointerDown); stage.removeEventListener('pointerup',pointerUp); stage.removeEventListener('pointercancel',pointerUp)
