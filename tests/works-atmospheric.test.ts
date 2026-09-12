@@ -2,10 +2,29 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { atmosphericDepth, atmosphericFit, atmosphericTextureSize, atmosphericTimeline } from '../src/works/candidates/atmospheric-engine.ts'
+import { archiveAssembly } from '../src/works/candidates/atmospheric-archive-motion.ts'
 
 import { atmosphericCatalog, filterAtmosphericWorks } from '../src/works/candidates/atmospheric-catalog.ts'
 import { worksCatalog } from '../src/works/catalog.ts'
 const count = atmosphericCatalog.length
+
+test('desktop archive reveals its final preview without an expanded thumbnail-list stage; touch stays unchanged', () => {
+  let previousPreview = 0
+  for (let step = 0; step <= 100; step++) {
+    const expansion = step / 100
+    const desktop = archiveAssembly(expansion, true)
+    assert.equal(desktop.rowExpansion, 0)
+    assert.ok(desktop.previewOpacity >= previousPreview)
+    assert.ok(desktop.railOpacity >= 0 && desktop.railOpacity <= 1)
+    previousPreview = desktop.previewOpacity
+    const touch = archiveAssembly(expansion, false)
+    assert.equal(touch.rowExpansion, expansion)
+    assert.equal(touch.railOpacity, 1)
+  }
+  assert.equal(archiveAssembly(0, true).previewOpacity, 0)
+  assert.equal(archiveAssembly(1, true).previewOpacity, 1)
+  assert.equal(archiveAssembly(1, true).railOpacity, 0)
+})
 
 test('route curtain cannot suspend the first WORKS frame or expose a black resized buffer', () => {
   const source = readFileSync(new URL('../src/works/candidates/atmospheric-engine.ts', import.meta.url), 'utf8')

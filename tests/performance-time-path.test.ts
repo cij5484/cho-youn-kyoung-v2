@@ -7,6 +7,7 @@ test('six scroll checkpoints settle on their exact year and preserve both endpoi
     const frame = timePathFrame(timePathCheckpoint(index, 6), 6)
     assert.equal(frame.active, index)
     assert.equal(frame.segment + frame.along, index)
+    assert.equal(frame.overview, 0, 'selecting any year returns its full reading, including the final work')
   }
   assert.equal(timePathFrame(-1, 6).active, 0)
   assert.deepEqual(timePathFrame(1, 6), { segment: 4, along: 1, active: 5, overview: 1 })

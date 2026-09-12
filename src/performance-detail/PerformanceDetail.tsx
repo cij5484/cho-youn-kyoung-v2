@@ -49,7 +49,7 @@ export function PerformanceRecordPage({ record }: { record: PerformanceRecord })
   function turn(delta: number) { setPage(index => Math.max(0, Math.min(pages.length - 1, index + delta))); setZoom(false) }
   const maskStyle = (id: string): CSSProperties => ({ '--chapter-mask': `url(#${maskId}-${id})` }) as CSSProperties
 
-  return <article ref={root} className={`performance-record performance-variant-${record.variant}`} aria-labelledby="performance-title">
+  return <article ref={root} data-detail-route={`/performance/${record.slug}`} className={`performance-record performance-variant-${record.variant}`} aria-labelledby="performance-title">
     <div className="performance-scroll-stage" style={{ '--chapter-count': chapters.length } as CSSProperties}>
       <div className="performance-chapter-stack">
         {record.variant === 'dual-flow' && <div className="performance-dual-field" aria-hidden="true">

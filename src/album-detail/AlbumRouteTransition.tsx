@@ -1,8 +1,8 @@
 import { useEffect, useEffectEvent } from 'react'
 import { useNavigate } from 'react-router'
-import { localAlbumStudy, appRoute, isLocalDetailRoute } from './album-navigation.ts'
+import { localAlbumStudy, appRoute, isLocalDetailRoute, detailDestinationMatches } from './album-navigation.ts'
 
-type Entry = { href: string; src: string; bounds: { x: number; y: number; width: number; height: number } }
+type Entry = { href: string; src: string; bounds: { x: number; y: number; width: number; height: number }; source?: HTMLImageElement }
 
 /** One image survives the route swap; its two slots, not hardcoded layouts, own the endpoints. */
 export function AlbumRouteTransition() {
@@ -11,17 +11,21 @@ export function AlbumRouteTransition() {
   useEffect(() => {
     if (!localAlbumStudy()) return
     let overlay: HTMLImageElement | null = null, animation: Animation | null = null
-    let sheet: HTMLDivElement | null = null, hiddenPoster: HTMLImageElement | null = null, posterVisibility = ''
+    let sheet: HTMLDivElement | null = null
+    const hiddenImages = new Map<HTMLImageElement, string>()
+    const hide = (image: HTMLImageElement) => {
+      if (!hiddenImages.has(image)) hiddenImages.set(image, image.style.visibility)
+      image.style.visibility = 'hidden'
+    }
     const entryAnimations: Animation[] = []
     let generation = 0, origin = { y: 0, slug: '', kind: 'album', href: '/works/' }
     const clear = () => {
       animation?.cancel(); animation = null; overlay?.remove(); overlay = null
       entryAnimations.splice(0).forEach(item => item.cancel())
       sheet?.remove(); sheet = null
-      if (hiddenPoster) hiddenPoster.style.visibility = posterVisibility
-      hiddenPoster = null
+      hiddenImages.forEach((visibility, image) => { image.style.visibility = visibility }); hiddenImages.clear()
     }
-    async function enter({ href, src, bounds }: Entry) {
+    async function enter({ href, src, bounds, source }: Entry) {
       const route = appRoute(href)
       if (!route) return
       const attempt = ++generation
@@ -29,6 +33,7 @@ export function AlbumRouteTransition() {
       const returning = route.startsWith('/works')
       const archiveReturn = route === '/works/#works-compact-archive'
       const performanceEntry = route.startsWith('/performance/')
+      const detailToDetail = isLocalDetailRoute(appRoute(location.pathname)) && isLocalDetailRoute(route)
       let start = bounds
       if (appRoute(location.pathname)?.replace(/\/$/, '') === '/works') origin = { y: scrollY, slug: route.split('/')[2], kind: route.split('/')[1], href: appRoute(location.pathname + location.search)! }
       const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -38,8 +43,17 @@ export function AlbumRouteTransition() {
         Object.assign(overlay.style, { position: 'fixed', zIndex: '900', pointerEvents: 'none', objectFit: 'contain',
           left: `${bounds.x}px`, top: `${bounds.y}px`, width: `${bounds.width}px`, height: `${bounds.height}px`, margin: '0' })
         document.body.append(overlay)
+        if (source) hide(source)
       }
-      if (performanceEntry && overlay) {
+      if (detailToDetail && overlay) {
+        // Related works travel directly from their selected thumbnail to the new hero.
+        sheet = document.createElement('div')
+        sheet.setAttribute('aria-hidden', 'true')
+        Object.assign(sheet.style, { position: 'fixed', inset: '0', zIndex: '899', background: 'var(--color-canvas, #f4f0e8)', pointerEvents: 'auto' })
+        document.body.append(sheet)
+        entryAnimations.push(sheet.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 160, fill: 'forwards' }))
+      }
+      if (performanceEntry && overlay && !detailToDetail) {
         // ImageToGrid's large-image-to-measured-slot staging: preserve the poster ratio throughout.
         const ratio = bounds.width / bounds.height
         const width = Math.min(innerWidth - 40, innerHeight * .8 * ratio), height = width / ratio
@@ -93,14 +107,23 @@ export function AlbumRouteTransition() {
             if (focusWidth) destination = new DOMRect(Number(focusX) - Number(focusWidth) / 2, Number(focusY) - Number(focusHeight) / 2, Number(focusWidth), Number(focusHeight))
           }
         } else {
-          const image = document.querySelector<HTMLImageElement>('[data-album-cover], [data-performance-poster]')
+          // Router navigation is asynchronous: never measure the outgoing detail's hero.
+          const requested = route.split(/[?#]/)[0].replace(/\/$/, '')
+          const current = appRoute(location.pathname)?.replace(/\/$/, '')
+          if (current !== requested) continue
+          const owner = document.querySelector<HTMLElement>(`[data-detail-route="${CSS.escape(requested)}"]`)
+          if (!detailDestinationMatches(route, current ?? null, owner?.dataset.detailRoute)) continue
+          const image = owner?.querySelector<HTMLImageElement>('[data-album-cover], [data-performance-poster]')
           if (!image) continue
-          if (!image.complete) continue
+          if (!image.complete || !image.naturalWidth) continue
+          if (overlay) hide(image)
           scrollTo({ top: 0, behavior: 'instant' })
+          await new Promise(requestAnimationFrame)
+          if (attempt !== generation) return
+          if (!image.isConnected) continue
           destination = image.getBoundingClientRect()
           if (performanceEntry && overlay) {
-            hiddenPoster = image; posterVisibility = image.style.visibility; image.style.visibility = 'hidden'
-            document.querySelectorAll('.performance-hero-copy, .performance-visit').forEach(copy => entryAnimations.push(copy.animate([
+            owner!.querySelectorAll('.performance-hero-copy, .performance-visit').forEach(copy => entryAnimations.push(copy.animate([
               { clipPath: 'inset(0 0 100% 0)', transform: 'translateY(24px)' },
               { clipPath: 'inset(0 0 0% 0)', transform: 'translateY(0)' },
             ], { duration: 600, easing: 'cubic-bezier(.16,1,.3,1)' })))
@@ -115,7 +138,7 @@ export function AlbumRouteTransition() {
           { left: `${start.x}px`, top: `${start.y}px`, width: `${start.width}px`, height: `${start.height}px`, opacity: 1 },
           { left: `${destination.x}px`, top: `${destination.y}px`, width: `${destination.width}px`, height: `${destination.height}px`, opacity: 1, offset: .88 },
           { left: `${destination.x}px`, top: `${destination.y}px`, width: `${destination.width}px`, height: `${destination.height}px`, opacity: performanceEntry ? 1 : 0 },
-        ], { duration: performanceEntry ? 620 : 950, easing: 'cubic-bezier(.22,.75,.16,1)', fill: 'forwards' })
+        ], { duration: performanceEntry || detailToDetail ? 620 : 950, easing: 'cubic-bezier(.22,.75,.16,1)', fill: 'forwards' })
         await animation.finished.catch(() => {})
       }
       if (attempt === generation) clear()
@@ -139,7 +162,7 @@ export function AlbumRouteTransition() {
         bounds = new DOMRect(Number(spatial.dataset.focusX) - Number(spatial.dataset.focusWidth) / 2,
           Number(spatial.dataset.focusY) - Number(spatial.dataset.focusHeight) / 2, Number(spatial.dataset.focusWidth), Number(spatial.dataset.focusHeight))
       }
-      void enter({ href, src, bounds })
+      void enter({ href, src, bounds, source: image ?? undefined })
     }
     const cancel = () => { generation++; clear() }
     const escape = (event: KeyboardEvent) => { if (event.key === 'Escape' && sheet) cancel() }
