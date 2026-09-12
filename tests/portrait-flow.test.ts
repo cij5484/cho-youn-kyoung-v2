@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { portraitHelix, portraitStrip } from '../src/about/portrait-flow-model.ts'
+import { portraitHelix, portraitStrip, portraitSignature } from '../src/about/portrait-flow-model.ts'
 
 test('portraits spread through depth and settle into one invariant vertical column', () => {
   for (const [width, height] of [[402, 896], [1498, 896]]) {
@@ -33,5 +33,18 @@ test('drag rotation travels around the helix without changing height and is peri
     assert.equal(initial.y, quarter.y)
     assert.ok(Math.abs(initial.x - quarter.x) + Math.abs(initial.z - quarter.z) > 50)
     assert.ok(Math.abs(initial.x - full.x) < 1e-9 && Math.abs(initial.z - full.z) < 1e-9)
+  }
+})
+
+test('signature weaves through front and rear depth with continuous bounded motion', () => {
+  for (const width of [363, 1280]) for (const instrument of [0, 1]) {
+    const points = Array.from({ length: 1200 }, (_, i) => portraitSignature(i / 60, instrument, width, 800))
+    assert.ok(Math.min(...points.map(p => p.z)) < -100 && Math.max(...points.map(p => p.z)) > 100)
+    points.forEach((p, i) => {
+      assert.ok(Math.abs(p.y) < 800 * .3)
+      if (i) assert.ok(Math.hypot(p.x - points[i - 1].x, p.y - points[i - 1].y, p.z - points[i - 1].z) < 10)
+    })
+    const p = points[0], rotated = portraitSignature(0, instrument, width, 800, Math.PI)
+    assert.ok(Math.abs(p.x + rotated.x) < 1e-9 && Math.abs(p.z + rotated.z) < 1e-9)
   }
 })

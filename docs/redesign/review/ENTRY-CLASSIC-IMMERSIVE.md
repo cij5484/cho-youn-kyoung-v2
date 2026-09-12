@@ -13,6 +13,10 @@ User opened the previously future Edition Gate for ENTRY and mode routing, then 
   `entry-classic-server.ts` serves it read-only on loopback 4181; a response-only bridge isolates its existing HashRouter in an iframe.
   The visible parent URL stays `/classic/...`. The parent owns history; source/origin-checked messages sync route changes and Back.
 - The small mode switch maps the same supported work/page pathname; unsupported local/locale destinations return the other HOME.
+  Phase 2A local bug fix: on mobile, Immersive places this control inside the common MENU.
+  Classic places it inside its mobile menu and at the end of its desktop navigation, using the existing
+  embedded-build bridge; its separate top bar is removed. The operating V1 source is unchanged.
+  Immersive desktop keeps the existing position. No page-specific bottom offsets are used.
   A mode switch loads the other document, disposing the outgoing app/audio rather than leaving a hidden player running.
 - Pages compiles explicit ENTRY, Classic, Immersive and old deep-link HTML inputs. Vite asset base stays the project base;
   runtime BASE_URL includes `immersive/` so existing V2 link/audio contracts need no owner changes.

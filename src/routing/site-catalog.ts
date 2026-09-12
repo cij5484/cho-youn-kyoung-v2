@@ -10,6 +10,9 @@ export const worksRoute: SemanticRoute = {
   },
 }
 export const siteCatalog: SemanticRoute[] = spikeCatalog.map(route => route.key === 'works' ? worksRoute : route)
+// The authored Immersive pages have no EN counterparts yet; keep neutral routing fixtures separate.
+export const immersiveNavigationCatalog: SemanticRoute[] = siteCatalog.map(route =>
+  ['about', 'media', 'contact'].includes(route.key) ? { ...route, content: { ko: route.content.ko } } : route)
 export const siteRoutes = spikeRoutes.filter(route => {
   const record = siteCatalog.find(item => item.key === route.key)
   return record && routePair(record)[route.lang] === route.path

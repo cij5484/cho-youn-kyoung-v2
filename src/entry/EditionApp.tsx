@@ -2,6 +2,7 @@ import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { BrowserRouter, useLocation } from 'react-router'
 import EntryScreen from './EntryScreen.tsx'
 import { counterpartPath, editionHref, editionRoute, type Edition } from './mode-routing.ts'
+import { ModeSwitch } from './ModeSwitch.tsx'
 import './entry.css'
 
 const loadImmersive = () => import('../../labs/interaction/InteractionLab.tsx')
@@ -17,42 +18,31 @@ if (initialRoute.mode === 'immersive' && !location.pathname.startsWith(modeHref(
   history.replaceState(null, '', modeHref('immersive', initialRoute.path) + location.search + location.hash)
 }
 
-function ModeSwitch({ mode, path }: { mode: Edition; path: string }) {
-  return <nav className="edition-switch" aria-label="사이트 모드">
-    <a href={modeHref('classic', counterpartPath(path))} aria-current={mode === 'classic' ? 'true' : undefined}>CLASSIC</a>
-    <span aria-hidden="true">/</span>
-    <a href={modeHref('immersive', counterpartPath(path))} aria-current={mode === 'immersive' ? 'true' : undefined}>IMMERSIVE</a>
-  </nav>
-}
-
 function ImmersiveSwitch() {
   return <ModeSwitch mode="immersive" path={useLocation().pathname}/>
 }
 
 function Classic({ path, onReady }: { path: string; onReady: (timedOut: boolean) => void }) {
   const frame = useRef<HTMLIFrameElement>(null)
-  const [route, setRoute] = useState(path)
   useEffect(() => {
     const receive = (event: MessageEvent) => {
       if (event.origin !== classicOrigin || event.source !== frame.current?.contentWindow) return
+      if (event.data?.type === 'classic-mode') { location.assign(modeHref('immersive', counterpartPath(readRoute().path))); return }
       if (event.data?.type === 'classic-ready') { onReady(event.data.timedOut === true); return }
       if (event.data?.type !== 'classic-route') return
       const next = event.data.path
       if (typeof next !== 'string' || !next.startsWith('/') || next.startsWith('//')) return
-      setRoute(next)
       if (location.pathname + location.search !== modeHref('classic', next)) {
         history[event.data.replace ? 'replaceState' : 'pushState'](null, '', modeHref('classic', next))
       }
     }
     window.addEventListener('message', receive)
-    const restore = () => setRoute(readRoute().path)
-    window.addEventListener('popstate', restore)
-    return () => { window.removeEventListener('message', receive); window.removeEventListener('popstate', restore) }
+    return () => window.removeEventListener('message', receive)
   }, [onReady])
   useEffect(() => { frame.current?.contentWindow?.postMessage({ type: 'classic-navigate', path }, classicOrigin) }, [path])
   // The iframe src is fixed after mount. The bridge owns subsequent route changes.
   const [initial] = useState(path)
-  return <div className="classic-shell"><iframe ref={frame} title="Classic — 조윤경 공식 홈페이지" src={`${classicUrl}#${initial.replace(/\/$/, '') || '/'}`}/><ModeSwitch mode="classic" path={route}/></div>
+  return <div className="classic-shell"><iframe ref={frame} title="Classic — 조윤경 공식 홈페이지" src={`${classicUrl}#${initial.replace(/\/$/, '') || '/'}`}/></div>
 }
 
 export default function EditionApp() {

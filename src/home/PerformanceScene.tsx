@@ -1,4 +1,5 @@
 import { featuredPerformance } from './content.ts'
+import { appHref } from '../album-detail/album-navigation.ts'
 import { EditorialLink } from './EditorialLink.tsx'
 
 /** Event identity is stable; browsing another selected work cannot replace HOME's featured recital. */
@@ -10,7 +11,7 @@ export function PerformanceScene() {
     <div className="performance-caption">
       <h2 id="performance-heading">풀고, <em>엮다</em></h2>
       <p>{performance.venue}<br/>2026. 09. 22 · {performance.time}</p>
-      <EditorialLink href={`https://choyounkyoung.com/performance/${performance.slug}/`}>공연 보기</EditorialLink>
+      <EditorialLink href={appHref(`/performance/${performance.slug}/`)}>공연 보기</EditorialLink>
     </div>
   </section>
 }

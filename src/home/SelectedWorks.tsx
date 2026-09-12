@@ -1,5 +1,6 @@
 import { useRef, useState, type CSSProperties } from 'react'
 import { contentYear } from '../content/shared.ts'
+import { appHref } from '../album-detail/album-navigation.ts'
 import { homeImage, selectedWorks, featuredPerformance, contentPath, type HomeWork } from './content.ts'
 import { useWorksRibbon } from './works-motion.ts'
 
@@ -12,7 +13,7 @@ export function SelectedWorks({onSelect}:{onSelect:(work:HomeWork)=>void}){
       <header className="works-header"><div><p className="section-index">04 — SELECTED WORKS</p><h2 id="works-heading">소리가 남긴 <em>장면들.</em></h2></div></header>
       <div className="works-board">
         {selectedWorks.map((work,i)=>{const img=homeImage(work.image);return <article className={`selected-work work-${i+1}`} key={work.reference.id} data-work-index={i} style={{'--work-aspect':img.width!/img.height!} as CSSProperties}>
-          <a href={work.reference.kind==='album'?'#album-object':work.reference.id===featuredPerformance.reference.id?'#performance':`https://choyounkyoung.com${contentPath(work)}`} onClick={()=>onSelect(work)} aria-label={`${work.title.ko.value} ${work.reference.kind==='album'?'앨범 오브제':'공연'} 보기`}>
+          <a href={work.reference.kind==='album'?'#album-object':work.reference.id===featuredPerformance.reference.id?'#performance':appHref(contentPath(work))} onClick={()=>onSelect(work)} aria-label={`${work.title.ko.value} ${work.reference.kind==='album'?'앨범 오브제':'공연'} 보기`}>
             <div className="work-image"><img src={img.url} width={img.width} height={img.height} alt={img.alt} loading="lazy" decoding="async"/>
               <span className="work-reveal" aria-hidden="true"><span>{work.reference.kind==='album'?'앨범 보기':'공연 보기'}</span><i>↗</i></span>
             </div>

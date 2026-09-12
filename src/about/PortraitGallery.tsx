@@ -1,7 +1,8 @@
 import { useCallback, useLayoutEffect, useRef, useState, type CSSProperties } from 'react'
 import { gsap } from 'gsap'
 import { portraits } from './about-data'
-import { portraitHelix } from './portrait-flow-model'
+import { portraitHelix, portraitSignature } from './portrait-flow-model'
+import { twoPointContract } from '../signature/two-point-contract'
 
 function PortraitFocus({ index, origin, onClose }: { index: number; origin: HTMLButtonElement; onClose: () => void }) {
   const dialog = useRef<HTMLDialogElement>(null), frame = useRef<HTMLImageElement>(null)
@@ -55,6 +56,36 @@ export function PortraitGallery({ selection, onClose }: {
     let phase: 'opening' | 'helix' | 'closing' = 'opening'
     let motion: gsap.core.Timeline
     const rotation = { turn: .4 }
+    const ribbons = [...stage.querySelectorAll<HTMLElement>('.about-gallery-signature')]
+    let signatureTime = 0
+    const renderSignature = (_time: number, delta: number) => {
+      if (document.hidden || element.querySelector('.about-photo-focus[open]')) return
+      if (!reduced.matches) signatureTime += Math.min(delta, 50) / 1000
+      const width = stage.clientWidth, height = stage.clientHeight
+      ribbons.forEach((ribbon, index) => {
+        const instrument = Math.floor(index / 48), segment = index % 48
+        const fresh = (segment + 1) / 48
+        const age = (1 - fresh) * twoPointContract.moving.trailMs / 1000
+        const from = portraitSignature(signatureTime - age, instrument, width, height, rotation.turn)
+        const to = portraitSignature(signatureTime - age + 2 / 48, instrument, width, height, rotation.turn)
+        const dx = to.x - from.x, dy = to.y - from.y, dz = to.z - from.z
+        ribbon.style.transform = `translate3d(${from.x}px,${from.y}px,${from.z}px) rotateZ(${Math.atan2(dy, dx)}rad) rotateY(${-Math.atan2(dz, Math.hypot(dx, dy))}rad)`
+        ribbon.style.width = `${reduced.matches ? 8 : Math.hypot(dx, dy, dz) + .5}px`
+        ribbon.style.height = `${reduced.matches ? 3.6 : Math.max(.15, twoPointContract.moving.trailWidth * fresh)}px`
+        ribbon.style.opacity = String(reduced.matches ? Number(segment === 47) * .7 : fresh ** twoPointContract.moving.fadeExponent * .68)
+      })
+    }
+    const signatureVisibility = () => {
+      gsap.ticker.remove(renderSignature)
+      if (document.hidden || element.querySelector('.about-photo-focus[open]')) return
+      renderSignature(0, 0)
+      if (!reduced.matches) gsap.ticker.add(renderSignature)
+    }
+    const focusObserver = new MutationObserver(signatureVisibility)
+    focusObserver.observe(element, { childList: true, subtree: true, attributes: true, attributeFilter: ['open'] })
+    document.addEventListener('visibilitychange', signatureVisibility)
+    reduced.addEventListener('change', signatureVisibility)
+    signatureVisibility()
     let coast: gsap.core.Tween | undefined
     let pointer: { id: number; startX: number; x: number; time: number; velocity: number; dragged: boolean } | null = null
     let suppressClick = false
@@ -65,7 +96,7 @@ export function PortraitGallery({ selection, onClose }: {
       return { ...target, rotationY: 60 * Math.sin(target.rotationY * Math.PI / 180), rotationX: -5,
         scale: Math.min(width * (width < 700 ? .24 : .15) / 200, height * .19 * portraits[index].aspect / 200) }
     }
-    const renderRotation = () => cards.forEach((card, index) => gsap.set(card, pose(index)))
+    const renderRotation = () => { cards.forEach((card, index) => gsap.set(card, pose(index))); renderSignature(0, 0) }
     const stopRotation = () => {
       coast?.kill()
       if (pointer && stage.hasPointerCapture(pointer.id)) stage.releasePointerCapture(pointer.id)
@@ -147,6 +178,8 @@ export function PortraitGallery({ selection, onClose }: {
     }
     reduced.addEventListener('change', reduce)
     return () => {
+      gsap.ticker.remove(renderSignature); focusObserver.disconnect()
+      document.removeEventListener('visibilitychange', signatureVisibility); reduced.removeEventListener('change', signatureVisibility)
       stopRotation()
       stage.removeEventListener('pointerdown', down)
       window.removeEventListener('pointermove', move)
@@ -167,6 +200,7 @@ export function PortraitGallery({ selection, onClose }: {
   return <dialog className="about-gallery" ref={dialog} data-phase="opening" aria-label="초상 나선 갤러리" onCancel={event => { event.preventDefault(); event.stopPropagation(); closeAction.current() }}>
     <header><span>PORTRAITS / CHO YOUN KYOUNG</span><button type="button" onClick={() => closeAction.current()} aria-label="Close — 나선 닫기">Close</button></header>
     <div className="about-gallery-scene" ref={scene}>
+      {twoPointContract.order.flatMap(id => Array.from({ length: 48 }, (_, index) => <i key={`${id}-${index}`} aria-hidden="true" className="about-gallery-signature" style={{ background: twoPointContract.points[id].color }}/>))}
       {portraits.map((portrait, index) => <button type="button" className="about-gallery-card" key={portrait.src} style={{ '--portrait-aspect': portrait.aspect } as CSSProperties}
         aria-label={`사진 ${index + 1} 크게 보기`} onClick={event => { if (dialog.current?.dataset.phase === 'helix') select({ index, origin: event.currentTarget }) }}>
         <img src={portrait.src} alt={portrait.alt} draggable={false}/>

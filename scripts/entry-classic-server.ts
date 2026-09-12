@@ -26,6 +26,36 @@ export const classicBridge = (parentOrigins: readonly string[]) => String.raw`((
     value.startsWith('/') && !value.startsWith('//') && !/[\\\u0000-\u001f]/.test(value);
   const currentPath = () => location.hash.slice(1) || '/';
   const send = (type, extra = {}) => parent.postMessage({ type, path: currentPath(), ...extra }, parentOrigin);
+  // Enhance only the embedded Classic build, without modifying the operating V1 site.
+  const style = document.createElement('style');
+  style.textContent = '.classic-mode-menu{display:flex;align-items:center;gap:12px;font-family:inherit;font-size:10px;line-height:1.5;letter-spacing:.08em}.classic-mode-menu span{opacity:.55}.classic-mode-menu button{font:inherit;letter-spacing:inherit;color:inherit;background:none;border:0;padding:0;min-height:44px;cursor:pointer}.classic-mode-menu button:hover{text-decoration:underline;text-underline-offset:5px}.classic-mode-menu button:focus-visible{outline:1px solid currentColor;outline-offset:5px}.desktop-nav .classic-mode-menu{margin-left:10px;padding-left:20px;border-left:1px solid currentColor}.mobile-menu .classic-mode-menu{margin-top:16px;padding-top:12px;border-top:1px solid currentColor;font-size:11px}';
+  document.head.append(style);
+  const mountMode = () => {
+    for (const menu of document.querySelectorAll('.desktop-nav, #mobile-menu')) {
+      let control = menu.querySelector('.classic-mode-menu');
+      if (!control) {
+        control = document.createElement('div');
+        control.className = 'classic-mode-menu';
+        control.setAttribute('role', 'group');
+        control.setAttribute('aria-label', '사이트 모드');
+        const current = document.createElement('span');
+        current.textContent = 'CLASSIC';
+        current.setAttribute('aria-current', 'true');
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = 'IMMERSIVE';
+        button.setAttribute('aria-label', 'Immersive 모드로 전환');
+        button.onclick = () => send('classic-mode');
+        control.append(current, button);
+        menu.append(control);
+      }
+      control.querySelector('button').tabIndex = menu.getAttribute('aria-hidden') === 'true' ? -1 : 0;
+    }
+  };
+  const menuObserver = new MutationObserver(mountMode);
+  menuObserver.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['aria-hidden'] });
+  mountMode();
+  addEventListener('pagehide', () => menuObserver.disconnect(), { once: true });
   for (const method of ['pushState', 'replaceState']) {
     history[method] = (state, unused, url) => {
       replace(state, unused, url);

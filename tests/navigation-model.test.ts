@@ -4,6 +4,7 @@ import { navigationModel } from '../src/navigation/model.ts'
 import { spikeCatalog, spikeRoutes } from '../src/spike/fixtures.ts'
 import { publicUrl, type SemanticRoute } from '../src/routing/locale-contract.ts'
 import { buildTargets } from '../config/build.ts'
+import { immersiveNavigationCatalog } from '../src/routing/site-catalog.ts'
 
 test('all 18 identities retain five sections and exact counterpart under both bases', () => {
   for (const fixture of spikeRoutes) {
@@ -48,4 +49,18 @@ test('unknown/private paths have no fabricated current link or counterpart', () 
     assert.equal(model.links.some(link => link.current), false)
     assert.ok(model.languages.every(item => item.status === 'unknown-route' && item.to === null))
   }
+})
+
+test('Immersive keeps its English HOME and sends untranslated sections to the Korean pages', () => {
+  assert.deepEqual(navigationModel('/', immersiveNavigationCatalog).languages[1], {
+    language: 'en', status: 'available', to: '/en', lang: 'en',
+  })
+  const englishHome = navigationModel('/en', immersiveNavigationCatalog)
+  for (const key of ['works', 'about', 'media', 'contact']) {
+    assert.deepEqual(navigationModel(`/${key}`, immersiveNavigationCatalog).languages[1], {
+      language: 'en', status: 'unavailable', to: `/${key}`, lang: 'ko', reason: 'translation-unavailable',
+    })
+    assert.equal(englishHome.links.find(link => link.key === key)?.to, `/${key}`)
+  }
+  assert.equal(navigationModel('/about', spikeCatalog).languages[1].status, 'available')
 })
