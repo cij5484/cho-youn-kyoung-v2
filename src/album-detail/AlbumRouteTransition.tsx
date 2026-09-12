@@ -88,9 +88,9 @@ export function AlbumRouteTransition() {
           if (archiveReturn) {
             const archive = spatial.querySelector<HTMLElement>('#works-compact-archive')
             if (!archive) continue
-            const fallback = spatial.dataset.state === 'fallback'
+            const fallback = spatial.dataset.state === 'fallback' || spatial.dataset.static === 'true'
             const top = fallback ? archive.getBoundingClientRect().top + scrollY
-              : Number(spatial.dataset.scrollStart) + Number(spatial.dataset.scrollRange) * .985
+              : Number(spatial.dataset.scrollStart) + Number(spatial.dataset.scrollRange)
             if (!Number.isFinite(top)) continue
             scrollTo({ top, behavior: 'instant' })
             if (!fallback && Number(archive.dataset.indexExpansion ?? 0) < .999) continue
@@ -155,12 +155,9 @@ export function AlbumRouteTransition() {
       const spatial = link.closest<HTMLElement>('.atmospheric-depth')
       let bounds = image?.getBoundingClientRect() ?? new DOMRect()
       let src = image?.currentSrc ?? ''
-      if (spatial && link.classList.contains('atmospheric-record')) {
-        const index = spatial.dataset.focus
-        const thumb = document.querySelector<HTMLImageElement>(`[data-sequence="${index}"] img`)
-        src = thumb?.currentSrc ?? thumb?.src ?? ''
-        bounds = new DOMRect(Number(spatial.dataset.focusX) - Number(spatial.dataset.focusWidth) / 2,
-          Number(spatial.dataset.focusY) - Number(spatial.dataset.focusHeight) / 2, Number(spatial.dataset.focusWidth), Number(spatial.dataset.focusHeight))
+      if (spatial && link.dataset.helixEntryIndex !== undefined) {
+        const visual = spatial.querySelectorAll<HTMLImageElement>('.works-helix-card img')[Number(link.dataset.helixEntryIndex)]
+        if (visual) { src = visual.currentSrc; bounds = visual.getBoundingClientRect() }
       }
       void enter({ href, src, bounds, source: image ?? undefined })
     }

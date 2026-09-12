@@ -2,9 +2,11 @@
 @media (max-width:639px) and (prefers-reduced-motion:no-preference) {
   .sound-experience .continues-to-sound {
     --sound-mobile-pacing:1;
-    /* The original 155svh + 80svh choreography completes before this 55svh viewing hold. */
-    --scroll-distance:290svh;
+    /* 1.5× viewing distance for the same intro curves, followed by the existing 55svh hold. */
+    --scroll-distance:407.5svh;
   }
+  .sound-experience:not([data-sound-static="true"]) .sound-region { top:232.5svh; }
+  .sound-experience:not([data-sound-static="true"]) .sound-anchor { top:calc(120svh + var(--space-9)); }
   .home-closing .works-scene { min-height:340svh; }
   .home-closing .stage-artist-sequence { height:440svh; }
 }

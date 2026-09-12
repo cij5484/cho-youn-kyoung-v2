@@ -20,7 +20,8 @@ export function mediaLoomState(progress: number) {
 
 export function mediaLoomFrame(width: number, height: number, aspect: number) {
   const ratio = Number.isFinite(aspect) && aspect > 0 ? aspect : 16 / 9
-  const frameWidth = Math.max(1, Math.min(1000, width * .82, height * .64 * ratio))
+  const heightShare = .64 + (1 - smooth(4 / 3, 16 / 9, ratio)) * .16
+  const frameWidth = Math.max(1, Math.min(1000, width * .82, height * heightShare * ratio))
   return { width: frameWidth, height: frameWidth / ratio }
 }
 

@@ -16,7 +16,7 @@ User opened the previously future Edition Gate for ENTRY and mode routing, then 
   Phase 2A local bug fix: on mobile, Immersive places this control inside the common MENU.
   Classic places it inside its mobile menu and at the end of its desktop navigation, using the existing
   embedded-build bridge; its separate top bar is removed. The operating V1 source is unchanged.
-  Immersive desktop keeps the existing position. No page-specific bottom offsets are used.
+  Immersive desktop and mobile both keep the switch inside MENU. The separate floating switch is removed.
   A mode switch loads the other document, disposing the outgoing app/audio rather than leaving a hidden player running.
 - Pages compiles explicit ENTRY, Classic, Immersive and old deep-link HTML inputs. Vite asset base stays the project base;
   runtime BASE_URL includes `immersive/` so existing V2 link/audio contracts need no owner changes.

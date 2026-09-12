@@ -12,6 +12,7 @@ const vertexShader = `
   uniform float uProgress;
   uniform float uScale;
   uniform float uTravel;
+  uniform float uVerticalSpan;
   varying vec2 vUv;
   varying float vRim;
   varying float vTear;
@@ -27,9 +28,9 @@ const vertexShader = `
     p.xy *= uFrame * uScale;
     float direction = seed < .5 ? -1.0 : 1.0;
     p.x += direction * release * uTravel * (.18 + other * .82);
-    p.y += (seed - .5) * uFrame.y * .42 * release * release;
+    p.y += (seed - .5) * uVerticalSpan * .42 * release * release;
     p.y += sin(uv.x * 8.0 + uProgress * 13.0 + seed * 6.2831)
-      * uFrame.y * (.018 + other * .028) * release;
+      * uVerticalSpan * (.018 + other * .028) * release;
     vTear = tear; vSeed = seed;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
   }
@@ -97,7 +98,7 @@ export function mountMediaLoom({ host, source, aspect, sources }: { host: HTMLEl
   geometry.setAttribute('aThread', new THREE.Float32BufferAttribute(data.thread, 1))
   geometry.setIndex(data.index)
   const uniforms = { uImage: { value: null as THREE.Texture | null }, uNext: { value: null as THREE.Texture | null }, uFrame: { value: new THREE.Vector2() },
-    uTear: { value: 0 }, uProgress: { value: 0 }, uScale: { value: 1 }, uTravel: { value: 0 } }
+    uTear: { value: 0 }, uProgress: { value: 0 }, uScale: { value: 1 }, uTravel: { value: 0 }, uVerticalSpan: { value: 0 } }
   const material = new THREE.ShaderMaterial({ vertexShader, fragmentShader, uniforms, transparent: true,
     depthTest: false, depthWrite: false, side: THREE.DoubleSide })
   const mesh = new THREE.Mesh(geometry, material)
@@ -115,6 +116,8 @@ export function mountMediaLoom({ host, source, aspect, sources }: { host: HTMLEl
     uniforms.uTear.value = state.tear
     uniforms.uScale.value = 1
     uniforms.uTravel.value = Math.max(0, Math.min(size.width * .28, (host.clientWidth - size.width) / 2 - 2))
+    // Keep the complete taller frame and its unraveled edges inside the canvas.
+    uniforms.uVerticalSpan.value = Math.max(0, Math.min(size.height, (host.clientHeight - size.height - 4) / .512))
     renderer.render(scene, camera)
     if (failed) return
     host.dataset.loom = 'ready'

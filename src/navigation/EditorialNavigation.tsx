@@ -45,12 +45,13 @@ export function EditorialNavigation({ catalog, mainId }: Props) {
 
   return <>
     <a className="skip-link" href={`#${mainId}`}>{ko ? '본문으로 이동' : 'Skip to content'}</a>
-    <header className="editorial-navigation">
+    <header className="editorial-navigation adaptive-navigation">
       <Link className="nav-signature" to={routeHref(model.home)} aria-label={ko ? '조윤경 홈' : 'Cho Youn Kyoung home'} lang="en">CHO YOUN KYOUNG</Link>
       <button className="menu-toggle menu-trigger" aria-label="MENU" aria-haspopup="dialog" aria-expanded={phase !== 'closed'}
         aria-controls="navigation-menu" onClick={() => reveal.current?.open()}>{triggerGraphic}</button>
     </header>
-    <dialog className="navigation-menu" id="navigation-menu" ref={dialog} aria-labelledby="menu-title" data-phase={phase}
+    <dialog className="navigation-menu" id="navigation-menu" ref={dialog} aria-label={ko ? '주요 메뉴' : 'Primary navigation'} data-phase={phase}
+      onClick={event => { if (event.target === event.currentTarget) reveal.current?.close() }}
       onKeyDown={event => {
         // Consume repeated Escape before the browser's CloseWatcher can force an abrupt second close.
         if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); reveal.current?.close(); return }
@@ -63,17 +64,15 @@ export function EditorialNavigation({ catalog, mainId }: Props) {
       }}
       onClose={() => { if (dialog.current?.open === false) reveal.current?.closeImmediately() }}
       onCancel={event => { event.preventDefault(); reveal.current?.close() }}>
-      <div className="menu-surface" aria-hidden="true" />
-      <div className="menu-top">
-        <span className="nav-signature" lang="en">CHO YOUN KYOUNG</span>
+      <div className="menu-top menu-key">
         <button className="menu-toggle" onClick={() => reveal.current?.toggle()}
           aria-label={phase === 'closing' ? ko ? '메뉴 다시 열기' : 'Reopen menu' : ko ? '메뉴 닫기' : 'Close menu'}>{triggerGraphic}</button>
       </div>
       <div className="menu-content" inert={phase !== 'open'}>
-        <div className="menu-intro"><div className="menu-index-mask"><h2 id="menu-title" className="type-micro" lang="en">INDEX</h2></div><span className="menu-entry-rule" aria-hidden="true" /></div>
+        <div className="menu-preferences menu-key"><ModeSwitch mode="immersive" path={location.pathname}/>{languageLinks}</div>
         <nav aria-label={ko ? '주요 메뉴' : 'Primary navigation'}>
           <ul className="menu-links">
-            {model.links.map((link, index) => <li key={link.key}>
+            {model.links.map((link, index) => <li className="menu-key" key={link.key}>
               <Link to={routeHref(link.to)} lang="en" aria-label={link.label}
                 aria-current={link.current ? link.exact ? 'page' : 'location' : undefined}>
                 <span className="menu-item-mask"><span className="menu-item-reveal">
@@ -86,9 +85,6 @@ export function EditorialNavigation({ catalog, mainId }: Props) {
             </li>)}
           </ul>
         </nav>
-        <div className="menu-bottom"><p className="type-micro" lang="en">CHO YOUN KYOUNG</p>{languageLinks}</div>
-        <ModeSwitch mode="immersive" path={location.pathname} placement="menu"/>
-        {model.languages.some(item => item.status === 'unavailable') && <p className="type-metadata">English translation unavailable.</p>}
       </div>
     </dialog>
   </>

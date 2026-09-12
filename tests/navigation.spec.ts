@@ -78,10 +78,10 @@ test('trigger hover, opening intermediate, fully opened and item hover visual ev
   await page.screenshot({ path: info.outputPath('trigger-hover.png') })
   await trigger.click()
   const tracks = await freezeReveal(page, 180)
-  expect(tracks.length).toBeGreaterThanOrEqual(10)
-  expect(tracks.every(track => track.duration === 500 && track.time === 180)).toBe(true)
-  const clip = await page.locator('.menu-surface').evaluate(el => getComputedStyle(el).clipPath)
-  expect(clip).toContain('polygon(')
+  expect(tracks).toHaveLength(14)
+  expect(tracks.every(track => track.duration === 680 && track.time === 180)).toBe(true)
+  const keys = await page.locator('.menu-key').evaluateAll(items => items.map(el => getComputedStyle(el).transform))
+  expect(new Set(keys).size).toBeGreaterThan(1)
   await expect(page.locator('.menu-content')).toHaveAttribute('inert', '')
   await page.screenshot({ path: info.outputPath('opening-180ms.png') })
   await page.locator('dialog').evaluate(el => el.getAnimations({ subtree: true }).filter(a => a.id === 'editorial-menu-reveal').forEach(a => a.play()))
@@ -92,12 +92,15 @@ test('trigger hover, opening intermediate, fully opened and item hover visual ev
   await expect(page.locator('.menu-item-label').nth(1).locator('.menu-letter').first()).toHaveCSS('transform', 'matrix(1, 0, 0, 1, 3, 7)')
   await expect(page.locator('.menu-item-label').nth(1)).toHaveCSS('color', 'rgb(23, 23, 21)')
   await expect(page.locator('.menu-item-label').nth(2)).toHaveCSS('opacity', '1')
-  const contrast = await page.locator('.menu-item-label, .nav-index, .menu-toggle, .menu-intro h2').evaluateAll(elements => {
+  const contrast = await page.locator('dialog .menu-item-label, dialog .nav-index, dialog .menu-toggle, dialog .nav-languages a').evaluateAll(elements => {
     const rgb = (text: string) => text.match(/[\d.]+/g)!.slice(0, 3).map(Number)
     const luminance = (channels: number[]) => channels.map(v => v / 255).map(v => v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4)
       .reduce((sum, v, i) => sum + v * [.2126, .7152, .0722][i], 0)
-    const background = rgb(getComputedStyle(document.querySelector('.menu-surface')!).backgroundColor)
     return elements.map(el => {
+      const material = getComputedStyle(el.closest('.menu-key')!).backgroundColor
+      const alpha = Number(material.match(/[\d.]+/g)?.[3] ?? 1)
+      // Worst case behind the translucent ivory is black, not the uncomposited tint color.
+      const background = rgb(material).map(channel => channel * alpha)
       const style = getComputedStyle(el), opacity = Number(style.opacity)
       const foreground = rgb(style.color).map((value, i) => value * opacity + background[i] * (1 - opacity))
       const a = luminance(foreground), b = luminance(background)
@@ -112,7 +115,7 @@ test('trigger hover, opening intermediate, fully opened and item hover visual ev
   await page.getByRole('button', { name: '메뉴 닫기' }).hover()
   await expect(page.locator('dialog .trigger-copy')).toHaveCSS('transform', 'matrix(1, 0, 0, 1, 3, 0)')
   await page.screenshot({ path: info.outputPath('close-trigger-hover.png') })
-  await info.attach('reveal-timeline', { body: JSON.stringify({ duration: 500, evidenceTime: 180, clip, tracks, contrast }), contentType: 'application/json' })
+  await info.attach('reveal-timeline', { body: JSON.stringify({ duration: 680, evidenceTime: 180, keys, tracks, contrast }), contentType: 'application/json' })
 })
 
 test(`bold: opening and closing reverse at the current time without visual resets`, async ({ page }, info) => {
@@ -121,13 +124,13 @@ test(`bold: opening and closing reverse at the current time without visual reset
   await freezeReveal(page, 210)
   const reverse = () => page.locator('dialog').evaluate(el => {
     const tracks = el.getAnimations({ subtree: true }).filter(a => a.id === 'editorial-menu-reveal')
-    const surface = el.querySelector('.menu-surface')!
-    const before = { time: tracks[0].currentTime, clip: getComputedStyle(surface).clipPath }
+    const keys = [...el.querySelectorAll('.menu-key')]
+    const before = { time: tracks[0].currentTime, transforms: keys.map(key => getComputedStyle(key).transform) }
     el.querySelector<HTMLButtonElement>('.menu-toggle')!.click()
-    return { before, after: { time: tracks[0].currentTime, clip: getComputedStyle(surface).clipPath }, rates: tracks.map(a => a.playbackRate) }
+    return { before, after: { time: tracks[0].currentTime, transforms: keys.map(key => getComputedStyle(key).transform) }, rates: tracks.map(a => a.playbackRate) }
   })
   const closing = await reverse()
-  expect(closing.after).toEqual(closing.before); expect(closing.rates.every(rate => rate === -1.25)).toBe(true)
+  expect(closing.after).toEqual(closing.before); expect(closing.rates.every(rate => rate === -1.3)).toBe(true)
   await freezeReveal(page, 150)
   await expect(page.locator('dialog')).toHaveAttribute('data-phase', 'closing')
   await page.screenshot({ path: info.outputPath(`bold-closing-150ms.png`) })
@@ -156,7 +159,7 @@ for (const width of [390, 1440]) test(`${width}: keyboard trap, visible focus, E
     expect(await page.evaluate(() => !!document.activeElement?.closest('dialog'))).toBe(true)
   }
   await close.focus(); await page.keyboard.press('Shift+Tab')
-  await expect(page.getByRole('link', { name: 'English' })).toBeFocused()
+  await expect(page.getByRole('link', { name: 'CONTACT', exact: true })).toBeFocused()
   await page.keyboard.press('Escape')
   await expect(page.locator('dialog')).not.toBeVisible()
   await expect(trigger).toBeFocused(); await expect(trigger).toHaveAttribute('aria-expanded', 'false')
@@ -197,7 +200,7 @@ test('missing/draft English is unavailable without a fabricated destination', as
   for (const scenario of ['missing', 'draft', 'machine']) {
     await ready(page, `/album/test-album/?translation=${scenario}`); await openMenu(page)
     await expect(page.getByRole('button', { name: 'English — translation unavailable' })).toBeDisabled()
-    await expect(page.getByText('English translation unavailable.', { exact: true })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'English — translation unavailable' })).toHaveAttribute('title', 'English translation unavailable')
     await expect(page.getByRole('link', { name: 'English', exact: true })).toHaveCount(0)
     await expect(page.locator('html')).toHaveAttribute('lang', 'ko')
   }
@@ -310,7 +313,7 @@ test(`bold: Letter Slip alternates deterministically, preserves link geometry an
     expect(await letters.evaluateAll(items => items.map(el => ({ x: el.getBoundingClientRect().x, y: el.getBoundingClientRect().y })))).toEqual(baseline)
   }
   await page.getByRole('button', { name: '메뉴 닫기' }).focus()
-  await page.keyboard.press('Tab'); await page.keyboard.press('Tab')
+  for (let i = 0; i < 4; i++) await page.keyboard.press('Tab')
   await expect(link).toBeFocused(); await expect(link).toHaveCSS('outline-style', 'solid')
   await expect(link).toHaveAccessibleName('WORKS')
   expect(await letters.evaluateAll(items => items.every(el => el.closest('[aria-hidden="true"]')))).toBe(true)
@@ -321,7 +324,7 @@ test('trigger hover and focus never open the menu; rapid letter hover interrupti
   await ready(page)
   const trigger = page.getByRole('button', { name: 'MENU', exact: true })
   await trigger.hover(); await expect(trigger.locator('.trigger-copy')).toHaveCSS('transform', 'matrix(1, 0, 0, 1, 3, 0)')
-  await page.waitForTimeout(500) // Observe beyond the complete reveal duration: hover must never open.
+  await page.waitForTimeout(700) // Observe beyond the complete reveal duration: hover must never open.
   await expect(page.locator('dialog')).not.toBeVisible()
   expect(await trigger.evaluate(el => getComputedStyle(el, '::after').content)).toBe('none')
   await trigger.focus(); await expect(page.locator('dialog')).not.toBeVisible()
@@ -414,30 +417,39 @@ test(`bold: real-time browser recording preserves opening, hover return, closing
   const events: { phase: string; at: number }[] = JSON.parse((await page.locator('dialog').getAttribute('data-observed-timing'))!)
   const openedIn = events.find(event => event.phase === 'open')!.at - events.find(event => event.phase === 'opening')!.at
   const closedIn = events.find(event => event.phase === 'closed')!.at - events.find(event => event.phase === 'closing')!.at
-  expect(openedIn).toBeGreaterThanOrEqual(450); expect(openedIn).toBeLessThan(800)
-  expect(closedIn).toBeGreaterThanOrEqual(370); expect(closedIn).toBeLessThan(700)
+  expect(openedIn).toBeGreaterThanOrEqual(630); expect(openedIn).toBeLessThan(1000)
+  expect(closedIn).toBeGreaterThanOrEqual(480); expect(closedIn).toBeLessThan(850)
   await info.attach('real-time-events', { body: JSON.stringify({ motion: 'bold', events, openedIn, closedIn, interruption, note: 'Native browser playback at normal speed. In-progress reversals use hit-tested DOM button activation in the observation frame; normal pointer and Escape dismissal remain exercised. No paused/retimed animation in the video.' }), contentType: 'application/json' })
   await context.close()
   await video.saveAs(info.outputPath(`bold-real-time.webm`))
   await info.attach('real-time-motion', { path: info.outputPath(`bold-real-time.webm`), contentType: 'video/webm' })
 })
 
-test('Canonical Bold opens from MENU with angled surface, unskewed type and approved Letter Slip', async ({ page }, info) => {
+test('compact piano keys open independently with unskewed type and preserved Letter Slip', async ({ page }, info) => {
   await page.setViewportSize({ width: 1440, height: 1000 }); await ready(page)
+  const pageBackground = await page.locator('html').evaluate(el => getComputedStyle(el).backgroundColor)
   const trigger = page.getByRole('button', { name: 'MENU', exact: true })
   await trigger.hover(); await expect(trigger.locator('.trigger-copy')).toHaveCSS('transform', 'matrix(1, 0, 0, 1, 3, 0)')
   await expect(page.locator('dialog')).not.toBeVisible()
   await page.screenshot({ path: info.outputPath('bold-trigger-hover.png') })
   await trigger.click(); const tracks = await freezeReveal(page, 180)
-  expect(tracks).toHaveLength(16); expect(tracks.every(track => track.duration === 500)).toBe(true)
-  const clip = await page.locator('.menu-surface').evaluate(el => getComputedStyle(el).clipPath)
-  expect(clip).toContain('polygon(')
+  expect(tracks).toHaveLength(14); expect(tracks.every(track => track.duration === 680)).toBe(true)
+  const keys = await page.locator('.menu-key').evaluateAll(items => items.map(el => getComputedStyle(el).transform))
+  expect(keys).toHaveLength(7); expect(new Set(keys).size).toBeGreaterThan(1)
+  await expect(page.locator('dialog')).toHaveCSS('overflow-x', 'hidden')
+  await expect(page.locator('dialog')).toHaveCSS('scrollbar-width', 'none')
   await page.screenshot({ path: info.outputPath('bold-opening-180ms.png') })
   await page.locator('dialog').evaluate(el => el.getAnimations({ subtree: true }).filter(a => a.id === 'editorial-menu-reveal').forEach(a => a.play()))
   await expect(page.locator('dialog')).toHaveAttribute('data-phase', 'open')
   await page.mouse.move(5, 900); await page.screenshot({ path: info.outputPath('bold-fully-opened.png') })
-  // Stable scrollbar space must not leave a Canvas-colored strip beside the brighter open plane.
-  expect(await page.locator('html').evaluate(el => getComputedStyle(el).backgroundColor)).toBe(await page.locator('.menu-surface').evaluate(el => getComputedStyle(el).backgroundColor))
+  await expect(page.locator('dialog')).toHaveAccessibleName('주요 메뉴')
+  await expect(page.locator('.menu-surface, .menu-intro, .menu-bottom')).toHaveCount(0)
+  await expect(page.locator('dialog .nav-signature')).toHaveCount(0)
+  const bounds = (await page.locator('dialog').boundingBox())!
+  expect(bounds.width).toBeLessThan(1440 / 2); expect(bounds.height).toBeLessThan(1000)
+  expect(await page.locator('html').evaluate(el => getComputedStyle(el).backgroundColor)).toBe(pageBackground)
+  const preferences = (await page.locator('.menu-preferences').boundingBox())!
+  expect(preferences.y + preferences.height).toBeLessThanOrEqual((await page.locator('.menu-links').boundingBox())!.y)
   const home = page.getByRole('link', { name: 'HOME', exact: true })
   await expect(home.locator('.menu-item-label')).toHaveCSS('font-weight', '500')
   await expect(home.locator('.menu-item-label')).toHaveCSS('text-decoration-line', 'none')
@@ -446,7 +458,7 @@ test('Canonical Bold opens from MENU with angled surface, unskewed type and appr
     await expect(page.getByRole('link', { name: label, exact: true }).locator('.menu-letter').last()).toHaveCSS('transform', 'matrix(1, 0, 0, 1, 3, 7)')
     await page.screenshot({ path: info.outputPath(`bold-${label.toLowerCase()}-letter-slip.png`) })
   }
-  await info.attach('bold-reveal', { body: JSON.stringify({ duration: 500, sampledAt: 180, tracks: tracks.length, clip, typeSkew: 0 }), contentType: 'application/json' })
+  await info.attach('compact-reveal', { body: JSON.stringify({ duration: 680, sampledAt: 180, tracks: tracks.length, keys, bounds, typeSkew: 0 }), contentType: 'application/json' })
 })
 
 test('Stale Refined URL cannot select a mode; canonical Bold preserves keyboard, counterpart and live reduced motion', async ({ page }, info) => {
@@ -457,15 +469,16 @@ test('Stale Refined URL cannot select a mode; canonical Bold preserves keyboard,
   const trigger = page.getByRole('button', { name: 'MENU', exact: true })
   await trigger.focus(); await page.keyboard.press('Enter')
   await expect(page.locator('dialog')).toHaveAttribute('data-phase', 'open')
-  await page.keyboard.press('Shift+Tab'); await expect(page.getByRole('link', { name: 'English', exact: true })).toBeFocused()
+  await page.keyboard.press('Shift+Tab'); await expect(page.getByRole('link', { name: 'CONTACT', exact: true })).toBeFocused()
   await page.keyboard.press('Tab'); await expect(page.getByRole('button', { name: '메뉴 닫기' })).toBeFocused()
-  await page.keyboard.press('Tab'); await expect(page.getByRole('link', { name: 'HOME', exact: true })).toHaveCSS('outline-style', 'solid')
+  await page.keyboard.press('Tab'); await expect(page.getByRole('link', { name: '한국어', exact: true })).toBeFocused()
+  await expect(page.getByRole('link', { name: '한국어', exact: true })).toHaveCSS('outline-style', 'solid')
   await page.getByRole('link', { name: 'English', exact: true }).click()
   await expect(page).toHaveURL('http://127.0.0.1:4176/en/album/test-album/')
   await expect(page.locator('main')).toBeFocused(); await expect(page.locator('[data-menu-motion]')).toHaveCount(0)
   await trigger.click(); const tracks = await freezeReveal(page, 180)
-  expect(tracks).toHaveLength(16); expect(tracks.every(track => track.duration === 500)).toBe(true)
-  expect(await page.locator('.menu-surface').evaluate(el => getComputedStyle(el).clipPath)).toContain('polygon(')
+  expect(tracks).toHaveLength(14); expect(tracks.every(track => track.duration === 680)).toBe(true)
+  expect(new Set(await page.locator('.menu-key').evaluateAll(items => items.map(el => getComputedStyle(el).transform))).size).toBeGreaterThan(1)
   await page.emulateMedia({ reducedMotion: 'reduce' })
   await expect(page.locator('dialog')).toHaveAttribute('data-phase', 'open')
   await page.getByRole('link', { name: 'WORKS', exact: true }).hover()

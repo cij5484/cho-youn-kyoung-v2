@@ -1,8 +1,7 @@
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
-import { BrowserRouter, useLocation } from 'react-router'
+import { BrowserRouter } from 'react-router'
 import EntryScreen from './EntryScreen.tsx'
 import { counterpartPath, editionHref, editionRoute, type Edition } from './mode-routing.ts'
-import { ModeSwitch } from './ModeSwitch.tsx'
 import './entry.css'
 
 const loadImmersive = () => import('../../labs/interaction/InteractionLab.tsx')
@@ -16,10 +15,6 @@ const modeHref = (mode: Edition, path = '/') => editionHref(mode, path, entryBas
 const initialRoute = readRoute()
 if (initialRoute.mode === 'immersive' && !location.pathname.startsWith(modeHref('immersive'))) {
   history.replaceState(null, '', modeHref('immersive', initialRoute.path) + location.search + location.hash)
-}
-
-function ImmersiveSwitch() {
-  return <ModeSwitch mode="immersive" path={useLocation().pathname}/>
 }
 
 function Classic({ path, onReady }: { path: string; onReady: (timedOut: boolean) => void }) {
@@ -79,7 +74,7 @@ export default function EditionApp() {
   }
   return <>
     <div inert={entry} aria-hidden={entry || undefined}>
-    {route.mode === 'immersive' && <BrowserRouter basename={import.meta.env.BASE_URL}><Suspense fallback={<div className="edition-loading" role="status">CHO YOUN KYOUNG</div>}><Immersive/></Suspense><ImmersiveSwitch/></BrowserRouter>}
+    {route.mode === 'immersive' && <BrowserRouter basename={import.meta.env.BASE_URL}><Suspense fallback={<div className="edition-loading" role="status">CHO YOUN KYOUNG</div>}><Immersive/></Suspense></BrowserRouter>}
     {route.mode === 'classic' && <Classic path={route.path} onReady={onClassicReady}/>}
     </div>
     {entry && <EntryScreen prepare={prepare} finish={() => { setEntry(false); document.querySelector<HTMLElement>('main')?.focus({ preventScroll: true }) }}/>}

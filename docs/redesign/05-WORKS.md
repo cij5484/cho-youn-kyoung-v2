@@ -6,6 +6,14 @@
 **Parents:** `00-MASTER-PLAN.md`, `02-DESIGN-SYSTEM.md`, `03-MOTION-SYSTEM.md`, `04-HOME.md`  
 **Page Role:** Visual Archive + Functional Archive
 
+## 2026-09-12 — local discrete helix revision
+
+Latest explicit user direction keeps the CSS 3D helix but replaces continuous wheel/gesture scrubbing
+with complete front-facing stops. Small wheel gestures and pointer swipes select a work, then an eased
+transition finishes automatically. Wider spacing, masked letter titles and the existing final archive are
+documented in [Phase 3B local result](review/PHASE-3B-VISUAL-POLISH.md). Earlier scroll-clock notes below
+are historical. No deployment or visual approval is implied.
+
 ## 2026-09-10 — local efficiency refinement / review ready
 
 User follow-up: all seven Archive rows reveal on the shared expansion clock, including 06/07.
@@ -776,3 +784,10 @@ WORKS should feel like:
 **A curated exhibition at the top, and a trustworthy archive underneath.**
 
 The user should be able to admire the work and also find it.
+# Current local revision — 2026-09-12
+
+The user replaces the prior Atmospheric zoom/rail opening with a scroll-driven 3D helix, using the
+ABOUT cylindrical spatial principle and authentic posters/covers. Its final state joins the existing archive;
+desktop keeps list + persistent preview, mobile keeps its thumbnail rows. Detail returns target
+`#works-compact-archive` directly. The old WebGL opening engine and rail assembly are retired.
+[Current scope, reference and verification](review/WORKS-HELIX-REVISION.md). Earlier sections record their revisions.

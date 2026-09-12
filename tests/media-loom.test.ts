@@ -45,4 +45,14 @@ test('independent ribbon edges retain full-image UVs and frame fits mobile and d
     assert.ok(frame.width * 1.08 < width && frame.height * 1.08 < height)
     assert.ok(Math.abs(frame.width / frame.height - 16 / 9) < .00001)
   }
+  const recital = mediaLoomFrame(1265, 380, 4 / 3)
+  assert.ok(Math.abs(recital.height - 304) < .001)
+  assert.ok(Math.abs(recital.width / recital.height - 4 / 3) < .00001)
+  const wide = mediaLoomFrame(1265, 380, 16 / 9)
+  assert.ok(Math.abs(wide.height - 243.2) < .001)
+  for (const height of [180, 380, 700]) {
+    const frame = mediaLoomFrame(402, height, 4 / 3)
+    const verticalSpan = Math.max(0, Math.min(frame.height, (height - frame.height - 4) / .512))
+    assert.ok(frame.height / 2 + verticalSpan * (.21 + .046) <= height / 2)
+  }
 })

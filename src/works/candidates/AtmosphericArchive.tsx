@@ -51,15 +51,6 @@ export function AtmosphericArchive({ locale = 'ko' }: { locale?: Language }) {
           data-group-start={index > 0 && records[index - 1].type !== record.type} data-work-id={record.id} data-kind={record.type} data-sequence={index}
           data-filtered={filter !== 'all' && record.type !== (filter === 'albums' ? 'album' : 'performance')}>
           <a className="atmospheric-archive-link" href={albumStudyHref(record)}
-            onClick={event => {
-              if (Number(root.current?.dataset.indexExpansion ?? 1) >= .999) return
-              const spatial = root.current?.closest<HTMLElement>('.atmospheric-depth')
-              if (!spatial) return
-              event.preventDefault()
-              const progress = (index + .37 - .18) / (worksCatalog.length - .54) * .86
-              window.scrollTo({ top: Number(spatial.dataset.scrollStart ?? 0) + progress * Number(spatial.dataset.scrollRange ?? 1),
-                behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
-            }}
             aria-label={`${record.title} — 기존 사이트에서 기록 보기`}>
             <span className="atmospheric-archive-rule" aria-hidden="true" />
             <span className="atmospheric-archive-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
