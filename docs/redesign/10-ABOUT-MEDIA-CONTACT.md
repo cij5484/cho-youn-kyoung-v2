@@ -8,6 +8,11 @@
 
 ## 2026-09-08 연구 반영 — 정보 우선의 세 페이지
 
+2026-09-12 사용자 PR/merge 승인으로 Pages development preview의 ABOUT은 실제 portrait biography와
+회전 가능한 3D helix gallery로 대체한다. 사진 확대 닫기와 나선 Close는 별도 단계이며 오른쪽 사진열로 복귀한다.
+[현재 ABOUT owner](review/ABOUT-PORTRAIT-GALLERY.md)를 참조한다. 아래 fixture 설명은 release/EN 및
+아직 승격하지 않은 MEDIA/CONTACT에 해당한다.
+
 현재 `/about/`, `/media/`, `/contact/`는 **route fixture**다. HOME의 프로필 링크나 새 opt-in 구성이
 이 페이지들의 구현 완료를 뜻하지 않는다. 세부 적용·자산·다음 단위는
 [연구 §4.6](review/EXPERIENCE-PROTOTYPE-RESEARCH.md#46-media--about--contact--기본-방향)을 참조한다.
