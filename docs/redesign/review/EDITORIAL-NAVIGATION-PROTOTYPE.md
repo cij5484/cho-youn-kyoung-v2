@@ -201,3 +201,5 @@ Chromium tests alone cannot expand it. The current task authorizes commit → ma
 not deployment. The final delivery report and GitHub run identify the delivered commit and CI outcome.
 
 **REPORT → STOP. No HOME/P2C, WORKS/PERFORMANCE implementation or automatic next Phase.**
+
+2026-09-12 delivery refinement: user requested rounded left ends; each existing menu key now has28px left corner radii, preserving square right attachment and the same material/timing.
