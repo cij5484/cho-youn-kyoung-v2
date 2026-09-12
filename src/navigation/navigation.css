@@ -38,7 +38,7 @@
 .navigation-menu::-webkit-scrollbar { display: none; }
 .navigation-menu::backdrop { background: transparent; }
 .navigation-menu[open] { display: block; }
-.menu-key { background: var(--color-surface); border-radius: 28px 0 0 28px; }
+.menu-key { background: var(--color-surface); border-radius: 999px 0 0 999px; }
 @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   /* The ivory floor keeps ink legible even over black, while the remaining tint comes from the actual scene. */
   .menu-key { background: rgb(249 247 242 / .82); -webkit-backdrop-filter: blur(12px) saturate(.65); backdrop-filter: blur(12px) saturate(.65); }
