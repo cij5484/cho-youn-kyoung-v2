@@ -29,9 +29,6 @@
 .entry-screen[data-entering] .entry-choice,.entry-screen[data-entering] .entry-enter,.entry-screen[data-entering] .entry-header,.entry-screen[data-entering] .entry-footer{opacity:0;transition:opacity 200ms}
 .entry-screen[data-entering=classic] .entry-classic{z-index:4}.entry-screen[data-entering=classic] .entry-world{overflow:visible}
 .entry-screen[data-entering=immersive] .entry-immersive{z-index:4}.entry-screen[data-entering=immersive] .entry-split{grid-template-columns:0% 100%}.entry-screen[data-entering=immersive] .entry-classic{visibility:hidden}
-.edition-switch{position:fixed;z-index:120;left:50%;translate:-50% 0;top:13px;display:flex;align-items:center;gap:9px;padding:6px 10px;background:#f3f0e8e8;color:#242420;font:9px var(--font-ui,'Noto Sans KR Variable',sans-serif);letter-spacing:.035em;border:1px solid #cbc4b54d}
-.edition-switch a{display:inline-flex;align-items:center;min-height:30px;color:inherit;text-decoration:none;opacity:.45}.edition-switch a[aria-current]{opacity:1;border-bottom:1px solid currentColor}.edition-switch a:hover,.edition-switch a:focus-visible{opacity:1}.edition-switch span{opacity:.3}
-.edition-switch--menu{display:none}
 .classic-shell{position:fixed;inset:0;background:#f3f0e8}.classic-shell iframe{display:block;width:100%;height:100%;border:0}.edition-loading{position:fixed;inset:0;display:grid;place-items:center;background:#f3f0e8;font:12px sans-serif;letter-spacing:.1em}
 @media(max-width:699px){
   .entry-header{top:22px;left:22px;right:22px;font-size:10px}.entry-header>span:last-child{font-size:8px}.entry-footer{bottom:16px;left:22px;right:22px;font-size:8px}
@@ -42,8 +39,5 @@
   .entry-choice{padding:35px 12px}.entry-screen[data-active=classic] .entry-classic .entry-choice-copy,.entry-screen[data-active=immersive] .entry-immersive .entry-choice-copy{transform:translateY(14vh)}
   .entry-world{inset:22px 0 118px}.entry-classic-portrait{height:88%;max-height:350px;top:48%}.entry-enter{bottom:17px;font-size:10px}.entry-immersive .entry-enter{bottom:30px}
   .entry-sculpture{inset:-15px 0 25px}
-  .edition-switch--shell[data-mode=immersive]{display:none}
-  .edition-switch--menu{position:static;display:flex;align-self:flex-start;translate:none;margin-top:16px;font-size:9px}
-  .edition-switch a{min-height:44px}
 }
 @media(prefers-reduced-motion:reduce){.entry-screen *{animation:none!important;transition:none!important}.entry-slice{transform:none!important}}

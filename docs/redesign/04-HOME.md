@@ -1514,3 +1514,20 @@ PR/merge 및 자동 development Pages 배포는 사용자 요청 범위. 시각�
 사용자가 실제 로컬 화면 확인 후 빈도를 다시 올리도록 요청했다. 최종 발생 간격은 Desktop 1400ms,
 Mobile 자동/탭 3500ms, 동시 상한은 각각 3 / 2. 이전 원본 대비 반경 25%, 색상 순환 36초 및
 성장·건조 동작은 그대로 유지한다. 위의 2400/6000ms 조정은 이 값으로 대체한다.
+
+## 2026-09-12 authorized HOME input and responsive revision
+
+The explicit user request reopens only 04 input/travel from the historical ribbon freeze. Existing geometry,
+assets, order and signature motion remain. A small inward wheel/touch gesture selects one work and completes
+950ms eased native-scroll travel; outward first/last gestures return to normal section scrolling. Existing
+selectors use the same driver. Scrollbar/keyboard scroll settles to a work. The driver cleans up on unmount,
+pauses for native menus/visibility, retargets geometry changes, and leaves reduced motion native.
+
+Mobile intro active travel increases235→352.5svh (same swipe advances33% less), preserving its55svh end hold
+and proportionate SOUND skip anchor. At widths up to1000px, the06→07 shared aperture now follows native
+poster/portrait aspect and available height; contain replaces forced cover/portrait overscale. Existing
+shared seam, mask and artist choreography remain. Desktop above1000px retains its composition.
+
+User authorized PR/merge/Pages delivery of these fixes and preceding local visual/UX/menu revisions.
+Local Fast passed; final changed-scope lint/types, five ribbon/helix/menu checks and actual Preview build passed.
+Desktop1280×800: one small wheel input moved04 index0→1 and settled at exactly1. No physical-device claim.

@@ -12,7 +12,7 @@ const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches
 
 export default function AlbumDetail({ slug }: { slug: string }) {
   const album = albums.find(item => item.slug === slug)
-  return album ? <Exhibition album={album}/> : <section className="lab-destination page-frame"><h1>앨범을 찾을 수 없습니다.</h1><a href={appHref('/works/')}>WORKS로 돌아가기 ↗</a></section>
+  return album ? <Exhibition album={album}/> : <section className="lab-destination page-frame"><h1>앨범을 찾을 수 없습니다.</h1><a href={appHref('/works/#works-compact-archive')}>WORKS로 돌아가기 ↗</a></section>
 }
 
 function Exhibition({ album }: { album: AlbumExhibit }) {
@@ -84,7 +84,7 @@ function Exhibition({ album }: { album: AlbumExhibit }) {
       <div className="album-opening-stage">
         <div className="album-air" aria-hidden="true"/>
         <div className="album-opening-composition">
-        <div className="album-opening-top"><a href={appHref('/works/')} data-album-return>↖ WORKS</a><span>RECORDING / {album.year}</span></div>
+        <div className="album-opening-top"><a href={appHref('/works/#works-compact-archive')} data-album-return>↖ WORKS</a><span>RECORDING / {album.year}</span></div>
         <div className="album-display-word" aria-hidden="true">{sanjo ? 'Sanjo' : 'Resonance'}<i>.</i></div>
         <div className="album-hero-copy">
           <p className="album-eyebrow">CHO YOUN KYOUNG — {sanjo ? 'HAEGEUM SANJO' : 'HAEGEUM JEONGAK'}</p>
@@ -125,32 +125,32 @@ function Exhibition({ album }: { album: AlbumExhibit }) {
             </div>
           </div>
           <div className="exhibit-object-handling">
-            {album.back && !open && <button onClick={() => setBack(!back)} aria-label={back ? '표지 앞면 보기' : '표지 뒷면 보기'}>{back ? 'FRONT' : 'REVERSE'} ↻</button>}
-            {open && <><button onClick={() => showPage(0)}>BOOKLET ↗</button><button onClick={() => scrollToScene('album-listen')}>TRACKS ↘</button></>}
+            {album.back && !open && <button onClick={() => setBack(!back)} aria-label={back ? '표지 앞면 보기' : '표지 뒷면 보기'}>{back ? 'Front' : 'Reverse'}</button>}
+            {open && <><button onClick={() => showPage(0)}>Read booklet</button><button onClick={() => scrollToScene('album-listen')}>Tracks</button></>}
           </div>
         </div>
         <div className="album-opening-bottom"><button className="album-open-action" onClick={() => { setBack(false); setOpen(!open) }} aria-expanded={open}>
-          <span>{open ? 'CLOSE' : 'OPEN'} <i>ALBUM</i></span><span aria-hidden="true">{open ? '−' : '+'}</span>
-        </button><p>한 장의 종이에서,<br/>한 줄의 소리로.</p><a href="#album-story" aria-label="앨범 이야기로 이동">SCROLL TO EXPLORE <span>↓</span></a></div>
+          <span>{open ? 'Close' : 'Open'} <i>album</i></span><span aria-hidden="true">{open ? '−' : '+'}</span>
+        </button><a href="#album-story" aria-label="앨범 이야기로 이동">Album notes</a></div>
         </div>
       </div>
     </section>
 
     <section className="album-story" id="album-story" data-exhibit-scene="story" data-album-anchor="story" aria-labelledby="album-story-title">
-      <p className="album-eyebrow">02 / BETWEEN TWO STRINGS</p>
-      <div className="album-story-grid"><h2 id="album-story-title">{sanjo ? <>느리게 쌓여,<br/><em>자유로워지는.</em></> : <>깊게 머물고,<br/><em>넓게 울리는.</em></>}</h2>
-        <div className="album-story-note"><span className="album-twin-lines" aria-hidden="true"/><p>{album.summary}</p><p>해금의 선율과 장단 사이.<br/>표지를 열고, 소리를 따라<br/>한 장씩 들어갑니다.</p><span className="album-small-sign">{album.subtitle} · {album.year}</span></div>
+      <p className="album-eyebrow">02 / ALBUM NOTES</p>
+      <div className="album-story-grid"><h2 id="album-story-title">{album.subtitle}</h2>
+        <div className="album-story-note"><span className="album-twin-lines" aria-hidden="true"/><p>{album.summary}</p><span className="album-small-sign">{album.subtitle} · {album.year}</span></div>
       </div>
       <div className="album-paper-landscape">
         <span className="album-paper-caption">THE PRINTED RECORD <span>↘</span></span>
         <button className="album-paper-page album-paper-page-back" onPointerMove={tiltPaper} onPointerLeave={restPaper} onPointerCancel={restPaper} onClick={() => showPage(Math.min(1, pages.length - 1))} aria-label="앨범 인쇄물 크게 보기"><img src={pages[Math.min(1, pages.length - 1)]} alt="앨범 인쇄물" loading="lazy"/></button>
         <button className="album-paper-page album-paper-page-front" onPointerMove={tiltPaper} onPointerLeave={restPaper} onPointerCancel={restPaper} onClick={() => showPage(Math.min(3, pages.length - 1))} aria-label="앨범 노트 크게 보기"><img src={pages[Math.min(3, pages.length - 1)]} alt={album.booklet.length ? '북릿 앨범 노트' : '앨범 표지 인쇄물'} loading="lazy"/></button>
-        <div className="album-paper-foot"><span>{album.booklet.length ? `BOOKLET / ${two(pages.length)} PAGES` : 'COVER / ARTWORK'}</span><button onClick={() => showPage(0)}>한 장씩 읽기 ↗</button></div>
+        <div className="album-paper-foot"><span>{album.booklet.length ? `BOOKLET / ${two(pages.length)} PAGES` : 'COVER / ARTWORK'}</span><button onClick={() => showPage(0)}>Read booklet</button></div>
       </div>
     </section>
 
     <section className="album-listen" id="album-listen" data-exhibit-scene="listen" aria-labelledby="album-listen-title">
-      <div className="album-listen-heading"><p className="album-eyebrow">03 / THE SOUND INSIDE</p><h2 id="album-listen-title">Listen<span>.</span></h2><p>{sanjo ? '장단을 따라, 여섯 번의 숨.' : '이어지는 선율, 깊어지는 울림.'}</p></div>
+      <div className="album-listen-heading"><p className="album-eyebrow">03 / TRACKS</p><h2 id="album-listen-title">Listen<span>.</span></h2></div>
       <div className="album-listen-grid">
         <div className="album-disc-scene" data-album-anchor="disc">
           <span className="album-disc-orbit" aria-hidden="true"/>
@@ -172,18 +172,18 @@ function Exhibition({ album }: { album: AlbumExhibit }) {
     </section>
 
     <section className="album-credits" id="album-credits" data-exhibit-scene="credits" aria-labelledby="album-credits-title">
-      <p className="album-eyebrow">04 / MADE TOGETHER</p><div className="album-credits-grid"><h2 id="album-credits-title">함께 만든<br/><em>울림.</em></h2><dl>{album.credits.map(item => <div key={item.role}><dt>{item.role}</dt><dd>{item.name}</dd></div>)}</dl></div>
+      <p className="album-eyebrow">04 / CREDITS</p><div className="album-credits-grid"><h2 id="album-credits-title">참여진</h2><dl>{album.credits.map(item => <div key={item.role}><dt>{item.role}</dt><dd>{item.name}</dd></div>)}</dl></div>
     </section>
 
     <section className="album-related" data-exhibit-scene="related" data-album-anchor="related" aria-labelledby="album-related-title">
-      <div className="album-related-heading"><p className="album-eyebrow">THE EXHIBITION CONTINUES</p><h2 id="album-related-title">Another resonance<span>.</span></h2></div>
+      <div className="album-related-heading"><h2 id="album-related-title">Other albums<span>.</span></h2></div>
       <div className="album-related-grid">{others.map((item, index) => <a href={appHref(`/album/${item.slug}/`)} data-album-link key={item.slug}><span>{two(index + 1)} / {item.year}</span><div><img src={item.front} alt={item.title} loading="lazy"/></div><h3>{item.subtitle}<span>↗</span></h3></a>)}</div>
-      <a className="album-return" href={appHref('/works/')} data-album-return><img src={album.front} alt=""/><span>BACK TO <em>WORKS</em></span><span aria-hidden="true">↗</span></a>
+      <a className="album-return" href={appHref('/works/#works-compact-archive')} data-album-return><img src={album.front} alt=""/><span>BACK TO <em>WORKS</em></span><span aria-hidden="true">↗</span></a>
       <p className="album-colophon">CHO YOUN KYOUNG<span>{album.subtitle} — END OF RECORD</span></p>
     </section>
 
     <dialog className="album-reader" ref={reader} aria-labelledby="album-reader-title" data-zoom={zoom} onClick={event => { if (event.target === event.currentTarget) reader.current?.close() }}>
-      <header><h2 id="album-reader-title">{album.subtitle} / {album.booklet.length ? 'BOOKLET' : 'ARTWORK'}</h2><button onClick={() => setZoom(!zoom)} aria-label={zoom ? '북릿 화면에 맞추기' : '북릿 확대'}>{zoom ? 'FIT' : 'ZOOM +'}</button><button onClick={() => reader.current?.close()} aria-label="북릿 닫기">CLOSE ×</button></header>
+      <header><h2 id="album-reader-title">{album.subtitle} / {album.booklet.length ? 'BOOKLET' : 'ARTWORK'}</h2><button onClick={() => setZoom(!zoom)} aria-label={zoom ? '북릿 화면에 맞추기' : '북릿 확대'}>{zoom ? 'Fit' : 'Zoom'}</button><button onClick={() => reader.current?.close()} aria-label="북릿 닫기">Close</button></header>
       <div className="album-reader-sheet"><img src={pages[page]} alt={`${album.subtitle} 인쇄물 ${page + 1}쪽`}/></div>
       <footer><button disabled={page === 0} onClick={() => setPage(page - 1)} aria-label="이전 쪽">←</button><span aria-live="polite">{two(page + 1)} / {two(pages.length)}</span><button disabled={page === pages.length - 1} onClick={() => setPage(page + 1)} aria-label="다음 쪽">→</button></footer>
     </dialog>

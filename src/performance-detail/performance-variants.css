@@ -19,7 +19,7 @@
 .performance-variant-dual-flow .performance-hero h1 { font-size:clamp(62px,6.5vw,104px); }
 .performance-variant-dual-flow :is(.performance-note,.performance-score,.performance-cast figcaption,.performance-section-heading) { background:#eeeadfea; }
 .performance-variant-dual-flow .performance-note { padding:24px; }
-.performance-variant-dual-flow .performance-note h2 { font-size:clamp(26px,2.9vw,40px); max-width:14em; }
+.performance-variant-dual-flow .performance-note h2 { font-size:clamp(20px,1.9vw,24px); line-height:1.75; letter-spacing:-.035em; max-width:none; }
 .performance-variant-dual-flow .performance-cast { grid-template-columns:repeat(3,minmax(0,1fr)); max-width:900px; margin-inline:auto; }
 .performance-variant-dual-flow .performance-score h3 { font-size:clamp(26px,2.6vw,38px); }
 .performance-variant-dual-flow .performance-printed { max-width:1000px; margin-inline:auto; }
@@ -82,7 +82,7 @@
   .performance-dual-words { font-size:18px; width:35%; color:#2e465542; }
   .performance-dual-words-1 { color:#846f5042; }
   .performance-variant-dual-flow .performance-note { padding:12px 0; }
-  .performance-variant-dual-flow .performance-note h2 { font-size:25px; }
+  .performance-variant-dual-flow .performance-note h2 { font-size:20px; }
   .performance-variant-dual-flow .performance-cast { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .performance-variant-dual-flow .performance-cast img { height:19svh; }
   .performance-variant-dual-flow .performance-score h3 { font-size:24px; }

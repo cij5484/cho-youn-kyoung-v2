@@ -127,16 +127,20 @@ test('album surface supports drag, keyboard, front/back and selection without re
   await expect(surface).toHaveAttribute('data-dragging', 'false')
 })
 
-test('navigation adapts to the actual stage and returns to Ivory; opening and closing the menu preserves the scene', async ({ page }) => {
+test('transparent navigation adapts through difference blending; opening and closing the menu preserves the scene', async ({ page }) => {
   await ready(page); await scene(page, '.performance-scene', .5)
   const navigation = page.locator('.editorial-navigation')
   await expect(navigation).toHaveAttribute('data-home-dark', 'true')
-  await expect(navigation).toHaveCSS('color', 'color(srgb 0.956863 0.941176 0.909804)')
+  await expect(navigation).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)')
+  await expect(navigation).toHaveCSS('color', 'rgb(255, 255, 255)')
+  await expect(navigation).toHaveCSS('mix-blend-mode', 'difference')
   const before = await page.evaluate(() => scrollY)
   await page.getByRole('button', { name: 'MENU', exact: true }).click(); await expect(page.locator('dialog')).toBeVisible()
   await page.keyboard.press('Escape'); await expect(page.locator('dialog')).not.toBeVisible()
   expect(Math.abs((await page.evaluate(() => scrollY)) - before)).toBeLessThan(2)
   await scene(page, '.artist-scene', .4); await expect(navigation).toHaveAttribute('data-home-dark', 'false')
+  await expect(navigation).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)')
+  await expect(navigation).toHaveCSS('mix-blend-mode', 'difference')
 })
 
 for (const width of [320, 390]) test(`mobile ${width}: authored scroll ribbon, visible content, working CTAs and no horizontal/scroll lock`, async ({ page }) => {

@@ -65,7 +65,7 @@ export function PerformanceRecordPage({ record }: { record: PerformanceRecord })
 
         <section id="performance-opening" className="performance-chapter performance-hero" data-performance-scene tabIndex={-1} aria-labelledby="performance-title">
           <div className="performance-chapter-inner">
-            <div className="performance-topline"><a href={appHref('/works/')} data-album-return>WORKS</a><span>01 / PERFORMANCE — {record.date.slice(0, 4)}</span></div>
+            <div className="performance-topline"><a href={appHref('/works/#works-compact-archive')} data-album-return>WORKS</a><span>01 / PERFORMANCE — {record.date.slice(0, 4)}</span></div>
             <div className="performance-hero-layout">
               <div className="performance-hero-copy" data-scene-copy>
                 <p className="performance-kicker">{record.subtitle}</p>

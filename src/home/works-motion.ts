@@ -2,6 +2,7 @@ import { useEffect, useRef, type RefObject } from 'react'
 import { blendPoint, clamp, smooth, ellipse, outroOrbit } from './closing-orbit.ts'
 import { createTrailSampler, type TrailSample } from '../motion/trail-geometry.ts'
 import { signatureAudioHandoff } from '../signature/audio-handoff.ts'
+import { mountRibbonSteps } from './ribbon-steps.ts'
 
 export const worksRibbonTuning = {
   spacing: .46, depth: 210, turn: 48, response: 11,
@@ -16,6 +17,7 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
   useEffect(() => {
     const root = ref.current!, sticky = root.querySelector<HTMLElement>('.works-sticky')!, board = root.querySelector<HTMLElement>('.works-board')!
     const cards = [...board.querySelectorAll<HTMLElement>('.selected-work')], links = cards.map(card => card.querySelector('a')!)
+    const steps = mountRibbonSteps(root, sticky, cards.length)
     const owner = root.closest<HTMLElement>('.home-closing')!
     const canvases = [...owner.querySelectorAll<HTMLCanvasElement>('.works-motif')], contexts = canvases.map(canvas => canvas.getContext('2d'))
     const axis = root.querySelector<SVGSVGElement>('.works-axis')!, paths = [...axis.querySelectorAll('path')]
@@ -217,7 +219,7 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
     }
     seek.current = index => {
       if (reduced.matches) cards[index].scrollIntoView({ behavior: 'instant', block: 'center' })
-      else { const box = root.getBoundingClientRect(); scrollTo({ top: scrollY + box.top + (box.height - sticky.offsetHeight) * index / (cards.length - 1), behavior: 'instant' }) }
+      else steps.go(index)
       request()
     }
     function move(event: PointerEvent) { if (fine.matches) pointer = { x: event.clientX, y: event.clientY }; request() }
@@ -232,7 +234,9 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
     owner.addEventListener('pointermove', move); owner.addEventListener('pointerleave', leave); board.addEventListener('focusin', focused); board.addEventListener('focusout', blurred)
     window.addEventListener('scroll', scroll, { passive: true }); reduced.addEventListener('change', change); mobile.addEventListener('change', change); document.addEventListener('visibilitychange', change)
     resize()
-    return () => { disposed = true; unsubscribeAudio(); signatureAudioHandoff.remove('home-closing'); if (frame) cancelAnimationFrame(frame); observer.disconnect(); choreography.disconnect(); window.removeEventListener('resize',resize); modal.disconnect(); seek.current = () => {}; owner.removeEventListener('pointermove', move); owner.removeEventListener('pointerleave', leave); board.removeEventListener('focusin', focused); board.removeEventListener('focusout', blurred); window.removeEventListener('scroll', scroll); reduced.removeEventListener('change', change); mobile.removeEventListener('change', change); document.removeEventListener('visibilitychange', change); sound?.style.removeProperty('--home-line-handoff') }
+    // The step driver owns only input/travel, not the existing ribbon or signature choreography.
+    const destroySteps = steps.destroy
+    return () => { disposed = true; destroySteps(); unsubscribeAudio(); signatureAudioHandoff.remove('home-closing'); if (frame) cancelAnimationFrame(frame); observer.disconnect(); choreography.disconnect(); window.removeEventListener('resize',resize); modal.disconnect(); seek.current = () => {}; owner.removeEventListener('pointermove', move); owner.removeEventListener('pointerleave', leave); board.removeEventListener('focusin', focused); board.removeEventListener('focusout', blurred); window.removeEventListener('scroll', scroll); reduced.removeEventListener('change', change); mobile.removeEventListener('change', change); document.removeEventListener('visibilitychange', change); sound?.style.removeProperty('--home-line-handoff') }
   }, [ref, onActive])
   return seek
 }

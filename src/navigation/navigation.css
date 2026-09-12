@@ -1,9 +1,13 @@
-/* P2B refinement: artist + MENU only. P2A owns shared values; no scroll morph. */
+/* Transparent adaptive header and compact, independently moving menu keys. */
 .editorial-navigation, .menu-top {
   display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
   padding: max(var(--space-2), env(safe-area-inset-top, 0px)) var(--safe-gutter-end) var(--space-2) var(--safe-gutter-start);
 }
 .editorial-navigation { position: fixed; inset: 0 0 auto; z-index: 20; background: var(--color-canvas); }
+/* This shared owner supersedes the older HOME/Haegeum paper-fill overrides. */
+.editorial-navigation.adaptive-navigation { background: transparent !important; color: #fff !important; mix-blend-mode: difference; }
+.editorial-navigation.adaptive-navigation :is(.nav-signature,.menu-toggle) { color: inherit !important; }
+.editorial-navigation.adaptive-navigation :focus-visible { outline-color: currentColor; }
 .editorial-navigation a, .navigation-menu a { text-decoration: none; }
 .nav-signature { display: inline-flex; align-items: center; min-inline-size: 0; overflow-wrap: anywhere; min-block-size: var(--touch-target); font-size: var(--micro); letter-spacing: .04em; font-weight: 500; }
 .menu-toggle {
@@ -26,51 +30,56 @@
 .menu-toggle:focus-visible .symbol-lines::after { transform: translateY(-1px) scaleY(.72); }
 .editorial-navigation a, .editorial-navigation button, .navigation-menu a, .navigation-menu button { -webkit-tap-highlight-color: transparent; }
 .navigation-menu {
-  position: fixed; inset: 0; margin: 0; inline-size: 100%; max-inline-size: none;
-  block-size: var(--viewport-live); max-block-size: none; overflow-y: auto; overscroll-behavior-y: contain;
-  padding: 0; border: 0; color: var(--text-primary); background: transparent; isolation: isolate;
+  position: fixed; inset: 0 0 auto auto; margin: 0; inline-size: min(400px, calc(100% - 24px)); max-inline-size: none;
+  block-size: auto; max-block-size: var(--viewport-live); overflow-x: hidden; overflow-y: auto; overscroll-behavior-y: contain; scrollbar-width: none;
+  padding: 0 0 1px; border: 0; color: var(--text-primary); background: transparent;
+  --text-primary: #171715; --text-secondary: #4c4a44;
 }
+.navigation-menu::-webkit-scrollbar { display: none; }
 .navigation-menu::backdrop { background: transparent; }
-.navigation-menu[open] { display: flex; flex-direction: column; }
-.menu-surface { position: fixed; inset: 0; background: var(--color-surface); z-index: -1; pointer-events: none; }
-.menu-top { position: sticky; inset-block-start: 0; z-index: 1; background: var(--color-surface); }
+.navigation-menu[open] { display: block; }
+.menu-key { background: var(--color-surface); border-radius: 28px 0 0 28px; }
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  /* The ivory floor keeps ink legible even over black, while the remaining tint comes from the actual scene. */
+  .menu-key { background: rgb(249 247 242 / .82); -webkit-backdrop-filter: blur(12px) saturate(.65); backdrop-filter: blur(12px) saturate(.65); }
+}
+@media (prefers-reduced-transparency: reduce) { .menu-key { background: var(--color-surface); -webkit-backdrop-filter: none; backdrop-filter: none; } }
+.menu-top { position: relative; justify-content: flex-end; padding-left: 24px; }
 .navigation-menu .trigger-switch { transform: translateY(-50%); }
 .navigation-menu .symbol-lines { transform: rotate(45deg); }
-.menu-content { display: flex; flex: 1; flex-direction: column; padding: var(--space-5) var(--safe-gutter-end) max(var(--space-4), env(safe-area-inset-bottom, 0px)) var(--safe-gutter-start); }
-.menu-intro { display: flex; align-items: center; gap: var(--space-4); padding-bottom: var(--space-2); }
-.menu-index-mask { overflow: hidden; }
-.menu-intro h2 { font-weight: 400; letter-spacing: .08em; color: var(--text-secondary); }
-.menu-entry-rule { flex: 1; block-size: var(--hairline); background: var(--line-color); transform-origin: right; }
+.menu-content { display: flex; flex-direction: column; }
+.menu-preferences { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0 16px; padding: 2px 28px 12px; }
 .menu-links { padding: 0; margin: 0; list-style: none; }
-.menu-links a { display: block; position: relative; min-block-size: var(--touch-target); padding-block: var(--space-3); }
+.menu-links a { display: block; position: relative; min-block-size: var(--touch-target); padding: 12px 28px; }
+.menu-links li:last-child a { padding-bottom: 22px; }
 .menu-item-mask { display: block; overflow: hidden; padding-block: var(--space-1); margin-block: calc(-1 * var(--space-1)); }
 .menu-item-reveal { display: flex; align-items: baseline; gap: var(--space-4); }
 .nav-index { flex: 0 0 1.25rem; font-family: var(--font-ui); font-size: var(--micro); color: var(--text-secondary); transition: transform var(--action-duration) var(--action-ease), color var(--action-duration) var(--action-ease); }
-.menu-item-label { display: inline-block; min-inline-size: 0; overflow-wrap: anywhere; padding-inline-end: 4px; font-family: var(--font-display); font-size: var(--display-m); font-weight: 400; line-height: 1.25; color: var(--text-secondary); transition: color var(--action-duration) var(--action-ease); }
+.menu-item-label { display: inline-block; min-inline-size: 0; overflow-wrap: anywhere; padding-inline-end: 4px; font-family: var(--font-display); font-size: clamp(30px, 3.4vw, 46px); font-weight: 400; line-height: 1.15; color: var(--text-secondary); transition: color var(--action-duration) var(--action-ease); }
 /* Approved Bold Letter Slip; Refined survives only as archived Lab evidence. */
 .navigation-menu { --letter-slip-x: 3px; --letter-slip-distance: 7px; --letter-slip-duration: 300ms; }
 /* Positions are deterministic. Leave has no stagger, returning every letter to its exact baseline. */
 .menu-letter { display: inline-block; transition: transform var(--letter-slip-duration) var(--action-ease); }
 .menu-letter:nth-child(odd) { --letter-slip-y: var(--letter-slip-distance); }
 .menu-letter:nth-child(even) { --letter-slip-y: calc(-1 * var(--letter-slip-distance)); }
-.menu-row-rule { position: absolute; inset: auto 0 0; block-size: var(--hairline); background: var(--line-color); transform-origin: right; }
+.menu-row-rule { position: absolute; inset: auto 28px 0; block-size: var(--hairline); background: var(--line-color); transform-origin: right; }
+.menu-links li:last-child .menu-row-rule { display: none; }
 .menu-links [aria-current] .menu-item-label { color: var(--text-primary); font-weight: 500; }
 .menu-links [aria-current] .nav-index { color: var(--text-primary); font-weight: 600; }
 .menu-links a:focus-visible .menu-item-label, .menu-links a:focus-visible .nav-index { color: var(--text-primary); }
-.menu-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3); padding-top: var(--space-6); margin-top: auto; }
-.menu-bottom p { color: var(--text-secondary); }
+.edition-switch { display: flex; align-items: center; align-self: flex-start; gap: 12px; margin: 0; color: var(--text-primary); font-size: 11px; letter-spacing: .035em; }
+.edition-switch a { display: inline-flex; align-items: center; min-block-size: var(--touch-target); color: inherit; text-decoration: none; opacity: .45; }
+.edition-switch a[aria-current] { opacity: 1; text-decoration: underline; text-decoration-thickness: var(--hairline); text-underline-offset: .4em; }
+.edition-switch a:hover, .edition-switch a:focus-visible { opacity: 1; }
+.navigation-menu .edition-switch a:not([aria-current]) { opacity: .72; }
+.edition-switch span { opacity: .3; }
 .nav-languages { display: flex; gap: var(--space-1); align-items: center; }
-.nav-languages a, .nav-languages button { display: inline-flex; align-items: center; justify-content: center; min-block-size: var(--touch-target); min-inline-size: var(--touch-target); font-size: var(--ui); }
+.nav-languages a, .nav-languages button { display: inline-flex; align-items: center; justify-content: center; min-block-size: var(--touch-target); min-inline-size: var(--touch-target); font-size: 11px; }
 .nav-languages button { padding: 0; }
 .nav-languages [aria-current] { text-decoration: underline; text-decoration-thickness: var(--hairline); text-underline-offset: .4em; }
 .nav-languages a:focus-visible { text-underline-offset: .5em; }
 .skip-link { z-index: 30; position: fixed; }
 html:has(.editorial-navigation) { scroll-padding-top: var(--space-9); scrollbar-gutter: stable; }
-/* The reserved desktop scrollbar gutter belongs to the open plane; body keeps the underlying Canvas. */
-html:has(.navigation-menu[open]) { background: var(--color-surface); }
-@media (min-width: 70rem) {
-  .menu-content { padding-inline-start: calc(var(--safe-gutter-start) + (100% - var(--safe-gutter-start) - var(--safe-gutter-end)) / 3); }
-}
 @media (hover: hover) and (pointer: fine) {
   .menu-toggle:hover { color: var(--text-primary); }
   .menu-toggle:hover .trigger-copy { transform: translateX(3px); letter-spacing: .035em; }

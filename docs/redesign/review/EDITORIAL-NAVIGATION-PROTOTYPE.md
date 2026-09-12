@@ -1,5 +1,39 @@
 # P2B — Editorial Navigation / Letter Slip Integration
 
+## 2026-09-12 local revision — adaptive header / compact piano menu
+
+Explicit user revision supersedes the historical full-screen plane, INDEX heading/rule, footer signature
+and 500ms entry below. The shared header is transparent with difference compositing; its text responds to
+the scene beneath without the old HOME/Haegeum paper strip. The menu keeps a native modal dialog,
+but its visible box is at most400px wide and only as tall as its contents (viewport-height overflow remains scrollable).
+The existing artist name stays in the page header; the modal contains only the right-hand close control.
+
+Header control paper, top edition/language preferences and five page rows each enter from the right on
+independent offsets/durations. A680ms common reversible clock uses a fast-start/soft-finish cubic easing;
+close reverses the current poses at1.3× speed. There is no separately switched header fill or html background.
+INDEX, its rule, footer artist name and the redundant untranslated-English paragraph are removed; disabled
+language controls retain their accessible reason. Routes, native modal semantics, focus trap/return, Escape,
+route cleanup, background-motion pause signal and reduced-motion fallback remain.
+
+Local only; no delivery. Existing source snapshots are kept in ignored `.checkpoints/compact-menu-before`.
+Type-check, changed-scope lint, eight route/model checks and actual development-preview build passed.
+Navigation/Home browser specifications now express the new visual contract; that full browser suite was
+not run. Focused desktop/mobile CUA verification owns this local pass. Historical approval below does not
+automatically grant visual approval to the new composition.
+The built390×844 viewport showed a351×430px menu, with all five destinations and top preferences visible.
+Shift+Tab wrapped from Close to CONTACT; repeated Escape completed dismissal and restored document overflow.
+CONTACT navigation closed the modal and released scroll lock; no runtime errors were recorded.
+
+Follow-up: translated keys no longer create horizontal scrollbars; horizontal overflow is clipped and
+scrollbar chrome is hidden, while short-view/zoom vertical scrolling remains native. Each key uses an82%
+ivory material with12px backdrop blur and65% saturation, with protected dark ink and an opaque fallback
+for unsupported filters/reduced transparency. The underlying-color principle references
+[Apple Materials](https://developer.apple.com/design/human-interface-guidelines/materials); no external code is copied.
+Page-key starts now follow a deterministic irregular order, each with a different travel duration on the same
+reversible680ms clock. Type/lint, six timing/model checks and the actual preview build passed. At320×568,
+the built menu measured281×474px, all destinations fit, computed horizontal overflow was hidden and
+scrollbar-width was none. Full browser-suite and physical-phone checks were not run for this follow-up.
+
 2026-09-06 · User visually APPROVED **BOLD VERSION** · **QUALITY APPROVED FOR HERO INTEGRATION / FROZEN**.
 Current result: [P2B freeze and delivery](../../../P2B-FREEZE-RESULT.md).
 [Letter Slip comparison](../../../P2B-LETTER-SLIP-RESULT.md) preserves the pre-approval review.
@@ -167,3 +201,5 @@ Chromium tests alone cannot expand it. The current task authorizes commit → ma
 not deployment. The final delivery report and GitHub run identify the delivered commit and CI outcome.
 
 **REPORT → STOP. No HOME/P2C, WORKS/PERFORMANCE implementation or automatic next Phase.**
+
+2026-09-12 delivery refinement: user requested rounded left ends; each existing menu key now has28px left corner radii, preserving square right attachment and the same material/timing.

@@ -67,6 +67,13 @@
   .about-intro h1 { font-size: 18vw; margin-block: 20px; }
   .about-intro-role { font-size: 12px; }
   .about-scroll[data-motion="active"] .about-intro { top: 10%; width: 87%; }
+  /* Let the initial portrait follow its copy on short mobile viewports. */
+  .about-scroll[data-motion="active"][data-state="idle"] .about-stage { position: relative; top: auto; height: auto; min-height: calc(100svh - 70px); overflow: visible; padding-bottom: 48px; }
+  .about-scroll[data-motion="active"][data-state="idle"] .about-topline { position: relative; inset: auto; padding: 0; }
+  .about-scroll[data-motion="active"][data-state="idle"] .about-intro { position: relative; left: auto; top: auto; width: 100%; margin: 32px 0 40px; }
+  .about-scroll[data-motion="active"][data-state="idle"] .about-portraits { position: relative; inset: auto; perspective: none; }
+  .about-scroll[data-motion="active"][data-state="idle"] .about-portrait:first-child { position: relative; left: auto; top: auto; width: min(65vw, 300px); margin-inline: auto; transform: none !important; }
+  .about-scroll[data-state="idle"] .about-portrait:not(:first-child) { visibility: hidden; }
   .about-scroll[data-motion="active"] .about-chapters { width: 63%; margin-left: 6%; }
   .about-chapter { padding-block: 105px 70px; }
   .about-chapter h2 { font-size: 40px; margin: 16px 0 25px; }

@@ -5,6 +5,24 @@
 **Revision:** 1.47 / 2026-09-10 — approved WORKS promotion and comparison cleanup\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
+**Compact menu / adaptive header — LOCAL, 2026-09-12:** user replaces the opaque header/full-screen menu
+with a transparent adaptive header and a content-sized right-hand menu. Header paper, preferences and each
+page row share a reversible piano-key entrance; mode/language controls move up, INDEX and duplicate footer
+copy are removed. [Current navigation revision](docs/redesign/review/EDITORIAL-NAVIGATION-PROTOTYPE.md).
+Follow-up removes animated scrollbars, adds a legible underlying-color ivory material, and varies page-key order/speed.
+Existing local Phase3B/UX work is preserved; no PR or deployment in this pass.
+
+**Phase 3B — LOCAL, 2026-09-12:** explicit WORKS revision now uses wheel/drag/swipe-selected front-facing
+stops with automatic eased 3D helix travel and staggered letter titles. Increased card spacing, a quieter
+Sanjo Artist Note, Album label/prose cleanup and native4:3 MEDIA fitting are documented in
+[local Phase3B result](docs/redesign/review/PHASE-3B-VISUAL-POLISH.md). Prior UX fixes remain. No delivery.
+
+**WORKS helix / navigation / mobile ABOUT — LOCAL, 2026-09-12:** latest user revision replaces the
+Atmospheric opening with a reversible CSS 3D helix of seven authentic works, sequential metadata and
+assembly into the existing desktop preview/mobile archive. Details return directly to the archive anchor.
+Both viewport sizes now keep the mode switch inside MENU. Mobile ABOUT introduction uses natural flow
+before entering its existing portrait choreography. [Local scope and checks](docs/redesign/review/WORKS-HELIX-REVISION.md).
+
 **Phase 2B / ABOUT delivery authorized, 2026-09-12:** user authorized PR, merge and Pages delivery of the
 mobile performance pass and revised gallery. Column selection opens only the helix; a second selection inside
 the helix aligns and expands the photo, using the thumbnail during original decode and returning to the same
@@ -1088,3 +1106,9 @@ SOUND contracts PASS. No new Full/physical-device/Safari quality claim, screensh
 remain immutable historical evidence and do not depict this refinement. Preview: http://127.0.0.1:4180/ .
 This refinement was subsequently delivered by PR #3 (`e01aad8`). The current HOME closing authorization and state are
 recorded at the start of §26; this receipt's minimum checks remain historical to the P2K revision.
+
+## 2026-09-12 delivery follow-up
+
+User explicitly authorized PR/merge/Pages for accumulated local HOME/WORKS/menu/responsive/Phase3B changes.
+Latest HOME input, intro pacing and06/07 fitting are recorded in04-HOME. Historical LOCAL notes above describe
+previous review boundaries; this follow-up authorizes delivery without declaring visual Quality Approved.

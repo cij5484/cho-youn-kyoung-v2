@@ -33,15 +33,18 @@ export function mountPortraitFlow(owner: HTMLElement) {
     buttons.forEach((control, index) => { control.disabled = false; control.setAttribute('aria-label', `사진 ${index + 1} 크게 보기`) })
     highlight()
   }
-  function build() {
+  function build(origin?: DOMRect) {
     timeline?.kill()
     const mobile = width < 700
+    const bounds = origin ? stage.getBoundingClientRect() : null
     cards.forEach((card, index) => {
       buttons[index].disabled = index !== 0
       const aspect = Number(card.style.getPropertyValue('--portrait-aspect'))
       const scale = Math.min(height * (mobile ? .4 : .63) * aspect / 200, width * (mobile ? .65 : .35) / 200)
       gsap.set(card, { xPercent: -50, yPercent: -50, x: mobile ? 0 : width * .22, y: mobile ? height * .10 : 0,
         z: 0, rotationX: 0, rotationY: 0, scale: index === 0 ? scale : .1, opacity: index === 0 ? 1 : 0 })
+      if (index === 0 && origin && bounds) gsap.set(card, { x: origin.x + origin.width / 2 - bounds.x - width / 2,
+        y: origin.y + origin.height / 2 - bounds.y - height / 2, scale: origin.width / 200 })
     })
     timeline = gsap.timeline({ paused: true, onComplete: finish })
     cards.forEach((card, index) => {
@@ -71,7 +74,14 @@ export function mountPortraitFlow(owner: HTMLElement) {
   function open(event?: Event) {
     if (state !== 'idle') return
     event?.stopPropagation()
+    const origin = width <= 700 ? cards[0].getBoundingClientRect() : undefined
     state = 'opening'; owner.dataset.state = state
+    if (origin) {
+      // The flowing mobile introduction becomes the existing viewport stage without moving the photo first.
+      const bounds = stage.getBoundingClientRect()
+      width = bounds.width; height = bounds.height
+      build(origin)
+    }
     buttons.forEach(control => { control.disabled = true }); button.setAttribute('aria-expanded', 'true')
     if (reduced.matches) finish()
     else timeline!.play(0)

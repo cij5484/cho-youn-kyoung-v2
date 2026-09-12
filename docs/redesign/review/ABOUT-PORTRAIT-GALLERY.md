@@ -1,5 +1,9 @@
 # ABOUT portrait gallery — 2026-09-12 delivery
 
+Local follow-up (not delivered): mobile initial content now uses normal document flow so the topline,
+title/roles and portrait cannot overlap or clip inside a short viewport. Open captures the visible portrait
+bounds before returning to the existing animated stage. See [local result](WORKS-HELIX-REVISION.md).
+
 Current refinement: the gallery's Violet/Lacquer trails use the same cylindrical XYZ coordinates as the portraits,
 with independent continuous travel and shared drag rotation. Native 3D depth puts them between the photos rather
 than above the dialog. Focused photos/hidden tabs pause the trails; reduced motion retains two static markers.
