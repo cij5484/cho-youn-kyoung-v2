@@ -203,3 +203,5 @@ not deployment. The final delivery report and GitHub run identify the delivered 
 **REPORT → STOP. No HOME/P2C, WORKS/PERFORMANCE implementation or automatic next Phase.**
 
 2026-09-12 delivery refinement: user requested rounded left ends; each existing menu key now has28px left corner radii, preserving square right attachment and the same material/timing.
+
+User correction: left ends must be semicircles, not28px rounded corners. Large equal radii use CSS radius normalization to resolve to half each key's height; right corners stay square.
