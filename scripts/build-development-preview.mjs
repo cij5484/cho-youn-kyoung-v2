@@ -4,6 +4,8 @@ import { mkdir, writeFile, readFile, copyFile } from 'node:fs/promises'
 import { dirname, relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { build } from 'vite'
+import { buildClassic } from './prepare-entry-classic.mjs'
+import { classicBridge } from './entry-classic-server.ts'
 import { buildTargets } from '../config/build.ts'
 import { siteRoutes } from '../src/routing/site-catalog.ts'
 import { atmosphericCatalog } from '../src/works/candidates/atmospheric-catalog.ts'
@@ -16,7 +18,11 @@ const entry = resolve(repository, 'preview/main.tsx')
 const input = {}
 const albumRoutes = atmosphericCatalog.filter(record => record.type === 'album').map(record => ({ id: record.id, path: `/album/${record.id.slice(6)}`, lang: 'ko' }))
 const performanceRoutes = performanceStudySlugs.map(slug => ({ id: `performance:${slug}`, path: `/performance/${slug}`, lang: 'ko' }))
-for (const route of [...siteRoutes, ...albumRoutes, ...performanceRoutes]) {
+const routes = [...siteRoutes, ...albumRoutes, ...performanceRoutes]
+const editionRoutes = routes.flatMap(route => ['classic', 'immersive'].map(mode => ({
+  ...route, id: `${mode}:${route.id}`, path: `/${mode}${route.path === '/' ? '' : route.path}`,
+})))
+for (const route of [...routes, ...editionRoutes]) {
   const html = resolve(inputRoot, route.path === '/' ? 'index.html' : `${route.path.slice(1)}/index.html`)
   await mkdir(dirname(html), { recursive: true })
   const script = relative(dirname(html), entry).replaceAll('\\', '/')
@@ -26,8 +32,14 @@ for (const route of [...siteRoutes, ...albumRoutes, ...performanceRoutes]) {
 }
 // Multi-page build inputs preserve known direct URLs. No copied output or catch-all 200 fallback.
 await build({ configFile: false, mode: 'development-preview', root: inputRoot, base: buildTargets.pagesPreview.base, publicDir: false,
+  define: { 'import.meta.env.BASE_URL': JSON.stringify(`${buildTargets.pagesPreview.base}immersive/`) },
   build: { outDir: output, emptyOutDir: true, rollupOptions: { input } },
 })
+// Classic remains an independent, pinned build; only its output receives the parent URL bridge.
+const classicOutput = resolve(output, 'classic-app')
+buildClassic({ output: classicOutput, base: `${buildTargets.pagesPreview.base}classic-app/`, pinned: true })
+const classicHtml = resolve(classicOutput, 'index.html')
+await writeFile(classicHtml, (await readFile(classicHtml, 'utf8')).replace('</head>', `<script>${classicBridge([buildTargets.pagesPreview.canonicalOrigin])}</script></head>`))
 const commit = process.env.BUILD_SHA || execFileSync('git', ['rev-parse', 'HEAD'], { cwd: repository, encoding: 'utf8' }).trim()
 await writeFile(resolve(output, 'build-info.json'), JSON.stringify({ commit, mode: 'development-preview', base: buildTargets.pagesPreview.base }) + '\n')
 await writeFile(resolve(output, '.nojekyll'), '')
@@ -48,7 +60,7 @@ await Promise.all(Array.from({ length: 4 }, async () => {
       await mkdir(dirname(cache), { recursive: true })
       await writeFile(cache, data)
     }
-    const destination = resolve(output, 'audio', recording.path)
+    const destination = resolve(output, 'immersive/audio', recording.path)
     await mkdir(dirname(destination), { recursive: true })
     await copyFile(cache, destination)
   }

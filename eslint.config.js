@@ -9,7 +9,7 @@ export default defineConfig([
   globalIgnores([
     'node_modules/**', 'dist/**', 'dist-pages-preview/**',
     'build-root/**', 'build-pages-preview/**', 'build-development-preview/**', '.react-router/**',
-    '.checkpoints/**', 'test-results/**', 'playwright-report/**',
+    '.checkpoints/**', '.cache/**', 'test-results/**', 'playwright-report/**',
     'test-results-pages/**', 'playwright-pages-report/**',
   ]),
   {

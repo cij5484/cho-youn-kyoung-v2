@@ -22,8 +22,10 @@ Cho Youn Kyoung Website V2는 기존 홈페이지의 부분 리뉴얼이 아니�
 V2는 별도의 Public GitHub Repository에서 완전히 독립적으로 개발한다.
 
 V2 전체 개발 완료 후 `choyounkyoung.com` 단일 도메인에서 두 Edition을 선택하는 경험을 별도로 설계·구현한다.
-**FUTURE / 현재 제외:** Classic은 기존 독립 저장소·코드·CSS·의존성·빌드를 유지하며 V2 안에 섞지 않는다.
-실제 경로·배포·검색 처리는 해당 작업 시작 시 확인한다. 이번 단계에는 입구·overlay·기억 기능·연결 코드를 만들지 않는다.
+**2026-09-12 사용자 승인:** `/` ENTRY, `/classic/...`, `/immersive/...` 선택 화면과 mode routing을 구현하고
+현재 화면을 Pages 개발 프리뷰에 PR/머지/배포한다. [ENTRY owner](review/ENTRY-CLASSIC-IMMERSIVE.md).
+Classic은 기존 독립 저장소·코드·CSS·의존성·빌드를 유지하며 고정 revision의 정적 산출물만 별도 경로로 제공한다.
+운영 도메인 통합, 검색 정책과 방문자 선택 기억은 여전히 별도 작업이다.
 
 ---
 
