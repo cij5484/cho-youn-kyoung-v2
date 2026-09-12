@@ -8,7 +8,7 @@ import tseslint from 'typescript-eslint'
 export default defineConfig([
   globalIgnores([
     'node_modules/**', 'dist/**', 'dist-pages-preview/**',
-    'build-root/**', 'build-pages-preview/**', 'build-development-preview/**', '.react-router/**',
+    'build-root/**', 'build-pages-preview/**', 'build-development-preview/**', 'build-production/**', '.react-router/**',
     '.checkpoints/**', '.cache/**', 'test-results/**', 'playwright-report/**',
     'test-results-pages/**', 'playwright-pages-report/**',
   ]),

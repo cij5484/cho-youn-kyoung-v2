@@ -3,6 +3,17 @@
 2026-09-05 · IMPLEMENTED / locally verified · React Router + Static Prerender remains APPROVE.
 Scope: neutral fixtures and reusable contracts only. P0F status annotation: this contract remains unchanged; P0E CI/live integration passed and was approved. Current evidence is in [P0E result](../../../P0E-RESULT.md), task status in [HANDOFF](../../../CODEX-HANDOFF.md).
 
+## Actual public Editions — Phase 5A, 2026-09-13
+
+The neutral fixture contracts below remain unchanged. The separately approved ENTRY/Classic/Immersive
+runtime now has a production-only catalog in `src/seo/content.ts`, with central origin/base in
+`config/public-site.ts`. ENTRY `/` is self-canonical; `/immersive/...` is primary; each matching
+`/classic/...` and known unprefixed alias points to that exact semantic Immersive counterpart.
+Only authored Korean pages enter the production sitemap; `ko` and `x-default` share their canonical.
+No unauthored English route, fixture, private record or internal Classic implementation is promoted.
+The normal Preview stays noindex. Static HTML and client transitions use the same metadata owner.
+[Production policy and cutover boundary](PRODUCTION-SEO-DOMAIN-READINESS.md). No live domain change.
+
 ## URL and semantic identity
 
 Korean is the unprefixed default. English uses `/en`. There is no `/ko` alias, language cookie,

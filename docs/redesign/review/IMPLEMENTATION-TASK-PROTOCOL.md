@@ -1,5 +1,17 @@
 # Implementation Task Protocol — mandatory bounded work
 
+## Phase 5A preparation — user authorization 2026-09-13
+
+Deliver approved Phase 4 first (PR36 / main `ceeaa711`, Fast and Preview successful), then prepare
+production SEO/domain code only. [Owning result](PRODUCTION-SEO-DOMAIN-READINESS.md).
+Default automatic Pages remains Fast + noindex Preview; future `PAGES_SITE_MODE=production` requires
+a matching existing Pages domain assignment. A read-only guard blocks mode/domain mismatches.
+`production-readiness.yml` builds an exact-SHA root artifact without deployment; production artifact
+checks supplement Fast. Existing Full Release Gate remains separate and unchanged.
+This task changes no DNS, Pages settings, repository variables or external registrations.
+Phase 5A stays local for review; REPORT → STOP before domain cutover or further work.
+
+
 Revision 1.31 · 2026-09-08 · Canonical experience / HOME fix / actual WORKS; lean validation.
 Canonical roadmap: PHASE 0–14. This catalog does not authorize execution.
 

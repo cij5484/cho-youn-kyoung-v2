@@ -1,0 +1,29 @@
+name: V2 Production Readiness Artifact
+
+on:
+  workflow_dispatch:
+    inputs:
+      expected_sha:
+        description: 'Full SHA at the selected ref; builds only, never deploys or changes domains'
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  request:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - name: Verify exact source revision
+        env:
+          EXPECTED_SHA: ${{ inputs.expected_sha }}
+          ACTUAL_SHA: ${{ github.sha }}
+        run: |
+          [[ "$EXPECTED_SHA" =~ ^[a-f0-9]{40}$ ]] && [[ "$EXPECTED_SHA" == "$ACTUAL_SHA" ]]
+  build:
+    needs: request
+    uses: ./.github/workflows/quality-gates.yml
+    with:
+      production_artifact: true

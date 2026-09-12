@@ -20,7 +20,8 @@ const mimeTypes: Record<string, string> = {
 export const classicBridge = (parentOrigins: readonly string[]) => String.raw`(() => {
   let parentOrigin;
   try { parentOrigin = new URL(document.referrer).origin; } catch { return; }
-  if (window.parent === window || !${JSON.stringify(parentOrigins)}.includes(parentOrigin)) return;
+  // A packaged edition is same-origin; development may use an explicit second local port.
+  if (window.parent === window || (parentOrigin !== location.origin && !${JSON.stringify(parentOrigins)}.includes(parentOrigin))) return;
   const replace = history.replaceState.bind(history);
   const validPath = value => typeof value === 'string' && value.length <= 4096 &&
     value.startsWith('/') && !value.startsWith('//') && !/[\\\u0000-\u001f]/.test(value);

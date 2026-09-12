@@ -1,4 +1,4 @@
-name: V2 Automatic Pages Preview
+name: V2 Automatic Pages Delivery
 
 on:
   push:
@@ -13,11 +13,33 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  destination:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - name: Match artifact mode to the existing Pages domain setting
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          SITE_MODE: ${{ vars.PAGES_SITE_MODE || 'preview' }}
+        run: |
+          domain=$(gh api "repos/$REPOSITORY/pages" --jq '.cname // ""')
+          case "$SITE_MODE" in
+            preview) test -z "$domain" ;;
+            production) test "$domain" = choyounkyoung.com ;;
+            *) echo 'PAGES_SITE_MODE must be preview or production'; exit 1 ;;
+          esac
+
   build:
+    needs: destination
     if: github.ref == 'refs/heads/main'
     uses: ./.github/workflows/quality-gates.yml
     with:
       preview_artifact: true
+      production_artifact: ${{ vars.PAGES_SITE_MODE == 'production' }}
 
   deploy:
     if: github.ref == 'refs/heads/main'
@@ -43,7 +65,7 @@ jobs:
     steps:
       - name: Confirm public preview opens
         env:
-          PREVIEW_URL: https://cij5484.github.io/cho-youn-kyoung-v2/
+          PREVIEW_URL: ${{ vars.PAGES_SITE_MODE == 'production' && 'https://choyounkyoung.com/' || 'https://cij5484.github.io/cho-youn-kyoung-v2/' }}
         run: |
           curl --fail --silent --show-error --location --retry 6 --retry-delay 5 --retry-all-errors \
             "$PREVIEW_URL" --output "$RUNNER_TEMP/preview.html"

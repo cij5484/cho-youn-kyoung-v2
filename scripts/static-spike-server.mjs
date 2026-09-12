@@ -2,14 +2,18 @@ import { createServer } from 'node:http'
 import { readFile, stat } from 'node:fs/promises'
 import { extname, relative, resolve, sep } from 'node:path'
 import { getBuildTarget } from '../config/build.ts'
+import { productionSite } from '../config/public-site.ts'
 
 // Test server, not production routing: directory indexes + redirects, NO SPA fallback.
-const target = getBuildTarget(process.argv[2])
-const root = resolve(target.directory, 'static')
+const production = process.argv[2] === 'production'
+const target = production ? { ...productionSite, previewPort: productionSite.port } : getBuildTarget(process.argv[2])
+const root = production ? resolve(target.directory) : resolve(target.directory, 'static')
 await stat(resolve(root, 'index.html'))
 const mimeTypes = {
   '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
   '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.json': 'application/json',
+  '.jpg': 'image/jpeg', '.webp': 'image/webp', '.png': 'image/png', '.avif': 'image/avif',
+  '.mp3': 'audio/mpeg', '.m4a': 'audio/mp4', '.pdf': 'application/pdf', '.xml': 'application/xml',
   '.data': 'text/x-script', '.woff2': 'font/woff2', '.txt': 'text/plain; charset=utf-8',
 }
 const server = createServer(async (request, response) => {

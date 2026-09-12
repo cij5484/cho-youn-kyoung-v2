@@ -17,7 +17,7 @@ export function AtmosphericArchive({ locale = 'ko' }: { locale?: Language }) {
   const [search, setSearch] = useSearchParams()
   const filter = readWorksFilter(search.get('type'))
   const records = worksCatalog
-  const preview = import.meta.env.MODE === 'development-preview' || import.meta.env.DEV && typeof window !== 'undefined' && /^(localhost|127\.0\.0\.1|\[::1\])$/.test(window.location.hostname)
+  const preview = (import.meta.env.MODE === 'development-preview' || import.meta.env.MODE === 'public-site') || import.meta.env.DEV && typeof window !== 'undefined' && /^(localhost|127\.0\.0\.1|\[::1\])$/.test(window.location.hostname)
 
   useEffect(() => {
     if (root.current) return mountAtmosphericArchive(root.current)

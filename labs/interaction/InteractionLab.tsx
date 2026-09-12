@@ -1,3 +1,4 @@
+import { updateSiteMetadata } from '../../src/seo/browser.ts'
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { EditorialNavigation } from '../../src/navigation/EditorialNavigation.tsx'
@@ -23,11 +24,12 @@ const AboutPrototype = lazy(() => import('../../src/about/AboutPrototype.tsx'))
 const ContactPrototype = lazy(() => import('../../src/contact/ContactPrototype.tsx'))
 const PerformanceDetail = lazy(() => import('../../src/performance-detail/PerformanceDetail.tsx'))
 const DevelopmentTools = import.meta.env.DEV ? lazy(() => import('../../src/experience-prototype/DevelopmentTools.tsx').then(module => ({ default: module.DevelopmentTools }))) : null
-const GlobalPageTransition = import.meta.env.DEV || import.meta.env.MODE === 'development-preview' ? lazy(() => import('../../src/navigation/GlobalPageTransition.tsx').then(module => ({ default: module.GlobalPageTransition }))) : null
+const GlobalPageTransition = import.meta.env.DEV || (import.meta.env.MODE === 'development-preview' || import.meta.env.MODE === 'public-site') ? lazy(() => import('../../src/navigation/GlobalPageTransition.tsx').then(module => ({ default: module.GlobalPageTransition }))) : null
 const cascade=(word:string)=><GlyphLabel word={word}/>
 export function InteractionLab(){
   usePathnameScroll()
   const location=useLocation(),host=useRef<HTMLDivElement>(null),renderer=useRef<ReturnType<typeof createInteractionRenderer>|null>(null)
+  useEffect(() => { updateSiteMetadata() }, [location.pathname, location.search])
   const settings=useComparisonSettings(location.search,import.meta.env.DEV)
   const {points,janggu,type,color,study}=settings
   const [element,setElement]=useState<HTMLDivElement|null>(null)

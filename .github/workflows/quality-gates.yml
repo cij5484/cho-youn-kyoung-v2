@@ -6,6 +6,9 @@ on:
       full:
         type: boolean
         default: false
+      production_artifact:
+        type: boolean
+        default: false
       preview_artifact:
         type: boolean
         default: false
@@ -76,7 +79,7 @@ jobs:
             build-pages-preview/static/build-info.json
           retention-days: 14
       - name: Checkout pinned independent Classic for the entry destination
-        if: inputs.preview_artifact
+        if: inputs.preview_artifact || inputs.production_artifact
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           repository: cij5484/cho-youn-kyoung
@@ -84,15 +87,27 @@ jobs:
           path: .checkpoints/entry-classic-source
           persist-credentials: false
       - name: Install independent Classic lockfile
-        if: inputs.preview_artifact
+        if: inputs.preview_artifact || inputs.production_artifact
         run: npm ci --include=dev --prefix .checkpoints/entry-classic-source
-      - name: Build entry and both modes for device preview
-        if: inputs.preview_artifact
+      - name: Build entry and both modes for the selected origin
+        if: inputs.preview_artifact || inputs.production_artifact
         env:
           CLASSIC_REPOSITORY: .checkpoints/entry-classic-source
-        run: npm run build:development-preview
-      - name: Upload Fast-validated development preview artifact
+          PRODUCTION: ${{ inputs.production_artifact }}
+        run: |
+          if [ "$PRODUCTION" = true ]; then npm run build:production; else npm run build:development-preview; fi
+      - name: Check production HTML, metadata and legacy document placement
+        if: inputs.production_artifact
+        run: npm run test:production-artifact
+      - name: Upload Fast-validated Pages artifact
         if: success() && inputs.preview_artifact
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:
-          path: build-development-preview
+          path: ${{ inputs.production_artifact && 'build-production' || 'build-development-preview' }}
+      - name: Retain production readiness artifact without deployment
+        if: success() && inputs.production_artifact && !inputs.preview_artifact
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: production-readiness-${{ github.sha }}
+          path: build-production
+          retention-days: 7

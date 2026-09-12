@@ -1,7 +1,7 @@
 import { isPerformanceStudyRoute } from '../performance-detail/performance-navigation.ts'
 
 /** The approved exhibition is also published by the development-preview build. */
-export const localAlbumStudy = () => import.meta.env.MODE === 'development-preview' || typeof window !== 'undefined' && /^(localhost|127\.0\.0\.1|\[::1\])$/.test(window.location.hostname)
+export const localAlbumStudy = () => (import.meta.env.MODE === 'development-preview' || import.meta.env.MODE === 'public-site') || typeof window !== 'undefined' && /^(localhost|127\.0\.0\.1|\[::1\])$/.test(window.location.hostname)
 
 export function albumStudyHref(record: { id: string; type: string; referenceUrl: string }) {
   if (record.type === 'performance' && isPerformanceStudyRoute(`/performance/${record.id.slice(12)}`)) return appHref(`/performance/${record.id.slice(12)}/`)
