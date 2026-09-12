@@ -207,3 +207,5 @@ not deployment. The final delivery report and GitHub run identify the delivered 
 User correction: left ends must be semicircles, not28px rounded corners. Large equal radii use CSS radius normalization to resolve to half each key's height; right corners stay square.
 
 Final user revision replaces semicircles with alternating diagonal left cuts (12–24px), preserving rectangular right attachment, legibility, material and existing row travel.
+
+Final user selection: restore the original rectangular keys. Remove all rounded/diagonal shaping; retain adaptive material, irregular reversible timing and hidden scrollbar chrome.
