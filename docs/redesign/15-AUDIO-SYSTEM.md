@@ -129,6 +129,10 @@ The batch owns reproducible generation; it does not own playback or per-frame mo
    track selection. `AudioSignature.tsx` consumes the response while preserving HOME_SIGNATURE's
    spatial path, smooth handoff/return, reduced motion and the mini-player boundary. Pitch-to-Y is removed.
 
+2026-09-12 mobile performance pass (local only): live pitch estimation is opt-in through
+`createInstrumentResponse`'s `diagnosticPitch` argument. Normal playback retains live spectra and exact
+precomputed events without the unused waveform/YIN calculation. Detector algorithms and generated JSONs are unchanged.
+
 **IMPLEMENTED / LOCALLY VERIFIED / LOCAL ONLY.** The earlier excerpt-only binding and direct
 pitch-height mapping are superseded. This integration does not alter the detector formulas, thresholds,
 or the 58 generated track JSONs. Successful offline generation is not runtime validation; passing

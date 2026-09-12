@@ -106,10 +106,10 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
       if (departure > .02) hover = -1
       const gathering = hover >= 0, blend = 1 - Math.exp(-tune.orbitResponse * dt)
       cards.forEach((card, i) => {
-        const box = card.getBoundingClientRect(), pointed = i === hover && pointer
+        const pointed = i === hover && pointer, box = pointed ? card.getBoundingClientRect() : null
         const tilt = tilts[i]
-        tilt.x += ((pointed ? Math.max(-1, Math.min(1, (pointer!.x - box.left) / box.width * 2 - 1)) : 0) - tilt.x) * blend
-        tilt.y += ((pointed ? Math.max(-1, Math.min(1, (pointer!.y - box.top) / box.height * 2 - 1)) : 0) - tilt.y) * blend
+        tilt.x += ((box ? Math.max(-1, Math.min(1, (pointer!.x - box.left) / box.width * 2 - 1)) : 0) - tilt.x) * blend
+        tilt.y += ((box ? Math.max(-1, Math.min(1, (pointer!.y - box.top) / box.height * 2 - 1)) : 0) - tilt.y) * blend
         card.style.setProperty('--work-tilt-x', tilt.x.toFixed(4)); card.style.setProperty('--work-tilt-y', tilt.y.toFixed(4))
         card.style.setProperty('--work-hover', i === hover ? '1' : '0')
       })
@@ -138,14 +138,16 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
       const motifPresence=stageMotifPresence+(.78-stageMotifPresence)*weights[3]
       owner.dataset.motifPresence=motifPresence.toFixed(4)
       const alpha = motifPresence * smooth((handoff - .45) / .15)
-      const albumBox = album.getBoundingClientRect(), posterBox = poster.getBoundingClientRect()
-      const photoBox = portrait.getBoundingClientRect(), outroBox = outro.getBoundingClientRect()
+      const posterBox = contexts[0] && weights[1]>0 && weights[2]<1 ? poster.getBoundingClientRect() : null
+      const photoBox = contexts[0] && weights[2]>0 && weights[3]<1 ? portrait.getBoundingClientRect() : null
+      const outroBox = outro.getBoundingClientRect()
       // The revisit index can make 08 taller than its name. Keep the living pair in the visible
       // paper area at the very bottom, rather than orbiting a heading that has scrolled away.
       const paperBox=outro.closest<HTMLElement>('.home-outro')!.getBoundingClientRect()
       const paperTop=Math.max(30,paperBox.top+40),paperBottom=Math.min(height-26,paperBox.bottom-20)
       const outroFlightBox={left:Math.max(20,outroBox.left),top:paperTop,width:Math.min(width-40,outroBox.width),height:Math.max(60,paperBottom-paperTop)}
-      const objectBox=incoming??albumBox, seamBox=seam.getBoundingClientRect()
+      const objectBox=incoming??album.getBoundingClientRect(), seamBox=seam.getBoundingClientRect()
+      const frameBox=seam.closest('.shared-image-frame')!.getBoundingClientRect()
       for (let i = 0; i < 2; i++) {
         const angle = phase + i * Math.PI, z = Math.sin(angle)
         const orbitX = cx + Math.cos(angle) * rx, orbitY = cy + Math.sin(touchLayout ? angle*1.37 : angle) * ry + Math.cos(angle) * rx * .12 * orbit
@@ -156,7 +158,6 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
         point=blendPoint(point,ellipse(objectBox,angle,.58,.49),weights[0])
         // Cues belong to the opening boundary, not the cursor. Quiet threshold frames clear them.
         const opening=Number(sequence.dataset.stageOpening??0)
-        const frameBox=seam.closest('.shared-image-frame')!.getBoundingClientRect()
         const edgeX=frameBox.left+frameBox.width*(.5+(i?1:-1)*opening*.5)
         point=blendPoint(point,{x:edgeX+Math.sin(phase*1.7)*3,y:frameBox.top+frameBox.height*(i?.78:.22),z:i?1:-1},weights[1])
         point=blendPoint(point,{x:seamBox.left+Math.sin(phase*1.7)*3,y:seamBox.top+seamBox.height*(i?.8:.2),z:i?1:-1},weights[2])
@@ -189,8 +190,8 @@ export function useWorksRibbon(ref: RefObject<HTMLElement | null>, onActive: (in
       if(back){
         const masks:DOMRect[]=[]
         if(weights[0]<1 && !touchLayout) cards.forEach(card=>masks.push(card.querySelector('.work-image')!.getBoundingClientRect()))
-        if(weights[1]>0 && weights[2]<1) masks.push(posterBox)
-        if(weights[2]>0 && weights[3]<1) masks.push(photoBox)
+        if(posterBox) masks.push(posterBox)
+        if(photoBox) masks.push(photoBox)
         masks.forEach(box=>back.clearRect(box.left,box.top,box.width,box.height))
         for(const heading of [name,outro]){
           if(heading===name ? weights[2]===0 : weights[3]===0)continue

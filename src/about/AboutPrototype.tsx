@@ -1,6 +1,6 @@
 import { useCallback, useLayoutEffect, useRef, useState, type CSSProperties } from 'react'
 import { Link } from 'react-router'
-import { portraits, biography, milestones, careerGroups, recitals, discography } from './about-data'
+import { portraits, mobilePortraitHero, biography, milestones, careerGroups, recitals, discography } from './about-data'
 import { mountPortraitFlow } from './about-motion'
 import { PortraitGallery } from './PortraitGallery'
 import './about.css'
@@ -25,7 +25,10 @@ export default function AboutPrototype() {
             <button type="button" className="about-open" aria-label={index === 0 ? 'Open' : `사진 ${index + 1} 크게 보기`} onClick={event => {
               if (story.current?.dataset.state === 'open') setGallery({ index, origin: event.currentTarget })
             }}>
-              <img src={portrait.src} alt={portrait.alt} width={Math.round(portrait.aspect * 600)} height="600" decoding="async" fetchPriority={index === 0 ? 'high' : 'auto'}/>
+              <picture>
+                {index === 0 && <source media="(max-width: 699px)" srcSet={mobilePortraitHero}/>}
+                <img src={index === 0 ? portrait.src : portrait.thumbnail} alt={portrait.alt} width={Math.round(portrait.aspect * 600)} height="600" decoding="async" fetchPriority={index === 0 ? 'high' : 'auto'}/>
+              </picture>
               {index === 0 && <span>Open</span>}
             </button>
           </figure>)}

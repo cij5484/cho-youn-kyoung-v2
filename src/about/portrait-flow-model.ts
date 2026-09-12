@@ -6,6 +6,12 @@ export function portraitHelix(index: number, count: number, width: number, heigh
     z: Math.cos(theta) * radius, rotationY: ((theta * 180 / Math.PI + 180) % 360) - 180 }
 }
 
+/** Shortest turn from the current pose to put the selected portrait at the front. */
+export function portraitFrontTurn(index: number, count: number, turn: number) {
+  const theta = index / Math.max(1, count - 1) * Math.PI * 3 + turn
+  return turn - Math.atan2(Math.sin(theta), Math.cos(theta))
+}
+
 /** Two continuous ribbons wind through the same cylinder as the portraits. */
 export function portraitSignature(time: number, instrument: number, width: number, height: number, turn = 0) {
   const phase = time * (instrument ? .94 : 1.2) + instrument * Math.PI

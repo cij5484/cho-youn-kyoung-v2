@@ -105,9 +105,12 @@
 .about-gallery button:focus-visible, .about-photo-focus button:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 6px; }
 .about-gallery-hint { position: absolute; bottom: 20px; left: 0; right: 0; margin: 0; text-align: center; font: 11px/1.6 var(--font-body); color: var(--text-secondary); }
 .about-gallery[data-phase="closing"] :is(header, .about-gallery-hint) { opacity: 0; pointer-events: none; }
-.about-photo-focus::backdrop { background: rgba(244, 240, 232, .9); }
+.about-photo-focus { --focus-shade: 0; }
+.about-photo-focus::backdrop { background: rgba(244, 240, 232, var(--focus-shade)); }
 .about-photo-focus[open] { display: grid; place-items: center; }
-.about-photo-focus > img { width: min(88vw, calc((100svh - 150px) * var(--portrait-aspect))); height: auto; max-height: calc(100svh - 150px); object-fit: contain; transform-origin: top left; }
+.about-photo-frame { position: relative; width: min(88vw, calc((100svh - 150px) * var(--portrait-aspect))); aspect-ratio: var(--portrait-aspect); transform-origin: top left; }
+.about-photo-frame img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.about-photo-frame .about-photo-original { position: absolute; inset: 0; transition: opacity .2s linear; }
 .about-photo-close { position: absolute; top: 22px; right: var(--page-gutter); z-index: 1; }
 .about-photo-close span { margin-left: 10px; }
 @media (prefers-reduced-motion: reduce) { .about-gallery::backdrop { transition: none; } }

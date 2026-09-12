@@ -1,6 +1,20 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { portraitHelix, portraitStrip, portraitSignature } from '../src/about/portrait-flow-model.ts'
+import { portraitHelix, portraitStrip, portraitSignature, portraitFrontTurn } from '../src/about/portrait-flow-model.ts'
+
+test('focus aligns every portrait frontward by the shortest turn from its actual rotation', () => {
+  for (const count of [1, 12]) for (let index = 0; index < count; index++) {
+    for (const turn of [-31, -Math.PI, -.4, 0, .4, Math.PI, 31]) {
+      const aligned = portraitFrontTurn(index, count, turn)
+      const pose = portraitHelix(index, count, 390, 729, aligned)
+      assert.ok(Math.abs(aligned - turn) <= Math.PI + 1e-12)
+      assert.ok(Math.abs(pose.x) < 1e-10)
+      assert.ok(Math.abs(pose.z - Math.min(390 * .29, 729 * .34)) < 1e-10)
+      assert.ok(Math.abs(Math.sin(pose.rotationY * Math.PI / 180)) < 1e-12)
+      assert.ok(Math.abs(portraitFrontTurn(index, count, aligned) - aligned) < 1e-12)
+    }
+  }
+})
 
 test('portraits spread through depth and settle into one invariant vertical column', () => {
   for (const [width, height] of [[402, 896], [1498, 896]]) {

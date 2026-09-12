@@ -9,7 +9,8 @@ const ease = (value: number, target: number, dt: number, seconds: number) => val
 /** One analyser for the permanent media element. Native media time owns all catalog events.
  * Live spectra only supplement bow texture; percussion motion uses verified offline candidates. */
 export function createInstrumentResponse(media: HTMLAudioElement,
-  load: (identity: AnalysisIdentity) => Promise<AnalysisPair> = identity => import('./analysis-loader.ts').then(module => module.loadAnalysis(identity))) {
+  load: (identity: AnalysisIdentity) => Promise<AnalysisPair> = identity => import('./analysis-loader.ts').then(module => module.loadAnalysis(identity)),
+  diagnosticPitch = false) {
   let identity: AnalysisIdentity | null = null, pair: AnalysisPair | null = null, generation = 0
   async function setTrack(next: AnalysisIdentity | null) {
     const token = ++generation
@@ -133,7 +134,8 @@ export function createInstrumentResponse(media: HTMLAudioElement,
       liveBow = Math.sqrt(bowEnergy / (bowEnergy + .055)) * (.2 + .8 * harmonic)
       liveTexture = clamp(4 * bowFlux / (bowSum + .005)) * harmonic
     } else liveTexture *= Math.exp(-dt / .12)
-    analysePitch()
+    // The player consumes energy/texture, so live pitch runs only for explicit diagnostics.
+    if (diagnosticPitch) analysePitch()
     primed = true
   }
 
