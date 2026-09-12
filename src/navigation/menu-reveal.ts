@@ -1,7 +1,7 @@
 export type MenuPhase = 'closed' | 'opening' | 'open' | 'closing'
 
-// Header, preferences, HOME, WORKS, MEDIA, ABOUT, CONTACT: composed irregularity, never random on replay.
-export const menuKeyTimings = [[0,.64],[.03,.81],[.10,.84],[.205,.785],[.045,.915],[.16,.81],[.085,.865]] as const
+// Preferences, HOME, WORKS, MEDIA, ABOUT, CONTACT: composed irregularity, never random on replay.
+export const menuKeyTimings = [[.03,.81],[.10,.84],[.205,.785],[.045,.915],[.16,.81],[.085,.865]] as const
 
 // One shared native timeline: reversing keeps every layer at its current visual position.
 export function createMenuReveal(dialog: HTMLDialogElement, notify: (phase: MenuPhase) => void) {
@@ -52,17 +52,17 @@ export function createMenuReveal(dialog: HTMLDialogElement, notify: (phase: Menu
       animations.push(animation)
     }
     const easing = 'cubic-bezier(.16,1,.3,1)'
-    // Header, preferences and each page carry their own paper; there is no separately switching header fill.
+    // Only the paper keys travel; the control stays aligned with its header position.
     dialog.querySelectorAll('.menu-key').forEach((item, index) => {
       const [start,end] = menuKeyTimings[index] ?? [0,.8]
       add(item, { transform: 'translateX(105%)', easing }, { transform: 'translateX(0)' }, start,end)
     })
     dialog.querySelectorAll('.menu-item-reveal').forEach((item, index) => {
-      const [start,end] = menuKeyTimings[index+2] ?? [0,.8]
+      const [start,end] = menuKeyTimings[index+1] ?? [0,.8]
       add(item, { transform: 'translateX(28px)', opacity: 0, easing }, { transform: 'translateX(0)', opacity: 1 }, start+.06,end+.02)
     })
-    add(dialog.querySelector('.trigger-switch')!, { transform: 'translateY(0%)', easing }, { transform: 'translateY(-50%)' }, 0, .42)
-    add(dialog.querySelector('.symbol-lines')!, { transform: 'rotate(0deg)', easing }, { transform: 'rotate(45deg)' }, 0, .42)
+    add(dialog.querySelector('.trigger-switch')!, { transform: 'translateY(0%)', easing }, { transform: 'translateY(-50%)' }, 0, .68)
+    add(dialog.querySelector('.symbol-lines')!, { transform: 'rotate(0deg)', easing }, { transform: 'rotate(45deg)' }, 0, .68)
     animations[0].onfinish = finish
   }
   function move(open: boolean) {

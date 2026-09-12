@@ -45,7 +45,7 @@ export function EditorialNavigation({ catalog, mainId }: Props) {
 
   return <>
     <a className="skip-link" href={`#${mainId}`}>{ko ? '본문으로 이동' : 'Skip to content'}</a>
-    <header className="editorial-navigation adaptive-navigation">
+    <header className="editorial-navigation adaptive-navigation" data-menu-active={phase !== 'closed'}>
       <Link className="nav-signature" to={routeHref(model.home)} aria-label={ko ? '조윤경 홈' : 'Cho Youn Kyoung home'} lang="en">CHO YOUN KYOUNG</Link>
       <button className="menu-toggle menu-trigger" aria-label="MENU" aria-haspopup="dialog" aria-expanded={phase !== 'closed'}
         aria-controls="navigation-menu" onClick={() => reveal.current?.open()}>{triggerGraphic}</button>
@@ -64,7 +64,7 @@ export function EditorialNavigation({ catalog, mainId }: Props) {
       }}
       onClose={() => { if (dialog.current?.open === false) reveal.current?.closeImmediately() }}
       onCancel={event => { event.preventDefault(); reveal.current?.close() }}>
-      <div className="menu-top menu-key">
+      <div className="menu-top">
         <button className="menu-toggle" onClick={() => reveal.current?.toggle()}
           aria-label={phase === 'closing' ? ko ? '메뉴 다시 열기' : 'Reopen menu' : ko ? '메뉴 닫기' : 'Close menu'}>{triggerGraphic}</button>
       </div>

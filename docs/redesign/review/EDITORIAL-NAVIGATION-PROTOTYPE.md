@@ -209,3 +209,17 @@ User correction: left ends must be semicircles, not28px rounded corners. Large e
 Final user revision replaces semicircles with alternating diagonal left cuts (12–24px), preserving rectangular right attachment, legibility, material and existing row travel.
 
 Final user selection: restore the original rectangular keys. Remove all rounded/diagonal shaping; retain adaptive material, irregular reversible timing and hidden scrollbar chrome.
+
+## Header toggle separation — 2026-09-12 local follow-up
+
+User keeps MENU/CLOSE and the rotating plus/cross at the fixed header position, outside the paper menu.
+The transparent fixed modal control overlays the identical header trigger while the native dialog owns
+focus; it is not a moving paper key. This preserves native modality, Escape, focus restoration and the
+existing pause signal. The panel begins below the header; its viewport-height limit excludes that header.
+MENU/CLOSE vertical reveal and plus45-degree rotation share a462ms ease on the existing reversible clock.
+Six paper keys keep their prior irregular order/speeds. No new animation loop or library.
+
+Type/lint, six model/timing checks and development-preview build passed. Local browser geometry confirmed
+control top12/bottom56px and panel top68px, with45-degree open rotation. Full browser suite not run.
+User subsequently authorized PR/merge for Mac continuation. This follow-up is included in that delivery;
+the owning PR/Pages checks record the final commit and deployment result.
