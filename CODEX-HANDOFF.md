@@ -5,6 +5,14 @@
 **Revision:** 1.47 / 2026-09-10 — approved WORKS promotion and comparison cleanup\
 **Purpose:** Prevent planning loss, silent assumptions, and legacy regression.
 
+**Current ENTRY delivery — 2026-09-12:** user authorized the current ENTRY screen and the HOME-matched
+Immersive pair correction for PR/main/Pages. `/` selects Classic / Immersive; direct mode URLs and old deep
+bookmarks bypass ENTRY. The pair uses the shared HOME identity: 2-second headless tapered/faded tails and
+Violet / Lacquer colors. HOME runtime is unchanged. Classic stays a separate pinned build (`239d180`) under
+`classic-app/`; the public iframe uses the same-origin artifact, never the local 4181 server. All public links
+include the Pages base and the chosen edition. Comparison tools remain excluded. Fast and the actual combined
+preview build pass. [ENTRY owner](docs/redesign/review/ENTRY-CLASSIC-IMMERSIVE.md); visual quality remains user-owned.
+
 **Full authored-screen delivery — 2026-09-12, user correction:** MEDIA and CONTACT are now also authorized for
 PR/main/Pages delivery together with all accumulated authored screens. Developer comparison/tuning UI remains excluded.
 Desktop WORKS skips the expanded thumbnail archive and transitions directly into list + persistent preview; mobile stays
