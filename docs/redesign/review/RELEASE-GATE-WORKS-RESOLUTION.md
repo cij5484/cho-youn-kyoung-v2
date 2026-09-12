@@ -43,7 +43,22 @@ On filtered reload the absent preview record and removed fallback ID produced a 
 Original slots now use their unchanged catalog data-sequence, independent of visible transition IDs.
 Both fixes stay within measurement/lifecycle; filters, layout and motion tuning are unchanged.
 
+## Additional failures exposed by the complete rerun
+
+Run34705836727 passed all80 routing cases and all11 Design System cases, then reached Navigation,
+which the original failed run had never reached. Its six failures had two causes: stale test assumptions
+(CLOSE no longer belongs to an ivory menu-key; the modal intentionally hides the retained external
+trigger from accessible role queries), and an actual focus-restoration race. Native dialog.close()
+tries restoring focus before React unhides the external MENU. The controller now retains its opener
+and restores focus in a cancellable next-frame callback after closed state commits. Reopening and
+disposal cancel it; deliberate focus elsewhere is preserved and route dismissal does not request it.
+No navigation style, animation timing or reversal changes. Contrast thresholds remain unchanged;
+the test now calculates CLOSE against the neutral Lab canvas and its actual difference blend mode.
+The retained DOM trigger's expanded state is checked separately from its modal visibility.
+Local Navigation26/26 passes, including interruption, reduced motion, route focus and dismissal focus.
+
 ## Validation and boundary
 
-Results will be recorded after complete rerun. Browser projects are automation/emulation, not physical
+Actual production WORKS passed all12 local cases (four browser/viewport projects repeated three times).
+Complete Linux release results will be recorded after rerun. Browser projects are automation/emulation, not physical
 phone or native Safari QA. Full green authorizes reporting and STOP, not custom-domain cutover.

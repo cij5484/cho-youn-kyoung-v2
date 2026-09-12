@@ -97,12 +97,23 @@ test('trigger hover, opening intermediate, fully opened and item hover visual ev
     const luminance = (channels: number[]) => channels.map(v => v / 255).map(v => v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4)
       .reduce((sum, v, i) => sum + v * [.2126, .7152, .0722][i], 0)
     return elements.map(el => {
-      const material = getComputedStyle(el.closest('.menu-key')!).backgroundColor
-      const alpha = Number(material.match(/[\d.]+/g)?.[3] ?? 1)
-      // Worst case behind the translucent ivory is black, not the uncomposited tint color.
-      const background = rgb(material).map(channel => channel * alpha)
+      const key = el.closest('.menu-key')
       const style = getComputedStyle(el), opacity = Number(style.opacity)
-      const foreground = rgb(style.color).map((value, i) => value * opacity + background[i] * (1 - opacity))
+      let background: number[], ink = rgb(style.color)
+      if (key) {
+        const material = getComputedStyle(key).backgroundColor
+        const alpha = Number(material.match(/[\d.]+/g)?.[3] ?? 1)
+        // Worst case behind translucent ivory is black, not the uncomposited tint.
+        background = rgb(material).map(channel => channel * alpha)
+      } else {
+        // CLOSE now sits above the paper keys. This neutral fixture has a plain
+        // canvas behind its difference-blended top control, not an ivory key.
+        const top = el.closest('.menu-top')
+        if (!top || getComputedStyle(top).mixBlendMode !== 'difference') throw new Error('Unknown close-control surface')
+        background = rgb(getComputedStyle(document.body).backgroundColor)
+        ink = ink.map((channel, i) => Math.abs(background[i] - channel))
+      }
+      const foreground = ink.map((value, i) => value * opacity + background[i] * (1 - opacity))
       const a = luminance(foreground), b = luminance(background)
       return { ratio: (Math.max(a, b) + .05) / (Math.min(a, b) + .05), minimum: parseFloat(style.fontSize) >= 24 ? 3 : 4.5 }
     })
@@ -148,7 +159,9 @@ for (const width of [390, 1440]) test(`${width}: keyboard trap, visible focus, E
   await expect(page.getByRole('link', { name: '본문으로 이동' })).toBeFocused()
   await page.keyboard.press('Enter')
   await expect(page.locator('main')).toBeFocused()
-  const trigger = page.getByRole('button', { name: 'MENU', exact: true })
+  // The external trigger remains in the DOM but is intentionally hidden by the modal.
+  const trigger = page.locator('.editorial-navigation .menu-trigger')
+  await expect(trigger).toBeVisible()
   await trigger.focus(); await page.keyboard.press('Enter')
   await expect(page.locator('dialog')).toHaveAttribute('data-phase', 'open')
   const close = page.getByRole('button', { name: '메뉴 닫기' })
@@ -469,7 +482,9 @@ test('Stale Refined URL cannot select a mode; canonical Bold preserves keyboard,
   await expect(page.getByRole('button', { name: /^(Refined|Bold)$/ })).toHaveCount(0)
   await expect(page.locator('[data-menu-motion]')).toHaveCount(0)
   await expect(page.locator('dialog')).toHaveCSS('--letter-slip-distance', '7px')
-  const trigger = page.getByRole('button', { name: 'MENU', exact: true })
+  // The external trigger remains in the DOM but is intentionally hidden by the modal.
+  const trigger = page.locator('.editorial-navigation .menu-trigger')
+  await expect(trigger).toBeVisible()
   await trigger.focus(); await page.keyboard.press('Enter')
   await expect(page.locator('dialog')).toHaveAttribute('data-phase', 'open')
   await page.keyboard.press('Shift+Tab'); await expect(page.getByRole('link', { name: 'CONTACT', exact: true })).toBeFocused()
