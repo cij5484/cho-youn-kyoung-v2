@@ -22,8 +22,8 @@ const portraits: Record<string, string> = { '김성준': kim, '허유진': heo, 
 export type PerformanceRecord = {
   variant: 'svg-mask' | 'dual-flow' | 'time-path'
   slug: string; title: string; subtitle: string; repertoire?: string; date: string; time: string
-  venue: string; address?: string; admission?: string[]; quote?: string; artistNote?: string[]; signature?: string
-  program?: { title: string; subtitle?: string; movements?: string[]; instrumentation?: string; note?: string; shortNote?: string; year?: number; composer?: string }[]
+  venue: string; venueUrl?: string; fullIntroduction?: string[]; downloads?: { label: string; href: string }[]; address?: string; admission?: string[]; quote?: string; artistNote?: string[]; signature?: string
+  program?: { title: string; subtitle?: string; movements?: string[]; instrumentation?: string; note?: string; shortNote?: string; fullNote?: string[]; year?: number; composer?: string; composerYears?: string; composerBio?: string[] }[]
   performers?: { name: string; role: string; portrait?: string; fullBio?: string[] }[]
   poster: { src: string; mobileSrc: string; width: number; height: number }
   archive?: { src: string; label: string; width: number; height: number }[]

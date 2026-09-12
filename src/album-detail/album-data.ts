@@ -96,6 +96,7 @@ const details: Record<string, Omit<AlbumExhibit, 'slug' | 'title' | 'year' | 'fr
       { title: '중광지곡 군악', printedDuration: '04:04', audioUrl: 'https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/yeongsan/09_gunak.mp3' },
     ],
     credits: [
+      { role: '해금', name: '조윤경' }, { role: '장구', name: '이영섭' },
       { role: '프로듀싱', name: '조윤경' }, { role: '녹음 · 믹싱 · 마스터링', name: '이음사운드' },
       { role: '유통', name: '조은뮤직' }, { role: '디자인', name: 'Soul.P' },
     ],
@@ -112,6 +113,7 @@ const details: Record<string, Omit<AlbumExhibit, 'slug' | 'title' | 'year' | 'fr
       { title: '평조회상 타령', printedDuration: '03:14', audioUrl: 'https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/pyeongjo/07_taryeong.mp3' }, { title: '평조회상 군악', printedDuration: '04:13', audioUrl: 'https://pub-dd5041e867ea448a9d025ebe26192631.r2.dev/pyeongjo/08_gunak.mp3' },
     ],
     credits: [
+      { role: '해금', name: '조윤경' }, { role: '장구', name: '이영섭' },
       { role: '프로듀싱', name: '조윤경' }, { role: '녹음 · 믹싱 · 마스터링', name: '이음사운드' },
       { role: '유통', name: '조은뮤직' }, { role: '디자인', name: 'Soul.P' },
     ],

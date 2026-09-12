@@ -45,6 +45,15 @@ export function PerformanceRecordPage({ record }: { record: PerformanceRecord })
     return () => { dispose(); document.title = previousTitle }
   }, [record])
 
+  function showText(index?: number) {
+    const dialog = textReader.current!
+    dialog.showModal()
+    const prose = dialog.querySelector<HTMLElement>('.performance-reader-prose')!
+    const section = index === undefined ? null : prose.querySelector<HTMLElement>(`[data-program-reading="${index}"]`)
+    prose.scrollTop = section ? prose.scrollTop + section.getBoundingClientRect().top - prose.getBoundingClientRect().top - 24 : 0
+    section?.focus({ preventScroll: true })
+  }
+
   function show(index: number) { setPage(index); setZoom(false); reader.current?.showModal() }
   function turn(delta: number) { setPage(index => Math.max(0, Math.min(pages.length - 1, index + delta))); setZoom(false) }
   const maskStyle = (id: string): CSSProperties => ({ '--chapter-mask': `url(#${maskId}-${id})` }) as CSSProperties
@@ -71,7 +80,7 @@ export function PerformanceRecordPage({ record }: { record: PerformanceRecord })
                 <p className="performance-kicker">{record.subtitle}</p>
                 <h1 id="performance-title">{record.title}</h1>
                 {record.repertoire && <p className="performance-repertoire">{record.repertoire}</p>}
-                <div className="performance-date"><time dateTime={`${record.date}T${record.time}:00+09:00`}>{record.date.slice(5).replace('-', '.')}<span>{record.time}</span></time><p>{record.venue}</p></div>
+                <div className="performance-date"><time dateTime={`${record.date}T${record.time}:00+09:00`}>{record.date.slice(5).replace('-', '.')}<span>{record.time}</span></time><p>{record.venueUrl ? <a href={record.venueUrl} target="_blank" rel="noopener noreferrer" aria-label={`${record.venue} 공식 사이트`}>{record.venue}</a> : record.venue}</p></div>
               </div>
               <figure className="performance-poster" data-album-anchor="cover" style={{ '--poster-ratio': record.poster.width / record.poster.height } as CSSProperties}>
                 <button onClick={() => show(0)} aria-label="공식 포스터 크게 보기"><img data-performance-poster src={record.poster.src}
@@ -90,7 +99,7 @@ export function PerformanceRecordPage({ record }: { record: PerformanceRecord })
               <div className="performance-note">
                 <h2 id="performance-score-title">{record.quote ?? '글과 곡목'}{!record.quote?.endsWith('.') && <span aria-hidden="true">.</span>}</h2>
                 {record.artistNote?.[0] && <p className="performance-note-excerpt">{record.artistNote[0]}</p>}
-                <button className="performance-text-link" onClick={() => textReader.current?.showModal()}>글과 곡 해설 읽기</button>
+                <button className="performance-text-link" onClick={() => showText()}>글과 곡 해설 읽기</button>
               </div>
               {record.program?.length && record.variant !== 'time-path' ? <ol className="performance-score">{record.program.map((work, i) => <li key={work.title}>
                 <span className="performance-score-number" aria-hidden="true">{number(i + 1)}</span><div><p className="performance-kicker">{work.subtitle}</p><h3>{work.title}</h3>
@@ -102,7 +111,7 @@ export function PerformanceRecordPage({ record }: { record: PerformanceRecord })
           </div>
         </section> : null}
 
-        {record.variant === 'time-path' && record.program?.length ? <TimePathProgram program={record.program}/> : null}
+        {record.variant === 'time-path' && record.program?.length ? <TimePathProgram program={record.program} onRead={showText}/> : null}
 
         {record.performers?.length ? <section id="performance-performers" className="performance-chapter performance-performers" data-performance-scene tabIndex={-1} style={maskStyle('performers')} aria-labelledby="performance-performers-title">
           <div className="performance-chapter-inner" data-album-anchor="story">
@@ -118,7 +127,9 @@ export function PerformanceRecordPage({ record }: { record: PerformanceRecord })
 
         <section id="performance-archive" className="performance-chapter performance-archive" data-performance-scene tabIndex={-1} style={maskStyle('archive')} aria-labelledby="performance-archive-title">
           <div className="performance-chapter-inner">
-            <header className="performance-section-heading" data-scene-copy><p className="performance-kicker">04</p><h2 id="performance-archive-title">자료</h2></header>
+            <header className="performance-section-heading" data-scene-copy><p className="performance-kicker">04</p><h2 id="performance-archive-title">자료</h2>
+              {record.downloads?.length ? <div className="performance-downloads">{record.downloads.map(file => <a key={file.href} href={file.href} target="_blank" rel="noopener noreferrer" className="performance-text-link" download>{file.label}</a>)}</div> : null}
+            </header>
             <div className="performance-printed" data-album-anchor="booklet">{pages.map((item, index) => <figure key={item.src}>
               <button onClick={() => show(index)} aria-label={`${item.label} 크게 보기`}><img src={item.src} width={item.width} height={item.height} alt={`${record.title} ${item.label}`} loading="lazy"/></button>
               <figcaption><span>{number(index + 1)} / {item.label}</span><button onClick={() => show(index)}>크게 보기</button></figcaption>
@@ -141,7 +152,14 @@ export function PerformanceRecordPage({ record }: { record: PerformanceRecord })
     <dialog ref={textReader} className="performance-text-reader" aria-labelledby="performance-text-title">
       <div className="performance-reader-toolbar"><span>ARTIST NOTE / PROGRAM</span><button onClick={() => textReader.current?.close()} autoFocus>닫기 ×</button></div>
       <div className="performance-reader-prose"><h2 id="performance-text-title">{record.quote ?? record.title}</h2>{record.artistNote?.map(paragraph => <p key={paragraph}>{paragraph}</p>)}{record.signature && <p className="performance-signature">{record.signature}</p>}
-        {record.program?.map((work, index) => <section key={work.title}><p className="performance-kicker">PROGRAM / {number(index + 1)}</p><h3>{work.title}</h3>{work.note && <p>{work.note}</p>}{work.instrumentation && <p className="performance-instrumentation">{work.instrumentation}</p>}</section>)}
+        {record.fullIntroduction?.length ? <section aria-label="공연 소개">{record.fullIntroduction.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</section> : null}
+        {record.program?.map((work, index) => <section key={work.title} data-program-reading={index} tabIndex={-1}>
+          <p className="performance-kicker">PROGRAM / {number(index + 1)}</p><h3>{work.title}</h3>
+          {work.composer && <p>{work.composer}{work.composerYears && ` (${work.composerYears})`}</p>}
+          {work.composerBio?.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
+          {(work.fullNote ?? work.note?.split(/\n\s*\n/) ?? []).map(paragraph => <p key={paragraph}>{paragraph}</p>)}
+          {work.instrumentation && <p className="performance-instrumentation">{work.instrumentation}</p>}
+        </section>)}
       </div>
     </dialog>
     <dialog ref={reader} className="performance-reader" aria-label="공연 인쇄물 보기" onClose={() => setZoom(false)} onKeyDown={event => { if (event.key === 'ArrowRight') turn(1); if (event.key === 'ArrowLeft') turn(-1) }}>
