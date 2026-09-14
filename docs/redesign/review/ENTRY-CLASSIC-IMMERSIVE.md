@@ -85,3 +85,5 @@ the entry-only flight/preparation delay are removed. The Classic/Immersive separ
 remain; touch does not activate the sculpture or resize the split before navigation.
 Types, scoped lint, local entry build and desktop/mobile link sanity checked; actual mobile
 hardware performance remains unmeasured. No deployment in this pass.
+
+User correction 2026-09-15: first activation selects and reveals the photographic/spatial preview; a second activation of the same area follows its edition link. Selecting the other area previews that edition first. ENTER remains removed and the divider remains. Hover/focus alone does not count as the first activation.
