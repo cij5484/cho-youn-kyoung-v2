@@ -11,8 +11,6 @@ export function createMenuReveal(dialog: HTMLDialogElement, notify: (phase: Menu
   let animations: Animation[] = []
   let wantedOpen = false
   let previousOverflow: string | undefined
-  let returnFocus: HTMLElement | null = null
-  let pendingFocus: HTMLElement | null = null
   let disposed = false
 
   function phase(value: MenuPhase) {
@@ -27,26 +25,15 @@ export function createMenuReveal(dialog: HTMLDialogElement, notify: (phase: Menu
     for (const animation of animations) { animation.onfinish = null; animation.cancel() }
     animations = []
   }
-  function closeImmediately(restoreFocus = false) {
+  function closeImmediately() {
     wantedOpen = false
     cancelAnimations()
     if (dialog.open) dialog.close()
     release()
-    pendingFocus = restoreFocus ? returnFocus : null
-    returnFocus = null
     phase('closed')
   }
-  function restoreFocus() {
-    const opener = pendingFocus
-    pendingFocus = null
-    // The owning React layout effect calls this only after unhiding the trigger.
-    if (!disposed && !wantedOpen && !dialog.open && opener?.isConnected
-      && (document.activeElement === document.body || document.activeElement === opener || dialog.contains(document.activeElement))) {
-      opener.focus({ preventScroll: true })
-    }
-  }
   function finish() {
-    if (!wantedOpen) { closeImmediately(true); return }
+    if (!wantedOpen) { closeImmediately(); return }
     // CSS is the fully open fallback. Remove finished effects rather than retaining compositor layers.
     cancelAnimations()
     phase('open')
@@ -80,12 +67,8 @@ export function createMenuReveal(dialog: HTMLDialogElement, notify: (phase: Menu
   }
   function move(open: boolean) {
     if (!open && !dialog.open) return
-    pendingFocus = null
     wantedOpen = open
     if (open && !dialog.open) {
-      // Native pointer focus differs by browser; retain the external menu control explicitly.
-      returnFocus = document.querySelector<HTMLElement>(`.menu-trigger[aria-controls="${dialog.id}"]`)
-        ?? (document.activeElement instanceof HTMLElement ? document.activeElement : null)
       previousOverflow = document.documentElement.style.overflow
       document.documentElement.style.overflow = 'hidden'
       dialog.showModal()
@@ -110,7 +93,7 @@ export function createMenuReveal(dialog: HTMLDialogElement, notify: (phase: Menu
   const preferenceChanged = () => { if (reduced.matches && dialog.open) finish() }
   reduced.addEventListener('change', preferenceChanged)
   return {
-    open: () => move(true), close: () => move(false), toggle: () => move(!wantedOpen), closeImmediately, restoreFocus,
+    open: () => move(true), close: () => move(false), toggle: () => move(!wantedOpen), closeImmediately,
     destroy: () => { disposed = true; reduced.removeEventListener('change', preferenceChanged); closeImmediately() },
   }
 }

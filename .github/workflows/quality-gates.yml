@@ -97,7 +97,7 @@ jobs:
         run: |
           if [ "$PRODUCTION" = true ]; then npm run build:production; else npm run build:development-preview; fi
       - name: Check production HTML, metadata and legacy document placement
-        if: inputs.full || inputs.production_artifact
+        if: inputs.production_artifact
         run: npm run test:production-artifact
       - name: Full gate - actual built WORKS filtering on desktop and mobile
         if: inputs.full
