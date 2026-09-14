@@ -63,21 +63,24 @@ function SignaturePoints({ active }: { active: boolean }) {
 
 export default function EntryScreen({ href }: { href: (mode: Edition) => string }) {
   const [active, setActive] = useState<Edition | null>(null), [loaded, setLoaded] = useState(false)
+  const [selected, setSelected] = useState<Edition | null>(null)
   const preview = (mode: Edition) => {
-    if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return
     setActive(mode); if (mode === 'immersive') setLoaded(true)
   }
   return <div className="entry-screen" data-active={active || 'balanced'}>
     <header className="entry-header"><span>CHO YOUN KYOUNG</span><span>HAEGEUM ARTIST</span></header>
-    <main className="entry-split" onPointerLeave={() => { if (matchMedia('(hover: hover)').matches) setActive(null) }}
-      onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setActive(null) }}>
+    <main className="entry-split" onPointerLeave={() => { if (matchMedia('(hover: hover)').matches) { setActive(null); setSelected(null) } }}
+      onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) { setActive(null); setSelected(null) } }}>
       {(['classic', 'immersive'] as const).map((mode, index) => <section key={mode} className={`entry-side entry-${mode}`}
         onPointerEnter={event => { if (event.pointerType === 'mouse') preview(mode) }} onFocus={() => preview(mode)} aria-label={mode === 'classic' ? 'Classic — 사진과 기록' : 'Immersive — 공간과 음악'}>
         <div className="entry-world" aria-hidden="true">
           {mode === 'classic' ? <div className="entry-classic-portrait">{Array.from({ length: 7 }, (_, slice) => <div className="entry-slice" key={slice} style={{ '--slice': slice, clipPath: `inset(0 ${Math.max(0, 100 - (slice + 1) * 100 / 7 - .15)}% 0 ${Math.max(0, slice * 100 / 7 - .15)}%)` } as CSSProperties}><img src={portrait} alt="" decoding="async"/></div>)}</div>
             : <><SignaturePoints active={active === 'immersive'}/>{loaded && <Suspense fallback={null}><Sculpture active={active === 'immersive'}/></Suspense>}</>}
         </div>
-        <a className="entry-choice" href={href(mode)} aria-label={`${mode === 'classic' ? 'Classic' : 'Immersive'} 접속`}>
+        <a className="entry-choice" href={href(mode)} onClick={event => {
+          if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+          if (selected !== mode) { event.preventDefault(); setSelected(mode); preview(mode) }
+        }} aria-label={`${mode === 'classic' ? 'Classic' : 'Immersive'} ${selected === mode ? '접속' : '미리보기'}`}>
           <span className="entry-choice-copy"><span className="entry-number">0{index + 1}</span><span className="entry-title">{mode === 'classic' ? 'Classic' : 'Immersive'}<i>.</i></span>
           <span className="entry-description">{mode === 'classic' ? '사진과 기록' : '공간과 음악'}</span></span>
         </a>
