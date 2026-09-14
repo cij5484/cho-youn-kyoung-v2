@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from 'react'
 import { Link, useLocation } from 'react-router'
 import type { SemanticRoute } from '../routing/locale-contract.ts'
 import { routeHref } from '../spike/paths.ts'
@@ -12,18 +12,32 @@ export function EditorialNavigation({ catalog, mainId }: Props) {
   const location = useLocation()
   const model = navigationModel(location.pathname, catalog)
   const dialog = useRef<HTMLDialogElement>(null)
+  const trigger = useRef<HTMLButtonElement>(null)
+  const restoreFocus = useRef(false)
   const reveal = useRef<ReturnType<typeof createMenuReveal> | null>(null)
   const [phase, setPhase] = useState<MenuPhase>('closed')
   const ko = model.lang === 'ko'
 
   useEffect(() => {
-    const controller = createMenuReveal(dialog.current!, setPhase)
+    const controller = createMenuReveal(dialog.current!, next => {
+      if (next !== 'closed') restoreFocus.current = next === 'closing'
+      setPhase(next)
+    })
     reveal.current = controller
     return () => { controller.destroy(); reveal.current = null }
   }, [])
 
+  useLayoutEffect(() => {
+    // The header trigger is hidden during modality; restore only after React makes it visible.
+    if (phase === 'closed' && restoreFocus.current) {
+      restoreFocus.current = false
+      trigger.current?.focus({ preventScroll: true })
+    }
+  }, [phase])
+
   useEffect(() => {
     // Route activation/history must not wait for an exit animation or leave a modal over the new page.
+    restoreFocus.current = false
     reveal.current?.closeImmediately()
   }, [location.key])
 
@@ -47,7 +61,7 @@ export function EditorialNavigation({ catalog, mainId }: Props) {
     <a className="skip-link" href={`#${mainId}`}>{ko ? '본문으로 이동' : 'Skip to content'}</a>
     <header className="editorial-navigation adaptive-navigation" data-menu-active={phase !== 'closed'}>
       <Link className="nav-signature" to={routeHref(model.home)} aria-label={ko ? '조윤경 홈' : 'Cho Youn Kyoung home'} lang="en">CHO YOUN KYOUNG</Link>
-      <button className="menu-toggle menu-trigger" aria-label="MENU" aria-haspopup="dialog" aria-expanded={phase !== 'closed'}
+      <button ref={trigger} className="menu-toggle menu-trigger" aria-label="MENU" aria-haspopup="dialog" aria-expanded={phase !== 'closed'}
         aria-controls="navigation-menu" onClick={() => reveal.current?.open()}>{triggerGraphic}</button>
     </header>
     <dialog className="navigation-menu" id="navigation-menu" ref={dialog} aria-label={ko ? '주요 메뉴' : 'Primary navigation'} data-phase={phase}
