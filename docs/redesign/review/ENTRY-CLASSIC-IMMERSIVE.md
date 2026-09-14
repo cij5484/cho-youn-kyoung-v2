@@ -77,3 +77,11 @@ The existing Three bundle size warning remains; ENTRY imports it only following 
 
 Rollback: revert the ENTRY delivery commit, restoring the previous public preview entry/build adapter and local lab mount.
 HOME/page owners and the independent Classic source are unchanged.
+
+## 2026-09-15 — direct area entry (local)
+User replaces the two-step mobile preview/ENTER interaction with direct area links.
+Classic and Immersive now navigate with native anchors; ENTER, its adjacent line and
+the entry-only flight/preparation delay are removed. The Classic/Immersive separator remains on desktop and mobile. Fine-pointer hover previews
+remain; touch does not activate the sculpture or resize the split before navigation.
+Types, scoped lint, local entry build and desktop/mobile link sanity checked; actual mobile
+hardware performance remains unmeasured. No deployment in this pass.

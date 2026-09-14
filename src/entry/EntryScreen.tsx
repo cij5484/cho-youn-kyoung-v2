@@ -4,7 +4,6 @@ import { twoPointContract } from '../signature/two-point-contract.ts'
 import { createTrailSampler, type TrailSample } from '../motion/trail-geometry.ts'
 import { freePoint, project } from '../interaction-prototype/model.ts'
 import { type Edition } from './mode-routing.ts'
-import type { SculptureHandle } from './EntrySculpture.tsx'
 
 const Sculpture = lazy(() => import('./EntrySculpture.tsx'))
 
@@ -62,58 +61,28 @@ function SignaturePoints({ active }: { active: boolean }) {
   return <canvas ref={canvas} className="entry-signature" aria-hidden="true"/>
 }
 
-export default function EntryScreen({ prepare, finish }: { prepare: (mode: Edition, signal: AbortSignal) => Promise<void>; finish: () => void }) {
+export default function EntryScreen({ href }: { href: (mode: Edition) => string }) {
   const [active, setActive] = useState<Edition | null>(null), [loaded, setLoaded] = useState(false)
-  const [entering, setEntering] = useState<Edition | null>(null), [error, setError] = useState('')
-  const root = useRef<HTMLDivElement>(null), sculpture = useRef<SculptureHandle>(null)
-  const running = useRef(false), alive = useRef(true), animations = useRef<Animation[]>([])
-  const request = useRef<AbortController | null>(null)
-  useEffect(() => { alive.current = true; const pending = animations.current; return () => { alive.current = false; request.current?.abort(); pending.forEach(animation => animation.cancel()) } }, [])
-  const preview = (mode: Edition) => { if (running.current) return; setActive(mode); if (mode === 'immersive') setLoaded(true) }
-  const enter = async (mode: Edition) => {
-    if (running.current) return
-    preview(mode); running.current = true; setEntering(mode); setError('')
-    request.current = new AbortController()
-    try {
-      // Mount/preload the selected app beneath the current visual before travelling through it.
-      await prepare(mode, request.current.signal)
-      if (!alive.current) return
-      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches
-      if (mode === 'immersive' && sculpture.current && !reduced) await sculpture.current.enter()
-      else {
-        const object = root.current!.querySelector(mode === 'classic' ? '.entry-classic-portrait' : '.entry-world')!
-        const bounds = object.getBoundingClientRect()
-        const animation = object.animate([{ transform: 'translate(0,0) scale(1)' },
-          { transform: `translate(${innerWidth / 2 - bounds.x - bounds.width / 2}px,${innerHeight / 2 - bounds.y - bounds.height / 2}px) scale(${Math.max(innerWidth / bounds.width, innerHeight / bounds.height) * 1.06})` }],
-        { duration: reduced ? 0 : 850, easing: 'cubic-bezier(.65,0,.2,1)', fill: 'forwards' })
-        animations.current.push(animation); await animation.finished
-      }
-      if (!alive.current) return
-      const dissolve = root.current!.animate([{ opacity: 1 }, { opacity: 0 }], { duration: reduced ? 0 : 380, fill: 'forwards' })
-      animations.current.push(dissolve); await dissolve.finished
-      if (alive.current) finish()
-    } catch {
-      if (alive.current) { setError('화면을 준비하지 못했습니다. 다시 ENTER를 눌러 주세요.'); setEntering(null); running.current = false }
-    }
+  const preview = (mode: Edition) => {
+    if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return
+    setActive(mode); if (mode === 'immersive') setLoaded(true)
   }
-  const choose = (mode: Edition) => { if (matchMedia('(min-width: 700px) and (hover: hover) and (pointer: fine)').matches) void enter(mode); else preview(mode) }
-  return <div ref={root} className="entry-screen" data-active={active || 'balanced'} data-entering={entering || undefined}>
+  return <div className="entry-screen" data-active={active || 'balanced'}>
     <header className="entry-header"><span>CHO YOUN KYOUNG</span><span>HAEGEUM ARTIST</span></header>
-    <main className="entry-split" onPointerLeave={() => { if (!running.current && matchMedia('(hover: hover)').matches) setActive(null) }}
-      onBlur={event => { if (!running.current && !event.currentTarget.contains(event.relatedTarget)) setActive(null) }}>
+    <main className="entry-split" onPointerLeave={() => { if (matchMedia('(hover: hover)').matches) setActive(null) }}
+      onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setActive(null) }}>
       {(['classic', 'immersive'] as const).map((mode, index) => <section key={mode} className={`entry-side entry-${mode}`}
         onPointerEnter={event => { if (event.pointerType === 'mouse') preview(mode) }} onFocus={() => preview(mode)} aria-label={mode === 'classic' ? 'Classic — 사진과 기록' : 'Immersive — 공간과 음악'}>
         <div className="entry-world" aria-hidden="true">
           {mode === 'classic' ? <div className="entry-classic-portrait">{Array.from({ length: 7 }, (_, slice) => <div className="entry-slice" key={slice} style={{ '--slice': slice, clipPath: `inset(0 ${Math.max(0, 100 - (slice + 1) * 100 / 7 - .15)}% 0 ${Math.max(0, slice * 100 / 7 - .15)}%)` } as CSSProperties}><img src={portrait} alt="" decoding="async"/></div>)}</div>
-            : <><SignaturePoints active={active === 'immersive'}/>{loaded && <Suspense fallback={null}><Sculpture ref={sculpture} active={active === 'immersive'}/></Suspense>}</>}
+            : <><SignaturePoints active={active === 'immersive'}/>{loaded && <Suspense fallback={null}><Sculpture active={active === 'immersive'}/></Suspense>}</>}
         </div>
-        <button className="entry-choice" onClick={() => choose(mode)} disabled={Boolean(entering)} aria-label={`${mode === 'classic' ? 'Classic' : 'Immersive'} 미리보기`} aria-pressed={active === mode}>
+        <a className="entry-choice" href={href(mode)} aria-label={`${mode === 'classic' ? 'Classic' : 'Immersive'} 접속`}>
           <span className="entry-choice-copy"><span className="entry-number">0{index + 1}</span><span className="entry-title">{mode === 'classic' ? 'Classic' : 'Immersive'}<i>.</i></span>
           <span className="entry-description">{mode === 'classic' ? '사진과 기록' : '공간과 음악'}</span></span>
-        </button>
-        <button className="entry-enter" onClick={() => void enter(mode)} disabled={Boolean(entering)} tabIndex={active === mode ? 0 : -1}>ENTER <span className="entry-enter-line" aria-hidden="true"/></button>
+        </a>
       </section>)}
     </main>
-    <footer className="entry-footer"><span>조윤경</span><span role="status">{error || (entering ? '화면을 준비하고 있습니다.' : 'SELECT AN EXPERIENCE')}</span></footer>
+    <footer className="entry-footer"><span>조윤경</span><span role="status">SELECT AN EXPERIENCE</span></footer>
   </div>
 }

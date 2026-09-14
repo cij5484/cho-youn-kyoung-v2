@@ -1,17 +1,15 @@
-import { useEffect, useImperativeHandle, useRef, type Ref } from 'react'
+import { useEffect, useRef } from 'react'
 import { Group, PerspectiveCamera, Scene } from 'three'
 import { CSS3DObject, CSS3DRenderer } from 'three/addons/renderers/CSS3DRenderer.js'
 import { portraits } from '../about/about-data.ts'
 import { portraitHelix } from '../about/portrait-flow-model.ts'
 
-export type SculptureHandle = { enter: () => Promise<void> }
 
-/** Cylindrical targets + camera travel (CSS3D periodic-table mechanics).
+/** Cylindrical preview (CSS3D periodic-table mechanics).
  * Real photographs remain DOM images: no WebGL context or texture atlas is needed. */
-export default function EntrySculpture({ active, ref }: { active: boolean; ref: Ref<SculptureHandle> }) {
+export default function EntrySculpture({ active }: { active: boolean }) {
   const host = useRef<HTMLDivElement>(null)
-  const controller = useRef<{ active: (value: boolean) => void; enter: () => Promise<void> } | null>(null)
-  useImperativeHandle(ref, () => ({ enter: () => controller.current?.enter() ?? Promise.resolve() }), [])
+  const controller = useRef<{ active: (value: boolean) => void } | null>(null)
   useEffect(() => {
     const node = host.current!, renderer = new CSS3DRenderer(), camera = new PerspectiveCamera(42, 1, 1, 3000)
     const scene = new Scene(), group = new Group(), reduced = matchMedia('(prefers-reduced-motion: reduce)')
@@ -27,7 +25,7 @@ export default function EntrySculpture({ active, ref }: { active: boolean; ref: 
       return { object, index, amount: 0 }
     })
     let frame = 0, previous = 0, elapsed = 0, turn = -.7, presence = 0, wanted = false
-    let flight: { time: number; resolve: () => void } | null = null, width = 1, height = 1
+    let width = 1, height = 1
     const pointer = { x: 0, y: 0, active: false }
     const draw = (now: number) => {
       frame = 0
@@ -50,13 +48,10 @@ export default function EntrySculpture({ active, ref }: { active: boolean; ref: 
         object.scale.setScalar(.05 + .95 * p)
         object.element.style.opacity = String(Math.min(1, p * 1.5))
       })
-      let travel = 0
-      if (flight) { flight.time += dt; const p = Math.min(1, flight.time / 1.05); travel = p * p * (3 - 2 * p) }
-      camera.position.set(0, 0, 1100 - travel * 1140)
-      camera.rotation.set(0, 0, travel * -.025)
+      camera.position.set(0, 0, 1100)
+      camera.rotation.set(0, 0, 0)
       renderer.render(scene, camera)
-      if (flight && travel === 1) { const complete = flight.resolve; flight = null; complete(); return }
-      if ((wanted || presence > .002 || flight) && !document.hidden && (!reduced.matches || flight)) frame = requestAnimationFrame(draw)
+      if ((wanted || presence > .002) && !document.hidden && !reduced.matches) frame = requestAnimationFrame(draw)
     }
     const wake = () => { if (!frame && !document.hidden) { previous = 0; frame = requestAnimationFrame(draw) } }
     const resize = () => {
@@ -77,12 +72,11 @@ export default function EntrySculpture({ active, ref }: { active: boolean; ref: 
     document.addEventListener('visibilitychange', visibility); reduced.addEventListener('change', wake)
     controller.current = {
       active(value) { wanted = value; if (!value) elapsed = 0; wake() },
-      enter() { wanted = true; return new Promise<void>(resolve => { flight = { time: 0, resolve }; wake() }) },
     }
     node.dataset.portraits = String(cards.length)
     resize()
     return () => {
-      cancelAnimationFrame(frame); observer.disconnect(); flight?.resolve(); controller.current = null
+      cancelAnimationFrame(frame); observer.disconnect(); controller.current = null
       side.removeEventListener('pointermove', move as EventListener); side.removeEventListener('pointerleave', leave)
       document.removeEventListener('visibilitychange', visibility); reduced.removeEventListener('change', wake)
       scene.clear(); renderer.domElement.remove()

@@ -1,6 +1,6 @@
 import { updateSiteMetadata } from '../seo/browser.ts'
 import { legacyHashPath } from '../seo/metadata.ts'
-import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { BrowserRouter } from 'react-router'
 import EntryScreen from './EntryScreen.tsx'
 import { counterpartPath, editionHref, editionRoute, type Edition } from './mode-routing.ts'
@@ -22,13 +22,12 @@ if (initialRoute.mode === 'immersive' && !location.pathname.startsWith(modeHref(
   history.replaceState(null, '', modeHref('immersive', initialRoute.path) + location.search + location.hash)
 }
 
-function Classic({ path, onReady }: { path: string; onReady: (timedOut: boolean) => void }) {
+function Classic({ path }: { path: string }) {
   const frame = useRef<HTMLIFrameElement>(null)
   useEffect(() => {
     const receive = (event: MessageEvent) => {
       if (event.origin !== classicOrigin || event.source !== frame.current?.contentWindow) return
       if (event.data?.type === 'classic-mode') { location.assign(modeHref('immersive', counterpartPath(readRoute().path))); return }
-      if (event.data?.type === 'classic-ready') { onReady(event.data.timedOut === true); return }
       if (event.data?.type !== 'classic-route') return
       const next = event.data.path
       if (typeof next !== 'string' || !next.startsWith('/') || next.startsWith('//')) return
@@ -39,7 +38,7 @@ function Classic({ path, onReady }: { path: string; onReady: (timedOut: boolean)
     }
     window.addEventListener('message', receive)
     return () => window.removeEventListener('message', receive)
-  }, [onReady])
+  }, [])
   useEffect(() => { frame.current?.contentWindow?.postMessage({ type: 'classic-navigate', path }, classicOrigin) }, [path])
   // The iframe src is fixed after mount. The bridge owns subsequent route changes.
   const [initial] = useState(path)
@@ -49,40 +48,17 @@ function Classic({ path, onReady }: { path: string; onReady: (timedOut: boolean)
 export default function EditionApp() {
   const [route, setRoute] = useState(() => readRoute())
   const [entry, setEntry] = useState(route.mode === null)
-  const classicReady = useRef<((timedOut: boolean) => void) | null>(null)
-  const onClassicReady = useCallback((timedOut: boolean) => { classicReady.current?.(timedOut); classicReady.current = null }, [])
   useEffect(() => {
     const restore = () => { const next = readRoute(); setRoute(next); setEntry(!next.mode) }
     window.addEventListener('popstate', restore)
     return () => window.removeEventListener('popstate', restore)
   }, [route.mode, route.path])
   useEffect(() => { updateSiteMetadata() }, [route, entry])
-  const prepare = async (mode: Edition, signal: AbortSignal) => {
-    if (mode === 'immersive') {
-      const [, image] = await Promise.all([loadImmersive(), import('../hero/assets/portrait-initial.webp')])
-      const portrait = new Image(); portrait.src = image.default; await portrait.decode()
-    }
-    else await fetch(classicUrl, { mode: 'cors', signal }).then(response => { if (!response.ok) throw new Error('Classic preview unavailable') })
-    signal.throwIfAborted()
-    history.pushState(null, '', modeHref(mode))
-    const ready = mode === 'classic' ? new Promise<void>((resolve, reject) => {
-      const timeout = window.setTimeout(() => classicReady.current?.(true), 16000)
-      const cancel = () => { clearTimeout(timeout); classicReady.current = null; reject(signal.reason) }
-      signal.addEventListener('abort', cancel, { once: true })
-      classicReady.current = timedOut => {
-        clearTimeout(timeout); signal.removeEventListener('abort', cancel)
-        if (timedOut) reject(new Error('Classic preview did not become ready'))
-        else resolve()
-      }
-    }) : Promise.resolve()
-    setRoute({ mode, path: '/' })
-    await ready
-  }
   return <>
     <div inert={entry} aria-hidden={entry || undefined}>
     {route.mode === 'immersive' && <BrowserRouter basename={import.meta.env.BASE_URL}><Suspense fallback={<div className="edition-loading" role="status">CHO YOUN KYOUNG</div>}><Immersive/></Suspense></BrowserRouter>}
-    {route.mode === 'classic' && <Classic path={route.path} onReady={onClassicReady}/>}
+    {route.mode === 'classic' && <Classic path={route.path}/>}
     </div>
-    {entry && <EntryScreen prepare={prepare} finish={() => { setEntry(false); document.querySelector<HTMLElement>('main')?.focus({ preventScroll: true }) }}/>}
+    {entry && <EntryScreen href={modeHref}/>}
   </>
 }
