@@ -42,6 +42,20 @@ async function seek(page: Page, p=1) {
   },p)).toBeLessThanOrEqual(1)
   await expect.poll(()=>page.locator('.poster-scene').evaluate(e=>(e as HTMLElement).dataset.progress===(e as HTMLElement).dataset.targetProgress)).toBe(true)
 }
+async function armReplayRewind(page: Page) {
+  await audio(page).evaluate(el => {
+    const media = el as HTMLAudioElement
+    delete media.dataset.replayStart
+    media.addEventListener('seeking', () => { media.dataset.replayStart = String(media.currentTime) }, { once: true })
+  })
+}
+async function expectReplayProgress(page: Page) {
+  // Observe the rewind event, rather than imposing a wall-clock deadline after Playwright calls.
+  await expect.poll(() => audio(page).getAttribute('data-replay-start')).not.toBeNull()
+  expect(Number(await audio(page).getAttribute('data-replay-start'))).toBeCloseTo(0, 1)
+  const position = await audio(page).evaluate(el => (el as HTMLAudioElement).currentTime)
+  await expect.poll(() => audio(page).evaluate(el => (el as HTMLAudioElement).currentTime)).toBeGreaterThan(position)
+}
 async function listen(page: Page) { await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','playing');await expect.poll(()=>audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeGreaterThan(.1) }
 
 for(const [width,height] of [[320,568],[390,844],[768,1024],[1366,768],[1440,1000],[1920,1080]]) {
@@ -97,7 +111,7 @@ test('the complete real excerpt ends naturally and REPLAY starts from the beginn
   expect(await audio(page).evaluate(e=>(e as HTMLAudioElement).ended)).toBe(true)
   await expect(trigger(page)).toHaveAccessibleName('미리듣기 다시 듣기');await expect(page.getByRole('status')).toHaveText('미리듣기 완료')
   await expect(page.locator('.sound-thread path').first()).toHaveAttribute('d','M0 3H1000')
-  await listen(page);expect(await audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBeLessThan(1)
+  await armReplayRewind(page);await listen(page);await expectReplayProgress(page)
 })
 
 test('reverse/offscreen pauses, becomes idle work and never resumes without another gesture',async({page})=>{
@@ -174,8 +188,23 @@ test('media failure is announced and retry never invents playback',async({page})
 })
 
 test('cancel while loading remains paused after delayed bytes arrive',async({page})=>{
+  page.on('console', message => { if (message.text().startsWith('cancel-media ')) console.log(message.text()) })
   const release=await mediaFault(page,'hold')
-  await ready(page);await seek(page);await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','loading')
+  await ready(page);await seek(page)
+  await audio(page).evaluate(el => {
+    const media = el as HTMLAudioElement, started = performance.now()
+    const snapshot = (event: string) => console.log('cancel-media '+JSON.stringify({event, ms: Math.round(performance.now()-started), paused:media.paused, ended:media.ended, seeking:media.seeking, readyState:media.readyState, currentTime:media.currentTime}))
+    for (const event of ['play','pause','seeking','seeked','canplay','playing','waiting','ended']) media.addEventListener(event, () => snapshot(event))
+    const nativePlay = media.play.bind(media)
+    let calls = 0
+    media.play = () => {
+      const call = ++calls; snapshot(`play(${call}) call`)
+      const result = nativePlay()
+      void result.then(() => snapshot(`play(${call}) resolved`), error => snapshot(`play(${call}) rejected: ${String(error)}`))
+      return result
+    }
+  })
+  await trigger(page).click();await expect(root(page)).toHaveAttribute('data-audio-state','loading')
   await trigger(page).click();await release();await expect(root(page)).toHaveAttribute('data-audio-state','paused');await page.waitForTimeout(500)
   expect(await audio(page).evaluate(e=>(e as HTMLAudioElement).paused)).toBe(true);expect(await audio(page).evaluate(e=>(e as HTMLAudioElement).currentTime)).toBe(0)
   await listen(page)
@@ -237,15 +266,37 @@ test('resizing active playback to mobile settles every old desktop sample on pau
 })
 
 test('replay reuses buffered media and its single graph instead of issuing another load',async({page})=>{
+  page.on('console', message => { if (message.text().startsWith('replay-media ')) console.log(message.text()) })
   await page.addInitScript(()=>{window.soundContexts=[];const Native=window.AudioContext;if(Native)window.AudioContext=class extends Native{constructor(options?:AudioContextOptions){super(options);window.soundContexts.push(this)}}})
   await ready(page);await seek(page)
+  await audio(page).evaluate(el => {
+    const media = el as HTMLAudioElement
+    const started = performance.now()
+    const snapshot = (event: string) => console.log('replay-media '+JSON.stringify({
+      event, ms: Math.round(performance.now()-started), currentTime: media.currentTime,
+      paused: media.paused, ended: media.ended, seeking: media.seeking, readyState: media.readyState,
+      context: window.soundContexts[0]?.state, phase: document.querySelector<HTMLElement>('.sound-experience')?.dataset.audioState,
+    }))
+    for (const event of ['play','pause','seeking','seeked','canplay','playing','waiting','ended','timeupdate']) {
+      media.addEventListener(event, () => snapshot(event))
+    }
+    const nativePlay = media.play.bind(media)
+    let calls = 0
+    media.play = () => {
+      const call = ++calls
+      snapshot(`play(${call}) call`)
+      const result = nativePlay()
+      void result.then(() => snapshot(`play(${call}) resolved`), error => snapshot(`play(${call}) rejected: ${String(error)}`))
+      return result
+    }
+  })
   await audio(page).evaluate(el=>{el.dataset.loads='0';el.addEventListener('loadstart',()=>{el.dataset.loads=String(Number(el.dataset.loads)+1)})})
   await listen(page);await audio(page).evaluate(el=>{const a=el as HTMLAudioElement;a.currentTime=a.duration-.1})
   await expect(root(page)).toHaveAttribute('data-audio-state','ended')
   const loads=await audio(page).getAttribute('data-loads')
-  await listen(page);expect(await audio(page).getAttribute('data-loads')).toBe(loads)
+  await armReplayRewind(page);await listen(page);expect(await audio(page).getAttribute('data-loads')).toBe(loads)
   await graphCount(page,1)
-  expect(await audio(page).evaluate(el=>(el as HTMLAudioElement).currentTime)).toBeLessThan(1)
+  await expectReplayProgress(page)
 })
 
 test('line friction rejects DC drift, retains current points and damps after interruption',async({page})=>{
@@ -519,8 +570,8 @@ test('P2J: hybrid follows the native playhead through seek, pause, replay and of
   // Playing state can precede the next native clock tick, especially after WebKit resume.
   await listen(page);await expect.poll(()=>audio(page).evaluate(el=>(el as HTMLAudioElement).currentTime)).toBeGreaterThan(time)
   await audio(page).evaluate(el=>{const a=el as HTMLAudioElement;a.currentTime=a.duration-.12})
-  await expect(root(page)).toHaveAttribute('data-audio-state','ended');await listen(page)
-  expect(await audio(page).evaluate(el=>(el as HTMLAudioElement).currentTime)).toBeLessThan(1)
+  await expect(root(page)).toHaveAttribute('data-audio-state','ended');await armReplayRewind(page);await listen(page)
+  await expectReplayProgress(page)
   await seek(page,.2);await expect(root(page)).toHaveAttribute('data-audio-state','paused')
   await expect(root(page)).toHaveAttribute('data-audio-feature-time','inactive')
   const frames=await root(page).getAttribute('data-contact-frames');await page.waitForTimeout(350)

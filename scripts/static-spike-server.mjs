@@ -49,6 +49,7 @@ const server = createServer(async (request, response) => {
     fail(error instanceof URIError ? 400 : 404)
   }
 })
-server.listen(target.previewPort, '127.0.0.1', () => {
-  console.log(`Strict static spike: http://127.0.0.1:${target.previewPort}${target.base}`)
+const port = Number(process.argv[3] ?? target.previewPort)
+server.listen(port, '127.0.0.1', () => {
+  console.log(`Strict static spike: http://127.0.0.1:${port}${target.base}`)
 })

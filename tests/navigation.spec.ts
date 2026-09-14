@@ -92,7 +92,10 @@ test('trigger hover, opening intermediate, fully opened and item hover visual ev
   await expect(page.locator('.menu-item-label').nth(1).locator('.menu-letter').first()).toHaveCSS('transform', 'matrix(1, 0, 0, 1, 3, 7)')
   await expect(page.locator('.menu-item-label').nth(1)).toHaveCSS('color', 'rgb(23, 23, 21)')
   await expect(page.locator('.menu-item-label').nth(2)).toHaveCSS('opacity', '1')
-  const contrast = await page.locator('dialog .menu-item-label, dialog .nav-index, dialog .menu-toggle, dialog .nav-languages a').evaluateAll(elements => {
+  // CLOSE is a separate difference-blended header control, not an ivory paper key.
+  await expect(page.locator('dialog .menu-top')).toHaveCSS('mix-blend-mode', 'difference')
+  await expect(page.locator('dialog .menu-toggle')).toHaveCSS('color', 'rgb(255, 255, 255)')
+  const contrast = await page.locator('dialog .menu-item-label, dialog .nav-index, dialog .nav-languages a').evaluateAll(elements => {
     const rgb = (text: string) => text.match(/[\d.]+/g)!.slice(0, 3).map(Number)
     const luminance = (channels: number[]) => channels.map(v => v / 255).map(v => v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4)
       .reduce((sum, v, i) => sum + v * [.2126, .7152, .0722][i], 0)
@@ -153,7 +156,7 @@ for (const width of [390, 1440]) test(`${width}: keyboard trap, visible focus, E
   await expect(page.locator('dialog')).toHaveAttribute('data-phase', 'open')
   const close = page.getByRole('button', { name: '메뉴 닫기' })
   await expect(close).toBeFocused(); await expect(close).toHaveCSS('outline-style', 'solid')
-  await expect(trigger).toHaveAttribute('aria-expanded', 'true')
+  await expect(page.locator('header .menu-trigger')).toHaveAttribute('aria-expanded', 'true')
   for (let i = 0; i < 12; i++) {
     await page.keyboard.press('Tab')
     expect(await page.evaluate(() => !!document.activeElement?.closest('dialog'))).toBe(true)
