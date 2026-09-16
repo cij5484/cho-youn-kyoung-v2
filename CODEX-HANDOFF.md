@@ -1,6 +1,13 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
+## Delivery authorized — 2026-09-16 / Classic restoration
+
+User approved the local result and explicitly requested PR, merge and deployment with minimal checks.
+Deliver Classic `60c217b` first, then V2 with that exact pin. Reuse completed local checks; keep required
+CI/build and the minimal public URL verification. No additional Full Gate or design change in this pass.
+This supersedes the local-only delivery boundary in the completion record below.
+
 ## Current local task — 2026-09-16 / Classic restoration and header
 
 User authorized restoring the Classic shelves and physical paired booklet leaves missing from V2's old

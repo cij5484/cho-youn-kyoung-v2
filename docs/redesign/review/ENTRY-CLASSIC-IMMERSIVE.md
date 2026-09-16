@@ -2,6 +2,10 @@
 
 ## 2026-09-16 — Classic restoration and adaptive mode control (local)
 
+Delivery follow-up: user approved this local result and requested PR/merge/deployment with minimal checks.
+Classic `60c217b` is delivered first, then V2 with its exact pin. Earlier local-only notes below are historical;
+reuse completed local checks and run the existing CI/build plus a minimal public URL check.
+
 User authorized restoring the existing Classic shelves and physical booklet fixes, while explicitly retaining
 the deployed `239d180` soft, curved paper turn. Classic `3df8057` contains the missing PR141–143 changes;
 the new local Classic follow-up combines their paired paper leaves with the original 48-segment curl,
