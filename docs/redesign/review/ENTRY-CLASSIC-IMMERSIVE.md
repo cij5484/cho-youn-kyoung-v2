@@ -1,5 +1,42 @@
 # ENTRY — Classic / Immersive
 
+## 2026-09-16 — Classic restoration and adaptive mode control (local)
+
+Delivery follow-up: user approved this local result and requested PR/merge/deployment with minimal checks.
+Classic `60c217b` is delivered first, then V2 with its exact pin. Earlier local-only notes below are historical;
+reuse completed local checks and run the existing CI/build plus a minimal public URL check.
+
+User authorized restoring the existing Classic shelves and physical booklet fixes, while explicitly retaining
+the deployed `239d180` soft, curved paper turn. Classic `3df8057` contains the missing PR141–143 changes;
+the new local Classic follow-up combines their paired paper leaves with the original 48-segment curl,
+outer-edge delay and 720ms turn. P1/P2 remain two faces of one leaf. This is not approval of a stiffer rigid turn.
+
+The embedded mode control inherits Classic's existing navigation palette, including light and dark HOME
+scenes and album/performance headers. Its current mode is marked by a short underline, not faded text.
+Desktop navigation aligns all controls centrally in 44px targets; the separator is a short, subtle rule.
+Mobile retains the control inside its existing dark menu. No live pixel sampling or new dependency.
+
+Scope: independent Classic booklet/header CSS, embedded bridge, Classic revision pin and this handoff.
+Rollback: revert these local follow-ups in their owning repositories; previous V2 baseline is `0d89af6`.
+Publication is a separate next step: publish the Classic commit first, then the V2 revision that pins it.
+The operating domain and GitHub deployment settings are unchanged. Visual acceptance remains user-owned.
+
+Local Classic pin: `60c217bdf8b611bcc308fa2cdb82950de3595b22` (includes soft-turn checkpoint `2dc207c`).
+The workflow checkout and build guard use the same revision. Both Classic follow-ups are local commits,
+not yet available to GitHub CI; publish them before requesting a V2 remote build.
+
+Checks completed on Windows / Node 24.15.0: both repositories' TypeScript checks, changed TypeScript ESLint,
+Classic's 25 album model checks (including the original curve samples at 180/360/540ms, both directions and
+flat endpoints), three V2 entry contracts, injected bridge syntax and the actual combined production-mode
+local build. Existing large-chunk warnings remain. No Full Release Gate or physical-device test was run.
+
+Chrome on the local built artifact: grouped shelves; light/dark HOME navigation; 820px single-line brand;
+390×844 dark mobile menu; WORKS → Ji Young-hee album → OPEN → BOOKLET → P2/P3 → P4/P5 → P6/P7 → return →
+reopen at P2/P3; mobile P2 → P3 → P4 → reverse → return; counterpart mode switch to the same Immersive album.
+The desktop label centres differ by 0.32px (previously about 14px), and the mode text is fully opaque.
+No browser error was recorded in this focused pass. This is interaction sanity, not motion-quality approval.
+Review at `http://127.0.0.1:4185/classic/` while `node scripts/static-spike-server.mjs production` is running.
+
 2026-09-12 · ENTRY-01 · baseline main `597cca9` · PR / main / Pages delivery authorized; visual review pending.
 User opened the previously future Edition Gate for ENTRY and mode routing, then authorized delivery of the current screen with HOME-matched Immersive tails.
 

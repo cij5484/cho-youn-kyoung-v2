@@ -29,7 +29,17 @@ export const classicBridge = (parentOrigins: readonly string[]) => String.raw`((
   const send = (type, extra = {}) => parent.postMessage({ type, path: currentPath(), ...extra }, parentOrigin);
   // Enhance only the embedded Classic build, without modifying the operating V1 site.
   const style = document.createElement('style');
-  style.textContent = '.classic-mode-menu{display:flex;align-items:center;gap:12px;font-family:inherit;font-size:10px;line-height:1.5;letter-spacing:.08em}.classic-mode-menu span{opacity:.55}.classic-mode-menu button{font:inherit;letter-spacing:inherit;color:inherit;background:none;border:0;padding:0;min-height:44px;cursor:pointer}.classic-mode-menu button:hover{text-decoration:underline;text-underline-offset:5px}.classic-mode-menu button:focus-visible{outline:1px solid currentColor;outline-offset:5px}.desktop-nav .classic-mode-menu{margin-left:10px;padding-left:20px;border-left:1px solid currentColor}.mobile-menu .classic-mode-menu{margin-top:16px;padding-top:12px;border-top:1px solid currentColor;font-size:11px}';
+  style.textContent = [
+    '.classic-mode-menu{display:flex;align-items:center;gap:16px;color:inherit;font:inherit;letter-spacing:inherit;white-space:nowrap}',
+    '.classic-mode-menu span,.classic-mode-menu button{position:relative;display:inline-flex;align-items:center;min-height:44px}',
+    '.classic-mode-menu span::after{content:\'\';position:absolute;bottom:5px;left:0;width:18px;height:1px;background:currentColor}',
+    '.classic-mode-menu button{font:inherit;letter-spacing:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}',
+    '.classic-mode-menu button:hover{text-decoration:underline;text-underline-offset:7px}',
+    '.classic-mode-menu button:focus-visible{outline:1px solid currentColor;outline-offset:5px}',
+    '.desktop-nav .classic-mode-menu{position:relative;padding-left:24px;font-size:11px}',
+    '.desktop-nav .classic-mode-menu::before{content:\'\';position:absolute;left:0;width:1px;height:14px;background:currentColor;opacity:.35}',
+    '.mobile-menu .classic-mode-menu{margin-top:4px;padding-top:12px;border-top:1px solid currentColor;font-size:12px}',
+  ].join('\n');
   document.head.append(style);
   const mountMode = () => {
     for (const menu of document.querySelectorAll('.desktop-nav, #mobile-menu')) {
@@ -40,11 +50,11 @@ export const classicBridge = (parentOrigins: readonly string[]) => String.raw`((
         control.setAttribute('role', 'group');
         control.setAttribute('aria-label', '사이트 모드');
         const current = document.createElement('span');
-        current.textContent = 'CLASSIC';
+        current.textContent = 'Classic';
         current.setAttribute('aria-current', 'true');
         const button = document.createElement('button');
         button.type = 'button';
-        button.textContent = 'IMMERSIVE';
+        button.textContent = 'Immersive';
         button.setAttribute('aria-label', 'Immersive 모드로 전환');
         button.onclick = () => send('classic-mode');
         control.append(current, button);
