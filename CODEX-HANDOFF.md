@@ -1,6 +1,19 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
+## Current local task — 2026-09-16 / Classic restoration and header
+
+User authorized restoring the Classic shelves and physical paired booklet leaves missing from V2's old
+`239d180` pin, plus an adaptive, aligned Classic/Immersive control. Explicit motion constraint: retain the
+deployed soft paper curl; do not restore the stiff turn of the earlier physical-leaf fix.
+Classic `3df8057` supplies the existing shelf/physical-leaf fixes; a local follow-up owns the curl and header
+inheritance. [Scope and handoff](docs/redesign/review/ENTRY-CLASSIC-IMMERSIVE.md#2026-09-16--classic-restoration-and-adaptive-mode-control-local).
+Local implementation only. Publishing the independent Classic revision must precede any V2 delivery pinning it.
+No PR/main merge or production deployment is authorized by this local completion record.
+Implementation and focused local checks are complete: Classic pin `60c217b`, original soft curl retained,
+25 Classic album + 3 entry checks, both type checks, scoped lint, combined local build and desktop/mobile
+browser sanity pass. Visual approval and physical-device QA remain open; details are in the owner above.
+
 ## Current local task — 2026-09-13 / Phase 5A production SEO readiness
 
 Phase 4 content restoration delivered through [PR36](https://github.com/cij5484/cho-youn-kyoung-v2/pull/36),
