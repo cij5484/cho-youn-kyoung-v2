@@ -1,5 +1,6 @@
 import { productionSite } from '../../config/public-site.ts'
 import { metadataTags, serializeJsonLd } from './metadata.ts'
+import { initializeAnalytics } from './analytics.ts'
 
 /** One head owner for ENTRY, iframe-shell navigation and React Router transitions. */
 export function updateSiteMetadata() {
@@ -21,4 +22,5 @@ export function updateSiteMetadata() {
     element.textContent = serializeJsonLd(meta.jsonLd)
     document.head.append(element)
   }
+  initializeAnalytics(production)
 }
