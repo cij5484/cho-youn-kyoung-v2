@@ -115,7 +115,7 @@ const performancePages: SeoPage[] = performanceFacts.map(record => {
 
 export const publicPages: readonly SeoPage[] = [
   {
-    path: '/', title: '조윤경 | CHO YOUN KYOUNG',
+    path: '/', title: '해금 연주자 조윤경 | CHO YOUN KYOUNG',
     description: '해금 연주자 조윤경의 공식 웹사이트. Classic과 Immersive에서 공연, 음반, 영상과 프로필을 만나볼 수 있습니다.',
     image: portrait,
   },
