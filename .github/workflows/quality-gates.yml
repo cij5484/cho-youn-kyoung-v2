@@ -83,7 +83,7 @@ jobs:
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           repository: cij5484/cho-youn-kyoung
-          ref: 60c217bdf8b611bcc308fa2cdb82950de3595b22
+          ref: bbe1342f18cc2049ee548d9debf1e57a8e3be738
           path: .checkpoints/entry-classic-source
           persist-credentials: false
       - name: Install independent Classic lockfile

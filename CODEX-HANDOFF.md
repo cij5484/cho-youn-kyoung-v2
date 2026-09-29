@@ -1,6 +1,13 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
+## Classic album release sync — delivery authorized 2026-09-29
+
+Classic PR145 confirms 지영희류·영산회상·평조회상 released on 2026-09-08.
+V2 pins Classic source `bbe1342f18cc2049ee548d9debf1e57a8e3be738`, based on the previously
+deployed `60c217b` with only these release facts changed; unrelated later Classic visual revisions
+are not introduced. Both the local build pin and CI checkout pin match this source.
+
 ## Album release facts — user confirmation / delivery authorized 2026-09-29
 
 지영희류·영산회상·평조회상은 모두 2026-09-08 발매 완료. 이전 영산회상·평조회상의
