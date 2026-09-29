@@ -1,6 +1,14 @@
 # CHO YOUN KYOUNG WEBSITE V2
 ## CODEX HANDOFF
 
+## Album release facts — user confirmation / delivery authorized 2026-09-29
+
+지영희류·영산회상·평조회상은 모두 2026-09-08 발매 완료. 이전 영산회상·평조회상의
+year-only / announced 정보와 지영희류의 upcoming 상태를 대체한다. HOME 날짜와 WORKS
+catalog에 반영하며, server-only 지영희류 draft의 publication 상태는 별개의 계약으로 유지한다.
+아래 과거 audit의 upcoming 기록은 당시 상태를 설명하는 historical evidence다.
+Related content tests: 13 PASS; changed-scope lint PASS. User authorized PR / merge / automatic deployment.
+
 ## Delivery authorized — 2026-09-16 / Classic restoration
 
 User approved the local result and explicitly requested PR, merge and deployment with minimal checks.

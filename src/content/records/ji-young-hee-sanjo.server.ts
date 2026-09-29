@@ -26,7 +26,7 @@ export const jiYoungHeeSanjoDraft = {
   }, 'ko-copy'),
   category: 'sanjo',
   // Confirmed date; this stored status does not auto-publish when the date passes.
-  release: { status: 'upcoming', date: { precision: 'day', value: '2026-09-08' } },
+  release: { status: 'released', date: { precision: 'day', value: '2026-09-08' } },
   productNumber: 'JEC-0528',
   // Printed timings remain in P1C. durationSeconds awaits measured-source evidence.
   tracks: [
