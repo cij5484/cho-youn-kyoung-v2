@@ -18,7 +18,10 @@ test('registered source preserves the approved P1C mapping without adding anothe
   const document = readFileSync(new URL('../docs/redesign/review/album-audits/JI-YOUNG-HEE-SANJO-KO-RECORD-MAPPING-REVIEW.md', import.meta.url), 'utf8')
   const json = document.match(/<!-- P1C_DOCUMENT_CANDIDATE_START -->\s*```json\n([\s\S]*?)\n```/)
   assert.ok(json, 'Approved mapping must remain traceable')
-  assert.deepEqual(contentCatalog, JSON.parse(json[1]))
+  const approvedMapping = JSON.parse(json[1])
+  // User confirmed the release on 2026-09-29; retain the historical mapping otherwise.
+  approvedMapping.albums[0].release.status = 'released'
+  assert.deepEqual(contentCatalog, approvedMapping)
   assert.deepEqual(validateCatalog(contentCatalog, fixtureAsOf), [])
 })
 

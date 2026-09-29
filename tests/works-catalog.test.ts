@@ -25,9 +25,9 @@ test('record links use verified original-site routes, never V2 fixture details; 
     assert.ok(url.hash.startsWith(`#/${record.type}/`))
     assert.ok(!url.href.includes('test-'))
   }
-  const announced = worksCatalog.filter(record => 'releaseState' in record && record.releaseState === 'announced')
-  assert.equal(announced.length, 2)
-  assert.ok(announced.every(record => !('date' in record) && workDate(record) === '2026'))
+  const released2026 = worksCatalog.filter(record => record.type === 'album' && record.year === 2026)
+  assert.equal(released2026.length, 2)
+  assert.ok(released2026.every(record => record.releaseState === 'released' && workDate(record) === '2026.09.08'))
 })
 
 test('query filters are bounded, reversible, and chronological order does not invent dates', () => {
@@ -37,7 +37,7 @@ test('query filters are bounded, reversible, and chronological order does not in
   assert.equal(filterWorks('all'), worksCatalog)
   assert.ok(filterWorks('performances').every(record => record.type === 'performance'))
   const ordered = chronologicalWorks(worksCatalog)
-  assert.deepEqual(ordered.slice(0, 3).map(record => record.date), ['2026-09-22', '2026-08-16', '2026-08-02'])
+  assert.deepEqual(ordered.slice(0, 3).map(record => record.date), ['2026-09-22', '2026-09-08', '2026-09-08'])
   assert.equal(ordered.at(-1)?.date, '2020-11-19')
   assert.equal(worksCatalog[0].image, 'yeongsan')
 })

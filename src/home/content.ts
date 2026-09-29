@@ -47,10 +47,10 @@ export const homeAlbums:AlbumPresentation[]=[
   {reference:{kind:'album',id:'album:pyeongjo-hoesang-2026'},slug:'pyeongjo-hoesang-2026',title:copy('조윤경 해금정악 – 평조회상','legacy:albums:pyeongjo-hoesang-2026'),category:'정악',front:pyeongjoFront,back:pyeongjoBack,spine:pyeongjoSpine,aspect:1600/1420,number:'03'},
 ]
 export const selectedWorks:HomeWork[]=[
-  {reference:homeAlbums[0].reference,slug:homeAlbums[0].slug,title:homeAlbums[0].title,shortTitle:'지영희류 해금산조',date:{precision:'year',value:2026},image:image('jyh','지영희류 해금산조 음반 앞면','cover'),sourceRef:'p1c:ji-young-hee-sanjo'},
+  {reference:homeAlbums[0].reference,slug:homeAlbums[0].slug,title:homeAlbums[0].title,shortTitle:'지영희류 해금산조',date:{precision:'day',value:'2026-09-08'},image:image('jyh','지영희류 해금산조 음반 앞면','cover'),sourceRef:'p1c:ji-young-hee-sanjo'},
   {reference:{kind:'performance',id:'performance:haegeum-jeongak-2026-09-22'},slug:'haegeum-jeongak-2026-09-22',title:copy('풀고, 엮다','legacy:performances:haegeum-jeongak-2026-09-22'),shortTitle:'풀고, 엮다',date:{precision:'day',value:'2026-09-22'},image:image('recital','풀고, 엮다 — 2026년 9월 22일 공식 공연 포스터','poster'),sourceRef:'legacy:performances:haegeum-jeongak-2026-09-22'},
-  {reference:homeAlbums[1].reference,slug:homeAlbums[1].slug,title:homeAlbums[1].title,shortTitle:'영산회상',date:{precision:'year',value:2026},image:image('yeongsan','영산회상 음반 앞면','cover'),sourceRef:'legacy:albums:yeongsan-hoesang-2026'},
-  {reference:homeAlbums[2].reference,slug:homeAlbums[2].slug,title:homeAlbums[2].title,shortTitle:'평조회상',date:{precision:'year',value:2026},image:image('pyeongjo','평조회상 음반 앞면','cover'),sourceRef:'legacy:albums:pyeongjo-hoesang-2026'},
+  {reference:homeAlbums[1].reference,slug:homeAlbums[1].slug,title:homeAlbums[1].title,shortTitle:'영산회상',date:{precision:'day',value:'2026-09-08'},image:image('yeongsan','영산회상 음반 앞면','cover'),sourceRef:'legacy:albums:yeongsan-hoesang-2026'},
+  {reference:homeAlbums[2].reference,slug:homeAlbums[2].slug,title:homeAlbums[2].title,shortTitle:'평조회상',date:{precision:'day',value:'2026-09-08'},image:image('pyeongjo','평조회상 음반 앞면','cover'),sourceRef:'legacy:albums:pyeongjo-hoesang-2026'},
   {reference:{kind:'performance',id:'performance:sanjo-gil-2026-08-16'},slug:'sanjo-gil-2026-08-16',title:copy('산조길, 둘','legacy:performances:sanjo-gil-2026-08-16'),shortTitle:'산조길, 둘',date:{precision:'day',value:'2026-08-16'},image:image('sanjo','산조길, 둘 공식 공연 포스터','poster'),sourceRef:'legacy:performances:sanjo-gil-2026-08-16'},
 ]
 export const featuredPerformance={reference:selectedWorks[1].reference,slug:selectedWorks[1].slug,title:'풀고, 엮다',date:'2026. 09. 22',time:'19:30',venue:'국립부산국악원 예지당',image:selectedWorks[1].image}

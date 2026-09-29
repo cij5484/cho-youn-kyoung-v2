@@ -12,6 +12,12 @@ test('local A includes Ji Young-hee without promoting the shared public-referenc
   assert.equal(worksCatalog.length, 6)
 })
 
+test('three 2026 albums are released on the user-confirmed September 8 date', () => {
+  const releases = filterAtmosphericWorks('albums').filter(record => record.year === 2026)
+  assert.equal(releases.length, 3)
+  assert.ok(releases.every(record => record.releaseState === 'released' && record.date === '2026-09-08'))
+})
+
 
 test('A groups performances before albums, newest known dates first within each group', () => {
   assert.deepEqual(atmosphericCatalog.map(record => record.type), ['performance', 'performance', 'performance', 'album', 'album', 'album', 'album'])

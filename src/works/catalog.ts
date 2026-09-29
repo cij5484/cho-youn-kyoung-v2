@@ -26,7 +26,7 @@ export type WorkRecord = {
 export const worksCatalog = [
   {
     id: 'album:yeongsan-hoesang-2026', type: 'album',
-    title: '조윤경 해금정악 – 영산회상', year: 2026, releaseState: 'announced',
+    title: '조윤경 해금정악 – 영산회상', year: 2026, date: '2026-09-08', releaseState: 'released',
     image: 'yeongsan', referenceUrl: 'https://choyounkyoung.com/#/album/yeongsan-hoesang-2026',
     presentation: { emphasis: 'portal', placement: 'left', aspect: 'package' },
   },
@@ -44,7 +44,7 @@ export const worksCatalog = [
   },
   {
     id: 'album:pyeongjo-hoesang-2026', type: 'album',
-    title: '조윤경 해금정악 – 평조회상', year: 2026, releaseState: 'announced',
+    title: '조윤경 해금정악 – 평조회상', year: 2026, date: '2026-09-08', releaseState: 'released',
     image: 'pyeongjo', referenceUrl: 'https://choyounkyoung.com/#/album/pyeongjo-hoesang-2026',
     presentation: { emphasis: 'standard', placement: 'right', aspect: 'package' },
   },
