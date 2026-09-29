@@ -4,7 +4,7 @@ import { resolve } from 'node:path'
 
 // Separate Classic checkout/build; no source, CSS or dependencies enter the V2 app.
 const repository = fileURLToPath(new URL('..', import.meta.url))
-export const CLASSIC_SHA = '60c217bdf8b611bcc308fa2cdb82950de3595b22'
+export const CLASSIC_SHA = 'bbe1342f18cc2049ee548d9debf1e57a8e3be738'
 
 export function buildClassic({
   directory = process.env.CLASSIC_REPOSITORY || resolve(repository, '../cho-youn-kyoung'),
